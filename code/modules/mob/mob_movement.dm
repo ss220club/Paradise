@@ -134,7 +134,7 @@
 	mob.last_movement = world.time
 
 	if(locate(/obj/item/grab, mob))
-		current_move_delay += 7
+		delay += 7
 	else if(mob.confused)
 		var/newdir = NONE
 		if(mob.confused > 40)
@@ -147,13 +147,13 @@
 			direct = newdir
 			n = get_step(mob, direct)
 
-	. = mob.SelfMove(n, direct, current_move_delay)
+	. = mob.SelfMove(n, direct, delay)
 	mob.setDir(direct)
 
 	if((direct & (direct - 1)) && mob.loc == n) //moved diagonally successfully
-		current_move_delay *= 1.41 //Will prevent mob diagonal moves from smoothing accurately, sadly
+		delay = mob.movement_delay() * 1.41 //Will prevent mob diagonal moves from smoothing accurately, sadly
 
-	move_delay += current_move_delay
+	move_delay += delay
 
 	if(mob.pulledby)
 		mob.pulledby.stop_pulling()
