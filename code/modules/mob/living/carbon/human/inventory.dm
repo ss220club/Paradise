@@ -75,12 +75,13 @@
 	var/obj/item/organ/O = I
 	if(istype(O) && O.owner == src)
 		. = 0 // keep a good grip on your heart
+	if((get_slot_by_item(I) in check_obscured_slots())&&!force)
+		. = 0
 
 /mob/living/carbon/human/unEquip(obj/item/I, force)
 	. = ..() //See mob.dm for an explanation on this and some rage about people copypasting instead of calling ..() like they should.
 	if(!. || !I)
 		return
-
 	if(I == wear_suit)
 		if(s_store)
 			unEquip(s_store, 1) //It makes no sense for your suit storage to stay on you if you drop your suit.
@@ -190,7 +191,6 @@
 		return
 	if(!has_organ_for_slot(slot))
 		return
-
 	if(I == src.l_hand)
 		src.l_hand = null
 		update_inv_l_hand() //So items actually disappear from hands.
@@ -318,6 +318,7 @@
 			uniform.attackby(I, src)
 		else
 			to_chat(src, "<span class='warning'>You are trying to equip this item to an unsupported inventory slot. Report this to a coder!</span>")
+	return TRUE
 
 /mob/living/carbon/human/put_in_hands(obj/item/I)
 	if(!I)
@@ -425,7 +426,6 @@
 	if(item == s_store)
 		return slot_s_store
 	return null
-
 /mob/living/carbon/human/get_all_slots()
 	. = get_head_slots() | get_body_slots()
 
@@ -476,7 +476,7 @@
 	..(what, who, where, silent = is_silent)
 
 /mob/living/carbon/human/can_equip(obj/item/I, slot, disable_warning = FALSE)
-	return dna.species.can_equip(I, slot, disable_warning, src)
+	return dna.species.can_equip(I, slot, disable_warning, src)&&!(slot in check_obscured_slots())
 
 /mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE)
 	var/datum/outfit/O = null
@@ -496,63 +496,3 @@
 /mob/living/carbon/human/proc/delete_equipment()
 	for(var/slot in get_all_slots())//order matters, dependant slots go first
 		qdel(slot)
-
-//procs to prevent equipping/unequipping stuff if something obscurs the slot
-/mob/living/carbon/human/advanced_can_equip(obj/item/item, slot, disable_warning = 0)
-	. = ..()
-	if(slot in check_obscured_slots())
-		if(!disable_warning)
-			to_chat(src, "<span class='warning'>You can't equip this item beacause the slot is obscuread!</span>")
-		return 0
-
-/mob/living/carbon/human/advanced_can_unequip(obj/item/item, force, disable_warning = 0)
-	. = ..()
-	if(get_slot_by_item(item) in check_obscured_slots())
-		if(!disable_warning)
-			to_chat(src, "<span class='warning'>You can't unequip this item beacause the slot is obscuread!</span>")
-		return 0
-
-/mob/living/carbon/human/advanced_equip_to_slot_if_possible(obj/item/item, slot, del_on_fail = 0, disable_warning = 0)
-	if(advanced_can_equip(item, slot, disable_warning))
-		return equip_to_slot_if_possible(item, slot, del_on_fail, disable_warning)
-
-/mob/living/carbon/human/advanced_unequip_if_possible(obj/item/item, force)
-	if((get_slot_by_item(item) in check_obscured_slots()) && !force)
-		to_chat(src, "<span class='warning'>You can't unequip this item beacause the slot is obscuread!</span>")
-		return
-	return unEquip(item, force)
-
-/// take the most recent item out of a slot or place held item in a slot
-/mob/living/carbon/human/proc/smart_equip_targeted(slot_type = slot_belt, slot_item_name = "belt")
-	if(incapacitated())
-		return
-	var/obj/item/thing = get_active_hand()
-	var/obj/item/equipped_item = get_item_by_slot(slot_type)
-	if(!equipped_item) // We also let you equip an item like this
-		if(!thing)
-			to_chat(src, span_warning("You have no [slot_item_name] to take something out of!"))
-			return
-		if(equip_to_slot_if_possible(thing, slot_type))
-			update_inv_l_hand()
-			update_inv_r_hand()
-		return
-	var/obj/item/storage/storage
-	if(istype(equipped_item, /obj/item/storage))
-		storage = equipped_item
-	if(!storage)
-		if(!thing)
-			equipped_item.attack_hand(src)
-		else
-			to_chat(src, span_warning("You can't fit [thing] into your [slot_item_name]!"))
-		return
-	if(thing)
-		if(storage.can_be_inserted(thing))
-			storage.handle_item_insertion(thing)
-		return
-	if(!length(storage.contents))
-		to_chat(src, span_warning("There's nothing in your [equipped_item] to take out!"))
-		return
-	var/obj/item/stored = storage.contents[length(storage.contents)]
-	if(!stored || stored.on_found(src))
-		return
-	stored.attack_hand(src) // take out thing from item in storage slot
