@@ -946,6 +946,7 @@
 	..()
 	to_chat(user, "<span class='caution'>Your stomach rumbles...</span>")
 	user.adjust_nutrition(-200)
+	user.adjust_hydration(-200)
 
 /obj/item/spellbook/oneuse/blind
 	spell = /obj/effect/proc_holder/spell/targeted/trigger/blind
