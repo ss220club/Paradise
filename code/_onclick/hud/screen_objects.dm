@@ -544,6 +544,18 @@
 /obj/screen/healthdoll/living
 	var/filtered = FALSE //so we don't repeatedly create the mask of the mob every update
 
+/obj/screen/nutrition
+	name = "nutrition"
+	icon = 'icons/mob/screen_alert.dmi'
+	icon_state = "starving"
+	screen_loc = ui_nutrition
+
+/obj/screen/hydration
+	name = "hydration"
+	icon = 'icons/mob/screen_alert.dmi'
+	icon_state = "water_dehydrated"
+	screen_loc = ui_hydration
+
 /obj/screen/component_button
 	var/obj/screen/parent
 
