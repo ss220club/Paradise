@@ -317,7 +317,7 @@
 
 	var/pixel_shift = FALSE
 
-	var/prime_server = FALSE
+	var/water_poison = FALSE
 
 /datum/configuration/New()
 	for(var/T in subtypesof(/datum/game_mode))
@@ -909,8 +909,8 @@
 				if("pixel_shift")
 					config.pixel_shift = TRUE
 
-				if("prime_server")
-					config.prime_server = TRUE
+				if("water_poison")
+					config.water_poison = TRUE
 
 				else
 					log_config("Unknown setting in configuration: '[name]'")
