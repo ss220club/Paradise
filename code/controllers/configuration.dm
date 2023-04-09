@@ -314,8 +314,10 @@
 	var/override_map = null
 
 	var/modify_pull_push_speed = FALSE
-  
+
 	var/pixel_shift = FALSE
+
+	var/prime_server = FALSE
 
 /datum/configuration/New()
 	for(var/T in subtypesof(/datum/game_mode))
@@ -903,9 +905,12 @@
 
 				if("modify_pull_push_speed")
 					config.modify_pull_push_speed = TRUE
-          
+
 				if("pixel_shift")
 					config.pixel_shift = TRUE
+
+				if("prime_server")
+					config.prime_server = TRUE
 
 				else
 					log_config("Unknown setting in configuration: '[name]'")
