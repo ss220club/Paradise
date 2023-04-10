@@ -381,6 +381,15 @@
 			add_equipment(user, W, "lock_system")
 			return
 
+	else if(istype(W, /obj/item/spacepod_equipment/key) && istype(equipment_system.lock_system, /obj/item/spacepod_equipment/lock/keyed))
+		var/obj/item/spacepod_equipment/key/key = W
+		if(key.id == equipment_system.lock_system.id)
+			lock_pod()
+			return
+		else
+			to_chat(user, "<span class='warning'>This is the wrong key!</span>")
+			return
+
 	else if(istype(W, /obj/item/lock_buster))
 		var/obj/item/lock_buster/L = W
 		if(L.on && equipment_system.lock_system)
