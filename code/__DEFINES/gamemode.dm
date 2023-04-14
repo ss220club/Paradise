@@ -60,3 +60,4 @@
 #define SPECIAL_ROLE_SPACE_NINJA "Space Ninja"
 #define SPECIAL_ROLE_THIEF "Thief"
 #define SPECIAL_ROLE_EVENTMISC "Event Role"
+#define SPECIAL_ROLE_FORTNITER "Fortniter"
