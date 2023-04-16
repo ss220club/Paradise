@@ -317,6 +317,8 @@
 
 	var/pixel_shift = FALSE
 
+	var/hydration_enabled = FALSE
+
 	var/water_poison = FALSE
 
 /datum/configuration/New()
@@ -908,6 +910,9 @@
 
 				if("pixel_shift")
 					config.pixel_shift = TRUE
+
+				if("hydration_enabled")
+					config.hydration_enabled = TRUE
 
 				if("water_poison")
 					config.water_poison = TRUE

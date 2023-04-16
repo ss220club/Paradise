@@ -592,5 +592,8 @@ MODIFY_PULL_PUSH_SPEED
 ## Is Pixel-Shift feature allowed on the server
 #PIXEL_SHIFT
 
+## Is hydration enabled on the server?
+#HYDRATION_ENABLED
+
 ## Is water poison allowed on the server?
 #WATER_POISON
