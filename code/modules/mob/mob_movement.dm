@@ -128,8 +128,15 @@
 
 	//We are now going to move
 	moving = 1
-	var/delay = mob.movement_delay()
-	if(old_move_delay + (delay * MOVEMENT_DELAY_BUFFER_DELTA) + MOVEMENT_DELAY_BUFFER > world.time)
+	current_move_delay = mob.movement_delay()
+
+	if(!istype(get_turf(mob), /turf/space) && mob.pulling)
+		var/mob/living/M = mob
+		var/mob/living/silicon/robot/R = mob
+		if(!(STRONG in M.mutations) && !istype(M, /mob/living/simple_animal/hostile/construct) && !istype(M, /mob/living/simple_animal/hostile/clockwork) && !istype(M, /mob/living/simple_animal/hostile/guardian) && !(istype(R) && (/obj/item/borg/upgrade/vtec in R.upgrades))) //No slowdown for STRONG gene //Blood cult constructs //Clockwork constructs //Borgs with VTEC //Holopigs
+			current_move_delay *= min(1.4, mob.pulling.get_pull_push_speed_modifier(current_move_delay))
+
+	if(old_move_delay + (current_move_delay * MOVEMENT_DELAY_BUFFER_DELTA) + MOVEMENT_DELAY_BUFFER > world.time)
 		move_delay = old_move_delay
 	else
 		move_delay = world.time
