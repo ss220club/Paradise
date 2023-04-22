@@ -1,4 +1,5 @@
-GLOBAL_VAR_INIT(normal_ooc_colour, "#275FC5")
+#define DEFAULT_PLAYER_OOC_COLOUR "#275FC5" // Can't initial() a global so we store the default in a macro instead
+GLOBAL_VAR_INIT(normal_ooc_colour, DEFAULT_PLAYER_OOC_COLOUR )
 GLOBAL_VAR_INIT(member_ooc_colour, "#035417")
 GLOBAL_VAR_INIT(mentor_ooc_colour, "#00B0EB")
 GLOBAL_VAR_INIT(moderator_ooc_colour, "#184880")
@@ -100,7 +101,28 @@ GLOBAL_VAR_INIT(admin_ooc_colour, "#b82e00")
 			if(!config.disable_ooc_emoji)
 				msg = "<span class='emoji_enabled'>[msg]</span>"
 
-			to_chat(C, "<font color='[display_colour]'><span class='ooc'><span class='prefix'>OOC:</span> <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>")
+			to_chat(C, "<font color='[display_colour]'><span class='ooc'><span class='prefix'>OOC:</span> [text_badge(C)] <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>")
+
+/proc/text_badge(client/C = null)
+	var/badge_name
+	if(!C)
+		return null
+
+	if(C.holder)
+		if(C.holder.fakekey)
+			return null
+
+		if(C.holder.rank)
+			badge_name = C.holder.rank
+
+		if(badge_name)
+			var/output = "<font style='vertical-align: -3px;'>"
+			var/tag = "[icon2html(icon('./icons/chatbadges.dmi', badge_name), world, realsize=TRUE, class="text_tag")]"
+			output = "[output] [tag]"
+
+			return "[output]</font> "
+
+	return null
 
 /proc/toggle_ooc()
 	config.ooc_allowed = ( !config.ooc_allowed )
@@ -138,7 +160,7 @@ GLOBAL_VAR_INIT(admin_ooc_colour, "#b82e00")
 
 	if(!check_rights(R_SERVER))	return
 
-	GLOB.normal_ooc_colour = initial(GLOB.normal_ooc_colour)
+	GLOB.normal_ooc_colour = DEFAULT_PLAYER_OOC_COLOUR
 	message_admins("[key_name_admin(usr)] has reset the default player OOC color")
 	log_admin("[key_name_log(usr)] has reset the default player OOC color")
 
