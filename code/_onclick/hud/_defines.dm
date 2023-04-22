@@ -172,6 +172,8 @@
 #define ui_ghost_respawn_mob "SOUTH:6+1,CENTER+2"
 #define ui_ghost_respawn_pai "SOUTH:6+2,CENTER+2"
 
+#define ui_battleroyale_counter "NORTH,WEST"
+
 //HUD styles. Please ensure HUD_VERSIONS is the same as the maximum index. Index order defines how they are cycled in F12.
 #define HUD_STYLE_STANDARD 1
 #define HUD_STYLE_REDUCED 2

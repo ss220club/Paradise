@@ -24,7 +24,9 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 	var/turf/zone_center = null
 	var/turf/virtual_zone_center = null
 	var/list/all_deathzones = null
-	var/list/processing_deathzones = null
+	var/list/inner_turfs = null
+	//list of players outside the zone with last world.time they recived zone damage
+	var/list/fortniters_outside = null
 
 	//zone timings and size settings, [1] - zone range in percents from max range, [2] - time zone stays incative, [3] - time zone shrinks to the next zone
 	var/list/zones_settings = BATTLEROYALE_ZONES_SETTINGS
@@ -34,10 +36,13 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 	var/time_between_shinks = 0
 	var/next_shrink_time = 0
 
+	var/obj/screen/battleroyale_counter_main
+
 
 /datum/game_mode/battleroyale/announce()
 	to_chat(world, "<B>The current game mode is - Battleroyale!</B>")
 	// to_chat(world, "<B>There is a syndicate traitor on the station. Do not let the traitor succeed!</B>")
+
 
 /datum/game_mode/battleroyale/pre_setup()
 
@@ -47,6 +52,9 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 	if(!length(fortniters))
 		return FALSE
 
+	LAZYINITLIST(fortniters_outside)
+
+	remove_restricted_objects()
 	generate_deathcircle()
 
 	if(length(possible_spawnpoints) < length(fortniters))
@@ -63,7 +71,10 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 
 		player.current.forceMove(spawnpoint)
 
+	init_maptext_counter()
+
 	return TRUE
+
 
 /datum/game_mode/battleroyale/proc/get_spawnpoint()
 	var/turf/spawnpoint = pick_n_take(possible_spawnpoints)
@@ -73,8 +84,10 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 
 	return spawnpoint
 
+
 /datum/game_mode/battleroyale/proc/find_random_spawnpoint()
 	return pick_n_take(possible_turfs_to_spawn)
+
 
 /datum/game_mode/battleroyale/proc/generate_spawnpoints()
 	var/station_z = level_name_to_num(MAIN_STATION)
@@ -108,6 +121,24 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 		possible_turfs_to_spawn += picked_turf
 
 
+/datum/game_mode/battleroyale/proc/init_maptext_counter()
+	battleroyale_counter_main = new()
+	battleroyale_counter_main.screen_loc = ui_battleroyale_counter
+	battleroyale_counter_main.plane = ABOVE_HUD_PLANE
+	battleroyale_counter_main.layer = ABOVE_HUD_LAYER
+	battleroyale_counter_main.maptext_height = 32
+	battleroyale_counter_main.maptext_width = 480
+	battleroyale_counter_main.maptext = "<span style='font-family: Arial; font-size: 12px; text-align: center;text-shadow: 1px 1px 2px black;'>00:00</span>"
+
+
+/datum/game_mode/battleroyale/proc/remove_restricted_objects()
+	var/station_z = level_name_to_num(MAIN_STATION)
+	for(var/turf/turf_to_check as anything in block(locate(1, 1, station_z), locate(world.maxx, world.maxy, station_z)))
+		for(var/atom/movable/atom as anything in turf_to_check)
+			if(!is_type_in_list(atom, BATTLEROYALE_RESTRICTED_OBJECTS_TYPES))
+				continue
+			qdel(atom)
+
 
 /datum/game_mode/battleroyale/post_setup()
 
@@ -115,6 +146,7 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 		equip_fortniter(player.current)
 
 	return ..()
+
 
 /datum/game_mode/battleroyale/proc/equip_fortniter(mob/living/carbon/human/player)
 	if(!istype(player))
@@ -134,16 +166,10 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 	..()
 	return//Traitors will be checked as part of check_extra_completion. Leaving this here as a reminder.
 
-// //zone timings and size settings, [1] - zone range in percents from max range, [2] - time zone stays incative, [3] - time zone shrinks to the next zone
-// var/list/zones_settings = BATTLEROYALE_ZONES_SETTINGS
-// var/current_shrink_step = 1
-// var/current_state = ZONE_STATE_INIT
-// var/next_stage_time = 0
-
-	// var/maximum_circle_range = 0
-	// var/current_circle_range = 0
 
 /datum/game_mode/battleroyale/process()
+
+	damage_fortniters_outside()
 
 	switch(current_state)
 		if(ZONE_STATE_INIT)
@@ -152,11 +178,13 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 			return process() //immediately go to the next step
 
 		if(ZONE_STATE_WAIT)
+			update_maptext_counter(next_stage_time - world.time, "white")
 			if(world.time > next_stage_time)
 				goto_shrink_state()
 				return process()
 
 		if(ZONE_STATE_SHRINK)
+			update_maptext_counter(next_stage_time - world.time, "red")
 			if(current_circle_range == target_circle_range)
 				goto_wait_state()
 				return process()
@@ -169,13 +197,12 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 				virtual_zone_center = get_step(virtual_zone_center, get_dir(virtual_zone_center, zone_center))
 
 			current_circle_range = current_circle_range - 1
+
+			color_outside_turfs()
+
 			var/list/new_turfs_to_fill = bresenhamCircle(virtual_zone_center.x, virtual_zone_center.y, virtual_zone_center.z, current_circle_range)
 			var/iterator = 0
 			var/list/new_deathzones = list()
-
-			// to_chat(world, "---------------------------------------------------------------------")
-			// to_chat(world, "Current deathzones len: [length(all_deathzones)]")
-			// to_chat(world, "Circle range: [length(new_turfs_to_fill)]")
 
 			for(var/turf/target as anything in new_turfs_to_fill)
 				++iterator
@@ -189,16 +216,22 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 
 			for(var/i in iterator+1 to all_deathzones.len)
 				var/atom/movable/deathzone/deathzone = all_deathzones[i]
-				qdel(deathzone)
+				deathzone.forceMove(null)
 
-			if(all_deathzones.len > iterator)
-				all_deathzones.Cut(iterator+1)
+			if(current_circle_range == target_circle_range)
+				for(var/i in iterator+1 to all_deathzones.len)
+					var/atom/movable/deathzone/deathzone = all_deathzones[i]
+					qdel(deathzone)
+
+				if(all_deathzones.len > iterator)
+					all_deathzones.Cut(iterator+1)
+
 			all_deathzones += new_deathzones
-			// to_chat(world, "Deathzones left: [length(all_deathzones)]")
-
 			next_shrink_time = world.time + time_between_shinks
 
+
 	return 0
+
 
 /datum/game_mode/battleroyale/proc/goto_wait_state()
 	current_state = ZONE_STATE_WAIT
@@ -207,6 +240,7 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 	virtual_zone_center = zone_center
 
 	to_chat(world, span_danger("Отдыхаем!"))
+
 
 /datum/game_mode/battleroyale/proc/goto_shrink_state()
 	current_state = ZONE_STATE_SHRINK
@@ -225,6 +259,77 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 		zone_center = pick(turfs_to_pick)
 
 	to_chat(world, span_danger("Внимание! Зона начала сужение!"))
+
+
+/datum/game_mode/battleroyale/proc/color_outside_turfs()
+	inner_turfs = bresenhamCircleFilled(virtual_zone_center.x, virtual_zone_center.y, virtual_zone_center.z, current_circle_range)
+	for(var/turf/turf_to_color as anything in inner_turfs)
+		if(turf_to_color.color == null)
+			continue
+		turf_to_color.color = null
+
+		for(var/atom/atom_on_turf as anything in turf_to_color)
+			if(istype(atom_on_turf, /atom/movable/lighting_object))
+				continue
+			if(ishuman(atom_on_turf))
+				fortniter_entered_zone(atom_on_turf)
+				continue
+
+			atom_on_turf.color = null
+
+	var/list/outside_turfs = bresenhamCircleInsideOut(virtual_zone_center.x, virtual_zone_center.y, virtual_zone_center.z, current_circle_range)
+	for(var/turf/turf_to_color as anything in outside_turfs)
+		if(turf_to_color.color == ZONE_COLOR)
+			continue
+		turf_to_color.color = ZONE_COLOR
+
+		for(var/atom/atom_on_turf as anything in turf_to_color)
+			if(istype(atom_on_turf, /atom/movable/lighting_object))
+				continue
+			if(ishuman(atom_on_turf))
+				fortniter_exited_zone(atom_on_turf)
+				continue
+
+			atom_on_turf.color = ZONE_COLOR
+
+
+/datum/game_mode/battleroyale/proc/update_maptext_counter(time_left, text_color = "red")
+	time_left = max(0, time_left)
+	var/minutes_left = round(time_left / 600)
+	var/seconds_left = round((time_left - minutes_left * 600) / 10)
+	battleroyale_counter_main.maptext = "<span style='font-family: Arial; font-size: 12px; color: [text_color]; text-align: center;text-shadow: 1px 1px 2px black;'>[add_zero("[minutes_left]", 2)]:[add_zero("[seconds_left]", 2)]</span>"
+
+
+/datum/game_mode/battleroyale/proc/fortniter_crossed_zone(mob/living/carbon/human/fortniter)
+	if(fortniter.loc in inner_turfs)
+		fortniter_entered_zone(fortniter)
+	else
+		fortniter_exited_zone(fortniter)
+
+
+/datum/game_mode/battleroyale/proc/fortniter_exited_zone(mob/living/carbon/human/fortniter)
+	if(!fortniter.mind || !(fortniter.mind in fortniters))
+		return
+	fortniters_outside[fortniter] = world.time
+
+
+/datum/game_mode/battleroyale/proc/fortniter_entered_zone(mob/living/carbon/human/fortniter)
+	if(!fortniter.mind || !(fortniter.mind in fortniters))
+		return
+	var/last_time_damaged = fortniters_outside[fortniter]
+	if(last_time_damaged)
+		var/damage_percent = (world.time - last_time_damaged) / SSticker.wait
+		fortniter.apply_damage(ZONE_DAMAGE_AMOUNT * damage_percent, ZONE_DAMAGE_TYPE)
+
+	fortniters_outside -= fortniter
+
+
+/datum/game_mode/battleroyale/proc/damage_fortniters_outside()
+	for(var/mob/living/carbon/human/fortniter as anything in fortniters_outside)
+		var/last_time_damaged = fortniters_outside[fortniter]
+		var/damage_percent = (world.time - last_time_damaged) / SSticker.wait
+		fortniter.apply_damage(ZONE_DAMAGE_AMOUNT * damage_percent, ZONE_DAMAGE_TYPE)
+		fortniters_outside[fortniter] = world.time
 
 
 /datum/game_mode/battleroyale/check_finished() //to be called by ticker
@@ -270,9 +375,6 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 /datum/game_mode/battleroyale/proc/generate_deathcircle()
 	maximum_circle_range = current_circle_range = round((world.maxx + world.maxy) / 40) * 10
 	zone_center = virtual_zone_center = locate(round(world.maxx / 2), round(world.maxy / 2), level_name_to_num(MAIN_STATION))
-	//zone_center = virtual_zone_center = locate(127, 105, level_name_to_num(MAIN_STATION))
-
-	//var/list/circle_turfs = border_diamond_range_turfs(zone_center, current_circle_range)
 	var/list/circle_turfs = bresenhamCircle(zone_center.x, zone_center.y, zone_center.z, current_circle_range)
 
 	LAZYINITLIST(all_deathzones)
@@ -282,19 +384,3 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 
 
 	return TRUE
-
-/client/verb/test()
-	set name = "Test"
-	set category = "Server"
-
-	var/static/objects = list()
-	for(var/atom/thing as anything in objects)
-		qdel(thing)
-
-	var/range = input(usr) as num
-	var/turf/zone_center = locate(round(world.maxx / 2), round(world.maxy / 2), level_name_to_num(MAIN_STATION))
-	var/list/circle_turfs = bresenhamCircle(zone_center.x, zone_center.y, zone_center.z, range)
-
-	for(var/turf/turf as anything in circle_turfs)
-		var/atom/movable/deathzone/deathzone = new(turf)
-		objects += deathzone

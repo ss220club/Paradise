@@ -8,7 +8,8 @@
 /datum/battleroyale_loadout/start_equipment/tier1/first
 	items = list(
 		/obj/item/clothing/under/color/random,
-		/obj/item/clothing/shoes/black
+		/obj/item/clothing/shoes/black,
+		/obj/item/card/id/captains_spare,
 	)
 
 

@@ -29,6 +29,7 @@
 	var/obj/screen/zone_select
 	var/obj/screen/move_intent
 	var/obj/screen/module_store_icon
+	var/obj/screen/battleroyale_counter
 
 	var/obj/screen/devil/soul_counter/devilsouldisplay
 
@@ -57,6 +58,10 @@
 		var/obj/screen/plane_master/instance = new mytype()
 		plane_masters["[instance.plane]"] = instance
 		instance.backdrop(mymob)
+
+	if(istype(SSticker.mode, /datum/game_mode/battleroyale))
+		var/datum/game_mode/battleroyale/battleroyale = SSticker.mode
+		battleroyale_counter = battleroyale.battleroyale_counter_main
 
 /datum/hud/Destroy()
 	if(mymob.hud_used == src)
@@ -143,6 +148,9 @@
 			if(action_intent)
 				action_intent.screen_loc = initial(action_intent.screen_loc) //Restore intent selection to the original position
 
+			if(battleroyale_counter)
+				mymob.client.screen += battleroyale_counter
+
 		if(HUD_STYLE_REDUCED)	//Reduced HUD
 			hud_shown = FALSE	//Governs behavior of other procs
 			if(static_inventory.len)
@@ -162,6 +170,9 @@
 			if(action_intent)
 				mymob.client.screen += action_intent		//we want the intent switcher visible
 				action_intent.screen_loc = ui_acti_alt	//move this to the alternative position, where zone_select usually is.
+
+			if(battleroyale_counter)
+				mymob.client.screen += battleroyale_counter
 
 		if(HUD_STYLE_NOHUD)	//No HUD
 			hud_shown = FALSE	//Governs behavior of other procs
