@@ -37,6 +37,7 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 	var/next_shrink_time = 0
 
 	var/obj/screen/battleroyale_counter_main
+	var/list/zone_locators = null
 
 
 /datum/game_mode/battleroyale/announce()
@@ -53,6 +54,7 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 		return FALSE
 
 	LAZYINITLIST(fortniters_outside)
+	LAZYINITLIST(zone_locators)
 
 	remove_restricted_objects()
 	generate_deathcircle()
@@ -170,6 +172,7 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 /datum/game_mode/battleroyale/process()
 
 	damage_fortniters_outside()
+	update_zone_locators()
 
 	switch(current_state)
 		if(ZONE_STATE_INIT)
@@ -293,6 +296,19 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 			atom_on_turf.color = ZONE_COLOR
 
 
+/datum/game_mode/battleroyale/proc/update_zone_locators()
+	for(var/obj/screen/battleroyale_pointer/pointer as anything in zone_locators)
+		if(pointer.owner.stat == DEAD)
+			zone_locators -= pointer
+			continue
+
+		if(pointer.owner.loc == zone_center)
+			pointer.icon_state = pointer.center_icon_state
+		else
+			pointer.icon_state = pointer.pointing_icon_state
+			pointer.dir = get_dir(pointer.owner, zone_center)
+
+
 /datum/game_mode/battleroyale/proc/update_maptext_counter(time_left, text_color = "red")
 	time_left = max(0, time_left)
 	var/minutes_left = round(time_left / 600)
@@ -329,7 +345,11 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 		var/last_time_damaged = fortniters_outside[fortniter]
 		var/damage_percent = (world.time - last_time_damaged) / SSticker.wait
 		fortniter.apply_damage(ZONE_DAMAGE_AMOUNT * damage_percent, ZONE_DAMAGE_TYPE)
-		fortniters_outside[fortniter] = world.time
+
+		if(fortniter.stat == DEAD)
+			fortniters_outside -= fortniter
+		else
+			fortniters_outside[fortniter] = world.time
 
 
 /datum/game_mode/battleroyale/check_finished() //to be called by ticker
