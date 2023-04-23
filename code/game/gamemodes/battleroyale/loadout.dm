@@ -11,6 +11,7 @@
 		/obj/item/clothing/shoes/black,
 		/obj/item/card/id/captains_spare,
 		/obj/item/storage/backpack,
+		/obj/item/radio/headset,
 		list(/obj/item/crowbar, /obj/item/crowbar/red, /obj/item/crowbar/red/sec, /obj/item/crowbar/brass),
 		list(/datum/battleroyale_loadout/spawnable/tier1/standart_armor, /datum/battleroyale_loadout/spawnable/tier1/standart_medicine),
 		list(/datum/battleroyale_loadout/spawnable/tier1/ranged_energy, /datum/battleroyale_loadout/spawnable/tier1/m1911_pistol)

@@ -7,15 +7,9 @@
 	layer = ABOVE_LIGHTING_LAYER
 	density = FALSE
 	opacity = FALSE
+	anchored = TRUE
 	flags = UNACIDABLE|INDESTRUCTIBLE
-
-/atom/movable/deathzone/Crossed(atom/movable/AM, oldloc)
-	. = ..()
-
-	if(istype(AM, /atom/movable/deathzone) || ishuman(AM))
-		return
-
-	qdel(AM)
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
 
 /atom/movable/deathzone/Uncrossed(atom/movable/AM)
 	. = ..()
@@ -24,6 +18,8 @@
 		var/datum/game_mode/battleroyale/battleroyale = SSticker.mode
 		battleroyale?.fortniter_crossed_zone(AM)
 
+/atom/movable/deathzone/ex_act()
+	return
 
 /proc/bresenhamCircle(centre_x, centre_y, center_z, radius)
 	var x = 0

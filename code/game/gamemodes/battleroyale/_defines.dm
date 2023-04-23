@@ -1,3 +1,6 @@
+GLOBAL_LIST_EMPTY(fortniters_spawn)
+GLOBAL_LIST_EMPTY(battleroyale_loot_spawn)
+
 #define MINIMUM_PLAYERS_SPAWN_DISTANCE 8
 
 #define DROPS_ZONE_SIZE 5
@@ -61,14 +64,14 @@
 												/obj/machinery/gateway/centerstation,\
 												/obj/machinery/door/airlock/vault,\
 												/obj/machinery/nuclearbomb,\
+												/obj/machinery/power/supermatter_shard,\
 												/obj/structure/closet,\
 												/obj/structure/filingcabinet,\
 												/obj/structure/reagent_dispensers,\
 												/obj/structure/displaycase,\
 												/obj/structure/barricade/wooden,\
-												/obj/item/circuitboard,\
-												/obj/item/hand_tele,\
-												/obj/item/storage/firstaid,\
+												/obj/item,\
 												/mob/living/simple_animal/bot,\
+												/mob/living/simple_animal/slime,\
 												)
 

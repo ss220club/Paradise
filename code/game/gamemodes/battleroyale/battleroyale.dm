@@ -1,5 +1,3 @@
-GLOBAL_LIST_EMPTY(fortniters_spawn)
-
 /datum/game_mode/battleroyale
 	name = "battleroyale"
 	config_tag = "battleroyale"
@@ -66,9 +64,14 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 		if(!spawnpoint)
 			break
 
+		if(!player.current || !player.current.client)
+			fortniters -= player
+			continue
+
 		player.assigned_role = SPECIAL_ROLE_FORTNITER
 		player.special_role = SPECIAL_ROLE_FORTNITER
 		player.original = player.current
+		player.original.client.prefs.species = "Human"
 
 		player.current.forceMove(spawnpoint)
 
@@ -138,6 +141,8 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 		for(var/atom/movable/atom as anything in turf_to_check)
 			if(!is_type_in_list(atom, BATTLEROYALE_RESTRICTED_OBJECTS_TYPES))
 				continue
+			for(var/atom/movable/atom_inside in atom.contents)
+				qdel(atom_inside)
 			qdel(atom)
 
 
@@ -145,6 +150,8 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 
 	for(var/datum/mind/player as anything in fortniters)
 		equip_fortniter(player.current)
+
+	GLOB.enter_allowed = FALSE
 
 	return ..()
 
@@ -186,10 +193,11 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 
 
 /datum/game_mode/battleroyale/declare_completion()
+	if(!length(fortniters))
+		return
 	var/datum/mind/winner = fortniters[1]
 	to_chat(world, span_danger("И победитель - [winner.current.last_known_ckey]!"))
-	..()
-	return
+	return ..()
 
 
 /datum/game_mode/battleroyale/process()
@@ -266,6 +274,7 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 	virtual_zone_center = zone_center
 
 	spawn_airdrop()
+	loot_landmarks_spawn()
 
 
 /datum/game_mode/battleroyale/proc/goto_shrink_state()
@@ -411,6 +420,10 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 
 	to_chat(world, span_danger("Внимание! Аирдропы были сброшены!"))
 
+
+/datum/game_mode/battleroyale/proc/loot_landmarks_spawn()
+	for(var/obj/effect/battleroyale_landmark/loot_spawn/landmark as anything in GLOB.battleroyale_loot_spawn)
+		landmark.spawn_loot()
 
 /datum/game_mode/battleroyale/check_finished() //to be called by ticker
 	if((SSshuttle.emergency && SSshuttle.emergency.mode >= SHUTTLE_ENDGAME) || station_was_nuked)
