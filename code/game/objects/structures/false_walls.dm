@@ -75,8 +75,8 @@
 	if(opening)
 		return
 
-	opening = TRUE
 	if(density)
+		opening = TRUE
 		do_the_flick()
 		sleep(4)
 		density = FALSE
@@ -84,15 +84,11 @@
 		update_icon()
 	else
 		var/turf/srcturf = get_turf(src)
-		for(var/mob/living/obstacle in srcturf) //Stop people from using this as a shield
-			opening = FALSE
-			to_chat(user, span_warning("[obstacle] is blocking the way!"))
-			return
-		for(var/obj/obstacle in srcturf)
+		for(var/atom/movable/obstacle in srcturf)
 			if(obstacle.density)
-				opening = FALSE
 				to_chat(user, span_warning("[obstacle] is blocking the way!"))
 				return
+		opening = TRUE
 		do_the_flick()
 		density = TRUE
 		sleep(4)
