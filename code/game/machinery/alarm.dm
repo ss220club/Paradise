@@ -797,7 +797,7 @@
 		return FALSE
 	return locked
 
-/obj/machinery/alarm/proc/toggle_lock(user)
+/obj/machinery/alarm/proc/toggle_lock(mob/living/user)
 	if(!allowed(user))
 		to_chat(user, span_warning("Access denied."))
 		return
