@@ -3,7 +3,6 @@
 	robot_talk_understand = 1
 	voice_name = "synthesized voice"
 	bubble_icon = "machine"
-	has_unlimited_silicon_privilege = 1
 	weather_immunities = list("ash")
 	var/syndicate = 0
 	var/const/MAIN_CHANNEL = "Main Frequency"
