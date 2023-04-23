@@ -1,4 +1,3 @@
-
 /atom/movable/deathzone
 	name = ""
 	icon = 'icons/obj/engines_and_power/singularity.dmi'
@@ -94,3 +93,27 @@
 
 
 	return points
+
+
+/obj/structure/closet/crate/battleroyale_aidrop
+	desc = "An airdrop crate."
+	name = "airdrop crate"
+	icon_state = "weaponcrate"
+	icon_opened = "weaponcrateopen"
+	icon_closed = "weaponcrate"
+
+/obj/structure/closet/crate/battleroyale_aidrop/can_open()
+	var/mob/user = usr
+	if(!istype(user))
+		return TRUE
+
+	if(!do_after(user, 3 SECONDS, FALSE, src))
+		return FALSE
+
+	return TRUE
+
+/obj/structure/closet/crate/battleroyale_aidrop/open(by_hand)
+	. = ..()
+	if(.)
+		qdel(src)
+

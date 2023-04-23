@@ -398,24 +398,43 @@
 		var/available_drop_turfs = RANGE_TURFS(DROPS_ZONE_SIZE, fortniter.current.loc)
 
 		var/turf/turf_to_drop_on = pick_n_take(available_drop_turfs)
-		while(turf_to_drop_on && (turf_to_drop_on.density || !(turf_to_drop_on in inner_turfs)))
-			turf_to_drop_on = pick_n_take(available_drop_turfs)
+		var/dense = turf_to_drop_on.density
+		if(!dense)
+			for(var/atom/movable/atom_to_check as anything in turf_to_drop_on)
+				if(!atom_to_check.density)
+					continue
+				dense = TRUE
+				break
 
-		if(!turf_to_drop_on || turf_to_drop_on.density || !(turf_to_drop_on in inner_turfs))
+		while(turf_to_drop_on && (dense || !(turf_to_drop_on in inner_turfs)))
+			turf_to_drop_on = pick_n_take(available_drop_turfs)
+			dense = turf_to_drop_on.density
+			if(!dense)
+				for(var/atom/movable/atom_to_check as anything in turf_to_drop_on)
+					if(!atom_to_check.density)
+						continue
+					dense = TRUE
+					break
+
+		if(!turf_to_drop_on || dense || !(turf_to_drop_on in inner_turfs))
 			continue
 
 		var/drop_type = zones_settings[current_shrink_step][ZONE_DROP_TYPE]
 		if(islist(drop_type))
 			drop_type = pickweight(drop_type)
 
+		var/obj/structure/closet/crate/battleroyale_aidrop/aidrop = new (turf_to_drop_on)
 		drop_type = pick(subtypesof(drop_type))
 		var/datum/battleroyale_loadout/spawnable/drop = new drop_type()
 		for(var/item_type in drop.items)
 			if(islist(item_type))
 				item_type = pick(item_type)
-			new item_type (turf_to_drop_on)
+			new item_type (aidrop)
 
 		new /obj/effect/temp_visual/point (turf_to_drop_on)
+		aidrop.pixel_z = 128
+		aidrop.alpha = 60
+		animate(aidrop, pixel_z = 0, alpha = 255, time = 0.6 SECONDS)
 		drops_sent++
 
 	to_chat(world, span_danger("Внимание! Аирдропы были сброшены!"))
