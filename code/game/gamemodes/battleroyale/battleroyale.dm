@@ -16,7 +16,7 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 	//generated list of possible spawn locs
 	var/list/possible_turfs_to_spawn = null
 
-	var/start_equipment_type = BATTLEROYALE_STARTEQUIPMENT_TIER1
+	var/start_equipment_type = BATTLEROYALE_STARTEQUIPMENT
 
 	var/maximum_circle_range = 0
 	var/current_circle_range = 0
@@ -42,7 +42,6 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 
 /datum/game_mode/battleroyale/announce()
 	to_chat(world, "<B>The current game mode is - Battleroyale!</B>")
-	// to_chat(world, "<B>There is a syndicate traitor on the station. Do not let the traitor succeed!</B>")
 
 
 /datum/game_mode/battleroyale/pre_setup()
@@ -161,12 +160,36 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 	var/equip_type = pick(possible_outfits)
 	var/datum/battleroyale_loadout/start_equipment/picked_equip = new equip_type
 	for(var/item in picked_equip.items)
-		player.equip_to_appropriate_slot(new item)
+		if(islist(item))
+			item = pick(item)
+
+		if(ispath(item, /datum/battleroyale_loadout))
+			var/list/items_subtypes = subtypesof(item)
+			if(length(items_subtypes))
+				item = pick(items_subtypes)
+
+			var/datum/battleroyale_loadout/loadout = new item()
+			for(var/thing in loadout.items)
+				if(islist(thing))
+					thing = pick(thing)
+				var/atom/movable/item_to_equip = new thing
+				if(!player.equip_to_appropriate_slot(item_to_equip))
+					if(!player.put_in_hands(item_to_equip))
+						item_to_equip.forceMove(player.loc)
+
+			continue
+
+		var/atom/movable/item_to_equip = new item
+		if(!player.equip_to_appropriate_slot(item_to_equip))
+			if(!player.put_in_hands(item_to_equip))
+				item_to_equip.forceMove(player.loc)
 
 
 /datum/game_mode/battleroyale/declare_completion()
+	var/datum/mind/winner = fortniters[1]
+	to_chat(world, span_danger("И победитель - [winner.current.last_known_ckey]!"))
 	..()
-	return//Traitors will be checked as part of check_extra_completion. Leaving this here as a reminder.
+	return
 
 
 /datum/game_mode/battleroyale/process()
@@ -242,7 +265,7 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 	next_stage_time = next_stage_time + zones_settings[current_shrink_step][ZONE_WAIT_TIME]
 	virtual_zone_center = zone_center
 
-	to_chat(world, span_danger("Отдыхаем!"))
+	spawn_airdrop()
 
 
 /datum/game_mode/battleroyale/proc/goto_shrink_state()
@@ -352,16 +375,51 @@ GLOBAL_LIST_EMPTY(fortniters_spawn)
 			fortniters_outside[fortniter] = world.time
 
 
+/datum/game_mode/battleroyale/proc/spawn_airdrop()
+
+	var/lowest_drops_amount = max(1, round(length(fortniters) / 2))
+	var/highest_drops_amount = length(fortniters)
+	var/maximum_drops_amount = rand(lowest_drops_amount, highest_drops_amount)
+	var/drops_sent = 0
+
+	var/list/fortniters_to_send_drops = fortniters.Copy()
+	shuffle(fortniters_to_send_drops)
+	while(drops_sent < maximum_drops_amount && length(fortniters_to_send_drops))
+		var/datum/mind/fortniter = pick_n_take(fortniters_to_send_drops)
+		var/available_drop_turfs = RANGE_TURFS(DROPS_ZONE_SIZE, fortniter.current.loc)
+
+		var/turf/turf_to_drop_on = pick_n_take(available_drop_turfs)
+		while(turf_to_drop_on && (turf_to_drop_on.density || !(turf_to_drop_on in inner_turfs)))
+			turf_to_drop_on = pick_n_take(available_drop_turfs)
+
+		if(!turf_to_drop_on || turf_to_drop_on.density || !(turf_to_drop_on in inner_turfs))
+			continue
+
+		var/drop_type = zones_settings[current_shrink_step][ZONE_DROP_TYPE]
+		if(islist(drop_type))
+			drop_type = pickweight(drop_type)
+
+		drop_type = pick(subtypesof(drop_type))
+		var/datum/battleroyale_loadout/spawnable/drop = new drop_type()
+		for(var/item_type in drop.items)
+			if(islist(item_type))
+				item_type = pick(item_type)
+			new item_type (turf_to_drop_on)
+
+		new /obj/effect/temp_visual/point (turf_to_drop_on)
+		drops_sent++
+
+	to_chat(world, span_danger("Внимание! Аирдропы были сброшены!"))
+
+
 /datum/game_mode/battleroyale/check_finished() //to be called by ticker
+	if((SSshuttle.emergency && SSshuttle.emergency.mode >= SHUTTLE_ENDGAME) || station_was_nuked)
+		return TRUE
+
+	if(length(fortniters) < 2)
+		return TRUE
+
 	return FALSE
-
-	// if((SSshuttle.emergency && SSshuttle.emergency.mode >= SHUTTLE_ENDGAME) || station_was_nuked)
-	// 	return TRUE
-
-	// if(length(fortniters) < 2)
-	// 	return TRUE
-
-	// return FALSE
 
 /datum/game_mode/battleroyale/check_win() //universal trigger to be called at mob death, nuke explosion, etc. To be called from everywhere.
 	var/datum/mind/looser = null

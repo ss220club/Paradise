@@ -1,18 +1,24 @@
 #define MINIMUM_PLAYERS_SPAWN_DISTANCE 8
 
-#define MAXIMUM_BATTLEROYALE_TIME 10 MINUTES
-							// zone size in percents, time zone stays inactive, time zone shrinks into next zone
+#define DROPS_ZONE_SIZE 5
+
+/**
+ * 1) zone size in percents from max size
+ * 2) time zone stays inactive before shrinking
+ * 3) time zone shrinks into next zone
+ * 4) /datum/battleroyale_loadout/spawnable type (or weighted list) that can spawn during this period
+ */
 #define BATTLEROYALE_ZONES_SETTINGS list(\
-										list(100, 0 MINUTES,  2 MINUTES),\
-										list(75,  1 MINUTES,  1 MINUTES),\
-										list(50,  2 MINUTES,  1 MINUTES),\
-										list(25,  1 MINUTES,  30 SECONDS),\
-										list(10,  45 SECONDS, 15 SECONDS),\
-										list(5,   15 SECONDS, 15 SECONDS),\
-										list(0,   1 HOURS,     1 HOURS),\
+										list(100, 0 MINUTES,  2 MINUTES, /datum/battleroyale_loadout/spawnable/tier1),\
+										list(75,  1 MINUTES,  1 MINUTES, /datum/battleroyale_loadout/spawnable/tier1),\
+										list(50,  2 MINUTES,  1 MINUTES, list(/datum/battleroyale_loadout/spawnable/tier1 = 25, /datum/battleroyale_loadout/spawnable/tier2 = 75)),\
+										list(25,  1 MINUTES,  30 SECONDS, /datum/battleroyale_loadout/spawnable/tier2),\
+										list(10,  45 SECONDS, 15 SECONDS, list(/datum/battleroyale_loadout/spawnable/tier2 = 50, /datum/battleroyale_loadout/spawnable/tier3 = 50)),\
+										list(5,   15 SECONDS, 15 SECONDS, /datum/battleroyale_loadout/spawnable/tier3),\
+										list(0,   1 HOURS,     1 HOURS, /datum/battleroyale_loadout/spawnable/tier3),\
 									)
 
-#define BATTLEROYALE_STARTEQUIPMENT_TIER1 /datum/battleroyale_loadout/start_equipment/tier1
+#define BATTLEROYALE_STARTEQUIPMENT /datum/battleroyale_loadout/start_equipment/tier1
 
 //damage the player will recieve each 2 seconds outside the zone
 #define ZONE_DAMAGE_AMOUNT 10
@@ -21,6 +27,7 @@
 #define ZONE_SIZE 1
 #define ZONE_WAIT_TIME 2
 #define ZONE_SHRINK_TIME 3
+#define ZONE_DROP_TYPE 4
 
 #define ZONE_STATE_INIT 0
 #define ZONE_STATE_WAIT 1
@@ -52,6 +59,8 @@
 												/obj/machinery/atmospherics/unary/cryo_cell,\
 												/obj/machinery/shieldwallgen,\
 												/obj/machinery/gateway/centerstation,\
+												/obj/machinery/door/airlock/vault,\
+												/obj/machinery/nuclearbomb,\
 												/obj/structure/closet,\
 												/obj/structure/filingcabinet,\
 												/obj/structure/reagent_dispensers,\
@@ -59,6 +68,7 @@
 												/obj/structure/barricade/wooden,\
 												/obj/item/circuitboard,\
 												/obj/item/hand_tele,\
+												/obj/item/storage/firstaid,\
 												/mob/living/simple_animal/bot,\
 												)
 
