@@ -967,48 +967,41 @@
 			return FALSE
 	return TRUE
 
-/obj/machinery/power/apc/proc/is_authenticated(mob/user as mob)
-	if(user.can_admin_interact())
-		return 1
-	if(isAI(user) || isrobot(user) && !iscogscarab(user))
-		return 1
-	else
-		return !locked
-
 /obj/machinery/power/apc/proc/is_locked(mob/user as mob)
 	if(user.can_admin_interact())
-		return 0
+		return FALSE
 	if(isAI(user) || isrobot(user) && !iscogscarab(user))
-		return 0
-	else
-		return locked
+		return FALSE
+	return locked
 
 /obj/machinery/power/apc/ui_act(action, params)
-	if(..() || !can_use(usr, TRUE) || (locked && !usr.has_unlimited_silicon_privilege && (action != "toggle_nightshift") && !usr.can_admin_interact()))
+	if(..())
 		return
-	. = TRUE
 	switch(action)
 		if("lock")
-			if(usr.has_unlimited_silicon_privilege)
+			if(issilicon(usr))
 				if(emagged || stat & BROKEN)
 					to_chat(usr, "<span class='warning'>The APC does not respond to the command!</span>")
 					return FALSE
 				else
 					locked = !locked
 					update_icon()
-			else
-				to_chat(usr, "<span class='warning'>Access Denied!</span>")
-				return FALSE
-		if("cover")
-			coverlocked = !coverlocked
-		if("breaker")
-			toggle_breaker(usr)
+				return TRUE
+			togglelock(usr)
 		if("toggle_nightshift")
 			if(last_nightshift_switch > world.time + 100) // don't spam...
 				to_chat(usr, "<span class='warning'>[src]'s night lighting circuit breaker is still cycling!</span>")
 				return FALSE
 			last_nightshift_switch = world.time
 			set_nightshift(!nightshift_lights)
+	if(is_locked(usr))
+		return
+	. = TRUE
+	switch(action)
+		if("cover")
+			coverlocked = !coverlocked
+		if("breaker")
+			toggle_breaker(usr)
 		if("charge")
 			chargemode = !chargemode
 		if("channel")
@@ -1025,7 +1018,7 @@
 				update_icon()
 				update()
 		if("overload")
-			if(usr.has_unlimited_silicon_privilege)
+			if(issilicon(usr))
 				INVOKE_ASYNC(src, /obj/machinery/power/apc.proc/overload_lighting)
 		if("hack")
 			if(get_malf_status(usr))

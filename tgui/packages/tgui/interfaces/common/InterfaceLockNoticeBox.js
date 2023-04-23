@@ -19,42 +19,30 @@ import { Button, Flex, NoticeBox } from '../../components';
 export const InterfaceLockNoticeBox = (props, context) => {
   const { act, data } = useBackend(context);
   const {
-    siliconUser = data.siliconUser,
     locked = data.locked,
     normallyLocked = data.normallyLocked,
     onLockStatusChange = () => act('lock'),
-    accessText = 'an ID card',
   } = props;
-  // For silicon users
-  if (siliconUser) {
-    return (
-      <NoticeBox color={siliconUser && 'grey'}>
-        <Flex align="center">
-          <Flex.Item>
-            Interface lock status:
-          </Flex.Item>
-          <Flex.Item grow="1" />
-          <Flex.Item>
-            <Button
-              m="0"
-              color={normallyLocked ? 'red' : 'green'}
-              icon={normallyLocked ? 'lock' : 'unlock'}
-              content={normallyLocked ? 'Locked' : 'Unlocked'}
-              onClick={() => {
-                if (onLockStatusChange) {
-                  onLockStatusChange(!locked);
-                }
-              }} />
-          </Flex.Item>
-        </Flex>
-      </NoticeBox>
-    );
-  }
-  // For everyone else
   return (
-    <NoticeBox>
-      Swipe {accessText}{' '}
-      to {locked ? 'unlock' : 'lock'} this interface.
+    <NoticeBox color={'grey'}>
+      <Flex align="center">
+        <Flex.Item>
+          Interface lock status:
+        </Flex.Item>
+        <Flex.Item grow="1" />
+        <Flex.Item>
+          <Button
+            m="0"
+            color={normallyLocked ? 'red' : 'green'}
+            icon={normallyLocked ? 'lock' : 'unlock'}
+            content={normallyLocked ? 'Locked' : 'Unlocked'}
+            onClick={() => {
+              if (onLockStatusChange) {
+                onLockStatusChange(!locked);
+              }
+            }} />
+        </Flex.Item>
+      </Flex>
     </NoticeBox>
   );
 };
