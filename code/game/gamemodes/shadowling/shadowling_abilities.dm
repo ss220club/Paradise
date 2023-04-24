@@ -141,8 +141,7 @@
 	animation.layer = 5
 	//animation.master = src
 	user.forceMove(targets[1])
-	spawn(10)
-		qdel(animation)
+	QDEL_IN(animation, 10)
 
 /obj/effect/proc_holder/spell/targeted/shadow_walk
 	name = "Shadow Walk"
