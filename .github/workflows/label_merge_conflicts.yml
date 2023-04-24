@@ -2,7 +2,8 @@ name: 'Merge Conflict Detection'
 on:
   push:
     branches:
-      - master220
+      - master
+      - prime
 jobs:
   triage:
     runs-on: ubuntu-20.04
