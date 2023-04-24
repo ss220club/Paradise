@@ -68,6 +68,9 @@
 	if(M.pulledby)
 		if(buckle_prevents_pull)
 			M.pulledby.stop_pulling()
+		else
+			M.pulledby.pulling = src
+			M.pulledby = null
 		else if(isliving(M.pulledby))
 			var/mob/living/L = M.pulledby
 			L.unpixel_shift()
