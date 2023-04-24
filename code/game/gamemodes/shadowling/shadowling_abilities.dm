@@ -98,38 +98,32 @@
 	range = -1
 	include_user = 1
 	action_icon_state = "shadowstep"
-	// Teleport radii
-	var/inner_tele_radius = 0
-	var/outer_tele_radius = 6
-	// Maximum lighting_lumcount.
-	var/max_lum = 1
+	var/outer_tele_radius = 6 // Teleport radii
 
 /obj/effect/proc_holder/spell/targeted/shadowstep/choose_targets(mob/user = usr)
 	var/list/turfs = list()
-	for(var/turf/T in range(user, outer_tele_radius))
-		if(T in range(user, inner_tele_radius))
-			continue
+	// Calcultaions. Stepping out of the edge by the outer_tele_radius
+	var/xmaxlocate = max(user.x-(outer_tele_radius),1 + outer_tele_radius)
+	var/ymaxlocate = max(user.y-(outer_tele_radius),1 + outer_tele_radius)
+	var/xminlocate = min(user.x+(outer_tele_radius),world.maxx - outer_tele_radius)
+	var/yminlocate = min(user.y+(outer_tele_radius),world.maxy - outer_tele_radius)
+
+	for(var/turf/T in  block(locate(xmaxlocate, ymaxlocate, user.z), locate(xminlocate, yminlocate, user.z))) // Locating upper and lower points of area
 		if(istype(T, /turf/space))
 			continue
 		if(T.density)
 			continue
-		if(T.x > world.maxx-outer_tele_radius || T.x < outer_tele_radius)
-			continue	//putting them at the edge is dumb
-		if(T.y > world.maxy-outer_tele_radius || T.y < outer_tele_radius)
-			continue
-		var/light_amount = T.get_lumcount() * 10
-
-		// LIGHTING CHECK
-		if(light_amount > LIGHT_HEAL_THRESHOLD)
+		var/light_amount = T.get_lumcount() * 10 
+		if(light_amount > LIGHT_HEAL_THRESHOLD) //LIGHTING CHECK
 			continue
 		turfs += T
 
-	if(!turfs.len)
+	if(!turfs.len) // If there are no suitable turfs
 		revert_cast(user)
 		to_chat(user, "<span class='warning'>There are no shadows nearby to step into.</span>")
 		return
 
-	turfs = list(pick(turfs)) // Pick a single turf for the vampire to jump to.
+	turfs = list(pick(turfs)) // Pick a single turf for the shadow to jump to.
 	perform(turfs, user = user)
 
 // `targets` should only ever contain the 1 valid turf we're jumping to, even though its a list, that's just how the cast() proc works.
