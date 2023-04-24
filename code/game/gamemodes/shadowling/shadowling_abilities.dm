@@ -105,7 +105,7 @@
 	var/max_lum = 1
 
 /obj/effect/proc_holder/spell/targeted/shadowstep/choose_targets(mob/user = usr)
-	var/list/turfs = new/list()
+	var/list/turfs = list()
 	for(var/turf/T in range(user, outer_tele_radius))
 		if(T in range(user, inner_tele_radius))
 			continue
