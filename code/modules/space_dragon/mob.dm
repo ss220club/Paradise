@@ -32,22 +32,19 @@
 	flying = TRUE
 	attacktext = "кусает"
 	attack_sound = 'sound/misc/demon_attack1.ogg'
-	//attack_vis_effect = ATTACK_EFFECT_BITE // Refactor
 	death_sound = 'sound/creatures/space_dragon_roar.ogg'
 	icon = 'icons/mob/spacedragon.dmi'
 	icon_state = "spacedragon"
 	icon_living = "spacedragon"
 	icon_dead = "spacedragon_dead"
-	//health_doll_icon = "spacedragon" // Do we even need it?
 	obj_damage = 50
 	environment_smash = ENVIRONMENT_SMASH_NONE
-	//flags_1 = PREVENT_CONTENTS_EXPLOSION_1 //Refactor
 	melee_damage_upper = 35
 	melee_damage_lower = 35
 	mob_size = MOB_SIZE_LARGE
 	armour_penetration = 30
 	pixel_x = -16
-	//base_pixel_x = -16 //REFACTOR REQUIRED!!!!
+	//base_pixel_x = -16 //REFACTOR REQUIRED FOR PIXEL_SHIFT!!!!
 	maptext_height = 64
 	maptext_width = 64
 	turns_per_move = 5
@@ -58,7 +55,7 @@
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = 1500
-	faction = list(FACTION_CARP)
+	faction = list("carp")
 	pressure_resistance = 200
 	/// How much endlag using Wing Gust should apply.  Each use of wing gust increments this, and it decreases over time.
 	var/tiredness = 0
@@ -73,23 +70,23 @@
 	/// Determines whether or not Space Dragon is currently tearing through a wall.
 	var/tearing_wall = FALSE
 	/// The ability to make your sprite smaller
-	var/datum/action/small_sprite/space_dragon/small_sprite
+	var/datum/action/innate/small_sprite_dragon/small_sprite
 	/// The color of the space dragon.
 	var/chosen_color
 	/// Minimum devastation damage dealt coefficient based on max health
-	var/devastation_damage_min_percentage = 0.4
+	var/devastation_damage_min_percentage = 40
 	/// Maximum devastation damage dealt coefficient based on max health
-	var/devastation_damage_max_percentage = 0.75
+	var/devastation_damage_max_percentage = 75
 
-//REFACTOR!!!
 /mob/living/simple_animal/hostile/space_dragon/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/simple_flying)
-	add_traits(list(TRAIT_SPACEWALK, TRAIT_FREE_HYPERSPACE_MOVEMENT, TRAIT_NO_FLOATING_ANIM, TRAIT_HEALS_FROM_CARP_RIFTS), INNATE_TRAIT)
-	AddElement(/datum/element/content_barfer)
 	small_sprite = new
 	small_sprite.Grant(src)
-	RegisterSignal(small_sprite, COMSIG_ACTION_TRIGGER, PROC_REF(add_dragon_overlay))
+	RegisterSignal(small_sprite, COMSIG_ACTION_TRIGGER, .proc/add_dragon_overlay)
+	middleClickOverride = new /datum/middleClickOverride/callback_invoker(CALLBACK(src, .proc/try_gust))
+
+/mob/living/simple_animal/hostile/space_dragon/Process_Spacemove(movement_dir)
+	return TRUE
 
 /mob/living/simple_animal/hostile/space_dragon/Login()
 	. = ..()
@@ -99,12 +96,12 @@
 
 /mob/living/simple_animal/hostile/space_dragon/ex_act(severity, origin)
 	if(severity == 1)
-		var/damage_coefficient = rand(devastation_damage_min_percentage, devastation_damage_max_percentage)
+		var/damage_coefficient = rand(devastation_damage_min_percentage, devastation_damage_max_percentage) / 100
 		adjustBruteLoss(initial(maxHealth)*damage_coefficient)
 		return
 	..()
 
-/mob/living/simple_animal/hostile/space_dragon/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+/mob/living/simple_animal/hostile/space_dragon/Life(seconds_per_tick, times_fired)
 	. = ..()
 	tiredness = max(tiredness - (0.5 * seconds_per_tick), 0)
 	for(var/mob/living/consumed_mob in src)
@@ -114,6 +111,13 @@
 		visible_message(span_danger("[src] vomits up [consumed_mob]!"))
 		consumed_mob.forceMove(loc)
 		consumed_mob.Paralyse(50)
+
+/mob/living/simple_animal/hostile/space_dragon/death(gibbed)
+	for(var/atom/movable/barfed_out in contents)
+		barfed_out.forceMove(loc)
+		if(prob(90))
+			step(barfed_out, pick(GLOB.alldirs))
+	. = ..()
 
 /mob/living/simple_animal/hostile/space_dragon/AttackingTarget()
 	if(using_special)
@@ -125,16 +129,16 @@
 		if(tearing_wall)
 			return
 		tearing_wall = TRUE
-		var/turf/closed/wall/thewall = target
+		var/turf/simulated/wall/thewall = target
 		to_chat(src, span_warning("You begin tearing through the wall..."))
 		playsound(src, 'sound/machines/airlock_alien_prying.ogg', 100, TRUE)
-		var/timetotear = 40
-		if(istype(target, /turf/closed/wall/r_wall))
-			timetotear = 120
+		var/timetotear = 4 SECONDS
+		if(istype(target, /turf/simulated/wall/r_wall))
+			timetotear = 12 SECONDS
 		if(do_after(src, timetotear, target = thewall))
-			if(isopenturf(thewall))
+			if(!iswallturf(thewall))
 				return
-			thewall.dismantle_wall(1)
+			thewall.dismantle_wall(TRUE)
 			playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
 		tearing_wall = FALSE
 		return
@@ -142,16 +146,16 @@
 		var/mob/living/L = target
 		if(L.stat == DEAD)
 			to_chat(src, span_warning("You begin to swallow [L] whole..."))
-			if(do_after(src, 30, target = L))
+			if(do_after(src, 3 SECONDS, target = L))
 				if(eat(L))
 					adjustHealth(-L.maxHealth * 0.25)
 			return
 	. = ..()
 	if(ismecha(target))
-		var/obj/vehicle/sealed/mecha/M = target
-		M.take_damage(50, BRUTE, MELEE, 1)
+		var/obj/mecha/M = target
+		M.take_damage(50, BRUTE, "melee", 1)
 
-/mob/living/simple_animal/hostile/space_dragon/ranged_secondary_attack(atom/target, modifiers)
+/mob/living/simple_animal/hostile/space_dragon/proc/try_gust()
 	if(using_special)
 		return
 	using_special = TRUE
@@ -180,7 +184,7 @@
 	add_dragon_overlay()
 
 	if (was_dead)
-		RegisterSignal(small_sprite, COMSIG_ACTION_TRIGGER, PROC_REF(add_dragon_overlay))
+		RegisterSignal(small_sprite, COMSIG_ACTION_TRIGGER, .proc/add_dragon_overlay)
 
 /**
  * Allows space dragon to choose its own name.
@@ -189,13 +193,13 @@
  * If the name is invalid, will re-prompt the dragon until a proper name is chosen.
  */
 /mob/living/simple_animal/hostile/space_dragon/proc/dragon_name()
-	var/chosen_name = sanitize_name(reject_bad_text(tgui_input_text(src, "What would you like your name to be?", "Choose Your Name", real_name, MAX_NAME_LEN)))
+	var/chosen_name = reject_bad_name(input(src, "What would you like your name to be?", "Choose Your Name", real_name))
 	if(!chosen_name)
 		to_chat(src, span_warning("Not a valid name, please try again."))
 		dragon_name()
 		return
 	to_chat(src, span_notice("Your name is now [span_name("[chosen_name]")], the feared Space Dragon."))
-	fully_replace_character_name(null, chosen_name)
+	rename_character(null, chosen_name)
 
 /**
  * Allows space dragon to choose a color for itself.
@@ -279,7 +283,7 @@
 	turfs = line_target(0, range, at)
 	var/delayFire = -1.0
 	for(var/turf/T in turfs)
-		if(isclosedturf(T))
+		if(iswallturf(T))
 			return
 		for(var/obj/structure/window/W in T.contents)
 			return
@@ -287,7 +291,7 @@
 			if(D.density)
 				return
 		delayFire += 1.5
-		addtimer(CALLBACK(src, PROC_REF(dragon_fire_line), T), delayFire)
+		addtimer(CALLBACK(src, .proc/dragon_fire_line, T), delayFire)
 
 /**
  * What occurs on each tile to actually create the fire.
@@ -306,17 +310,17 @@
 	for(var/mob/living/L in T.contents)
 		if(L in hit_list)
 			continue
-		if(L.mind?.has_antag_datum(/datum/antagonist/space_carp))
+		if("carp" in L.faction)
 			continue
 		hit_list += L
 		L.adjustFireLoss(30)
 		to_chat(L, span_userdanger("You're hit by [src]'s fire breath!"))
 	// deals damage to mechs
-	for(var/obj/vehicle/sealed/mecha/M in T.contents)
+	for(var/obj/mecha/M in T.contents)
 		if(M in hit_list)
 			continue
 		hit_list += M
-		M.take_damage(50, BRUTE, MELEE, 1)
+		M.take_damage(50, BRUTE, "melee", 1)
 
 /**
  * Handles consuming and storing consumed things inside Space Dragon
@@ -328,7 +332,7 @@
  */
 /mob/living/simple_animal/hostile/space_dragon/proc/eat(atom/movable/A)
 	if(A && A.loc != src)
-		playsound(src, 'sound/magic/demon_attack1.ogg', 100, TRUE)
+		playsound(src, 'sound/misc/demon_attack1.ogg', 100, TRUE)
 		visible_message(span_warning("[src] swallows [A] whole!"))
 		A.forceMove(src)
 		return TRUE
@@ -360,7 +364,7 @@
 /mob/living/simple_animal/hostile/space_dragon/proc/useGust(timer)
 	if(timer != 10)
 		pixel_y = pixel_y + 2;
-		addtimer(CALLBACK(src, PROC_REF(useGust), timer + 1), 1.5)
+		addtimer(CALLBACK(src, .proc/useGust, timer + 1), 1.5)
 		return
 	pixel_y = 0
 	icon_state = "spacedragon_gust_2"
@@ -380,9 +384,9 @@
 			to_chat(L, span_userdanger("You're knocked back by the gust!"))
 			var/dir_to_target = get_dir(get_turf(src), get_turf(L))
 			var/throwtarget = get_edge_target_turf(target, dir_to_target)
-			L.safe_throw_at(throwtarget, 10, 1, src)
-			L.Paralyze(50)
-	addtimer(CALLBACK(src, PROC_REF(reset_status)), 4 + ((tiredness * tiredness_mult) / 10))
+			L.throw_at(throwtarget, 10, 1, src)
+			L.Paralyse(50)
+	addtimer(CALLBACK(src, .proc/reset_status), 4 + ((tiredness * tiredness_mult) / 10))
 	tiredness = tiredness + (gust_tiredness * tiredness_mult)
 
 #undef DARKNESS_THRESHOLD
