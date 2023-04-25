@@ -103,7 +103,7 @@ GLOBAL_VAR_INIT(admin_ooc_colour, "#b82e00")
 
 			to_chat(C, "<font color='[display_colour]'><span class='ooc'><span class='prefix'>OOC:</span> [text_badge(C)] <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>")
 
-/proc/text_badge(client/C = null)
+/proc/text_badge(client/C)
 	var/badge_name
 	if(!C)
 		return null
