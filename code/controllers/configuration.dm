@@ -313,6 +313,9 @@
 	var/default_map = null
 	var/override_map = null
 
+	var/hydration_enabled = FALSE
+	var/water_poison = FALSE
+
 /datum/configuration/New()
 	for(var/T in subtypesof(/datum/game_mode))
 		var/datum/game_mode/M = T
@@ -896,6 +899,12 @@
 
 				if("override_map")
 					config.override_map = value
+
+				if("hydration_enabled")
+					config.hydration_enabled = TRUE
+
+				if("water_poison")
+					config.water_poison = TRUE
 
 				else
 					log_config("Unknown setting in configuration: '[name]'")
