@@ -164,23 +164,27 @@ GLOBAL_LIST_EMPTY(turret_icons)
 /obj/machinery/porta_turret/proc/access_is_configurable()
 	return targetting_is_configurable && !HasController()
 
-/obj/machinery/porta_turret/proc/isLocked(mob/user)
+/obj/machinery/porta_turret/proc/is_locked(mob/user)
 	if(HasController())
 		return TRUE
+	if(user.can_admin_interact())
+		return FALSE
 	if(isrobot(user) && !iscogscarab(user) || isAI(user))
 		if(ailock)
-			to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>")
-			return TRUE
-		else
-			return FALSE
-	if(isobserver(user))
-		if(user.can_admin_interact())
-			return FALSE
-		else
-			return TRUE
-	if(locked)
-		return TRUE
-	return FALSE
+			to_chat(user, span_notice("There seems to be a firewall preventing you from accessing this device."))
+		return ailock
+	return locked
+
+/obj/machinery/porta_turret/proc/toggle_lock(mob/living/user)
+	if(HasController())
+		to_chat(user, span_notice("Turrets regulated by a nearby turret controller are not unlockable."))
+		return
+	if(!allowed(user))
+		to_chat(user, span_warning("Access denied."))
+		return
+	locked = !locked
+	to_chat(user, span_notice("Controls are now [locked ? "locked" : "unlocked"]"))
+	updateUsrDialog()
 
 /obj/machinery/porta_turret/attack_ai(mob/user)
 	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
@@ -207,7 +211,8 @@ GLOBAL_LIST_EMPTY(turret_icons)
 
 /obj/machinery/porta_turret/ui_data(mob/user)
 	var/list/data = list(
-		"locked" = isLocked(user), // does the current user have access?
+		"locked" = is_locked(user),
+		"normallyLocked" = locked,
 		"on" = enabled,
 		"targetting_is_configurable" = targetting_is_configurable, // If false, targetting settings don't show up
 		"lethal" = lethal,
@@ -233,7 +238,11 @@ GLOBAL_LIST_EMPTY(turret_icons)
 /obj/machinery/porta_turret/ui_act(action, params)
 	if (..())
 		return
-	if(isLocked(usr))
+	switch(action)
+		if("lock")
+			toggle_lock(usr)
+			return TRUE
+	if(is_locked(usr))
 		return
 	. = TRUE
 	switch(action)
@@ -347,14 +356,7 @@ GLOBAL_LIST_EMPTY(turret_icons)
 		wrenching = FALSE
 
 	else if(I.GetID() || ispda(I))
-		if(HasController())
-			to_chat(user, "<span class='notice'>Turrets regulated by a nearby turret controller are not unlockable.</span>")
-		else if(allowed(user))
-			locked = !locked
-			to_chat(user, "<span class='notice'>Controls are now [locked ? "locked" : "unlocked"].</span>")
-			updateUsrDialog()
-		else
-			to_chat(user, "<span class='notice'>Access denied.</span>")
+		toggle_lock(user)
 
 	else
 		//if the turret was attacked with the intention of harming it:

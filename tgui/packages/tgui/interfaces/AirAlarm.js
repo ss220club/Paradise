@@ -13,8 +13,8 @@ export const AirAlarm = (props, context) => {
   return (
     <Window resizable>
       <Window.Content scrollable>
-        <AirStatus />
         <InterfaceLockNoticeBox />
+        <AirStatus />
         {!locked && (
           <Fragment>
             <AirAlarmTabs />
