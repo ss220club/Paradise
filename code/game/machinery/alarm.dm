@@ -667,9 +667,6 @@
 	data["danger"] = danger
 	return data
 
-/obj/machinery/alarm/proc/has_rcon_access(mob/user)
-	return user && (isAI(user) || allowed(user) || emagged || rcon_setting == RCON_YES)
-
 // Intentional nulls here
 /obj/machinery/alarm/ui_data(mob/user)
 	var/list/data = list()
@@ -683,7 +680,8 @@
 	//   Not sent from atmos console AND
 	//   Not silicon AND locked.
 	var/datum/tgui/active_ui = SStgui.get_open_ui(user, src, "main")
-	data["locked"] = !is_authenticated(user, active_ui)
+	data["locked"] = is_locked(user, active_ui)
+	data["normallyLocked"] = locked
 	data["rcon"] = rcon_setting
 	data["target_temp"] = target_temperature - T0C
 	data["atmos_alarm"] = alarm_area.atmosalm
@@ -788,17 +786,26 @@
 		ui = new(user, src, ui_key, "AirAlarm", name, 570, 410, master_ui, state)
 		ui.open()
 
-/obj/machinery/alarm/proc/is_authenticated(mob/user, datum/tgui/ui=null)
+/obj/machinery/alarm/proc/is_locked(mob/user, datum/tgui/ui=null)
 	// Return true if they are connecting with a remote console
 	// DO NOT CHANGE THIS TO USE ISTYPE, IT WILL NOT WORK
 	if(ui?.master_ui?.src_object.type == /datum/ui_module/atmos_control)
-		return TRUE
+		return FALSE
 	if(user.can_admin_interact())
-		return TRUE
-	else if(isAI(user) || (isrobot(user) || emagged) && !iscogscarab(user))
-		return TRUE
-	else
-		return !locked
+		return FALSE
+	if(isAI(user) || (isrobot(user) || emagged) && !iscogscarab(user))
+		return FALSE
+	return locked
+
+/obj/machinery/alarm/proc/toggle_lock(mob/living/user)
+	if(!allowed(user))
+		to_chat(user, span_warning("Access denied."))
+		return
+	if(emagged)
+		to_chat(user, span_notice("[src] is unresponsive."))
+		return
+	locked = !locked
+	to_chat(user, span_notice("You [ locked ? "lock" : "unlock"] the panel."))
 
 /obj/machinery/alarm/ui_status(mob/user, datum/ui_state/state)
 	if(buildstage != 2)
@@ -825,6 +832,9 @@
 	var/datum/tgui/active_ui = SStgui.get_open_ui(usr, src, "main")
 
 	switch(action)
+		if("lock")
+			toggle_lock(usr)
+
 		if("set_rcon")
 			var/attempted_rcon_setting = text2num(params["rcon"])
 			switch(attempted_rcon_setting)
@@ -835,9 +845,8 @@
 				if(RCON_YES)
 					rcon_setting = RCON_YES
 
-
 		if("command")
-			if(!is_authenticated(usr, active_ui))
+			if(is_locked(usr, active_ui))
 				return
 
 			var/device_id = params["id_tag"]
@@ -905,7 +914,7 @@
 			update_icon()
 
 		if("mode")
-			if(!is_authenticated(usr, active_ui))
+			if(is_locked(usr, active_ui))
 				return
 
 			mode = text2num(params["mode"])
@@ -913,7 +922,7 @@
 
 
 		if("preset")
-			if(!is_authenticated(usr, active_ui))
+			if(is_locked(usr, active_ui))
 				return
 
 			preset = text2num(params["preset"])

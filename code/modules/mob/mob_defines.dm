@@ -156,8 +156,6 @@
 	var/digitalcamo = 0 // Can they be tracked by the AI?
 	var/weakeyes = 0 //Are they vulnerable to flashes?
 
-	var/has_unlimited_silicon_privilege = 0 // Can they interact with station electronics
-
 	var/atom/movable/remote_control //Calls relaymove() to whatever it is
 
 	var/obj/control_object //Used by admins to possess objects. All mobs should have this var
