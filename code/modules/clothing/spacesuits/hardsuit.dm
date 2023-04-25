@@ -228,7 +228,6 @@
 	item_state = "mechanic_helm"
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 100, rad = 20, fire = 50, acid = 65)
 	resistance_flags = null
-	species_restricted = list("exclude", "Wryn", "lesser form","Skrell")
 
 /obj/item/clothing/suit/space/hardsuit/engine/mechanic
 	name = "mechanics hardsuit"
@@ -237,7 +236,6 @@
 	item_state = "mechanic_hardsuit"
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 100, rad = 20, fire = 50, acid = 65)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/engine/mechanic
-	species_restricted = list("exclude", "Wryn", "lesser form","Skrell")
 	resistance_flags = null
 	dog_fashion = null
 
