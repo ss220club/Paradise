@@ -20584,6 +20584,12 @@
 	icon_state = "white"
 	},
 /area/medical/virology)
+"bXs" = (
+/obj/structure/decor/cryo,
+/obj/effect/landmark/join_late,
+/obj/effect/landmark/honk_squad,
+/turf/simulated/floor/shuttle,
+/area/shuttle/arrival/station)
 "bXu" = (
 /obj/structure/rack,
 /obj/item/pickaxe/emergency,
@@ -31627,6 +31633,8 @@
 /turf/simulated/floor/plating/asteroid/ancient/airless,
 /area/space)
 "dht" = (
+/obj/structure/decor/cryo/right,
+/obj/effect/landmark/join_late,
 /obj/effect/landmark/honk_squad,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
@@ -37022,7 +37030,11 @@
 	},
 /area/crew_quarters/bar)
 "egu" = (
-/obj/effect/landmark/join_late_cyborg,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/decor/cryo,
+/obj/effect/landmark/join_late,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "egG" = (
@@ -39607,10 +39619,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
+/obj/structure/decor/cryo,
 /obj/effect/landmark/join_late,
+/obj/effect/landmark/honk_squad,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "fdD" = (
@@ -42036,6 +42047,7 @@
 /obj/machinery/computer/cryopod/robot{
 	pixel_y = -32
 	},
+/obj/effect/landmark/join_late_cyborg,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -54680,9 +54692,7 @@
 	},
 /area/security/hos)
 "kjb" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
+/obj/structure/decor/cryo/right,
 /obj/effect/landmark/join_late,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
@@ -59454,10 +59464,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
+/obj/structure/decor/cryo/right,
 /obj/effect/landmark/join_late,
+/obj/effect/landmark/honk_squad,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "lQG" = (
@@ -62176,7 +62185,6 @@
 /turf/simulated/wall,
 /area/chapel/main)
 "mNv" = (
-/obj/structure/closet/wardrobe/black,
 /obj/machinery/requests_console{
 	department = "Arrival Shuttle";
 	name = "Arrival Shuttle Requests Console";
@@ -67560,9 +67568,7 @@
 /turf/simulated/floor/transparent/glass/reinforced,
 /area/hallway/primary/starboard/north)
 "oEE" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
+/obj/structure/decor/cryo,
 /obj/effect/landmark/join_late,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
@@ -74753,7 +74759,7 @@
 /turf/simulated/floor/carpet/black,
 /area/chapel/office)
 "qVi" = (
-/obj/structure/closet/emcloset,
+/obj/structure/closet/wardrobe/black,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "qVr" = (
@@ -137706,15 +137712,15 @@ uSP
 uSP
 uSP
 uSP
-azh
+nAT
+kic
+lQB
+kjb
+kjb
+kjb
+kjb
+lQB
 qVi
-lQB
-kjb
-kjb
-kjb
-kjb
-lQB
-xbJ
 uOy
 eGf
 igy
@@ -137964,15 +137970,15 @@ xbJ
 vGc
 sws
 xbJ
-dht
-egu
-egu
-egu
-egu
-egu
-egu
-dht
-uOy
+xbJ
+xbJ
+xbJ
+xbJ
+xbJ
+xbJ
+xbJ
+xbJ
+xbJ
 uSP
 igy
 rNK
@@ -138221,15 +138227,15 @@ cJK
 xbJ
 lHH
 xbJ
-dht
+xbJ
+oEE
+oEE
+bXs
 oEE
 oEE
 oEE
-oEE
-oEE
-oEE
-dht
-nAT
+xbJ
+xbJ
 uSP
 igy
 rNK
@@ -138478,14 +138484,14 @@ fEn
 ihJ
 uSP
 nEj
-dht
+xbJ
 eGf
 pkt
 pkt
 pkt
 pkt
 sws
-dht
+azh
 mNv
 uSP
 uSP
@@ -138735,15 +138741,15 @@ rLp
 xbJ
 lHH
 xbJ
+xbJ
+kjb
+kjb
+kjb
+kjb
 dht
 kjb
-kjb
-kjb
-kjb
-kjb
-kjb
-dht
-kic
+xbJ
+xbJ
 uSP
 igy
 rNK
@@ -138992,14 +138998,14 @@ xbJ
 cpG
 eGf
 xbJ
-dht
-egu
-egu
-egu
-egu
-egu
-egu
-dht
+xbJ
+xbJ
+xbJ
+xbJ
+xbJ
+xbJ
+xbJ
+xbJ
 xbJ
 uSP
 igy
@@ -139255,7 +139261,7 @@ oEE
 oEE
 oEE
 oEE
-fcO
+egu
 xbJ
 xbJ
 sws
