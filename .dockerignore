@@ -1,0 +1,6 @@
+.idea/*
+.vscode/*
+.git/*
+.github/*
+tools/docker/*
+Dockerfile
