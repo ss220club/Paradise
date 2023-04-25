@@ -128,6 +128,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 	var/nutritional_value = 20 	// How much nutrition add
 	var/is_only_grab_intent = FALSE	//Grab if help_intent was used
 
+	var/block_unequip = FALSE
 
 /obj/item/New()
 	..()
@@ -315,7 +316,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 
 	if(throwing)
 		throwing.finalize(FALSE)
-	if(loc == user)
+	if(loc == user && !block_unequip)
 		if(!user.advanced_unequip_if_possible(src))
 			return 0
 

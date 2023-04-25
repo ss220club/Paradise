@@ -120,52 +120,52 @@ SUBSYSTEM_DEF(ticker)
 		if(GAME_STATE_PLAYING)
 			delay_end = FALSE // reset this in case round start was delayed
 			mode.process()
-			mode.process_job_tasks()
+			// mode.process_job_tasks()
 
-			if(world.time > next_autotransfer)
-				SSvote.start_vote(new /datum/vote/crew_transfer)
-				next_autotransfer = world.time + config.vote_autotransfer_interval
+			// if(world.time > next_autotransfer)
+			// 	SSvote.start_vote(new /datum/vote/crew_transfer)
+			// 	next_autotransfer = world.time + config.vote_autotransfer_interval
 
-			var/game_finished = SSshuttle.emergency.mode >= SHUTTLE_ENDGAME || mode.station_was_nuked
-			if(config.continuous_rounds)
-				mode.check_finished() // some modes contain var-changing code in here, so call even if we don't uses result
-			else
-				game_finished |= mode.check_finished()
-			if(game_finished || force_ending)
-				current_state = GAME_STATE_FINISHED
-		if(GAME_STATE_FINISHED)
-			current_state = GAME_STATE_FINISHED
-			Master.SetRunLevel(RUNLEVEL_POSTGAME) // This shouldnt process more than once, but you never know
-			auto_toggle_ooc(TRUE) // Turn it on
+			// var/game_finished = SSshuttle.emergency.mode >= SHUTTLE_ENDGAME || mode.station_was_nuked
+			// if(config.continuous_rounds)
+			// 	mode.check_finished() // some modes contain var-changing code in here, so call even if we don't uses result
+			// else
+			// 	game_finished |= mode.check_finished()
+			// if(game_finished || force_ending)
+			// 	current_state = GAME_STATE_FINISHED
+		// if(GAME_STATE_FINISHED)
+		// 	current_state = GAME_STATE_FINISHED
+		// 	Master.SetRunLevel(RUNLEVEL_POSTGAME) // This shouldnt process more than once, but you never know
+		// 	auto_toggle_ooc(TRUE) // Turn it on
 
-			declare_completion()
+			// declare_completion()
 
-			spawn(50)
-				if(mode.station_was_nuked)
-					reboot_helper("Station destroyed by Nuclear Device.", "nuke")
-				else
-					reboot_helper("Round ended.", "proper completion")
+			// spawn(50)
+			// 	if(mode.station_was_nuked)
+			// 		reboot_helper("Station destroyed by Nuclear Device.", "nuke")
+			// 	else
+			// 		reboot_helper("Round ended.", "proper completion")
 
-			if(!SSmapping.next_map) //Next map already selected by admin
-				var/list/all_maps = subtypesof(/datum/map)
-				for(var/x in all_maps)
-					var/datum/map/M = x
-					if(initial(M.admin_only))
-						all_maps -= M
-				switch(config.map_rotate)
-					if("rotate")
-						for(var/i in 1 to all_maps.len)
-							if(istype(SSmapping.map_datum, all_maps[i]))
-								var/target_map = all_maps[(i % all_maps.len) + 1]
-								SSmapping.next_map = new target_map
-								break
-					if("random")
-						var/target_map = pick(all_maps)
-						SSmapping.next_map = new target_map
-					if("vote")
-						SSvote.start_vote(new /datum/vote/map)
-					else
-						SSmapping.next_map = SSmapping.map_datum
+			// if(!SSmapping.next_map) //Next map already selected by admin
+			// 	var/list/all_maps = subtypesof(/datum/map)
+			// 	for(var/x in all_maps)
+			// 		var/datum/map/M = x
+			// 		if(initial(M.admin_only))
+			// 			all_maps -= M
+			// 	switch(config.map_rotate)
+			// 		if("rotate")
+			// 			for(var/i in 1 to all_maps.len)
+			// 				if(istype(SSmapping.map_datum, all_maps[i]))
+			// 					var/target_map = all_maps[(i % all_maps.len) + 1]
+			// 					SSmapping.next_map = new target_map
+			// 					break
+			// 		if("random")
+			// 			var/target_map = pick(all_maps)
+			// 			SSmapping.next_map = new target_map
+			// 		if("vote")
+			// 			SSvote.start_vote(new /datum/vote/map)
+			// 		else
+			// 			SSmapping.next_map = SSmapping.map_datum
 			if(SSmapping.next_map)
 				to_chat(world, "<B>The next map is - [SSmapping.next_map.name]!</B>")
 
