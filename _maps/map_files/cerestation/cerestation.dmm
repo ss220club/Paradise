@@ -36458,7 +36458,7 @@
 	},
 /area/hallway/primary/fore)
 "dTL" = (
-/obj/item/twohanded/required/kirbyplants,
+/obj/machinery/suit_storage_unit/mechanic,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "yellow"
