@@ -1,6 +1,6 @@
 name: 'Merge Conflict Detection'
 on:
-  push:
+  pull-request:
     branches:
       - master
       - prime
