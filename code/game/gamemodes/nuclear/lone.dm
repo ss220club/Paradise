@@ -17,7 +17,7 @@
 
 
 /datum/event/operative/proc/store_nuke_code(datum/mind/synd_mind, nuke_code)
-	synd_mind.store_memory("<B>Код от ядерной боеголовки</B>: [nuke_code]", 0, 0)
+	synd_mind.store_memory("<B>Код от ядерной боеголовки</B>: [nuke_code]")
 	to_chat(synd_mind.current, "Код от ядерной боеголовки: <B>[nuke_code]</B>")
 
 
