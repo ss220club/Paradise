@@ -20,14 +20,14 @@
 
 /datum/event/operative/proc/get_nuke_spawn_loc()
 	var/list/possible_spawns = list()
-	for(var/obj/effect/landmark/syndicate_spawn in GLOB.landmarks_list)
-		if(!isturf(spawn_location.loc))
-			stack_trace("Carp spawn found not on a turf: [spawn_location.type] on [isnull(spawn_location.loc) ? "null" : spawn_location.loc.type]")
+	for(var/obj/effect/landmark/syndicate_spawn/syndicate_spawn in GLOB.landmarks_list)
+		if(!isturf(syndicate_spawn.loc))
+			stack_trace("Syndicate landmark found not on a turf: [syndicate_spawn.type] on [isnull(syndicate_spawn.loc) ? "null" : syndicate_spawn.loc.type]")
 			continue
-		possible_spawns += get_turf(spawn_location)
+		possible_spawns += get_turf(syndicate_spawn)
 
 	if(!length(possible_spawns))
-		message_admins("No valid carpspawn landmarks found, aborting...")
+		message_admins("No valid Syndicate landmarks found, aborting...")
 		return null
 
 	return pick(possible_spawns)
