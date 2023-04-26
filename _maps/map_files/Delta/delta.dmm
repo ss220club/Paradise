@@ -3305,7 +3305,7 @@
 	id = "mechanicgate";
 	name = "Mechanic Pod Door";
 	pixel_x = 24;
-	pixel_y = -24;
+	pixel_y = 24;
 	req_access = list(70)
 	},
 /turf/simulated/floor/plasteel{
@@ -6333,12 +6333,11 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/light_switch{
-	dir = 4;
-	name = "west bump";
-	pixel_x = -25
-	},
 /obj/item/weldingtool/largetank,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -22
+	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "yellow"
@@ -6355,10 +6354,6 @@
 	},
 /area/quartermaster/qm)
 "aTx" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 24
-	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -6366,6 +6361,10 @@
 	c_tag = "Mechanic's Office";
 	dir = 8;
 	network = list("Engineering","SS13")
+	},
+/obj/machinery/light_switch{
+	pixel_x = 24;
+	pixel_y = 6
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
@@ -13750,10 +13749,7 @@
 	},
 /area/storage/tech)
 "bFi" = (
-/obj/item/twohanded/required/kirbyplants,
-/obj/item/radio/intercom{
-	pixel_y = -28
-	},
+/obj/machinery/suit_storage_unit/mechanic,
 /turf/simulated/floor/plasteel{
 	dir = 6;
 	icon_state = "yellow"
@@ -173078,8 +173074,8 @@ beC
 aNf
 brk
 aTx
-avm
 aAY
+avm
 bFi
 beC
 aGa

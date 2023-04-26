@@ -55485,7 +55485,7 @@
 /obj/machinery/camera{
 	c_tag = "Mechanic's Workshop East"
 	},
-/obj/machinery/space_heater,
+/obj/machinery/suit_storage_unit/mechanic,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "vault"
