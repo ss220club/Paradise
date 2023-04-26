@@ -323,8 +323,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 		if(isliving(loc))
 			return 0
 		if(isturf(loc))
-		var/show_anim = TRUE
-		var/mob/living/carbon/human/H = user
+			var/show_anim = TRUE
+			var/mob/living/carbon/human/H = user
 		if(istype(H) && H.gloves)
 			var/obj/item/clothing/gloves/G = H.gloves
 			if(istype(G) && G.pickpocket)
