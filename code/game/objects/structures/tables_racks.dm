@@ -107,8 +107,10 @@
 /obj/structure/table/attack_tk() // no telehulk sorry
 	return
 
-/obj/structure/table/proc/item_placed(item)
-	return
+/obj/structure/table/proc/item_placed(obj/item/I, mob/user)
+	I.do_pick_drop_animation(user, "drop")
+	sleep(3)
+	I.invisibility = initial(I.invisibility)
 
 /obj/structure/table/Crossed(atom/movable/AM, oldloc)
 	. = ..()
@@ -212,7 +214,6 @@
 			return FALSE
 		G.affecting.forceMove(get_turf(src))
 		G.affecting.Weaken(2)
-		item_placed(G.affecting)
 		G.affecting.visible_message("<span class='danger'>[G.assailant] pushes [G.affecting] onto [src].</span>", \
 									"<span class='userdanger'>[G.assailant] pushes [G.affecting] onto [src].</span>")
 		add_attack_logs(G.assailant, G.affecting, "Pushed onto a table")
@@ -230,6 +231,7 @@
 
 	if(user.a_intent != INTENT_HARM && !(I.flags & ABSTRACT))
 		if(user.drop_item())
+			I.invisibility = 101
 			I.Move(loc)
 			var/list/click_params = params2list(params)
 			//Center the icon where the user clicked.
@@ -238,7 +240,7 @@
 			//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
 			I.pixel_x = clamp(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
 			I.pixel_y = clamp(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
-			item_placed(I)
+			item_placed(I, user)
 	else
 		return ..()
 
@@ -684,7 +686,7 @@
 			continue
 		held.forceMove(NewLoc)
 
-/obj/structure/table/tray/item_placed(atom/movable/item)
+/obj/structure/table/tray/item_placed(atom/movable/item, mob/previous_holder)
 	. = ..()
 	if(is_type_in_typecache(item, typecache_can_hold))
 		held_items += item.UID()
@@ -760,7 +762,11 @@
 		return ..()
 	if(!(W.flags & ABSTRACT))
 		if(user.drop_item())
+			W.invisibility = 101
 			W.Move(loc)
+			W.do_pick_drop_animation(user, "drop", W)
+			sleep(3)
+			W.invisibility = initial(W.invisibility)
 	return
 
 /obj/structure/rack/wrench_act(mob/user, obj/item/I)
