@@ -16,7 +16,7 @@
 	return nuke_code
 
 
-/datum/event/operative/proc/store_nuke_code(datum/mind/synd_mind, nuke_code)
+/datum/event/operative/proc/remember_nuke_code(datum/mind/synd_mind, nuke_code)
 	synd_mind.store_memory("<B>Код от ядерной боеголовки</B>: [nuke_code]")
 	to_chat(synd_mind.current, "Код от ядерной боеголовки: <B>[nuke_code]</B>")
 
@@ -56,7 +56,7 @@
 	SSticker.mode.greet_syndicate(operative_mind)
 
 	SSticker.mode.equip_syndicate(operative)
-	store_nuke_code(operative_mind, assign_nuke())
+	remember_nuke_code(operative_mind, assign_nuke())
 	SSticker.mode.update_syndicate_id(operative_mind, TRUE)
 
 	var/additional_tk = max(0, (GLOB.player_list.len - 30)*2)
