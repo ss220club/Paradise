@@ -1,6 +1,7 @@
 /datum/event/operative
 	name = "Оперативник-одиночка"
 
+
 /datum/event/operative/proc/assign_nuke()
 	var/nuke_code = rand(10000, 99999)
 	var/obj/machinery/nuclearbomb/nuke = locate() in GLOB.machines
@@ -14,9 +15,11 @@
 		nuke_code = null
 	return nuke_code
 
+
 /datum/event/operative/proc/store_nuke_code(datum/mind/synd_mind, nuke_code)
 	synd_mind.store_memory("<B>Код от ядерной боеголовки</B>: [nuke_code]", 0, 0)
 	to_chat(synd_mind.current, "Код от ядерной боеголовки: <B>[nuke_code]</B>")
+
 
 /datum/event/operative/proc/get_nuke_spawn_loc()
 	var/list/possible_spawns = list()
@@ -63,8 +66,6 @@
 		Uplink.hidden_uplink.uses = 20 + additional_tk
 
 	return TRUE
-
-
 
 
 /datum/event/operative/start()
