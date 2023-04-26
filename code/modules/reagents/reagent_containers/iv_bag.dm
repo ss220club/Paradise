@@ -182,9 +182,9 @@
 
 
 /obj/item/reagent_containers/iv_bag/blood/random/Initialize()
+	. = ..()
 	blood_type = pick("A+", "A-", "B+", "B-", "O+", "O-")
 	blood_species = pick("Human", "Diona", "Drask", "Grey", "Kidan", "Tajaran", "Vulpkanin", "Skrell", "Unathi", "Nian", "Vox", "Wryn")
-	return ..()
 
 /obj/item/reagent_containers/iv_bag/blood/APlus
 	blood_type = "A+"
