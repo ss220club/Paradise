@@ -148,7 +148,7 @@
 	// chemical_reaction_list["plasma"] is a list of all reactions relating to plasma
 	for(var/path in subtypesof(/datum/chemical_reaction))
 		var/datum/chemical_reaction/reaction_datum = new path()
-		if(!length(reaction_datum?.required_reagents))
+		if(!length(reaction_datum.required_reagents))
 			continue
 
 		for(var/reagent in reaction_datum.required_reagents)
