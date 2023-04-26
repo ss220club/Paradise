@@ -62,6 +62,13 @@
 	magboots_type = /obj/item/clothing/shoes/magboots
 	req_access = list(ACCESS_ENGINE_EQUIP)
 
+/obj/machinery/suit_storage_unit/mechanic
+	name = "mechanic suit storage unit"
+	suit_type    = /obj/item/clothing/suit/space/hardsuit/engine/mechanic
+	mask_type    = /obj/item/clothing/mask/breath
+	magboots_type = /obj/item/clothing/shoes/magboots
+	req_access = list(ACCESS_MECHANIC)
+
 /obj/machinery/suit_storage_unit/ce
 	name = "chief engineer's suit storage unit"
 	suit_type    = /obj/item/clothing/suit/space/hardsuit/engine/elite
