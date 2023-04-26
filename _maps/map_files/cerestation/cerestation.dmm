@@ -69465,7 +69465,6 @@
 /area/engine/chiefs_office)
 "pkt" = (
 /obj/effect/spawner/window/shuttle,
-/obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/shuttle/arrival/station)
 "pkO" = (
