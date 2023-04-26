@@ -66,6 +66,7 @@ SUBSYSTEM_DEF(machines)
 			return
 
 /datum/controller/subsystem/machines/proc/process_machines(resumed = 0)
+	var/seconds = wait * 0.1
 	if(!resumed)
 		src.currentrun = processing.Copy()
 	//cache for sanic speed (lists are references anyways)
@@ -73,7 +74,7 @@ SUBSYSTEM_DEF(machines)
 	while(currentrun.len)
 		var/obj/machinery/thing = currentrun[currentrun.len]
 		currentrun.len--
-		if(!QDELETED(thing) && thing.process(wait) != PROCESS_KILL)
+		if(!QDELETED(thing) && thing.process(seconds) != PROCESS_KILL)
 			if(thing.use_power)
 				thing.auto_use_power() //add back the power state
 		else
