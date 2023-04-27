@@ -1377,6 +1377,8 @@
 					/obj/item/clothing/under/rank/clown/sexy = 1,
 					/obj/item/clothing/mask/gas/sexymime = 1,
 					/obj/item/clothing/under/sexymime = 1,
+					/obj/item/clothing/suit/monkeysuit = 1,
+					/obj/item/clothing/mask/gas/monkeymask = 1,
 					/obj/item/clothing/mask/face/bat = 1,
 					/obj/item/clothing/mask/face/bee = 1,
 					/obj/item/clothing/mask/face/bear = 1,
