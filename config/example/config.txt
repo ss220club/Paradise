@@ -588,3 +588,6 @@ DEFAULT_MAP /datum/map/cyberiad
 
 ## Is water poison allowed on the server?
 #WATER_POISON
+
+## Is Pull-Push Speed modifier feature enabled?
+MODIFY_PULL_PUSH_SPEED
