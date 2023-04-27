@@ -4,6 +4,6 @@ docker-compose down
 
 [[ -f .env ]] || cp .env.example .env
 
-./prepare.sh
+./prepare_configs.sh
 
 docker-compose up --build -d

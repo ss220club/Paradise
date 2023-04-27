@@ -10,7 +10,6 @@ services:
         - BYOND_MINOR=${BYOND_MINOR}
         - RUSTG=${RUSTG}
         - NODEJS=${NODEJS}
-        - DREAM_MAKER_COMMAND=./tools/ci/dm.sh paradise.dme
     ports:
       - ${OUTER_PORT}:${INNER_PORT}
     volumes:
