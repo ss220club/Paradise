@@ -795,42 +795,49 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 	else if(owner.l_hand == src)
 		owner.update_inv_l_hand()
 
-/obj/item/proc/do_pick_drop_animation(mob/user, var/check_flag)
-	if(isturf(loc))
-		var/list/anim_viewing = list()
-		for(var/mob/other_user in viewers(user))
-			if(other_user.client && (other_user.client.prefs.toggles2 & PREFTOGGLE_2_PICKUP_ANIMATIONS))
-				anim_viewing |= other_user.client
-			var/image/pick_drop_animation = image(icon = src, loc = loc, layer = layer + 0.1)
-			pick_drop_animation.plane = GAME_PLANE
-			var/direction = get_dir(get_turf(src), user)
-			var/vector_x = user.pixel_x
-			var/vector_y = user.pixel_y
-			if(direction & NORTH)
-				vector_y += 32
-			else if(direction & SOUTH)
-				vector_y -= 32
-			if(direction & EAST)
-				vector_x += 32
-			else if(direction & WEST)
-				vector_x -= 32
-			if(!direction)
-				vector_y += 10
-				if(check_flag == "drop")
-					vector_x += 6 * (prob(50) ? 1 : -1)
-				else
-					pick_drop_animation.pixel_x += 6 * (prob(50) ? 1 : -1)
-			pick_drop_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
+/obj/item/proc/do_pick_drop_animation(mob/user, var/check_flag, obj/item/I)
+	set waitfor = FALSE
+	if(!isturf(loc))
+		return
+	if(check_flag == "drop")
+		I.invisibility = 101
+	var/list/anim_viewing = list()
+	for(var/mob/other_user in viewers(user))
+		if(other_user.client && (other_user.client.prefs.toggles2 & PREFTOGGLE_2_PICKUP_ANIMATIONS))
+			anim_viewing |= other_user.client
+		var/image/pick_drop_animation = image(icon = src, loc = src.loc, layer = src.layer + 0.1)
+		pick_drop_animation.plane = GAME_PLANE
+		var/direction = get_dir(get_turf(src), user)
+		var/vector_x = user.pixel_x
+		var/vector_y = user.pixel_y
+		if(direction & NORTH)
+			vector_y += 32
+		else if(direction & SOUTH)
+			vector_y -= 32
+		if(direction & EAST)
+			vector_x += 32
+		else if(direction & WEST)
+			vector_x -= 32
+		if(!direction)
+			vector_y += 10
 			if(check_flag == "drop")
-				var/old_x = pixel_x
-				var/old_y = pixel_y
-				pick_drop_animation.pixel_x = vector_x
-				pick_drop_animation.pixel_y = vector_y
-				flick_overlay(pick_drop_animation, anim_viewing, 2)
-				animate(pick_drop_animation, pixel_x = old_x, pixel_y = old_y, time = 2, easing = LINEAR_EASING)
+				vector_x += 6 * (prob(50) ? 1 : -1)
 			else
-				flick_overlay(pick_drop_animation, anim_viewing, 2)
-				animate(pick_drop_animation, pixel_x = vector_x, pixel_y = vector_y, time = 2, easing = LINEAR_EASING)
+				pick_drop_animation.pixel_x += 6 * (prob(50) ? 1 : -1)
+		pick_drop_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
+		if(check_flag == "drop")
+			var/old_x = pixel_x
+			var/old_y = pixel_y
+			pick_drop_animation.pixel_x = vector_x
+			pick_drop_animation.pixel_y = vector_y
+			flick_overlay(pick_drop_animation, anim_viewing, 2)
+			animate(pick_drop_animation, pixel_x = old_x, pixel_y = old_y, time = 2, easing = LINEAR_EASING)
+		else
+			flick_overlay(pick_drop_animation, anim_viewing, 2)
+			animate(pick_drop_animation, pixel_x = vector_x, pixel_y = vector_y, time = 2, easing = LINEAR_EASING)
+	if(check_flag == "drop")
+		sleep(2)
+		I.invisibility = initial(I.invisibility)
 
 /obj/item/proc/update_materials_coeff(new_coeff)
 	if(new_coeff <= 1)

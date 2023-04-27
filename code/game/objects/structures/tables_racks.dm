@@ -108,9 +108,7 @@
 	return
 
 /obj/structure/table/proc/item_placed(obj/item/I, mob/user)
-	I.do_pick_drop_animation(user, "drop")
-	sleep(2)
-	I.invisibility = initial(I.invisibility)
+	I.do_pick_drop_animation(user, "drop", I)
 
 /obj/structure/table/Crossed(atom/movable/AM, oldloc)
 	. = ..()
@@ -762,11 +760,8 @@
 		return ..()
 	if(!(W.flags & ABSTRACT))
 		if(user.drop_item())
-			W.invisibility = 101
-			W.Move(loc)
 			W.do_pick_drop_animation(user, "drop", W)
-			sleep(2)
-			W.invisibility = initial(W.invisibility)
+			W.Move(loc)
 	return
 
 /obj/structure/rack/wrench_act(mob/user, obj/item/I)

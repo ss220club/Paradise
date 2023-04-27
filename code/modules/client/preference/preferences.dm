@@ -2232,6 +2232,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 
 				if("winflash")
 					toggles2 ^= PREFTOGGLE_2_WINDOWFLASHING
+
 				if("item_animations")
 					toggles2 ^= PREFTOGGLE_2_PICKUP_ANIMATIONS
 
