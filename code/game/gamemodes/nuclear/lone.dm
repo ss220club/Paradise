@@ -83,3 +83,4 @@
 	if(!make_operative())
 		message_admins("Lone operative event failed to start. Not enough ghosts, nuke spawn points or nuke bombs.")
 
+#undef MIN_PLAYERS_FOR_LONEOP_EVENT
