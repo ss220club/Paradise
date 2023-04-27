@@ -109,7 +109,7 @@
 
 /obj/structure/table/proc/item_placed(obj/item/I, mob/user)
 	I.do_pick_drop_animation(user, "drop")
-	sleep(3)
+	sleep(2)
 	I.invisibility = initial(I.invisibility)
 
 /obj/structure/table/Crossed(atom/movable/AM, oldloc)
@@ -765,7 +765,7 @@
 			W.invisibility = 101
 			W.Move(loc)
 			W.do_pick_drop_animation(user, "drop", W)
-			sleep(3)
+			sleep(2)
 			W.invisibility = initial(W.invisibility)
 	return
 

@@ -323,13 +323,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 		if(isliving(loc))
 			return 0
 		if(isturf(loc))
-			var/show_anim = TRUE
-			var/mob/living/carbon/human/H = user
-		if(istype(H) && H.gloves)
-			var/obj/item/clothing/gloves/G = H.gloves
-			if(istype(G) && G.pickpocket)
-				show_anim = FALSE
-		if(show_anim)
 			do_pick_drop_animation(user, "pickup")
 
 	add_fingerprint(user)
@@ -809,10 +802,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 			if(other_user.client && (other_user.client.prefs.toggles2 & PREFTOGGLE_2_PICKUP_ANIMATIONS))
 				anim_viewing |= other_user.client
 			var/image/pick_drop_animation = image(icon = src, loc = loc, layer = layer + 0.1)
-			var/turf/current_turf = get_turf(src)
 			pick_drop_animation.plane = GAME_PLANE
-			pick_drop_animation.transform.Scale(0.7)
-			var/direction = get_dir(current_turf, user)
+			var/direction = get_dir(get_turf(src), user)
 			var/vector_x = user.pixel_x
 			var/vector_y = user.pixel_y
 			if(direction & NORTH)
@@ -826,22 +817,20 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 			if(!direction)
 				vector_y += 10
 				if(check_flag == "drop")
-					pick_drop_animation.pixel_x += 6 * (prob(50) ? 1 : -1)
-				else
 					vector_x += 6 * (prob(50) ? 1 : -1)
+				else
+					pick_drop_animation.pixel_x += 6 * (prob(50) ? 1 : -1)
 			pick_drop_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 			if(check_flag == "drop")
 				var/old_x = pixel_x
 				var/old_y = pixel_y
-				var/old_alpha = alpha
 				pick_drop_animation.pixel_x = vector_x
 				pick_drop_animation.pixel_y = vector_y
-				pick_drop_animation.alpha = 0
-				flick_overlay(pick_drop_animation, anim_viewing, 3)
-				animate(pick_drop_animation, alpha = old_alpha, pixel_x = old_x, pixel_y = old_y, time = 3, easing = CUBIC_EASING)
+				flick_overlay(pick_drop_animation, anim_viewing, 2)
+				animate(pick_drop_animation, pixel_x = old_x, pixel_y = old_y, time = 2, easing = LINEAR_EASING)
 			else
-				flick_overlay(pick_drop_animation, anim_viewing, 3)
-				animate(pick_drop_animation, alpha = 0, pixel_x = vector_x, pixel_y = vector_y, time = 3, easing = CUBIC_EASING)
+				flick_overlay(pick_drop_animation, anim_viewing, 2)
+				animate(pick_drop_animation, pixel_x = vector_x, pixel_y = vector_y, time = 2, easing = LINEAR_EASING)
 
 /obj/item/proc/update_materials_coeff(new_coeff)
 	if(new_coeff <= 1)
