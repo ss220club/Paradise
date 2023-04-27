@@ -1,6 +1,7 @@
+#define MIN_PLAYERS_FOR_LONEOP_EVENT 30
+
 /datum/event/operative
 	name = "Оперативник-одиночка"
-
 
 /datum/event/operative/proc/assign_nuke()
 	var/obj/machinery/nuclearbomb/nuke = locate() in GLOB.machines
@@ -27,47 +28,58 @@
 		return pick(possible_spawns)
 
 
+/datum/event/operative/proc/make_operative_body(mob/dead/observer/ghost, turf/spawn_loc)
+	var/mob/living/carbon/human/new_character = makeBody(ghost)
+	new_character.forceMove(spawn_loc)
+	SSticker.mode.create_syndicate(new_character.mind)
+	return new_character
+
+
+/datum/event/operative/proc/equip_operative(mob/living/carbon/human/operative)
+	SSticker.mode.equip_syndicate(operative)
+	SSticker.mode.update_syndicate_id(operative.mind, TRUE)
+	var/additional_tk = max(0, (GLOB.player_list.len - MIN_PLAYERS_FOR_LONEOP_EVENT)*2)
+	var/obj/item/radio/uplink/uplink = locate() in operative.back
+	if(!uplink)
+		stack_trace("Lone operative spawned without an uplink. Spawning one.")
+		uplink = new(get_turf(operative))
+	uplink.hidden_uplink.uplink_owner = "[operative.key]"
+	uplink.hidden_uplink.uses += additional_tk
+
+
+/datum/event/operative/proc/assign_operative_role(datum/mind/operative_mind)
+	SSticker.mode.syndicates += operative_mind
+	SSticker.mode.update_synd_icons_added(operative_mind)
+	operative_mind.current.real_name = "[syndicate_name()] Lone Operative"
+	operative_mind.special_role = SPECIAL_ROLE_NUKEOPS
+	operative_mind.assigned_role = SPECIAL_ROLE_NUKEOPS
+	SSticker.mode.forge_syndicate_objectives(operative_mind)
+	SSticker.mode.greet_syndicate(operative_mind)
+
+
 /datum/event/operative/proc/make_operative()
 	var/list/candidates = SSghost_spawns.poll_candidates("Do you wish to be a lone nuclear operative?", ROLE_OPERATIVE, TRUE, source = /obj/machinery/nuclearbomb/)
 	var/turf/spawn_loc = pick_nuke_spawn_loc()
 	var/nuke_code = assign_nuke()
 	if(!spawn_loc || !nuke_code || !length(candidates))
 		return FALSE
+
 	var/mob/dead/observer/selected = pick(candidates)
-	var/mob/living/carbon/human/new_character = makeBody(selected)
-	new_character.forceMove(spawn_loc)
-	var/datum/mind/operative_mind = new_character.mind
-	SSticker.mode.create_syndicate(operative_mind)
-	var/mob/living/carbon/human/operative = operative_mind.current
+	var/mob/living/carbon/human/operative = make_operative_body(selected, spawn_loc)
+	var/datum/mind/operative_mind = operative.mind
 
-	SSticker.mode.syndicates += operative_mind
-	SSticker.mode.update_synd_icons_added(operative_mind)
-	operative.real_name = "[syndicate_name()] Lone Operative"
-	operative_mind.special_role = SPECIAL_ROLE_NUKEOPS
-	operative_mind.assigned_role = SPECIAL_ROLE_NUKEOPS
-	SSticker.mode.forge_syndicate_objectives(operative_mind)
-	SSticker.mode.greet_syndicate(operative_mind)
-
-	SSticker.mode.equip_syndicate(operative)
+	assign_operative_role(operative_mind)
 	remember_nuke_code(operative_mind, nuke_code)
-	SSticker.mode.update_syndicate_id(operative_mind, TRUE)
-
-	var/additional_tk = max(0, (GLOB.player_list.len - 30)*2)
-	var/obj/item/radio/uplink/uplink = locate() in operative.back
-	if(!istype(uplink)) // Should not ever happen, but just in case
-		uplink = new(get_turf(operative))
-	uplink.hidden_uplink.uplink_owner = "[operative.key]"
-	uplink.hidden_uplink.uses += additional_tk
+	equip_operative(operative)
 
 	return TRUE
 
 
 /datum/event/operative/start()
 	processing = FALSE
-	if(length(GLOB.player_list) < 30)
+	if(length(GLOB.player_list) < MIN_PLAYERS_FOR_LONEOP_EVENT)
 		message_admins("Lone operative event failed to start. Not enough players.")
 		return
 	if(!make_operative())
 		message_admins("Lone operative event failed to start. Not enough ghosts, nuke spawn points or nuke bombs.")
-
 
