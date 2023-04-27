@@ -3,41 +3,35 @@
 
 
 /datum/event/operative/proc/assign_nuke()
-	var/nuke_code = rand(10000, 99999)
 	var/obj/machinery/nuclearbomb/nuke = locate() in GLOB.machines
-	if(nuke)
-		if(nuke.r_code == "ADMIN")
-			nuke.r_code = nuke_code
-		else //Already set by admins/something else?
-			nuke_code = nuke.r_code
-	else
-		nuke_code = null
-	return nuke_code
+	if(!nuke)
+		return null
+
+	if(nuke.r_code == "ADMIN")
+		nuke.r_code = rand(10000, 99999)
+
+	return nuke.r_code
 
 
 /datum/event/operative/proc/remember_nuke_code(datum/mind/synd_mind, nuke_code)
 	synd_mind.store_memory("<B>Код от ядерной боеголовки</B>: [nuke_code]")
-	to_chat(synd_mind.current, "Код от ядерной боеголовки: <B>[nuke_code]</B>")
+	to_chat(synd_mind.current, "<B>Код от ядерной боеголовки</B>: [nuke_code]")
 
 
-/datum/event/operative/proc/get_nuke_spawn_loc()
+/datum/event/operative/proc/pick_nuke_spawn_loc()
 	var/list/possible_spawns = list()
 	for(var/obj/effect/landmark/syndicate_spawn/syndicate_spawn in GLOB.landmarks_list)
-		if(!isturf(syndicate_spawn.loc))
-			continue
-		possible_spawns += get_turf(syndicate_spawn)
-
-	if(!length(possible_spawns))
-		return null
-
-	return pick(possible_spawns)
+		if(isturf(syndicate_spawn.loc))
+			possible_spawns += get_turf(syndicate_spawn)
+	if(length(possible_spawns))
+		return pick(possible_spawns)
 
 
 /datum/event/operative/proc/make_operative()
 	var/list/candidates = SSghost_spawns.poll_candidates("Do you wish to be a lone nuclear operative?", ROLE_OPERATIVE, TRUE, source = /obj/machinery/nuclearbomb/)
-	var/turf/spawn_loc = get_nuke_spawn_loc()
+	var/turf/spawn_loc = pick_nuke_spawn_loc()
 	var/nuke_code = assign_nuke()
-	if(isnull(spawn_loc) || isnull(nuke_code) || !length(candidates))
+	if(!(spawn_loc && nuke_code && length(candidates)))
 		return FALSE
 	var/mob/dead/observer/selected = pick(candidates)
 	var/mob/living/carbon/human/new_character = makeBody(selected)
@@ -60,9 +54,10 @@
 
 	var/additional_tk = max(0, (GLOB.player_list.len - 30)*2)
 	var/obj/item/radio/uplink/uplink = locate() in operative.back
-	if(istype(uplink))
-		uplink.hidden_uplink.uplink_owner = "[operative.key]"
-		uplink.hidden_uplink.uses = 20 + additional_tk
+	if(!istype(uplink)) // Should not ever happen, but just in case
+		uplink = new(get_turf(operative))
+	uplink.hidden_uplink.uplink_owner = "[operative.key]"
+	uplink.hidden_uplink.uses += additional_tk
 
 	return TRUE
 
