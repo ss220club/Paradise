@@ -40,7 +40,6 @@ SUBSYSTEM_DEF(mapping)
 
 	loadLavaland()
 
-	loadTaipan()
 	// Pick a random away mission.
 	if(!config.disable_away_missions)
 		createRandomZlevel()
@@ -150,14 +149,6 @@ SUBSYSTEM_DEF(mapping)
 	var/lavaland_z_level = GLOB.space_manager.add_new_zlevel(MINING, linkage = SELFLOOPING, traits = list(ORE_LEVEL, REACHABLE, STATION_CONTACT, HAS_WEATHER, AI_OK))
 	GLOB.maploader.load_map(file(map_datum.lavaland_path), z_offset = lavaland_z_level)
 	log_startup_progress("Loaded Lavaland in [stop_watch(watch)]s")
-
-
-/datum/controller/subsystem/mapping/proc/loadTaipan()
-	var/watch = start_watch()
-	log_startup_progress("Loading Taipan...")
-	var/taipan_z_level = GLOB.space_manager.add_new_zlevel(RAMSS_TAIPAN, linkage = SELFLOOPING, traits = list(REACHABLE, TAIPAN))
-	GLOB.maploader.load_map(file("_maps/map_files/generic/syndicatebase.dmm"), z_offset = taipan_z_level)
-	log_startup_progress("Loaded Taipan in [stop_watch(watch)]s")
 
 /datum/controller/subsystem/mapping/proc/seedRuins(list/z_levels = null, budget = 0, whitelist = /area/space, list/potentialRuins)
 	if(!z_levels || !z_levels.len)

@@ -3,6 +3,7 @@ import { useBackend } from '../backend';
 import { Button, LabeledList, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 import { AccessList } from './common/AccessList';
+import { InterfaceLockNoticeBox } from "./common/InterfaceLockNoticeBox";
 
 export const PortableTurret = (props, context) => {
   const { act, data } = useBackend(context);
@@ -27,9 +28,7 @@ export const PortableTurret = (props, context) => {
   return (
     <Window>
       <Window.Content scrollable>
-        <NoticeBox>
-          Swipe an ID card to {locked ? 'unlock' : 'lock'} this interface.
-        </NoticeBox>
+        <InterfaceLockNoticeBox />
         <Section>
           <LabeledList>
             <LabeledList.Item label="Status">

@@ -88,6 +88,61 @@
 		for(var/atom/A in T.contents)
 			A.extinguish_light()
 
+/obj/effect/proc_holder/spell/targeted/shadowstep
+	name = "Shadow step"
+	desc = "Allows you to teleport to the closest available shade."
+	panel = "Shadowling Abilities"
+	charge_max = 300 //Used to be twice this, buffed
+	clothes_req = 0
+	phase_allowed = TRUE
+	range = -1
+	include_user = 1
+	action_icon_state = "shadowstep"
+	var/outer_tele_radius = 6 // Teleport radii
+
+/obj/effect/proc_holder/spell/targeted/shadowstep/choose_targets(mob/user = usr)
+	var/list/turfs = list()
+	// Calcultaions. Stepping out of the edge by the outer_tele_radius
+	var/xmaxlocate = max(user.x - (outer_tele_radius), 1 + outer_tele_radius)
+	var/ymaxlocate = max(user.y - (outer_tele_radius), 1 + outer_tele_radius)
+	var/xminlocate = min(user.x + (outer_tele_radius), world.maxx - outer_tele_radius)
+	var/yminlocate = min(user.y + (outer_tele_radius), world.maxy - outer_tele_radius)
+
+	for(var/turf/T in  block(locate(xmaxlocate, ymaxlocate, user.z), locate(xminlocate, yminlocate, user.z))) // Locating upper and lower points of area
+		if(istype(T, /turf/space))
+			continue
+		if(T.density)
+			continue
+		var/light_amount = T.get_lumcount() * 10 
+		if(light_amount > LIGHT_HEAL_THRESHOLD) //LIGHTING CHECK
+			continue
+		turfs += T
+
+	if(!turfs.len) // If there are no suitable turfs
+		revert_cast(user)
+		to_chat(user, "<span class='warning'>There are no shadows nearby to step into.</span>")
+		return
+
+	turfs = list(pick(turfs)) // Pick a single turf for the shadow to jump to.
+	perform(turfs, user = user)
+
+// `targets` should only ever contain the 1 valid turf we're jumping to, even though its a list, that's just how the cast() proc works.
+/obj/effect/proc_holder/spell/targeted/shadowstep/cast(list/targets, mob/user = usr)
+	if(!LAZYLEN(targets)) // If for some reason the turf got deleted.
+		return
+	var/mob/living/U = user
+	U.ExtinguishMob()
+	var/atom/movable/overlay/animation = new /atom/movable/overlay(get_turf(user))
+	animation.name = user.name
+	animation.density = 0
+	animation.anchored = 1
+	animation.icon = user.icon
+	animation.alpha = 127
+	animation.layer = 5
+	//animation.master = src
+	user.forceMove(targets[1])
+	QDEL_IN(animation, 10)
+
 /obj/effect/proc_holder/spell/targeted/shadow_walk
 	name = "Shadow Walk"
 	desc = "Phases you into the space between worlds for a short time, allowing movement through walls and invisbility."
@@ -311,11 +366,13 @@
 	clothes_req = 0
 	range = -1
 	include_user = 1
-	var/blind_smoke_acquired
-	var/screech_acquired
-	var/nullChargeAcquired
-	var/reviveThrallAcquired
 	action_icon_state = "collective_mind"
+	var/blind_smoke_acquired = FALSE
+	var/screech_acquired = FALSE
+	var/nullChargeAcquired = FALSE
+	var/reviveThrallAcquired = FALSE
+	var/shadowWalkAcquired = FALSE
+	var/shadowStepAcquired = FALSE
 
 /obj/effect/proc_holder/spell/targeted/collective_mind/can_cast(mob/living/user = usr, charge_check = TRUE, show_message = FALSE)
 	if(user.incorporeal_move == INCORPOREAL_NORMAL)
@@ -343,24 +400,36 @@
 			return
 
 		if(thralls >= CEILING(3 * SSticker.mode.thrall_ratio, 1) && !screech_acquired)
-			screech_acquired = 1
+			screech_acquired = TRUE
 			to_chat(target, "<span class='shadowling'><i>The power of your thralls has granted you the <b>Sonic Screech</b> ability. This ability will shatter nearby windows and deafen enemies, plus stunning silicon lifeforms.</span>")
 			target.mind.AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/unearthly_screech(null))
 
+		if(thralls >= CEILING(5 * SSticker.mode.thrall_ratio, 1) && !shadowWalkAcquired)
+			shadowWalkAcquired = TRUE
+			to_chat(target, "<span class='shadowling'><i>The power of your thralls has granted you the <b>Guise</b> ability. \
+			Wraps your form in shadows, making you harder to see.</i></span>")
+			target.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/lesser_shadow_walk(null))
+
 		if(thralls >= CEILING(5 * SSticker.mode.thrall_ratio, 1) && !blind_smoke_acquired)
-			blind_smoke_acquired = 1
+			blind_smoke_acquired = TRUE
 			to_chat(target, "<span class='shadowling'><i>The power of your thralls has granted you the <b>Blinding Smoke</b> ability. \
 			It will create a choking cloud that will blind any non-thralls who enter.</i></span>")
 			target.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/blindness_smoke(null))
 
 		if(thralls >= CEILING(7 * SSticker.mode.thrall_ratio, 1) && !nullChargeAcquired)
-			nullChargeAcquired = 1
+			nullChargeAcquired = TRUE
 			to_chat(user, "<span class='shadowling'><i>The power of your thralls has granted you the <b>Null Charge</b> ability. This ability will drain an APC's contents to the void, preventing it from recharging \
 			or sending power until repaired.</i></span>")
 			target.mind.AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/null_charge(null))
 
+		if(thralls >= CEILING(9 * SSticker.mode.thrall_ratio, 1) && !shadowStepAcquired)
+			shadowStepAcquired = TRUE
+			to_chat(target, "<span class='shadowling'><i>The power of your thralls has granted you the <b>Shadow Step</b> ability. \
+			It will teleport you to the closest available shade.</i></span>")
+			target.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/shadowstep(null))
+
 		if(thralls >= CEILING(9 * SSticker.mode.thrall_ratio, 1) && !reviveThrallAcquired)
-			reviveThrallAcquired = 1
+			reviveThrallAcquired = TRUE
 			to_chat(target, "<span class='shadowling'><i>The power of your thralls has granted you the <b>Black Recuperation</b> ability. \
 			This will, after a short time, bring a dead thrall completely back to life with no bodily defects.</i></span>")
 			target.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/click/reviveThrall(null))
