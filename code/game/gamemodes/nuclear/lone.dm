@@ -31,7 +31,7 @@
 	var/list/candidates = SSghost_spawns.poll_candidates("Do you wish to be a lone nuclear operative?", ROLE_OPERATIVE, TRUE, source = /obj/machinery/nuclearbomb/)
 	var/turf/spawn_loc = pick_nuke_spawn_loc()
 	var/nuke_code = assign_nuke()
-	if(!(spawn_loc && nuke_code && length(candidates)))
+	if(!spawn_loc || !nuke_code || !length(candidates))
 		return FALSE
 	var/mob/dead/observer/selected = pick(candidates)
 	var/mob/living/carbon/human/new_character = makeBody(selected)
