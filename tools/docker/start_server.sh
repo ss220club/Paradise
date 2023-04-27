@@ -1,9 +1,9 @@
 #!/bin/bash
 
-docker-compose down
+./stop_server.sh
 
 [[ -f .env ]] || cp .env.example .env
 
 ./prepare_configs.sh
 
-docker-compose up --build -d
+docker-compose -f docker-compose.server.yml up --build -d
