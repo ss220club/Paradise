@@ -19,7 +19,7 @@
 	to_chat(synd_mind.current, "<B>Код от ядерной боеголовки</B>: [nuke_code]")
 
 
-/datum/event/operative/proc/pick_nuke_spawn_loc()
+/datum/event/operative/proc/pick_spawn_loc()
 	var/list/possible_spawns = list()
 	for(var/obj/effect/landmark/syndicate_spawn/syndicate_spawn in GLOB.landmarks_list)
 		if(isturf(syndicate_spawn.loc))
@@ -59,7 +59,7 @@
 
 /datum/event/operative/proc/make_operative()
 	var/list/candidates = SSghost_spawns.poll_candidates("Do you wish to be a lone nuclear operative?", ROLE_OPERATIVE, TRUE, source = /obj/machinery/nuclearbomb/)
-	var/turf/spawn_loc = pick_nuke_spawn_loc()
+	var/turf/spawn_loc = pick_spawn_loc()
 	var/nuke_code = assign_nuke()
 	if(!spawn_loc || !nuke_code || !length(candidates))
 		return FALSE
