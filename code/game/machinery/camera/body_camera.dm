@@ -1,7 +1,7 @@
 /obj/item/body_camera
 	name = "BodyCam"
 	desc = ""
-	icon = 'icons/obj/monitors.dmi'
+	icon = 'icons/obj/machines/monitors.dmi'
 	icon_state = "gopro_camera"
 	item_state = "gopro_camera"
 	slot_flags = SLOT_EARS

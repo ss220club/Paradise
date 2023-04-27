@@ -128,7 +128,7 @@
 
 	//We are now going to move
 	moving = 1
-	current_move_delay = mob.movement_delay()
+	var/current_move_delay = mob.movement_delay()
 
 	if(!istype(get_turf(mob), /turf/space) && mob.pulling)
 		var/mob/living/M = mob
@@ -143,7 +143,7 @@
 	mob.last_movement = world.time
 
 	if(locate(/obj/item/grab, mob))
-		delay += 7
+		current_move_delay += 7
 	else if(mob.confused)
 		var/newdir = NONE
 		if(mob.confused > 40)
@@ -156,13 +156,13 @@
 			direct = newdir
 			n = get_step(mob, direct)
 
-	. = mob.SelfMove(n, direct, delay)
+	. = mob.SelfMove(n, direct, current_move_delay)
 	mob.setDir(direct)
 
 	if((direct & (direct - 1)) && mob.loc == n) //moved diagonally successfully
-		delay = mob.movement_delay() * 1.41 //Will prevent mob diagonal moves from smoothing accurately, sadly
+		current_move_delay = mob.movement_delay() * 1.41 //Will prevent mob diagonal moves from smoothing accurately, sadly
 
-	move_delay += delay
+	move_delay += current_move_delay
 
 	if(mob.pulledby)
 		mob.pulledby.stop_pulling()
