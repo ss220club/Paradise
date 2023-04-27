@@ -50,6 +50,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	var/containername = null
 	var/access = null
 	var/hidden = 0
+	var/replaceable = 0
 	var/contraband = 0
 	var/group = SUPPLY_MISC
 	var/list/announce_beacons = list() // Particular beacons that we'll notify the relevant department when we reach
@@ -1131,13 +1132,21 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 
 /datum/supply_packs/organic/pizza
 	name = "Pizza Crate"
-	contains = list(/obj/item/pizzabox/margherita,
-					/obj/item/pizzabox/mushroom,
-					/obj/item/pizzabox/meat,
-					/obj/item/pizzabox/vegetable,
-					/obj/item/pizzabox/hawaiian)
+	containertype = /obj/structure/closet/crate/freezer/pizza
 	cost = 60
 	containername = "Pizza crate"
+	replaceable = 1
+	special = TRUE
+	special_enabled = FALSE
+
+
+/datum/supply_packs/organic/pizzaspicy
+	name = "Pizza Crate"
+	containertype = /obj/structure/closet/crate/freezer/pizza/boom
+	cost = 60
+	containername = "Pizza crate"
+	hidden = 1
+
 
 /datum/supply_packs/organic/monkey
 	name = "Monkey Crate"
