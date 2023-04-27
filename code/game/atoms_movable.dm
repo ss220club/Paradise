@@ -1,3 +1,5 @@
+#define BASE_PULL_PUSH_SPEED_MODIFIER 1
+
 /atom/movable
 	layer = 3
 	appearance_flags = TILE_BOUND
@@ -20,6 +22,7 @@
 	var/atom/movable/pulling
 	var/throwforce = 0
 	var/canmove = 1
+	var/pull_push_speed_modifier = BASE_PULL_PUSH_SPEED_MODIFIER
 
 	var/inertia_dir = 0
 	var/atom/inertia_last_loc
@@ -584,3 +587,8 @@
 
 /atom/movable/proc/decompile_act(obj/item/matter_decompiler/C, mob/user) // For drones to decompile mobs and objs. See drone for an example.
 	return FALSE
+
+/atom/movable/proc/get_pull_push_speed_modifier(var/current_delay)
+	if(!config.modify_pull_push_speed)
+		return BASE_PULL_PUSH_SPEED_MODIFIER
+	return pull_push_speed_modifier
