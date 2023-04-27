@@ -229,7 +229,6 @@
 
 	if(user.a_intent != INTENT_HARM && !(I.flags & ABSTRACT))
 		if(user.drop_item())
-			I.invisibility = 101
 			I.Move(loc)
 			var/list/click_params = params2list(params)
 			//Center the icon where the user clicked.
