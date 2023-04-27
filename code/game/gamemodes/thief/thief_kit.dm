@@ -1,8 +1,8 @@
 // ========== STORAGE BOX WITH CHOOSEN ITEMS ==========
 /obj/item/storage/box/thief_kit
-	name = "набор гильдии воров"
-	desc = "Ничем не примечательная коробка."
-	icon_state = "box_thief"
+	name = "Набор гильдии Воров"
+	desc = "Ничем непримечательная коробка."
+	icon_state = "thief_box"
 	item_state = "syringe_kit"
 
 /obj/item/storage/box/thief_kit/New()
@@ -14,10 +14,10 @@
 
 // ========== CHOOSE ITEMS ==========
 /obj/item/thief_kit
-	name = "набор гильдии воров"
-	desc = "Ничем не примечательная увесистая коробка. Тяжелая. Набор вора-шредингера. Неизвестно что внутри, пока не заглянешь и не определишься."
+	name = "Набор гильдии Воров"
+	desc = "Ничем непримечательная увесистая коробка. Тяжелая. Набор вора-шредингера. Неизвестно что внутри, пока не заглянешь и не определишься."
 	icon = 'icons/obj/storage.dmi'
-	icon_state = "box_thief"
+	icon_state = "thief_box"
 	item_state = "syringe_kit"
 	w_class = WEIGHT_CLASS_TINY
 	var/possible_uses = 2

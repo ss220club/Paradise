@@ -383,7 +383,7 @@
 /obj/item/storage/box/barrier
 	name = "box of barrier grenades"
 	desc = "Instant cover.</B>"
-	icon_state = "flash_box"
+	icon_state = "flashbang_box"
 
 /obj/item/storage/box/barrier/New()
 	..()
@@ -556,6 +556,7 @@
 /obj/item/storage/box/cups
 	name = "box of paper cups"
 	desc = "It has pictures of paper cups on the front."
+	icon_state = "cup_box"
 
 /obj/item/storage/box/cups/New()
 	..()
@@ -812,7 +813,7 @@
 /obj/item/storage/box/enforcer_lethal
 	name = "enforcer pistol kit (lethal)"
 	desc = "A box marked with pictures of an enforcer pistol, two ammo clips, and the word 'LETHAL'."
-	icon_state = "ert_kit"
+	icon_state = "ert_box"
 
 /obj/item/storage/box/enforcer_lethal/New()
 	..()
@@ -823,7 +824,7 @@
 /obj/item/storage/box/enforcer/security
 	name = "enforcer pistol kit (rubber)"
 	desc = "A box marked with pictures of an enforcer pistol, two ammo clips, and the word 'NON-LETHAL'."
-	icon_state = "ert_kit"
+	icon_state = "ert_box"
 
 /obj/item/storage/box/enforcer/security/New()
 	..()
@@ -959,7 +960,7 @@
 	desc = "Contains autoinjectors."
 	icon_state = "injector_box"
 
-/obj/item/storage/box/autoinjectors/New()
+/obj/item/storage/box/autoinjector/New()
 	..()
 	for(var/i; i < storage_slots; i++)
 		new /obj/item/reagent_containers/hypospray/autoinjector(src)
@@ -969,7 +970,7 @@
 	desc = "A box with several utility autoinjectors for the economical miner."
 	icon_state = "injector_box"
 
-/obj/item/storage/box/autoinjector/utility/New()
+/obj/item/storage/box/autoinjectors/utility/New()
 	..()
 	new /obj/item/reagent_containers/hypospray/autoinjector/teporone(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/teporone(src)
@@ -1178,6 +1179,7 @@
 /obj/item/storage/box/rndboards
 	name = "the Liberator's legacy"
 	desc = "A box containing a gift for worthy golems."
+	icon_state = "circuit_box"
 
 /obj/item/storage/box/rndboards/New()
 	..()
