@@ -1377,8 +1377,6 @@
 					/obj/item/clothing/under/rank/clown/sexy = 1,
 					/obj/item/clothing/mask/gas/sexymime = 1,
 					/obj/item/clothing/under/sexymime = 1,
-					/obj/item/clothing/suit/monkeysuit = 1,
-					/obj/item/clothing/mask/gas/monkeymask = 1,
 					/obj/item/clothing/mask/face/bat = 1,
 					/obj/item/clothing/mask/face/bee = 1,
 					/obj/item/clothing/mask/face/bear = 1,
@@ -1439,6 +1437,8 @@
 					  /obj/item/clothing/mask/horsehead = 2)
 	premium = list(/obj/item/clothing/suit/hgpirate = 1,
 				   /obj/item/clothing/head/hgpiratecap = 1,
+				   /obj/item/clothing/suit/monkeysuit = 1,
+				   /obj/item/clothing/mask/gas/monkeymask = 1,
 				   /obj/item/clothing/head/helmet/roman/fake = 1,
 				   /obj/item/clothing/head/helmet/roman/legionaire/fake = 1,
 				   /obj/item/clothing/under/roman = 1,
