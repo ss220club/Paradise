@@ -150,7 +150,6 @@
 		qdel(firstquery)
 
 	if(!C) // If the client disconnected during the query, try again later.
-		qdel(src)
 		return TRUE
 
 	// Let's not have this explode if you sneeze on the DB
