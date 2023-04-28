@@ -85874,9 +85874,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engrooms)
 "oSi" = (
-/obj/machinery/bodyscanner{
-	dir = 2
-	},
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "whiteblue"
@@ -96612,14 +96614,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint2)
 "vYS" = (
-/obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/bodyscanner,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "whiteblue"
