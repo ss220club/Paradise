@@ -227,6 +227,7 @@
 	icon_state = "hardsuit0-mechanic"
 	item_state = "mechanic_helm"
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 100, rad = 20, fire = 50, acid = 65)
+	item_color = "mechanic"
 	resistance_flags = null
 
 /obj/item/clothing/suit/space/hardsuit/engine/mechanic
