@@ -964,12 +964,12 @@
 	desc = "Contains autoinjectors."
 	icon_state = "injector_box"
 
-/obj/item/storage/box/autoinjector/New()
+/obj/item/storage/box/autoinjectors/New()
 	..()
 	for(var/i; i < storage_slots; i++)
 		new /obj/item/reagent_containers/hypospray/autoinjector(src)
 
-/obj/item/storage/box/autoinjector/utility
+/obj/item/storage/box/autoinjectors/utility
 	name = "autoinjector kit"
 	desc = "A box with several utility autoinjectors for the economical miner."
 	icon_state = "injector_box"
