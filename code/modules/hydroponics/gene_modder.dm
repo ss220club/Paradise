@@ -548,7 +548,7 @@
  */
 /obj/item/storage/box/disks_plantgene
 	name = "plant data disks box"
-	icon_state = "disk_kit"
+	icon_state = "disk_box"
 
 /obj/item/storage/box/disks_plantgene/New()
 	..()

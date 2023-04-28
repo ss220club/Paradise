@@ -83,7 +83,7 @@
 	name = "small parcel"
 	desc = "A small wrapped package."
 	icon = 'icons/obj/storage.dmi'
-	icon_state = "deliverycrateSmall"
+	icon_state = "deliverycrate3"
 	item_state = "deliverypackage"
 	var/iconLabeled = null
 	var/obj/item/wrapped = null
