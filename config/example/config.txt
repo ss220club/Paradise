@@ -586,5 +586,8 @@ DEFAULT_MAP /datum/map/cyberiad
 ## Override server map by specified, uncomment to apply
 # OVERRIDE_MAP /datum/map/delta
 
+## Is Pull-Push Speed modifier feature enabled?
+MODIFY_PULL_PUSH_SPEED
+
 ## Can eat through blocked mouth?
 #IGNORE_OBSCURED_MOUTH

@@ -140,7 +140,7 @@
 /obj/item/storage/box/syndie_kit
 	name = "Box"
 	desc = "A sleek, sturdy box"
-	icon_state = "box_of_doom"
+	icon_state = "doom_box"
 
 /obj/item/storage/box/syndie_kit/space
 	name = "Boxed Space Suit and Helmet"
