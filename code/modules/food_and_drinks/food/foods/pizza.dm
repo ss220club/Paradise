@@ -68,7 +68,7 @@
 	icon_state = "mushroompizza"
 	slice_path = /obj/item/reagent_containers/food/snacks/poisonslice
 	bitesize = 10
-	list_reagents = list("plantmatter" = 5, "????" = 5, "toiletwater" = 15, "green_vomit" = 10, "cyanide" = 15)
+	list_reagents = list("plantmatter" = 5, "????" = 5, "toiletwater" = 15, "green_vomit" = 10, "slimejelly" = 15)
 	tastes = list("awful" = 1, "disgust" = 1, "vomit" = 1, "cheese" = 1)
 	foodtype = GRAIN | DAIRY | VEGETABLES
 
