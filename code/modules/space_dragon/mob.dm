@@ -1,5 +1,7 @@
 /// The darkness threshold for space dragon when choosing a color
 #define DARKNESS_THRESHOLD 50
+#define DRAGON_DEPRESSION_MODIFIER 5
+#define DRAGON_RAGE_MODIFIER -0.5
 
 /**
  * # Space Dragon
@@ -77,6 +79,9 @@
 	var/devastation_damage_min_percentage = 40
 	/// Maximum devastation damage dealt coefficient based on max health
 	var/devastation_damage_max_percentage = 75
+	/// Movement speed changes
+	var/dragon_depression = FALSE
+	var/dragon_rage = FALSE
 
 /mob/living/simple_animal/hostile/space_dragon/Initialize(mapload)
 	. = ..()
@@ -88,6 +93,13 @@
 
 /mob/living/simple_animal/hostile/space_dragon/Process_Spacemove(movement_dir)
 	return TRUE
+
+/mob/living/simple_animal/hostile/space_dragon/movement_delay()
+	. = ..()
+	if(dragon_depression)
+		. += DRAGON_DEPRESSION_MODIFIER
+	if(dragon_rage)
+		. += DRAGON_RAGE_MODIFIER
 
 /mob/living/simple_animal/hostile/space_dragon/Login()
 	. = ..()
@@ -390,8 +402,13 @@
 	addtimer(CALLBACK(src, .proc/reset_status), 4 + ((tiredness * tiredness_mult) / 10))
 	tiredness = tiredness + (gust_tiredness * tiredness_mult)
 
+
+#undef DRAGON_DEPRESSION_MODIFIER
+#undef DRAGON_RAGE_MODIFIER
 #undef DARKNESS_THRESHOLD
 
 /mob/living/simple_animal/hostile/carp/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_HEALS_FROM_CARP_RIFTS, INNATE_TRAIT)
+
+
