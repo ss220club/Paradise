@@ -38835,13 +38835,22 @@
 	},
 /area/medical/morgue)
 "bSD" = (
-/obj/item/storage/box/monkeycubes,
-/obj/item/storage/box/monkeycubes/farwacubes,
-/obj/item/storage/box/monkeycubes/neaeracubes,
-/obj/item/storage/box/monkeycubes/stokcubes,
-/obj/item/storage/box/monkeycubes/wolpincubes,
 /obj/machinery/light,
 /obj/structure/table/glass,
+/obj/item/storage/box/monkeycubes/wolpincubes{
+	pixel_x = -6
+	},
+/obj/item/storage/box/monkeycubes/neaeracubes{
+	pixel_x = 8
+	},
+/obj/item/storage/box/monkeycubes/stokcubes{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/item/storage/box/monkeycubes/farwacubes{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/plasteel{
 	dir = 10;
 	icon_state = "darkpurple"
@@ -39600,27 +39609,33 @@
 /area/engine/gravitygenerator)
 "bUA" = (
 /obj/structure/table,
-/obj/item/storage/box/pillbottles{
+/obj/item/storage/box/iv_bags{
+	layer = 3.7;
 	pixel_x = -4;
-	pixel_y = 10
+	pixel_y = -10
 	},
-/obj/item/storage/box/pillbottles{
+/obj/item/storage/box/iv_bags{
+	layer = 3.7;
 	pixel_x = 8;
-	pixel_y = 10
+	pixel_y = -10
 	},
 /obj/item/storage/box/patch_packs{
+	layer = 3.8;
 	pixel_x = -4
 	},
 /obj/item/storage/box/patch_packs{
+	layer = 3.8;
 	pixel_x = 8
 	},
-/obj/item/storage/box/iv_bags{
+/obj/item/storage/box/pillbottles{
+	layer = 3.9;
 	pixel_x = -4;
-	pixel_y = -10
+	pixel_y = 10
 	},
-/obj/item/storage/box/iv_bags{
+/obj/item/storage/box/pillbottles{
+	layer = 3.9;
 	pixel_x = 8;
-	pixel_y = -10
+	pixel_y = 10
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whitebluefull"
@@ -40356,6 +40371,11 @@
 "bWg" = (
 /obj/structure/window/reinforced{
 	dir = 4
+	},
+/obj/structure/table/glass,
+/obj/item/storage/box/monkeycubes{
+	pixel_x = -2;
+	pixel_y = 4
 	},
 /turf/simulated/floor/plasteel{
 	dir = 6;
@@ -71064,27 +71084,33 @@
 /area/maintenance/cafeteria)
 "eSe" = (
 /obj/structure/table,
-/obj/item/storage/box/beakers{
+/obj/item/storage/box/masks{
+	layer = 3.4;
 	pixel_x = -4;
-	pixel_y = 10
+	pixel_y = -10
 	},
-/obj/item/storage/box/beakers{
+/obj/item/storage/box/masks{
+	layer = 3.4;
 	pixel_x = 8;
-	pixel_y = 10
+	pixel_y = -10
 	},
 /obj/item/storage/box/bodybags{
+	layer = 3.5;
 	pixel_x = -4
 	},
 /obj/item/storage/box/bodybags{
+	layer = 3.5;
 	pixel_x = 8
 	},
-/obj/item/storage/box/masks{
+/obj/item/storage/box/beakers{
+	layer = 3.6;
 	pixel_x = -4;
-	pixel_y = -10
+	pixel_y = 10
 	},
-/obj/item/storage/box/masks{
+/obj/item/storage/box/beakers{
+	layer = 3.6;
 	pixel_x = 8;
-	pixel_y = -10
+	pixel_y = 10
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whitebluefull"
@@ -81162,9 +81188,6 @@
 	pixel_x = -6;
 	pixel_y = 10
 	},
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whitebluefull"
 	},
@@ -81299,29 +81322,35 @@
 /area/security/prisonershuttle)
 "lNE" = (
 /obj/structure/table,
-/obj/item/storage/box/gloves{
-	pixel_x = -4;
-	pixel_y = 12
-	},
-/obj/item/storage/box/gloves{
-	pixel_x = 8;
-	pixel_y = 12
-	},
-/obj/item/storage/box/autoinjectors{
-	pixel_x = -4;
-	pixel_y = 2
-	},
-/obj/item/storage/box/autoinjectors{
-	pixel_x = 8;
-	pixel_y = 2
-	},
 /obj/item/storage/box/syringes{
+	layer = 3.1;
 	pixel_x = -4;
 	pixel_y = -8
 	},
 /obj/item/storage/box/syringes{
+	layer = 3.1;
 	pixel_x = 8;
 	pixel_y = -8
+	},
+/obj/item/storage/box/autoinjectors{
+	layer = 3.2;
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/obj/item/storage/box/autoinjectors{
+	layer = 3.2;
+	pixel_x = 8;
+	pixel_y = 2
+	},
+/obj/item/storage/box/gloves{
+	layer = 3.3;
+	pixel_x = -4;
+	pixel_y = 12
+	},
+/obj/item/storage/box/gloves{
+	layer = 3.3;
+	pixel_x = 8;
+	pixel_y = 12
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whitebluefull"
