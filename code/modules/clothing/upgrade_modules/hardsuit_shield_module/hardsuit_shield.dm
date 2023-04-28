@@ -86,7 +86,7 @@
 /obj/item/storage/box/ert_hardsuit_shield_upgrade
 	name = "Hardsuit Shield Upgrade Box"
 	desc = "A Exclusive and Expensive upgrade for Hardsuits."
-	icon_state = "box_ert"
+	icon_state = "ert_box"
 
 /obj/item/storage/box/ert_hardsuit_shield_upgrade/New()
 	..()

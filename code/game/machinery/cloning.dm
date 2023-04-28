@@ -681,7 +681,7 @@ GLOBAL_LIST_INIT(cloner_biomass_items, list(\
 
 /obj/item/storage/box/disks
 	name = "Diskette Box"
-	icon_state = "disk_kit"
+	icon_state = "disk_box"
 
 /obj/item/storage/box/disks/New()
 	..()

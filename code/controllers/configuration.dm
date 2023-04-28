@@ -315,6 +315,7 @@
 
 	var/hydration_enabled = FALSE
 	var/water_poison = FALSE
+	var/modify_pull_push_speed = FALSE
 
 /datum/configuration/New()
 	for(var/T in subtypesof(/datum/game_mode))
@@ -905,6 +906,10 @@
 
 				if("water_poison")
 					config.water_poison = TRUE
+
+				if("modify_pull_push_speed")
+					config.modify_pull_push_speed = TRUE
+
 
 				else
 					log_config("Unknown setting in configuration: '[name]'")

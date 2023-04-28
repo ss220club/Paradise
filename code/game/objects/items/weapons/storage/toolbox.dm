@@ -2,7 +2,7 @@
 	name = "toolbox"
 	desc = "Danger. Very robust."
 	icon = 'icons/obj/storage.dmi'
-	icon_state = "red"
+	icon_state = "red_toolbox"
 	item_state = "toolbox_red"
 	flags = CONDUCT
 	force = 10.0
@@ -17,7 +17,7 @@
 
 /obj/item/storage/toolbox/emergency
 	name = "emergency toolbox"
-	icon_state = "red"
+	icon_state = "red_toolbox"
 	item_state = "toolbox_red"
 
 /obj/item/storage/toolbox/emergency/New()
@@ -33,11 +33,11 @@
 
 /obj/item/storage/toolbox/emergency/old
 	name = "rusty red toolbox"
-	icon_state = "toolbox_red_old"
+	icon_state = "red_toolbox_old"
 
 /obj/item/storage/toolbox/mechanical
 	name = "mechanical toolbox"
-	icon_state = "blue"
+	icon_state = "blue_toolbox"
 	item_state = "toolbox_blue"
 
 /obj/item/storage/toolbox/mechanical/New()
@@ -54,11 +54,11 @@
 
 /obj/item/storage/toolbox/mechanical/old
 	name = "rusty blue toolbox"
-	icon_state = "toolbox_blue_old"
+	icon_state = "blue_toolbox_old"
 
 /obj/item/storage/toolbox/electrical
 	name = "electrical toolbox"
-	icon_state = "yellow"
+	icon_state = "yellow_toolbox"
 	item_state = "toolbox_yellow"
 
 /obj/item/storage/toolbox/electrical/New()
@@ -75,9 +75,13 @@
 	else
 		new /obj/item/stack/cable_coil(src, 30, paramcolor = pickedcolor)
 
+/obj/item/storage/toolbox/electrical/old
+	name = "rusty blue toolbox"
+	icon_state = "yellow_toolbox_old"
+
 /obj/item/storage/toolbox/syndicate
 	name = "suspicious looking toolbox"
-	icon_state = "syndicate"
+	icon_state = "syndicate_toolbox"
 	item_state = "toolbox_syndi"
 	origin_tech = "combat=2;syndicate=1;engineering=2"
 	silent = 1
@@ -96,13 +100,13 @@
 
 /obj/item/storage/toolbox/fakesyndi
 	name = "suspicous looking toolbox"
-	icon_state = "syndicate"
+	icon_state = "syndicate_toolbox"
 	item_state = "toolbox_syndi"
 	desc = "Danger. Very Robust. The paint is still wet."
 
 /obj/item/storage/toolbox/drone
 	name = "mechanical toolbox"
-	icon_state = "blue"
+	icon_state = "blue_toolbox"
 	item_state = "toolbox_blue"
 
 /obj/item/storage/toolbox/drone/New()
