@@ -8,17 +8,15 @@
 /datum/action/innate/summon_rift
 	name = "Summon Rift"
 	desc = "Summon a rift to bring forth a horde of space carp."
-	background_icon_state = "bg_default"
-	overlay_icon_state = "bg_default_border"
-	button_icon = 'icons/mob/actions/actions_space_dragon.dmi'
 	button_icon_state = "carp_rift"
+	background_icon_state = "bg_default"
 
 /datum/action/innate/summon_rift/Activate()
 	var/datum/antagonist/space_dragon/dragon = owner.mind?.has_antag_datum(/datum/antagonist/space_dragon)
 	if(!dragon)
 		return
 	var/area/rift_location = get_area(owner)
-	if(!(rift_location.area_flags & VALID_TERRITORY))
+	if(!rift_location.valid_territory)
 		to_chat(owner, span_warning("You can't summon a rift here! Try summoning somewhere secure within the station!"))
 		return
 	for(var/obj/structure/carp_rift/rift as anything in dragon.rift_list)
@@ -27,10 +25,10 @@
 			to_chat(owner, span_warning("You've already summoned a rift in this area! You have to summon again somewhere else!"))
 			return
 	var/turf/rift_spawn_turf = get_turf(dragon)
-	if(isopenspaceturf(rift_spawn_turf))
-		owner.balloon_alert(dragon, "needs stable ground!")
+	if(isspaceturf(rift_spawn_turf))
+		to_chat(owner, span_warning("You can't summon a rift here! It needs stable ground!!"))
 		return
-	owner.balloon_alert(owner, "opening rift...")
+	to_chat(owner, span_notice("You start opening rift..."))
 	if(!do_after(owner, 10 SECONDS, target = owner))
 		return
 	if(locate(/obj/structure/carp_rift) in owner.loc)
@@ -41,7 +39,7 @@
 	new_rift.dragon = dragon
 	dragon.rift_list += new_rift
 	to_chat(owner, span_boldwarning("The rift has been summoned. Prevent the crew from destroying it at all costs!"))
-	notify_ghosts("The Space Dragon has opened a rift!", source = new_rift, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Carp Rift Opened")
+	notify_ghosts("The Space Dragon has opened a rift!", source = new_rift, action = NOTIFY_FOLLOW, flashwindow = FALSE, title = "Carp Rift Opened")
 	ASSERT(dragon.rift_ability == src) // Badmin protection.
 	QDEL_NULL(dragon.rift_ability) // Deletes this action when used successfully, we re-gain a new one on success later.
 
@@ -57,7 +55,7 @@
 /obj/structure/carp_rift
 	name = "carp rift"
 	desc = "A rift akin to the ones space carp use to travel long distances."
-	armor_type = /datum/armor/structure_carp_rift
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 100, "bomb" = 50, "bio" = 100, "rad" = 0, "fire" = 100, "acid" = 100)
 	max_integrity = 300
 	icon = 'icons/obj/carp_rift.dmi'
 	icon_state = "carp_rift_carpspawn"
@@ -65,7 +63,7 @@
 	light_range = 10
 	anchored = TRUE
 	density = FALSE
-	plane = MASSIVE_OBJ_PLANE
+	plane = OBJ_LAYER
 	/// The amount of time the rift has charged for.
 	var/time_charged = 0
 	/// The maximum charge the rift can have.
@@ -82,13 +80,6 @@
 	var/last_carp_inc = 0
 	/// A list of all the ckeys which have used this carp rift to spawn in as carps.
 	var/list/ckey_list = list()
-
-/datum/armor/structure_carp_rift
-	energy = 100
-	bomb = 50
-	bio = 100
-	fire = 100
-	acid = 100
 
 /obj/structure/carp_rift/Initialize(mapload)
 	. = ..()
@@ -138,8 +129,9 @@
 			var/mob/living/newcarp = new dragon.ai_to_spawn(loc)
 			newcarp.faction = dragon.owner.current.faction.Copy()
 		if(SPT_PROB(1.5, seconds_per_tick))
-			var/rand_dir = pick(GLOB.cardinals)
-			SSmove_manager.move_to(src, get_step(src, rand_dir), 1)
+			var/rand_dir = pick(GLOB.cardinal)
+			//TODO: What does it do?
+			//SSmove_manager.move_to(src, get_step(src, rand_dir), 1)
 		return
 
 	// Increase time trackers and check for any updated states.
@@ -171,21 +163,22 @@
 		carp_stored++
 		icon_state = "carp_rift_carpspawn"
 		if(light_color != LIGHT_COLOR_PURPLE)
-			set_light_color(LIGHT_COLOR_PURPLE)
+			light_color = LIGHT_COLOR_PURPLE
 			update_light()
-		notify_ghosts("The carp rift can summon an additional carp!", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Carp Spawn Available")
+		notify_ghosts("The carp rift can summon an additional carp!", source = src, action = NOTIFY_FOLLOW, flashwindow = FALSE, title = "Carp Spawn Available")
 		last_carp_inc -= carp_interval
 
 	// Is the rift now fully charged?
 	if(time_charged >= max_charge)
 		charge_state = CHARGE_COMPLETED
 		var/area/A = get_area(src)
-		priority_announce("Spatial object has reached peak energy charge in [initial(A.name)], please stand-by.", "Central Command Wildlife Observations")
-		atom_integrity = INFINITY
+		GLOB.command_announcement.Announce("Spatial object has reached peak energy charge in [initial(A.name)], please stand-by.", "Central Command Wildlife Observations")
+		max_integrity = INFINITY
+		obj_integrity = INFINITY
 		icon_state = "carp_rift_charged"
-		set_light_color(LIGHT_COLOR_DIM_YELLOW)
+		light_color = LIGHT_COLOR_YELLOW
 		update_light()
-		set_armor(/datum/armor/immune)
+		armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 		resistance_flags = INDESTRUCTIBLE
 		dragon.rifts_charged += 1
 		if(dragon.rifts_charged != 3 && !dragon.objective_complete)
@@ -200,7 +193,8 @@
 	if(charge_state < CHARGE_FINALWARNING && time_charged >= (max_charge * 0.5))
 		charge_state = CHARGE_FINALWARNING
 		var/area/A = get_area(src)
-		priority_announce("A rift is causing an unnaturally large energy flux in [initial(A.name)]. Stop it at all costs!", "Central Command Wildlife Observations", ANNOUNCER_SPANOMALIES)
+
+		GLOB.command_announcement.Announce("A rift is causing an unnaturally large energy flux in [initial(A.name)]. Stop it at all costs!", "Central Command Wildlife Observations", 'sound/AI/spanomalies.ogg')
 
 /**
  * Used to create carp controlled by ghosts when the option is available.
@@ -220,7 +214,7 @@
 			to_chat(user, span_warning("You've already become a carp using this rift! Either wait for a backlog of carp spawns or until the next rift!"))
 			return FALSE
 		is_listed = TRUE
-	var/carp_ask = tgui_alert(user, "Become a carp?", "Carp Rift", list("Yes", "No"))
+	var/carp_ask = alert(user, "Become a carp?", "Carp Rift", "Yes", "No")
 	if(carp_ask != "Yes" || QDELETED(src) || QDELETED(user))
 		return FALSE
 	if(carp_stored <= 0)
@@ -231,13 +225,14 @@
 		return
 	var/mob/living/newcarp = new dragon.minion_to_spawn(loc)
 	newcarp.faction = dragon.owner.current.faction
-	newcarp.AddElement(/datum/element/nerfed_pulling, GLOB.typecache_general_bad_things_to_easily_move)
-	newcarp.AddElement(/datum/element/prevent_attacking_of_types, GLOB.typecache_general_bad_hostile_attack_targets, "this tastes awful!")
+	//TODO: What is this for?
+	//newcarp.AddElement(/datum/element/nerfed_pulling, GLOB.typecache_general_bad_things_to_easily_move)
+	//newcarp.AddElement(/datum/element/prevent_attacking_of_types, GLOB.typecache_general_bad_hostile_attack_targets, "this tastes awful!")
 
 	if(!is_listed)
 		ckey_list += user.ckey
 	newcarp.key = user.key
-	newcarp.set_name()
+	newcarp.name = "[name] ([rand(1, 1000)])"
 	var/datum/antagonist/space_carp/carp_antag = new(src)
 	newcarp.mind.add_antag_datum(carp_antag)
 	dragon.carp += newcarp.mind
@@ -245,7 +240,7 @@
 	carp_stored--
 	if(carp_stored <= 0 && charge_state < CHARGE_COMPLETED)
 		icon_state = "carp_rift"
-		set_light_color(LIGHT_COLOR_BLUE)
+		light_color = LIGHT_COLOR_BLUE
 		update_light()
 	return TRUE
 
