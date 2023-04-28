@@ -617,21 +617,25 @@
 /obj/item/storage/box/monkeycubes/farwacubes
 	name = "farwa cube box"
 	desc = "Drymate brand farwa cubes. Just add water!"
+	icon_state = "farwa_box"
 	monkey_cube_type = /obj/item/reagent_containers/food/snacks/monkeycube/farwacube
 
 /obj/item/storage/box/monkeycubes/stokcubes
 	name = "stok cube box"
 	desc = "Drymate brand stok cubes. Just add water!"
+	icon_state = "stok_box"
 	monkey_cube_type = /obj/item/reagent_containers/food/snacks/monkeycube/stokcube
 
 /obj/item/storage/box/monkeycubes/neaeracubes
 	name = "neaera cube box"
 	desc = "Drymate brand neaera cubes. Just add water!"
+	icon_state = "neaera_box"
 	monkey_cube_type = /obj/item/reagent_containers/food/snacks/monkeycube/neaeracube
 
 /obj/item/storage/box/monkeycubes/wolpincubes
 	name = "wolpin cube box"
 	desc = "Drymate brand wolpin cubes. Just add water!"
+	icon_state = "wolpin_box"
 	monkey_cube_type = /obj/item/reagent_containers/food/snacks/monkeycube/wolpincube
 
 /obj/item/storage/box/permits
