@@ -256,7 +256,7 @@
 
 /datum/reagents/proc/metabolize(mob/living/M)
 	if(M)
-		temperature_reagents(M.bodytemperature - 30)
+		temperature_reagents(M.bodytemperature, 0.25)
 
 	for(var/thing in addiction_threshold_accumulated)
 		if(has_addict_supertype_reagent(thing))
