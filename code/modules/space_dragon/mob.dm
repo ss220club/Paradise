@@ -82,6 +82,7 @@
 	. = ..()
 	small_sprite = new
 	small_sprite.Grant(src)
+	ADD_TRAIT(src, TRAIT_HEALS_FROM_CARP_RIFTS, INNATE_TRAIT)
 	RegisterSignal(small_sprite, COMSIG_ACTION_TRIGGER, .proc/add_dragon_overlay)
 	middleClickOverride = new /datum/middleClickOverride/callback_invoker(CALLBACK(src, .proc/try_gust))
 
@@ -390,3 +391,7 @@
 	tiredness = tiredness + (gust_tiredness * tiredness_mult)
 
 #undef DARKNESS_THRESHOLD
+
+/mob/living/simple_animal/hostile/carp/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_HEALS_FROM_CARP_RIFTS, INNATE_TRAIT)
