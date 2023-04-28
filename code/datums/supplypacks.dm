@@ -1135,7 +1135,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	containertype = /obj/structure/closet/crate/freezer/pizza
 	cost = 60
 	containername = "Pizza crate"
-	replaceable = 1
+	replaceable = TRUE
 	special = TRUE
 	special_enabled = FALSE
 
