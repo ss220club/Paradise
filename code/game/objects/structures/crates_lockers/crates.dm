@@ -392,7 +392,7 @@
 			new /obj/item/pizzabox/margherita(src)
 			new /obj/item/pizzabox/meat(src)
 			new /obj/item/pizza_bomb/weak(src)
-			new /obj/item/pizzabox/poison(src)
+			new /obj/item/pizzabox/mushroom(src)
 			new /obj/item/pizzabox/hawaiian(src)
 		if(6 to 100)
 			new /obj/item/pizzabox/margherita(src)
