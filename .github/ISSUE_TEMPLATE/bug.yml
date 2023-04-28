@@ -34,7 +34,7 @@ body:
   - type: textarea
     id: additional_info
     attributes:
-      label: Дополнительная информация 
+      label: Дополнительная информация
       description: (Опционально) Здесь можете описать любую дополнительную информацию, которая касается бага. Также можете приложить скриншоты.
   - type: markdown
     attributes:
@@ -57,11 +57,9 @@ body:
     id: server_name
     attributes:
       label: Название сервера
-      description: Укажите название сервера на котором произошел баг (MAIN, EX...)
+      description: Укажите название сервера на котором произошел баг (MAIN, PRIME...)
       options:
         - MAIN
-        - EX
-        - WL
         - PRIME
     validations:
       required: true

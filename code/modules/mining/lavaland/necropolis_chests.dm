@@ -163,6 +163,7 @@
 	desc = "A wooden rod about the size of your forearm with a snake carved around it, winding its way up the sides of the rod. Something about it seems to inspire in you the responsibilty and duty to help others."
 	icon = 'icons/obj/lavaland/artefacts.dmi'
 	icon_state = "asclepius_dormant"
+	item_state = "asclepius_dormant"
 	var/activated = FALSE
 	var/usedHand
 
@@ -211,4 +212,5 @@
 	flags =  NODROP | DROPDEL
 	desc = "A short wooden rod with a mystical snake inseparably gripping itself and the rod to your forearm. It flows with a healing energy that disperses amongst yourself and those around you. "
 	icon_state = "asclepius_active"
+	item_state = "asclepius_active"
 	activated = TRUE

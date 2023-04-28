@@ -313,6 +313,8 @@
 	var/default_map = null
 	var/override_map = null
 
+	var/modify_pull_push_speed = FALSE
+  
 	var/pixel_shift = FALSE
 
 /datum/configuration/New()
@@ -899,6 +901,9 @@
 				if("override_map")
 					config.override_map = value
 
+				if("modify_pull_push_speed")
+					config.modify_pull_push_speed = TRUE
+          
 				if("pixel_shift")
 					config.pixel_shift = TRUE
 

@@ -476,7 +476,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/cryopod,
+/obj/machinery/cryopod{
+	dir = 8
+	},
 /turf/simulated/floor/plasteel{
 	dir = 6;
 	icon_state = "brown"
@@ -2974,17 +2976,6 @@
 /obj/structure/fans/tiny,
 /turf/simulated/floor/plasteel,
 /area/mine/laborcamp)
-"gv" = (
-/obj/machinery/door/airlock/external{
-	glass = 1;
-	id_tag = "mining_away";
-	name = "Mining Shuttle Airlock";
-	opacity = 0;
-	req_access = list(48)
-	},
-/obj/structure/fans/tiny,
-/turf/simulated/floor/plasteel,
-/area/mine/production)
 "gw" = (
 /obj/machinery/door/airlock/external{
 	glass = 1;
@@ -4966,20 +4957,6 @@
 	icon_state = "barber"
 	},
 /area/mine/laborcamp)
-"sQ" = (
-/obj/structure/stone_tile/cracked{
-	dir = 4
-	},
-/obj/structure/stone_tile{
-	dir = 1
-	},
-/obj/structure/stone_tile,
-/obj/structure/stone_tile{
-	dir = 8
-	},
-/obj/structure/table/reinforced/brass,
-/turf/simulated/floor/indestructible/boss,
-/area/lavaland/surface/outdoors/necropolis)
 "sR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -21583,7 +21560,7 @@ aj
 ab
 ab
 bJ
-gv
+gw
 bN
 ab
 ab
@@ -37052,7 +37029,7 @@ gS
 oG
 mS
 tY
-sQ
+Nk
 XC
 oG
 oG

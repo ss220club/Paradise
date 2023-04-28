@@ -14,13 +14,13 @@
 /obj/item/storage/box/ert_taser_proof
 	name = "Taser Proof Upgrade Box"
 	desc = "A Exclusive and Expensive upgrade for Hardsuits."
-	icon_state = "box_ert"
+	icon_state = "ert_box"
 	var/ert_locked = FALSE
 
 /obj/item/storage/box/ert_taser_proof/ert_locked
 	name = "Taser Proof Upgrade Box"
 	desc = "A Exclusive and Expensive upgrade for Hardsuits. Requires ERT MindShield implant."
-	icon_state = "box_ert"
+	icon_state = "ert_box"
 	ert_locked = TRUE
 
 /obj/item/storage/box/ert_taser_proof/New()

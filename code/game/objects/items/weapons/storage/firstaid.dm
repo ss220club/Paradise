@@ -28,7 +28,7 @@
 /obj/item/storage/firstaid/fire
 	name = "fire first-aid kit"
 	desc = "A medical kit that contains several medical patches and pills for treating burns. Contains one epinephrine syringe for emergency use and a health analyzer."
-	icon_state = "ointment"
+	icon_state = "burn_firstaid"
 	item_state = "firstaid-ointment"
 	med_bot_skin = "ointment"
 
@@ -36,7 +36,7 @@
 	..()
 	if(empty)
 		return
-	icon_state = pick("ointment", "firefirstaid")
+	icon_state = pick("burn_firstaid", "burn2_firstaid")
 	new /obj/item/reagent_containers/applicator/burn(src)
 	new /obj/item/reagent_containers/food/pill/patch/silver_sulf/small(src)
 	new /obj/item/healthanalyzer(src)
@@ -81,7 +81,7 @@
 /obj/item/storage/firstaid/toxin
 	name = "toxin first aid kit"
 	desc = "A medical kit designed to counter poisoning by common toxins. Contains three pills and syringes, and a health analyzer to determine the health of the patient."
-	icon_state = "antitoxin"
+	icon_state = "antitox_firstaid"
 	item_state = "firstaid-toxin"
 	med_bot_skin = "tox"
 
@@ -89,7 +89,7 @@
 	..()
 	if(empty)
 		return
-	icon_state = pick("antitoxin", "antitoxfirstaid", "antitoxfirstaid2", "antitoxfirstaid3")
+	icon_state = pick("antitox_firstaid", "antitox2_firstaid", "antitox3_firstaid", "antitox4_firstaid")
 	new /obj/item/reagent_containers/syringe/charcoal(src)
 	new /obj/item/reagent_containers/syringe/charcoal(src)
 	new /obj/item/reagent_containers/syringe/charcoal(src)
@@ -104,7 +104,7 @@
 /obj/item/storage/firstaid/o2
 	name = "oxygen deprivation first aid kit"
 	desc = "A first aid kit that contains four pills of salbutamol, which is able to counter injuries caused by suffocation. Also contains a health analyzer to determine the health of the patient."
-	icon_state = "o2"
+	icon_state = "o2_firstaid"
 	item_state = "firstaid-o2"
 	med_bot_skin = "o2"
 
@@ -124,7 +124,7 @@
 /obj/item/storage/firstaid/brute
 	name = "brute trauma treatment kit"
 	desc = "A medical kit that contains several medical patches and pills for treating brute injuries. Contains one epinephrine syringe for emergency use and a health analyzer."
-	icon_state = "brute"
+	icon_state = "brute_firstaid"
 	item_state = "firstaid-brute"
 	med_bot_skin = "brute"
 
@@ -132,7 +132,7 @@
 	..()
 	if(empty)
 		return
-	icon_state = pick("brute", "brute2")
+	icon_state = pick("brute_firstaid", "brute2_firstaid")
 	new /obj/item/reagent_containers/applicator/brute(src)
 	new /obj/item/reagent_containers/food/pill/patch/styptic/small(src)
 	new /obj/item/healthanalyzer(src)
@@ -145,7 +145,7 @@
 /obj/item/storage/firstaid/adv
 	name = "advanced first-aid kit"
 	desc = "Contains advanced medical treatments."
-	icon_state = "advfirstaid"
+	icon_state = "adv_firstaid"
 	item_state = "firstaid-advanced"
 	med_bot_skin = "adv"
 
@@ -167,7 +167,7 @@
 /obj/item/storage/firstaid/machine
 	name = "machine repair kit"
 	desc = "A kit that contains supplies to repair IPCs on the go."
-	icon_state = "machinefirstaid"
+	icon_state = "machine2_firstaid"
 	item_state = "firstaid-machine"
 	med_bot_skin = "machine"
 
@@ -175,6 +175,7 @@
 	..()
 	if(empty)
 		return
+	icon_state = pick("machine_firstaid", "machine2_firstaid")
 	new /obj/item/weldingtool(src)
 	new /obj/item/stack/cable_coil(src)
 	new /obj/item/stack/cable_coil(src)
@@ -186,7 +187,7 @@
 
 /obj/item/storage/firstaid/tactical
 	name = "NT first-aid kit"
-	icon_state = "NTfirstaid"
+	icon_state = "NT_firstaid"
 	desc = "I hope you've got insurance."
 	max_w_class = WEIGHT_CLASS_NORMAL
 	treatment_oxy = "perfluorodecalin"
@@ -215,7 +216,7 @@
 
 /obj/item/storage/firstaid/ertm
 	name = "NT ert-aid kit"
-	icon_state = "NTertaid"
+	icon_state = "NT_ERT_firstaid"
 	desc = "I hope you've got insurance."
 	max_w_class = WEIGHT_CLASS_NORMAL
 	treatment_oxy = "perfluorodecalin"
