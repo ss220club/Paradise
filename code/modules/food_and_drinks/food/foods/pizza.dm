@@ -352,28 +352,28 @@
 		return
 	..()
 
-/obj/item/pizzabox/margherita/New()
-	..()
+/obj/item/pizzabox/margherita/Initialize()
+	. = ..()
 	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizza/margherita(src)
 	boxtag = "margherita deluxe"
 
-/obj/item/pizzabox/vegetable/New()
-	..()
+/obj/item/pizzabox/vegetable/Initialize()
+	. = ..()
 	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizza/vegetablepizza(src)
 	boxtag = "gourmet vegatable"
 
-/obj/item/pizzabox/mushroom/New()
-	..()
+/obj/item/pizzabox/mushroom/Initialize()
+	. = ..()
 	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizza/mushroompizza(src)
 	boxtag = "mushroom special"
 
-/obj/item/pizzabox/meat/New()
-	..()
+/obj/item/pizzabox/meat/Initialize()
+	. = ..()
 	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizza/meatpizza(src)
 	boxtag = "meatlover's supreme"
 
-/obj/item/pizzabox/hawaiian/New()
-	..()
+/obj/item/pizzabox/hawaiian/Initialize()
+	. = ..()
 	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizza/hawaiianpizza(src)
 	boxtag = "Hawaiian feast"
 
