@@ -398,7 +398,7 @@
 		var/available_drop_turfs = RANGE_TURFS(DROPS_ZONE_SIZE, fortniter.current.loc)
 
 		var/turf/turf_to_drop_on = pick_n_take(available_drop_turfs)
-		var/dense = turf_to_drop_on.density
+		var/dense = turf_to_drop_on.density || !turf_to_drop_on.is_safe()
 		if(!dense)
 			for(var/atom/movable/atom_to_check as anything in turf_to_drop_on)
 				if(!atom_to_check.density)
@@ -408,7 +408,7 @@
 
 		while(turf_to_drop_on && (dense || !(turf_to_drop_on in inner_turfs)))
 			turf_to_drop_on = pick_n_take(available_drop_turfs)
-			dense = turf_to_drop_on.density
+			dense = turf_to_drop_on.density || !turf_to_drop_on.is_safe()
 			if(!dense)
 				for(var/atom/movable/atom_to_check as anything in turf_to_drop_on)
 					if(!atom_to_check.density)

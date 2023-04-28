@@ -73,5 +73,6 @@ GLOBAL_LIST_EMPTY(battleroyale_loot_spawn)
 												/obj/item,\
 												/mob/living/simple_animal/bot,\
 												/mob/living/simple_animal/slime,\
+												/obj/spacepod,\
 												)
 

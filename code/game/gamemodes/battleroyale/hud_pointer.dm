@@ -1,6 +1,6 @@
 /obj/screen/battleroyale_pointer
 	name = "Zone center pointer"
-	icon = 'icons/mob/screen_alien.dmi'
+	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "pinpointer_center"
 	plane = ABOVE_HUD_PLANE
 	layer = ABOVE_HUD_LAYER
