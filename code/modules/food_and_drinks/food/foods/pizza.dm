@@ -377,7 +377,7 @@
 	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizza/hawaiianpizza(src)
 	boxtag = "Hawaiian feast"
 
-/obj/item/pizzabox/poison/New()
-	..()
+/obj/item/pizzabox/poison/Initialize()
+	. = ..()
 	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizza/poison
 	boxtag = "mushroom special"
