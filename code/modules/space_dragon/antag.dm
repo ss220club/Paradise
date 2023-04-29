@@ -150,8 +150,7 @@
  */
 /datum/antagonist/space_dragon/proc/permanant_empower()
 	owner.current.rejuvenate()
-	//TODO:
-	//owner.current.add_filter("anger_glow", 3, list("type" = "outline", "color" = "#ff330030", "size" = 5))
+	owner.current.add_filter("anger_glow", 3, list("type" = "outline", "color" = "#ff330030", "size" = 5))
 	dragon.dragon_rage = TRUE
 
 /**
@@ -162,8 +161,7 @@
  */
 /datum/antagonist/space_dragon/proc/rift_empower()
 	owner.current.rejuvenate()
-	//TODO:
-	//owner.current.add_filter("anger_glow", 3, list("type" = "outline", "color" = "#ff330030", "size" = 5))
+	owner.current.add_filter("anger_glow", 3, list("type" = "outline", "color" = "#ff330030", "size" = 5))
 	dragon.dragon_rage = TRUE
 	addtimer(CALLBACK(src, .proc/rift_depower), 30 SECONDS)
 
@@ -175,8 +173,7 @@
  * removes the red glow from Space Dragon which is synonymous with the speed buff.
  */
 /datum/antagonist/space_dragon/proc/rift_depower()
-	//TODO:
-	//owner.current.remove_filter("anger_glow")
+	owner.current.remove_filter("anger_glow")
 	dragon.dragon_rage = FALSE
 
 /datum/objective/summon_carp
