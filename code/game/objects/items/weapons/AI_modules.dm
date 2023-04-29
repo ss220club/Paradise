@@ -26,69 +26,61 @@ AI MODULES
 	var/timer_id = null
 	var/registered_name = null
 
-/obj/item/aiModule/proc/finishUpload(obj/machinery/computer/C)
+/obj/item/aiModule/proc/finishUpload(obj/machinery/computer/aiupload/aiupload)
 	transmitting = FALSE
-	var/obj/machinery/computer/aiupload/comp = C
-	src.transmitInstructions(comp.current, usr, registered_name)
-	C.atom_say("Upload complete. The laws have been modified.")
+	src.transmitInstructions(aiupload.current, usr, registered_name)
+	aiupload.atom_say("Upload complete. The laws have been modified.")
 	registered_name = null
 
-/obj/item/aiModule/proc/stopUpload(obj/machinery/computer/C, silent = FALSE)
+/obj/item/aiModule/proc/stopUpload(obj/machinery/computer/aiupload/aiupload, silent = FALSE)
 	transmitting = FALSE
 	registered_name = null
 	deltimer(timer_id)
 	timer_id = null
-	if(C && !silent)
-		C.atom_say("Upload has been interrupted.")
+	if(aiupload && !silent)
+		aiupload.atom_say("Upload has been interrupted.")
 
-/obj/item/aiModule/proc/install(obj/machinery/computer/C, new_name = "Unknown")
+/obj/item/aiModule/proc/install(obj/machinery/computer/aiupload/aiupload, new_name = "Unknown")
 	if(transmitting)
 		to_chat(usr, span_notice("The module is busy right now!"))
 		return
-	if(istype(C, /obj/machinery/computer/aiupload))
-		var/obj/machinery/computer/aiupload/comp = C
-		if(comp.stat & NOPOWER)
-			to_chat(usr, span_warning("The upload computer has no power!"))
-			return
-		if(comp.stat & BROKEN)
-			to_chat(usr, span_warning("The upload computer is broken!"))
-			return
-		if(!comp.current)
-			to_chat(usr, span_notice("No selected silicon to transmit laws to!"))
-			return
+	if(aiupload.stat & NOPOWER)
+		to_chat(usr, span_warning("The upload computer has no power!"))
+		return
+	if(aiupload.stat & BROKEN)
+		to_chat(usr, span_warning("The upload computer is broken!"))
+		return
+	if(!aiupload.current)
+		to_chat(usr, span_notice("No selected silicon to transmit laws to!"))
+		return
 
-		//Upload to robot
-		if(istype(comp, /obj/machinery/computer/aiupload/cyborg))
-			var/mob/living/silicon/robot/robot = comp.current
-			if(robot.stat == DEAD || robot.emagged)
-				to_chat(usr, span_notice("Upload failed. No signal is being detected from the robot."))
-			else if(robot.connected_ai)
-				to_chat(usr, span_notice("Upload failed. The robot is slaved to an AI."))
-			else
-				transmitting = TRUE
-				registered_name = new_name
-				if(!length(robot.laws.inherent_laws) && laws?.default)
-					registered_name = new_name
-					finishUpload(C)
-					return
-				to_chat(usr, span_notice("Upload process has started. ETA: [delay / (1 SECONDS)] seconds."))
-				timer_id = addtimer(CALLBACK(src, .proc/finishUpload, C), delay, TIMER_STOPPABLE)
-			return
+	var/mob/living/silicon/silicon_target = aiupload.current
 
-		//Upload to AI
-		var/mob/living/silicon/ai/ai = comp.current
+	//Check robot's availability
+	if(istype(aiupload, /obj/machinery/computer/aiupload/cyborg))
+		var/mob/living/silicon/robot/robot = silicon_target
+		if(robot.stat == DEAD || robot.emagged)
+			to_chat(usr, span_notice("Upload failed. No signal is being detected from the robot."))
+			return
+		if(robot.connected_ai)
+			to_chat(usr, span_notice("Upload failed. The robot is slaved to an AI."))
+			return
+	//Check AI's availability
+	else
+		var/mob/living/silicon/ai/ai = silicon_target
 		if(ai.stat == DEAD || ai.control_disabled)
 			to_chat(usr, span_notice("Upload failed. No signal is being detected from the AI."))
+			return
 		else if(!ai.see_in_dark)
 			to_chat(usr, span_notice("Upload failed. Only a faint signal is being detected from the AI, and it is not responding to our requests. It may be low on power."))
-		else
-			transmitting = TRUE
-			registered_name = new_name
-			if(!length(ai.laws.inherent_laws) && laws?.default)
-				finishUpload(C)
-				return
-			to_chat(usr, span_notice("Upload process has started. ETA: [delay / (1 SECONDS)] seconds."))
-			timer_id = addtimer(CALLBACK(src, .proc/finishUpload, C), delay, TIMER_STOPPABLE)
+			return
+	transmitting = TRUE
+	registered_name = new_name
+	if(!length(silicon_target.laws.inherent_laws) && laws?.default)
+		finishUpload(aiupload)
+		return
+	to_chat(usr, span_notice("Upload process has started. ETA: [delay / (1 SECONDS)] seconds."))
+	timer_id = addtimer(CALLBACK(src, .proc/finishUpload, aiupload), delay, TIMER_STOPPABLE)
 
 /obj/item/aiModule/cmag_act()
 	. = ..()
