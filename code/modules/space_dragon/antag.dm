@@ -53,8 +53,8 @@
 
 /datum/antagonist/space_dragon/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/antag = mob_override || owner.current
-	RegisterSignal(antag, COMSIG_LIVING_LIFE, .proc/rift_checks)
-	RegisterSignal(antag, COMSIG_LIVING_DEATH, .proc/destroy_rifts)
+	RegisterSignal(antag, COMSIG_LIVING_LIFE, PROC_REF(rift_checks))
+	RegisterSignal(antag, COMSIG_LIVING_DEATH, PROC_REF(destroy_rifts))
 	antag.faction |= "carp"
 	// Give the ability over if we have one
 	rift_ability?.Grant(antag)
@@ -163,7 +163,7 @@
 	owner.current.rejuvenate()
 	owner.current.add_filter("anger_glow", 3, list("type" = "outline", "color" = "#ff330030", "size" = 5))
 	dragon.dragon_rage = TRUE
-	addtimer(CALLBACK(src, .proc/rift_depower), 30 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(rift_depower)), 30 SECONDS)
 
 /**
  * Removes Space Dragon's rift speed buff.

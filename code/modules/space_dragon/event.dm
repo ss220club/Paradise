@@ -6,7 +6,7 @@
 
 /datum/event/space_dragon/start()
 	// It is necessary to wrap this to avoid the event triggering repeatedly.
-	INVOKE_ASYNC(src, .proc/wrapped_start)
+	INVOKE_ASYNC(src, PROC_REF(wrapped_start))
 
 /datum/event/space_dragon/announce()
 	if(successSpawn)
