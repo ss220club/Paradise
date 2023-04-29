@@ -42337,7 +42337,9 @@
 /turf/simulated/wall,
 /area/quartermaster/qm)
 "bYL" = (
-/obj/effect/spawner/window/reinforced,
+/obj/effect/spawner/window/reinforced/polarized{
+	id = "qmoffice"
+	},
 /turf/simulated/floor/plating,
 /area/quartermaster/qm)
 "bYM" = (
@@ -43885,11 +43887,14 @@
 /turf/simulated/floor/plasteel,
 /area/quartermaster/miningdock)
 "cbL" = (
-/obj/structure/chair/office/dark,
 /obj/effect/landmark/start/quartermaster,
+/obj/structure/chair/comfy/brown,
 /turf/simulated/floor/plasteel,
 /area/quartermaster/qm)
 "cbM" = (
+/obj/structure/chair/office/dark{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/qm)
 "cbN" = (
@@ -45338,6 +45343,10 @@
 	pixel_y = 7
 	},
 /obj/item/megaphone,
+/obj/machinery/button/windowtint{
+	id = "qmoffice";
+	pixel_x = 16
+	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/qm)
 "cfe" = (
@@ -46174,6 +46183,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/mining/glass{
+	id = "qmoffice";
 	name = "Quartermaster";
 	req_access = list(41)
 	},
