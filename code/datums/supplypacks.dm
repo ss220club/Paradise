@@ -1136,8 +1136,6 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	cost = 60
 	containername = "Pizza crate"
 	hidden_if_hacked = TRUE
-	special = TRUE
-	special_enabled = FALSE
 
 
 /datum/supply_packs/organic/pizzaspicy
