@@ -221,9 +221,6 @@
 		return
 	var/mob/living/newcarp = new dragon.minion_to_spawn(loc)
 	newcarp.faction = dragon.owner.current.faction
-	//TODO: What is this for?
-	//newcarp.AddElement(/datum/element/nerfed_pulling, GLOB.typecache_general_bad_things_to_easily_move)
-	//newcarp.AddElement(/datum/element/prevent_attacking_of_types, GLOB.typecache_general_bad_hostile_attack_targets, "this tastes awful!")
 
 	if(!is_listed)
 		ckey_list += user.ckey
