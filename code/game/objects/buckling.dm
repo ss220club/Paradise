@@ -68,9 +68,12 @@
 	if(M.pulledby)
 		if(buckle_prevents_pull)
 			M.pulledby.stop_pulling()
-		else if(isliving(M.pulledby))
-			var/mob/living/L = M.pulledby
-			L.unpixel_shift()
+		else
+			M.pulledby.pulling = src
+			M.pulledby = null
+			if(isliving(M.pulledby))
+				var/mob/living/L = M.pulledby
+				L.unpixel_shift()
 
 	for(var/obj/item/grab/G in M.grabbed_by)
 		qdel(G)

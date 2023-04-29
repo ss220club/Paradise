@@ -264,6 +264,9 @@ GLOBAL_LIST_EMPTY(all_cults)
 		cultist.faction -= "cult"
 		cult_mind.special_role = null
 		REMOVE_TRAIT(cult_mind.current, TRAIT_HEALS_FROM_CULT_PYLONS, CULT_TRAIT)
+		for(var/datum/objective/servecult/O in cult_mind.objectives)
+			cult_mind.objectives -= O
+			qdel(O)
 		for(var/datum/action/innate/cult/C in cultist.actions)
 			qdel(C)
 		update_cult_icons_removed(cult_mind)
