@@ -946,7 +946,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	set name = "De-admin self"
 	set category = "Admin"
 
-	if(!check_rights(R_ADMIN|R_MOD|R_MENTOR))
+	if(!holder.rights || holder.rights == R_VIEWRUNTIMES)
 		return
 
 	log_admin("[key_name(usr)] deadmined themself.")
