@@ -16,7 +16,7 @@
 /obj/machinery/computer/cryopod
 	name = "cryogenic oversight console"
 	desc = "An interface between crew and the cryogenic storage oversight systems."
-	icon = 'icons/obj/cryogenic2.dmi'
+	icon = 'icons/obj/machines/cryogenic2.dmi'
 	icon_state = "cellconsole"
 	circuit = /obj/item/circuitboard/cryopodcontrol
 	density = 0
@@ -188,7 +188,7 @@
 /obj/structure/cryofeed
 	name = "cryogenic feed"
 	desc = "A bewildering tangle of machinery and pipes."
-	icon = 'icons/obj/cryogenic2.dmi'
+	icon = 'icons/obj/machines/cryogenic2.dmi'
 	icon_state = "cryo_rear"
 	anchored = 1
 
@@ -209,14 +209,14 @@
 /obj/machinery/cryopod
 	name = "cryogenic freezer"
 	desc = "A man-sized pod for entering suspended animation."
-	icon = 'icons/obj/cryogenic2.dmi'
-	icon_state = "body_scanner_0"
-	density = 1
-	anchored = 1
+	icon = 'icons/obj/machines/cryogenic2.dmi'
+	icon_state = "bodyscanner-open"
+	density = TRUE
+	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	flags = NODECONSTRUCT
-	var/base_icon_state = "body_scanner_0"
-	var/occupied_icon_state = "body_scanner_1"
+	var/base_icon_state = "bodyscanner-open"
+	var/occupied_icon_state = "bodyscanner"
 	var/on_store_message = "помещен в криохранилище."
 	var/on_store_name = "Cryogenic Oversight"
 	var/on_enter_occupant_message = "You feel cool air surround you. You go numb as your senses turn inward."
@@ -254,7 +254,7 @@
 		/obj/item/clothing/accessory/medal/gold/captain,
 		/obj/item/clothing/gloves/color/black/krav_maga/sec,
 		/obj/item/clothing/gloves/color/black/forensics,
-		/obj/item/spacepod_equipment/key,
+		/obj/item/spacepod_key,
 		/obj/item/nullrod,
 		/obj/item/key,
 		/obj/item/door_remote,
@@ -265,10 +265,6 @@
 	var/list/do_not_preserve_items = list (
 		/obj/item/mmi/robotic_brain
 	)
-
-/obj/machinery/cryopod/right
-	orient_right = 1
-	icon_state = "body_scanner_0-r"
 
 //////
 //Syndie cryopod.
@@ -741,7 +737,7 @@
 /obj/machinery/computer/cryopod/robot
 	name = "robotic storage console"
 	desc = "An interface between crew and the robotic storage systems"
-	icon = 'icons/obj/robot_storage.dmi'
+	icon = 'icons/obj/machines/robot_storage.dmi'
 	icon_state = "console"
 	circuit = /obj/item/circuitboard/robotstoragecontrol
 
@@ -752,7 +748,7 @@
 /obj/machinery/cryopod/robot
 	name = "robotic storage unit"
 	desc = "A storage unit for robots."
-	icon = 'icons/obj/robot_storage.dmi'
+	icon = 'icons/obj/machines/robot_storage.dmi'
 	icon_state = "pod_0"
 	base_icon_state = "pod_0"
 	occupied_icon_state = "pod_1"

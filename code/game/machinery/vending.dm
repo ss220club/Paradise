@@ -14,7 +14,7 @@
 /obj/machinery/vending
 	name = "\improper Vendomat"
 	desc = "A generic vending machine."
-	icon = 'icons/obj/vending.dmi'
+	icon = 'icons/obj/machines/vending.dmi'
 	icon_state = "generic"
 	layer = 2.9
 	anchored = 1
@@ -1440,6 +1440,8 @@
 					  /obj/item/clothing/mask/horsehead = 2)
 	premium = list(/obj/item/clothing/suit/hgpirate = 1,
 				   /obj/item/clothing/head/hgpiratecap = 1,
+				   /obj/item/clothing/suit/monkeysuit = 1,
+				   /obj/item/clothing/mask/gas/monkeymask = 1,
 				   /obj/item/clothing/head/helmet/roman/fake = 1,
 				   /obj/item/clothing/head/helmet/roman/legionaire/fake = 1,
 				   /obj/item/clothing/under/roman = 1,

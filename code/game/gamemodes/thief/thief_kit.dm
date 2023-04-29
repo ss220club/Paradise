@@ -2,7 +2,7 @@
 /obj/item/storage/box/thief_kit
 	name = "набор гильдии воров"
 	desc = "Ничем не примечательная коробка."
-	icon_state = "box_thief"
+	icon_state = "thief_box"
 	item_state = "syringe_kit"
 
 /obj/item/storage/box/thief_kit/New()
@@ -17,7 +17,7 @@
 	name = "набор гильдии воров"
 	desc = "Ничем не примечательная увесистая коробка. Тяжелая. Набор вора-шредингера. Неизвестно что внутри, пока не заглянешь и не определишься."
 	icon = 'icons/obj/storage.dmi'
-	icon_state = "box_thief"
+	icon_state = "thief_box"
 	item_state = "syringe_kit"
 	w_class = WEIGHT_CLASS_TINY
 	var/possible_uses = 2

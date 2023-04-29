@@ -315,6 +315,14 @@
 	mob_size = MOB_SIZE_SMALL
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/mouse = 2)
 
+/mob/living/simple_animal/mouse/rat/pull_constraint(atom/movable/AM, show_message = FALSE)
+	if(istype(AM, /obj/item/reagent_containers)) //Food, drinks, pills
+		return TRUE
+	if(istype(AM, /obj/item/kitchen)) //Stop hurting cook with kitchen knife and forks
+		return TRUE
+	if(show_message)
+		to_chat(src, "<span class='warning'>Вы не можете ухватиться за этот предмет.</span>")
+	return FALSE
 
 /mob/living/simple_animal/mouse/rat/color_pick()
 	if(!mouse_color)
@@ -323,9 +331,6 @@
 		icon_living 	= "rat_[mouse_color]"
 		icon_dead 		= "rat_[mouse_color]_dead"
 		icon_resting 	= "rat_[mouse_color]_sleep"
-
-/mob/living/simple_animal/mouse/rat/pull_constraint(atom/movable/AM, show_message = FALSE)
-	return TRUE
 
 /mob/living/simple_animal/mouse/rat/gray
 	name = "gray rat"

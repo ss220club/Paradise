@@ -315,6 +315,7 @@
 
 	var/pixel_shift = FALSE
 	var/water_poison = FALSE
+	var/modify_pull_push_speed = FALSE
 
 /datum/configuration/New()
 	for(var/T in subtypesof(/datum/game_mode))
@@ -899,12 +900,6 @@
 
 				if("override_map")
 					config.override_map = value
-
-				if("pixel_shift")
-					config.pixel_shift = TRUE
-
-				if("water_poison")
-					config.water_poison = TRUE
 
 				else
 					log_config("Unknown setting in configuration: '[name]'")

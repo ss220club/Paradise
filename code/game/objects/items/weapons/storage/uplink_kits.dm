@@ -1,6 +1,6 @@
 /obj/item/storage/box/syndicate/New()
 	..()
-	switch(pickweight(list("bloodyspai" = 1, "thief" = 1, "bond" = 1, "sabotage" = 1, "payday" = 1, "implant" = 1, "hacker" = 1, "darklord" = 1, "professional" = 1)))
+	switch(pickweight(list("bloodyspai" = 1, "thief" = 1, "bond" = 1, "sabotage" = 1, "payday" = 1, "implant" = 1, "hacker" = 1, "darklord" = 1, "professional" = 1, "secoff" = 1)))
 		if("bloodyspai") // 37TC + one 0TC
 			new /obj/item/clothing/under/chameleon(src) // 2TC
 			new /obj/item/clothing/mask/chameleon(src) // 0TC
@@ -119,10 +119,28 @@
 			new /obj/item/encryptionkey/syndicate(src) // 2TC
 			return
 
+		if("secoff") // 20 TC + many non-uplink items
+			new /obj/item/encryptionkey/syndicate(src) // 2 TC
+			new /obj/item/card/id/syndicate(src) // 2 TC
+			new /obj/item/clothing/glasses/hud/security/chameleon(src) // 2 TC
+			new /obj/item/clothing/mask/chameleon(src) // In 2 TC bundle (chameleon)
+			new /obj/item/clothing/accessory/holster(src) // 0 TC
+			new /obj/item/storage/belt/military/traitor/sec(src) // 0 TC
+			new /obj/item/pinpointer/advpinpointer(src) // 4 TC
+			new /obj/item/gun/projectile/automatic/pistol(src) // 4 TC
+			new /obj/item/ammo_box/magazine/m10mm(src) // 1 TC
+			new /obj/item/ammo_box/magazine/m10mm/ap(src) // 1 TC
+			new /obj/item/ammo_box/magazine/m10mm/fire(src) // 1 TC
+			new /obj/item/ammo_box/magazine/m10mm/hp(src) // 1 TC
+			new /obj/item/storage/box/sec(src) // 0 TC
+			new /obj/item/restraints/handcuffs(src) // 0 TC
+			new /obj/item/flash(src) // 0 TC
+			return
+
 /obj/item/storage/box/syndie_kit
 	name = "Box"
 	desc = "A sleek, sturdy box"
-	icon_state = "box_of_doom"
+	icon_state = "doom_box"
 
 /obj/item/storage/box/syndie_kit/space
 	name = "Boxed Space Suit and Helmet"

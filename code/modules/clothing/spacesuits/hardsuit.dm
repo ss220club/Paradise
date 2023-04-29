@@ -220,6 +220,26 @@
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/engine/atmos
 	dog_fashion = null
 
+//Mechanics
+/obj/item/clothing/head/helmet/space/hardsuit/engine/mechanic
+	name = "mechanics hardsuit helmet"
+	desc = "A special helmet designed for work in a low-pressure environment. Has thermal shielding."
+	icon_state = "hardsuit0-mechanic"
+	item_state = "mechanic_helm"
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 100, rad = 20, fire = 50, acid = 65)
+	item_color = "mechanic"
+	resistance_flags = null
+
+/obj/item/clothing/suit/space/hardsuit/engine/mechanic
+	name = "mechanics hardsuit"
+	desc = "A special suit that protects against a low pressure environments. Has thermal shielding."
+	icon_state = "hardsuit-mechanic"
+	item_state = "mechanic_hardsuit"
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 100, rad = 20, fire = 50, acid = 65)
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/engine/mechanic
+	resistance_flags = null
+	dog_fashion = null
+
 //Chief Engineer's hardsuit
 /obj/item/clothing/head/helmet/space/hardsuit/engine/elite
 	name = "advanced hardsuit helmet"

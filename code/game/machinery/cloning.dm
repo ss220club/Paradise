@@ -26,7 +26,7 @@ GLOBAL_LIST_INIT(cloner_biomass_items, list(\
 	name = "cloning pod"
 	desc = "An electronically-lockable pod for growing organic tissue."
 	density = TRUE
-	icon = 'icons/obj/cloning.dmi'
+	icon = 'icons/obj/machines/cloning.dmi'
 	icon_state = "pod_idle"
 	req_access = list(ACCESS_MEDICAL) //For premature unlocking.
 
@@ -681,7 +681,7 @@ GLOBAL_LIST_INIT(cloner_biomass_items, list(\
 
 /obj/item/storage/box/disks
 	name = "Diskette Box"
-	icon_state = "disk_kit"
+	icon_state = "disk_box"
 
 /obj/item/storage/box/disks/New()
 	..()
