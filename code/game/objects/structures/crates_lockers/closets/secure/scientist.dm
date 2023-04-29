@@ -103,3 +103,17 @@
 	new /obj/item/reagent_containers/glass/bottle/reagent/acetone(src)
 	new /obj/item/reagent_containers/glass/bottle/reagent/acid(src)
 	new /obj/item/reagent_containers/glass/bottle/reagent/diethylamine(src)
+
+/obj/structure/closet/secure_closet/research_reagents/broken
+
+/obj/structure/closet/secure_closet/research_reagents/broken/Initialize(mapload)
+	. = ..()
+	populate_contents()
+	bust_open()
+	update_icon()
+
+/obj/structure/closet/secure_closet/research_reagents/populate_contents()
+	new /obj/item/reagent_containers/glass/bottle/reagent/hydrogen(src)
+	new /obj/item/reagent_containers/glass/bottle/reagent/phosphorus(src)
+	new /obj/item/reagent_containers/glass/bottle/reagent/iodine(src)
+	new /obj/item/reagent_containers/glass/bottle/reagent/ephedrine(src)

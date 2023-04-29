@@ -1286,7 +1286,7 @@
 "amk" = (
 /obj/machinery/light/small,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/decal/remains/mouse/Pinkie,
+/obj/effect/decal/remains/animals/mouse/Pinkie,
 /turf/simulated/floor/bluegrid{
 	icon_state = "dark";
 	name = "Mainframe Floor";
@@ -1775,7 +1775,7 @@
 "apM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "apN" = (
@@ -8218,7 +8218,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/casino)
 "bfU" = (
@@ -20904,7 +20904,7 @@
 /area/engine/controlroom)
 "cmk" = (
 /obj/effect/decal/cleanable/dust,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/banya)
 "cml" = (
@@ -24943,7 +24943,7 @@
 "cDk" = (
 /obj/effect/decal/cleanable/dust,
 /obj/item/trash/can,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/banya)
 "cDl" = (
@@ -27304,7 +27304,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dust,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/banya)
 "cNt" = (
@@ -62355,7 +62355,7 @@
 /obj/effect/decal/cleanable/cobweb2,
 /obj/item/clothing/gloves/color/yellow,
 /obj/item/stack/spacecash/c50,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/wood{
 	icon_state = "fancy-wood-cherry"
 	},
@@ -72475,7 +72475,7 @@
 /obj/structure/sign/poster/contraband/borg_fancy_2{
 	pixel_y = -32
 	},
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plasteel{
 	dir = 10;
 	icon_state = "darkblue"
@@ -80185,7 +80185,7 @@
 /turf/simulated/floor/engine/insulated/vacuum,
 /area/atmos)
 "mHe" = (
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/wood,
 /area/maintenance/tourist)
 "mHl" = (
@@ -83755,7 +83755,7 @@
 	},
 /area/security/brig)
 "nwe" = (
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
 "nwf" = (
@@ -90719,7 +90719,7 @@
 	},
 /obj/structure/table/wood,
 /obj/effect/spawner/lootdrop/maintenance,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/casino)
 "pcM" = (
@@ -100629,7 +100629,7 @@
 	name = "east bump";
 	pixel_x = 26
 	},
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/engine,
 /area/maintenance/incinerator)
 "rjT" = (
@@ -112337,7 +112337,7 @@
 /turf/simulated/floor/plasteel,
 /area/engine/gravitygenerator)
 "tUX" = (
-/obj/effect/decal/remains/mouse{
+/obj/effect/decal/remains/animals/mouse{
 	name = "Джерри"
 	},
 /turf/simulated/floor/engine/insulated/vacuum,
@@ -125252,7 +125252,7 @@
 "wUU" = (
 /obj/effect/decal/warning_stripes/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plasteel,
 /area/hallway/secondary/exit/maint)
 "wUX" = (

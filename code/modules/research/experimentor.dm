@@ -79,8 +79,8 @@
 				critical_items += I
 
 
-/obj/machinery/r_n_d/experimentor/New()
-	..()
+/obj/machinery/r_n_d/experimentor/Initialize()
+	. = ..()
 	component_parts = list()
 	component_parts += new /obj/item/circuitboard/experimentor(src)
 	component_parts += new /obj/item/stock_parts/scanning_module(src)
@@ -618,12 +618,16 @@
 	var/cooldownMax = 60
 	var/cooldown
 	var/floof
+	var/special = FALSE
 
-/obj/item/relic/New()
-	..()
-	icon_state = pick("shock_kit","armor-igniter-analyzer","infra-igniter0","infra-igniter1","radio-multitool","prox-radio1","radio-radio","timer-multitool0","radio-igniter-tank")
-	realName = "[pick("broken","twisted","spun","improved","silly","regular","badly made")] [pick("device","object","toy","suspicious tech","gear")]"
-	floof = pick(/mob/living/simple_animal/pet/dog/corgi, /mob/living/simple_animal/pet/cat, /mob/living/simple_animal/pet/dog/fox, /mob/living/simple_animal/mouse, /mob/living/simple_animal/pet/dog/pug, /mob/living/simple_animal/lizard, /mob/living/simple_animal/diona, /mob/living/simple_animal/butterfly, /mob/living/carbon/human/lesser/monkey)
+/obj/item/relic/Initialize()
+	. = ..()
+	if(special)
+		return
+	if(!special)
+		icon_state = pick("shock_kit","armor-igniter-analyzer","infra-igniter0","infra-igniter1","radio-multitool","prox-radio1","radio-radio","timer-multitool0","radio-igniter-tank")
+		realName = "[pick("broken","twisted","spun","improved","silly","regular","badly made")] [pick("device","object","toy","suspicious tech","gear")]"
+		floof = pick(/mob/living/simple_animal/pet/dog/corgi, /mob/living/simple_animal/pet/cat, /mob/living/simple_animal/pet/dog/fox, /mob/living/simple_animal/mouse, /mob/living/simple_animal/pet/dog/pug, /mob/living/simple_animal/lizard, /mob/living/simple_animal/diona, /mob/living/simple_animal/butterfly, /mob/living/carbon/human/lesser/monkey)
 
 
 /obj/item/relic/proc/reveal()
@@ -663,7 +667,12 @@
 	warn_admins(user, "Floof Cannon", 0)
 
 /obj/item/relic/proc/clean(mob/user)
-	playsound(src.loc, "sparks", rand(25, 50), TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	if(special)
+		playsound(src.loc, "timer", rand(25, 50), TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		var/message = "<span class='danger'>БИП!</span>"
+		visible_message(message)
+	if(!special)
+		playsound(src.loc, "sparks", rand(25, 50), TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	var/obj/item/grenade/chem_grenade/cleaner/CL = new/obj/item/grenade/chem_grenade/cleaner(get_turf(user))
 	CL.prime()
 	warn_admins(user, "Smoke", 0)
@@ -739,3 +748,10 @@
 		message_admins("[RelicType] relic activated by [key_name_admin(user)] in [ADMIN_COORDJMP(T)]")
 	add_game_logs(log_msg)
 	investigate_log(log_msg, INVESTIGATE_EXPERIMENTOR)
+
+/obj/item/relic/TnT
+	revealed = TRUE
+	special = TRUE
+	name = "badly made device"
+	icon_state = "TnT_timer"
+	realProc = "clean"

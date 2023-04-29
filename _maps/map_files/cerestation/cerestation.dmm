@@ -51728,7 +51728,7 @@
 	},
 /area/hallway/primary/aft/east)
 "jmu" = (
-/obj/effect/decal/remains/mouse/Pinkie,
+/obj/effect/decal/remains/animals/mouse/Pinkie,
 /turf/simulated/floor/plasteel/dark/telecomms,
 /area/toxins/server_coldroom)
 "jmF" = (
@@ -69643,7 +69643,7 @@
 /obj/machinery/igniter{
 	id = "Incinerator"
 	},
-/obj/effect/decal/remains/mouse{
+/obj/effect/decal/remains/animals/mouse{
 	name = "Джерри"
 	},
 /turf/simulated/floor/engine,
