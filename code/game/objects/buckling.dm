@@ -71,9 +71,9 @@
 		else
 			M.pulledby.pulling = src
 			M.pulledby = null
-		else if(isliving(M.pulledby))
-			var/mob/living/L = M.pulledby
-			L.unpixel_shift()
+			if(isliving(M.pulledby))
+				var/mob/living/L = M.pulledby
+				L.unpixel_shift()
 
 	for(var/obj/item/grab/G in M.grabbed_by)
 		qdel(G)
