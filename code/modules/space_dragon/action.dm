@@ -1,7 +1,7 @@
 //Small sprites
 /datum/action/innate/small_sprite_dragon
 	name = "Toggle Giant Sprite"
-	desc = "Others will always see you as giant."
+	desc = "Другие всё еще видят вас гигантом."
 	button_icon_state = "carp"
 	background_icon_state = "bg_alien"
 	var/small = FALSE
@@ -23,7 +23,7 @@
 
 /datum/action/innate/space_dragon_gust
 	name = "Gust"
-	desc = "This ability throws everything around the user away."
+	desc = "Эта способность отталкивает всех, кто находится рядом с вами."
 	button_icon_state = "repulse"
 	background_icon_state = "bg_alien"
 	var/mob/living/simple_animal/hostile/space_dragon/space_dragon

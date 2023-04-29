@@ -24,7 +24,7 @@
  */
 /mob/living/simple_animal/hostile/space_dragon
 	name = "Space Dragon"
-	desc = "A vile, leviathan-esque creature that flies in the most unnatural way. Looks slightly similar to a space carp."
+	desc = "Мерзкое существо, схожее с классом левиафан, которое летает самым неестественным способом. Внешне, немного похоже на космического карпа."
 	gender = NEUTER
 	maxHealth = 320
 	health = 320
@@ -53,7 +53,7 @@
 	ranged = TRUE
 	mouse_opacity = MOUSE_OPACITY_ICON
 	butcher_results = list(/obj/item/stack/ore/diamond = 5, /obj/item/stack/sheet/sinew = 5, /obj/item/stack/sheet/bone = 30)
-	deathmessage = "screeches as its wings turn to dust and it collapses on the floor, its life extinguished."
+	deathmessage = "визжит, их крылья превращаются в пыль, и оно падает на пол, в глазах угасает жизнь."
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = 1500
@@ -139,14 +139,14 @@
 	if(using_special)
 		return
 	if(target == src)
-		to_chat(src, span_warning("You almost bite yourself, but then decide against it."))
+		to_chat(src, span_warning("Вы почти укусили себя, но вы вовремя остановились."))
 		return
 	if(iswallturf(target))
 		if(tearing_wall)
 			return
 		tearing_wall = TRUE
 		var/turf/simulated/wall/thewall = target
-		to_chat(src, span_warning("You begin tearing through the wall..."))
+		to_chat(src, span_warning("Вы начинаете рвать стену на части..."))
 		playsound(src, 'sound/machines/airlock_alien_prying.ogg', 100, TRUE)
 		var/timetotear = 4 SECONDS
 		if(istype(target, /turf/simulated/wall/r_wall))
@@ -161,7 +161,7 @@
 	if(isliving(target)) //Swallows corpses like a snake to regain health.
 		var/mob/living/L = target
 		if(L.stat == DEAD)
-			to_chat(src, span_warning("You begin to swallow [L] whole..."))
+			to_chat(src, span_warning("Вы начинаете глотать [L] целиком..."))
 			if(do_after(src, 3 SECONDS, target = L))
 				if(eat(L))
 					adjustHealth(-L.maxHealth * 0.25)
@@ -209,12 +209,12 @@
  * If the name is invalid, will re-prompt the dragon until a proper name is chosen.
  */
 /mob/living/simple_animal/hostile/space_dragon/proc/dragon_name()
-	var/chosen_name = reject_bad_name(input(src, "What would you like your name to be?", "Choose Your Name", real_name))
+	var/chosen_name = reject_bad_name(input(src, "Какое имя вы хотите задать?", "Выбор имени", real_name))
 	if(!chosen_name)
-		to_chat(src, span_warning("Not a valid name, please try again."))
+		to_chat(src, span_warning("Это имя некорректно, попробуйте еще раз."))
 		dragon_name()
 		return
-	to_chat(src, span_notice("Your name is now [span_name("[chosen_name]")], the feared Space Dragon."))
+	to_chat(src, span_notice("Ваше имя теперь - [span_name("[chosen_name]")], устрашающий Космический дракон."))
 	rename_character(null, chosen_name)
 
 /**
@@ -224,14 +224,14 @@
  * If an invalid color is given, will re-prompt the dragon until a proper color is chosen.
  */
 /mob/living/simple_animal/hostile/space_dragon/proc/color_selection()
-	chosen_color = input(src,"What would you like your color to be?","Choose Your Color", COLOR_WHITE) as color|null
+	chosen_color = input(src,"Какого цвета вы хотите быть?","Выбор цвета", COLOR_WHITE) as color|null
 	if(!chosen_color) //redo proc until we get a color
-		to_chat(src, span_warning("Not a valid color, please try again."))
+		to_chat(src, span_warning("Этот цвет некорректен, попробуйте еще раз."))
 		color_selection()
 		return
 	var/temp_hsv = RGBtoHSV(chosen_color)
 	if(ReadHSV(temp_hsv)[3] < DARKNESS_THRESHOLD)
-		to_chat(src, span_danger("Invalid color. Your color is not bright enough."))
+		to_chat(src, span_danger("Этот цвет некорректен - он не слишком яркий."))
 		color_selection()
 		return
 	add_atom_colour(chosen_color, FIXED_COLOUR_PRIORITY)
@@ -330,7 +330,7 @@
 			continue
 		hit_list += L
 		L.adjustFireLoss(30)
-		to_chat(L, span_userdanger("You're hit by [src]'s fire breath!"))
+		to_chat(L, span_userdanger("Вы попали под огненное дыхание [src]!"))
 	// deals damage to mechs
 	for(var/obj/mecha/M in T.contents)
 		if(M in hit_list)
@@ -396,8 +396,8 @@
 			if(L == src)
 				continue
 			hit_things += L
-			visible_message(span_boldwarning("[L] is knocked back by the gust!"))
-			to_chat(L, span_userdanger("You're knocked back by the gust!"))
+			visible_message(span_boldwarning("[L] отброшен назад порывом ветра!"))
+			to_chat(L, span_userdanger("Вас отбросило порывом ветра!"))
 			var/dir_to_target = get_dir(get_turf(src), get_turf(L))
 			var/throwtarget = get_edge_target_turf(target, dir_to_target)
 			L.throw_at(throwtarget, 10, 1, src)

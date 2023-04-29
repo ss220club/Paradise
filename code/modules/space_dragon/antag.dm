@@ -29,11 +29,11 @@
 
 /datum/antagonist/space_dragon/greet()
 	. = ..()
-	to_chat(owner.current, "<b>Through endless time and space we have moved. We do not remember from where we came, we do not know where we will go.  All of space belongs to us.\n\
-					It is an empty void, of which our kind was the apex predator, and there was little to rival our claim to this title.\n\
-					But now, we find intruders spread out amongst our claim, willing to fight our teeth with magics unimaginable, their dens like lights flickering in the depths of space.\n\
-					Today, we will snuff out one of those lights.</b>")
-	to_chat(owner.current, span_boldwarning("You have five minutes to find a safe location to place down the first rift.  If you take longer than five minutes to place a rift, you will be returned from whence you came."))
+	to_chat(owner.current, "<b>Мы движемся сквозь время и пространство, не смотря на их величину. Мы не помним, откуда мы явились; мы не знаем, куда мы пойдем. Весь космос принадлежит нам.\n\
+					Мы являемся высшими хищниками в бездонной пустоте, и мало кто может осмелиться занять этот титул.\n\
+					Но сейчас, мы лицезреем нарушителей, что борются против наших клыков с помощью немыслимой магии; их логова мелькают в глубине космоса, как маленькие огоньки.\n\
+					Сегодня, мы потушим один из этих огоньков.</b>")
+	to_chat(owner.current, span_boldwarning("У вас имеется пять минут, чтобы найти безопасное место для создания первого разрыва. Если вы не успеете этого сделать, вы вернетесь в бездну, из которой вы пришли."))
 	owner.announce_objectives()
 	SEND_SOUND(owner.current, sound('sound/misc/demon_attack1.ogg'))
 
@@ -86,10 +86,10 @@
 		return
 	riftTimer = min(riftTimer + 1, maxRiftTimer + 1)
 	if(riftTimer == (maxRiftTimer - 60))
-		to_chat(owner.current, span_boldwarning("You have a minute left to summon the rift! Get to it!"))
+		to_chat(owner.current, span_boldwarning("У вас осталась минута, что создать разрыв! Скорее!"))
 		return
 	if(riftTimer >= maxRiftTimer)
-		to_chat(owner.current, span_boldwarning("You've failed to summon the rift in a timely manner! You're being pulled back from whence you came!"))
+		to_chat(owner.current, span_boldwarning("Вы не успели создать разрыв! Бездна затягивает вас обратно!"))
 		destroy_rifts()
 		SEND_SOUND(owner.current, sound('sound/misc/demon_dies.ogg'))
 		owner.current.death(/* gibbed = */ TRUE)
@@ -129,8 +129,8 @@
 	var/datum/objective/summon_carp/main_objective = locate() in objectives
 	if(main_objective)
 		main_objective.completed = TRUE
-	GLOB.command_announcement.Announce("A large amount of lifeforms have been detected approaching [station_name()] at extreme speeds. \
-	Remaining crew are advised to evacuate as soon as possible.", "Central Command Wildlife Observations")
+	GLOB.command_announcement.Announce("Огромное число биологических объектов направляется к [station_name()] с высокой скоростью. \
+	Оставшемуся экипажу рекомендуется эвакуироваться как можно скорее...", "Центральное Командование: Наблюдение за дикой природой")
 	sound_to_playing_players('sound/creatures/space_dragon_roar.ogg')
 	for(var/obj/structure/carp_rift/rift as anything in rift_list)
 		rift.carp_stored = 999999
@@ -177,13 +177,13 @@
 	dragon.dragon_rage = FALSE
 
 /datum/objective/summon_carp
-	explanation_text = "Summon and protect the rifts to flood the station with carp."
+	explanation_text = "Создавайте и защищайте разрывы, чтобы наводнить станцию карпами."
 
 /datum/antagonist/space_dragon/roundend_report()
 	var/list/parts = list()
 	var/datum/objective/summon_carp/S = locate() in objectives
 	if(S.check_completion())
-		parts += "<span class='redtext big'>The [name] has succeeded! Station space has been reclaimed by the space carp!</span>"
+		parts += "<span class='redtext big'>[name] - успех! Космические карпы вернули контроль над территорией станции!</span>"
 	parts += printplayer(owner)
 	var/objectives_complete = TRUE
 	if(objectives.len)
@@ -193,11 +193,11 @@
 				objectives_complete = FALSE
 				break
 	if(objectives_complete)
-		parts += "<span class='greentext big'>The [name] was successful!</span>"
+		parts += "<span class='greentext big'>[name] - успех!</span>"
 	else
-		parts += "<span class='redtext big'>The [name] has failed!</span>"
+		parts += "<span class='redtext big'>The [name] - провал!</span>"
 	if(carp.len)
-		parts += "<span class='header'>The [name] was assisted by:</span>"
+		parts += "<span class='header'>Помощниками [name] были:</span>"
 		for(var/datum/mind/M in carp)
 			parts += "[printplayer(M)]"
 	return parts.Join("<br>")
@@ -220,7 +220,7 @@
 	owner.announce_objectives()
 
 /datum/objective/space_carp
-	explanation_text = "Protect the rift to summon more carps."
+	explanation_text = "Защищайте разлом, чтобы призвать больше карпов."
 	var/obj/structure/carp_rift/rift
 
 /datum/objective/space_carp/check_completion()

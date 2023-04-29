@@ -10,7 +10,7 @@
 
 /datum/event/space_dragon/announce()
 	if(successSpawn)
-		GLOB.command_announcement.Announce("A large organic energy flux has been recorded near of [station_name()], please stand-by.", "Lifesign Alert.")
+		GLOB.command_announcement.Announce("Зафиксирован большой поток органической энергии вблизи станции [station_name()]. Пожалуйста, ожидайте.", "ВНИМАНИЕ: НЕОПОЗНАННЫЕ ФОРМЫ ЖИЗНИ.")
 	else
 		log_and_message_admins("Warning: Could not spawn any mobs for event Space Dragon")
 
@@ -18,7 +18,7 @@
 	if(length(GLOB.clients) < SPACE_DRAGON_SPAWN_THRESHOLD)
 		log_and_message_admins("Random event attempted to spawn a space dragon, but there were only [length(GLOB.clients)]/[SPACE_DRAGON_SPAWN_THRESHOLD] players.")
 		return
-	var/list/candidates = SSghost_spawns.poll_candidates("Вы хотите занять роль Космического Дракона?", ROLE_SPACE_DRAGON, TRUE, source = /mob/living/simple_animal/hostile/space_dragon)
+	var/list/candidates = SSghost_spawns.poll_candidates("Вы хотите занять роль Космического дракона?", ROLE_SPACE_DRAGON, TRUE, source = /mob/living/simple_animal/hostile/space_dragon)
 	if(!length(candidates))
 		log_and_message_admins("Warning: nobody volunteered to become a Space Dragon!")
 		return

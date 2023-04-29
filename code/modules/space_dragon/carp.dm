@@ -10,7 +10,7 @@
 
 /datum/action/innate/lesser_carp_rift
 	name = "Lesser Carp Rift"
-	desc = "Open a rift through the carp stream, allowing passage to somewhere close by."
+	desc = "Создает малый разлом карпов, который позволяет перемещаться на малое расстояние."
 	button_icon_state = "rift"
 	background_icon_state = "bg_alien"
 	var/cooldown_time = 15 SECONDS
@@ -21,7 +21,7 @@
 
 /datum/action/innate/lesser_carp_rift/Activate()
 	if(!COOLDOWN_FINISHED(src, rift_cooldown))
-		to_chat(owner, span_warning("It's still recharging! [round(COOLDOWN_TIMELEFT(src, rift_cooldown)) / 10] seconds left!"))
+		to_chat(owner, span_warning("Способность на перезарядке! Осталось секунд: [round(COOLDOWN_TIMELEFT(src, rift_cooldown)) / 10]!"))
 		return FALSE
 	var/turf/current_location = get_turf(owner)
 	var/turf/destination = get_teleport_loc(current_location, owner, range)
@@ -43,7 +43,7 @@
 		open_exit_turfs += potential_exit
 
 	if(!length(open_exit_turfs))
-		to_chat(owner, span_warning("No exit!"))
+		to_chat(owner, span_warning("Нет выхода из разлома!"))
 		return FALSE
 	if(!is_blocked_turf(target_turf, exclude_mobs = TRUE))
 		open_exit_turfs += target_turf
