@@ -1,7 +1,7 @@
 #define SPACE_DRAGON_SPAWN_THRESHOLD 0
 
 /datum/event/space_dragon
-	announceWhen = 35
+	announceWhen = 45
 	var/successSpawn = FALSE	//So we don't make a command report if nothing gets spawned.
 
 /datum/event/space_dragon/start()
