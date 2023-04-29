@@ -213,6 +213,7 @@
 
 /mob/living/silicon/bullet_act(var/obj/item/projectile/Proj)
 
+	Proj.on_hit(src,2)
 
 	if(!Proj.nodamage)
 		switch(Proj.damage_type)
@@ -221,7 +222,6 @@
 			if(BURN)
 				adjustFireLoss(Proj.damage)
 
-	Proj.on_hit(src,2)
 
 	return 2
 
