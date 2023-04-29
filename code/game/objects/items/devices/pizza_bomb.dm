@@ -121,5 +121,5 @@
 		return
 	atom_say("Наслаждайтесь пиццей!")
 	src.visible_message("<span class='userdanger'>\The [src] violently explodes!</span>")
-	explosion(src.loc,0,2,4,flame_range = 2) //Identical to azide
+	explosion(src.loc, 0, 2, 4, flame_range = 2) //Identical to azide
 	qdel(src)
