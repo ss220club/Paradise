@@ -35,7 +35,7 @@ export const UploadPanel = (props, context) => {
             </LabeledList.Item>
             <LabeledList.Item label="Upload Laws">
               <Button
-                disabled={!selected_target || !new_law || (hacked ? false : !id)}
+                disabled={!selected_target || !new_law || (!hacked && !id)}
                 selected={transmitting}
                 content={transmitting ? 'STOP UPLOAD' : 'START UPLOAD'}
                 onClick={() => act('change_laws')}
