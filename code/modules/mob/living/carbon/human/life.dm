@@ -489,7 +489,7 @@
 		// if environment temperature is within the safe levels we are using it to shift recovery slightly
 		var/enviro_shift = (loc_temp < dna.species.heat_level_1) && (loc_temp > dna.species.cold_level_1) ? ((loc_temp - bodytemperature) / dna.species.body_temperature) : 0
 
-		if(dna.species.body_temperature < bodytemperature)
+		if(bodytemperature > dna.species.body_temperature)
 			// body temperature is HIGHER than that of our species, we are cooling
 			var/clothing_factor = 2 - get_heat_protection(loc_temp) // thermal clothing with heat protection slows down recovery
 			bodytemperature += max(clothing_factor * metabolism_efficiency * ((body_temperature_difference + enviro_shift) / BODYTEMP_AUTORECOVERY_DIVISOR), BODYTEMP_COOLING_MAX)
