@@ -58,7 +58,7 @@
 
 /obj/machinery/computer/aiupload/proc/install_module(mob/user, obj/item/aiModule/new_module)
 	if(installed_module)
-		if(!user.put_in_active_hand(installed_module) && !user.put_in_inactive_hand(installed_module))
+		if(!user.put_in_hands(installed_module))
 			installed_module.forceMove(get_turf(src))
 		installed_module = null
 		hacked = FALSE
@@ -74,7 +74,7 @@
 
 /obj/machinery/computer/aiupload/proc/check_id(mob/user, obj/item/card/id/new_id)
 	if(id)
-		if(!user.put_in_active_hand(id) && !user.put_in_inactive_hand(id))
+		if(!user.put_in_hands(id))
 			id.forceMove(get_turf(src))
 		id = null
 	if(!istype(new_id))
