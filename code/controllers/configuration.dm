@@ -315,6 +315,8 @@
 
 	var/modify_pull_push_speed = FALSE
   
+	var/pixel_shift = FALSE
+  
 	var/ignore_obscured_mouth = FALSE
 
 /datum/configuration/New()
@@ -904,6 +906,9 @@
 				
 				if("modify_pull_push_speed")
 					config.modify_pull_push_speed = TRUE
+          
+				if("pixel_shift")
+					config.pixel_shift = TRUE
           
 				if("ignore_obscured_mouth")
 					config.ignore_obscured_mouth = TRUE
