@@ -83,9 +83,8 @@
 			continue
 
 		var/obj/item/voice_changer/changer = locate() in gear
-		if(changer?.active)
-			if(changer.tts_voice)
-				return changer.tts_voice
+		if(changer?.active && changer.tts_voice)
+			return changer.tts_voice
 
 	return FALSE
 

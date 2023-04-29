@@ -21,7 +21,7 @@
 	var/mimic_voice
 	var/mimic_voice_tts
 
-	var/mimic_option = input(user, "What voice do you want to mimic?", "Mimic Voice") in list("Real Voice", "Custom Voice", "Cancel")
+	var/mimic_option = alert(user, "What voice do you want to mimic?", "Mimic Voice", "Real Voice", "Custom Voice", "Cancel")
 	switch(mimic_option)
 		if("Real Voice")
 			var/mob/living/carbon/human/human = input(user, "Select a voice to copy from.", "Mimic Voice") in GLOB.human_list
