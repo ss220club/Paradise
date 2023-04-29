@@ -94,8 +94,8 @@
 	if(has_changer)
 		return has_changer
 
-	if(mind?.changeling?.mimicing)
-		return mind.changeling.mimicing
+	if(mind?.changeling?.mimicking)
+		return mind.changeling.mimicking
 
 	if(GetSpecialVoice())
 		return GetSpecialVoice()
@@ -108,8 +108,8 @@
 	if(has_changer_tts)
 		return has_changer_tts
 
-	if(mind?.changeling?.mimicing)
-		return mind.changeling.tts_mimicing
+	if(mind?.changeling?.mimicking)
+		return mind.changeling.tts_mimicking
 
 	if(GetSpecialTTSVoice())
 		return GetSpecialTTSVoice()

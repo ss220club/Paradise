@@ -11,9 +11,9 @@
 // Fake Voice
 /datum/action/changeling/mimicvoice/sting_action(var/mob/user)
 	var/datum/changeling/changeling=user.mind.changeling
-	if(changeling.mimicing)
-		changeling.mimicing = ""
-		changeling.tts_mimicing = ""
+	if(changeling.mimicking)
+		changeling.mimicking = ""
+		changeling.tts_mimicking = ""
 		changeling.chem_recharge_slowdown -= 0.5
 		to_chat(user, "<span class='notice'>We return our vocal glands to their original position.</span>")
 		return
@@ -36,8 +36,8 @@
 		if("Cancel")
 			return
 
-	changeling.mimicing = mimic_voice
-	changeling.tts_mimicing = mimic_voice_tts
+	changeling.mimicking = mimic_voice
+	changeling.tts_mimicking = mimic_voice_tts
 
 	changeling.chem_recharge_slowdown += 0.5
 	to_chat(user, "<span class='notice'>We shape our glands to take the voice of <b>[mimic_voice]</b>, this will stop us from regenerating chemicals while active.</span>")
