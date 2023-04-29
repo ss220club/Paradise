@@ -901,6 +901,12 @@
 				if("override_map")
 					config.override_map = value
 
+				if("modify_pull_push_speed")
+					config.modify_pull_push_speed = TRUE
+
+				if("pixel_shift")
+					config.pixel_shift = TRUE
+
 				else
 					log_config("Unknown setting in configuration: '[name]'")
 

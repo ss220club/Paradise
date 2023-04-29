@@ -56,19 +56,19 @@
 	passthroughable = NONE
 	switch(direction)
 		if(NORTH)
-			if(pixel_y <= MAXIMUM_PIXEL_SHIFT)
+			if(pixel_y < MAXIMUM_PIXEL_SHIFT)
 				pixel_y++
 				is_shifted = TRUE
 		if(EAST)
-			if(pixel_x <= MAXIMUM_PIXEL_SHIFT)
+			if(pixel_x < MAXIMUM_PIXEL_SHIFT)
 				pixel_x++
 				is_shifted = TRUE
 		if(SOUTH)
-			if(pixel_y >= -MAXIMUM_PIXEL_SHIFT)
+			if(pixel_y > -MAXIMUM_PIXEL_SHIFT)
 				pixel_y--
 				is_shifted = TRUE
 		if(WEST)
-			if(pixel_x >= -MAXIMUM_PIXEL_SHIFT)
+			if(pixel_x > -MAXIMUM_PIXEL_SHIFT)
 				pixel_x--
 				is_shifted = TRUE
 
@@ -76,12 +76,15 @@
 	// Movement doesn't check diagonals, and instead just checks EAST or WEST, depending on where you are for those.
 	if(pixel_y > PASSABLE_SHIFT_THRESHOLD)
 		passthroughable |= EAST | SOUTH | WEST
+	else if(pixel_y < -PASSABLE_SHIFT_THRESHOLD)
+		passthroughable |= NORTH | EAST | WEST
 	if(pixel_x > PASSABLE_SHIFT_THRESHOLD)
 		passthroughable |= NORTH | SOUTH | WEST
-	if(pixel_y < -PASSABLE_SHIFT_THRESHOLD)
-		passthroughable |= NORTH | EAST | WEST
-	if(pixel_x < -PASSABLE_SHIFT_THRESHOLD)
+	else if(pixel_x < -PASSABLE_SHIFT_THRESHOLD)
 		passthroughable |= NORTH | EAST | SOUTH
+
+/mob/living/silicon/ai/pixel_shift(direction)
+	return
 
 /atom/movable/post_buckle_mob(mob/living/M)
 	. = ..()
