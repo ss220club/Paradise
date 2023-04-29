@@ -486,13 +486,13 @@
 
 	if(query_donor_select.NextRow())
 		var/total = query_donor_select.item[1]
-		if(total >= 100)
+		if(total >= 220)
 			donator_level = 1
-		if(total >= 300)
+		if(total >= 440)
 			donator_level = 2
-		if(total >= 500)
-			donator_level = 3
 		if(total >= 1000)
+			donator_level = 3
+		if(total >= 2220)
 			donator_level = DONATOR_LEVEL_MAX
 		donor_loadout_points()
 	qdel(query_donor_select)

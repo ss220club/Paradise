@@ -38,7 +38,7 @@
 	max_combined_w_class = 42 // 21*2
 
 /obj/item/storage/box/survival
-	icon_state = "box_civ"
+	icon_state = "civ_box"
 
 /obj/item/storage/box/survival/New()
 	..()
@@ -50,10 +50,10 @@
 	return
 
 /obj/item/storage/box/survival/brigphys
-	icon_state = "box_brigphys"
+	icon_state = "brigmed_box"
 
 /obj/item/storage/box/survival_vox
-	icon_state = "box_vox"
+	icon_state = "vox_box"
 
 /obj/item/storage/box/survival_vox/New()
 	..()
@@ -64,7 +64,7 @@
 	new /obj/item/flashlight/flare/glowstick/blue(src)
 
 /obj/item/storage/box/survival_machine
-	icon_state = "box_machine"
+	icon_state = "machine_box"
 
 /obj/item/storage/box/survival_machine/New()
 	..()
@@ -74,7 +74,7 @@
 	new /obj/item/flashlight/flare/glowstick/blue(src)
 
 /obj/item/storage/box/survival_plasmaman
-	icon_state = "box_plasma"
+	icon_state = "plasma_box"
 
 /obj/item/storage/box/survival_plasmaman/New()
 	..()
@@ -85,7 +85,7 @@
 	new /obj/item/flashlight/flare/glowstick/blue(src)
 
 /obj/item/storage/box/engineer
-	icon_state = "box_eng"
+	icon_state = "eng_box"
 
 /obj/item/storage/box/engineer/New()
 	..()
@@ -97,7 +97,7 @@
 	return
 
 /obj/item/storage/box/survival_mining
-	icon_state = "box_min"
+	icon_state = "min_box"
 
 /obj/item/storage/box/survival_mining/New()
 	..()
@@ -109,7 +109,7 @@
 	new /obj/item/flashlight/flare/glowstick/blue(src)
 
 /obj/item/storage/box/survival_security
-	icon_state = "box_sec"
+	icon_state = "sec_box"
 
 /obj/item/storage/box/survival_security/New()
 	..()
@@ -123,22 +123,22 @@
 	new /obj/item/book/manual/security_space_law(src)
 
 /obj/item/storage/box/survival_security/hos
-	icon_state = "box_hos"
+	icon_state = "hos_box"
 
 /obj/item/storage/box/survival_security/cadet
-	icon_state = "box_cadet"
+	icon_state = "cadet_box"
 
 /obj/item/storage/box/survival_security/warden
-	icon_state = "box_warden"
+	icon_state = "warden_box"
 
 /obj/item/storage/box/survival_security/pilot
-	icon_state = "box_pilot"
+	icon_state = "pilot_box"
 
 /obj/item/storage/box/survival_security/detective
-	icon_state = "box_detective"
+	icon_state = "detective_box"
 
 /obj/item/storage/box/survival_laws
-	icon_state = "box_avd"
+	icon_state = "iaa_box"
 
 /obj/item/storage/box/survival_laws/New()
 	..()
@@ -152,10 +152,10 @@
 	new /obj/item/camera(src)
 
 /obj/item/storage/box/survival_laws/magisraka
-	icon_state = "box_magisraka"
+	icon_state = "magisraka_box"
 
 /obj/item/storage/box/survival_syndi
-	icon_state = "box_syndi"
+	icon_state = "syndie_box"
 
 /obj/item/storage/box/survival_syndi/New()
 	..()
@@ -169,7 +169,7 @@
 /obj/item/storage/box/gloves
 	name = "box of latex gloves"
 	desc = "Contains white gloves."
-	icon_state = "latex"
+	icon_state = "latex_box"
 
 /obj/item/storage/box/gloves/New()
 	..()
@@ -184,7 +184,7 @@
 /obj/item/storage/box/masks
 	name = "sterile masks"
 	desc = "This box contains masks of sterility."
-	icon_state = "sterile"
+	icon_state = "sterile_box"
 
 /obj/item/storage/box/masks/New()
 	..()
@@ -201,7 +201,7 @@
 	name = "syringes"
 	desc = "A box full of syringes."
 	desc = "A biohazard alert warning is printed on the box"
-	icon_state = "syringe"
+	icon_state = "syringe_box"
 
 /obj/item/storage/box/syringes/New()
 	..()
@@ -215,7 +215,7 @@
 
 /obj/item/storage/box/beakers
 	name = "beaker box"
-	icon_state = "beaker"
+	icon_state = "beaker_box"
 
 /obj/item/storage/box/beakers/New()
 	..()
@@ -229,7 +229,7 @@
 
 /obj/item/storage/box/beakers/bluespace
 	name = "box of bluespace beakers"
-	icon_state = "beaker"
+	icon_state = "beaker_bluespace_box"
 
 /obj/item/storage/box/beakers/bluespace/New()
 	..()
@@ -239,7 +239,7 @@
 /obj/item/storage/box/iv_bags
 	name = "IV Bags"
 	desc = "A box full of empty IV bags."
-	icon_state = "beaker"
+	icon_state = "iv_box"
 
 /obj/item/storage/box/iv_bags/New()
 	..()
@@ -254,6 +254,7 @@
 /obj/item/storage/box/injectors
 	name = "\improper DNA injectors"
 	desc = "This box contains injectors it seems."
+	icon_state = "injector_box"
 
 /obj/item/storage/box/injectors/New()
 	..()
@@ -267,7 +268,7 @@
 /obj/item/storage/box/slug
 	name = "Ammunition Box (Slug)"
 	desc = "A small box capable of holding seven shotgun shells."
-	icon_state = "slugbox"
+	icon_state = "slug_box"
 
 /obj/item/storage/box/slug/New()
 	..()
@@ -278,7 +279,7 @@
 /obj/item/storage/box/buck
 	name = "Ammunition Box (Buckshot)"
 	desc = "A small box capable of holding seven shotgun shells."
-	icon_state = "buckshotbox"
+	icon_state = "buckshot_box"
 
 /obj/item/storage/box/buck/New()
 	..()
@@ -288,7 +289,7 @@
 /obj/item/storage/box/dragonsbreath
 	name = "Ammunition Box (Dragonsbreath)"
 	desc = "A small box capable of holding seven shotgun shells."
-	icon_state = "dragonsbreathbox"
+	icon_state = "dragonsbreath_box"
 
 /obj/item/storage/box/dragonsbreath/New()
 	..()
@@ -298,7 +299,7 @@
 /obj/item/storage/box/stun
 	name = "Ammunition Box (Stun shells)"
 	desc = "A small box capable of holding seven shotgun shells."
-	icon_state = "stunbox"
+	icon_state = "stunshot_box"
 
 /obj/item/storage/box/stun/New()
 	..()
@@ -308,7 +309,7 @@
 /obj/item/storage/box/beanbag
 	name = "Ammunition Box (Beanbag shells)"
 	desc = "A small box capable of holding seven shotgun shells."
-	icon_state = "beanbagbox"
+	icon_state = "beanbag_box"
 
 /obj/item/storage/box/beanbag/New()
 	..()
@@ -318,7 +319,7 @@
 /obj/item/storage/box/rubbershot
 	name = "Ammunition Box (Rubbershot shells)"
 	desc = "A small box capable of holding seven shotgun shells."
-	icon_state = "rubbershotbox"
+	icon_state = "rubbershot_box"
 
 /obj/item/storage/box/rubbershot/New()
 	..()
@@ -328,7 +329,7 @@
 /obj/item/storage/box/tranquilizer
 	name = "Ammunition Box (Tranquilizer darts)"
 	desc = "A small box capable of holding seven shotgun shells."
-	icon_state = "tranqbox"
+	icon_state = "tranq_box"
 
 /obj/item/storage/box/tranquilizer/New()
 	..()
@@ -338,7 +339,7 @@
 /obj/item/storage/box/flashbangs
 	name = "box of flashbangs (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause blindness or deafness in repeated use.</B>"
-	icon_state = "flashbang"
+	icon_state = "flashbang_box"
 
 /obj/item/storage/box/flashbangs/New()
 	..()
@@ -353,7 +354,7 @@
 /obj/item/storage/box/flashes
 	name = "box of flashbulbs"
 	desc = "<B>WARNING: Flashes can cause serious eye damage, protective eyewear is required.</B>"
-	icon_state = "flashbang"
+	icon_state = "flash_box"
 
 /obj/item/storage/box/flashes/New()
 	..()
@@ -367,7 +368,7 @@
 /obj/item/storage/box/teargas
 	name = "box of tear gas grenades (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause blindness and skin irritation.</B>"
-	icon_state = "flashbang"
+	icon_state = "teargas_box"
 
 /obj/item/storage/box/teargas/New()
 	..()
@@ -382,7 +383,7 @@
 /obj/item/storage/box/barrier
 	name = "box of barrier grenades"
 	desc = "Instant cover.</B>"
-	icon_state = "flashbang"
+	icon_state = "flashbang_box"
 
 /obj/item/storage/box/barrier/New()
 	..()
@@ -397,7 +398,7 @@
 /obj/item/storage/box/emps
 	name = "emp grenades"
 	desc = "A box with 5 emp grenades."
-	icon_state = "flashbang"
+	icon_state = "emp_box"
 
 /obj/item/storage/box/emps/New()
 	..()
@@ -411,7 +412,7 @@
 /obj/item/storage/box/trackimp
 	name = "tracking implant kit"
 	desc = "Box full of scum-bag tracking utensils."
-	icon_state = "implant"
+	icon_state = "implant_box"
 
 /obj/item/storage/box/trackimp/New()
 	..()
@@ -426,7 +427,7 @@
 /obj/item/storage/box/minertracker
 	name = "boxed tracking implant kit"
 	desc = "For finding those who have died on the accursed lavaworld."
-	icon_state = "implant"
+	icon_state = "implant_box"
 
 /obj/item/storage/box/minertracker/New()
 	..()
@@ -440,7 +441,7 @@
 /obj/item/storage/box/chemimp
 	name = "chemical implant kit"
 	desc = "Box of stuff used to implant chemicals."
-	icon_state = "implant"
+	icon_state = "implant_box"
 
 /obj/item/storage/box/chemimp/New()
 	..()
@@ -455,7 +456,7 @@
 /obj/item/storage/box/exileimp
 	name = "boxed exile implant kit"
 	desc = "Box of exile implants. It has a picture of a clown being booted through the Gateway."
-	icon_state = "implant"
+	icon_state = "implant_box"
 
 /obj/item/storage/box/exileimp/New()
 	..()
@@ -469,7 +470,7 @@
 /obj/item/storage/box/deathimp
 	name = "death alarm implant kit"
 	desc = "Box of life sign monitoring implants."
-	icon_state = "implant"
+	icon_state = "implant_box"
 
 /obj/item/storage/box/deathimp/New()
 	..()
@@ -484,7 +485,7 @@
 /obj/item/storage/box/tapes
 	name = "Tape Box"
 	desc = "A box of spare recording tapes"
-	icon_state = "box"
+	icon_state = "tape_box"
 
 /obj/item/storage/box/tapes/New()
 	..()
@@ -498,7 +499,7 @@
 /obj/item/storage/box/rxglasses
 	name = "prescription glasses"
 	desc = "This box contains nerd glasses."
-	icon_state = "glasses"
+	icon_state = "glasses_box"
 
 /obj/item/storage/box/rxglasses/New()
 	..()
@@ -526,7 +527,7 @@
 /obj/item/storage/box/cdeathalarm_kit
 	name = "Death Alarm Kit"
 	desc = "Box of stuff used to implant death alarms."
-	icon_state = "implant"
+	icon_state = "implant_box"
 	item_state = "syringe_kit"
 
 /obj/item/storage/box/cdeathalarm_kit/New()
@@ -555,6 +556,7 @@
 /obj/item/storage/box/cups
 	name = "box of paper cups"
 	desc = "It has pictures of paper cups on the front."
+	icon_state = "cup_box"
 
 /obj/item/storage/box/cups/New()
 	..()
@@ -570,7 +572,7 @@
 /obj/item/storage/box/donkpockets
 	name = "box of donk-pockets"
 	desc = "<B>Instructions:</B> <I>Heat in microwave. Product will cool if not eaten within seven minutes.</I>"
-	icon_state = "donk_kit"
+	icon_state = "donk_box"
 
 /obj/item/storage/box/donkpockets/New()
 	..()
@@ -584,7 +586,7 @@
 /obj/item/storage/box/syndidonkpockets
 	name = "box of donk-pockets"
 	desc = "This box feels slightly warm"
-	icon_state = "donk_kit"
+	icon_state = "donk_box"
 
 /obj/item/storage/box/syndidonkpockets/New()
 	..()
@@ -598,8 +600,7 @@
 /obj/item/storage/box/monkeycubes
 	name = "monkey cube box"
 	desc = "Drymate brand monkey cubes. Just add water!"
-	icon = 'icons/obj/food/food.dmi'
-	icon_state = "monkeycubebox"
+	icon_state = "monkey_box"
 	storage_slots = 7
 	can_hold = list(/obj/item/reagent_containers/food/snacks/monkeycube)
 	var/monkey_cube_type = /obj/item/reagent_containers/food/snacks/monkeycube
@@ -616,27 +617,31 @@
 /obj/item/storage/box/monkeycubes/farwacubes
 	name = "farwa cube box"
 	desc = "Drymate brand farwa cubes. Just add water!"
+	icon_state = "farwa_box"
 	monkey_cube_type = /obj/item/reagent_containers/food/snacks/monkeycube/farwacube
 
 /obj/item/storage/box/monkeycubes/stokcubes
 	name = "stok cube box"
 	desc = "Drymate brand stok cubes. Just add water!"
+	icon_state = "stok_box"
 	monkey_cube_type = /obj/item/reagent_containers/food/snacks/monkeycube/stokcube
 
 /obj/item/storage/box/monkeycubes/neaeracubes
 	name = "neaera cube box"
 	desc = "Drymate brand neaera cubes. Just add water!"
+	icon_state = "neaera_box"
 	monkey_cube_type = /obj/item/reagent_containers/food/snacks/monkeycube/neaeracube
 
 /obj/item/storage/box/monkeycubes/wolpincubes
 	name = "wolpin cube box"
 	desc = "Drymate brand wolpin cubes. Just add water!"
+	icon_state = "wolpin_box"
 	monkey_cube_type = /obj/item/reagent_containers/food/snacks/monkeycube/wolpincube
 
 /obj/item/storage/box/permits
 	name = "box of construction permits"
 	desc = "A box for containing construction permits, used to officially declare built rooms as additions to the station."
-	icon_state = "id"
+	icon_state = "id_box"
 
 /obj/item/storage/box/permits/New()
 	..()
@@ -651,7 +656,7 @@
 /obj/item/storage/box/syndicate_permits
 	name = "box of syndicate construction permits"
 	desc = "A box for containing construction permits, used to officially declare built rooms as additions to the station."
-	icon_state = "syndie_id"
+	icon_state = "id_syndie_box"
 
 /obj/item/storage/box/syndicate_permits/New()
 	..()
@@ -667,7 +672,7 @@
 /obj/item/storage/box/ids
 	name = "spare IDs"
 	desc = "Has so many empty IDs."
-	icon_state = "id"
+	icon_state = "id_box"
 
 /obj/item/storage/box/ids/New()
 	..()
@@ -682,7 +687,7 @@
 /obj/item/storage/box/prisoner
 	name = "prisoner IDs"
 	desc = "Take away their last shred of dignity, their name."
-	icon_state = "id"
+	icon_state = "id_box"
 
 /obj/item/storage/box/prisoner/New()
 	..()
@@ -697,7 +702,7 @@
 /obj/item/storage/box/seccarts
 	name = "spare R.O.B.U.S.T. Cartridges"
 	desc = "A box full of R.O.B.U.S.T. Cartridges, used by Security."
-	icon_state = "pda"
+	icon_state = "pda_box"
 
 /obj/item/storage/box/seccarts/New()
 	..()
@@ -711,7 +716,7 @@
 
 /obj/item/storage/box/holobadge
 	name = "holobadge box"
-	icon_state = "box_badge"
+	icon_state = "badge_box"
 	desc = "A box claiming to contain holobadges."
 
 /obj/item/storage/box/holobadge/New()
@@ -726,7 +731,7 @@
 /obj/item/storage/box/evidence
 	name = "evidence bag box"
 	desc = "A box claiming to contain evidence bags."
-	icon_state = "box_evidence"
+	icon_state = "evidence_box"
 
 /obj/item/storage/box/evidence/New()
 	new /obj/item/evidencebag(src)
@@ -740,7 +745,7 @@
 /obj/item/storage/box/handcuffs
 	name = "spare handcuffs"
 	desc = "A box full of handcuffs."
-	icon_state = "handcuff"
+	icon_state = "handcuff_box"
 
 /obj/item/storage/box/handcuffs/New()
 	..()
@@ -755,7 +760,7 @@
 /obj/item/storage/box/zipties
 	name = "box of spare zipties"
 	desc = "A box full of zipties."
-	icon_state = "handcuff"
+	icon_state = "zipties_box"
 
 /obj/item/storage/box/zipties/New()
 	..()
@@ -770,7 +775,7 @@
 /obj/item/storage/box/alienhandcuffs
 	name = "box of spare handcuffs"
 	desc = "A box full of handcuffs."
-	icon_state = "alienboxCuffs"
+	icon_state = "alien_handcuff_box"
 
 /obj/item/storage/box/alienhandcuffs/New()
 	..()
@@ -791,7 +796,7 @@
 /obj/item/storage/box/fakesyndiesuit
 	name = "boxed space suit and helmet"
 	desc = "A sleek, sturdy box used to hold replica spacesuits."
-	icon_state = "box_of_doom"
+	icon_state = "doom_box"
 
 /obj/item/storage/box/fakesyndiesuit/New()
 	..()
@@ -801,7 +806,7 @@
 /obj/item/storage/box/enforcer_rubber
 	name = "enforcer pistol kit (rubber)"
 	desc = "A box marked with pictures of an enforcer pistol, two ammo clips, and the word 'NON-LETHAL'."
-	icon_state = "box_ert"
+	icon_state = "ert_box"
 
 /obj/item/storage/box/enforcer_rubber/New()
 	..()
@@ -812,7 +817,7 @@
 /obj/item/storage/box/enforcer_lethal
 	name = "enforcer pistol kit (lethal)"
 	desc = "A box marked with pictures of an enforcer pistol, two ammo clips, and the word 'LETHAL'."
-	icon_state = "box_ert"
+	icon_state = "ert_box"
 
 /obj/item/storage/box/enforcer_lethal/New()
 	..()
@@ -823,7 +828,7 @@
 /obj/item/storage/box/enforcer/security
 	name = "enforcer pistol kit (rubber)"
 	desc = "A box marked with pictures of an enforcer pistol, two ammo clips, and the word 'NON-LETHAL'."
-	icon_state = "box_ert"
+	icon_state = "ert_box"
 
 /obj/item/storage/box/enforcer/security/New()
 	..()
@@ -862,7 +867,7 @@
 /obj/item/storage/box/mousetraps
 	name = "box of Pest-B-Gon mousetraps"
 	desc = "<B><FONT color='red'>WARNING:</FONT></B> <I>Keep out of reach of children</I>."
-	icon_state = "mousetraps"
+	icon_state = "mousetraps_box"
 
 /obj/item/storage/box/mousetraps/New()
 	..()
@@ -876,6 +881,7 @@
 /obj/item/storage/box/pillbottles
 	name = "box of pill bottles"
 	desc = "It has pictures of pill bottles on its front."
+	icon_state = "pillbox_box"
 
 /obj/item/storage/box/pillbottles/New()
 	..()
@@ -890,6 +896,7 @@
 /obj/item/storage/box/patch_packs
 	name = "box of patch packs"
 	desc = "It has pictures of patch packs on its front."
+	icon_state = "patch_box"
 
 /obj/item/storage/box/patch_packs/New()
 	..()
@@ -904,7 +911,7 @@
 /obj/item/storage/box/bodybags
 	name = "body bags"
 	desc = "This box contains body bags."
-	icon_state = "bodybags"
+	icon_state = "bodybag_box"
 
 /obj/item/storage/box/bodybags/New()
 	..()
@@ -955,19 +962,19 @@
 /obj/item/storage/box/autoinjectors
 	name = "box of injectors"
 	desc = "Contains autoinjectors."
-	icon_state = "syringe"
+	icon_state = "injector_box"
 
 /obj/item/storage/box/autoinjectors/New()
 	..()
 	for(var/i; i < storage_slots; i++)
 		new /obj/item/reagent_containers/hypospray/autoinjector(src)
 
-/obj/item/storage/box/autoinjector/utility
+/obj/item/storage/box/autoinjectors/utility
 	name = "autoinjector kit"
 	desc = "A box with several utility autoinjectors for the economical miner."
-	icon_state = "syringe"
+	icon_state = "injector_box"
 
-/obj/item/storage/box/autoinjector/utility/New()
+/obj/item/storage/box/autoinjectors/utility/New()
 	..()
 	new /obj/item/reagent_containers/hypospray/autoinjector/teporone(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/teporone(src)
@@ -978,7 +985,7 @@
 /obj/item/storage/box/lights
 	name = "replacement bulbs"
 	icon = 'icons/obj/storage.dmi'
-	icon_state = "light"
+	icon_state = "light_box"
 	desc = "This box is shaped on the inside so that only light tubes and bulbs fit."
 	item_state = "syringe_kit"
 	storage_slots=21
@@ -993,7 +1000,7 @@
 
 /obj/item/storage/box/lights/tubes
 	name = "replacement tubes"
-	icon_state = "lighttube"
+	icon_state = "lighttube_box"
 
 /obj/item/storage/box/lights/tubes/New()
 	..()
@@ -1002,7 +1009,7 @@
 
 /obj/item/storage/box/lights/mixed
 	name = "replacement lights"
-	icon_state = "lightmixed"
+	icon_state = "lightmixed_box"
 
 /obj/item/storage/box/lights/mixed/New()
 	..()
@@ -1014,7 +1021,6 @@
 /obj/item/storage/box/barber
 	name = "Barber Starter Kit"
 	desc = "For all hairstyling needs."
-	icon_state = "implant"
 
 /obj/item/storage/box/barber/New()
 	..()
@@ -1029,7 +1035,6 @@
 /obj/item/storage/box/lip_stick
 	name = "Lipstick Kit"
 	desc = "For all your lip coloring needs."
-	icon_state = "implant"
 
 /obj/item/storage/box/lip_stick/New()
 	..()
@@ -1109,7 +1114,7 @@
 
 /obj/item/storage/box/centcomofficer
 	name = "officer kit"
-	icon_state = "box_ert"
+	icon_state = "ert_box"
 	storage_slots = 14
 	max_combined_w_class = 20
 
@@ -1131,7 +1136,7 @@
 
 /obj/item/storage/box/responseteam
 	name = "boxed survival kit"
-	icon_state = "box_ert"
+	icon_state = "ert_box"
 
 /obj/item/storage/box/responseteam/New()
 	..()
@@ -1147,7 +1152,7 @@
 /obj/item/storage/box/soviet
 	name = "boxed survival kit"
 	desc = "A standard issue Soviet military survival kit."
-	icon_state = "box_soviet"
+	icon_state = "soviet_box"
 
 /obj/item/storage/box/soviet/New()
 	..()
@@ -1163,7 +1168,7 @@
 /obj/item/storage/box/clown
 	name = "clown box"
 	desc = "A colorful cardboard box for the clown"
-	icon_state = "box_clown"
+	icon_state = "clown_box"
 	var/robot_arm // This exists for bot construction
 
 /obj/item/storage/box/emptysandbags
@@ -1178,6 +1183,7 @@
 /obj/item/storage/box/rndboards
 	name = "the Liberator's legacy"
 	desc = "A box containing a gift for worthy golems."
+	icon_state = "circuit_box"
 
 /obj/item/storage/box/rndboards/New()
 	..()
@@ -1216,6 +1222,7 @@
 /obj/item/storage/box/flare
 	name = "Flare box"
 	desc = "For emergency use."
+	icon_state = "flare_box"
 
 /obj/item/storage/box/flare/New()
 	..()
@@ -1246,7 +1253,7 @@
 /obj/item/storage/box/hug
 	name = "box of hugs"
 	desc = "A special box for sensitive people."
-	icon_state = "hugbox"
+	icon_state = "hug_box"
 	foldable = null
 
 /obj/item/storage/box/hug/suicide_act(mob/user)
@@ -1262,12 +1269,12 @@
 /obj/item/storage/box/wizard
 	name = "magical box"
 	desc = "It's just an ordinary magical box."
-	icon_state = "box_wizard"
+	icon_state = "wizard_box"
 
 /obj/item/storage/box/wizard/hardsuit
 	name = "Battlemage Armour Bundle"
 	desc = "This box contains a bundle of Battlemage Armour"
-	icon_state = "box_wizard"
+	icon_state = "wizard_box"
 
 /obj/item/storage/box/wizard/hardsuit/New()
 	. = ..()
@@ -1278,7 +1285,7 @@
 /obj/item/storage/box/candythief
 	name = "набор радужных конфет"
 	desc = "Набор для самых маленьких и не уверенных в себе работников, обожающих простые пути, смешивая всевозможные в один. Поставляется с сосательной конфетой. Удобный набор если нужно где-то засесть и не выходить. Производитель не отвечает за возникающие акне и галлюцинации от вашего времяпровождения."
-	icon_state = "box_thief"
+	icon_state = "thief_box"
 
 /obj/item/storage/box/candythief/New()
 	..()

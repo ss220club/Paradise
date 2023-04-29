@@ -390,7 +390,7 @@
 /obj/item/storage/box/cyber_implants
 	name = "boxed cybernetic implant"
 	desc = "A sleek, sturdy box."
-	icon_state = "cyber_implants"
+	icon_state = "cyber_implant_box"
 
 /obj/item/storage/box/cyber_implants/New(loc, implant)
 	..()
@@ -400,6 +400,7 @@
 
 /obj/item/storage/box/cyber_implants/bundle
 	name = "boxed cybernetic implants"
+	icon_state = "cyber_implant_box"
 	var/list/boxed = list(/obj/item/organ/internal/cyberimp/eyes/xray,/obj/item/organ/internal/cyberimp/eyes/thermals,
 						/obj/item/organ/internal/cyberimp/brain/anti_stun/hardened, /obj/item/organ/internal/cyberimp/chest/reviver/hardened)
 	var/amount = 5

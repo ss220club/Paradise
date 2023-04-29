@@ -35,6 +35,8 @@
 	if(SSticker)
 		status_info["ticker_state"] = SSticker.current_state
 
+	status_info["round_id"] = GLOB.round_id
+
 	// Add more info if we are authed
 	if(key_valid)
 		if(SSticker && SSticker.mode)

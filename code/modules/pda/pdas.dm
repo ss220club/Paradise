@@ -205,8 +205,8 @@
 /obj/item/storage/box/PDAs
 	name = "spare PDAs"
 	desc = "A box of spare PDA microcomputers."
-	icon = 'icons/obj/pda.dmi'
-	icon_state = "pdabox"
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "pda_box"
 
 /obj/item/storage/box/PDAs/New()
 	..()
