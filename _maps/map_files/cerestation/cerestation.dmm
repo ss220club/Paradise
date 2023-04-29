@@ -20585,9 +20585,11 @@
 	},
 /area/medical/virology)
 "bXs" = (
-/obj/structure/decor/cryo,
 /obj/effect/landmark/join_late,
 /obj/effect/landmark/honk_squad,
+/obj/structure/decor/cryo{
+	dir = 8
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "bXu" = (
@@ -31633,9 +31635,11 @@
 /turf/simulated/floor/plating/asteroid/ancient/airless,
 /area/space)
 "dht" = (
-/obj/structure/decor/cryo/right,
 /obj/effect/landmark/join_late,
 /obj/effect/landmark/honk_squad,
+/obj/structure/decor/cryo{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "dhy" = (
@@ -37033,8 +37037,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/decor/cryo,
 /obj/effect/landmark/join_late,
+/obj/structure/decor/cryo{
+	dir = 8
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "egG" = (
@@ -39619,9 +39625,11 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/decor/cryo,
 /obj/effect/landmark/join_late,
 /obj/effect/landmark/honk_squad,
+/obj/structure/decor/cryo{
+	dir = 8
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "fdD" = (
@@ -54692,8 +54700,10 @@
 	},
 /area/security/hos)
 "kjb" = (
-/obj/structure/decor/cryo/right,
 /obj/effect/landmark/join_late,
+/obj/structure/decor/cryo{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "kjg" = (
@@ -59464,9 +59474,11 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/decor/cryo/right,
 /obj/effect/landmark/join_late,
 /obj/effect/landmark/honk_squad,
+/obj/structure/decor/cryo{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "lQG" = (
@@ -67568,8 +67580,10 @@
 /turf/simulated/floor/transparent/glass/reinforced,
 /area/hallway/primary/starboard/north)
 "oEE" = (
-/obj/structure/decor/cryo,
 /obj/effect/landmark/join_late,
+/obj/structure/decor/cryo{
+	dir = 8
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "oEJ" = (

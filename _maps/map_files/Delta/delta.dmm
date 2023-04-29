@@ -65559,11 +65559,6 @@
 	icon_state = "neutralcorner"
 	},
 /area/hallway/primary/central/north)
-"jeA" = (
-/obj/effect/landmark/join_late,
-/obj/structure/decor/cryo,
-/turf/simulated/floor/shuttle,
-/area/shuttle/arrival/station)
 "jeC" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel{
@@ -84972,8 +84967,10 @@
 	},
 /area/quartermaster/storage)
 "nKP" = (
-/obj/structure/decor/cryo,
 /obj/effect/landmark/join_late,
+/obj/structure/decor/cryo{
+	dir = 8
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "nKW" = (
@@ -113408,8 +113405,10 @@
 /turf/simulated/floor/plasteel,
 /area/maintenance/starboard)
 "ugW" = (
-/obj/structure/decor/cryo/right,
 /obj/effect/landmark/join_late,
+/obj/structure/decor/cryo{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "ugX" = (
@@ -120266,9 +120265,11 @@
 	},
 /area/medical/medbay)
 "vMp" = (
-/obj/structure/decor/cryo/right,
 /obj/effect/landmark/join_late,
 /obj/effect/landmark/honk_squad,
+/obj/structure/decor/cryo{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "vMV" = (
@@ -125862,9 +125863,11 @@
 	},
 /area/assembly/robotics)
 "xdi" = (
-/obj/structure/decor/cryo,
 /obj/effect/landmark/join_late,
 /obj/effect/landmark/honk_squad,
+/obj/structure/decor/cryo{
+	dir = 8
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "xdo" = (
@@ -169705,7 +169708,7 @@ bqf
 aMr
 ahC
 nKP
-jeA
+nKP
 nKP
 nKP
 xdi
