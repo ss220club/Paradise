@@ -10,37 +10,33 @@ export const UploadPanel = (props, context) => {
       <Window.Content>
         <Section title="Silicon Law Upload">
           <LabeledList>
-            <LabeledList.Item
-              label="Selected Target">
+            <LabeledList.Item label="Selected Target">
               <Button
                 disabled={transmitting}
-                selected={selected_target ? true : false}
-                content={selected_target ? selected_target : 'No target selected'}
+                selected={selected_target}
+                content={selected_target || 'No target selected'}
                 onClick={() => act('target_select')}
               />
             </LabeledList.Item>
-            <LabeledList.Item
-              label="Selected Law">
+            <LabeledList.Item label="Selected Law">
               <Button
                 disabled={transmitting}
-                selected={new_law ? true : false}
-                content={new_law ? new_law : 'No module installed'}
+                selected={new_law}
+                content={new_law || 'No module installed'}
                 onClick={() => act('law_select')}
               />
             </LabeledList.Item>
-            <LabeledList.Item
-              label="Authorization">
+            <LabeledList.Item label="Authorization">
               <Button
-                selected={id ? true : false}
-                content={id ? id : (hacked ? '$@!ERR0R!@#' : 'No ID card inserted')}
+                selected={id}
+                content={id || (hacked ? '$@!ERR0R!@#' : 'No ID card inserted')}
                 onClick={() => act('authorization')}
               />
             </LabeledList.Item>
-            <LabeledList.Item
-              label="Upload Laws">
+            <LabeledList.Item label="Upload Laws">
               <Button
                 disabled={!selected_target || !new_law || (hacked ? false : !id)}
-                selected={transmitting ? true : false}
+                selected={transmitting}
                 content={transmitting ? 'STOP UPLOAD' : 'START UPLOAD'}
                 onClick={() => act('change_laws')}
               />
