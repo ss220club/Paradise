@@ -593,4 +593,4 @@ DEFAULT_MAP /datum/map/cyberiad
 MODIFY_PULL_PUSH_SPEED
 
 ## Is Pixel-Shift feature allowed on the server
-#PIXEL_SHIFT
+PIXEL_SHIFT
