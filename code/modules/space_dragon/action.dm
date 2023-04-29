@@ -20,3 +20,27 @@
 	else
 		owner.remove_alt_appearance("smallsprite")
 		small = FALSE
+
+/datum/action/innate/space_dragon_gust
+	name = "Gust"
+	desc = "This ability throws everything around the user away."
+	button_icon_state = "repulse"
+	background_icon_state = "bg_alien"
+	var/mob/living/simple_animal/hostile/space_dragon/space_dragon
+
+/datum/action/innate/space_dragon_gust/Grant(mob/M)
+	. = ..()
+	if(!M)
+		return
+	if(istype(owner, /mob/living/simple_animal/hostile/space_dragon))
+		space_dragon = owner
+
+/datum/action/innate/space_dragon_gust/Remove(mob/M)
+	. = ..()
+	if(!M)
+		return
+	space_dragon = null
+
+/datum/action/innate/space_dragon_gust/Trigger()
+	. = ..()
+	space_dragon?.try_gust()

@@ -73,6 +73,8 @@
 	var/tearing_wall = FALSE
 	/// The ability to make your sprite smaller
 	var/datum/action/innate/small_sprite_dragon/small_sprite
+	/// The ability to Gust
+	var/datum/action/innate/space_dragon_gust/space_dragon_gust
 	/// The color of the space dragon.
 	var/chosen_color
 	/// Minimum devastation damage dealt coefficient based on max health
@@ -87,9 +89,10 @@
 	. = ..()
 	small_sprite = new
 	small_sprite.Grant(src)
+	space_dragon_gust = new
+	space_dragon_gust.Grant(src)
 	ADD_TRAIT(src, TRAIT_HEALS_FROM_CARP_RIFTS, INNATE_TRAIT)
 	RegisterSignal(small_sprite, COMSIG_ACTION_TRIGGER, .proc/add_dragon_overlay)
-	middleClickOverride = new /datum/middleClickOverride/callback_invoker(CALLBACK(src, .proc/try_gust))
 
 /mob/living/simple_animal/hostile/space_dragon/Process_Spacemove(movement_dir)
 	return TRUE
