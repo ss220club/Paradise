@@ -123,15 +123,11 @@
 	return ..()
 
 /obj/structure/carp_rift/process(seconds_per_tick)
-	// If we're fully charged, just start mass spawning carp and move around.
+	// If we're fully charged, just start mass spawning carp.
 	if(charge_state == CHARGE_COMPLETED)
 		if(SPT_PROB(1.25, seconds_per_tick) && dragon)
 			var/mob/living/newcarp = new dragon.ai_to_spawn(loc)
 			newcarp.faction = dragon.owner.current.faction.Copy()
-		if(SPT_PROB(1.5, seconds_per_tick))
-			var/rand_dir = pick(GLOB.cardinal)
-			//TODO: What does it do?
-			//SSmove_manager.move_to(src, get_step(src, rand_dir), 1)
 		return
 
 	// Increase time trackers and check for any updated states.
