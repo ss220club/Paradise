@@ -1,4 +1,4 @@
-#define SPACE_DRAGON_SPAWN_THRESHOLD 0
+#define SPACE_DRAGON_SPAWN_THRESHOLD 25
 
 /datum/event/space_dragon
 	announceWhen = 45
@@ -18,7 +18,7 @@
 	if(length(GLOB.clients) < SPACE_DRAGON_SPAWN_THRESHOLD)
 		log_and_message_admins("Random event attempted to spawn a space dragon, but there were only [length(GLOB.clients)]/[SPACE_DRAGON_SPAWN_THRESHOLD] players.")
 		return
-	var/list/candidates = SSghost_spawns.poll_candidates("Вы хотите занять роль Космического Дракона?", null, TRUE, source = /mob/living/simple_animal/hostile/space_dragon)
+	var/list/candidates = SSghost_spawns.poll_candidates("Вы хотите занять роль Космического Дракона?", ROLE_SPACE_DRAGON, TRUE, source = /mob/living/simple_animal/hostile/space_dragon)
 	if(!length(candidates))
 		log_and_message_admins("Warning: nobody volunteered to become a Space Dragon!")
 		return
