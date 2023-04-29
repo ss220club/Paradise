@@ -1345,9 +1345,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 
 /mob/update_tts_seed(new_tts_seed)
 	. = ..()
-	if(!.)
-		return
-	if(dna)
+	if(. && dna)
 		dna.tts_seed_dna = new_tts_seed
 
 /*
