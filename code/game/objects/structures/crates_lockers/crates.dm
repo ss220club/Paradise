@@ -365,10 +365,6 @@
 		newgas.temperature = target_temp
 	return newgas
 
-/obj/structure/closet/crate/freezer/pizza
-
-/obj/structure/closet/crate/freezer/pizza/boom
-
 /obj/structure/closet/crate/freezer/pizza/populate_contents()
 	var/loot = rand(1,100)
 	switch(loot)
