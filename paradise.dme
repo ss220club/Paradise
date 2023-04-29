@@ -316,6 +316,7 @@
 #include "code\datums\datumvars.dm"
 #include "code\datums\discord.dm"
 #include "code\datums\dog_fashion.dm"
+#include "code\datums\filter.dm"
 #include "code\datums\gas_mixture.dm"
 #include "code\datums\holocall.dm"
 #include "code\datums\http.dm"
