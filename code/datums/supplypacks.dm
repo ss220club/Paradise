@@ -49,9 +49,9 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	var/containertype = /obj/structure/closet/crate
 	var/containername = null
 	var/access = null
-	var/hidden = 0
-	var/replaceable = 0
-	var/contraband = 0
+	var/hidden = FALSE
+	var/hidden_if_hacked = FALSE
+	var/contraband = FALSE
 	var/group = SUPPLY_MISC
 	var/list/announce_beacons = list() // Particular beacons that we'll notify the relevant department when we reach
 	var/special = FALSE //Event/Station Goals/Admin enabled packs
@@ -203,7 +203,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	cost = 20
 	containertype = /obj/structure/closet/crate
 	containername = "special ops crate"
-	hidden = 1
+	hidden = TRUE
 
 /datum/supply_packs/emergency/syndicate
 	name = "ERROR_NULL_ENTRY"
@@ -211,7 +211,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	cost = 560
 	containertype = /obj/structure/closet/crate
 	containername = "crate"
-	hidden = 1
+	hidden = TRUE
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Security ////////////////////////////////////////
@@ -1135,7 +1135,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	containertype = /obj/structure/closet/crate/freezer/pizza
 	cost = 60
 	containername = "Pizza crate"
-	replaceable = TRUE
+	hidden_if_hacked = TRUE
 	special = TRUE
 	special_enabled = FALSE
 
