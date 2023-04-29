@@ -18520,9 +18520,6 @@
 	pixel_x = -2;
 	pixel_y = 12
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
 /turf/simulated/floor/plasteel{
 	dir = 9;
 	icon_state = "whiteyellow"
@@ -18533,9 +18530,6 @@
 /obj/machinery/chem_heater,
 /obj/machinery/light{
 	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
 	},
 /turf/simulated/floor/engine,
 /area/medical/chemistry)
@@ -32532,6 +32526,9 @@
 /obj/effect/decal/warning_stripes/south,
 /obj/effect/landmark/start/chemist,
 /obj/structure/chair/stool,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/engine,
 /area/medical/chemistry)
 "bBN" = (
@@ -32997,13 +32994,15 @@
 /area/medical/chemistry)
 "bDf" = (
 /obj/effect/decal/warning_stripes/southeast,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/table/glass,
 /obj/item/reagent_containers/glass/beaker/large{
 	pixel_x = -6
 	},
 /obj/item/reagent_containers/glass/beaker/large{
 	pixel_x = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /turf/simulated/floor/engine,
 /area/medical/chemistry)
@@ -35934,9 +35933,6 @@
 /turf/simulated/floor/engine,
 /area/medical/chemistry)
 "bLw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whiteyellow"
 	},
@@ -38104,6 +38100,9 @@
 /obj/effect/decal/warning_stripes/east,
 /obj/effect/landmark/start/chemist,
 /obj/structure/chair/stool,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/engine,
 /area/medical/chemistry)
 "bQS" = (
@@ -39266,9 +39265,6 @@
 	},
 /obj/machinery/light{
 	dir = 8
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
 	},
 /obj/machinery/camera{
 	c_tag = "Medbay Chemistry";
@@ -46340,6 +46336,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/button/windowtint{
+	id = "psych";
+	pixel_x = -16
+	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "cmu" = (
@@ -48233,13 +48233,13 @@
 	},
 /area/medical/chemistry)
 "csX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "whiteyellow"
@@ -48329,6 +48329,9 @@
 	dir = 1
 	},
 /obj/effect/landmark/start/virologist,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "whitegreen";
@@ -48702,7 +48705,7 @@
 "cuq" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+	dir = 10
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -50665,7 +50668,6 @@
 	},
 /obj/structure/window/reinforced,
 /obj/item/poster/random_contraband,
-/obj/effect/spawner/lootdrop/maintenance/double,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
 "czu" = (
@@ -53742,9 +53744,11 @@
 "cHe" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -70821,7 +70825,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/livingcomplex)
 "eMN" = (
-/obj/item/clothing/accessory/stethoscope,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel{
 	dir = 5;
@@ -71078,7 +71081,7 @@
 /area/toxins/launch)
 "eSi" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/lootdrop/maintenance/double,
+/obj/effect/spawner/lootdrop/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
 "eSq" = (
@@ -74595,6 +74598,10 @@
 /area/maintenance/livingcomplex)
 "hkI" = (
 /obj/effect/decal/cleanable/cobweb2,
+/obj/structure/safe,
+/obj/effect/spawner/lootdrop/maintenance/tripple,
+/obj/effect/spawner/lootdrop/maintenance/tripple,
+/obj/effect/spawner/lootdrop/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
 "hkQ" = (
@@ -77596,7 +77603,6 @@
 /obj/structure/window/reinforced,
 /obj/item/storage/secure/briefcase,
 /obj/item/mop,
-/obj/effect/spawner/lootdrop/maintenance/double,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
 "jtT" = (
@@ -78917,11 +78923,6 @@
 	dir = 1
 	},
 /obj/effect/landmark/start/psychiatrist,
-/obj/machinery/button/windowtint{
-	id = "psych";
-	pixel_x = -16;
-	pixel_y = 32
-	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "kju" = (
@@ -87384,7 +87385,6 @@
 	dir = 8
 	},
 /obj/item/folder,
-/obj/effect/spawner/lootdrop/maintenance/tripple,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
 "pYq" = (
@@ -93802,12 +93802,10 @@
 "uou" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "whiteyellowcorner"
@@ -94134,7 +94132,6 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/effect/spawner/lootdrop/maintenance/double,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
 "uCi" = (
@@ -96219,9 +96216,6 @@
 	pixel_x = -2;
 	pixel_y = -8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "whitegreen";
@@ -97369,11 +97363,6 @@
 	icon_state = "freezerfloor"
 	},
 /area/security/customs)
-"wyH" = (
-/obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/tripple,
-/turf/simulated/floor/plating,
-/area/maintenance/asmaint)
 "wyS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/drip{
@@ -133524,7 +133513,7 @@ cxH
 cxH
 cxH
 voO
-wyH
+daX
 csL
 itX
 cxl
@@ -139964,7 +139953,7 @@ cyJ
 csL
 vOr
 chf
-rgY
+daX
 cEC
 cyP
 cIm
