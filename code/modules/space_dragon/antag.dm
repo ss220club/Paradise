@@ -86,7 +86,7 @@
 		return
 	riftTimer = min(riftTimer + 1, maxRiftTimer + 1)
 	if(riftTimer == (maxRiftTimer - 60))
-		to_chat(owner.current, span_boldwarning("У вас осталась минута, что создать разрыв! Скорее!"))
+		to_chat(owner.current, span_boldwarning("У вас осталась минута, чтобы создать разрыв! Скорее!"))
 		return
 	if(riftTimer >= maxRiftTimer)
 		to_chat(owner.current, span_boldwarning("Вы не успели создать разрыв! Бездна затягивает вас обратно!"))

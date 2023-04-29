@@ -1,7 +1,7 @@
 //Small sprites
 /datum/action/innate/small_sprite_dragon
 	name = "Toggle Giant Sprite"
-	desc = "Другие всё еще видят вас гигантом."
+	desc = "Остальные продолжат видеть вас огромным."
 	button_icon_state = "carp"
 	background_icon_state = "bg_alien"
 	var/small = FALSE
