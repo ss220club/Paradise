@@ -32,7 +32,6 @@ AI MODULES
 	src.transmitInstructions(comp.current, usr, registered_name)
 	C.atom_say("Upload complete. The laws have been modified.")
 	registered_name = null
-	return
 
 /obj/item/aiModule/proc/stopUpload(obj/machinery/computer/C, silent = FALSE)
 	transmitting = FALSE
@@ -72,15 +71,15 @@ AI MODULES
 					registered_name = new_name
 					finishUpload(C)
 					return
-				to_chat(usr, span_notice("Upload process has started. ETA: [delay/10] seconds."))
+				to_chat(usr, span_notice("Upload process has started. ETA: [delay / (1 SECONDS)] seconds."))
 				timer_id = addtimer(CALLBACK(src, .proc/finishUpload, C), delay, TIMER_STOPPABLE)
 			return
 
 		//Upload to AI
 		var/mob/living/silicon/ai/ai = comp.current
-		if(ai.stat == DEAD || ai.control_disabled == 1)
+		if(ai.stat == DEAD || ai.control_disabled)
 			to_chat(usr, span_notice("Upload failed. No signal is being detected from the AI."))
-		else if(ai.see_in_dark == 0)
+		else if(!ai.see_in_dark)
 			to_chat(usr, span_notice("Upload failed. Only a faint signal is being detected from the AI, and it is not responding to our requests. It may be low on power."))
 		else
 			transmitting = TRUE
@@ -88,7 +87,7 @@ AI MODULES
 			if(!length(ai.laws.inherent_laws) && laws?.default)
 				finishUpload(C)
 				return
-			to_chat(usr, span_notice("Upload process has started. ETA: [delay/10] seconds."))
+			to_chat(usr, span_notice("Upload process has started. ETA: [delay / (1 SECONDS)] seconds."))
 			timer_id = addtimer(CALLBACK(src, .proc/finishUpload, C), delay, TIMER_STOPPABLE)
 
 /obj/item/aiModule/cmag_act()
@@ -266,7 +265,7 @@ AI MODULES
 	target.clear_supplied_laws()
 	target.clear_ion_laws()
 	target.clear_inherent_laws()
-	..()
+	. = ..()
 
 
 /******************** Asimov ********************/
