@@ -963,11 +963,10 @@ GLOBAL_LIST_EMPTY(blood_splatter_icons)
 	var/new_tts_seed = select_voice(user, override = override)
 	if(!new_tts_seed)
 		return null
+	return update_tts_seed(new_tts_seed)
+
+/atom/proc/update_tts_seed(new_tts_seed)
 	tts_seed = new_tts_seed
-	if(ismob(src))
-		var/mob/mob = src
-		if(mob?.dna)
-			mob.dna.tts_seed_dna = new_tts_seed
 	return new_tts_seed
 
 /atom/proc/speech_bubble(bubble_state = "", bubble_loc = src, list/bubble_recipients = list())
