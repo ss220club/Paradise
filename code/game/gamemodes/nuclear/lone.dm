@@ -1,5 +1,6 @@
-#define MIN_PLAYERS_FOR_LONEOP_EVENT 40
+#define MIN_PLAYERS_FOR_LONEOP_EVENT 0
 #define LONEOP_ANNOUNCE_DELAY 5 MINUTES
+
 
 /datum/event/operative
 	name = "Оперативник-одиночка"
@@ -46,6 +47,11 @@
 		uplink = new(get_turf(operative))
 	uplink.hidden_uplink.uplink_owner = "[operative.key]"
 	uplink.hidden_uplink.uses += additional_tk
+	var/datum/uplink_item/support/category = /datum/uplink_item/support
+	var/list/restricted = subtypesof(/datum/uplink_item/support/reinforcement) + /datum/uplink_item/support/reinforcement
+	for(var/datum/uplink_item/uplink_item in reinforcements)
+
+	uplink.hidden_uplink.uplink_items[category.category] -= reinforcements
 
 
 /datum/event/operative/proc/assign_operative_role(datum/mind/operative_mind)
