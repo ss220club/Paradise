@@ -349,12 +349,14 @@
 			for(var/client/C in group)
 				C.screen -= O
 
-/proc/flick_overlay(image/I, list/show_to, duration)
-	for(var/client/C in show_to)
-		C.images += I
-	spawn(duration)
-		for(var/client/C in show_to)
-			C.images -= I
+/proc/remove_images_from_clients(image/image, list/show_to)
+	for(var/client/client in show_to)
+		client.images -= image
+
+/proc/flick_overlay(image/image, list/show_to, duration)
+	for(var/client/client in show_to)
+		client.images += image
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_images_from_clients, image, show_to), duration, TIMER_CLIENT_TIME)
 
 /proc/get_active_player_count()
 	// Get active players who are playing in the round
