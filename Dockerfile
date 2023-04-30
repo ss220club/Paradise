@@ -11,7 +11,9 @@ RUN dpkg --add-architecture i386 \
     && apt-get install -y --no-install-recommends \
         ca-certificates \
         libssl1.1:i386 \
-        zlib1g:i386
+        zlib1g:i386 \
+        libtinfo6:i386 \
+        ffmpeg
 
 # BYOND
 WORKDIR /byond
