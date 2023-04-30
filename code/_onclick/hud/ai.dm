@@ -172,12 +172,12 @@
 /obj/screen/ai/heat_display/proc/update_display_value(mob/living/silicon/ai/user, new_value)
 	var/indicator_lenght = round(new_value / user.max_heat * 120)
 	underlays -= heat_indicator
-	
+
 	var/matrix/M = matrix()
 	M.Scale(indicator_lenght, 1)
 	M.Translate(round(indicator_lenght/2), 0)
 	heat_indicator.transform = M
-	
+
 	underlays += heat_indicator
 
 /obj/screen/ai/heat_display/proc/update_reserve_display_value(mob/living/silicon/ai/user, new_value)
@@ -294,7 +294,8 @@
 	action_intent = using
 
 //Heat display
-	using = new /obj/screen/ai/heat_display()
-	using.screen_loc = ui_ai_heat_display
-	heat_display = using
-	static_inventory += using
+	if(config.ai_heat)
+		using = new /obj/screen/ai/heat_display()
+		using.screen_loc = ui_ai_heat_display
+		heat_display = using
+		static_inventory += using

@@ -591,3 +591,6 @@ MODIFY_PULL_PUSH_SPEED
 
 ## Is Pixel-Shift feature allowed on the server
 #PIXEL_SHIFT
+
+## Is AI heating enabled on this server
+#AI_HEAT
