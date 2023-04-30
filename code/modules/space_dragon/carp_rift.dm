@@ -7,7 +7,7 @@
 
 /datum/action/innate/summon_rift
 	name = "Summon Rift"
-	desc = "Создает разлом, который призывает орды космических карпов"
+	desc = "Создает разлом призыва орды космических карпов."
 	button_icon_state = "carp_rift"
 	background_icon_state = "bg_default"
 
@@ -26,7 +26,7 @@
 			return
 	var/turf/rift_spawn_turf = get_turf(dragon)
 	if(isspaceturf(rift_spawn_turf))
-		to_chat(owner, span_warning("Вы не можете создать разлом здесь! Для него нужен пол!"))
+		to_chat(owner, span_warning("Вы не можете создать разлом здесь! Для него нужна поверхность!"))
 		return
 	to_chat(owner, span_notice("Вы начинаете создавать разлом..."))
 	if(!do_after(owner, 10 SECONDS, target = owner))
@@ -38,7 +38,7 @@
 	dragon.riftTimer = -1
 	new_rift.dragon = dragon
 	dragon.rift_list += new_rift
-	to_chat(owner, span_boldwarning("Разлом был создан. Любой ценой не дайте экипажу уничтожить его!"))
+	to_chat(owner, span_boldwarning("Разлом был создан. Любой ценой не допустите его уничтожения!"))
 	notify_ghosts("Космический дракон создал разлом!", source = new_rift, action = NOTIFY_FOLLOW, flashwindow = FALSE, title = "Открытие разлома Карпов")
 	ASSERT(dragon.rift_ability == src) // Badmin protection.
 	QDEL_NULL(dragon.rift_ability) // Deletes this action when used successfully, we re-gain a new one on success later.
@@ -105,10 +105,10 @@
 	if(time_charged < max_charge)
 		. += span_notice("Похоже, что разлом заряжен на [(time_charged / max_charge) * 100]%")
 	else
-		. += span_warning("Этот разлом полностью заряжен. Теперь, этот разлом может перемещать гораздо большее количество карпов, чем обычно.")
+		. += span_warning("Этот разлом полностью заряжен. Теперь, он может перемещать гораздо большее количество карпов, чем обычно.")
 
 	if(isobserver(user))
-		. += span_notice("В этом разломе находится [carp_stored] карпов, которые могут появиться для призраков.")
+		. += span_notice("В этом разломе находится [carp_stored] карпов для вселения призраков.")
 
 /obj/structure/carp_rift/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
 	playsound(src, 'sound/magic/lightningshock.ogg', 50, TRUE)
@@ -117,7 +117,7 @@
 	STOP_PROCESSING(SSobj, src)
 	if(charge_state != CHARGE_COMPLETED)
 		if(dragon)
-			to_chat(dragon.owner.current, span_boldwarning("Разлом был уничтожен! Вы провалили свою задачу, и депрессия одолевает вас"))
+			to_chat(dragon.owner.current, span_boldwarning("Разлом был уничтожен! Вы провалили свою задачу, и слабость одолевает вас"))
 			dragon.destroy_rifts()
 	dragon = null
 	return ..()
@@ -207,7 +207,7 @@
 	var/is_listed = FALSE
 	if (user.ckey in ckey_list)
 		if(carp_stored == 1)
-			to_chat(user, span_warning("Вы уже появлялилсь карпом из этого разлома! Пожалуйста, ожидайте избытка карпов или следующего разлома!"))
+			to_chat(user, span_warning("Вы уже появлялись карпом из этого разлома! Пожалуйста, ожидайте избытка карпов или следующего разлома!"))
 			return FALSE
 		is_listed = TRUE
 	var/carp_ask = alert(user, "Стать карпом?", "Разлом карпов", "Yes", "No")

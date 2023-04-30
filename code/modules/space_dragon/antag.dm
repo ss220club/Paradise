@@ -33,7 +33,7 @@
 					Мы являемся высшими хищниками в бездонной пустоте, и мало кто может осмелиться занять этот титул.\n\
 					Но сейчас, мы лицезреем нарушителей, что борются против наших клыков с помощью немыслимой магии; их логова мелькают в глубине космоса, как маленькие огоньки.\n\
 					Сегодня, мы потушим один из этих огоньков.</b>")
-	to_chat(owner.current, span_boldwarning("У вас имеется пять минут, чтобы найти безопасное место для создания первого разрыва. Если вы не успеете этого сделать, вы вернетесь в бездну, из которой вы пришли."))
+	to_chat(owner.current, span_boldwarning("У вас имеется пять минут, чтобы найти безопасное место для создания первого разрыва. Если не успеете, вас вернет в бездну, из которой вы пришли."))
 	owner.announce_objectives()
 	SEND_SOUND(owner.current, sound('sound/misc/demon_attack1.ogg'))
 
@@ -183,7 +183,7 @@
 	var/list/parts = list()
 	var/datum/objective/summon_carp/S = locate() in objectives
 	if(S.check_completion())
-		parts += "<span class='redtext big'>[name] - успех! Космические карпы вернули контроль над территорией станции!</span>"
+		parts += "<span class='redtext big'>[name] - успех! Космические карпы вернули контроль над территорией расположения станции!</span>"
 	parts += printplayer(owner)
 	var/objectives_complete = TRUE
 	if(objectives.len)
@@ -193,9 +193,9 @@
 				objectives_complete = FALSE
 				break
 	if(objectives_complete)
-		parts += "<span class='greentext big'>[name] - успех!</span>"
+		parts += "<span class='greentext big'>[name] преуспел!</span>"
 	else
-		parts += "<span class='redtext big'>The [name] - провал!</span>"
+		parts += "<span class='redtext big'>[name] провалился!</span>"
 	if(carp.len)
 		parts += "<span class='header'>Помощниками [name] были:</span>"
 		for(var/datum/mind/M in carp)
@@ -220,7 +220,7 @@
 	owner.announce_objectives()
 
 /datum/objective/space_carp
-	explanation_text = "Защищайте разлом, чтобы призвать больше карпов."
+	explanation_text = "Защищайте разлом призыва карпов."
 	var/obj/structure/carp_rift/rift
 
 /datum/objective/space_carp/check_completion()

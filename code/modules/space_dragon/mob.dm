@@ -24,7 +24,7 @@
  */
 /mob/living/simple_animal/hostile/space_dragon
 	name = "Space Dragon"
-	desc = "Мерзкое существо, схожее с классом левиафан, которое летает самым неестественным способом. Внешне, немного похоже на космического карпа."
+	desc = "Ужасное существо, схожее с классом левиафан, которое летает самым неестественным способом. Схож внешне с космическим карпом."
 	gender = NEUTER
 	maxHealth = 320
 	health = 320
@@ -139,7 +139,7 @@
 	if(using_special)
 		return
 	if(target == src)
-		to_chat(src, span_warning("Вы почти укусили себя, но вы вовремя остановились."))
+		to_chat(src, span_warning("Вы почти укусили себя, но вовремя остановились."))
 		return
 	if(iswallturf(target))
 		if(tearing_wall)
@@ -214,7 +214,7 @@
 		to_chat(src, span_warning("Это имя некорректно, попробуйте еще раз."))
 		dragon_name()
 		return
-	to_chat(src, span_notice("Ваше имя теперь - [span_name("[chosen_name]")], устрашающий Космический дракон."))
+	to_chat(src, span_notice("Ваше имя теперь - [span_name("[chosen_name]")], устрашающий Космический Дракон."))
 	rename_character(null, chosen_name)
 
 /**
@@ -231,7 +231,7 @@
 		return
 	var/temp_hsv = RGBtoHSV(chosen_color)
 	if(ReadHSV(temp_hsv)[3] < DARKNESS_THRESHOLD)
-		to_chat(src, span_danger("Этот цвет некорректен - он не слишком яркий."))
+		to_chat(src, span_danger("Этот цвет некорректен - он не слишком светлый."))
 		color_selection()
 		return
 	add_atom_colour(chosen_color, FIXED_COLOUR_PRIORITY)
