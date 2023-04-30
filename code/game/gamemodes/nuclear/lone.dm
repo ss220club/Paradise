@@ -51,7 +51,7 @@
 		uplink = new(operative)
 		operative.equip_to_slot_or_del(uplink, slot_in_backpack)
 	else
-		stack_trace("Lone operative spawned without an backpack. Spawning uplink on the floor.")
+		stack_trace("Lone operative spawned without a backpack. Spawning uplink on the floor.")
 		uplink = new(get_turf(operative))
 	uplink.hidden_uplink.uplink_owner = "[operative.key]"
 	uplink.hidden_uplink.uses = DEFAULT_LONEOP_TK + additional_tk
