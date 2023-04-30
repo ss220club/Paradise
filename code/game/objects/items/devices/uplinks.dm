@@ -283,31 +283,35 @@ GLOBAL_LIST_EMPTY(world_uplinks)
 // Includes normal radio uplink, multitool uplink,
 // implant uplink (not the implant tool) and a preset headset uplink.
 
+/obj/item/radio/uplink
+	var/uplink_type = UPLINK_TYPE_TRAITOR
+
 /obj/item/radio/uplink/New()
 	..()
 	hidden_uplink = new(src)
 	icon_state = "radio"
+	if(hidden_uplink)
+		hidden_uplink.uplink_type = uplink_type
+		hidden_uplink.update_uplink_items()
+
 
 /obj/item/radio/uplink/attack_self(mob/user as mob)
 	if(hidden_uplink)
 		hidden_uplink.trigger(user)
 
+/obj/item/radio/uplink/nuclear
+	uplink_type = UPLINK_TYPE_NUCLEAR
+
 /obj/item/radio/uplink/nuclear/New()
 	..()
-	if(hidden_uplink)
-		hidden_uplink.uplink_type = UPLINK_TYPE_NUCLEAR
-		hidden_uplink.update_uplink_items()
 	GLOB.nuclear_uplink_list += src
 
 /obj/item/radio/uplink/nuclear/Destroy()
 	GLOB.nuclear_uplink_list -= src
 	return ..()
 
-/obj/item/radio/uplink/sst/New()
-	..()
-	if(hidden_uplink)
-		hidden_uplink.uplink_type = UPLINK_TYPE_SST
-		hidden_uplink.update_uplink_items()
+/obj/item/radio/uplink/sst
+	uplink_type = UPLINK_TYPE_SST
 
 /obj/item/multitool/uplink/New()
 	..()

@@ -1,9 +1,14 @@
-#define MIN_PLAYERS_FOR_LONEOP_EVENT 0
+#define MIN_PLAYERS_FOR_LONEOP_EVENT 60
 #define LONEOP_ANNOUNCE_DELAY 5 MINUTES
+#define DEFAULT_LONEOP_TK 20
 
 
 /datum/event/operative
 	name = "Оперативник-одиночка"
+
+
+/obj/item/radio/uplink/nuclear/lone
+	uplink_type = UPLINK_TYPE_NUCLEAR_LONE
 
 /datum/event/operative/proc/assign_nuke()
 	var/obj/machinery/nuclearbomb/nuke = locate() in GLOB.machines
@@ -38,20 +43,18 @@
 
 
 /datum/event/operative/proc/equip_operative(mob/living/carbon/human/operative)
-	SSticker.mode.equip_syndicate(operative)
+	SSticker.mode.equip_syndicate(operative, with_uplink = FALSE)
 	SSticker.mode.update_syndicate_id(operative.mind, TRUE)
 	var/additional_tk = max(0, (GLOB.player_list.len - MIN_PLAYERS_FOR_LONEOP_EVENT)*2)
-	var/obj/item/radio/uplink/uplink = locate() in operative.back
-	if(!uplink)
+	var/obj/item/radio/uplink/nuclear/lone/uplink
+	if(operative.back)
+		uplink = new(operative)
+		operative.equip_to_slot_or_del(uplink, slot_in_backpack)
+	else
 		stack_trace("Lone operative spawned without an uplink. Spawning one.")
 		uplink = new(get_turf(operative))
 	uplink.hidden_uplink.uplink_owner = "[operative.key]"
-	uplink.hidden_uplink.uses += additional_tk
-	var/datum/uplink_item/support/category = /datum/uplink_item/support
-	var/list/restricted = subtypesof(/datum/uplink_item/support/reinforcement) + /datum/uplink_item/support/reinforcement
-	for(var/datum/uplink_item/uplink_item in reinforcements)
-
-	uplink.hidden_uplink.uplink_items[category.category] -= reinforcements
+	uplink.hidden_uplink.uses = DEFAULT_LONEOP_TK + additional_tk
 
 
 /datum/event/operative/proc/assign_operative_role(datum/mind/operative_mind)
@@ -97,3 +100,4 @@
 
 #undef MIN_PLAYERS_FOR_LONEOP_EVENT
 #undef LONEOP_ANNOUNCE_DELAY
+#undef DEFAULT_LONEOP_TK
