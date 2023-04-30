@@ -52,17 +52,17 @@ REAGENT SCANNER
 	if(!ismob(viewer) || !viewer.client)
 		return
 	var/list/t_ray_images = list()
-	for(var/obj/O in orange(distance, viewer))
-		if(O.level != 1)
+	for(var/obj/object in orange(distance, viewer))
+		if(object.level != 1)
 			continue
 
-		if(O.invisibility == INVISIBILITY_MAXIMUM)
-			var/image/I = new(loc = get_turf(O))
-			var/mutable_appearance/MA = new(O)
-			MA.alpha = 128
-			MA.dir = O.dir
-			I.appearance = MA
-			t_ray_images += I
+		if(object.invisibility == INVISIBILITY_MAXIMUM)
+			var/image/image = new(loc = get_turf(object))
+			var/mutable_appearance/mutable_appearance = new(object)
+			mutable_appearance.alpha = 128
+			mutable_appearance.dir = object.dir
+			image.appearance = mutable_appearance
+			t_ray_images += image
 	if(length(t_ray_images))
 		flick_overlay(t_ray_images, list(viewer.client), flick_time)
 
