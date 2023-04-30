@@ -1558,6 +1558,8 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	update_heat_display()
 
 /mob/living/silicon/ai/proc/update_heat_display()
+	if(!config.ai_heat)
+		return
 	var/datum/hud/ai/hud = hud_used
 	if(!istype(hud))
 		return
@@ -1607,6 +1609,8 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 
 /mob/living/silicon/ai/proc/update_reserve_heat_display()
+	if(!config.ai_heat)
+		return
 	var/datum/hud/ai/hud = hud_used
 	if(!istype(hud))
 		return
@@ -1624,4 +1628,3 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 	if(overheated && !current_heat)
 		after_overheat()
-
