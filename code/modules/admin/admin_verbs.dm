@@ -280,6 +280,8 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 			verbs += /client/proc/view_runtimes
 			spawn(1) // This setting exposes the profiler for people with R_VIEWRUNTIMES. They must still have it set in cfg/admin.txt
 				control_freak = 0
+		if(holder.rights & R_VAREDIT)
+			verbs += /client/proc/debug_variables
 
 
 /client/proc/remove_admin_verbs()
