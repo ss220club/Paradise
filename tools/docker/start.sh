@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./stop_server.sh
+./stop.sh
 
 [[ -f .env ]] || cp .env.example .env
 

@@ -1,6 +1,6 @@
 @echo off
 
-call stop_server.bat
+call stop.bat
 
 echo F|xcopy  ".env.example" ".env" /d
 
