@@ -7,7 +7,7 @@
 
 /datum/action/innate/summon_rift
 	name = "Summon Rift"
-	desc = "Создает разлом призыва орды космических карпов."
+	desc = "Открывает разлом призыва орды космических карпов."
 	button_icon_state = "carp_rift"
 	background_icon_state = "bg_default"
 
@@ -17,18 +17,18 @@
 		return
 	var/area/rift_location = get_area(owner)
 	if(!rift_location.valid_territory)
-		to_chat(owner, span_warning("Вы не можете создать разлом здесь! Попробуйте создать где-то в безопасном месте на станции!"))
+		to_chat(owner, span_warning("Вы не можете открыть разлом здесь! Попробуйте ещё раз где-то в безопасном месте на станции!"))
 		return
 	for(var/obj/structure/carp_rift/rift as anything in dragon.rift_list)
 		var/area/used_location = get_area(rift)
 		if(used_location == rift_location)
-			to_chat(owner, span_warning("Вы уже создали разлом на этой территории! Вы должны создать его где-то ещё!"))
+			to_chat(owner, span_warning("Вы уже открыли разлом на этой территории! Разлом должен находиться где-то ещё!"))
 			return
 	var/turf/rift_spawn_turf = get_turf(dragon)
 	if(isspaceturf(rift_spawn_turf))
-		to_chat(owner, span_warning("Вы не можете создать разлом здесь! Для него нужна поверхность!"))
+		to_chat(owner, span_warning("Вы не можете открыть разлом здесь! Для него нужна поверхность!"))
 		return
-	to_chat(owner, span_notice("Вы начинаете создавать разлом..."))
+	to_chat(owner, span_notice("Вы начинаете открывать разлом..."))
 	if(!do_after(owner, 10 SECONDS, target = owner))
 		return
 	if(locate(/obj/structure/carp_rift) in owner.loc)
@@ -38,8 +38,8 @@
 	dragon.riftTimer = -1
 	new_rift.dragon = dragon
 	dragon.rift_list += new_rift
-	to_chat(owner, span_boldwarning("Разлом был создан. Любой ценой не допустите его уничтожения!"))
-	notify_ghosts("Космический дракон создал разлом!", source = new_rift, action = NOTIFY_FOLLOW, flashwindow = FALSE, title = "Открытие разлома Карпов")
+	to_chat(owner, span_boldwarning("Разлом был открыт. Любой ценой не допустите его уничтожения!"))
+	notify_ghosts("Космический дракон открыл разлом!", source = new_rift, action = NOTIFY_FOLLOW, flashwindow = FALSE, title = "Открытие разлома Карпов")
 	ASSERT(dragon.rift_ability == src) // Badmin protection.
 	QDEL_NULL(dragon.rift_ability) // Deletes this action when used successfully, we re-gain a new one on success later.
 
@@ -54,7 +54,7 @@
  */
 /obj/structure/carp_rift
 	name = "carp rift"
-	desc = "Разлом, похожий на тот, который позволяет космическим карпам перемещаться на огромные расстояния."
+	desc = "Разлом, позвляющий космическим карпам перемещаться на огромные расстояния."
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 100, "bomb" = 50, "bio" = 100, "rad" = 0, "fire" = 100, "acid" = 100)
 	max_integrity = 300
 	icon = 'icons/obj/carp_rift.dmi'
@@ -168,7 +168,7 @@
 	if(time_charged >= max_charge)
 		charge_state = CHARGE_COMPLETED
 		var/area/A = get_area(src)
-		GLOB.command_announcement.Announce("Простраственный объект достиг максимального энергетического заряда в зоне [initial(A.name)]. Пожалуйста, ожидайте.", "Центральное Командование: Наблюдение за дикой природой")
+		GLOB.command_announcement.Announce("Простраственный объект достиг максимального энергетического заряда в зоне [initial(A.name)]. Пожалуйста, ожидайте.", "Отдел Изучения Дикой Природы")
 		max_integrity = INFINITY
 		obj_integrity = INFINITY
 		icon_state = "carp_rift_charged"
@@ -190,7 +190,7 @@
 		charge_state = CHARGE_FINALWARNING
 		var/area/A = get_area(src)
 
-		GLOB.command_announcement.Announce("Разлом создает неествественно большой поток энергии в зоне [initial(A.name)]. Остановите его любой ценой!", "Центральное Командование: Наблюдение за дикой природой", 'sound/AI/spanomalies.ogg')
+		GLOB.command_announcement.Announce("Разлом создает неествественно большой поток энергии в зоне [initial(A.name)]. Остановите его любой ценой!", "Отдел Изучения Дикой Природы", 'sound/AI/spanomalies.ogg')
 
 /**
  * Used to create carp controlled by ghosts when the option is available.
@@ -229,7 +229,7 @@
 	var/datum/antagonist/space_carp/carp_antag = new(src)
 	newcarp.mind.add_antag_datum(carp_antag)
 	dragon.carp += newcarp.mind
-	to_chat(newcarp, span_boldwarning("Вы прибыли, чтобы помочь космическому дракону защищать разломы. Не подвергайте опасности миссию и защищайте разломы любой ценой!"))
+	to_chat(newcarp, span_boldwarning("Вы прибыли, чтобы помочь космическому дракону защищать разломы. Следуйте поставленной миссии и защитите разлом любой ценой!"))
 	carp_stored--
 	if(carp_stored <= 0 && charge_state < CHARGE_COMPLETED)
 		icon_state = "carp_rift"

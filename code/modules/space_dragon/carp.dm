@@ -10,7 +10,7 @@
 
 /datum/action/innate/lesser_carp_rift
 	name = "Lesser Carp Rift"
-	desc = "Создает малый разлом карпов, который позволяет перемещаться на малое расстояние."
+	desc = "Открывает малый разлом карпов, который позволяет перемещаться на малое расстояние."
 	button_icon_state = "rift"
 	background_icon_state = "bg_alien"
 	var/cooldown_time = 15 SECONDS
@@ -43,7 +43,7 @@
 		open_exit_turfs += potential_exit
 
 	if(!length(open_exit_turfs))
-		to_chat(owner, span_warning("Нет выхода из разлома!"))
+		to_chat(owner, span_warning("Нет выхода!"))
 		return FALSE
 	if(!is_blocked_turf(target_turf, exclude_mobs = TRUE))
 		open_exit_turfs += target_turf

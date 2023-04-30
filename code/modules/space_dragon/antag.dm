@@ -33,7 +33,7 @@
 					Мы являемся высшими хищниками в бездонной пустоте, и мало кто может осмелиться занять этот титул.\n\
 					Но сейчас, мы лицезреем нарушителей, что борются против наших клыков с помощью немыслимой магии; их логова мелькают в глубине космоса, как маленькие огоньки.\n\
 					Сегодня, мы потушим один из этих огоньков.</b>")
-	to_chat(owner.current, span_boldwarning("У вас имеется пять минут, чтобы найти безопасное место для создания первого разрыва. Если не успеете, вас вернет в бездну, из которой вы пришли."))
+	to_chat(owner.current, span_boldwarning("У вас имеется пять минут, чтобы найти безопасное место для открытия первого разрыва. Если не успеете, вас вернет в бездну, из которой вы пришли."))
 	owner.announce_objectives()
 	SEND_SOUND(owner.current, sound('sound/misc/demon_attack1.ogg'))
 
@@ -86,10 +86,10 @@
 		return
 	riftTimer = min(riftTimer + 1, maxRiftTimer + 1)
 	if(riftTimer == (maxRiftTimer - 60))
-		to_chat(owner.current, span_boldwarning("У вас осталась минута, чтобы создать разрыв! Скорее!"))
+		to_chat(owner.current, span_boldwarning("У вас осталась минута, чтобы открыть разрыв! Скорее!"))
 		return
 	if(riftTimer >= maxRiftTimer)
-		to_chat(owner.current, span_boldwarning("Вы не успели создать разрыв! Бездна затягивает вас обратно!"))
+		to_chat(owner.current, span_boldwarning("Вы не успели огкрыть разрыв! Бездна затягивает вас обратно!"))
 		destroy_rifts()
 		SEND_SOUND(owner.current, sound('sound/misc/demon_dies.ogg'))
 		owner.current.death(/* gibbed = */ TRUE)
@@ -129,8 +129,8 @@
 	var/datum/objective/summon_carp/main_objective = locate() in objectives
 	if(main_objective)
 		main_objective.completed = TRUE
-	GLOB.command_announcement.Announce("Огромное число биологических объектов направляется к [station_name()] с высокой скоростью. \
-	Оставшемуся экипажу рекомендуется эвакуироваться как можно скорее...", "Центральное Командование: Наблюдение за дикой природой")
+	GLOB.command_announcement.Announce("Огромное число форм жизни направляется к [station_name()] с высокой скоростью. \
+	Оставшемуся экипажу рекомендуется эвакуироваться как можно скорее...", "Отдел Изучения Дикой Природы")
 	sound_to_playing_players('sound/creatures/space_dragon_roar.ogg')
 	for(var/obj/structure/carp_rift/rift as anything in rift_list)
 		rift.carp_stored = 999999
@@ -177,7 +177,7 @@
 	dragon.dragon_rage = FALSE
 
 /datum/objective/summon_carp
-	explanation_text = "Создавайте и защищайте разрывы, чтобы наводнить станцию карпами."
+	explanation_text = "Открывайте и защищайте разрывы, чтобы наводнить станцию карпами."
 
 /datum/antagonist/space_dragon/roundend_report()
 	var/list/parts = list()
