@@ -47,7 +47,7 @@
 	SSticker.mode.update_syndicate_id(operative.mind, TRUE)
 	var/additional_tk = max(0, (GLOB.player_list.len - MIN_PLAYERS_FOR_LONEOP_EVENT)*2)
 	var/obj/item/radio/uplink/nuclear/lone/uplink = new(get_turf(operative))
-	operative.equip_to_appropriate_slot(uplink)
+	uplink.equip_to_best_slot(operative, ignore_source_loc = TRUE)
 	uplink.hidden_uplink.uplink_owner = "[operative.key]"
 	uplink.hidden_uplink.uses = DEFAULT_LONEOP_TK + additional_tk
 
