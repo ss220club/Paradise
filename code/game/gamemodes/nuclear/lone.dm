@@ -46,13 +46,8 @@
 	SSticker.mode.equip_syndicate(operative, with_uplink = FALSE)
 	SSticker.mode.update_syndicate_id(operative.mind, TRUE)
 	var/additional_tk = max(0, (GLOB.player_list.len - MIN_PLAYERS_FOR_LONEOP_EVENT)*2)
-	var/obj/item/radio/uplink/nuclear/lone/uplink
-	if(operative.back)
-		uplink = new(operative)
-		operative.equip_to_slot_or_del(uplink, slot_in_backpack)
-	else
-		stack_trace("Lone operative spawned without a backpack. Spawning uplink on the floor.")
-		uplink = new(get_turf(operative))
+	var/obj/item/radio/uplink/nuclear/lone/uplink = new(get_turf(operative))
+	operative.equip_to_appropriate_slot(uplink)
 	uplink.hidden_uplink.uplink_owner = "[operative.key]"
 	uplink.hidden_uplink.uses = DEFAULT_LONEOP_TK + additional_tk
 
