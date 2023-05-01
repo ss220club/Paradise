@@ -125,7 +125,7 @@
 /obj/structure/carp_rift/process(seconds_per_tick)
 	// If we're fully charged, just start mass spawning carp.
 	if(charge_state == CHARGE_COMPLETED)
-		if(SPT_PROB(1.25, seconds_per_tick) && dragon)
+		if(dragon && SPT_PROB(1.25, seconds_per_tick))
 			var/mob/living/newcarp = new dragon.ai_to_spawn(loc)
 			newcarp.faction = dragon.owner.current.faction.Copy()
 		return

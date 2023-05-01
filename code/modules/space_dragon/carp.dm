@@ -37,7 +37,7 @@
 		return FALSE
 
 	var/list/open_exit_turfs = list()
-	for (var/turf/potential_exit in orange(1, target_turf))
+	for (var/turf/potential_exit as anything in (RANGE_TURFS(1, target_turf) - target_turf))
 		if(is_blocked_turf(potential_exit, exclude_mobs = TRUE))
 			continue
 		open_exit_turfs += potential_exit

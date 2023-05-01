@@ -92,7 +92,7 @@
 		to_chat(owner.current, span_boldwarning("Вы не успели огкрыть разрыв! Бездна затягивает вас обратно!"))
 		destroy_rifts()
 		SEND_SOUND(owner.current, sound('sound/misc/demon_dies.ogg'))
-		owner.current.death(/* gibbed = */ TRUE)
+		owner.current.death(TRUE)
 		QDEL_NULL(owner.current)
 
 /**

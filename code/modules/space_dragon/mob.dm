@@ -134,6 +134,8 @@
 		if(prob(90))
 			step(barfed_out, pick(GLOB.alldirs))
 	. = ..()
+	add_dragon_overlay()
+	UnregisterSignal(small_sprite, COMSIG_ACTION_TRIGGER)
 
 /mob/living/simple_animal/hostile/space_dragon/AttackingTarget()
 	if(using_special)
@@ -162,9 +164,10 @@
 		var/mob/living/L = target
 		if(L.stat == DEAD)
 			to_chat(src, span_warning("Вы начинаете глотать [L] целиком..."))
-			if(do_after(src, 3 SECONDS, target = L))
-				if(eat(L))
-					adjustHealth(-L.maxHealth * 0.25)
+			if(!do_after(src, 3 SECONDS, target = L))
+				return
+			if(eat(L))
+				adjustHealth(-L.maxHealth * 0.25)
 			return
 	. = ..()
 	if(ismecha(target))
@@ -181,18 +184,13 @@
 
 /mob/living/simple_animal/hostile/space_dragon/Move()
 	if(!using_special)
-		..()
+		. = ..()
 
 /mob/living/simple_animal/hostile/space_dragon/OpenFire()
 	if(using_special)
 		return
 	ranged_cooldown = world.time + ranged_cooldown_time
 	fire_stream()
-
-/mob/living/simple_animal/hostile/space_dragon/death(gibbed)
-	. = ..()
-	add_dragon_overlay()
-	UnregisterSignal(small_sprite, COMSIG_ACTION_TRIGGER)
 
 /mob/living/simple_animal/hostile/space_dragon/revive(full_heal_flags = NONE, excess_healing = 0, force_grab_ghost = FALSE)
 	var/was_dead = stat == DEAD
@@ -231,7 +229,7 @@
 		return
 	var/temp_hsv = RGBtoHSV(chosen_color)
 	if(ReadHSV(temp_hsv)[3] < DARKNESS_THRESHOLD)
-		to_chat(src, span_danger("Этот цвет некорректен - он не слишком светлый."))
+		to_chat(src, span_danger("Этот цвет некорректен - он недостаточно светлый."))
 		color_selection()
 		return
 	add_atom_colour(chosen_color, FIXED_COLOUR_PRIORITY)
@@ -347,12 +345,12 @@
  * * atom/movable/A - The thing being consumed
  */
 /mob/living/simple_animal/hostile/space_dragon/proc/eat(atom/movable/A)
-	if(A && A.loc != src)
-		playsound(src, 'sound/misc/demon_attack1.ogg', 100, TRUE)
-		visible_message(span_warning("[src] swallows [A] whole!"))
-		A.forceMove(src)
-		return TRUE
-	return FALSE
+	if(A?.loc == src)
+		return FALSE
+	playsound(src, 'sound/misc/demon_attack1.ogg', 100, TRUE)
+	visible_message(span_warning("[src] swallows [A] whole!"))
+	A.forceMove(src)
+	return TRUE
 
 /**
  * Resets Space Dragon's status after using wing gust.
