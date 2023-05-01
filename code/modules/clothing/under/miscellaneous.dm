@@ -914,3 +914,10 @@
 	icon_state = "katarina_cybersuit"
 	icon_state = "katarina_cybersuit"
 	item_color = "katarina_cybersuit"
+
+/obj/item/clothing/under/katarina_suit
+	name = "Katarina's suit"
+	desc = "Suit of someone called Katarina."
+	icon_state = "katarina_suit"
+	icon_state = "katarina_suit"
+	item_color = "katarina_suit"
