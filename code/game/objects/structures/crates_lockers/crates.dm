@@ -365,6 +365,34 @@
 		newgas.temperature = target_temp
 	return newgas
 
+/obj/structure/closet/crate/freezer/pizza/populate_contents()
+	if(prob(5))
+		new /obj/item/pizzabox/margherita(src)
+		new /obj/item/pizzabox/meat(src)
+		new /obj/item/pizzabox/poison(src)
+		new /obj/item/pizzabox/vegetable(src)
+		new /obj/item/pizzabox/hawaiian(src)
+	else
+		new /obj/item/pizzabox/margherita(src)
+		new /obj/item/pizzabox/meat(src)
+		new /obj/item/pizzabox/mushroom(src)
+		new /obj/item/pizzabox/vegetable(src)
+		new /obj/item/pizzabox/hawaiian(src)
+
+/obj/structure/closet/crate/freezer/pizza/boom/populate_contents()
+	if(prob(5))
+		new /obj/item/pizzabox/margherita(src)
+		new /obj/item/pizzabox/meat(src)
+		new /obj/item/pizza_bomb/weak(src)
+		new /obj/item/pizzabox/mushroom(src)
+		new /obj/item/pizzabox/hawaiian(src)
+	else
+		new /obj/item/pizzabox/margherita(src)
+		new /obj/item/pizzabox/meat(src)
+		new /obj/item/pizzabox/mushroom(src)
+		new /obj/item/pizzabox/vegetable(src)
+		new /obj/item/pizzabox/hawaiian(src)
+
 /obj/structure/closet/crate/can
 	desc = "A large can, looks like a bin to me."
 	name = "garbage can"
