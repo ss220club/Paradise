@@ -907,3 +907,10 @@
 	icon_state = "tourist"
 	icon_state = "tourist"
 	item_color = "tourist"
+
+/obj/item/clothing/under/katarina_cybersuit
+	name = "Katarina's cyberjumpsuit"
+	desc = "Jumpsuit of someone called Katarina."
+	icon_state = "katarina_cybersuit"
+	icon_state = "katarina_cybersuit"
+	item_color = "katarina_cybersuit"

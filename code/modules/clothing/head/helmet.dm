@@ -110,7 +110,7 @@
 	toggle_message = "You turn off the lights on"
 	alt_toggle_message = "You turn on the lights on"
 	actions_types = list(/datum/action/item_action/toggle_helmet_light)
-	can_toggle = 1
+	can_toggle = TRUE
 	toggle_cooldown = 20
 	active_sound = 'sound/items/weeoo1.ogg'
 	dog_fashion = null
@@ -201,7 +201,7 @@
 	toggle_message = "You attach the face shield to the"
 	alt_toggle_message = "You remove the face shield from the"
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
-	can_toggle = 1
+	can_toggle = TRUE
 	toggle_cooldown = 20
 	toggle_sound = 'sound/items/zippoclose.ogg'
 	dog_fashion = null
@@ -273,6 +273,19 @@
 	icon_state = "skull"
 	item_state = "skull"
 	strip_delay = 100
+
+/obj/item/clothing/head/helmet/bike_helmet
+	name = "bike helmet"
+	desc = "Cool helmet."
+	icon_state = "bike_helmet"
+	item_state = "bike_helmet"
+	toggle_message = "You raised the protective glass of"
+	alt_toggle_message = "You lowered the protective glass of"
+	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
+	armor = list("melee" = 25, "bullet" = 15, "laser" = 10, "energy" = 10, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 15, "acid" = 0)
+	can_toggle = TRUE
+	toggle_sound = 'sound/weapons/tap.ogg'
+	dog_fashion = null
 
 /obj/item/clothing/head/helmet/skull/Yorick
 	name = "Йорик"
