@@ -434,7 +434,7 @@
 	value = "evelynn"
 	category = TTS_CATEGORY_LOL
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 4
 
 /datum/tts_seed/silero/riki
 	name = "Riki"
@@ -944,7 +944,7 @@
 	value = "tereshkova"
 	category = TTS_CATEGORY_ATOMIC_HEART
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 4
 
 /datum/tts_seed/silero/babazina
 	name = "Babazina"
@@ -1000,7 +1000,7 @@
 	value = "samira"
 	category = TTS_CATEGORY_LOL
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/swain
 	name = "Swain"
@@ -1063,7 +1063,7 @@
 	value = "katarina"
 	category = TTS_CATEGORY_LOL
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 3
 
 /datum/tts_seed/silero/ahri
 	name = "Ahri"
@@ -1126,7 +1126,7 @@
 	value = "shyvana"
 	category = TTS_CATEGORY_LOL
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/zenyatta
 	name = "Zenyatta"
@@ -1182,7 +1182,7 @@
 	value = "tracer"
 	category = TTS_CATEGORY_OVERWATCH
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/genji
 	name = "Genji"
@@ -1196,7 +1196,7 @@
 	value = "echo"
 	category = TTS_CATEGORY_OVERWATCH
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 3
 
 /datum/tts_seed/silero/sojourn
 	name = "Sojourn"
@@ -1252,7 +1252,7 @@
 	value = "m_khajiit"
 	category = TTS_CATEGORY_SKYRIM
 	gender = TTS_GENDER_MALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/m_coward
 	name = "M_coward"
@@ -1280,7 +1280,7 @@
 	value = "f_khajiit"
 	category = TTS_CATEGORY_SKYRIM
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/m_citizen
 	name = "M_citizen"
@@ -1469,14 +1469,14 @@
 	value = "yrel"
 	category = TTS_CATEGORY_HEROESOFTHESTORM
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/volskaya
 	name = "Volskaya"
 	value = "volskaya"
 	category = TTS_CATEGORY_HEROESOFTHESTORM
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/necromancer
 	name = "Necromancer"
@@ -1539,7 +1539,7 @@
 	value = "adjutant"
 	category = TTS_CATEGORY_HEROESOFTHESTORM
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/vanndara
 	name = "Vanndara"
@@ -1777,7 +1777,7 @@
 	value = "sthara"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 3
 
 /datum/tts_seed/silero/dovo
 	name = "Dovo"
@@ -1917,7 +1917,7 @@
 	value = "jolene"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 3
 
 /datum/tts_seed/silero/kyriss
 	name = "Kyriss"
@@ -2029,7 +2029,7 @@
 	value = "lilayell"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/candlebeard
 	name = "Candlebeard"
@@ -2155,7 +2155,7 @@
 	value = "tristana"
 	category = TTS_CATEGORY_LOL
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/sylas
 	name = "Sylas"
@@ -2190,7 +2190,7 @@
 	value = "karma"
 	category = TTS_CATEGORY_LOL
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/nilah
 	name = "Nilah"
@@ -2239,7 +2239,7 @@
 	value = "zyra"
 	category = TTS_CATEGORY_LOL
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/zac
 	name = "Zac"
@@ -2253,7 +2253,7 @@
 	value = "moira"
 	category = TTS_CATEGORY_OVERWATCH
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/ashe
 	name = "Ashe"
@@ -2274,7 +2274,7 @@
 	value = "mercy"
 	category = TTS_CATEGORY_OVERWATCH
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 3
 
 /datum/tts_seed/silero/lucio_ov
 	name = "Lucio_ov"
@@ -2295,7 +2295,7 @@
 	value = "symmetra"
 	category = TTS_CATEGORY_OVERWATCH
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/zarya
 	name = "Zarya"
@@ -2337,28 +2337,28 @@
 	value = "pharah"
 	category = TTS_CATEGORY_OVERWATCH
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/sombra
 	name = "Sombra"
 	value = "sombra"
 	category = TTS_CATEGORY_OVERWATCH
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/ana
 	name = "Ana"
 	value = "ana"
 	category = TTS_CATEGORY_OVERWATCH
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/widowmaker
 	name = "Widowmaker"
 	value = "widowmaker"
 	category = TTS_CATEGORY_OVERWATCH
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 4
 
 /datum/tts_seed/silero/harbor
 	name = "Harbor"
@@ -2372,7 +2372,7 @@
 	value = "sage"
 	category = TTS_CATEGORY_VALORANT
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/brimstone
 	name = "Brimstone"
@@ -2449,7 +2449,7 @@
 	value = "lydia"
 	category = TTS_CATEGORY_SKYRIM
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/motierre
 	name = "Motierre"
@@ -2624,7 +2624,7 @@
 	value = "maven"
 	category = TTS_CATEGORY_SKYRIM
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/f_child
 	name = "F_child"
@@ -2659,7 +2659,7 @@
 	value = "grelod"
 	category = TTS_CATEGORY_SKYRIM
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/tolfdir
 	name = "Tolfdir"
@@ -2722,7 +2722,7 @@
 	value = "mirabelle"
 	category = TTS_CATEGORY_SKYRIM
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 3
 
 /datum/tts_seed/silero/aventus
 	name = "Aventus"
@@ -2743,7 +2743,7 @@
 	value = "elenwen"
 	category = TTS_CATEGORY_SKYRIM
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/gormlaith
 	name = "Gormlaith"
@@ -2764,7 +2764,7 @@
 	value = "overwatch"
 	category = TTS_CATEGORY_HALFLIFE2
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 3
 
 /datum/tts_seed/silero/zak
 	name = "Zak"
@@ -2953,7 +2953,7 @@
 	value = "nexushunter"
 	category = TTS_CATEGORY_HEROESOFTHESTORM
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/greymane_h
 	name = "Greymane_h"
@@ -3016,7 +3016,7 @@
 	value = "stargazer"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 3
 
 /datum/tts_seed/silero/eudora
 	name = "Eudora"
@@ -3037,7 +3037,7 @@
 	value = "katrana"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 3
 
 /datum/tts_seed/silero/valeera_hs
 	name = "Valeera_hs"
@@ -3058,7 +3058,7 @@
 	value = "elise"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/flark
 	name = "Flark"
@@ -3086,7 +3086,7 @@
 	value = "talanji"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/dr_sezavo
 	name = "Dr_sezavo"
@@ -3142,7 +3142,7 @@
 	value = "norroa"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/turalyon
 	name = "Turalyon"
@@ -3163,7 +3163,7 @@
 	value = "lunara"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/bob
 	name = "Bob"
@@ -3184,7 +3184,7 @@
 	value = "yrel_hs"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/fireheart
 	name = "Fireheart"
@@ -3198,7 +3198,7 @@
 	value = "lanathel"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/tyrande_hs
 	name = "Tyrande_hs"
@@ -3233,7 +3233,7 @@
 	value = "karastamper"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 3
 
 /datum/tts_seed/silero/george
 	name = "George"
@@ -3261,7 +3261,7 @@
 	value = "kasa"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/whirt
 	name = "Whirt"
@@ -3275,7 +3275,7 @@
 	value = "anarii"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 3
 
 /datum/tts_seed/silero/ilza
 	name = "Ilza"
@@ -3317,14 +3317,14 @@
 	value = "isiset"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_FEMALE
-	donator_level = 1
+	donator_level = 3
 
 /datum/tts_seed/silero/akazamzarak
 	name = "Akazamzarak"
 	value = "akazamzarak"
 	category = TTS_CATEGORY_HEARTHSTONE
 	gender = TTS_GENDER_ANY
-	donator_level = 1
+	donator_level = 2
 
 /datum/tts_seed/silero/arha
 	name = "Arha"
