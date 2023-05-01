@@ -40,7 +40,6 @@
 	. = ..()
 
 /obj/item/clothing/shoes/black/neon/proc/turn_glow()
-	. = ..()
 	if(!glow_active)
 		set_light(brightness_on)
 		var/mutable_appearance/neone_overlay = mutable_appearance('icons/mob/feet.dmi',"neon_overlay")
@@ -54,7 +53,6 @@
 	update_icon()
 
 /obj/item/clothing/shoes/black/neon/proc/change_color(mob/living/user as mob)
-	. = ..()
 	var/temp = input(usr, "Please select color.", "Shoe color") as color
 	color = temp
 	light_color = temp
