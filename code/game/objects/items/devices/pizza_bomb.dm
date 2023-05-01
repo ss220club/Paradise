@@ -104,3 +104,22 @@
 /obj/item/pizza_bomb/autoarm
 	timer_set = 1
 	timer = 30 // 3 seconds
+
+/obj/item/pizza_bomb/weak
+	name = "pizza box"
+	desc = "A box suited for pizzas."
+	icon = 'icons/obj/food/pizza.dmi'
+	icon_state = "pizzabox1"
+
+/obj/item/pizza_bomb/weak/attack_self(mob/user)
+	return go_boom() // weak, but mersyless
+
+
+/obj/item/pizza_bomb/weak/go_boom()
+	if(disarmed)
+		visible_message("<span class='danger'>[bicon(src)] Sparks briefly jump out of the [correct_wire] wire on \the [src], but it's disarmed!")
+		return
+	atom_say("Наслаждайтесь пиццей!")
+	src.visible_message("<span class='userdanger'>\The [src] violently explodes!</span>")
+	explosion(src.loc, 0, 2, 4, flame_range = 2) //Identical to azide
+	qdel(src)
