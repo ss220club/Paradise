@@ -905,19 +905,19 @@
 	name = "tourist outfit"
 	desc = "A light blue shirt with brown shorts. Feels oddly spooky."
 	icon_state = "tourist"
-	icon_state = "tourist"
+	item_state = "tourist"
 	item_color = "tourist"
 
 /obj/item/clothing/under/katarina_cybersuit
 	name = "Katarina's cyberjumpsuit"
 	desc = "Jumpsuit of someone called Katarina."
 	icon_state = "katarina_cybersuit"
-	icon_state = "katarina_cybersuit"
+	item_state = "katarina_cybersuit"
 	item_color = "katarina_cybersuit"
 
 /obj/item/clothing/under/katarina_suit
 	name = "Katarina's suit"
 	desc = "Suit of someone called Katarina."
 	icon_state = "katarina_suit"
-	icon_state = "katarina_suit"
+	item_state = "katarina_suit"
 	item_color = "katarina_suit"
