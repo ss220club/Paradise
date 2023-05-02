@@ -52,10 +52,20 @@
 	uplink.hidden_uplink.uses = DEFAULT_LONEOP_TK + additional_tk
 
 
+/datum/event/operative/proc/rename_operative(mob/living/carbon/human/operative)
+	var/name = "[syndicate_name()] Lone Operative"
+	operative.real_name = name
+	operative.dna.real_name = name
+	var/mob/living/carbon/brain/brain = operative.internal_organs_slot["brain"]
+	brain.dna.real_name = name
+	var/obj/item/organ/external/head/head = operative.bodyparts_by_name["head"]
+	head.dna.real_name = name
+
+
 /datum/event/operative/proc/assign_operative_role(datum/mind/operative_mind)
 	SSticker.mode.syndicates += operative_mind
 	SSticker.mode.update_synd_icons_added(operative_mind)
-	operative_mind.current.real_name = "[syndicate_name()] Lone Operative"
+	rename_operative(operative_mind.current)
 	operative_mind.special_role = SPECIAL_ROLE_NUKEOPS
 	operative_mind.assigned_role = SPECIAL_ROLE_NUKEOPS
 	SSticker.mode.forge_syndicate_objectives(operative_mind)
@@ -78,6 +88,7 @@
 	equip_operative(operative)
 
 	return TRUE
+
 
 /datum/event/operative/proc/announce_loneop()
 	GLOB.event_announcement.Announce("Сканерами дальнего действия обнаружена активность на орбите станции, приближается неизвестный корабль.", "ВНИМАНИЕ: НЕИЗВЕСТНЫЙ КОРАБЛЬ.", 'sound/misc/announce_dig.ogg')
