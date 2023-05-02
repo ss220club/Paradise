@@ -220,7 +220,7 @@
 	return items
 
 /obj/item/proc/equip_to_best_slot(mob/M, var/ignore_obscured = 1, ignore_source_loc = FALSE)
-	if(src != M.get_active_hand() && !ignore_source_loc)
+	if(src != M.get_active_hand())
 		to_chat(M, "<span class='warning'>You are not holding anything to equip!</span>")
 		return 0
 	if(M.equip_to_appropriate_slot(src, ignore_obscured))

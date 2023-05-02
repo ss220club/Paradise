@@ -46,8 +46,11 @@
 	SSticker.mode.equip_syndicate(operative, with_uplink = FALSE)
 	SSticker.mode.update_syndicate_id(operative.mind, TRUE)
 	var/additional_tk = max(0, (GLOB.player_list.len - MIN_PLAYERS_FOR_LONEOP_EVENT)*2)
-	var/obj/item/radio/uplink/nuclear/lone/uplink = new(get_turf(operative))
-	uplink.equip_to_best_slot(operative, ignore_source_loc = TRUE)
+	var/turf/operative_loc = get_turf(operative)
+	var/obj/item/radio/uplink/nuclear/lone/uplink = new(operative_loc)
+	if(!operative.equip_to_slot_if_possible(uplink, slot_in_backpack, disable_warning = TRUE))
+		if(!operative.equip_to_appropriate_slot(uplink))
+			operative.put_in_hands(uplink)
 	uplink.hidden_uplink.uplink_owner = "[operative.key]"
 	uplink.hidden_uplink.uses = DEFAULT_LONEOP_TK + additional_tk
 
