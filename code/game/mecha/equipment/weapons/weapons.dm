@@ -56,7 +56,7 @@
 			A.fire()
 			playsound(chassis, fire_sound, 50, 1)
 	log_message("Выстрелил из [name], целясь в [target].")
-	add_attack_logs(chassis.occupant, target, "Выстрелил в [src]")
+	add_attack_logs(chassis.occupant, target, "выстрелил [src]")
 	start_cooldown()
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy
