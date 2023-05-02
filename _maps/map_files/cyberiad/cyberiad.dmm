@@ -20042,18 +20042,21 @@
 	},
 /area/hallway/secondary/entry)
 "aXr" = (
+/obj/structure/decor/cryo{
+	dir = 4
+	},
+/obj/effect/landmark/join_late,
 /obj/effect/landmark/honk_squad,
-/obj/structure/closet/walllocker/emerglocker/north,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aXs" = (
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aXt" = (
-/obj/machinery/computer/arcade,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/closet/walllocker/emerglocker/north,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aXu" = (
@@ -20080,6 +20083,10 @@
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aXz" = (
+/obj/structure/decor/cryo{
+	dir = 8
+	},
+/obj/effect/landmark/join_late,
 /obj/effect/landmark/honk_squad,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
@@ -20669,7 +20676,7 @@
 /area/maintenance/fsmaint2)
 "aYZ" = (
 /obj/effect/landmark/join_late,
-/obj/structure/chair/comfy/shuttle{
+/obj/structure/decor/cryo{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle,
@@ -22970,10 +22977,10 @@
 /turf/simulated/floor/carpet/black,
 /area/chapel/office)
 "bes" = (
-/obj/item/radio/intercom{
-	name = "south station intercom (General)";
-	pixel_y = -28
+/obj/structure/decor/cryo{
+	dir = 4
 	},
+/obj/effect/landmark/join_late,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "bet" = (
@@ -23002,11 +23009,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "bex" = (
-/obj/machinery/requests_console{
-	department = "Arrival Shuttle";
-	name = "Arrival Shuttle Requests Console";
-	pixel_y = -30
+/obj/structure/decor/cryo{
+	dir = 8
 	},
+/obj/effect/landmark/join_late,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "bey" = (
@@ -23018,6 +23024,11 @@
 /area/shuttle/arrival/station)
 "beG" = (
 /obj/machinery/light,
+/obj/machinery/requests_console{
+	department = "Arrival Shuttle";
+	name = "Arrival Shuttle Requests Console";
+	pixel_y = -30
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "beJ" = (
@@ -62368,7 +62379,7 @@
 /turf/space,
 /area/space)
 "cTS" = (
-/obj/effect/landmark/join_late_cyborg,
+/obj/machinery/computer/arcade,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "cTT" = (
@@ -68255,7 +68266,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/effect/landmark/start/cyborg,
 /turf/simulated/floor/plasteel{
 	icon_state = "grimy"
 	},
@@ -68308,7 +68318,6 @@
 /area/turret_protected/aisat_interior)
 "diM" = (
 /obj/machinery/hologram/holopad,
-/obj/effect/landmark/start/cyborg,
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
@@ -68602,7 +68611,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/landmark/start/cyborg,
 /turf/simulated/floor/plasteel{
 	icon_state = "grimy"
 	},
@@ -69063,7 +69071,6 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/landmark/join_late_cyborg,
 /obj/item/radio/intercom{
 	name = "west station intercom (General)";
 	pixel_x = -28
@@ -70786,6 +70793,7 @@
 /area/aisat/maintenance)
 "dpq" = (
 /obj/machinery/recharge_station,
+/obj/effect/landmark/start/cyborg,
 /turf/simulated/floor/plating,
 /area/aisat/maintenance)
 "dpu" = (
@@ -70893,6 +70901,7 @@
 	name = "north extinguisher cabinet";
 	pixel_y = 30
 	},
+/obj/effect/landmark/join_late_cyborg,
 /turf/simulated/floor/plating,
 /area/aisat/maintenance)
 "dpL" = (
@@ -89978,17 +89987,13 @@
 	},
 /area/medical/virology)
 "rWq" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/machinery/light,
+/obj/item/radio/intercom{
+	name = "south station intercom (General)";
+	pixel_y = -28
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/landmark/start/cyborg,
-/turf/simulated/floor/plasteel{
-	dir = 5;
-	icon_state = "dark"
-	},
-/area/turret_protected/aisat_interior)
+/turf/simulated/floor/shuttle,
+/area/shuttle/arrival/station)
 "rWs" = (
 /obj/machinery/shieldwallgen{
 	req_access = list(47)
@@ -107147,10 +107152,10 @@ aSd
 aSd
 beh
 aXr
-aXz
-aXz
-aXz
-aXz
+bes
+aXs
+bes
+aXr
 beh
 aSd
 aSd
@@ -107404,9 +107409,9 @@ aOQ
 aRU
 aVX
 aXs
-aYZ
-aYZ
-aYZ
+aXs
+bba
+aXs
 aXs
 aVX
 bgy
@@ -107661,10 +107666,10 @@ aSd
 aSd
 beh
 aXt
-cTS
-cTS
-cTS
-beG
+aXs
+aXx
+aXs
+rWq
 beh
 aSd
 aSd
@@ -107917,10 +107922,10 @@ aTo
 aUl
 aSd
 beh
+aXr
+aXs
 aXu
-aYZ
-aYZ
-aYZ
+aXs
 bes
 beh
 aSd
@@ -108174,11 +108179,11 @@ aSf
 aUk
 aSd
 aVZ
+bex
+aXs
 aXv
 aXs
-bba
-aXs
-aXs
+aYZ
 aVZ
 aSd
 bgI
@@ -108431,11 +108436,11 @@ aSf
 aUn
 aSd
 aVZ
-aXw
-aYZ
-aYZ
-aYZ
+bes
 aXs
+aXw
+aXs
+aXr
 aVZ
 aSd
 bjT
@@ -108688,10 +108693,10 @@ aTp
 aUm
 aSd
 beh
-aXx
+aXz
+aXs
 cTS
-cTS
-cTS
+aXs
 bex
 beh
 aSd
@@ -108946,9 +108951,9 @@ aSd
 aSd
 beh
 aXy
-aYZ
-aYZ
-aYZ
+aXs
+aXs
+aXs
 beG
 beh
 aSd
@@ -109202,11 +109207,11 @@ aRU
 aOQ
 aRU
 aVX
-aXz
-aXz
-aXz
-aXz
-aXz
+aXs
+aXs
+aXs
+aXs
+aXs
 aVX
 bgy
 aOQ
@@ -134489,7 +134494,7 @@ diC
 diE
 diM
 djD
-rWq
+djJ
 dka
 djJ
 dkf

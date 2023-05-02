@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 	/// If our AI doesn't want to be the arrivals announcer, this gets set to FALSE.
 	var/announce_arrivals = TRUE
-	var/arrivalmsg = "$name, $rank, прибыл на станцию."
+	var/arrivalmsg = "$name, $rank, вышел из криосна."
 
 	var/list/all_eyes = list()
 
