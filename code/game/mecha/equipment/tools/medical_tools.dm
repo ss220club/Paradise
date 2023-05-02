@@ -71,7 +71,7 @@
 		START_PROCESSING(SSobj, src)
 		update_equip_info()
 		occupant_message("<span class='notice'>[target] успешно загружен в [src]. Функции жизнеобеспечения активированы.</span>")
-		chassis.visible_message("<span class='warning'>[chassis] загрузи [target] в [src].</span>")
+		chassis.visible_message("<span class='warning'>[chassis] загружает [target] в [src].</span>")
 		log_message("[target] загружен. Функции жизнеобеспечения активированы.")
 
 /obj/item/mecha_parts/mecha_equipment/medical/sleeper/proc/patient_insertion_check(mob/living/carbon/target)
