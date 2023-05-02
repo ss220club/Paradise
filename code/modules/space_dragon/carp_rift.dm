@@ -128,6 +128,9 @@
 		if(dragon && SPT_PROB(1.25, seconds_per_tick))
 			var/mob/living/newcarp = new dragon.ai_to_spawn(loc)
 			newcarp.faction = dragon.owner.current.faction.Copy()
+		if(SPT_PROB(1.5, seconds_per_tick))
+			var/rand_dir = pick(GLOB.cardinal)
+			Move(get_step(src, rand_dir), rand_dir)
 		return
 
 	// Increase time trackers and check for any updated states.
