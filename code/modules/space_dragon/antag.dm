@@ -69,6 +69,7 @@
 /datum/antagonist/space_dragon/Destroy()
 	rift_list = null
 	carp = null
+	dragon = null
 	QDEL_NULL(rift_ability)
 	return ..()
 
