@@ -332,7 +332,7 @@
 		if(user)
 			if(state==0)
 				state = 1
-				to_chat(user, "Охранные болты активированы.")
+				to_chat(user, "Крепежные болты активированы.")
 				if(occupant)
 					occupant.throw_alert("locked", /obj/screen/alert/mech_maintenance)
 			else if(state==1)
