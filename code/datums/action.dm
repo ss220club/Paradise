@@ -356,6 +356,9 @@
 /datum/action/item_action/change
 	name = "Change"
 
+/datum/action/item_action/change_color
+	name = "Change color"
+
 /datum/action/item_action/noir
 	name = "Noir"
 
