@@ -20022,20 +20022,13 @@
 "aXs" = (
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
-"aXu" = (
-/obj/structure/closet/wardrobe/black,
-/turf/simulated/floor/shuttle,
-/area/shuttle/arrival/station)
 "aXv" = (
-/obj/structure/closet/wardrobe/xenos,
-/turf/simulated/floor/shuttle,
-/area/shuttle/arrival/station)
-"aXw" = (
-/obj/structure/closet/wardrobe/mixed,
+/obj/effect/landmark/observer_start,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aXx" = (
-/obj/structure/closet/wardrobe/grey,
+/obj/effect/landmark/honk_squad,
+/obj/structure/closet/walllocker/emerglocker/north,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aXy" = (
@@ -21439,7 +21432,10 @@
 /turf/simulated/floor/shuttle/plating,
 /area/shuttle/arrival/station)
 "bba" = (
-/obj/effect/landmark/observer_start,
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/obj/effect/landmark/join_late,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "bbd" = (
@@ -38247,6 +38243,10 @@
 	icon_state = "whiteblue"
 	},
 /area/medical/reception)
+"bRb" = (
+/obj/structure/closet/wardrobe/xenos,
+/turf/simulated/floor/shuttle,
+/area/shuttle/arrival/station)
 "bRc" = (
 /obj/structure/morgue{
 	dir = 1
@@ -52288,7 +52288,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/closet/walllocker/emerglocker/north,
+/obj/machinery/computer/arcade/orion_trail,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "cDE" = (
@@ -68819,17 +68819,11 @@
 /area/medical/research)
 "dxN" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
 /obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
-/obj/item/reagent_containers/iv_bag/blood/diona,
-/obj/item/reagent_containers/iv_bag/blood/grey,
-/obj/item/reagent_containers/iv_bag/blood/kidan,
-/obj/item/reagent_containers/iv_bag/blood/nian,
-/obj/item/reagent_containers/iv_bag/blood/skrell,
-/obj/item/reagent_containers/iv_bag/blood/tajaran,
-/obj/item/reagent_containers/iv_bag/blood/unathi,
-/obj/item/reagent_containers/iv_bag/blood/vulpkanin,
-/obj/item/reagent_containers/iv_bag/blood/wryn,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "whiteblue"
@@ -70780,17 +70774,11 @@
 /area/maintenance/xenozoo)
 "eNj" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
 /obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
-/obj/item/reagent_containers/iv_bag/blood/diona,
-/obj/item/reagent_containers/iv_bag/blood/grey,
-/obj/item/reagent_containers/iv_bag/blood/kidan,
-/obj/item/reagent_containers/iv_bag/blood/nian,
-/obj/item/reagent_containers/iv_bag/blood/skrell,
-/obj/item/reagent_containers/iv_bag/blood/tajaran,
-/obj/item/reagent_containers/iv_bag/blood/unathi,
-/obj/item/reagent_containers/iv_bag/blood/vulpkanin,
-/obj/item/reagent_containers/iv_bag/blood/wryn,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "whiteblue"
@@ -74451,13 +74439,6 @@
 	icon_state = "freezerfloor"
 	},
 /area/crew_quarters/kitchen)
-"hfZ" = (
-/obj/effect/landmark/join_late,
-/obj/structure/decor/cryo{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle,
-/area/shuttle/arrival/station)
 "hgq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/remains/mouse,
@@ -76243,14 +76224,6 @@
 /obj/item/toy/figure/cargotech,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
-"ixd" = (
-/obj/structure/decor/cryo{
-	dir = 8
-	},
-/obj/effect/landmark/join_late,
-/obj/effect/landmark/honk_squad,
-/turf/simulated/floor/shuttle,
-/area/shuttle/arrival/station)
 "ixB" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plasteel{
@@ -77275,7 +77248,7 @@
 	},
 /area/maintenance/gambling_den)
 "jgb" = (
-/obj/machinery/computer/arcade,
+/obj/effect/landmark/honk_squad,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "jgn" = (
@@ -80790,6 +80763,10 @@
 	icon_state = "asteroid"
 	},
 /area/hydroponics)
+"lBf" = (
+/obj/structure/closet/wardrobe/mixed,
+/turf/simulated/floor/shuttle,
+/area/shuttle/arrival/station)
 "lBk" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -83968,13 +83945,6 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/hallway/primary/starboard/west)
-"nII" = (
-/obj/structure/decor/cryo{
-	dir = 8
-	},
-/obj/effect/landmark/join_late,
-/turf/simulated/floor/shuttle,
-/area/shuttle/arrival/station)
 "nJp" = (
 /obj/effect/decal/warning_stripes/green,
 /obj/machinery/vending/hydroseeds,
@@ -87203,9 +87173,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint2)
 "pTO" = (
-/obj/structure/decor/cryo{
-	dir = 4
-	},
 /obj/effect/landmark/join_late,
 /obj/effect/landmark/honk_squad,
 /turf/simulated/floor/shuttle,
@@ -87821,8 +87788,8 @@
 	},
 /obj/item/storage/box/pillbottles,
 /obj/item/storage/box/monkeycubes{
-	pixel_y = -4;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = -4
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
@@ -88225,10 +88192,7 @@
 	},
 /area/medical/medbreak)
 "quW" = (
-/obj/structure/decor/cryo{
-	dir = 4
-	},
-/obj/effect/landmark/join_late,
+/obj/structure/closet/wardrobe/black,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "qva" = (
@@ -91166,18 +91130,14 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/iv_bag/blood/BPlus,
-/obj/item/reagent_containers/iv_bag/blood/BMinus,
-/obj/item/reagent_containers/iv_bag/blood/APlus,
-/obj/item/reagent_containers/iv_bag/blood/AMinus,
-/obj/item/reagent_containers/iv_bag/blood/OPlus,
-/obj/item/reagent_containers/iv_bag/blood/OPlus,
-/obj/item/reagent_containers/iv_bag/blood/OMinus,
-/obj/item/reagent_containers/iv_bag/blood/OMinus,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
 /obj/item/tank/internals/emergency_oxygen/engi/empty,
 /obj/item/tank/internals/emergency_oxygen/engi/empty,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
 /turf/simulated/floor/plasteel{
 	dir = 5;
 	icon_state = "whiteblue"
@@ -97615,6 +97575,10 @@
 	icon_state = "white"
 	},
 /area/toxins/misc_lab)
+"wES" = (
+/obj/structure/closet/wardrobe/grey,
+/turf/simulated/floor/shuttle,
+/area/shuttle/arrival/station)
 "wEX" = (
 /obj/machinery/door/window/southright{
 	name = "Containment Pen";
@@ -109305,10 +109269,10 @@ aSd
 aSd
 aSd
 beh
-pTO
-quW
-aXs
-quW
+aXx
+jgb
+jgb
+jgb
 pTO
 beh
 aSd
@@ -109562,11 +109526,11 @@ aRU
 aOQ
 aRU
 aVX
-aXs
-aXs
+jgb
 bba
-aXs
-aXs
+bba
+bba
+jgb
 aVX
 bgy
 aOQ
@@ -109821,7 +109785,7 @@ aSd
 beh
 cDB
 aXs
-aXx
+aXs
 aXs
 iem
 beh
@@ -110076,11 +110040,11 @@ aTo
 aUl
 aSd
 beh
-pTO
+wES
+bba
+bba
+bba
 aXs
-aXu
-aXs
-quW
 beh
 aSd
 bid
@@ -110333,11 +110297,11 @@ aSf
 aUk
 aSd
 aVZ
-nII
+quW
 aXs
 aXv
 aXs
-hfZ
+aXs
 aVZ
 aSd
 bgI
@@ -110590,11 +110554,11 @@ aSf
 aUn
 aSd
 aVZ
-quW
+bRb
+bba
+bba
+bba
 aXs
-aXw
-aXs
-pTO
 aVZ
 aSd
 bjT
@@ -110847,11 +110811,11 @@ aTp
 aUm
 aSd
 beh
-ixd
+lBf
 aXs
-jgb
 aXs
-nII
+aXs
+aXs
 beh
 aSd
 bjS
@@ -111105,9 +111069,9 @@ aSd
 aSd
 beh
 aXy
-aXs
-aXs
-aXs
+bba
+bba
+bba
 iIE
 beh
 aSd
