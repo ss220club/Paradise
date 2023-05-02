@@ -53,7 +53,7 @@
 /obj/mecha/proc/report_internal_damage()
 	var/output = null
 	var/list/dam_reports = list(
-										"[MECHA_INT_FIRE]" = "<font color='red'><b>ВНУТТРЕННИЙ ПОЖАР</b></font>",
+										"[MECHA_INT_FIRE]" = "<font color='red'><b>ВНУТРЕННИЙ ПОЖАР</b></font>",
 										"[MECHA_INT_TEMP_CONTROL]" = "<font color='red'><b>ДИСФУНКЦИЯ СИСТЕМ ЖИЗНЕОБЕСПЕЧЕНИЯ</b></font>",
 										"[MECHA_INT_TANK_BREACH]" = "<font color='red'><b>ПРОРЫВ ГАЗОВОГО БАЛЛОНА</b></font>",
 										"[MECHA_INT_CONTROL_LOST]" = "<font color='red'><b>НАРУШЕНИЕ КАЛИБРОВКИ СИСТЕМ НАВИГАЦИИ</b></font> - <a href='?src=[UID()];repair_int_control_lost=1'>Recalibrate</a>",
