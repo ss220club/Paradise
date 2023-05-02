@@ -2526,6 +2526,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 	character.age = age
 
 	character.tts_seed = tts_seed
+	character.dna.tts_seed_dna = tts_seed
 
 	//Head-specific
 	var/obj/item/organ/external/head/H = character.get_organ("head")
