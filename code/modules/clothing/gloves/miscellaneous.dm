@@ -9,7 +9,7 @@
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
 	strip_delay = 40
 	put_on_delay = 20
-	clipped = 1
+	clipped = TRUE
 
 /obj/item/clothing/gloves/cyborg
 	desc = "beep boop borp"
@@ -191,3 +191,9 @@
 	name = "Gloves of Headpats"
 	desc = "You feel the irresistable urge to give headpats by merely glimpsing these."
 	accepted_intents = list(INTENT_HELP)
+
+/obj/item/clothing/gloves/fingerless/biker_gloves
+	name = "Biker Gloves"
+	desc = "Plain black gloves with a skull on it."
+	icon_state = "bike_gloves"
+	item_state = "bike_gloves"

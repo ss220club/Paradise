@@ -294,7 +294,7 @@ BLIND     // can't see anything
 	attack_verb = list("challenged")
 	var/transfer_prints = FALSE
 	var/pickpocket = 0 //Master pickpocket?
-	var/clipped = 0
+	var/clipped = FALSE
 	strip_delay = 20
 	put_on_delay = 40
 
@@ -312,7 +312,7 @@ BLIND     // can't see anything
 		if(!clipped)
 			playsound(src.loc, W.usesound, 100, 1)
 			user.visible_message("<span class='warning'>[user] snips the fingertips off [src].</span>","<span class='warning'>You snip the fingertips off [src].</span>")
-			clipped = 1
+			clipped = TRUE
 			name = "mangled [name]"
 			desc = "[desc] They have had the fingertips cut off of them."
 			update_icon()
