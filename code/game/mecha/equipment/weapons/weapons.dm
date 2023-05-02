@@ -234,7 +234,7 @@
 	log_message("ХОНКнут [name]. HONK!")
 	var/turf/T = get_turf(src)
 	add_attack_logs(chassis.occupant, target, "использовал МеХаХонкер", ATKLOG_MOST)
-	add_game_logs("Использовал МеХаХонкер в [COORD(T)]", chassis.occupant)
+	add_game_logs("использовал МеХаХонкер в [COORD(T)]", chassis.occupant)
 	start_cooldown()
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic
