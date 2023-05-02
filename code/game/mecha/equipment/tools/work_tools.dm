@@ -234,7 +234,7 @@
 			if(RCD_MODE_DECON)
 				occupant_message("RCD переключен на режим Разбор.")
 			if(RCD_MODE_TURF)
-				occupant_message("Переключен RCD to Строительство стен/пола.")
+				occupant_message("RCD переключен на режим Строительство стен/пола.")
 			if(RCD_MODE_AIRLOCK)
 				occupant_message("Переключен RCD to Строительство шлюзов.")
 			if(RCD_MODE_WINDOW)
