@@ -13,6 +13,7 @@
 	var/datum/action/innate/mecha/mech_toggle_phasing/phasing_action = new
 	var/datum/action/innate/mecha/mech_switch_damtype/switch_damtype_action = new
 	var/datum/action/innate/mecha/mech_energywall/energywall_action = new
+	var/datum/action/innate/mecha/flash/flash_action = new
 
 /obj/mecha/proc/GrantActions(mob/living/user, human_occupant = 0)
 	if(human_occupant)
@@ -253,3 +254,39 @@
 			chassis.wall_ready = 1
 	else
 		chassis.occupant_message("<span class='warning'>Energy wall is not ready yet!</span>")
+
+/datum/action/innate/mecha/flash
+	name = "Holy light"
+	desc = "Purge corrupted fiends with holy light!"
+	button_icon_state = "holyflash"
+
+/datum/action/innate/mecha/flash/proc/flash_carbon(var/mob/living/carbon/M, var/mob/user = null, var/power = 5)
+	if(user)
+		add_attack_logs(user, M, "Flashed with [chassis]")
+		if(M.weakeyes)
+			M.Weaken(3) //quick weaken bypasses eye protection but has no eye flash
+		if(M.flash_eyes(1, 1))
+			M.AdjustConfused(power)
+			M.Stun(1)
+			to_chat(user, "<span class='danger'>You blind [M] with the holy light!</span>")
+			to_chat(M, "<span class='userdanger'>[chassis] blinds you with the holy light!</span>")
+			if(M.weakeyes)
+				M.Stun(2)
+				M.visible_message("<span class='disarm'>[M] gasps and shields [M.p_their()] eyes!</span>", "<span class='userdanger'>You gasp and shield your eyes!</span>")
+		else
+			to_chat(user, "<span class='warning'>You fail to blind [M] with the holy light!</span>")
+			to_chat(M, "<span class='danger'>[chassis] fails to blind you with the holy light!</span>")
+		return
+
+/datum/action/innate/mecha/flash/Activate()
+	if(!owner || !chassis || chassis.occupant != owner)
+		return
+	if(chassis.flash_ready)
+		chassis.visible_message("<span class='disarm'>[chassis] emits a blinding holy light!</span>", "<span class='danger'>Your [chassis] emits a blinding holy light!</span>")
+		for(var/mob/living/carbon/M in oview(3, chassis))
+			flash_carbon(M, chassis.occupant, 3, FALSE)
+		chassis.flash_ready = 0
+		spawn(chassis.flash_cooldown)
+		chassis.flash_ready = 1
+	else
+		chassis.occupant_message("<span class='warning'>Holy light is not ready yet!</span>")
