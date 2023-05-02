@@ -238,7 +238,7 @@
 			if(RCD_MODE_AIRLOCK)
 				occupant_message("RCD переключен на режим Строительство шлюзов.")
 			if(RCD_MODE_WINDOW)
-				occupant_message("Переключен RCD на Строительство окон.")
+				occupant_message("RCD переключен на режим Строительство окон.")
 
 /obj/item/mecha_parts/mecha_equipment/rcd/get_equip_info()
 	return "[..()] \[<a href='?src=[UID()];mode=[RCD_MODE_DECON]'>Разбор</a>|<a href='?src=[UID()];mode=[RCD_MODE_TURF]'>Стены/пол</a>|<a href='?src=[UID()];mode=[RCD_MODE_AIRLOCK]'>Шлюзы</a>|<a href='?src=[UID()];mode=[RCD_MODE_WINDOW]'>Окна</a>\]"
