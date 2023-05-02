@@ -233,7 +233,7 @@
 	chassis.use_power(energy_drain)
 	log_message("ХОНКнут [name]. HONK!")
 	var/turf/T = get_turf(src)
-	add_attack_logs(chassis.occupant, target, "Использовал МеХаХонкер", ATKLOG_MOST)
+	add_attack_logs(chassis.occupant, target, "использовал МеХаХонкер", ATKLOG_MOST)
 	add_game_logs("Использовал МеХаХонкер в [COORD(T)]", chassis.occupant)
 	start_cooldown()
 
