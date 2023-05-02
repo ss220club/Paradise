@@ -236,7 +236,7 @@
 			if(RCD_MODE_TURF)
 				occupant_message("RCD переключен на режим Строительство стен/пола.")
 			if(RCD_MODE_AIRLOCK)
-				occupant_message("Переключен RCD to Строительство шлюзов.")
+				occupant_message("RCD переключен на режим Строительство шлюзов.")
 			if(RCD_MODE_WINDOW)
 				occupant_message("Переключен RCD на Строительство окон.")
 
