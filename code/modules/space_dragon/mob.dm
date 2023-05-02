@@ -39,6 +39,7 @@
 	icon_state = "spacedragon"
 	icon_living = "spacedragon"
 	icon_dead = "spacedragon_dead"
+	health_doll_icon = "spacedragon"
 	obj_damage = 50
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	melee_damage_upper = 35
