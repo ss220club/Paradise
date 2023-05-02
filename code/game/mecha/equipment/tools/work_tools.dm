@@ -232,7 +232,7 @@
 		rcd_holder.mode = href_list["mode"]
 		switch(rcd_holder.mode)
 			if(RCD_MODE_DECON)
-				occupant_message("Переключен RCD на режим Разброр.")
+				occupant_message("RCD переключен на режим Разбор.")
 			if(RCD_MODE_TURF)
 				occupant_message("Переключен RCD to Строительство стен/пола.")
 			if(RCD_MODE_AIRLOCK)
