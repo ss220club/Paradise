@@ -79,7 +79,7 @@
 		occupant_message("<span class='warning'>[target] не может переместиться в слипер, потому что цель приклеплена к [target.buckled]!</span>")
 		return
 	if(target.has_buckled_mobs())
-		occupant_message("<span class='warning'>[target] will not fit into the sleeper because of the creatures attached to it!</span>")
+		occupant_message("<span class='warning'>[target] не поместится в слипер из-за прикрепленных к нему существ!</span>")
 		return
 	if(patient)
 		occupant_message("<span class='warning'>Слипер уже занят!</span>")
