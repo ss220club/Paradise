@@ -337,7 +337,7 @@
 					occupant.throw_alert("locked", /obj/screen/alert/mech_maintenance)
 			else if(state==1)
 				state = 0
-				to_chat(user, "Охранные болты убраны.")
+				to_chat(user, "Крепежные болты убраны.")
 				if(occupant)
 					occupant.clear_alert("locked")
 			output_maintenance_dialog(afilter.getObj("id_card"),user)
