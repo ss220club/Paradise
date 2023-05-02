@@ -313,6 +313,8 @@
 	var/default_map = null
 	var/override_map = null
 
+	var/hydration_enabled = FALSE
+	var/water_poison = FALSE
 	var/modify_pull_push_speed = FALSE
 
 	var/pixel_shift = FALSE
@@ -904,6 +906,12 @@
 
 				if("override_map")
 					config.override_map = value
+
+				if("hydration_enabled")
+					config.hydration_enabled = TRUE
+
+				if("water_poison")
+					config.water_poison = TRUE
 
 				if("modify_pull_push_speed")
 					config.modify_pull_push_speed = TRUE
