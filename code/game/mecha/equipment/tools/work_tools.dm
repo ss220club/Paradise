@@ -329,7 +329,7 @@
 	..()
 	if(href_list["toggle"])
 		set_ready_state(!equip_ready)
-		occupant_message("[src] [equip_ready?"А":"Деа"]ктивирован.")
+		occupant_message("[src] [equip_ready?"деа":"а"]ктивирован.")
 		log_message("[equip_ready?"Деа":"А"]ктивирован.")
 		return
 	if(href_list["cut"])
