@@ -26,9 +26,9 @@
 	name = "Space Dragon"
 	desc = "Ужасное существо, схожее с классом левиафан, которое летает самым неестественным способом. Схож внешне с космическим карпом."
 	gender = NEUTER
-	maxHealth = 320
-	health = 320
-	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 1, STAMINA = 0.5, OXY = 1)
+	maxHealth = 400
+	health = 400
+	damage_coeff = list(BRUTE = 0.6, BURN = 0.6, TOX = 1, CLONE = 1, STAMINA = 0.5, OXY = 1)
 	a_intent = INTENT_HARM
 	speed = 0
 	flying = TRUE
