@@ -1449,7 +1449,7 @@
 			if(diff==FORWARD)
 				user.visible_message("[user] put soulstone to the [holder]'s locket. Exosuit seems awaken now.", "You put soulstone to the [holder]'s locket. Exosuit seems awaken now.")
 				qdel(used_atom)
-	return 1
+	return TRUE
 
 //PHAZON
 
