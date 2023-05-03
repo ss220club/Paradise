@@ -260,7 +260,7 @@
 	desc = "Purge corrupted fiends with holy light!"
 	button_icon_state = "holyflash"
 
-/datum/action/innate/mecha/flash/proc/flash_carbon(var/mob/living/carbon/M, var/mob/user = null, var/power = 5)
+/datum/action/innate/mecha/flash/proc/flash_carbon(mob/living/carbon/M, mob/user = null, power = 5)
 	if(user)
 		add_attack_logs(user, M, "Flashed with [chassis]")
 		if(M.weakeyes)
