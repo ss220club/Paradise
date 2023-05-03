@@ -80,8 +80,8 @@
 
 	var/static/cookieoffset = rand(1, 9999) //to force cookies to reset after the round.
 
-	if(!is_admin(usr))
-		to_chat(usr, "<span class='warning'>You need to be an administrator to access this.</span>")
+	if(!check_rights(R_ADMIN|R_VAREDIT, 0))
+		to_chat(usr, "<span class='warning'>You do not have sufficient rights to do this.</span>")
 		return
 
 	if(!D)
@@ -522,7 +522,7 @@
 
 /client/proc/view_var_Topic(href, href_list, hsrc)
 	//This should all be moved over to datum/admins/Topic() or something ~Carn
-	if(!check_rights(R_ADMIN|R_MOD))
+	if(!check_rights(R_ADMIN|R_MOD|R_VAREDIT))
 		return
 
 	if(view_var_Topic_list(href, href_list, hsrc))  // done because you can't use UIDs with lists and I don't want to snowflake into the below check to supress warnings

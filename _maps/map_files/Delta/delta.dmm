@@ -1306,7 +1306,6 @@
 /area/hallway/secondary/entry/eastarrival)
 "amp" = (
 /obj/machinery/light,
-/obj/effect/landmark/honk_squad,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "amt" = (
@@ -8207,7 +8206,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/landmark/honk_squad,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "bfQ" = (
@@ -16700,6 +16698,7 @@
 /obj/machinery/computer/cryopod/robot{
 	pixel_y = -30
 	},
+/obj/effect/landmark/join_late_cyborg,
 /turf/simulated/floor/plating,
 /area/aisat/maintenance)
 "bTv" = (
@@ -51315,7 +51314,6 @@
 	},
 /area/chapel/main)
 "fMJ" = (
-/obj/effect/landmark/start/cyborg,
 /obj/effect/decal/warning_stripes/yellow,
 /turf/simulated/floor/plasteel{
 	icon_state = "purple"
@@ -59450,7 +59448,6 @@
 	},
 /area/hallway/primary/central/nw)
 "hFn" = (
-/obj/effect/landmark/start/cyborg,
 /obj/effect/decal/warning_stripes/yellow,
 /turf/simulated/floor/plasteel{
 	dir = 1;
@@ -65581,7 +65578,7 @@
 	},
 /area/hallway/primary/central/north)
 "jeA" = (
-/obj/structure/chair/comfy/shuttle{
+/obj/structure/decor/cryo{
 	dir = 8
 	},
 /obj/effect/landmark/join_late,
@@ -67801,15 +67798,6 @@
 	icon_state = "purple"
 	},
 /area/toxins/sm_test_chamber)
-"jDQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/landmark/join_late_cyborg,
-/turf/simulated/floor/plasteel{
-	icon_state = "darkblue"
-	},
-/area/aisat/maintenance)
 "jDW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -74619,6 +74607,7 @@
 "lsc" = (
 /obj/machinery/recharge_station,
 /obj/effect/decal/warning_stripes/yellow/hollow,
+/obj/effect/landmark/start/cyborg,
 /turf/simulated/floor/plasteel{
 	icon_state = "purple"
 	},
@@ -79054,7 +79043,6 @@
 /area/maintenance/fpmaint)
 "mwf" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
-/obj/effect/landmark/start/cyborg,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -80706,7 +80694,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/landmark/start/cyborg,
 /turf/simulated/floor/plasteel{
 	icon_state = "darkblue"
 	},
@@ -82829,10 +82816,11 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain/bedroom)
 "nlE" = (
-/obj/structure/chair/comfy/shuttle{
+/obj/structure/decor/cryo{
 	dir = 4
 	},
 /obj/effect/landmark/join_late,
+/obj/effect/landmark/honk_squad,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "nlF" = (
@@ -83020,6 +83008,7 @@
 "nom" = (
 /obj/effect/decal/warning_stripes/yellow/hollow,
 /obj/machinery/recharge_station,
+/obj/effect/landmark/start/cyborg,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "purple"
@@ -97445,7 +97434,6 @@
 /turf/simulated/floor/plasteel,
 /area/ai_monitored/storage/eva)
 "qxY" = (
-/obj/effect/landmark/join_late_cyborg,
 /obj/effect/decal/warning_stripes/yellow/partial,
 /turf/simulated/floor/plasteel{
 	dir = 4;
@@ -113445,10 +113433,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel,
 /area/maintenance/starboard)
-"ugW" = (
-/obj/effect/landmark/honk_squad,
-/turf/simulated/floor/shuttle,
-/area/shuttle/arrival/station)
 "ugX" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -114839,7 +114823,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/landmark/start/cyborg,
 /turf/simulated/floor/plasteel{
 	icon_state = "darkbluefull"
 	},
@@ -115121,7 +115104,11 @@
 	},
 /area/hallway/primary/central/west)
 "uBT" = (
-/obj/effect/landmark/join_late_cyborg,
+/obj/structure/decor/cryo{
+	dir = 8
+	},
+/obj/effect/landmark/join_late,
+/obj/effect/landmark/honk_squad,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "uBX" = (
@@ -119199,7 +119186,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/landmark/start/cyborg,
 /turf/simulated/floor/plasteel{
 	icon_state = "darkbluefull"
 	},
@@ -125380,11 +125366,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint4)
 "wWu" = (
-/obj/effect/landmark/start/cyborg,
-/turf/simulated/floor/plasteel{
-	icon_state = "darkbluefull"
+/obj/structure/decor/cryo{
+	dir = 4
 	},
-/area/construction/hallway)
+/obj/effect/landmark/join_late,
+/turf/simulated/floor/shuttle,
+/area/shuttle/arrival/station)
 "wWW" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -131185,7 +131172,6 @@
 	},
 /area/medical/surgery/north)
 "yeB" = (
-/obj/effect/landmark/start/cyborg,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -138458,7 +138444,7 @@ cvf
 xuq
 tjW
 kVR
-jDQ
+mMz
 bTt
 cvf
 dEP
@@ -144625,7 +144611,7 @@ dZq
 coE
 oKs
 jxQ
-wWu
+uTb
 dsQ
 bXR
 coE
@@ -168192,8 +168178,8 @@ ahC
 ahC
 ayi
 nlE
-nlE
-nlE
+wWu
+wWu
 nlE
 aGF
 ahC
@@ -168446,14 +168432,14 @@ awU
 aAa
 oqI
 app
-ugW
 ahC
-uBT
-uBT
-uBT
-uBT
 ahC
-ugW
+ahC
+ahC
+ahC
+ahC
+ahC
+ahC
 bjM
 bqf
 bqf
@@ -168703,14 +168689,14 @@ awU
 aAa
 oqI
 aEe
-ugW
+ahC
 ayi
 jeA
 jeA
-jeA
+uBT
 jeA
 aYd
-ugW
+ahC
 aMr
 boG
 aRH
@@ -169217,14 +169203,14 @@ awU
 aAa
 oqI
 aEN
-ugW
+ahC
 ayi
+wWu
 nlE
-nlE
-nlE
-nlE
+wWu
+wWu
 aYH
-ugW
+ahC
 aMr
 bqd
 bvf
@@ -169474,14 +169460,14 @@ awU
 aAa
 oqI
 app
-ugW
 ahC
-uBT
-uBT
-uBT
-uBT
 ahC
-ugW
+ahC
+ahC
+ahC
+ahC
+ahC
+ahC
 bjM
 bqf
 bqf
@@ -169733,7 +169719,7 @@ bqf
 ahC
 ahC
 ayi
-jeA
+uBT
 jeA
 jeA
 jeA

@@ -7,7 +7,7 @@
 	notransform = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	invisibility = INVISIBILITY_ABSTRACT
 
 	playsound(src.loc, 'sound/goonstation/effects/gib.ogg', 50, 1)
 	gibs(loc, dna)
@@ -25,7 +25,7 @@
 	notransform = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	invisibility = INVISIBILITY_ABSTRACT
 	QDEL_IN(src, 0)
 	return TRUE
 
@@ -109,6 +109,7 @@
 	if(mind && mind.devilinfo) // Expand this into a general-purpose death-response system when appropriate
 		mind.devilinfo.beginResurrectionCheck(src)
 
+	SEND_SIGNAL(src, COMSIG_LIVING_DEATH, gibbed)
 	// u no we dead
 	return TRUE
 
