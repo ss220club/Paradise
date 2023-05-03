@@ -1180,7 +1180,7 @@
 	user.visible_message("[user] has connected [used_atom] to the [holder].", "You connect [used_atom] to the [holder]")
 	holder.overlays += used_atom.icon_state+"+o"
 	qdel(used_atom)
-	return 1
+	return TRUE
 
 /datum/construction/mecha/executioner_chassis/action(atom/used_atom,mob/user as mob)
 	return check_all_steps(used_atom,user)
