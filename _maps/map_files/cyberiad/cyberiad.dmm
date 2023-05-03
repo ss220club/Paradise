@@ -46659,21 +46659,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
 "cnD" = (
-/obj/structure/table/glass,
-/obj/item/storage/box/gloves{
-	pixel_x = -1;
-	pixel_y = -3
-	},
-/obj/item/storage/box/masks{
-	pixel_x = -1;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/spray/cleaner{
-	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
-	name = "Surgery Cleaner";
-	pixel_x = 10;
-	pixel_y = 4
-	},
 /obj/machinery/holosign_switch{
 	id = "surgery1";
 	pixel_x = -24;
@@ -46688,6 +46673,8 @@
 	pixel_x = -24;
 	pixel_y = -8
 	},
+/obj/structure/table/tray,
+/obj/item/storage/toolbox/surgery,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "whiteblue"
@@ -47103,7 +47090,6 @@
 /area/medical/surgery/north)
 "cpb" = (
 /obj/structure/table/glass,
-/obj/item/storage/toolbox/surgery,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 24
@@ -47837,13 +47823,27 @@
 	},
 /area/medical/surgery/south)
 "crt" = (
-/obj/structure/table/tray,
 /obj/machinery/status_display{
 	layer = 4;
 	pixel_x = 32
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/table/glass,
+/obj/item/storage/box/gloves{
+	pixel_x = 5;
+	pixel_y = -3
+	},
+/obj/item/storage/box/masks{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
+	name = "Surgery Cleaner";
+	pixel_x = -10;
+	pixel_y = 4
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -87821,8 +87821,8 @@
 	},
 /obj/item/storage/box/pillbottles,
 /obj/item/storage/box/monkeycubes{
-	pixel_y = -4;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = -4
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
@@ -97152,6 +97152,7 @@
 /obj/item/lighter/zippo/cmo{
 	pixel_x = 14
 	},
+/obj/item/stamp/cmo,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "darkblue"
