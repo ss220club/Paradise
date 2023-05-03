@@ -44,7 +44,7 @@
 	return ..()
 
 /datum/action/innate/mecha/mech_eject
-	name = "Eject From Mech"
+	name = "Выйти из экзокостюма"
 	button_icon_state = "mech_eject"
 
 /datum/action/innate/mecha/mech_eject/Activate()
@@ -55,20 +55,20 @@
 	chassis.go_out()
 
 /datum/action/innate/mecha/mech_toggle_internals
-	name = "Toggle Internal Airtank Usage"
+	name = "Переключить использование внутреннего баллона"
 	button_icon_state = "mech_internals_off"
 
 /datum/action/innate/mecha/mech_toggle_internals/Activate()
 	if(!owner || !chassis || chassis.occupant != owner)
 		return
 	chassis.use_internal_tank = !chassis.use_internal_tank
-	button_icon_state = "mech_internals_[chassis.use_internal_tank ? "on" : "off"]"
-	chassis.occupant_message("Now taking air from [chassis.use_internal_tank ? "internal airtank" : "environment"].")
-	chassis.log_message("Now taking air from [chassis.use_internal_tank ? "internal airtank" : "environment"].")
+	button_icon_state = "mech_internals_[chassis.use_internal_tank ? "Вкл" : "Выкл"]"
+	chassis.occupant_message("Теперь берется воздух из [chassis.use_internal_tank ? "внутреннего баллона" : "окружения"].")
+	chassis.log_message("Теперь берется воздух из [chassis.use_internal_tank ? "внутреннего баллона" : "окружения"].")
 	UpdateButtonIcon()
 
 /datum/action/innate/mecha/mech_toggle_lights
-	name = "Toggle Lights"
+	name = "Переключение света"
 	button_icon_state = "mech_lights_off"
 
 /datum/action/innate/mecha/mech_toggle_lights/Activate()
@@ -81,12 +81,12 @@
 	else
 		chassis.set_light(-chassis.lights_power)
 		button_icon_state = "mech_lights_off"
-	chassis.occupant_message("Toggled lights [chassis.lights ? "on" : "off"].")
-	chassis.log_message("Toggled lights [chassis.lights ? "on" : "off"].")
+	chassis.occupant_message("Toggled lights [chassis.lights ? "Вкл" : "Выкл"].")
+	chassis.log_message("Toggled lights [chassis.lights ? "Вкл" : "Выкл"].")
 	UpdateButtonIcon()
 
 /datum/action/innate/mecha/mech_view_stats
-	name = "View Stats"
+	name = "Просмотреть параметры"
 	button_icon_state = "mech_view_stats"
 
 /datum/action/innate/mecha/mech_view_stats/Activate()
@@ -95,7 +95,7 @@
 	chassis.occupant << browse(chassis.get_stats_html(), "window=exosuit")
 
 /datum/action/innate/mecha/mech_defence_mode
-	name = "Toggle Defence Mode"
+	name = "Переключить защитный режим"
 	button_icon_state = "mech_defense_mode_off"
 
 /datum/action/innate/mecha/mech_defence_mode/Activate(forced_state = null)
@@ -108,45 +108,45 @@
 	button_icon_state = "mech_defense_mode_[chassis.defence_mode ? "on" : "off"]"
 	if(chassis.defence_mode)
 		chassis.deflect_chance = chassis.defence_mode_deflect_chance
-		chassis.occupant_message("<span class='notice'>You enable [chassis] defence mode.</span>")
+		chassis.occupant_message("<span class='notice'>Вы включили [chassis] защитный режим.</span>")
 	else
 		chassis.deflect_chance = initial(chassis.deflect_chance)
-		chassis.occupant_message("<span class='danger'>You disable [chassis] defence mode.</span>")
-	chassis.log_message("Toggled defence mode.")
+		chassis.occupant_message("<span class='danger'>Вы выключили [chassis] защитный режим.</span>")
+	chassis.log_message("Переключен защитный режим.")
 	UpdateButtonIcon()
 
 /datum/action/innate/mecha/mech_overload_mode
-	name = "Toggle leg actuators overload"
+	name = "Переключить перегрузку приводов ног"
 	button_icon_state = "mech_overload_off"
 
 /datum/action/innate/mecha/mech_overload_mode/Activate(forced_state = null)
 	if(!owner || !chassis || chassis.occupant != owner)
 		return
 	if(chassis.obj_integrity < chassis.max_integrity - chassis.max_integrity / 3)
-		chassis.occupant_message("<span class='danger'>The leg actuators are too damaged to overload!</span>")
+		chassis.occupant_message("<span class='danger'>Приводы ног слишком повреждены для перегрузки!</span>")
 		return // Can't activate them if the mech is too damaged
 	if(!isnull(forced_state))
 		chassis.leg_overload_mode = forced_state
 	else
 		chassis.leg_overload_mode = !chassis.leg_overload_mode
 	button_icon_state = "mech_overload_[chassis.leg_overload_mode ? "on" : "off"]"
-	chassis.log_message("Toggled leg actuators overload.")
+	chassis.log_message("Переключил перегрузку приводов ног.")
 	if(chassis.leg_overload_mode)
 		chassis.leg_overload_mode = 1
 		// chassis.bumpsmash = 1
 		chassis.step_in = min(1, round(chassis.step_in / 2))
 		chassis.step_energy_drain = max(chassis.overload_step_energy_drain_min, chassis.step_energy_drain * chassis.leg_overload_coeff)
-		chassis.occupant_message("<span class='danger'>You enable leg actuators overload.</span>")
+		chassis.occupant_message("<span class='danger'>Вы включили перегрузку приводов ног.</span>")
 	else
 		chassis.leg_overload_mode = 0
 		// chassis.bumpsmash = 0
 		chassis.step_in = initial(chassis.step_in)
 		chassis.step_energy_drain = chassis.normal_step_energy_drain
-		chassis.occupant_message("<span class='notice'>You disable leg actuators overload.</span>")
+		chassis.occupant_message("<span class='notice'>Вы выключили перегрузку приводов ног.</span>")
 	UpdateButtonIcon()
 
 /datum/action/innate/mecha/mech_toggle_thrusters
-	name = "Toggle Thrusters"
+	name = "Включить двигатель"
 	button_icon_state = "mech_thrusters_off"
 
 /datum/action/innate/mecha/mech_toggle_thrusters/Activate()
@@ -155,15 +155,15 @@
 	if(chassis.get_charge() > 0)
 		chassis.thrusters_active = !chassis.thrusters_active
 		button_icon_state = "mech_thrusters_[chassis.thrusters_active ? "on" : "off"]"
-		chassis.log_message("Toggled thrusters.")
-		chassis.occupant_message("<font color='[chassis.thrusters_active ? "blue" : "red"]'>Thrusters [chassis.thrusters_active ? "en" : "dis"]abled.")
+		chassis.log_message("Переключен двигатель.")
+		chassis.occupant_message("<font color='[chassis.thrusters_active ? "blue" : "red"]'>Двигатели [chassis.thrusters_active ? "в" : "вы"]ключены.")
 	if(chassis.thrusters_active)
 		chassis.icon_state = "[chassis.icon_state]-thruster"
 	else
 		chassis.icon_state = splittext(chassis.icon_state, "-")[1]
 
 /datum/action/innate/mecha/mech_smoke
-	name = "Smoke"
+	name = "Дым"
 	button_icon_state = "mech_smoke"
 
 /datum/action/innate/mecha/mech_smoke/Activate()
@@ -176,10 +176,10 @@
 		spawn(chassis.smoke_cooldown)
 			chassis.smoke_ready = 1
 	else
-		chassis.occupant_message("<span class='warning'>You are either out of smoke, or the smoke isn't ready yet.</span>")
+		chassis.occupant_message("<span class='warning'>У вас закончился дым, или же он еще не готов.</span>")
 
 /datum/action/innate/mecha/mech_zoom
-	name = "Zoom"
+	name = "Прицел"
 	button_icon_state = "mech_zoom_off"
 
 /datum/action/innate/mecha/mech_zoom/Activate()
@@ -188,8 +188,8 @@
 	if(owner.client)
 		chassis.zoom_mode = !chassis.zoom_mode
 		button_icon_state = "mech_zoom_[chassis.zoom_mode ? "on" : "off"]"
-		chassis.log_message("Toggled zoom mode.")
-		chassis.occupant_message("<font color='[chassis.zoom_mode ? "blue" : "red"]'>Zoom mode [chassis.zoom_mode ? "en" : "dis"]abled.</font>")
+		chassis.log_message("Переключен прицел.")
+		chassis.occupant_message("<font color='[chassis.zoom_mode ? "blue" : "red"]'>Прицел [chassis.zoom_mode ? "в" : "вы"]ключен.</font>")
 		if(chassis.zoom_mode)
 			owner.client.AddViewMod("mecha", 12)
 			SEND_SOUND(owner, sound(chassis.zoomsound, volume = 50))
@@ -211,7 +211,7 @@
 
 
 /datum/action/innate/mecha/mech_switch_damtype
-	name = "Reconfigure arm microtool arrays"
+	name = "Изменение конфигурации массивов манипулятора"
 	button_icon_state = "mech_damtype_brute"
 
 /datum/action/innate/mecha/mech_switch_damtype/Activate()
@@ -221,20 +221,20 @@
 	switch(chassis.damtype)
 		if("tox")
 			new_damtype = "brute"
-			chassis.occupant_message("Your exosuit's hands form into fists.")
+			chassis.occupant_message("Руки вашего экзокостюма складываются в кулаки.")
 		if("brute")
 			new_damtype = "fire"
-			chassis.occupant_message("A torch tip extends from your exosuit's hand, glowing red.")
+			chassis.occupant_message("Из руки вашего экзокостюма выдвигается наконечник факела, светящийся красным светом.")
 		if("fire")
 			new_damtype = "tox"
-			chassis.occupant_message("A bone-chillingly thick plasteel needle protracts from the exosuit's palm.")
+			chassis.occupant_message("Из ладони экзокостюма выдвигается леденящая душу толстая пласталиевая игла.")
 	chassis.damtype = new_damtype
 	button_icon_state = "mech_damtype_[new_damtype]"
 	playsound(src, 'sound/mecha/mechmove01.ogg', 50, 1)
 	UpdateButtonIcon()
 
 /datum/action/innate/mecha/mech_energywall
-	name = "Energy Wall"
+	name = "Энергетический барьер"
 	button_icon_state = "energywall"
 
 /datum/action/innate/mecha/mech_energywall/Activate()
@@ -253,11 +253,11 @@
 		spawn(chassis.wall_cooldown)
 			chassis.wall_ready = 1
 	else
-		chassis.occupant_message("<span class='warning'>Energy wall is not ready yet!</span>")
+		chassis.occupant_message("<span class='warning'>Энергетический барьер еще не готов!</span>")
 
 /datum/action/innate/mecha/flash
-	name = "Holy light"
-	desc = "Purge corrupted fiends with holy light!"
+	name = "Святой огонь"
+	desc = "Очистите оскверненных тварей с помощью святого света!"
 	button_icon_state = "holyflash"
 
 /datum/action/innate/mecha/flash/proc/flash_carbon(mob/living/carbon/M, mob/user = null, power = 5)
@@ -268,14 +268,14 @@
 		if(M.flash_eyes(1, 1))
 			M.AdjustConfused(power)
 			M.Stun(1)
-			to_chat(user, "<span class='danger'>You blind [M] with the holy light!</span>")
-			to_chat(M, "<span class='userdanger'>[chassis] blinds you with the holy light!</span>")
+			to_chat(user, "<span class='danger'>Вы ослепили [M] священным светом!</span>")
+			to_chat(M, "<span class='userdanger'>[chassis] ослепил Вас с помощью священного света!</span>")
 			if(M.weakeyes)
 				M.Stun(2)
-				M.visible_message("<span class='disarm'>[M] gasps and shields [M.p_their()] eyes!</span>", "<span class='userdanger'>You gasp and shield your eyes!</span>")
+				M.visible_message("<span class='disarm'>[M] задыхается и защищает свои глаза!</span>", "<span class='userdanger'>Вы задыхаетесь и закрываете глаза!</span>")
 		else
-			to_chat(user, "<span class='warning'>You fail to blind [M] with the holy light!</span>")
-			to_chat(M, "<span class='danger'>[chassis] fails to blind you with the holy light!</span>")
+			to_chat(user, "<span class='warning'>Вам не удалось ослепить [M] священным светом!</span>")
+			to_chat(M, "<span class='danger'>[chassis] не смог ослепить вас с помощью священного света!</span>")
 		return
 
 /datum/action/innate/mecha/flash/Activate()
@@ -289,4 +289,4 @@
 		spawn(chassis.flash_cooldown)
 			chassis.flash_ready = TRUE
 	else
-		chassis.occupant_message("<span class='warning'>Holy light is not ready yet!</span>")
+		chassis.occupant_message("<span class='warning'>Святой свет ещё не готов!</span>")

@@ -34,20 +34,20 @@
 		var/obj/O = target
 		if(!O.anchored)
 			if(cargo_holder.cargo.len < cargo_holder.cargo_capacity)
-				chassis.visible_message("[chassis] lifts [target] and starts to load it into cargo compartment.")
+				chassis.visible_message("[chassis] поднял [target] и начал загружать его в грузовой отсек.")
 				O.anchored = 1
 				if(do_after_cooldown(target))
 					cargo_holder.cargo += O
 					O.loc = chassis
 					O.anchored = 0
-					occupant_message("<span class='notice'>[target] successfully loaded.</span>")
-					log_message("Loaded [O]. Cargo compartment capacity: [cargo_holder.cargo_capacity - cargo_holder.cargo.len]")
+					occupant_message("<span class='notice'>[target] успешно загружен.</span>")
+					log_message("Загружен [O]. Емкость грузового отсека: [cargo_holder.cargo_capacity - cargo_holder.cargo.len]")
 				else
 					O.anchored = initial(O.anchored)
 			else
-				occupant_message("<span class='warning'>Not enough room in cargo compartment!</span>")
+				occupant_message("<span class='warning'>Недостаточно места в грузовом отсеке!</span>")
 		else
-			occupant_message("<span class='warning'>[target] is firmly secured!</span>")
+			occupant_message("<span class='warning'>[target] надежно закреплен!</span>")
 
 	else if(istype(target,/mob/living))
 		var/mob/living/M = target
@@ -57,15 +57,15 @@
 			if(!M)
 				return
 			M.adjustOxyLoss(round(dam_force/2))
-			target.visible_message("<span class='danger'>[chassis] squeezes [target].</span>", \
-								"<span class='userdanger'>[chassis] squeezes [target].</span>",\
-								"<span class='italics'>You hear something crack.</span>")
-			add_attack_logs(chassis.occupant, M, "Squeezed with [src] ([uppertext(chassis.occupant.a_intent)]) ([uppertext(damtype)])")
+			target.visible_message("<span class='danger'>[chassis] сжимает [target].</span>", \
+								"<span class='userdanger'>[chassis] сжимает [target].</span>",\
+								"<span class='italics'>Вы слышите хруст.</span>")
+			add_attack_logs(chassis.occupant, M, "Сжал с помощью [src] ([uppertext(chassis.occupant.a_intent)]) ([uppertext(damtype)])")
 			start_cooldown()
 		else
 			step_away(M,chassis)
-			occupant_message("<span class='notice'>You push [target] out of the way.</span>")
-			chassis.visible_message("<span class='notice'>[chassis] pushes [target] out of the way.</span>")
+			occupant_message("<span class='notice'>Вы толкаете [target] с дороги.</span>")
+			chassis.visible_message("<span class='notice'>[chassis] толкает [target] с дороги.</span>")
 		return 1
 
 
@@ -135,7 +135,7 @@
 	if(istype(target, /obj/structure/reagent_dispensers/watertank) && get_dist(chassis,target) <= 1)
 		var/obj/structure/reagent_dispensers/watertank/WT = target
 		WT.reagents.trans_to(src, 1000)
-		occupant_message("<span class='notice'>Extinguisher refilled.</span>")
+		occupant_message("<span class='notice'>Огнетушитесь пополнен.</span>")
 		playsound(chassis, 'sound/effects/refill.ogg', 50, 1, -6)
 	else
 		if(reagents.total_volume > 0)
@@ -218,7 +218,7 @@
 		return
 	var/area/check_area = get_area(target)
 	if(check_area?.type in rcd_holder.areas_blacklist)
-		to_chat(chassis.occupant, span_warning("Something prevents you from using [rcd_holder] in here..."))
+		to_chat(chassis.occupant, span_warning("Что-то удерживает вас от использования [rcd_holder] здесь..."))
 		return
 	playsound(chassis, 'sound/machines/click.ogg', 50, 1)
 	chassis.can_move = world.time + 5 SECONDS 	// We don't move while we build
@@ -232,16 +232,16 @@
 		rcd_holder.mode = href_list["mode"]
 		switch(rcd_holder.mode)
 			if(RCD_MODE_DECON)
-				occupant_message("Switched RCD to Deconstruct.")
+				occupant_message("RCD переключен на режим Разбор.")
 			if(RCD_MODE_TURF)
-				occupant_message("Switched RCD to Construct.")
+				occupant_message("RCD переключен на режим Строительство стен/пола.")
 			if(RCD_MODE_AIRLOCK)
-				occupant_message("Switched RCD to Construct Airlock.")
+				occupant_message("RCD переключен на режим Строительство шлюзов.")
 			if(RCD_MODE_WINDOW)
-				occupant_message("Switched RCD to Construct Windows.")
+				occupant_message("RCD переключен на режим Строительство окон.")
 
 /obj/item/mecha_parts/mecha_equipment/rcd/get_equip_info()
-	return "[..()] \[<a href='?src=[UID()];mode=[RCD_MODE_DECON]'>D</a>|<a href='?src=[UID()];mode=[RCD_MODE_TURF]'>C</a>|<a href='?src=[UID()];mode=[RCD_MODE_AIRLOCK]'>A</a>|<a href='?src=[UID()];mode=[RCD_MODE_WINDOW]'>W</a>\]"
+	return "[..()] \[<a href='?src=[UID()];mode=[RCD_MODE_DECON]'>Разбор</a>|<a href='?src=[UID()];mode=[RCD_MODE_TURF]'>Стены/пол</a>|<a href='?src=[UID()];mode=[RCD_MODE_AIRLOCK]'>Шлюзы</a>|<a href='?src=[UID()];mode=[RCD_MODE_WINDOW]'>Окна</a>\]"
 
 /obj/item/mecha_parts/mecha_equipment/mimercd
 	name = "mounted MRCD"
@@ -267,7 +267,7 @@
 		return
 
 	if(istype(target, /turf/simulated/floor))
-		occupant_message("Building Wall...")
+		occupant_message("Строительство стены...")
 		if(do_after_cooldown(target))
 			new /obj/structure/barricade/mime/mrcd(target)
 			chassis.spark_system.start()
@@ -317,47 +317,47 @@
 				cable.amount = 0
 			cable.amount += to_load
 			target.use(to_load)
-			occupant_message("<span class='notice'>[to_load] meters of cable successfully loaded.</span>")
+			occupant_message("<span class='notice'>[to_load] метров кабеля успешно загружено.</span>")
 			send_byjax(chassis.occupant,"exosuit.browser","\ref[src]",src.get_equip_info())
 		else
-			occupant_message("<span class='warning'>Reel is full.</span>")
+			occupant_message("<span class='warning'>Катушка заполнена.</span>")
 	else
-		occupant_message("<span class='warning'>Unable to load [target] - no cable found.</span>")
+		occupant_message("<span class='warning'>Невозможно загрузить [target] - не найдено кабеля.</span>")
 
 
 /obj/item/mecha_parts/mecha_equipment/cable_layer/Topic(href,href_list)
 	..()
 	if(href_list["toggle"])
 		set_ready_state(!equip_ready)
-		occupant_message("[src] [equip_ready?"dea":"a"]ctivated.")
-		log_message("[equip_ready?"Dea":"A"]ctivated.")
+		occupant_message("[src] [equip_ready?"деа":"а"]ктивирован.")
+		log_message("[equip_ready?"Деа":"А"]ктивирован.")
 		return
 	if(href_list["cut"])
 		if(cable && cable.amount)
-			var/m = round(input(chassis.occupant,"Please specify the length of cable to cut","Cut cable",min(cable.amount,30)) as num, 1)
+			var/m = round(input(chassis.occupant,"Пожалуйста, укажите длину кабеля для резки","Перерезать кабель",min(cable.amount,30)) as num, 1)
 			m = min(m, cable.amount)
 			if(m)
 				use_cable(m)
 				var/obj/item/stack/cable_coil/CC = new (get_turf(chassis))
 				CC.amount = m
 		else
-			occupant_message("There's no more cable on the reel.")
+			occupant_message("На катушке больше нет кабеля..")
 	return
 
 /obj/item/mecha_parts/mecha_equipment/cable_layer/get_equip_info()
 	var/output = ..()
 	if(output)
-		return "[output] \[Cable: [cable ? cable.amount : 0] m\][(cable && cable.amount) ? "- <a href='?src=[UID()];toggle=1'>[!equip_ready?"Dea":"A"]ctivate</a>|<a href='?src=[UID()];cut=1'>Cut</a>" : null]"
+		return "[output] \[Cable: [cable ? cable.amount : 0] m\][(cable && cable.amount) ? "- <a href='?src=[UID()];toggle=1'>[!equip_ready?"Деа":"А"]ктивировать</a>|<a href='?src=[UID()];cut=1'>Разрезать</a>" : null]"
 	return
 
 /obj/item/mecha_parts/mecha_equipment/cable_layer/proc/use_cable(amount)
 	if(!cable || cable.amount<1)
 		set_ready_state(1)
-		occupant_message("Cable depleted, [src] deactivated.")
-		log_message("Cable depleted, [src] deactivated.")
+		occupant_message("Кабель исчерпан, [src] деактивирован.")
+		log_message("Кабель исчерпан, [src] деактивирован.")
 		return
 	if(cable.amount < amount)
-		occupant_message("No enough cable to finish the task.")
+		occupant_message("Не хватает кабеля для завершения задачи.")
 		return
 	cable.use(amount)
 	update_equip_info()

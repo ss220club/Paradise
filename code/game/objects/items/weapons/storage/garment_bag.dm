@@ -49,8 +49,10 @@
 	new /obj/item/clothing/head/caphat/blue(src)
 	new /obj/item/clothing/head/caphat/office(src)
 	new /obj/item/clothing/head/caphat/beret(src)
+	new /obj/item/clothing/head/caphat/beret_black(src)
 	new /obj/item/clothing/neck/mantle/captain(src)
 	new /obj/item/clothing/neck/cloak/captain(src)
+	new /obj/item/clothing/neck/cloak/captain_black(src)
 	new /obj/item/clothing/suit/captunic(src)
 	new /obj/item/clothing/suit/captunic/coat(src)
 	new /obj/item/clothing/suit/captunic/parade(src)
@@ -65,7 +67,6 @@
 	new /obj/item/clothing/under/captainparade/dress(src)
 	new /obj/item/clothing/under/captainparade/office(src)
 	new /obj/item/clothing/shoes/brown(src)
-	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/clothing/shoes/laceup/cap(src)
 
 /obj/item/storage/garmentbag/hop
