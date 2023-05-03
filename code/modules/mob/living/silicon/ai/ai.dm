@@ -1519,7 +1519,9 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	sync_lighting_plane_alpha()
 
 /mob/living/silicon/ai/proc/add_heat(value)
-	if(mind.has_antag_datum(/datum/antagonist/traitor) || malf_picker)
+	if(!config.ai_heat)
+		return TRUE
+	if(mind?.has_antag_datum(/datum/antagonist/traitor) || malf_picker)
 		return TRUE
 	if(overheated)
 		return FALSE
@@ -1556,6 +1558,8 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	update_heat_display()
 
 /mob/living/silicon/ai/proc/update_heat_display()
+	if(!config.ai_heat)
+		return
 	var/datum/hud/ai/hud = hud_used
 	if(!istype(hud))
 		return
@@ -1598,13 +1602,14 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 /mob/living/silicon/ai/proc/remove_reserve_heat(value)
 	if(!current_reserve_heat)
 		return
-	
 	current_reserve_heat -= value
 	current_reserve_heat = max(0, current_reserve_heat)
 	update_reserve_heat_display()
 
 
 /mob/living/silicon/ai/proc/update_reserve_heat_display()
+	if(!config.ai_heat)
+		return
 	var/datum/hud/ai/hud = hud_used
 	if(!istype(hud))
 		return
@@ -1612,6 +1617,8 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	hud.heat_display.update_reserve_display_value(src, current_reserve_heat)
 
 /mob/living/silicon/ai/proc/systems_cooldown()
+	if(!config.ai_heat)
+		return
 	if(tracking)
 		return
 
@@ -1620,4 +1627,3 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 	if(overheated && !current_heat)
 		after_overheat()
-

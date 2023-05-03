@@ -313,9 +313,11 @@
 	var/default_map = null
 	var/override_map = null
 
+	var/modify_pull_push_speed = FALSE
 	var/pixel_shift = FALSE
 	var/water_poison = FALSE
 	var/modify_pull_push_speed = FALSE
+	var/ai_heat = FALSE
 
 /datum/configuration/New()
 	for(var/T in subtypesof(/datum/game_mode))
@@ -906,6 +908,9 @@
 
 				if("pixel_shift")
 					config.pixel_shift = TRUE
+
+				if("ai_heat")
+					config.ai_heat = TRUE
 
 				else
 					log_config("Unknown setting in configuration: '[name]'")
