@@ -75761,13 +75761,6 @@
 	icon_state = "chapel"
 	},
 /area/maintenance/chapel)
-"hrj" = (
-/obj/machinery/iv_drip,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "whiteblue"
-	},
-/area/medical/sleeper)
 "hsz" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
@@ -94050,12 +94043,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engrooms)
-"ujl" = (
-/obj/item/tank/internals/emergency_oxygen/engi/empty,
-/turf/simulated/floor/plasteel{
-	icon_state = "white"
-	},
-/area/medical/sleeper)
 "ujz" = (
 /obj/machinery/light{
 	dir = 4
@@ -137819,7 +137806,7 @@ bQA
 bRa
 bOQ
 iSL
-hrj
+bXG
 pSv
 kVd
 ccx
@@ -138335,7 +138322,7 @@ qZx
 iSL
 jAN
 cbV
-ujl
+bZk
 ccx
 bZv
 rtM
