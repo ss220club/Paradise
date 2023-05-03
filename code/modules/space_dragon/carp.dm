@@ -1,5 +1,7 @@
 /mob/living/simple_animal/hostile/carp
 	a_intent = INTENT_HARM
+	see_in_dark = 8
+	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	/// Ability which lets carp teleport around
 	var/datum/action/innate/lesser_carp_rift/teleport
 
