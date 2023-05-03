@@ -172,6 +172,9 @@
 			if(eat(L))
 				adjustHealth(-L.maxHealth * 0.25)
 			return
+		if("carp" in L.faction)
+			to_chat(src, span_warning("Вы почти укусили своего сородича, но вовремя остановились."))
+			return
 	. = ..()
 	if(ismecha(target))
 		var/obj/mecha/M = target
