@@ -1288,8 +1288,9 @@
 	return check_step(used_atom,user)
 
 /datum/construction/reversible/mecha/executioner/custom_action(index, diff, atom/used_atom, mob/user)
-	if(!..())
-		return 0
+	. = ..()
+	if(!.)
+		return FALSE
 
 	//TODO: better messages.
 	switch(index)
