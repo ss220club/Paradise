@@ -33448,6 +33448,13 @@
 	icon_state = "0-2"
 	},
 /obj/effect/spawner/window/reinforced,
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Biohazard_medi";
+	name = "Quarantine Lockdown";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/medical/chemistry)
 "bEr" = (
@@ -34166,6 +34173,13 @@
 	icon_state = "0-4"
 	},
 /obj/effect/spawner/window/reinforced,
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Biohazard_medi";
+	name = "Quarantine Lockdown";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/medical/chemistry)
 "bGz" = (
@@ -34863,6 +34877,13 @@
 	opacity = 0
 	},
 /obj/structure/cable,
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Biohazard_medi";
+	name = "Quarantine Lockdown";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/medical/chemistry)
 "bIk" = (
@@ -35984,6 +36005,13 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Biohazard_medi";
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
@@ -39007,6 +39035,13 @@
 "bSX" = (
 /obj/effect/spawner/window/reinforced,
 /obj/structure/sign/nosmoking_1,
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Biohazard_medi";
+	name = "Quarantine Lockdown";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/medical/reception)
 "bSY" = (
@@ -41621,18 +41656,16 @@
 /turf/simulated/floor/plasteel,
 /area/engine/gravitygenerator)
 "bZp" = (
-/obj/structure/bed,
-/obj/item/bedsheet/medical{
-	level = 1.4
+/obj/effect/spawner/window/reinforced,
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Biohazard_medi";
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
-/obj/effect/landmark/start/intern,
-/obj/structure/curtain/open{
-	layer = 4.1
-	},
-/turf/simulated/floor/plasteel{
-	icon_state = "whiteblue"
-	},
-/area/medical/sleeper)
+/turf/simulated/floor/plating,
+/area/medical/reception)
 "bZq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -45808,10 +45841,8 @@
 	},
 /area/medical/patients_rooms)
 "ckY" = (
-/obj/structure/table/glass,
-/obj/item/reagent_containers/iv_bag/salglu,
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/machinery/bodyscanner{
+	dir = 2
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whiteblue"
@@ -46354,9 +46385,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/button/windowtint{
-	id = "psych";
-	pixel_x = -16
+/obj/machinery/door_control{
+	id = "psych_bolt";
+	name = "Door Bolt Control";
+	normaldoorcontrol = 1;
+	pixel_x = -16;
+	specialfunctions = 4
 	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
@@ -46593,6 +46627,9 @@
 /area/toxins/storage)
 "cnw" = (
 /obj/effect/landmark/start/doctor,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "darkblue"
@@ -46607,21 +46644,18 @@
 	},
 /area/medical/surgery/south)
 "cnz" = (
-/obj/structure/table/glass,
-/obj/item/storage/box/gloves{
-	pixel_x = 5;
-	pixel_y = -3
-	},
-/obj/item/storage/box/masks{
-	pixel_x = 5;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/spray/cleaner{
-	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
-	name = "Surgery Cleaner";
-	pixel_x = -10;
-	pixel_y = 4
-	},
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/blood/diona,
+/obj/item/reagent_containers/iv_bag/blood/grey,
+/obj/item/reagent_containers/iv_bag/blood/kidan,
+/obj/item/reagent_containers/iv_bag/blood/nian,
+/obj/item/reagent_containers/iv_bag/blood/skrell,
+/obj/item/reagent_containers/iv_bag/blood/tajaran,
+/obj/item/reagent_containers/iv_bag/blood/unathi,
+/obj/item/reagent_containers/iv_bag/blood/vulpkanin,
+/obj/item/reagent_containers/iv_bag/blood/wryn,
 /obj/machinery/holosign_switch{
 	id = "surgery2";
 	pixel_x = 24;
@@ -46659,21 +46693,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
 "cnD" = (
-/obj/structure/table/glass,
-/obj/item/storage/box/gloves{
-	pixel_x = -1;
-	pixel_y = -3
-	},
-/obj/item/storage/box/masks{
-	pixel_x = -1;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/spray/cleaner{
-	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
-	name = "Surgery Cleaner";
-	pixel_x = 10;
-	pixel_y = 4
-	},
 /obj/machinery/holosign_switch{
 	id = "surgery1";
 	pixel_x = -24;
@@ -46688,6 +46707,8 @@
 	pixel_x = -24;
 	pixel_y = -8
 	},
+/obj/structure/table/tray,
+/obj/item/storage/toolbox/surgery,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "whiteblue"
@@ -47103,7 +47124,6 @@
 /area/medical/surgery/north)
 "cpb" = (
 /obj/structure/table/glass,
-/obj/item/storage/toolbox/surgery,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 24
@@ -47173,12 +47193,8 @@
 	},
 /area/hallway/primary/aft)
 "cpj" = (
-/obj/structure/sign/redcross{
-	desc = "The Star of Life, a symbol of Medical Aid.";
-	icon_state = "lifestar";
-	name = "Medbay"
-	},
-/turf/simulated/wall,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
 /area/maintenance/genetics)
 "cpk" = (
 /obj/structure/cable{
@@ -47837,13 +47853,27 @@
 	},
 /area/medical/surgery/south)
 "crt" = (
-/obj/structure/table/tray,
 /obj/machinery/status_display{
 	layer = 4;
 	pixel_x = 32
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/table/glass,
+/obj/item/storage/box/gloves{
+	pixel_x = 5;
+	pixel_y = -3
+	},
+/obj/item/storage/box/masks{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
+	name = "Surgery Cleaner";
+	pixel_x = -10;
+	pixel_y = 4
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -47997,10 +48027,10 @@
 /area/atmos/distribution)
 "crY" = (
 /obj/structure/table/tray,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/item/defibrillator/loaded,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whiteblue"
 	},
@@ -49807,6 +49837,9 @@
 	},
 /area/engine/controlroom)
 "cxh" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plasteel{
 	dir = 9;
 	icon_state = "darkblue"
@@ -50828,8 +50861,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/apmaint)
 "czO" = (
-/obj/structure/table/glass,
-/obj/item/reagent_containers/iv_bag/salglu,
+/obj/machinery/bodyscanner{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "whiteblue"
@@ -51050,6 +51084,13 @@
 /obj/machinery/door/poddoor/shutters{
 	id_tag = "paramedic";
 	name = "Paramedic Garage"
+	},
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Biohazard_medi";
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whitebluefull"
@@ -52058,11 +52099,11 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
 /obj/item/twohanded/required/kirbyplants,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whitebluecorner"
 	},
@@ -68818,18 +68859,9 @@
 	},
 /area/medical/research)
 "dxN" = (
-/obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
-/obj/item/reagent_containers/iv_bag/blood/diona,
-/obj/item/reagent_containers/iv_bag/blood/grey,
-/obj/item/reagent_containers/iv_bag/blood/kidan,
-/obj/item/reagent_containers/iv_bag/blood/nian,
-/obj/item/reagent_containers/iv_bag/blood/skrell,
-/obj/item/reagent_containers/iv_bag/blood/tajaran,
-/obj/item/reagent_containers/iv_bag/blood/unathi,
-/obj/item/reagent_containers/iv_bag/blood/vulpkanin,
-/obj/item/reagent_containers/iv_bag/blood/wryn,
+/obj/structure/table/glass,
+/obj/item/reagent_containers/iv_bag/salglu,
+/obj/item/reagent_containers/iv_bag/salglu,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "whiteblue"
@@ -70042,8 +70074,8 @@
 /turf/space,
 /area/space)
 "eqo" = (
-/obj/effect/spawner/random_barrier/obstruction,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/grille/broken,
 /turf/simulated/floor/plating,
 /area/maintenance/genetics)
 "eqx" = (
@@ -72072,6 +72104,13 @@
 	desc = "The Star of Life, a symbol of Medical Aid.";
 	icon_state = "lifestar";
 	name = "Medbay"
+	},
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Biohazard_medi";
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/medical/medbay2)
@@ -78099,18 +78138,6 @@
 /obj/effect/landmark/tiles/damageturf,
 /turf/simulated/wall/r_wall,
 /area/maintenance/genetics)
-"jJj" = (
-/obj/structure/bed,
-/obj/item/bedsheet/medical{
-	level = 1.4
-	},
-/obj/structure/curtain/open{
-	layer = 4.1
-	},
-/turf/simulated/floor/plasteel{
-	icon_state = "whiteblue"
-	},
-/area/medical/sleeper)
 "jJE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -78191,6 +78218,13 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Biohazard_medi";
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/medical/paramedic)
@@ -81170,6 +81204,13 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Biohazard_medi";
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/medical/chemistry)
@@ -84757,7 +84798,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/medical/glass{
-	id = "psych";
+	id = "psych_bolt";
+	id_tag = "psych";
 	name = "Psych Office";
 	req_access = list(64)
 	},
@@ -86728,6 +86770,13 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Biohazard_medi";
+	name = "Quarantine Lockdown";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/medical/paramedic)
 "pFD" = (
@@ -87821,8 +87870,8 @@
 	},
 /obj/item/storage/box/pillbottles,
 /obj/item/storage/box/monkeycubes{
-	pixel_y = -4;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = -4
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
@@ -89332,6 +89381,9 @@
 /obj/machinery/camera{
 	c_tag = "Medbay Surgery West";
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
@@ -93769,6 +93821,13 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Biohazard_medi";
+	name = "Quarantine Lockdown";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/medical/paramedic)
 "ulb" = (
@@ -95037,10 +95096,6 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
-	},
-/obj/machinery/ai_status_display{
-	pixel_y = -32;
-	step_size = 0
 	},
 /obj/effect/spawner/random_spawners/oil_maybe,
 /turf/simulated/floor/plating,
@@ -96535,7 +96590,21 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/bodyscanner,
+/obj/structure/table/glass,
+/obj/item/storage/box/gloves{
+	pixel_x = 5;
+	pixel_y = -3
+	},
+/obj/item/storage/box/masks{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
+	name = "Surgery Cleaner";
+	pixel_x = -10;
+	pixel_y = 4
+	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "whiteblue"
@@ -97152,6 +97221,7 @@
 /obj/item/lighter/zippo/cmo{
 	pixel_x = 14
 	},
+/obj/item/stamp/cmo,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "darkblue"
@@ -98893,6 +98963,10 @@
 	nightshift_allowed = 0;
 	nightshift_enabled = 1
 	},
+/obj/machinery/button/windowtint{
+	id = "psych";
+	pixel_x = 8
+	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "xui" = (
@@ -99700,6 +99774,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/effect/landmark/start/intern,
 /turf/simulated/floor/plasteel{
 	icon_state = "whiteblue"
 	},
@@ -136582,7 +136657,7 @@ kmt
 fAe
 bXG
 bXI
-jJj
+qYo
 rjW
 bZh
 arD
@@ -136591,10 +136666,10 @@ cfJ
 pCb
 cqw
 ePk
-dxN
+cpN
 cnz
 vYS
-cpN
+dxN
 cpN
 cru
 cQk
@@ -136839,7 +136914,7 @@ bZL
 cbT
 bXG
 gBw
-bZp
+qYo
 yat
 eLm
 cDf
@@ -137096,7 +137171,7 @@ wKv
 fAe
 bXG
 bXK
-jJj
+qYo
 iUs
 ePE
 sdE
@@ -137857,7 +137932,7 @@ aWS
 bDn
 bGz
 bKc
-iSL
+bZp
 bDH
 bQA
 bRa
@@ -141219,7 +141294,7 @@ mjA
 xiJ
 ljQ
 bQX
-bQX
+cpj
 bQX
 bQX
 bUx
@@ -141733,7 +141808,7 @@ ljQ
 cga
 aqE
 fAc
-cpj
+ciY
 cpF
 akp
 cAa
