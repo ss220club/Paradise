@@ -1191,7 +1191,7 @@
 	const_holder.construct = new /datum/construction/reversible/mecha/executioner(const_holder)
 	const_holder.icon = 'icons/obj/mecha/mech_construction.dmi'
 	const_holder.icon_state = "executioner0"
-	const_holder.density = 1
+	const_holder.density = TRUE
 	qdel(src)
 	return
 
