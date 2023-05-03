@@ -49,6 +49,14 @@
 /obj/item/clothing/neck/cloak/captain/Initialize(mapload)
 	. = ..()
 	desc = "Worn by the supreme leader of [station_name()]."
+/obj/item/clothing/neck/cloak/captain_black
+	name = "captain's black cloak"
+	desc = "Worn by the supreme leader of the NSS Cyberiad."
+	icon_state = "capcloak_black"
+
+/obj/item/clothing/neck/cloak/captain_black/Initialize(mapload)
+	. = ..()
+	desc = "Worn by the supreme leader of [station_name()]."
 
 /obj/item/clothing/neck/cloak/head_of_personnel
 	name = "head of personnel's cloak"
