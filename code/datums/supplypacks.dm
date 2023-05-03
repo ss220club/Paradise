@@ -49,8 +49,9 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	var/containertype = /obj/structure/closet/crate
 	var/containername = null
 	var/access = null
-	var/hidden = 0
-	var/contraband = 0
+	var/hidden = FALSE
+	var/hidden_if_hacked = FALSE
+	var/contraband = FALSE
 	var/group = SUPPLY_MISC
 	var/list/announce_beacons = list() // Particular beacons that we'll notify the relevant department when we reach
 	var/special = FALSE //Event/Station Goals/Admin enabled packs
@@ -202,7 +203,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	cost = 20
 	containertype = /obj/structure/closet/crate
 	containername = "special ops crate"
-	hidden = 1
+	hidden = TRUE
 
 /datum/supply_packs/emergency/syndicate
 	name = "ERROR_NULL_ENTRY"
@@ -210,7 +211,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	cost = 560
 	containertype = /obj/structure/closet/crate
 	containername = "crate"
-	hidden = 1
+	hidden = TRUE
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Security ////////////////////////////////////////
@@ -957,21 +958,54 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/vending_refill/wallmed)
 	containername = "medical vending crate"
 
-/datum/supply_packs/medical/bloodpacks
-	name = "Blood Pack Variety Crate"
-	contains = list(/obj/item/reagent_containers/iv_bag,
-					/obj/item/reagent_containers/iv_bag,
-					/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
-					/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
-					/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
-					/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
-					/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/datum/supply_packs/medical/bloodpacks_syn_oxygenis
+	name = "Synthetic Blood Pack Oxygenis"
+	contains = list(/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
 					/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
 					/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
 					/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis)
-	cost = 140
+	cost = 300
 	containertype = /obj/structure/closet/crate/freezer
-	containername = "blood pack crate"
+	containername = "synthetic blood pack oxygenis crate"
+
+/datum/supply_packs/medical/bloodpacks_syn_oxygenis
+	name = "Synthetic Blood Pack Nitrogenis"
+	contains = list(/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
+					/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
+					/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
+					/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis)
+	cost = 300
+	containertype = /obj/structure/closet/crate/freezer
+	containername = "synthetic blood pack nitrogenis crate"
+
+/datum/supply_packs/medical/bloodpacks_human
+	name = "Human Blood Pack"
+	contains = list(/obj/item/reagent_containers/iv_bag/blood/ABPlus,
+					/obj/item/reagent_containers/iv_bag/blood/ABMinus,
+					/obj/item/reagent_containers/iv_bag/blood/APlus,
+					/obj/item/reagent_containers/iv_bag/blood/AMinus,
+					/obj/item/reagent_containers/iv_bag/blood/BPlus,
+					/obj/item/reagent_containers/iv_bag/blood/BMinus,
+					/obj/item/reagent_containers/iv_bag/blood/OPlus,
+					/obj/item/reagent_containers/iv_bag/blood/OMinus)
+	cost = 30
+	containertype = /obj/structure/closet/crate/freezer
+	containername = "human blood pack crate"
+
+/datum/supply_packs/medical/bloodpacks_human
+	name = "Xenos Blood Pack"
+	contains = list(/obj/item/reagent_containers/iv_bag/blood/skrell,
+					/obj/item/reagent_containers/iv_bag/blood/tajaran,
+					/obj/item/reagent_containers/iv_bag/blood/vulpkanin,
+					/obj/item/reagent_containers/iv_bag/blood/unathi,
+					/obj/item/reagent_containers/iv_bag/blood/kidan,
+					/obj/item/reagent_containers/iv_bag/blood/grey,
+					/obj/item/reagent_containers/iv_bag/blood/diona,
+					/obj/item/reagent_containers/iv_bag/blood/wryn,
+					/obj/item/reagent_containers/iv_bag/blood/nian)
+	cost = 30
+	containertype = /obj/structure/closet/crate/freezer
+	containername = "xenos blood pack crate"
 
 /datum/supply_packs/medical/iv_drip
 	name = "IV Drip Crate"
@@ -1131,13 +1165,19 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 
 /datum/supply_packs/organic/pizza
 	name = "Pizza Crate"
-	contains = list(/obj/item/pizzabox/margherita,
-					/obj/item/pizzabox/mushroom,
-					/obj/item/pizzabox/meat,
-					/obj/item/pizzabox/vegetable,
-					/obj/item/pizzabox/hawaiian)
+	containertype = /obj/structure/closet/crate/freezer/pizza
 	cost = 60
 	containername = "Pizza crate"
+	hidden_if_hacked = TRUE
+
+
+/datum/supply_packs/organic/pizzaspicy
+	name = "Pizza Crate"
+	containertype = /obj/structure/closet/crate/freezer/pizza/boom
+	cost = 60
+	containername = "Pizza crate"
+	hidden = TRUE
+
 
 /datum/supply_packs/organic/monkey
 	name = "Monkey Crate"

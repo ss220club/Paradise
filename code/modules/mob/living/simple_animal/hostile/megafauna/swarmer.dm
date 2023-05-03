@@ -100,7 +100,7 @@ GLOBAL_LIST_INIT(AISwarmerCapsByType, list(/mob/living/simple_animal/hostile/swa
 	icon_state = null
 	gpstag = "Hungry Signal"
 	desc = "Transmitted over the signal is a strange message repeated in every language you know of, and some you don't too..." //the message is "nom nom nom"
-	invisibility = 100
+	invisibility = INVISIBILITY_ABSTRACT
 
 //SWARMER AI
 //AI versions of the swarmer mini-antag
@@ -140,21 +140,22 @@ GLOBAL_LIST_INIT(AISwarmerCapsByType, list(/mob/living/simple_animal/hostile/swa
 
 
 /mob/living/simple_animal/hostile/swarmer/ai/Move(atom/newloc)
-	if(newloc)
-		if(newloc.z == z) //so these actions are Z-specific
-			if(islava(newloc))
-				var/turf/simulated/floor/plating/lava/L = newloc
-				if(!L.is_safe())
-					StartAction(20)
-					new /obj/structure/lattice/catwalk/swarmer_catwalk(newloc)
-					return FALSE
+	if(!newloc)
+		return FALSE
 
-			if(ischasm(newloc) && !throwing)
-				throw_at(get_edge_target_turf(src, get_dir(src, newloc)), 7 , 3, src, FALSE) //my planet needs me
+	if(newloc.z == z) //so these actions are Z-specific
+		if(islava(newloc))
+			var/turf/simulated/floor/plating/lava/L = newloc
+			if(!L.is_safe())
+				StartAction(20)
+				new /obj/structure/lattice/catwalk/swarmer_catwalk(newloc)
 				return FALSE
 
-		return ..()
+		if(ischasm(newloc) && !throwing)
+			throw_at(get_edge_target_turf(src, get_dir(src, newloc)), 7 , 3, src, FALSE) //my planet needs me
+			return FALSE
 
+	. = ..()
 
 /mob/living/simple_animal/hostile/swarmer/ai/proc/StartAction(deci = 0)
 	stop_automated_movement = TRUE

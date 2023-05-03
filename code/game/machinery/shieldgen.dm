@@ -25,7 +25,7 @@
 
 /obj/machinery/shield/Move()
 	var/turf/T = loc
-	..()
+	. = ..()
 	move_update_air(T)
 
 /obj/machinery/shield/CanPass(atom/movable/mover, turf/target, height)
@@ -87,7 +87,7 @@
 
 /obj/machinery/shield/cult/barrier/Initialize()
 	. = ..()
-	invisibility = INVISIBILITY_MAXIMUM
+	invisibility = INVISIBILITY_ABSTRACT
 
 /obj/machinery/shield/cult/barrier/Destroy()
 	if(parent_rune && !QDELETED(parent_rune))
@@ -118,7 +118,7 @@
 		visible = TRUE
 	else // Currently visible
 		density = FALSE // Turn invisible
-		invisibility = INVISIBILITY_MAXIMUM
+		invisibility = INVISIBILITY_ABSTRACT
 		visible = FALSE
 
 	air_update_turf(1)

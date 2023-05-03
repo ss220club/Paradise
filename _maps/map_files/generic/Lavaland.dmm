@@ -471,19 +471,6 @@
 	icon_state = "brown"
 	},
 /area/mine/laborcamp)
-"bm" = (
-/obj/machinery/light/small,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/cryopod{
-	dir = 8
-	},
-/turf/simulated/floor/plasteel{
-	dir = 6;
-	icon_state = "brown"
-	},
-/area/mine/laborcamp)
 "bn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1607,23 +1594,6 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/mine/production)
-"dB" = (
-/obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/iv_bag/blood,
-/obj/item/reagent_containers/iv_bag/blood{
-	pixel_x = -3;
-	pixel_y = -3
-	},
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
-/obj/machinery/camera{
-	c_tag = "Sleeper Room";
-	dir = 1;
-	network = list("Mining Outpost")
-	},
-/turf/simulated/floor/plasteel/white,
-/area/mine/living_quarters)
 "dC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -2976,7 +2946,7 @@
 /obj/structure/fans/tiny,
 /turf/simulated/floor/plasteel,
 /area/mine/laborcamp)
-"gw" = (
+"gv" = (
 /obj/machinery/door/airlock/external{
 	glass = 1;
 	id_tag = "mining_away";
@@ -4957,6 +4927,20 @@
 	icon_state = "barber"
 	},
 /area/mine/laborcamp)
+"sQ" = (
+/obj/structure/stone_tile/cracked{
+	dir = 4
+	},
+/obj/structure/stone_tile{
+	dir = 1
+	},
+/obj/structure/stone_tile,
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/obj/structure/table/reinforced/brass,
+/turf/simulated/floor/indestructible/boss,
+/area/lavaland/surface/outdoors/necropolis)
 "sR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -6492,6 +6476,19 @@
 /obj/structure/stone_tile/block/cracked,
 /turf/simulated/floor/plating/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors/necropolis)
+"MB" = (
+/obj/machinery/light/small,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/cryopod{
+	dir = 8
+	},
+/turf/simulated/floor/plasteel{
+	dir = 6;
+	icon_state = "brown"
+	},
+/area/mine/laborcamp)
 "ME" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -6550,20 +6547,6 @@
 	},
 /turf/simulated/floor/plasteel/freezer,
 /area/mine/living_quarters)
-"Nk" = (
-/obj/structure/stone_tile/cracked{
-	dir = 4
-	},
-/obj/structure/stone_tile{
-	dir = 1
-	},
-/obj/structure/stone_tile,
-/obj/structure/stone_tile{
-	dir = 8
-	},
-/obj/structure/table/reinforced/brass,
-/turf/simulated/floor/indestructible/boss,
-/area/lavaland/surface/outdoors/necropolis)
 "No" = (
 /obj/structure/stone_tile/block,
 /obj/structure/stone_tile{
@@ -7401,6 +7384,19 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel/white,
 /area/mine/laborcamp)
+"Zd" = (
+/obj/structure/closet/crate/freezer,
+/obj/machinery/camera{
+	c_tag = "Sleeper Room";
+	dir = 1;
+	network = list("Mining Outpost")
+	},
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
+/turf/simulated/floor/plasteel/white,
+/area/mine/living_quarters)
 "Zf" = (
 /obj/machinery/door/airlock{
 	id_tag = "miningbathroom";
@@ -14360,7 +14356,7 @@ aS
 aW
 be
 Hj
-bm
+MB
 aq
 bB
 bM
@@ -16426,7 +16422,7 @@ aj
 ab
 cM
 db
-dB
+Zd
 cM
 fk
 EG
@@ -21560,7 +21556,7 @@ aj
 ab
 ab
 bJ
-gw
+gv
 bN
 ab
 ab
@@ -22074,7 +22070,7 @@ aj
 aj
 bN
 bN
-gw
+gv
 bN
 bN
 ab
@@ -32908,7 +32904,7 @@ aj
 (100,1,1) = {"
 oG
 oG
-Nk
+sQ
 gC
 mW
 gC
@@ -34969,7 +34965,7 @@ mq
 xY
 nc
 nz
-Nk
+sQ
 oG
 oG
 oG
@@ -37029,7 +37025,7 @@ gS
 oG
 mS
 tY
-Nk
+sQ
 XC
 oG
 oG

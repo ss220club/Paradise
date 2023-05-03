@@ -99,7 +99,7 @@ Difficulty: Medium
 	icon_state = null
 	gpstag = "Mysterious Signal"
 	desc = "Here there be dragons."
-	invisibility = 100
+	invisibility = INVISIBILITY_ABSTRACT
 
 /mob/living/simple_animal/hostile/megafauna/dragon/OpenFire()
 	if(swooping)
@@ -412,7 +412,7 @@ Difficulty: Medium
 
 /mob/living/simple_animal/hostile/megafauna/dragon/Move()
 	if(!swooping)
-		..()
+		. = ..()
 
 /mob/living/simple_animal/hostile/megafauna/dragon/Goto(target, delay, minimum_distance)
 	if(!swooping)

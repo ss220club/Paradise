@@ -305,8 +305,6 @@ GLOBAL_LIST_INIT(cloner_biomass_items, list(\
 	maim_clone(H)
 	H.Paralyse(4)
 
-	H.tts_seed = SStts.get_random_seed(H)
-
 	if(grab_ghost_when == CLONER_FRESH_CLONE)
 		clonemind.transfer_to(H)
 		H.ckey = R.ckey
@@ -653,7 +651,7 @@ GLOBAL_LIST_INIT(cloner_biomass_items, list(\
 
 		// Let's non-specially remove all non-vital organs
 		// What could possibly go wrong
-		var/obj/item/I = O.remove(H)
+		var/obj/item/I = O.remove(H, TRUE)
 		// Make this support stuff that turns into items when removed
 		I.forceMove(src)
 		missing_organs += I

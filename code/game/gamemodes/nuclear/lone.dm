@@ -1,7 +1,14 @@
-#define MIN_PLAYERS_FOR_LONEOP_EVENT 30
+#define MIN_PLAYERS_FOR_LONEOP_EVENT 60
+#define LONEOP_ANNOUNCE_DELAY 5 MINUTES
+#define DEFAULT_LONEOP_TK 20
+
 
 /datum/event/operative
 	name = "Оперативник-одиночка"
+
+
+/obj/item/radio/uplink/nuclear/lone
+	uplink_type = UPLINK_TYPE_NUCLEAR_LONE
 
 /datum/event/operative/proc/assign_nuke()
 	var/obj/machinery/nuclearbomb/nuke = locate() in GLOB.machines
@@ -36,21 +43,32 @@
 
 
 /datum/event/operative/proc/equip_operative(mob/living/carbon/human/operative)
-	SSticker.mode.equip_syndicate(operative)
+	SSticker.mode.equip_syndicate(operative, with_uplink = FALSE)
 	SSticker.mode.update_syndicate_id(operative.mind, TRUE)
 	var/additional_tk = max(0, (GLOB.player_list.len - MIN_PLAYERS_FOR_LONEOP_EVENT)*2)
-	var/obj/item/radio/uplink/uplink = locate() in operative.back
-	if(!uplink)
-		stack_trace("Lone operative spawned without an uplink. Spawning one.")
-		uplink = new(get_turf(operative))
+	var/turf/operative_loc = get_turf(operative)
+	var/obj/item/radio/uplink/nuclear/lone/uplink = new(operative_loc)
+	if(!operative.equip_to_slot_if_possible(uplink, slot_in_backpack, disable_warning = TRUE))
+		if(!operative.equip_to_appropriate_slot(uplink))
+			operative.put_in_hands(uplink)
 	uplink.hidden_uplink.uplink_owner = "[operative.key]"
-	uplink.hidden_uplink.uses += additional_tk
+	uplink.hidden_uplink.uses = DEFAULT_LONEOP_TK + additional_tk
+
+
+/datum/event/operative/proc/rename_operative(mob/living/carbon/human/operative)
+	var/name = "[syndicate_name()] Lone Operative"
+	operative.real_name = name
+	operative.dna.real_name = name
+	var/mob/living/carbon/brain/brain = operative.internal_organs_slot["brain"]
+	brain.dna.real_name = name
+	var/obj/item/organ/external/head/head = operative.bodyparts_by_name["head"]
+	head.dna.real_name = name
 
 
 /datum/event/operative/proc/assign_operative_role(datum/mind/operative_mind)
 	SSticker.mode.syndicates += operative_mind
 	SSticker.mode.update_synd_icons_added(operative_mind)
-	operative_mind.current.real_name = "[syndicate_name()] Lone Operative"
+	rename_operative(operative_mind.current)
 	operative_mind.special_role = SPECIAL_ROLE_NUKEOPS
 	operative_mind.assigned_role = SPECIAL_ROLE_NUKEOPS
 	SSticker.mode.forge_syndicate_objectives(operative_mind)
@@ -75,6 +93,10 @@
 	return TRUE
 
 
+/datum/event/operative/proc/announce_loneop()
+	GLOB.event_announcement.Announce("Сканерами дальнего действия обнаружена активность на орбите станции, приближается неизвестный корабль.", "ВНИМАНИЕ: НЕИЗВЕСТНЫЙ КОРАБЛЬ.", 'sound/misc/announce_dig.ogg')
+
+
 /datum/event/operative/start()
 	processing = FALSE
 	if(length(GLOB.player_list) < MIN_PLAYERS_FOR_LONEOP_EVENT)
@@ -82,5 +104,9 @@
 		return
 	if(!make_operative())
 		message_admins("Lone operative event failed to start. Not enough ghosts, nuke spawn points or nuke bombs.")
+		return
+	addtimer(CALLBACK(src, .proc/announce_loneop), LONEOP_ANNOUNCE_DELAY)
 
 #undef MIN_PLAYERS_FOR_LONEOP_EVENT
+#undef LONEOP_ANNOUNCE_DELAY
+#undef DEFAULT_LONEOP_TK

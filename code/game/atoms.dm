@@ -23,6 +23,7 @@
 	var/simulated = TRUE //filter for actions - used by lighting overlays
 	var/atom_say_verb = "says"
 	var/bubble_icon = "default" ///what icon the mob uses for speechbubbles
+	var/bubble_emote_icon = "emote" ///what icon the mob uses for emotebubbles
 	var/dont_save = FALSE // For atoms that are temporary by necessity - like lighting overlays
 
 	///Chemistry.
@@ -69,6 +70,12 @@
 	var/drain_act_protected = FALSE
 
 	var/tts_seed = "Arthas"
+
+	// Use SET_BASE_PIXEL(x, y) to set these in typepath definitions, it'll handle pixel_x and y for you
+	///Default pixel x shifting for the atom's icon.
+	var/base_pixel_x = 0
+	///Default pixel y shifting for the atom's icon.
+	var/base_pixel_y = 0
 
 /atom/New(loc, ...)
 	SHOULD_CALL_PARENT(TRUE)
@@ -170,7 +177,7 @@
 		alternate_appearances = null
 
 	QDEL_NULL(reagents)
-	invisibility = INVISIBILITY_MAXIMUM
+	invisibility = INVISIBILITY_ABSTRACT
 	LAZYCLEARLIST(overlays)
 	LAZYCLEARLIST(priority_overlays)
 
@@ -938,13 +945,13 @@ GLOBAL_LIST_EMPTY(blood_splatter_icons)
 		I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 		INVOKE_ASYNC(GLOBAL_PROC, /.proc/flick_overlay, I, speech_bubble_hearers, 30)
 
-/atom/proc/select_voice(mob/user, silent_target = FALSE)
+/atom/proc/select_voice(mob/user, silent_target = FALSE, override = FALSE)
 	if(!ismob(src) && !user)
 		return null
 	var/tts_test_str = "Так звучит мой голос."
 
 	var/tts_seeds
-	if(user && check_rights(R_ADMIN, 0, user))
+	if(user && (check_rights(R_ADMIN, 0, user) || override))
 		tts_seeds = SStts.tts_seeds_names
 	else
 		tts_seeds = SStts.get_available_seeds(src)
@@ -958,11 +965,14 @@ GLOBAL_LIST_EMPTY(blood_splatter_icons)
 		INVOKE_ASYNC(GLOBAL_PROC, /proc/tts_cast, null, user, tts_test_str, new_tts_seed, FALSE)
 	return new_tts_seed
 
-/atom/proc/change_voice(mob/user)
+/atom/proc/change_voice(mob/user, override = FALSE)
 	set waitfor = FALSE
-	var/new_tts_seed = select_voice(user)
+	var/new_tts_seed = select_voice(user, override = override)
 	if(!new_tts_seed)
 		return null
+	return update_tts_seed(new_tts_seed)
+
+/atom/proc/update_tts_seed(new_tts_seed)
 	tts_seed = new_tts_seed
 	return new_tts_seed
 

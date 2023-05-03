@@ -188,7 +188,8 @@
 	chem_recharge_rate = initial(chem_recharge_rate)
 	chem_charges = min(chem_charges, chem_storage)
 	chem_recharge_slowdown = initial(chem_recharge_slowdown)
-	mimicing = ""
+	mimicking = ""
+	tts_mimicking = ""
 
 /mob/proc/remove_changeling_powers(var/keep_free_powers=0)
 	if(ishuman(src))
@@ -204,7 +205,7 @@
 			remove_language("Changeling")
 		if(hud_used)
 			hud_used.lingstingdisplay.icon_state = null
-			hud_used.lingstingdisplay.invisibility = 101
+			hud_used.lingstingdisplay.invisibility = INVISIBILITY_ABSTRACT
 
 /datum/changeling/proc/has_sting(datum/action/power)
 	for(var/datum/action/P in purchasedpowers)

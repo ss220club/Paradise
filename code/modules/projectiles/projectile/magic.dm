@@ -143,9 +143,8 @@
 	D.open()
 
 /obj/item/projectile/magic/door/proc/OpenCloset(var/obj/structure/closet/C)
-	if(istype(C, /obj/structure/closet/secure_closet))
-		var/obj/structure/closet/secure_closet/SC = C
-		SC.locked = FALSE
+	if(C?.locked)
+		C.locked = FALSE
 	C.open()
 
 /obj/item/projectile/magic/change
@@ -163,7 +162,7 @@
 		M.canmove = FALSE
 		M.icon = null
 		M.overlays.Cut()
-		M.invisibility = 101
+		M.invisibility = INVISIBILITY_ABSTRACT
 
 		if(isrobot(M))
 			var/mob/living/silicon/robot/Robot = M

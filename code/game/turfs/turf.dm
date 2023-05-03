@@ -188,7 +188,7 @@
 // Removes all signs of lattice on the pos of the turf -Donkieyo
 /turf/proc/RemoveLattice()
 	var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
-	if(L)
+	if(L && L.initialized)
 		qdel(L)
 
 /turf/proc/dismantle_wall(devastated = FALSE, explode = FALSE)
@@ -434,7 +434,7 @@
 		for(var/obj/O in contents) //this is for deleting things like wires contained in the turf
 			if(O.level != 1)
 				continue
-			if(O.invisibility == INVISIBILITY_MAXIMUM)
+			if(O.invisibility == INVISIBILITY_MAXIMUM || O.invisibility == INVISIBILITY_ABSTRACT)
 				O.singularity_act()
 	ChangeTurf(baseturf)
 	return 2
