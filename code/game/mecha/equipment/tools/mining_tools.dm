@@ -148,8 +148,8 @@
 /obj/item/mecha_parts/mecha_equipment/drill/chainsaw/can_attach(obj/mecha/M)
 	if(..())
 		if(istype(M, /obj/mecha/combat/durand/executioner) || istype(M, /obj/mecha/combat/lockersyndie))
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 /obj/item/mecha_parts/mecha_equipment/drill/chainsaw/action(atom/target)
 	if(!action_checks(target))
