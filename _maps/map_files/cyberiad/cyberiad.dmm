@@ -41656,14 +41656,8 @@
 /turf/simulated/floor/plasteel,
 /area/engine/gravitygenerator)
 "bZp" = (
-/obj/structure/bed,
-/obj/item/bedsheet/medical{
-	level = 1.4
-	},
-/obj/effect/landmark/start/intern,
-/obj/structure/curtain/open{
-	layer = 4.1
-	},
+/obj/structure/table,
+/obj/machinery/defibrillator_mount/loaded,
 /turf/simulated/floor/plasteel{
 	icon_state = "whiteblue"
 	},
@@ -47197,13 +47191,16 @@
 	},
 /area/hallway/primary/aft)
 "cpj" = (
-/obj/structure/sign/redcross{
-	desc = "The Star of Life, a symbol of Medical Aid.";
-	icon_state = "lifestar";
-	name = "Medbay"
+/obj/effect/spawner/window/reinforced,
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Biohazard_medi";
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
-/turf/simulated/wall,
-/area/maintenance/genetics)
+/turf/simulated/floor/plating,
+/area/medical/reception)
 "cpk" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -70087,8 +70084,8 @@
 /turf/space,
 /area/space)
 "eqo" = (
-/obj/effect/spawner/random_barrier/obstruction,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/grille/broken,
 /turf/simulated/floor/plating,
 /area/maintenance/genetics)
 "eqx" = (
@@ -78152,17 +78149,9 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/genetics)
 "jJj" = (
-/obj/structure/bed,
-/obj/item/bedsheet/medical{
-	level = 1.4
-	},
-/obj/structure/curtain/open{
-	layer = 4.1
-	},
-/turf/simulated/floor/plasteel{
-	icon_state = "whiteblue"
-	},
-/area/medical/sleeper)
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/maintenance/genetics)
 "jJE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -91174,17 +91163,6 @@
 /obj/structure/chair/sofa/corp/corner,
 /turf/simulated/floor/plating,
 /area/maintenance/livingcomplex)
-"swo" = (
-/obj/effect/spawner/window/reinforced,
-/obj/machinery/door/poddoor{
-	density = 0;
-	icon_state = "open";
-	id_tag = "Biohazard_medi";
-	name = "Quarantine Lockdown";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/medical/reception)
 "swr" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -99793,6 +99771,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/effect/landmark/start/intern,
 /turf/simulated/floor/plasteel{
 	icon_state = "whiteblue"
 	},
@@ -136675,7 +136654,7 @@ kmt
 fAe
 bXG
 bXI
-jJj
+qYo
 rjW
 bZh
 arD
@@ -137189,7 +137168,7 @@ wKv
 fAe
 bXG
 bXK
-jJj
+qYo
 iUs
 ePE
 sdE
@@ -137950,7 +137929,7 @@ aWS
 bDn
 bGz
 bKc
-swo
+cpj
 bDH
 bQA
 bRa
@@ -141312,7 +141291,7 @@ mjA
 xiJ
 ljQ
 bQX
-bQX
+jJj
 bQX
 bQX
 bUx
@@ -141826,7 +141805,7 @@ ljQ
 cga
 aqE
 fAc
-cpj
+ciY
 cpF
 akp
 cAa
