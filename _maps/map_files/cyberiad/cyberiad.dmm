@@ -12479,7 +12479,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/auxsolarport)
 "aEF" = (
@@ -44467,7 +44467,7 @@
 /area/blueshield)
 "cgT" = (
 /obj/effect/landmark/event/blobstart,
-/obj/effect/decal/remains/mouse/Pinkie,
+/obj/effect/decal/remains/animals/mouse/Pinkie,
 /turf/simulated/floor/plasteel/dark/telecomms,
 /area/toxins/server)
 "cgU" = (
@@ -66409,7 +66409,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint2)
 "dlD" = (
@@ -71328,7 +71328,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dust,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/beach/water{
 	icon_state = "seadeep"
 	},
@@ -71553,7 +71553,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
 "flR" = (
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/engrooms)
 "fmD" = (
@@ -74460,7 +74460,7 @@
 /area/shuttle/arrival/station)
 "hgq" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/port)
 "hgy" = (
@@ -74929,7 +74929,7 @@
 /area/maintenance/fsmaint2)
 "hAZ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/xenozoo)
 "hBi" = (
@@ -75491,7 +75491,7 @@
 	},
 /area/maintenance/secpost)
 "hXJ" = (
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
 "hYc" = (
@@ -76473,7 +76473,7 @@
 	},
 /area/medical/virology/lab)
 "iDA" = (
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint2)
 "iEA" = (
@@ -77506,7 +77506,7 @@
 /area/maintenance/medroom)
 "jqm" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
 "jqp" = (
@@ -80074,7 +80074,7 @@
 	},
 /obj/effect/spawner/random_spawners/oil_maybe,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "lcl" = (
@@ -80154,7 +80154,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/secpost)
 "lgB" = (
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "darkredaltstrip"
@@ -80870,7 +80870,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
 "lEg" = (
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/genetics)
@@ -81528,7 +81528,7 @@
 "lVL" = (
 /obj/item/stack/rods,
 /obj/structure/spider/stickyweb,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -81623,7 +81623,7 @@
 	frequency = 1222;
 	id_tag = "toxins_mixing_exterior"
 	},
-/obj/effect/decal/remains/mouse{
+/obj/effect/decal/remains/animals/mouse{
 	name = "Джерри"
 	},
 /turf/simulated/floor/engine,
@@ -82021,7 +82021,7 @@
 	},
 /area/maintenance/secpost)
 "mof" = (
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/aisat)
 "mon" = (
@@ -83584,7 +83584,7 @@
 /area/maintenance/medroom)
 "ntG" = (
 /obj/effect/decal/cleanable/dust,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/engrooms)
 "nui" = (
@@ -84318,7 +84318,7 @@
 "nXw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -85768,7 +85768,7 @@
 "oVG" = (
 /obj/effect/decal/cleanable/dust,
 /obj/machinery/light_construct/small,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -88267,7 +88267,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/arrows/red,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -88888,7 +88888,7 @@
 "qQh" = (
 /obj/effect/decal/warning_stripes/northwest,
 /obj/effect/decal/cleanable/cobweb,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -90221,7 +90221,7 @@
 "rOj" = (
 /obj/effect/decal/warning_stripes/southeastcorner,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plasteel{
 	icon_state = "purplecorner"
 	},
@@ -90922,7 +90922,7 @@
 "snR" = (
 /obj/effect/turf_decal/siding/white,
 /obj/effect/decal/cleanable/dust,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/beach/water{
 	icon_state = "seadeep"
 	},
@@ -92124,7 +92124,7 @@
 /area/security/securearmory)
 "tdV" = (
 /obj/structure/spider/stickyweb,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/secpost)
 "tel" = (
@@ -92745,7 +92745,7 @@
 "tAj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/spider/stickyweb,
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "blue"
@@ -98504,7 +98504,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -99471,7 +99471,7 @@
 /obj/machinery/light_construct{
 	dir = 4
 	},
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/animals/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/xenozoo)
 "xRW" = (

@@ -33,8 +33,7 @@
 		B1.reagents.add_reagent("blood",1) // Quality control problems, causes a mess
 	B2.reagents.add_reagent("cryoxadone",30)
 
-	beakers += B1
-	beakers += B2
+	beakers.Add(B1, B2)
 
 /obj/item/grenade/chem_grenade/holywater
 	payload_name = "holy water"
@@ -58,12 +57,8 @@
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/large/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/large/B2 = new(src)
-	B1.reagents.add_reagent("hell_water",80)
-	B1.reagents.add_reagent("sugar",20)
-	B2.reagents.add_reagent("hell_water", 60)
-	B2.reagents.add_reagent("potassium", 20)
-	B2.reagents.add_reagent("phosphorus", 20)
-
+	B1.reagents.add_reagent_list("hell_water" = 80, "sugar" = 20)
+	B2.reagents.add_reagent_list("hell_water" = 60, "potassium" = 20, "phosphorus" = 20)
 
 /obj/item/grenade/chem_grenade/drugs
 	payload_name = "miracle"
@@ -75,14 +70,10 @@
 	var/obj/item/reagent_containers/glass/beaker/large/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/large/B2 = new(src)
 
-	B1.reagents.add_reagent("space_drugs", 25)
-	B1.reagents.add_reagent("lsd", 25)
-	B1.reagents.add_reagent("potassium", 25)
-	B2.reagents.add_reagent("phosphorus", 25)
-	B2.reagents.add_reagent("sugar", 25)
+	B1.reagents.add_reagent_list("space_drugs" = 25,"lsd" = 25, "potassium" = 25)
+	B2.reagents.add_reagent_list("phosphorus" = 25, "sugar" = 25)
 
-	beakers += B1
-	beakers += B2
+	beakers.Add(B1, B2)
 	update_icon()
 
 /obj/item/grenade/chem_grenade/ethanol
@@ -95,14 +86,10 @@
 	var/obj/item/reagent_containers/glass/beaker/large/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/large/B2 = new(src)
 
-	B1.reagents.add_reagent("ethanol", 75)
-	B1.reagents.add_reagent("potassium", 25)
-	B2.reagents.add_reagent("phosphorus", 25)
-	B2.reagents.add_reagent("sugar", 25)
-	B2.reagents.add_reagent("ethanol", 25)
+	B1.reagents.add_reagent_list("ethanol" = 75,"potassium" = 25)
+	B2.reagents.add_reagent_list("phosphorus" = 25, "sugar" = 25, "ethanol" = 25)
 
-	beakers += B1
-	beakers += B2
+	beakers.Add(B1, B2)
 	update_icon()
 
 // -------------------------------------
@@ -141,12 +128,9 @@
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
-	B1.reagents.add_reagent("glycerol",30) // todo: someone says NG is overpowered, test.
-	B1.reagents.add_reagent("sacid",15)
-	B2.reagents.add_reagent("sacid",15)
-	B2.reagents.add_reagent("facid",30)
-	beakers += B1
-	beakers += B2
+	B1.reagents.add_reagent_list("glycerol" = 30, "sacid" = 15) // todo: someone says NG is overpowered, test.
+	B2.reagents.add_reagent_list("sacid" = 15, "facid" = 30)
+	beakers.Add(B1, B2)
 
 // Assembly Variants
 /obj/item/grenade/chem_grenade/explosion/remote/Initialize()
@@ -177,8 +161,7 @@
 	var/obj/item/reagent_containers/glass/beaker/large/B2 = new(src)
 	B1.reagents.add_reagent("water",100)
 	B2.reagents.add_reagent("potassium",100)
-	beakers += B1
-	beakers += B2
+	beakers.Add(B1, B2)
 
 /obj/item/grenade/chem_grenade/waterpotassium/remote/Initialize()
 	. = ..()
@@ -213,8 +196,7 @@
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 	B1.reagents.add_reagent("uranium",50)
 	B2.reagents.add_reagent("iron",50)
-	beakers += B1
-	beakers += B2
+	beakers.Add(B1, B2)
 
 // Assembly Variants
 /obj/item/grenade/chem_grenade/emp/remote/Initialize()
@@ -240,8 +222,7 @@
 	B1.Uses = rand(1,3)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 	B2.reagents.add_reagent("plasma",5 * B1.Uses)
-	beakers += B1
-	beakers += B2
+	beakers.Add(B1, B2)
 
 /obj/item/grenade/chem_grenade/large/monster/prox/Initialize()
 	. = ..()
@@ -266,8 +247,7 @@
 	B1.Uses = rand(1,3)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 	B2.reagents.add_reagent("plasma",5 * B1.Uses)
-	beakers += B1
-	beakers += B2
+	beakers.Add(B1, B2)
 
 // Flashbang
 /obj/item/grenade/chem_grenade/flashbang
@@ -278,15 +258,9 @@
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
-	B1.reagents.add_reagent("aluminium",10)
-	B1.reagents.add_reagent("cola",15)
-	B1.reagents.add_reagent("oxygen",15)
-	B1.reagents.add_reagent("chlorine", 10)
-	B2.reagents.add_reagent("phosphorus",15)
-	B2.reagents.add_reagent("potassium",10)
-	B2.reagents.add_reagent("sulfur", 10)
-	beakers += B1
-	beakers += B2
+	B1.reagents.add_reagent_list("aluminium" = 10, "cola" = 15, "oxygen" = 15, "chlorine" = 10)
+	B2.reagents.add_reagent_list("phosphorus" = 15, "potassium" = 10, "sulfur" = 10)
+	beakers.Add(B1, B2)
 
 /obj/item/grenade/chem_grenade/flashbang/mine_armed
 
