@@ -41656,12 +41656,16 @@
 /turf/simulated/floor/plasteel,
 /area/engine/gravitygenerator)
 "bZp" = (
-/obj/structure/table,
-/obj/machinery/defibrillator_mount/loaded,
-/turf/simulated/floor/plasteel{
-	icon_state = "whiteblue"
+/obj/effect/spawner/window/reinforced,
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Biohazard_medi";
+	name = "Quarantine Lockdown";
+	opacity = 0
 	},
-/area/medical/sleeper)
+/turf/simulated/floor/plating,
+/area/medical/reception)
 "bZq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -47189,16 +47193,9 @@
 	},
 /area/hallway/primary/aft)
 "cpj" = (
-/obj/effect/spawner/window/reinforced,
-/obj/machinery/door/poddoor{
-	density = 0;
-	icon_state = "open";
-	id_tag = "Biohazard_medi";
-	name = "Quarantine Lockdown";
-	opacity = 0
-	},
+/obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/medical/reception)
+/area/maintenance/genetics)
 "cpk" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -68862,9 +68859,14 @@
 	},
 /area/medical/research)
 "dxN" = (
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/maintenance/genetics)
+/obj/structure/table/glass,
+/obj/item/reagent_containers/iv_bag/salglu,
+/obj/item/reagent_containers/iv_bag/salglu,
+/turf/simulated/floor/plasteel{
+	dir = 8;
+	icon_state = "whiteblue"
+	},
+/area/medical/surgery/south)
 "dxS" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -78136,15 +78138,6 @@
 /obj/effect/landmark/tiles/damageturf,
 /turf/simulated/wall/r_wall,
 /area/maintenance/genetics)
-"jJj" = (
-/obj/structure/table/glass,
-/obj/item/reagent_containers/iv_bag/salglu,
-/obj/item/reagent_containers/iv_bag/salglu,
-/turf/simulated/floor/plasteel{
-	dir = 8;
-	icon_state = "whiteblue"
-	},
-/area/medical/surgery/south)
 "jJE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -136676,7 +136669,7 @@ ePk
 cpN
 cnz
 vYS
-jJj
+dxN
 cpN
 cru
 cQk
@@ -136921,7 +136914,7 @@ bZL
 cbT
 bXG
 gBw
-bZp
+qYo
 yat
 eLm
 cDf
@@ -137939,7 +137932,7 @@ aWS
 bDn
 bGz
 bKc
-cpj
+bZp
 bDH
 bQA
 bRa
@@ -141301,7 +141294,7 @@ mjA
 xiJ
 ljQ
 bQX
-dxN
+cpj
 bQX
 bQX
 bUx
