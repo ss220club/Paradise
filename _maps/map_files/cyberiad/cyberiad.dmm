@@ -45837,10 +45837,8 @@
 	},
 /area/medical/patients_rooms)
 "ckY" = (
-/obj/structure/table/glass,
-/obj/item/reagent_containers/iv_bag/salglu,
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/machinery/bodyscanner{
+	dir = 2
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whiteblue"
@@ -46625,6 +46623,9 @@
 /area/toxins/storage)
 "cnw" = (
 /obj/effect/landmark/start/doctor,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "darkblue"
@@ -46639,21 +46640,18 @@
 	},
 /area/medical/surgery/south)
 "cnz" = (
-/obj/structure/table/glass,
-/obj/item/storage/box/gloves{
-	pixel_x = 5;
-	pixel_y = -3
-	},
-/obj/item/storage/box/masks{
-	pixel_x = 5;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/spray/cleaner{
-	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
-	name = "Surgery Cleaner";
-	pixel_x = -10;
-	pixel_y = 4
-	},
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/blood/diona,
+/obj/item/reagent_containers/iv_bag/blood/grey,
+/obj/item/reagent_containers/iv_bag/blood/kidan,
+/obj/item/reagent_containers/iv_bag/blood/nian,
+/obj/item/reagent_containers/iv_bag/blood/skrell,
+/obj/item/reagent_containers/iv_bag/blood/tajaran,
+/obj/item/reagent_containers/iv_bag/blood/unathi,
+/obj/item/reagent_containers/iv_bag/blood/vulpkanin,
+/obj/item/reagent_containers/iv_bag/blood/wryn,
 /obj/machinery/holosign_switch{
 	id = "surgery2";
 	pixel_x = 24;
@@ -48032,10 +48030,10 @@
 /area/atmos/distribution)
 "crY" = (
 /obj/structure/table/tray,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/item/defibrillator/loaded,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whiteblue"
 	},
@@ -49842,6 +49840,9 @@
 	},
 /area/engine/controlroom)
 "cxh" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plasteel{
 	dir = 9;
 	icon_state = "darkblue"
@@ -50863,8 +50864,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/apmaint)
 "czO" = (
-/obj/structure/table/glass,
-/obj/item/reagent_containers/iv_bag/salglu,
+/obj/machinery/bodyscanner{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "whiteblue"
@@ -52100,11 +52102,11 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
 /obj/item/twohanded/required/kirbyplants,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whitebluecorner"
 	},
@@ -68860,23 +68862,9 @@
 	},
 /area/medical/research)
 "dxN" = (
-/obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
-/obj/item/reagent_containers/iv_bag/blood/diona,
-/obj/item/reagent_containers/iv_bag/blood/grey,
-/obj/item/reagent_containers/iv_bag/blood/kidan,
-/obj/item/reagent_containers/iv_bag/blood/nian,
-/obj/item/reagent_containers/iv_bag/blood/skrell,
-/obj/item/reagent_containers/iv_bag/blood/tajaran,
-/obj/item/reagent_containers/iv_bag/blood/unathi,
-/obj/item/reagent_containers/iv_bag/blood/vulpkanin,
-/obj/item/reagent_containers/iv_bag/blood/wryn,
-/turf/simulated/floor/plasteel{
-	dir = 8;
-	icon_state = "whiteblue"
-	},
-/area/medical/surgery/south)
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/maintenance/genetics)
 "dxS" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -78149,9 +78137,14 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/genetics)
 "jJj" = (
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/maintenance/genetics)
+/obj/structure/table/glass,
+/obj/item/reagent_containers/iv_bag/salglu,
+/obj/item/reagent_containers/iv_bag/salglu,
+/turf/simulated/floor/plasteel{
+	dir = 8;
+	icon_state = "whiteblue"
+	},
+/area/medical/surgery/south)
 "jJE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -89396,6 +89389,9 @@
 	c_tag = "Medbay Surgery West";
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "whiteblue"
@@ -96601,7 +96597,21 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/bodyscanner,
+/obj/structure/table/glass,
+/obj/item/storage/box/gloves{
+	pixel_x = 5;
+	pixel_y = -3
+	},
+/obj/item/storage/box/masks{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
+	name = "Surgery Cleaner";
+	pixel_x = -10;
+	pixel_y = 4
+	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "whiteblue"
@@ -136663,10 +136673,10 @@ cfJ
 pCb
 cqw
 ePk
-dxN
+cpN
 cnz
 vYS
-cpN
+jJj
 cpN
 cru
 cQk
@@ -141291,7 +141301,7 @@ mjA
 xiJ
 ljQ
 bQX
-jJj
+dxN
 bQX
 bQX
 bUx
