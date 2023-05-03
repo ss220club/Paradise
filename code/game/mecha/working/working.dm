@@ -21,13 +21,13 @@
 	if(href_list["drop_from_cargo"])
 		var/obj/O = locate(href_list["drop_from_cargo"])
 		if(O && (O in cargo))
-			occupant_message("<span class='notice'>You unload [O].</span>")
+			occupant_message("<span class='notice'>Вы выгрузили [O].</span>")
 			O.loc = get_turf(src)
 			cargo -= O
 			var/turf/T = get_turf(O)
 			if(T)
 				T.Entered(O)
-			log_message("Unloaded [O]. Cargo compartment capacity: [cargo_capacity - cargo.len]")
+			log_message("Выгрузил [O]. Вместимость грузового отсека: [cargo_capacity - cargo.len]")
 	return
 
 /obj/mecha/working/Move()
@@ -54,12 +54,12 @@
 
 /obj/mecha/working/get_stats_part()
 	var/output = ..()
-	output += "<b>Cargo Compartment Contents:</b><div style=\"margin-left: 15px;\">"
+	output += "<b>Содержимое грузового отсека:</b><div style=\"margin-left: 15px;\">"
 	if(cargo.len)
 		for(var/obj/O in cargo)
-			output += "<a href='?src=[UID()];drop_from_cargo=\ref[O]'>Unload</a> : [O]<br>"
+			output += "<a href='?src=[UID()];drop_from_cargo=\ref[O]'>Выгрузить</a> : [O]<br>"
 	else
-		output += "Nothing"
+		output += "Ничего"
 	output += "</div>"
 	return output
 
