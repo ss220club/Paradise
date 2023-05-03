@@ -28,7 +28,7 @@
 	gender = NEUTER
 	maxHealth = 400
 	health = 400
-	damage_coeff = list(BRUTE = 0.6, BURN = 0.6, TOX = 1, CLONE = 1, STAMINA = 0.5, OXY = 1)
+	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 1, STAMINA = 0.5, OXY = 1)
 	a_intent = INTENT_HARM
 	speed = 0
 	flying = TRUE
