@@ -129,7 +129,7 @@
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 	B1.reagents.add_reagent_list(list("glycerol" = 30, "sacid" = 15)) // todo: someone says NG is overpowered, test.
-	B2.reagents.add_reagent_list("sacid" = 15, "facid" = 30)
+	B2.reagents.add_reagent_list(list("sacid" = 15, "facid" = 30))
 	beakers.Add(B1, B2)
 
 // Assembly Variants
