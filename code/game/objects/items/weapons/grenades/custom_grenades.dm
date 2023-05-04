@@ -259,7 +259,7 @@
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 	B1.reagents.add_reagent_list(list("aluminium" = 10, "cola" = 15, "oxygen" = 15, "chlorine" = 10))
-	B2.reagents.add_reagent_list("phosphorus" = 15, "potassium" = 10, "sulfur" = 10)
+	B2.reagents.add_reagent_list(list("phosphorus" = 15, "potassium" = 10, "sulfur" = 10))
 	beakers.Add(B1, B2)
 
 /obj/item/grenade/chem_grenade/flashbang/mine_armed
