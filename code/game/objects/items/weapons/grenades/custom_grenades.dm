@@ -86,7 +86,7 @@
 	var/obj/item/reagent_containers/glass/beaker/large/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/large/B2 = new(src)
 
-	B1.reagents.add_reagent_list("ethanol" = 75,"potassium" = 25)
+	B1.reagents.add_reagent_list(list("ethanol" = 75,"potassium" = 25))
 	B2.reagents.add_reagent_list("phosphorus" = 25, "sugar" = 25, "ethanol" = 25)
 
 	beakers.Add(B1, B2)
