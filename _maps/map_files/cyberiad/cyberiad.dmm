@@ -18866,9 +18866,14 @@
 	pixel_y = 26
 	},
 /obj/structure/table/glass,
-/obj/item/storage/box/syringes{
-	pixel_x = 2;
-	pixel_y = 2
+/obj/item/clothing/glasses/science{
+	pixel_y = 10
+	},
+/obj/item/clothing/glasses/science{
+	pixel_y = 4
+	},
+/obj/item/clothing/glasses/science{
+	pixel_y = -2
 	},
 /turf/simulated/floor/plasteel{
 	dir = 5;
@@ -38201,14 +38206,19 @@
 /area/medical/chemistry)
 "bQS" = (
 /obj/structure/table/glass,
-/obj/item/storage/box/iv_bags,
 /obj/machinery/firealarm{
 	dir = 4;
 	name = "east fire alarm";
 	pixel_x = 24
 	},
+/obj/item/storage/box/syringes{
+	pixel_y = 16
+	},
 /obj/item/storage/box/iv_bags{
-	pixel_y = 12
+	pixel_x = -6
+	},
+/obj/item/storage/box/iv_bags{
+	pixel_x = 6
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
@@ -40334,8 +40344,8 @@
 	opacity = 0
 	},
 /obj/machinery/door/airlock/research{
-	name = "Genetics Research";
-	req_access = list(9,47)
+	name = "Research Hallway";
+	req_access = list(47)
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -47194,6 +47204,14 @@
 /area/hallway/primary/aft)
 "cpj" = (
 /obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2.9
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/genetics)
 "cpk" = (
@@ -73813,16 +73831,16 @@
 /area/security/permabrig)
 "gHN" = (
 /obj/structure/table,
-/obj/item/clothing/glasses/science{
-	pixel_y = 10
-	},
-/obj/item/clothing/glasses/science{
+/obj/item/storage/belt/medical{
 	pixel_y = 6
 	},
-/obj/item/clothing/glasses/science{
+/obj/item/storage/belt/medical{
+	pixel_y = 3
+	},
+/obj/item/clothing/glasses/hud/health{
 	pixel_y = 2
 	},
-/obj/item/clothing/glasses/science{
+/obj/item/clothing/glasses/hud/health{
 	pixel_y = -2
 	},
 /turf/simulated/floor/plasteel{
@@ -76145,7 +76163,7 @@
 "iut" = (
 /obj/machinery/vending/medical,
 /turf/simulated/floor/plasteel{
-	dir = 8;
+	dir = 9;
 	icon_state = "whitegreen"
 	},
 /area/medical/medbay)
@@ -81096,29 +81114,9 @@
 /area/security/podbay)
 "lJk" = (
 /obj/structure/table,
-/obj/item/tank/internals/emergency_oxygen/nitrogen{
-	pixel_x = 6;
-	pixel_y = -2
-	},
-/obj/item/tank/internals/emergency_oxygen/nitrogen{
-	pixel_x = 6;
-	pixel_y = 4
-	},
-/obj/item/tank/internals/emergency_oxygen/nitrogen{
-	pixel_x = 6;
-	pixel_y = 10
-	},
-/obj/item/tank/internals/emergency_oxygen/plasma{
-	pixel_x = -6;
-	pixel_y = -2
-	},
-/obj/item/tank/internals/emergency_oxygen/plasma{
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/obj/item/tank/internals/emergency_oxygen/plasma{
-	pixel_x = -6;
-	pixel_y = 10
+/obj/item/defibrillator/loaded,
+/obj/item/defibrillator/loaded{
+	pixel_y = 8
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whitebluefull"
@@ -81813,7 +81811,7 @@
 /area/maintenance/livingcomplex)
 "mfk" = (
 /obj/machinery/bodyscanner{
-	dir = 2
+	dir = 4
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
@@ -90230,7 +90228,8 @@
 	},
 /obj/machinery/button/windowtint{
 	id = "qmoffice";
-	pixel_x = 16
+	pixel_x = 16;
+	pixel_y = 6
 	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/qm)
@@ -92516,7 +92515,30 @@
 /area/maintenance/asmaint)
 "trc" = (
 /obj/structure/table,
-/obj/item/defibrillator,
+/obj/item/tank/internals/emergency_oxygen/nitrogen{
+	pixel_x = 6;
+	pixel_y = -2
+	},
+/obj/item/tank/internals/emergency_oxygen/nitrogen{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/item/tank/internals/emergency_oxygen/nitrogen{
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/obj/item/tank/internals/emergency_oxygen/plasma{
+	pixel_x = -6;
+	pixel_y = -2
+	},
+/obj/item/tank/internals/emergency_oxygen/plasma{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/item/tank/internals/emergency_oxygen/plasma{
+	pixel_x = -6;
+	pixel_y = 10
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whitebluefull"
 	},
@@ -92656,6 +92678,18 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/office)
+"twM" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2.9
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/genetics)
 "twN" = (
 /obj/effect/decal/cleanable/dust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -99435,6 +99469,13 @@
 	icon_state = "dark"
 	},
 /area/maintenance/gambling_den)
+"xLa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/item/shard{
+	icon_state = "small"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/genetics)
 "xLq" = (
 /obj/item/radio/intercom{
 	name = "west station intercom (General)";
@@ -141552,7 +141593,7 @@ wqu
 wqu
 wqu
 eqo
-sMF
+xLa
 izq
 bQX
 iBi
@@ -141808,7 +141849,7 @@ ljQ
 cga
 aqE
 fAc
-ciY
+twM
 cpF
 akp
 cAa
