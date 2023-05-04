@@ -29,23 +29,23 @@
 /obj/mecha/combat/honker/get_stats_part()
 	var/integrity = obj_integrity/max_integrity*100
 	var/cell_charge = get_charge()
-	var/tank_pressure = internal_tank ? round(internal_tank.return_pressure(),0.01) : "None"
-	var/tank_temperature = internal_tank ? internal_tank.return_temperature() : "Unknown"
+	var/tank_pressure = internal_tank ? round(internal_tank.return_pressure(),0.01) : "Нет"
+	var/tank_temperature = internal_tank ? internal_tank.return_temperature() : "Неизвестно"
 	var/cabin_pressure = round(return_pressure(),0.01)
 	var/output = {"<meta charset="UTF-8">[report_internal_damage()]
-						[integrity<30?"<font color='red'><b>DAMAGE LEVEL CRITICAL</b></font><br>":null]
-						[internal_damage&MECHA_INT_TEMP_CONTROL?"<font color='red'><b>CLOWN SUPPORT SYSTEM MALFUNCTION</b></font><br>":null]
-						[internal_damage&MECHA_INT_TANK_BREACH?"<font color='red'><b>GAS TANK HONK</b></font><br>":null]
-						[internal_damage&MECHA_INT_CONTROL_LOST?"<font color='red'><b>HONK-A-DOODLE</b></font> - <a href='?src=[UID()];repair_int_control_lost=1'>Recalibrate</a><br>":null]
-						<b>IntegriHONK: </b> [integrity]%<br>
-						<b>PowerHONK charge: </b>[isnull(cell_charge)?"No powercell installed":"[cell.percent()]%"]<br>
-						<b>Air source: </b>[use_internal_tank?"Internal Airtank":"Environment"]<br>
-						<b>AirHONK pressure: </b>[tank_pressure]kPa<br>
-						<b>AirHONK temperature: </b>[tank_temperature]&deg;K|[tank_temperature - T0C]&deg;C<br>
-						<b>HONK pressure: </b>[cabin_pressure>WARNING_HIGH_PRESSURE ? "<font color='red'>[cabin_pressure]</font>": cabin_pressure]kPa<br>
-						<b>HONK temperature: </b> [return_temperature()]&deg;K|[return_temperature() - T0C]&deg;C<br>
-						<b>Lights: </b>[lights?"on":"off"]<br>
-						[dna?"<b>DNA-locked:</b><br> <span style='font-size:10px;letter-spacing:-1px;'>[dna]</span> \[<a href='?src=[UID()];reset_dna=1'>Reset</a>\]<br>":null]
+						[integrity<30?"<font color='red'><b>КРИТИЧЕСКИЙ УРОВЕНЬ ПОВРЕЖДЕНИЙ</b></font><br>":null]
+						[internal_damage&MECHA_INT_TEMP_CONTROL?"<font color='red'><b>СБОЙ СИСТЕМ ХОНКА</b></font><br>":null]
+						[internal_damage&MECHA_INT_TANK_BREACH?"<font color='red'><b>ХОНК ВНУТРЕННЕГО БАЛЛОНА</b></font><br>":null]
+						[internal_damage&MECHA_INT_CONTROL_LOST?"<font color='red'><b>ХОНКУКАЧКА</b></font> - <a href='?src=[UID()];repair_int_control_lost=1'>Рекалихонка</a><br>":null]
+						<b>ХОНКность: </b> [integrity]%<br>
+						<b>Заряд ХОНКА: </b>[isnull(cell_charge)?"не установлена батарея":"[cell.percent()]%"]<br>
+						<b>Источник воздуха: </b>[use_internal_tank?"Внутренний ХОНК":"Окружающая среда"]<br>
+						<b>Давление баллона ХОНКА: </b>[tank_pressure]kPa<br>
+						<b>Температура ХОНКА: </b>[tank_temperature]&deg;K|[tank_temperature - T0C]&deg;C<br>
+						<b>Давление ХОНКА: </b>[cabin_pressure>WARNING_HIGH_PRESSURE ? "<font color='red'>[cabin_pressure]</font>": cabin_pressure]kPa<br>
+						<b>Температура кабины ХОНКА: </b> [return_temperature()]&deg;K|[return_temperature() - T0C]&deg;C<br>
+						<b>Свет: </b>[lights?"Вкл":"Выкл"]<br>
+						[dna?"<b>ХОНК-блокировка:</b><br> <span style='font-size:10px;letter-spacing:-1px;'>[dna]</span> \[<a href='?src=[UID()];reset_dna=1'>Сбросить</a>\]<br>":null]
 					"}
 	return output
 
@@ -107,9 +107,9 @@
 
 /obj/mecha/combat/honker/get_commands()
 	var/output = {"<div class='wr'>
-						<div class='header'>Sounds of HONK:</div>
+						<div class='header'>Звуки ХОНКА:</div>
 						<div class='links'>
-						<a href='?src=[UID()];play_sound=sadtrombone'>Sad Trombone</a>
+						<a href='?src=[UID()];play_sound=sadtrombone'>Грустный тромбон</a>
 						</div>
 						</div>
 						"}
@@ -120,7 +120,7 @@
 /obj/mecha/combat/honker/get_equipment_list()
 	if(!equipment.len)
 		return
-	var/output = "<b>Honk-ON-Systems:</b><div style=\"margin-left: 15px;\">"
+	var/output = "<b>ХОНК системы:</b><div style=\"margin-left: 15px;\">"
 	for(var/obj/item/mecha_parts/mecha_equipment/MT in equipment)
 		output += "<div id='\ref[MT]'>[MT.get_equip_info()]</div>"
 	output += "</div>"

@@ -493,6 +493,8 @@
 		if(total >= 1000)
 			donator_level = 3
 		if(total >= 2220)
+			donator_level = 4
+		if(total >= 10000)
 			donator_level = DONATOR_LEVEL_MAX
 		donor_loadout_points()
 	qdel(query_donor_select)

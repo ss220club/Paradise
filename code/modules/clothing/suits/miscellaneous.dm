@@ -89,6 +89,33 @@
 	item_state = "hgpirate"
 	flags_inv = HIDEJUMPSUIT
 
+/obj/item/clothing/suit/v_jacket
+	name = "V's Jacket"
+	desc = "Jacket of someone called V."
+	icon_state = "v_jacket"
+	item_state = "v_jacket"
+	flags_inv = HIDEJUMPSUIT
+
+/obj/item/clothing/suit/takemura_jacket
+	name = "Takemura's Jacket"
+	desc = "Jacket of someone called Takemura."
+	icon_state = "takemura_jacket"
+	item_state = "takemura_jacket"
+	flags_inv = HIDEJUMPSUIT
+
+/obj/item/clothing/suit/katarina_jacket
+	name = "Katarina's Jacket"
+	desc = "Jacket of someone called Katarina."
+	icon_state = "katarina_jacket"
+	item_state = "katarina_jacket"
+	flags_inv = HIDEJUMPSUIT
+
+/obj/item/clothing/suit/katarina_cyberjacket
+	name = "Katarina's Cyberjacket"
+	desc = "Cyberjacket of someone called Katarina."
+	icon_state = "katarina_cyberjacket"
+	item_state = "katarina_cyberjacket"
+	flags_inv = HIDEJUMPSUIT
 
 /obj/item/clothing/suit/cyborg_suit
 	name = "cyborg suit"

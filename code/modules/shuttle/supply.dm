@@ -404,6 +404,8 @@
 	is_public = TRUE
 
 /obj/machinery/computer/supplycomp/attack_ai(var/mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	return attack_hand(user)
 
 /obj/machinery/computer/supplycomp/attack_hand(var/mob/user as mob)
@@ -466,11 +468,10 @@
 
 	for(var/set_name in SSshuttle.supply_packs)
 		var/datum/supply_packs/pack = SSshuttle.supply_packs[set_name]
-		if((pack.hidden && hacked) || (pack.contraband && can_order_contraband) || (pack.special && pack.special_enabled) || (!pack.contraband && !pack.hidden && !pack.special))
-			packs_list.Add(list(list("name" = pack.name, "cost" = pack.cost, "ref" = "[pack.UID()]", "contents" = pack.ui_manifest, "cat" = pack.group)))
-
+		if((pack.hidden && !hacked) || (pack.contraband && !can_order_contraband) || (pack.special && !pack.special_enabled) || (pack.hidden_if_hacked && hacked))
+			continue
+		packs_list.Add(list(list("name" = pack.name, "cost" = pack.cost, "ref" = "[pack.UID()]", "contents" = pack.ui_manifest, "cat" = pack.group)))
 	data["supply_packs"] = packs_list
-
 	var/list/categories = list() // meow
 	for(var/category in GLOB.all_supply_groups)
 		categories.Add(list(list("name" = get_supply_group_name(category), "category" = category)))

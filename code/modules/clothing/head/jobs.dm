@@ -43,6 +43,11 @@
 	icon_state = "cap_beret"
 	item_state = "cap_beret"
 
+/obj/item/clothing/head/caphat/beret_black
+	name = "captain's black beret"
+	icon_state = "cap_beret_black"
+	item_state = "cap_beret_black"
+
 //Head of Personnel
 /obj/item/clothing/head/hopcap
 	name = "head of personnel's cap"
