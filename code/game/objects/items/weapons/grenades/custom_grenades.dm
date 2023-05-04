@@ -71,7 +71,7 @@
 	var/obj/item/reagent_containers/glass/beaker/large/B2 = new(src)
 
 	B1.reagents.add_reagent_list(list("space_drugs" = 25,"lsd" = 25, "potassium" = 25))
-	B2.reagents.add_reagent_list("phosphorus" = 25, "sugar" = 25)
+	B2.reagents.add_reagent_list(list("phosphorus" = 25, "sugar" = 25))
 
 	beakers.Add(B1, B2)
 	update_icon()
