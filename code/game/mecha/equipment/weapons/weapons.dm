@@ -306,6 +306,20 @@
 	variance = 25
 	harmful = TRUE
 
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/purgatory
+	name = "Flamethrower \"Purgatory\""
+	desc = "Why wait for the sinner to go to hell? Create hell for him yourself."
+	icon_state = "purgatory"
+	origin_tech = "combat=4"
+	equip_cooldown = 8
+	projectile = /obj/item/projectile/bullet/incendiary/shell/dragonsbreath
+	fire_sound = 'sound/weapons/gunshots/1shotgun_auto.ogg'
+	projectiles = 30
+	projectile_energy_cost = 25
+	projectiles_per_shot = 3
+	variance = 25
+	harmful = TRUE
+
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg
 	name = "Ultra AC 2"
 	icon_state = "mecha_uac2"
