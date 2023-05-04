@@ -3,6 +3,7 @@
 
 #define DRILL_BASIC 1
 #define DRILL_HARDENED 2
+#define DRILL_CHAINSAW 3
 
 /obj/item/mecha_parts/mecha_equipment/drill
 	name = "exosuit drill"
@@ -134,6 +135,87 @@
 	drill_level = DRILL_HARDENED
 	force = 15
 
+/obj/item/mecha_parts/mecha_equipment/drill/chainsaw
+	name = "Chainsaw \"Redeemer\""
+	desc = "The act of flagellation with a chainsaw is a sign of atonement for sins, never mind sometimes violently..."
+	icon_state = "chainsaw"
+	origin_tech = "materials=4;engineering=4"
+	equip_cooldown = 6
+	drill_delay = 3
+	drill_level = DRILL_CHAINSAW
+	force = 20
+
+/obj/item/mecha_parts/mecha_equipment/drill/chainsaw/can_attach(obj/mecha/M)
+	if(..())
+		if(istype(M, /obj/mecha/combat/durand/executioner) || istype(M, /obj/mecha/combat/lockersyndie))
+			return TRUE
+	return FALSE
+
+/obj/item/mecha_parts/mecha_equipment/drill/chainsaw/action(atom/target)
+	if(!action_checks(target))
+		return
+	if(isspaceturf(target))
+		return
+	if(isobj(target))
+		var/obj/target_obj = target
+		if(target_obj.resistance_flags & UNACIDABLE)
+			return
+	playsound(src, 'sound/weapons/chainsawstart.ogg', 40, TRUE)
+	target.visible_message("<span class='warning'>[chassis] starts to reaping [target].</span>",
+					"<span class='userdanger'>[chassis] starts to reaping [target]...</span>",
+					 "<span class='italics'>You hear chaisaw.</span>")
+
+	if(do_after_cooldown(target))
+		set_ready_state(FALSE)
+		log_message("Started reaping [target]")
+		if(isturf(target))
+			var/turf/T = target
+			T.drill_act(src)
+			set_ready_state(TRUE)
+			return
+		while(do_after_mecha(target, drill_delay))
+			if(isliving(target))
+				drill_mob(target, chassis.occupant)
+				playsound(src, 'sound/weapons/chainsaw.ogg', 40, TRUE)
+			else if(isobj(target))
+				var/obj/O = target
+				O.take_damage(20, BRUTE, 0, FALSE, get_dir(chassis, target))
+				playsound(src, 'sound/weapons/chainsaw.ogg', 40, TRUE)
+			else
+				set_ready_state(TRUE)
+				return
+		set_ready_state(TRUE)
+
+/obj/item/mecha_parts/mecha_equipment/drill/chainsaw/drill_mob(mob/living/target, mob/user)
+	target.visible_message("<span class='danger'>[chassis] is reaping [target] with [src]!</span>",
+						"<span class='userdanger'>[chassis] is REAP AND TEAR you with [src]!</span>")
+	add_attack_logs(user, target, "REAPPED with [src] ([uppertext(user.a_intent)]) ([uppertext(damtype)])")
+	if(target.stat == DEAD && target.getBruteLoss() >= 200)
+		add_attack_logs(user, target, "gibbed")
+		if(LAZYLEN(target.butcher_results))
+			target.harvest(chassis) // Butcher the mob with our chaisaw.
+		else
+			target.gib()
+	else
+		var/splatter_dir = get_dir(chassis, target)
+		if(ishuman(target))
+			var/mob/living/carbon/human/H = target
+			var/obj/item/organ/external/target_part = H.get_organ(ran_zone("chest"))
+			H.apply_damage(10, BRUTE, "chest", H.run_armor_check(target_part, "melee"))
+
+			//blood splatters
+			blood_color = H.dna.species.blood_color
+
+			new /obj/effect/temp_visual/dir_setting/bloodsplatter(H.drop_location(), splatter_dir, blood_color)
+
+					//organs go everywhere
+			if(target_part && prob(10 * drill_level))
+				target_part.droplimb()
+		else
+			target.adjustBruteLoss(20) // much better vs heretic fiends
+			if(isalien(target))
+				new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(target.drop_location(), splatter_dir)
+
 
 /obj/item/mecha_parts/mecha_equipment/mining_scanner
 	name = "exosuit mining scanner"
@@ -164,3 +246,4 @@
 
 #undef DRILL_BASIC
 #undef DRILL_HARDENED
+#undef DRILL_CHAINSAW

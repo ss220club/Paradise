@@ -213,6 +213,7 @@
 			/obj/item/pickaxe/diamond,
 			/obj/item/pickaxe/drill/cyborg/diamond,
 			/obj/item/pickaxe/drill/diamonddrill,
+			/obj/item/mecha_parts/mecha_equipment/drill/chainsaw,
 			))
 
 /turf/simulated/mineral/ancient/outer/attackby(obj/item/I, mob/user, params)
