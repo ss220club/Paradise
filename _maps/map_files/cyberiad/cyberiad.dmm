@@ -5913,9 +5913,22 @@
 	},
 /area/maintenance/genetics)
 "aqF" = (
+<<<<<<< HEAD
 /obj/structure/table/wood/fancy,
 /turf/simulated/floor/carpet/black,
+/area/hallway/secondary/exit/maint)
+=======
+/obj/structure/closet/emcloset,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/item/radio/intercom{
+	name = "west station intercom (General)";
+	pixel_x = -28
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plasteel,
 /area/hallway/secondary/exit)
+>>>>>>> parent of 1d6db79b2bd (Final)
 "aqG" = (
 /turf/simulated/wall,
 /area/security/hos)
@@ -12536,12 +12549,38 @@
 /turf/space,
 /area/space)
 "aEN" = (
+<<<<<<< HEAD
 /obj/structure/table/wood/fancy,
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/meatpizza{
-	pixel_y = 15
+	initialized = 1;
+	pixel_y = 10
 	},
 /turf/simulated/floor/carpet/black,
+/area/hallway/secondary/exit/maint)
+=======
+/obj/structure/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/camera{
+	c_tag = "Departure Lounge Supplies"
+	},
+/obj/machinery/firealarm{
+	name = "north fire alarm";
+	pixel_y = 24
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plasteel,
 /area/hallway/secondary/exit)
+>>>>>>> parent of 1d6db79b2bd (Final)
 "aEO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -13151,17 +13190,32 @@
 	},
 /area/maintenance/fpmaint)
 "aGm" = (
+<<<<<<< HEAD
 /obj/structure/table/wood/fancy,
 /obj/item/reagent_containers/food/snacks/sushi_Sake{
 	pixel_x = 5
 	},
 /obj/item/reagent_containers/food/snacks/sushi_Sake,
 /turf/simulated/floor/carpet/black,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
 "aGn" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/carpet/royalblack,
+/area/hallway/secondary/exit/maint)
+=======
+/obj/structure/closet/emcloset,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plasteel,
 /area/hallway/secondary/exit)
+"aGn" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/ninja_teleport,
+/turf/simulated/floor/plasteel,
+/area/hallway/secondary/exit)
+>>>>>>> parent of 1d6db79b2bd (Final)
 "aGo" = (
 /obj/structure/table/wood/poker,
 /obj/item/deck/cards,
@@ -13579,8 +13633,14 @@
 /area/maintenance/fpmaint)
 "aHl" = (
 /obj/machinery/hologram/holopad,
+<<<<<<< HEAD
 /turf/simulated/floor/carpet/royalblack,
+/area/hallway/secondary/exit/maint)
+=======
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plasteel,
 /area/hallway/secondary/exit)
+>>>>>>> parent of 1d6db79b2bd (Final)
 "aHm" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood{
@@ -13814,6 +13874,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "aHS" = (
+<<<<<<< HEAD
 /obj/machinery/button/windowtint{
 	id = "erp_corner";
 	pixel_x = -24;
@@ -13825,7 +13886,14 @@
 	pixel_y = -24
 	},
 /turf/simulated/floor/carpet/royalblack,
+/area/hallway/secondary/exit/maint)
+=======
+/obj/structure/table,
+/obj/item/storage/toolbox/emergency,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plasteel,
 /area/hallway/secondary/exit)
+>>>>>>> parent of 1d6db79b2bd (Final)
 "aHT" = (
 /turf/simulated/floor/plasteel{
 	icon_state = "bluecorner"
@@ -14048,20 +14116,35 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "aIx" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+<<<<<<< HEAD
 /turf/simulated/floor/carpet/royalblack,
+/area/hallway/secondary/exit/maint)
+=======
+/turf/simulated/floor/plasteel,
 /area/hallway/secondary/exit)
+>>>>>>> parent of 1d6db79b2bd (Final)
 "aIy" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+<<<<<<< HEAD
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/carpet/royalblack,
+/area/hallway/secondary/exit/maint)
+=======
+/turf/simulated/floor/plasteel,
 /area/hallway/secondary/exit)
+>>>>>>> parent of 1d6db79b2bd (Final)
 "aIz" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/brigdoor{
@@ -14144,15 +14227,37 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "aIH" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+<<<<<<< HEAD
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/carpet/royalblack,
+/area/hallway/secondary/exit/maint)
+"aII" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light_switch{
+	name = "south light switch";
+	pixel_y = -24
+	},
+/turf/simulated/floor/carpet/royalblack,
+/area/hallway/secondary/exit/maint)
+=======
+/turf/simulated/floor/plasteel,
 /area/hallway/secondary/exit)
 "aII" = (
-/obj/machinery/light,
-/turf/simulated/floor/carpet/royalblack,
+/obj/structure/table,
+/obj/item/flashlight,
+/obj/item/crowbar/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plasteel,
 /area/hallway/secondary/exit)
+>>>>>>> parent of 1d6db79b2bd (Final)
 "aIJ" = (
 /obj/machinery/atmospherics/unary/portables_connector{
 	dir = 1
@@ -15084,19 +15189,28 @@
 /area/maintenance/fpmaint)
 "aLk" = (
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/public/glass{
+	name = "Escape Emergency Supply"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
+<<<<<<< HEAD
 /obj/machinery/door/airlock/glass{
 	id = "erp_corner";
 	id_tag = "erp_corner";
 	name = "Private Corner"
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "neutralfull"
 	},
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
 "aLl" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -15482,6 +15596,10 @@
 /area/maintenance/medroom)
 "aMh" = (
 /obj/machinery/vending/cola,
+/obj/item/radio/intercom{
+	name = "north station intercom (General)";
+	pixel_y = 28
+	},
 /turf/simulated/floor/plasteel,
 /area/hallway/secondary/exit)
 "aMi" = (
@@ -15934,13 +16052,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "aNB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plasteel{
-	dir = 8;
-	icon_state = "neutralfull"
-	},
-/area/hallway/secondary/exit)
+/turf/simulated/wall/r_wall,
+/area/hallway/secondary/exit/maint)
 "aNC" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
@@ -16587,10 +16700,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fsmaint)
 "aPc" = (
-/obj/effect/spawner/window/reinforced/polarized{
-	id = "erp_corner"
+/obj/machinery/camera{
+	c_tag = "Departure Lounge North"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plasteel{
+	icon_state = "neutral"
+	},
 /area/hallway/secondary/exit)
 "aPd" = (
 /obj/machinery/light_switch{
@@ -17502,9 +17617,6 @@
 /obj/item/twohanded/required/kirbyplants,
 /obj/machinery/alarm{
 	pixel_y = 24
-	},
-/obj/machinery/camera{
-	c_tag = "Departure Lounge North"
 	},
 /turf/simulated/floor/plasteel,
 /area/hallway/secondary/exit)
@@ -28858,6 +28970,9 @@
 "bsO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/transparent/glass/reinforced,
 /area/hallway/secondary/exit)
 "bsP" = (
@@ -28980,6 +29095,9 @@
 "btc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/transparent/glass/reinforced,
 /area/hallway/secondary/exit)
 "btd" = (
@@ -32299,6 +32417,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "neutralfull"
@@ -32326,6 +32447,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plasteel,
 /area/hallway/secondary/exit)
@@ -40352,10 +40476,13 @@
 	icon_state = "whiteblue"
 	},
 /area/medical/cloning)
+<<<<<<< HEAD
 "bWb" = (
 /obj/structure/chair/sofa/corp/left,
 /turf/simulated/floor/carpet/royalblack,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 "bWd" = (
 /obj/structure/morgue{
 	dir = 2
@@ -56286,6 +56413,9 @@
 "cNa" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "neutralfull"
@@ -56306,6 +56436,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plasteel{
 	dir = 10;
@@ -65082,6 +65215,12 @@
 	icon_state = "hydrofloor"
 	},
 /area/crew_quarters/toilet)
+"dhT" = (
+/obj/effect/spawner/window/reinforced/polarized{
+	id = "erp_corner"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/exit/maint)
 "dhV" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -72064,10 +72203,13 @@
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/courtroom)
+<<<<<<< HEAD
 "fBM" = (
 /obj/structure/chair/sofa/corp,
 /turf/simulated/floor/carpet/royalblack,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 "fBQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -74367,14 +74509,20 @@
 	icon_state = "whiteblue"
 	},
 /area/medical/biostorage)
+<<<<<<< HEAD
 "hbG" = (
 /obj/structure/closet/emcloset,
 /obj/item/tank/internals/emergency_oxygen,
 /obj/item/tank/internals/emergency_oxygen,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/royalblack,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 "hbH" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -74529,6 +74677,7 @@
 	icon_state = "darkgrey"
 	},
 /area/maintenance/gambling_den)
+<<<<<<< HEAD
 "hiL" = (
 /obj/structure/closet/cabinet,
 /obj/item/reagent_containers/food/drinks/bottle/wine,
@@ -74543,7 +74692,9 @@
 	wires = 1
 	},
 /turf/simulated/floor/carpet/royalblack,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 "hiW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/shard{
@@ -74753,13 +74904,16 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/security/prisonershuttle)
+<<<<<<< HEAD
 "hsK" = (
 /obj/machinery/status_display{
 	layer = 4;
 	pixel_y = 32
 	},
 /turf/simulated/floor/carpet/royalblack,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 "hsS" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -76717,13 +76871,16 @@
 	icon_state = "whiteyellow"
 	},
 /area/medical/chemistry)
+<<<<<<< HEAD
 "iJt" = (
 /obj/structure/chair/sofa/corp,
 /obj/machinery/alarm{
 	pixel_y = 24
 	},
 /turf/simulated/floor/carpet/royalblack,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 "iJx" = (
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/grass,
@@ -77290,6 +77447,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/apmaint)
+<<<<<<< HEAD
 "jdL" = (
 /obj/structure/table/wood/fancy,
 /obj/item/reagent_containers/food/drinks/flask/barflask{
@@ -77297,7 +77455,9 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/carpet/black,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 "jdQ" = (
 /obj/effect/spawner/random_spawners/fungus_maybe,
 /turf/simulated/wall,
@@ -78930,12 +79090,18 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint2)
+<<<<<<< HEAD
 "klc" = (
 /obj/structure/chair/sofa/corp/corner{
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/royalblack,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 "kli" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/condiment/peppermill{
@@ -80159,6 +80325,20 @@
 	icon_state = "red"
 	},
 /area/security/range)
+"lcT" = (
+/obj/structure/chair/comfy/black{
+	dir = 4
+	},
+/obj/machinery/power/apc{
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/carpet/royalblack,
+/area/hallway/secondary/exit/maint)
 "ldz" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -80194,6 +80374,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet/arcade,
 /area/crew_quarters/arcade)
+<<<<<<< HEAD
 "leI" = (
 /obj/structure/table/wood/fancy,
 /obj/item/lighter/zippo,
@@ -80203,11 +80384,10 @@
 /obj/item/clothing/mask/cigarette/cigar{
 	pixel_y = 6
 	},
-/obj/structure/sign/poster/secret/yug1{
-	pixel_x = 32
-	},
 /turf/simulated/floor/carpet/black,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 "lfg" = (
 /obj/structure/extinguisher_cabinet{
 	name = "west extinguisher cabinet";
@@ -82477,12 +82657,15 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/security/permabrig)
+<<<<<<< HEAD
 "mAS" = (
 /obj/structure/chair/comfy/black{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/royalblack,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 "mBC" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
@@ -84057,13 +84240,16 @@
 	icon_state = "cmo"
 	},
 /area/maintenance/medroom)
+<<<<<<< HEAD
 "nHv" = (
 /obj/item/radio/intercom{
 	name = "west station intercom (General)";
 	pixel_x = -28
 	},
 /turf/simulated/floor/carpet/royalblack,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 "nHF" = (
 /obj/machinery/camera{
 	c_tag = "East Primary Hallway 2"
@@ -88785,9 +88971,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood/fancy/cherry,
 /area/crew_quarters/bar/atrium)
+<<<<<<< HEAD
 "qKj" = (
 /turf/simulated/floor/carpet/royalblack,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 "qKo" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -89116,9 +89305,15 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "qTv" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+<<<<<<< HEAD
 /turf/simulated/floor/carpet/royalblack,
+/area/hallway/secondary/exit/maint)
+=======
+/turf/simulated/floor/plasteel,
 /area/hallway/secondary/exit)
+>>>>>>> parent of 1d6db79b2bd (Final)
 "qTE" = (
 /obj/item/camera_assembly,
 /obj/item/stack/cable_coil/cut,
@@ -91547,15 +91742,15 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plasteel,
 /area/maintenance/xenozoo)
+<<<<<<< HEAD
 "sHa" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 4
 	},
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/simulated/floor/carpet/royalblack,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 "sHc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -92104,6 +92299,7 @@
 	icon_state = "red"
 	},
 /area/security/permabrig)
+<<<<<<< HEAD
 "sZF" = (
 /obj/structure/table/wood/fancy,
 /obj/item/kitchen/utensil/fork,
@@ -92111,7 +92307,9 @@
 /obj/item/kitchen/utensil/spoon,
 /obj/item/kitchen/utensil/spoon,
 /turf/simulated/floor/carpet/black,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 "tab" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -92259,6 +92457,16 @@
 /obj/effect/decal/remains/mouse,
 /turf/simulated/floor/plating,
 /area/maintenance/secpost)
+"tei" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/warning_stripes/east,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plasteel,
+/area/hallway/secondary/exit)
 "tel" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -92308,16 +92516,6 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/storage)
-"tgz" = (
-/obj/structure/chair{
-	dir = 8
-	},
-/obj/item/radio/intercom{
-	name = "east station intercom (General)";
-	pixel_x = 28
-	},
-/turf/simulated/floor/plasteel,
-/area/hallway/secondary/exit)
 "thj" = (
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -92801,6 +92999,18 @@
 	icon_state = "freezerfloor"
 	},
 /area/maintenance/apmaint)
+"tyn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plasteel,
+/area/hallway/secondary/exit)
 "tyx" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -97414,13 +97624,16 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/security/range)
+<<<<<<< HEAD
 "wwZ" = (
 /obj/structure/extinguisher_cabinet{
 	name = "north extinguisher cabinet";
 	pixel_y = 30
 	},
 /turf/simulated/floor/carpet/royalblack,
-/area/hallway/secondary/exit)
+/area/hallway/secondary/exit/maint)
+=======
+>>>>>>> parent of 1d6db79b2bd (Final)
 "wxn" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -149315,8 +149528,8 @@ aYR
 aYR
 aXl
 aYR
-aYR
-aYR
+aYQ
+aYQ
 aYR
 aYP
 aYP
@@ -149573,11 +149786,19 @@ uTI
 lTl
 lTl
 uTI
-bEG
+<<<<<<< HEAD
+aNB
 klc
 sHa
 nHv
 hiL
+=======
+uTI
+uTI
+bEG
+bEG
+bEG
+>>>>>>> parent of 1d6db79b2bd (Final)
 bEG
 aLM
 bmm
@@ -149830,10 +150051,17 @@ uTI
 uTI
 lTl
 uTI
-bEG
+<<<<<<< HEAD
+aNB
 iJt
 sZF
 qKj
+=======
+uTI
+bEG
+bEG
+aGm
+>>>>>>> parent of 1d6db79b2bd (Final)
 aHS
 bEG
 aMh
@@ -150087,12 +150315,17 @@ uTI
 uTI
 uTI
 uTI
-aPc
+<<<<<<< HEAD
+dhT
 fBM
+=======
+uTI
+bjR
+>>>>>>> parent of 1d6db79b2bd (Final)
 aqF
 aGn
 aIx
-aPc
+bjR
 aMy
 aSs
 xeK
@@ -150344,13 +150577,18 @@ uTI
 uTI
 uTI
 uTI
-aPc
+<<<<<<< HEAD
+dhT
 fBM
+=======
+uTI
+bEG
+>>>>>>> parent of 1d6db79b2bd (Final)
 aEN
 aHl
 aIy
 aLk
-aNB
+bUT
 btc
 btc
 bsO
@@ -150601,13 +150839,18 @@ uTI
 uTI
 uTI
 uTI
-aPc
+<<<<<<< HEAD
+dhT
 bWb
+=======
+uTI
+bjR
+>>>>>>> parent of 1d6db79b2bd (Final)
 aGm
 qTv
 aIH
+bjR
 aPc
-aMy
 aSs
 aSt
 bzw
@@ -150858,15 +151101,22 @@ uTI
 uTI
 uTI
 uTI
-bEG
+<<<<<<< HEAD
+aNB
 wwZ
 qKj
 qKj
+=======
+uTI
+bEG
+bEG
+aGm
+>>>>>>> parent of 1d6db79b2bd (Final)
 aII
 bEG
 aRn
 btd
-tgz
+btd
 bmm
 cNc
 bDp
@@ -151115,17 +151365,25 @@ uTI
 uTI
 uTI
 uTI
-bEG
+<<<<<<< HEAD
+aNB
 hsK
 qKj
 mAS
-mAS
+lcT
+=======
+uTI
+uTI
+bEG
+bjR
+bEG
+>>>>>>> parent of 1d6db79b2bd (Final)
 bEG
 bEG
 bEG
 bEG
 buT
-bBc
+tyn
 dbf
 bAL
 bGo
@@ -151372,17 +151630,25 @@ uTI
 uTI
 uTI
 uTI
-bEG
+<<<<<<< HEAD
+aNB
 hbG
 qKj
 leI
 jdL
+=======
+uTI
+uTI
+uTI
+uTI
+uTI
+>>>>>>> parent of 1d6db79b2bd (Final)
 bEG
 bnZ
 brd
 bEG
 gfv
-bBc
+tyn
 bmm
 sNA
 aSs
@@ -151629,11 +151895,19 @@ uTI
 uTI
 uTI
 uTI
+<<<<<<< HEAD
+aNB
+aNB
+dhT
+aNB
+aNB
+=======
+uTI
+uTI
+uTI
+uTI
 bEG
-bEG
-aPc
-bEG
-bEG
+>>>>>>> parent of 1d6db79b2bd (Final)
 bEG
 bue
 buD
@@ -151896,7 +152170,7 @@ boz
 buF
 bvR
 bzD
-bAM
+tei
 bDt
 bAM
 bGI
