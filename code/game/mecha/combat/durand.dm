@@ -82,8 +82,8 @@
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/antiproj_armor_booster
 	ME.attach(src)
-  
-  /obj/mecha/combat/durand/rover/loaded/add_cell()
+
+/obj/mecha/combat/durand/rover/loaded/add_cell()
 	cell = new /obj/item/stock_parts/cell/high/slime(src)
 
 /obj/mecha/combat/durand/executioner
