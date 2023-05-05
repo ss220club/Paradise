@@ -313,7 +313,6 @@
 	var/default_map = null
 	var/override_map = null
 
-	var/modify_pull_push_speed = FALSE
 	var/pixel_shift = FALSE
 	var/water_poison = FALSE
 	var/modify_pull_push_speed = FALSE
