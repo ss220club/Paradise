@@ -587,6 +587,11 @@
 /obj/structure/sign/poster/secret/yug0
 	name = "Соблазнительная Красноволосая Красотка"
 	desc = "На плакате изображена крайне сексуальная девушка.\nВнизу подпись: Фотография сделана Аскетом."
-	icon_state = "poster1_secret"
+	icon_state = "poster41_secret"
+
+/obj/structure/sign/poster/secret/ray //no seggx allowed ):
+	name = "Красивая и молодая девушка с ало-кровавой прической и ярко-голубыми глазами"
+	desc = "На плакате изображена сексуальная девушка в экстравагантной позе. \nВнизу подпись: Фотография сделана Реем."
+	icon_state = "poster42_dressed"
 
 #undef PLACE_SPEED
