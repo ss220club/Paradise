@@ -95036,7 +95036,6 @@
 /turf/simulated/floor/plating/asteroid/ancient,
 /area/maintenance/gambling_den2)
 "xOL" = (
-/obj/effect/spawner/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 2;
 	id_tag = "RnDShutters"
