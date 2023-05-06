@@ -65,6 +65,11 @@
 				if(C == summoner)
 					med_hud_set_health()
 					med_hud_set_status()
+	else
+		var/mob/living/L = target
+		if(istype(L))
+			L.adjustToxLoss(15)
+
 
 /mob/living/simple_animal/hostile/guardian/healer/ToggleMode()
 	if(loc == summoner)
@@ -84,13 +89,6 @@
 			toggle = TRUE
 	else
 		to_chat(src, "<span class='danger'>Нужно быть в хозяине для переключения режимов!</span>")
-
-/mob/living/simple_animal/hostile/guardian/healer/AttackingTarget()
-	if(!toggle)
-		var/mob/living/L = target
-		if(istype(L))
-			L.adjustToxLoss(15)
-		. = ..()
 
 /mob/living/simple_animal/hostile/guardian/healer/verb/Beacon()
 	set name = "Установить блюспейс маяк"
