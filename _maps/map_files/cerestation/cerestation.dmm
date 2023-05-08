@@ -3362,6 +3362,9 @@
 /obj/structure/toilet/captain_toilet{
 	dir = 8
 	},
+/obj/structure/sign/poster/secret/ray{
+	pixel_y = 32
+	},
 /turf/simulated/floor/plasteel/freezer,
 /area/crew_quarters/captain)
 "avl" = (

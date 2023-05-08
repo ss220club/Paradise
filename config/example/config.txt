@@ -604,3 +604,6 @@ MODIFY_PULL_PUSH_SPEED
 
 ## Is water poison allowed on the server?
 #WATER_POISON
+
+## Is AI heating enabled on this server
+#AI_HEAT

@@ -39,9 +39,9 @@
 
 /obj/mecha/combat/phazon/get_commands()
 	var/output = {"<div class='wr'>
-						<div class='header'>Special</div>
+						<div class='header'>Специальное</div>
 						<div class='links'>
-						<a href='?src=[UID()];switch_damtype=1'>Change melee damage type</a><br>
+						<a href='?src=[UID()];switch_damtype=1'>Сменить тип урона ближнего боя</a><br>
 						</div>
 						</div>
 						"}

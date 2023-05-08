@@ -321,6 +321,8 @@
 
 	var/water_poison = FALSE
 
+	var/ai_heat = FALSE
+
 /datum/configuration/New()
 	for(var/T in subtypesof(/datum/game_mode))
 		var/datum/game_mode/M = T
@@ -922,6 +924,9 @@
 
 				if("water_poison")
 					config.water_poison = TRUE
+
+				if("ai_heat")
+					config.ai_heat = TRUE
 
 				else
 					log_config("Unknown setting in configuration: '[name]'")
