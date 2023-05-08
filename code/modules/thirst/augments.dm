@@ -23,3 +23,14 @@
 
 /obj/item/organ/internal/cyberimp/chest/hydration/proc/synth_cool()
 	synthesizing = FALSE
+
+/datum/design/cyberimp_hydration_pump
+	name = "Hydration pump implant"
+	desc = "This implant will synthesize and pump into your bloodstream a small amount of hydration when you are thirsty."
+	id = "ci-hydrationpump"
+	req_tech = list("materials" = 5, "powerstorage" = 4, "biotech" = 4)
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 50
+	materials = list(MAT_METAL = 600, MAT_GLASS = 600, MAT_GOLD = 500, MAT_URANIUM = 750)
+	build_path = /obj/item/organ/internal/cyberimp/chest/hydration
+	category = list("Medical")
