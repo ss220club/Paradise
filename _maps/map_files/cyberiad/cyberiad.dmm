@@ -84793,8 +84793,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/medical/glass{
-	id = "psych_bolt";
-	id_tag = "psych";
+	id = "psych";
+	id_tag = "psych_bolt";
 	name = "Psych Office";
 	req_access = list(64)
 	},
