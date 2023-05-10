@@ -1121,6 +1121,16 @@
 	name = "north newscaster";
 	pixel_y = 34
 	},
+/obj/structure/rack,
+/obj/item/roller{
+	pixel_x = 2;
+	pixel_y = -2
+	},
+/obj/item/roller,
+/obj/item/roller{
+	pixel_x = -4;
+	pixel_y = 4
+	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "whiteblue"
@@ -81859,8 +81869,7 @@
 	},
 /obj/structure/curtain/medical,
 /turf/simulated/floor/plasteel{
-	dir = 4;
-	icon_state = "white"
+	icon_state = "whitebluefull"
 	},
 /area/security/medbay)
 "mez" = (
@@ -83084,6 +83093,14 @@
 	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
+"mXV" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "whiteblue"
+	},
+/area/security/medbay)
 "mZf" = (
 /obj/machinery/requests_console{
 	department = "Science";
@@ -86121,6 +86138,15 @@
 /obj/item/trash/plate,
 /turf/simulated/floor/carpet,
 /area/maintenance/asmaint)
+"pgB" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plasteel{
+	dir = 1;
+	icon_state = "whiteblue"
+	},
+/area/security/medbay)
 "pgH" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -86826,16 +86852,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit/maint)
 "pEw" = (
-/obj/structure/rack,
-/obj/item/roller{
-	pixel_x = 2;
-	pixel_y = -2
-	},
-/obj/item/roller,
-/obj/item/roller{
-	pixel_x = -4;
-	pixel_y = 4
-	},
+/obj/machinery/suit_storage_unit/brigmed,
 /turf/simulated/floor/plasteel{
 	dir = 10;
 	icon_state = "whiteblue"
@@ -126030,9 +126047,9 @@ mxb
 pma
 ris
 tTs
-tTs
+mXV
 meh
-tTs
+pgB
 aeK
 ahu
 afs
