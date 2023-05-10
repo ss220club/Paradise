@@ -293,6 +293,10 @@ GLOBAL_LIST_INIT(blacklisted_pylon_turfs, typecacheof(list(
 	cult_icon_changing = FALSE
 	icon_state = "holy"
 
+/obj/structure/cult/functional/pylon/holy
+	cult_icon_changing = FALSE
+	icon_state = "holy"
+
 /obj/structure/cult/functional/archives
 	name = "archives"
 	desc = "A desk covered in arcane manuscripts and tomes in unknown languages. Looking at the text makes your skin crawl."
