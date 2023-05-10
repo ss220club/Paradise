@@ -276,29 +276,23 @@
 /obj/item/storage/box/syndie_kit/remotegrenade
 	name = "Remote Grenade Kit"
 
-/obj/item/storage/box/syndie_kit/remotegrenade/Initialize()
-	. = ..()
+/obj/item/storage/box/syndie_kit/remotegrenade/populate_contents()
 	new /obj/item/grenade/chem_grenade/explosion/remote(src)
 	new /obj/item/multitool(src) // used to adjust the chemgrenade's signaller
 	new /obj/item/assembly/signaler(src)
-	return
 
 /obj/item/storage/box/syndie_kit/remoteemp
 	name = "Remote EMP Kit"
 
-/obj/item/storage/box/syndie_kit/remoteemp/Initialize()
-	. = ..()
+/obj/item/storage/box/syndie_kit/remoteemp/populate_contents()
 	new /obj/item/grenade/chem_grenade/emp/remote(src)
 	new /obj/item/multitool(src) // used to adjust the chemgrenade's signaller
 	new /obj/item/assembly/signaler(src)
-	return
 
 /obj/item/storage/box/syndie_kit/remotelube
 	name = "Remote Lube Kit"
 
-/obj/item/storage/box/syndie_kit/remotelube/Initialize()
-	. = ..()
+/obj/item/storage/box/syndie_kit/remotelube/populate_contents()
 	new /obj/item/grenade/chem_grenade/lube(src)
 	new /obj/item/multitool(src) // used to adjust the chemgrenade's signaller
 	new /obj/item/assembly/signaler(src)
-	return
