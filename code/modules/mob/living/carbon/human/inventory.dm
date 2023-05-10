@@ -328,7 +328,7 @@
 		if(istype(G) && G.pickpocket)
 			show_anim = FALSE
 	if(isturf(I.loc) && show_anim)
-		I.do_pick_drop_animation(src, "pickup", I)
+		I.do_pick_drop_animation(src, PICKUP_ANIM, I)
 	if(istype(I, /obj/item/stack))
 		var/obj/item/stack/S = I
 		if(S.amount == 0)

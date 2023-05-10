@@ -108,7 +108,7 @@
 	return
 
 /obj/structure/table/proc/item_placed(obj/item/I, mob/user)
-	I.do_pick_drop_animation(user, "drop", I)
+	I.do_pick_drop_animation(user, DROP_ANIM, I)
 
 /obj/structure/table/Crossed(atom/movable/AM, oldloc)
 	. = ..()
@@ -683,7 +683,7 @@
 			continue
 		held.forceMove(NewLoc)
 
-/obj/structure/table/tray/item_placed(atom/movable/item, mob/previous_holder)
+/obj/structure/table/tray/item_placed(atom/movable/item)
 	. = ..()
 	if(is_type_in_typecache(item, typecache_can_hold))
 		held_items += item.UID()
@@ -759,7 +759,7 @@
 		return ..()
 	if(!(W.flags & ABSTRACT))
 		if(user.drop_item())
-			W.do_pick_drop_animation(user, "drop", W)
+			W.do_pick_drop_animation(user, DROP_ANIM, W)
 			W.Move(loc)
 	return
 
