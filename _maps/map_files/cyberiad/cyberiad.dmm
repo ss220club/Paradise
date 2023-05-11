@@ -3630,8 +3630,7 @@
 "aln" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	anchored = 1;
-	name = "Magazines for SMG";
-	req_access = list(3)
+	name = "Magazines for SMG"
 	},
 /obj/item/ammo_box/magazine/wt550m9{
 	pixel_x = 6;
@@ -3905,8 +3904,7 @@
 "alT" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	anchored = 1;
-	name = "Security SMG's";
-	req_access = list(3)
+	name = "Security SMG's"
 	},
 /obj/item/gun/projectile/automatic/wt550{
 	pixel_x = -3;
@@ -20232,7 +20230,6 @@
 	dir = 5
 	},
 /obj/machinery/atm{
-	name = "Nanotrasen automatic teller machine";
 	pixel_y = 32
 	},
 /turf/simulated/floor/wood/fancy/cherry,
@@ -25012,9 +25009,7 @@
 /turf/simulated/floor/plating,
 /area/turret_protected/aisat_interior)
 "bjd" = (
-/obj/structure/closet/secure_closet/bar{
-	req_access = list(25)
-	},
+/obj/structure/closet/secure_closet/bar,
 /obj/structure/sign/poster/contraband/random{
 	pixel_x = 32
 	},
@@ -32010,7 +32005,6 @@
 /area/maintenance/port)
 "bAn" = (
 /obj/machinery/atm{
-	name = "Nanotrasen automatic teller machine";
 	pixel_y = 32
 	},
 /turf/simulated/floor/plasteel,
@@ -35766,7 +35760,7 @@
 	},
 /obj/item/reagent_containers/food/drinks/britcup{
 	initialized = 1;
-	list_reagents = list("tea" = 15);
+	list_reagents = list("tea"=15);
 	pixel_x = 4;
 	pixel_y = 2
 	},
@@ -37256,7 +37250,7 @@
 	pixel_y = 4
 	},
 /obj/item/reagent_containers/food/drinks/coffee{
-	list_reagents = list("coffee" = 0);
+	list_reagents = list("coffee"=0);
 	pixel_x = 6;
 	pixel_y = 4
 	},
@@ -38912,11 +38906,8 @@
 	name = "east fire alarm";
 	pixel_x = 24
 	},
-/obj/item/roller{
-	pixel_y = 8
-	},
 /obj/machinery/light,
-/obj/structure/table/glass,
+/obj/structure/closet/wardrobe/genetics_white,
 /turf/simulated/floor/plasteel{
 	dir = 6;
 	icon_state = "darkpurple"
@@ -44783,7 +44774,6 @@
 	pixel_y = 6
 	},
 /obj/machinery/door_control{
-	color = null;
 	id = "Biohazard_medi";
 	name = "Emergency Medbay Quarantine";
 	pixel_x = -4;
@@ -65082,7 +65072,6 @@
 /area/crew_quarters/toilet)
 "dhO" = (
 /obj/machinery/atm{
-	name = "Nanotrasen automatic teller machine";
 	pixel_x = 32
 	},
 /turf/simulated/floor/plasteel,
@@ -67614,7 +67603,6 @@
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "atmospherics_south";
 	pixel_y = -25;
-	req_access = list();
 	tag_airpump = "atmospherics_south_pump";
 	tag_chamber_sensor = "atmospherics_south_sensor";
 	tag_exterior_door = "atmospherics_south_outer";
@@ -70095,8 +70083,7 @@
 /area/maintenance/genetics)
 "eqx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1;
-	icon_state = "map"
+	dir = 1
 	},
 /obj/effect/spawner/window/reinforced/plasma,
 /turf/simulated/floor/plating,
@@ -77293,8 +77280,7 @@
 /area/maintenance/asmaint)
 "jcp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10;
-	icon_state = "intact"
+	dir = 10
 	},
 /obj/effect/spawner/window/reinforced/plasma,
 /turf/simulated/floor/plating,
@@ -77912,32 +77898,32 @@
 /area/quartermaster/miningdock)
 "jAP" = (
 /obj/item/reagent_containers/food/drinks/cans/beer{
-	list_reagents = list("beer" = 0);
+	list_reagents = list("beer"=0);
 	pixel_x = -11;
 	pixel_y = 2
 	},
 /obj/item/reagent_containers/food/drinks/cans/beer{
-	list_reagents = list("beer" = 0);
+	list_reagents = list("beer"=0);
 	pixel_x = -4;
 	pixel_y = 6
 	},
 /obj/item/reagent_containers/food/drinks/cans/beer{
-	list_reagents = list("beer" = 0);
+	list_reagents = list("beer"=0);
 	pixel_x = 3;
 	pixel_y = 2
 	},
 /obj/item/reagent_containers/food/drinks/cans/beer{
-	list_reagents = list("beer" = 0);
+	list_reagents = list("beer"=0);
 	pixel_x = 10;
 	pixel_y = 6
 	},
 /obj/item/reagent_containers/food/drinks/cans/beer{
-	list_reagents = list("beer" = 0);
+	list_reagents = list("beer"=0);
 	pixel_x = -4;
 	pixel_y = -7
 	},
 /obj/item/reagent_containers/food/drinks/cans/beer{
-	list_reagents = list("beer" = 0);
+	list_reagents = list("beer"=0);
 	pixel_x = 8;
 	pixel_y = -7
 	},
@@ -78369,12 +78355,12 @@
 "jSh" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/coffee{
-	list_reagents = list("coffee" = 0);
+	list_reagents = list("coffee"=0);
 	pixel_x = 7;
 	pixel_y = 6
 	},
 /obj/item/reagent_containers/food/drinks/coffee{
-	list_reagents = list("coffee" = 0);
+	list_reagents = list("coffee"=0);
 	pixel_x = -7;
 	pixel_y = 6
 	},
@@ -85255,8 +85241,7 @@
 "oBP" = (
 /obj/effect/decal/warning_stripes/south,
 /obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6;
-	icon_state = "intact"
+	dir = 6
 	},
 /obj/machinery/meter,
 /obj/effect/decal/warning_stripes/north,
@@ -88922,8 +88907,7 @@
 /area/maintenance/library)
 "qKZ" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/floor/engine,
 /area/toxins/mixing)
@@ -91492,15 +91476,18 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/item/storage/box/syringes{
-	pixel_x = 4;
-	pixel_y = 4
-	},
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -10;
 	pixel_y = 10
 	},
 /obj/structure/table/glass,
+/obj/item/roller{
+	pixel_y = 8
+	},
+/obj/item/storage/box/syringes{
+	pixel_x = 4;
+	pixel_y = 4
+	},
 /turf/simulated/floor/plasteel{
 	dir = 5;
 	icon_state = "darkpurple"
@@ -94006,8 +93993,7 @@
 /area/maintenance/engrooms)
 "ukt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /obj/effect/spawner/window/reinforced/plasma,
 /turf/simulated/floor/plating,
