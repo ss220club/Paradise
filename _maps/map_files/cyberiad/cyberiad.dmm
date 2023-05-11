@@ -41143,6 +41143,10 @@
 	name = "south extinguisher cabinet";
 	pixel_y = -30
 	},
+/obj/item/reagent_containers/glass/beaker/cryoxadone{
+	pixel_x = 10;
+	pixel_y = 4
+	},
 /turf/simulated/floor/plasteel{
 	dir = 10;
 	icon_state = "whiteblue"
