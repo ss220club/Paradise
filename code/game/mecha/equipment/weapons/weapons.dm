@@ -55,8 +55,8 @@
 			projectiles--
 			A.fire()
 			playsound(chassis, fire_sound, 50, 1)
-	log_message("Fired from [name], targeting [target].")
-	add_attack_logs(chassis.occupant, target, "fired a [src]")
+	log_message("Выстрелил из [name], целясь в [target].")
+	add_attack_logs(chassis.occupant, target, "выстрелил [src]")
 	start_cooldown()
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy
@@ -227,14 +227,14 @@
 					if(thingy)
 						walk(thingy,0)
 	for(var/obj/mecha/combat/reticence/R in oview(6, chassis))
-		R.occupant_message("\The [R] has protected you from [chassis]'s HONK at the cost of some power.")
+		R.occupant_message(" [R] защитил вас от [chassis] HONK ценой заряда.")
 		R.use_power(R.get_charge() / 4)
 
 	chassis.use_power(energy_drain)
-	log_message("Honked from [name]. HONK!")
+	log_message("ХОНКнут [name]. HONK!")
 	var/turf/T = get_turf(src)
-	add_attack_logs(chassis.occupant, target, "used a Mecha Honker", ATKLOG_MOST)
-	add_game_logs("used a Mecha Honker in [COORD(T)]", chassis.occupant)
+	add_attack_logs(chassis.occupant, target, "использовал МеХаХонкер", ATKLOG_MOST)
+	add_game_logs("использовал МеХаХонкер в [COORD(T)]", chassis.occupant)
 	start_cooldown()
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic
@@ -247,7 +247,7 @@
 	return 0
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/get_equip_info()
-	return "[..()]\[[projectiles]\][(projectiles < initial(projectiles))?" - <a href='?src=[UID()];rearm=1'>Rearm</a>":null]"
+	return "[..()]\[[projectiles]\][(projectiles < initial(projectiles))?" - <a href='?src=[UID()];rearm=1'>Перезарядить</a>":null]"
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/proc/rearm()
 	if(projectiles < initial(projectiles))
@@ -257,7 +257,7 @@
 			projectiles_to_add--
 			chassis.use_power(projectile_energy_cost)
 	send_byjax(chassis.occupant,"exosuit.browser","\ref[src]",get_equip_info())
-	log_message("Rearmed [name].")
+	log_message("Перезарядил [name].")
 	playsound(src, 'sound/weapons/gun_interactions/rearm.ogg', 50, 1)
 	return
 
@@ -303,6 +303,20 @@
 	projectiles = 40
 	projectile_energy_cost = 25
 	projectiles_per_shot = 4
+	variance = 25
+	harmful = TRUE
+
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/purgatory
+	name = "Flamethrower \"Purgatory\""
+	desc = "Why wait for the sinner to go to hell? Create hell for him yourself."
+	icon_state = "purgatory"
+	origin_tech = "combat=4"
+	equip_cooldown = 8
+	projectile = /obj/item/projectile/bullet/incendiary/shell/dragonsbreath
+	fire_sound = 'sound/weapons/gunshots/1shotgun_auto.ogg'
+	projectiles = 30
+	projectile_energy_cost = 25
+	projectiles_per_shot = 3
 	variance = 25
 	harmful = TRUE
 
@@ -362,10 +376,10 @@
 	playsound(chassis, fire_sound, 50, 1)
 	M.throw_at(target, missile_range, missile_speed, spin = FALSE)
 	projectiles--
-	log_message("Fired from [name], targeting [target].")
+	log_message("Выстрелил из [name], целясь в [target].")
 	var/turf/T = get_turf(src)
 	add_attack_logs(chassis.occupant, target, "fired a [src]", ATKLOG_FEW)
-	add_game_logs("Fired a [src] in [COORD(T)]", chassis.occupant)
+	add_game_logs("Выстрелил [src] в [COORD(T)]", chassis.occupant)
 	start_cooldown()
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/heavy
@@ -414,7 +428,7 @@
 	playsound(chassis, fire_sound, 50, 1)
 	F.throw_at(target, missile_range, missile_speed)
 	projectiles--
-	log_message("Fired from [name], targeting [target].")
+	log_message("Выстрелил из [name], целясь в [target].")
 	spawn(det_time)
 		F.prime()
 	start_cooldown()
@@ -459,7 +473,7 @@
 	playsound(chassis, fire_sound, 60, 1)
 	B.throw_at(target, missile_range, missile_speed)
 	projectiles--
-	log_message("Bananed from [name], targeting [target]. HONK!")
+	log_message("Банахнул из [name], целясь в [target]. HONK!")
 	start_cooldown()
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/mousetrap_mortar
@@ -487,7 +501,7 @@
 	playsound(chassis, fire_sound, 60, 1)
 	M.throw_at(target, missile_range, missile_speed)
 	projectiles--
-	log_message("Launched a mouse-trap from [name], targeting [target]. HONK!")
+	log_message("Выпустил мышеловку из [name], целясь в [target]. HONK!")
 	start_cooldown()
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/bola
@@ -516,7 +530,7 @@
 	playsound(chassis, fire_sound, 50, 1)
 	M.throw_at(target, missile_range, missile_speed)
 	projectiles--
-	log_message("Fired from [name], targeting [target].")
+	log_message("Выстрелил из [name], целясь в [target].")
 	start_cooldown()
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/plasma

@@ -93,6 +93,8 @@
 	var/smoke = 5
 	var/smoke_ready = 1
 	var/smoke_cooldown = 100
+	var/flash_ready = TRUE
+	var/flash_cooldown = 50
 	var/zoom_mode = FALSE
 	var/phasing = FALSE
 	var/phasing_energy_drain = 200
@@ -192,10 +194,10 @@
 	if(user.incapacitated())
 		return
 	if(phasing)
-		occupant_message("<span class='warning'>Unable to interact with objects while phasing.</span>")
+		occupant_message("<span class='warning'>Невозможно взаимодействовать с объектами в режиме фазового сдвига.</span>")
 		return
 	if(state)
-		occupant_message("<span class='warning'>Maintenance protocols in effect.</span>")
+		occupant_message("<span class='warning'>Протоколы ТО в действии.</span>")
 		return
 	if(!get_charge())
 		return
@@ -203,7 +205,7 @@
 		return
 
 	if(GLOB.pacifism_after_gt)
-		to_chat(user, "<span class='warning'>You don't want to harm!</span>")
+		to_chat(user, "<span class='warning'>Вы не хотите вреда!</span>")
 		return
 
 	var/dir_to_target = get_dir(src, target)
@@ -219,12 +221,12 @@
 	if(!target.Adjacent(src))
 		if(selected && selected.is_ranged())
 			if(HAS_TRAIT(L, TRAIT_PACIFISM) && selected.harmful)
-				to_chat(L, "<span class='warning'>You don't want to harm other living beings!</span>")
+				to_chat(L, "<span class='warning'>Вы не хотите вредить другим живым созданиям!</span>")
 				return
 			selected.action(target, params)
 	else if(selected && selected.is_melee())
 		if(isliving(target) && selected.harmful && HAS_TRAIT(L, TRAIT_PACIFISM))
-			to_chat(user, "<span class='warning'>You don't want to harm other living beings!</span>")
+			to_chat(user, "<span class='warning'>Вы не хотите вредить другим живым созданиям!</span>")
 			return
 		selected.action(target, params)
 	else
@@ -264,7 +266,7 @@
 		if(istype(backup) && movement_dir && !backup.anchored)
 			if(backup.newtonian_move(turn(movement_dir, 180)))
 				if(occupant)
-					to_chat(occupant, "<span class='info'>You push off of [backup] to propel yourself.</span>")
+					to_chat(occupant, "<span class='info'>Вы отталкиваетесь от [backup], чтобы привести себя в движение.</span>")
 		return 1
 
 /obj/mecha/relaymove(mob/user, direction)
@@ -272,15 +274,15 @@
 		return
 	if(user != occupant) //While not "realistic", this piece is player friendly.
 		user.forceMove(get_turf(src))
-		to_chat(user, "<span class='notice'>You climb out from [src].</span>")
+		to_chat(user, "<span class='notice'>Вы выбрались из [src].</span>")
 		return 0
 	if(connected_port)
 		if(world.time - last_message > 20)
-			occupant_message("<span class='warning'>Unable to move while connected to the air system port!</span>")
+			occupant_message("<span class='warning'>Невозможно двигаться при подключении к порту воздушной системы!</span>")
 			last_message = world.time
 		return 0
 	if(state)
-		occupant_message("<span class='danger'>Maintenance protocols in effect.</span>")
+		occupant_message("<span class='danger'>Протоколы ТО в действии.</span>")
 		return
 	return domove(direction)
 
@@ -293,12 +295,12 @@
 		return 0
 	if(defence_mode)
 		if(world.time - last_message > 20)
-			occupant_message("<span class='danger'>Unable to move while in defence mode.</span>")
+			occupant_message("<span class='danger'>Невозможно двигаться в защитном режиме.</span>")
 			last_message = world.time
 		return 0
 	if(zoom_mode)
 		if(world.time - last_message > 20)
-			occupant_message("<span class='danger'>Unable to move while in zoom mode.</span>")
+			occupant_message("<span class='danger'>Невозможно двигаться в режиме прицела.</span>")
 			last_message = world.time
 		return 0
 
@@ -339,13 +341,13 @@
 		else
 			occupant.clear_alert("mechaport")
 	if(leg_overload_mode)
-		log_message("Leg Overload damage.")
+		log_message("Повреждение от Перегрузки приводов ног.")
 		take_damage(1, BRUTE, FALSE, FALSE)
 		if(obj_integrity < max_integrity - max_integrity / 3)
 			leg_overload_mode = FALSE
 			step_in = initial(step_in)
 			step_energy_drain = initial(step_energy_drain)
-			occupant_message("<font color='red'>Leg actuators damage threshold exceded. Disabling overload.</font>")
+			occupant_message("<font color='red'>Урон приводов ног достиг максимума. Выключение Перегрузки.</font>")
 
 /obj/mecha/proc/mechturn(direction)
 	dir = direction
@@ -979,9 +981,9 @@
 	AI.remote_control = src
 	AI.canmove = 1 //Much easier than adding AI checks! Be sure to set this back to 0 if you decide to allow an AI to leave a mech somehow.
 	AI.can_shunt = 0 //ONE AI ENTERS. NO AI LEAVES.
-	to_chat(AI, "[AI.can_dominate_mechs ? "<span class='announce'>Takeover of [name] complete! You are now permanently loaded onto the onboard computer. Do not attempt to leave the station sector!</span>" \
-	: "<span class='notice'>You have been uploaded to a mech's onboard computer."]")
-	to_chat(AI, "<span class='boldnotice'>Use Middle-Mouse to activate mech functions and equipment. Click normally for AI interactions.</span>")
+	to_chat(AI, "[AI.can_dominate_mechs ? "<span class='announce'>Захват [name] завершен! Вы теперь навеки заточены в бортовой компьютер. Даже не пробуйте покинуть сектор!</span>" \
+	: "<span class='notice'>Вы загрузились в бортовой компьютер экзокостюма."]")
+	to_chat(AI, "<span class='boldnotice'>Используйте Среднюю кнопку мыши для активации снаряжения экзокостюма. Нажмите как обычно для интеракций ИИ.</span>")
 	if(interaction == AI_TRANS_FROM_CARD)
 		GrantActions(AI, FALSE)
 	else
