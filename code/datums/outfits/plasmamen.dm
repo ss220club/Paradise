@@ -154,8 +154,9 @@
 
 /datum/outfit/plasmaman/engineering/mecha
 	name = "Mechanic Plasmaman"
-	head = /obj/item/clothing/head/helmet/space/plasmaman/engineering/mecha
-	uniform = /obj/item/clothing/under/plasmaman/engineering
+
+	head = /obj/item/clothing/head/helmet/space/plasmaman/science/xeno
+	uniform = /obj/item/clothing/under/plasmaman/science
 
 /datum/outfit/plasmaman/ce
 	name = "Chief Engineer Plasmaman"

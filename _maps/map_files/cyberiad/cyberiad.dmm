@@ -39205,17 +39205,10 @@
 /turf/simulated/floor/plasteel,
 /area/hallway/primary/central/sw)
 "bTm" = (
-/obj/structure/table,
-/obj/item/pod_parts/core,
-/obj/item/circuitboard/mecha/pod,
-/obj/item/clothing/glasses/welding{
-	pixel_y = 12
+/turf/simulated/floor/plasteel{
+	dir = 8;
+	icon_state = "whitepurple"
 	},
-/obj/item/gps,
-/obj/effect/turf_decal/siding/white/end{
-	dir = 1
-	},
-/turf/simulated/floor/plasteel,
 /area/engine/mechanic_workshop)
 "bTq" = (
 /obj/machinery/conveyor/west{
@@ -52745,7 +52738,10 @@
 	},
 /obj/machinery/mecha_part_fabricator/spacepod,
 /obj/effect/decal/warning_stripes/yellow/hollow,
-/turf/simulated/floor/plasteel,
+/turf/simulated/floor/plasteel{
+	dir = 9;
+	icon_state = "whitepurple"
+	},
 /area/engine/mechanic_workshop)
 "cEK" = (
 /obj/machinery/light{
@@ -52753,7 +52749,10 @@
 	},
 /obj/machinery/computer/podtracker,
 /obj/effect/decal/warning_stripes/yellow/hollow,
-/turf/simulated/floor/plasteel,
+/turf/simulated/floor/plasteel{
+	dir = 1;
+	icon_state = "whitepurple"
+	},
 /area/engine/mechanic_workshop)
 "cEL" = (
 /obj/machinery/requests_console{
@@ -52764,7 +52763,10 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal,
-/turf/simulated/floor/plasteel,
+/turf/simulated/floor/plasteel{
+	dir = 1;
+	icon_state = "whitepurple"
+	},
 /area/engine/mechanic_workshop)
 "cEM" = (
 /obj/structure/cable{
@@ -52775,8 +52777,8 @@
 	},
 /obj/machinery/suit_storage_unit/mechanic,
 /turf/simulated/floor/plasteel{
-	dir = 8;
-	icon_state = "vault"
+	dir = 1;
+	icon_state = "whitepurple"
 	},
 /area/engine/mechanic_workshop)
 "cEN" = (
@@ -52791,8 +52793,8 @@
 	pixel_y = 24
 	},
 /turf/simulated/floor/plasteel{
-	dir = 8;
-	icon_state = "vault"
+	dir = 1;
+	icon_state = "whitepurple"
 	},
 /area/engine/mechanic_workshop)
 "cEO" = (
@@ -52808,8 +52810,8 @@
 	},
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plasteel{
-	dir = 8;
-	icon_state = "vault"
+	dir = 5;
+	icon_state = "whitepurple"
 	},
 /area/engine/mechanic_workshop)
 "cER" = (
@@ -53150,7 +53152,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/plasteel,
+/turf/simulated/floor/plasteel{
+	dir = 8;
+	icon_state = "whitepurple"
+	},
 /area/engine/mechanic_workshop)
 "cFN" = (
 /obj/machinery/door/poddoor{
@@ -53180,7 +53185,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/plasteel,
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
 /area/engine/mechanic_workshop)
 "cFP" = (
 /obj/structure/disposalpipe/segment{
@@ -53193,7 +53200,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/plasteel,
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
 /area/engine/mechanic_workshop)
 "cFQ" = (
 /obj/structure/disposalpipe/segment{
@@ -53206,7 +53215,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plasteel{
-	icon_state = "dark"
+	icon_state = "white"
 	},
 /area/engine/mechanic_workshop)
 "cFR" = (
@@ -53220,7 +53229,8 @@
 	dir = 4
 	},
 /turf/simulated/floor/plasteel{
-	icon_state = "dark"
+	dir = 4;
+	icon_state = "whitepurple"
 	},
 /area/engine/mechanic_workshop)
 "cFS" = (
@@ -53278,26 +53288,18 @@
 /turf/simulated/floor/plasteel,
 /area/hallway/primary/aft)
 "cGh" = (
-/obj/item/extinguisher,
-/obj/item/storage/belt/utility,
-/obj/item/storage/toolbox/electrical,
-/obj/item/storage/toolbox/mechanical{
-	pixel_x = -2;
-	pixel_y = -1
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/item/radio{
-	pixel_y = 6
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/machinery/firealarm{
-	dir = 1;
-	name = "south fire alarm";
-	pixel_y = -24
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/effect/turf_decal/siding/white/end{
-	dir = 1
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
 	},
-/obj/structure/table,
-/turf/simulated/floor/plasteel,
 /area/engine/mechanic_workshop)
 "cGi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -53527,7 +53529,9 @@
 /area/engine/mechanic_workshop)
 "cGE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plasteel,
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
 /area/engine/mechanic_workshop)
 "cGF" = (
 /obj/structure/spacepoddoor,
@@ -53540,7 +53544,7 @@
 "cGG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plasteel{
-	icon_state = "dark"
+	icon_state = "white"
 	},
 /area/engine/mechanic_workshop)
 "cGH" = (
@@ -53561,7 +53565,8 @@
 	},
 /obj/effect/landmark/start/mechanic,
 /turf/simulated/floor/plasteel{
-	icon_state = "dark"
+	dir = 4;
+	icon_state = "whitepurple"
 	},
 /area/engine/mechanic_workshop)
 "cGJ" = (
@@ -53948,7 +53953,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plasteel{
-	icon_state = "dark"
+	icon_state = "white"
 	},
 /area/engine/mechanic_workshop)
 "cHD" = (
@@ -55067,7 +55072,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "cJV" = (
-/turf/simulated/floor/plasteel,
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
 /area/engine/mechanic_workshop)
 "cJW" = (
 /obj/machinery/light/small{
@@ -55085,15 +55092,36 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "cJX" = (
+/obj/item/extinguisher,
+/obj/item/storage/belt/utility,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = -2;
+	pixel_y = -1
+	},
+/obj/item/radio{
+	pixel_y = 6
+	},
+/obj/machinery/firealarm{
+	dir = 1;
+	name = "south fire alarm";
+	pixel_y = -24
+	},
+/obj/effect/turf_decal/siding/white/end{
+	dir = 1
+	},
+/obj/structure/table,
+/obj/item/gun/energy/kinetic_accelerator,
+/obj/machinery/light,
 /turf/simulated/floor/plasteel{
-	icon_state = "dark"
+	icon_state = "whitepurple"
 	},
 /area/engine/mechanic_workshop)
 "cJY" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/engineering/glass{
-	name = "Mechanic Workshop";
-	req_access = list(70)
+/obj/machinery/door/airlock/research{
+	req_access = list(70);
+	name = "Mechanic Workshop"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -55105,7 +55133,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plasteel{
-	icon_state = "dark"
+	icon_state = "white"
 	},
 /area/engine/mechanic_workshop)
 "cJZ" = (
@@ -55140,9 +55168,12 @@
 	},
 /obj/item/folder/yellow,
 /obj/item/pen,
-/obj/item/book/manual/sop_engineering,
+/obj/item/book/manual/sop_science{
+	pixel_y = -14
+	},
 /turf/simulated/floor/plasteel{
-	icon_state = "dark"
+	dir = 4;
+	icon_state = "whitepurple"
 	},
 /area/engine/mechanic_workshop)
 "cKe" = (
@@ -55639,61 +55670,34 @@
 	},
 /area/assembly/assembly_line)
 "cLr" = (
-/obj/machinery/door_control{
-	id = "mechpod";
-	name = "Mechanic's Inner Door Control";
-	pixel_y = -24;
-	req_access = list(70)
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
-/obj/structure/table,
-/obj/item/stack/sheet/metal{
-	amount = 50
-	},
-/obj/item/stack/sheet/glass{
-	amount = 50
-	},
-/obj/item/stack/rods{
-	amount = 50
-	},
-/obj/item/stack/sheet/mineral/plasma{
-	amount = 30
-	},
-/obj/effect/turf_decal/siding/white/end{
-	dir = 1
-	},
-/turf/simulated/floor/plasteel,
-/area/engine/mechanic_workshop)
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
 "cLs" = (
-/obj/machinery/light_switch{
-	name = "south light switch";
-	pixel_y = -24
-	},
-/mob/living/simple_animal/pet/cat/birman/Crusher,
-/obj/effect/decal/cleanable/blood/gibs/robot,
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/plasteel{
-	dir = 5;
-	icon_state = "dark"
-	},
-/area/engine/mechanic_workshop)
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
 "cLt" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -24
-	},
-/obj/machinery/vending/coffee,
-/turf/simulated/floor/plasteel{
-	icon_state = "dark"
-	},
-/area/engine/mechanic_workshop)
-"cLu" = (
 /obj/item/radio/intercom{
 	name = "south station intercom (General)";
 	pixel_y = -28
 	},
 /obj/machinery/computer/rdconsole/mechanics,
 /turf/simulated/floor/plasteel{
-	icon_state = "dark"
+	dir = 6;
+	icon_state = "whitepurple"
+	},
+/area/engine/mechanic_workshop)
+"cLu" = (
+/obj/structure/chair/office/light{
+	dir = 1
+	},
+/obj/effect/landmark/start/mechanic,
+/turf/simulated/floor/plasteel{
+	dir = 4;
+	icon_state = "whitepurple"
 	},
 /area/engine/mechanic_workshop)
 "cLv" = (
@@ -68938,6 +68942,18 @@
 	icon_state = "dark"
 	},
 /area/maintenance/library)
+"dAg" = (
+/obj/machinery/light_switch{
+	name = "south light switch";
+	pixel_y = -24
+	},
+/mob/living/simple_animal/pet/cat/birman/Crusher,
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/plasteel{
+	icon_state = "whitepurple"
+	},
+/area/engine/mechanic_workshop)
 "dAN" = (
 /turf/simulated/floor/plasteel{
 	icon_state = "darkblue"
@@ -75086,7 +75102,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/hallway/primary/aft)
 "hFN" = (
@@ -75190,6 +75206,33 @@
 	icon_state = "white"
 	},
 /area/security/medbay)
+"hKe" = (
+/obj/machinery/door_control{
+	id = "mechpod";
+	name = "Mechanic's Inner Door Control";
+	pixel_y = -24;
+	req_access = list(70)
+	},
+/obj/structure/table,
+/obj/item/stack/sheet/metal{
+	amount = 50
+	},
+/obj/item/stack/sheet/glass{
+	amount = 50
+	},
+/obj/item/stack/rods{
+	amount = 50
+	},
+/obj/item/stack/sheet/mineral/plasma{
+	amount = 30
+	},
+/obj/effect/turf_decal/siding/white/end{
+	dir = 1
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "whitepurple"
+	},
+/area/engine/mechanic_workshop)
 "hKC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -77937,7 +77980,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/plasteel,
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
 /area/engine/mechanic_workshop)
 "jBv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -79316,7 +79361,10 @@
 /turf/simulated/floor/mech_bay_recharge_floor,
 /area/maintenance/engrooms)
 "kwM" = (
-/obj/machinery/door/airlock/research,
+/obj/machinery/door/airlock/research{
+	req_access = list(70);
+	name = "Mechanic Workshop"
+	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -79681,6 +79729,17 @@
 /obj/effect/turf_decal/siding/purple,
 /turf/simulated/floor/carpet/purple,
 /area/maintenance/server)
+"kGO" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
 "kIe" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -100085,6 +100144,16 @@
 "ybO" = (
 /turf/simulated/wall,
 /area/maintenance/gambling_den)
+"ybW" = (
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -24
+	},
+/obj/machinery/vending/coffee,
+/turf/simulated/floor/plasteel{
+	icon_state = "whitepurple"
+	},
+/area/engine/mechanic_workshop)
 "yda" = (
 /obj/structure/fence/door,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -100149,6 +100218,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/apmaint)
+"yhz" = (
+/obj/structure/table,
+/obj/item/pod_parts/core,
+/obj/item/circuitboard/mecha/pod,
+/obj/item/clothing/glasses/welding{
+	pixel_y = 12
+	},
+/obj/item/gps,
+/obj/effect/turf_decal/siding/white/end{
+	dir = 1
+	},
+/turf/simulated/floor/plasteel{
+	dir = 10;
+	icon_state = "whitepurple"
+	},
+/area/engine/mechanic_workshop)
 "yhP" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating,
@@ -120740,9 +120825,9 @@ cFX
 cIM
 cEY
 cJW
+cNB
 cMr
 cLi
-uTI
 uTI
 uTI
 uTI
@@ -120997,9 +121082,9 @@ cfv
 cfy
 cLo
 cMv
+cLr
 cNN
 cOx
-lTl
 lTl
 uTI
 uTI
@@ -121254,9 +121339,9 @@ cHB
 cHB
 cEY
 cEY
+cEY
 cTc
 cOx
-uTI
 lTl
 uTI
 cRz
@@ -121507,13 +121592,13 @@ uTI
 cEW
 cEJ
 cFM
-cJV
-cJV
 bTm
+bTm
+bTm
+yhz
 cEY
 cTc
 cLi
-uTI
 uTI
 lTl
 cRz
@@ -121766,11 +121851,11 @@ cEL
 cFP
 cJV
 cJV
-cLr
+cJV
+hKe
 cEY
 cTc
 cLi
-uTI
 lTl
 cRz
 cRz
@@ -122023,11 +122108,11 @@ cEK
 cFO
 cGE
 jBd
-cGh
+cJV
+cJX
 cEY
 cTc
 cOx
-uTI
 uTI
 cRA
 cSR
@@ -122277,14 +122362,14 @@ cng
 cvp
 cEW
 cEN
-cFR
-cJX
-cJX
-cLt
+cGh
+cJV
+cJV
+cJV
+ybW
 cEY
 cTc
 cOx
-uTI
 lTl
 cRA
 cTa
@@ -122537,11 +122622,11 @@ cEM
 cFQ
 cGG
 cHC
-cLs
+cJV
+dAg
 cEY
 cTc
 cLi
-lTl
 lTl
 cRA
 cST
@@ -122795,10 +122880,10 @@ cFR
 cGI
 cKd
 cLu
+cLt
 cEY
 cTc
 cLi
-uTI
 uTI
 cRA
 cRA
@@ -123053,9 +123138,9 @@ cGH
 cEY
 cEY
 cEY
+cEY
 cTc
 cOx
-uTI
 uTI
 cQy
 cTb
@@ -123309,9 +123394,9 @@ hFD
 ckO
 cJZ
 cLy
-cLi
+cLs
+cNB
 cTc
-cOx
 cOx
 cQy
 cRB
@@ -123567,8 +123652,8 @@ cGM
 cOs
 cIP
 cIP
-cKJ
 cIP
+kGO
 cIP
 cOq
 cIP

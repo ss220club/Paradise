@@ -213,7 +213,7 @@
 /datum/gear/mug/department/eng
 	display_name = "engineer coffee mug"
 	description = "An engineer's coffee mug, emblazoned in the colors of the Engineering department."
-	allowed_roles = list("Chief Engineer", "Station Engineer", "Trainee Engineer", "Mechanic", "Life Support Specialist")
+	allowed_roles = list("Chief Engineer", "Station Engineer", "Trainee Engineer", "Life Support Specialist")
 	path = /obj/item/reagent_containers/food/drinks/mug/eng
 
 /datum/gear/mug/department/med
@@ -225,7 +225,7 @@
 /datum/gear/mug/department/sci
 	display_name = "scientist coffee mug"
 	description = "A scientist's coffee mug, emblazoned in the colors of the Science department."
-	allowed_roles = list("Research Director", "Scientist", "Student Scientist", "Student Scientist", "Roboticist")
+	allowed_roles = list("Research Director", "Scientist", "Student Scientist", "Student Scientist", "Mechanic", "Roboticist")
 	path = /obj/item/reagent_containers/food/drinks/mug/sci
 
 /datum/gear/mug/department/sec

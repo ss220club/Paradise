@@ -800,7 +800,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "afY" = (
@@ -1177,7 +1177,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plasteel{
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "ald" = (
@@ -1239,7 +1239,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "alX" = (
@@ -1723,7 +1723,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "apB" = (
@@ -2188,13 +2188,13 @@
 "asF" = (
 /turf/simulated/floor/plasteel{
 	dir = 9;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "asH" = (
 /turf/simulated/floor/plasteel{
 	dir = 1;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "asR" = (
@@ -2417,9 +2417,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint4)
 "auB" = (
-/obj/machinery/door/airlock/engineering/glass{
-	name = "Hangar";
-	req_access = list(18,48,70,71)
+/obj/machinery/door/airlock/research{
+	req_access = list(18,48,70,71);
+	name = "Hangar"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plasteel{
@@ -2513,9 +2513,9 @@
 	},
 /area/hallway/primary/central/nw)
 "avi" = (
-/obj/machinery/door/airlock/engineering/glass{
-	name = "Mechanic Workshop";
-	req_access = list(70)
+/obj/machinery/door/airlock/research{
+	req_access = list(70);
+	name = "Mechanic Workshop"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -2543,7 +2543,7 @@
 "avm" = (
 /turf/simulated/floor/plasteel{
 	dir = 4;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "avr" = (
@@ -3055,7 +3055,7 @@
 /area/janitor)
 "azl" = (
 /turf/simulated/floor/plasteel{
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "azr" = (
@@ -3309,7 +3309,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "aBb" = (
@@ -3346,13 +3346,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 10;
-	icon_state = "darkyellow"
-	},
-/area/engine/mechanic_workshop/hangar)
-"aBe" = (
-/turf/simulated/floor/plasteel{
-	dir = 8;
-	icon_state = "darkyellowcorners"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "aBh" = (
@@ -3635,7 +3629,7 @@
 	pixel_y = -30
 	},
 /turf/simulated/floor/plasteel{
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "aCV" = (
@@ -3687,7 +3681,7 @@
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/blood/gibs/robot,
 /turf/simulated/floor/plasteel{
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "aDg" = (
@@ -3823,10 +3817,9 @@
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 30
 	},
-/obj/item/clothing/gloves/color/yellow,
 /turf/simulated/floor/plasteel{
 	dir = 1;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "aEc" = (
@@ -3971,7 +3964,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "aEx" = (
@@ -4038,7 +4031,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "aEY" = (
@@ -4491,7 +4484,7 @@
 "aIh" = (
 /turf/simulated/floor/plasteel{
 	dir = 4;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "aIl" = (
@@ -4903,7 +4896,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "aKy" = (
@@ -5073,7 +5066,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "aLr" = (
@@ -5123,7 +5116,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "aLM" = (
@@ -5208,7 +5201,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "aMC" = (
@@ -5323,7 +5316,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 9;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "aNe" = (
@@ -5345,7 +5338,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 5;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "aNj" = (
@@ -5415,10 +5408,17 @@
 	name = "Mechanic's Workshop Requests Console";
 	pixel_y = -32
 	},
-/obj/structure/closet/toolcloset,
+/obj/structure/closet,
+/obj/random/tool,
+/obj/item/stack/cable_coil/random,
+/obj/item/stack/cable_coil/random,
+/obj/item/stack/cable_coil/random,
+/obj/item/multitool,
+/obj/item/crowbar,
+/obj/item/weldingtool/largetank,
 /turf/simulated/floor/plasteel{
 	dir = 10;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "aNG" = (
@@ -5865,7 +5865,7 @@
 "aQg" = (
 /turf/simulated/floor/plasteel{
 	dir = 8;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "aQi" = (
@@ -6321,25 +6321,20 @@
 /obj/structure/rack,
 /obj/item/extinguisher,
 /obj/item/storage/belt/utility,
-/obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical{
 	pixel_x = -2;
 	pixel_y = -1
 	},
-/obj/item/radio{
-	pixel_y = 6
-	},
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/weldingtool/largetank,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -22
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "aTv" = (
@@ -6367,7 +6362,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "aTy" = (
@@ -6379,7 +6374,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "aTA" = (
@@ -7410,7 +7405,8 @@
 	c_tag = "Hangar Hardsuit Storage";
 	dir = 4
 	},
-/obj/structure/dispenser/oxygen,
+/obj/effect/decal/warning_stripes/red,
+/obj/structure/closet/firecloset,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -7838,13 +7834,6 @@
 	icon_state = "hydrofloor"
 	},
 /area/crew_quarters/serviceyard)
-"bck" = (
-/obj/effect/decal/warning_stripes/red,
-/obj/structure/closet/firecloset,
-/turf/simulated/floor/plasteel{
-	icon_state = "dark"
-	},
-/area/engine/mechanic_workshop/hangar)
 "bcn" = (
 /obj/machinery/door/firedoor,
 /obj/effect/decal/warning_stripes/yellow,
@@ -7971,7 +7960,7 @@
 "bdi" = (
 /turf/simulated/floor/plasteel{
 	dir = 10;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "bdq" = (
@@ -7989,7 +7978,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "bdu" = (
@@ -8243,7 +8232,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "bgb" = (
@@ -9297,7 +9286,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "bkQ" = (
@@ -10244,7 +10233,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "brl" = (
@@ -10312,9 +10301,9 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/storage)
 "brG" = (
-/obj/machinery/door/airlock/engineering/glass{
-	name = "Mechanic Workshop";
-	req_access = list(70)
+/obj/machinery/door/airlock/research{
+	req_access = list(70);
+	name = "Mechanic Workshop"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plasteel,
@@ -11535,7 +11524,7 @@
 /obj/structure/closet/walllocker/emerglocker/east,
 /turf/simulated/floor/plasteel{
 	dir = 4;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "bwS" = (
@@ -13750,7 +13739,7 @@
 /obj/machinery/suit_storage_unit/mechanic,
 /turf/simulated/floor/plasteel{
 	dir = 6;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "bFk" = (
@@ -13894,7 +13883,7 @@
 	pixel_y = -28
 	},
 /turf/simulated/floor/plasteel{
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "bFJ" = (
@@ -14668,7 +14657,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 6;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "bKe" = (
@@ -18759,7 +18748,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plasteel{
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "cca" = (
@@ -58376,7 +58365,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "hrX" = (
@@ -93223,7 +93212,7 @@
 /obj/machinery/mecha_part_fabricator/spacepod,
 /turf/simulated/floor/plasteel{
 	dir = 1;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "pFk" = (
@@ -109642,7 +109631,7 @@
 /obj/machinery/computer/rdconsole/mechanics,
 /turf/simulated/floor/plasteel{
 	dir = 1;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "tpI" = (
@@ -115047,7 +115036,7 @@
 "uBz" = (
 /turf/simulated/floor/plasteel{
 	dir = 5;
-	icon_state = "darkyellow"
+	icon_state = "darkpurple"
 	},
 /area/engine/mechanic_workshop/hangar)
 "uBD" = (
@@ -122284,7 +122273,7 @@
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
-	icon_state = "yellow"
+	icon_state = "purple"
 	},
 /area/engine/mechanic_workshop)
 "wkE" = (
@@ -173067,7 +173056,7 @@ aKO
 wBq
 uGF
 azl
-bck
+bcL
 beC
 aNf
 brk
@@ -173323,8 +173312,8 @@ azf
 avj
 uGF
 wBq
-azl
-bcL
+rqF
+bdi
 beC
 beC
 brG
@@ -173580,8 +173569,8 @@ uGF
 aBn
 rqF
 rqF
-aBe
-aQg
+rqF
+rqF
 aEw
 bkM
 aQg
@@ -173844,7 +173833,7 @@ bla
 brN
 aTC
 aWC
-aBe
+rqF
 bdi
 beV
 aGq

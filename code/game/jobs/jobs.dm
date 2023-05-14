@@ -17,7 +17,6 @@ GLOBAL_LIST_INIT(engineering_positions, list(
 	"Chief Engineer",
 	"Station Engineer",
 	"Life Support Specialist",
-	"Mechanic",
 	"Trainee Engineer"
 ))
 
@@ -43,6 +42,7 @@ GLOBAL_LIST_INIT(science_positions, list(
 	"Scientist",
 	"Geneticist",	//Part of both medical and science
 	"Roboticist",
+	"Mechanic",
 	"Student Scientist"
 ))
 

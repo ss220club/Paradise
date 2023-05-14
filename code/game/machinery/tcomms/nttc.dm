@@ -33,7 +33,6 @@
 		// Engineeering
 		"Chief Engineer" = "engradio",
 		"Life Support Specialist" = "engradio",
-		"Mechanic" = "engradio",
 		"Station Engineer" = "engradio",
 		"Trainee Engineer" = "engradio",
 		// Central Command
@@ -62,6 +61,7 @@
 		"Roboticist" = "sciradio",
 		"Scientist" = "sciradio",
 		"Student Scientist" = "sciradio",
+		"Mechanic" = "sciradio",
 		// Security
 		"Brig Physician" = "secradio",
 		"Detective" = "secradio",

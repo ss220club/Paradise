@@ -53,7 +53,7 @@
 /datum/gear/suit/coat/job/engi
 	display_name = "winter coat, engineering"
 	path = /obj/item/clothing/suit/hooded/wintercoat/engineering
-	allowed_roles = list("Chief Engineer", "Station Engineer", "Trainee Engineer", "Mechanic")
+	allowed_roles = list("Chief Engineer", "Station Engineer", "Trainee Engineer")
 
 /datum/gear/suit/coat/job/atmos
 	display_name = "winter coat, atmospherics"
@@ -172,7 +172,7 @@
 /datum/gear/suit/suragi_jacket/eng
 	display_name = "Suragi Jacket - Engineering"
 	path = /obj/item/clothing/suit/storage/suragi_jacket/eng
-	allowed_roles = list("Station Engineer", "Trainee Engineer", "Mechanic")
+	allowed_roles = list("Station Engineer", "Trainee Engineer")
 
 
 /datum/gear/suit/suragi_jacket/botany

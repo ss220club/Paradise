@@ -6,17 +6,17 @@
 /datum/gear/hat/hhat_yellow
 	display_name = "hardhat, yellow"
 	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Chief Engineer", "Station Engineer", "Trainee Engineer", "Mechanic", "Life Support Specialist")
+	allowed_roles = list("Chief Engineer", "Station Engineer", "Trainee Engineer", "Life Support Specialist")
 
 /datum/gear/hat/hhat_orange
 	display_name = "hardhat, orange"
 	path = /obj/item/clothing/head/hardhat/orange
-	allowed_roles = list("Chief Engineer", "Station Engineer", "Trainee Engineer", "Mechanic", "Life Support Specialist")
+	allowed_roles = list("Chief Engineer", "Station Engineer", "Trainee Engineer", "Life Support Specialist")
 
 /datum/gear/hat/hhat_blue
 	display_name = "hardhat, blue"
 	path = /obj/item/clothing/head/hardhat/dblue
-	allowed_roles = list("Chief Engineer", "Station Engineer", "Trainee Engineer", "Mechanic", "Life Support Specialist")
+	allowed_roles = list("Chief Engineer", "Station Engineer", "Trainee Engineer", "Life Support Specialist")
 
 /datum/gear/hat/that
 	display_name = "top hat"
@@ -163,7 +163,7 @@
 /datum/gear/hat/beret_job/sci
 	display_name = "science beret"
 	path = /obj/item/clothing/head/beret/sci
-	allowed_roles = list("Research Director", "Scientist", "Student Scientist", "Roboticist", "Geneticist")
+	allowed_roles = list("Research Director", "Scientist", "Student Scientist", "Roboticist", "Mechanic", "Geneticist")
 
 /datum/gear/hat/beret_job/med
 	display_name = "medical beret"
