@@ -12,14 +12,12 @@
 /obj/effect/decal/remains/human
 	name = "remains"
 	desc = "They look like human remains. They have a strange aura about them."
-	icon = 'icons/effects/blood.dmi'
 	icon_state = "remains"
 	anchored = TRUE
 
 /obj/effect/decal/remains/xeno
 	name = "remains"
 	desc = "They look like the remains of something... alien. They have a strange aura about them."
-	icon = 'icons/effects/blood.dmi'
 	icon_state = "remainsxeno"
 	anchored = TRUE
 
@@ -39,7 +37,6 @@
 /obj/effect/decal/remains/slime
 	name = "You shouldn't see this"
 	desc = "Noooooooooooooooooooooo"
-	icon = 'icons/effects/blood.dmi'
 	icon_state = "remains"
 	anchored = TRUE
 
@@ -53,13 +50,19 @@
 	R.reaction(get_turf(src))
 	qdel(src)
 
-/obj/effect/decal/remains/mouse
+/obj/effect/decal/remains/animals
 	name = "remains"
-	desc = "Некогда бывшая мышь. Её останки. Больше не будет пищать..."
 	icon = 'icons/mob/animal.dmi'
+	
+/obj/effect/decal/remains/animals/mouse
+	desc = "Некогда бывшая мышь. Её останки. Больше не будет пищать..."
 	icon_state = "mouse_skeleton"
 	anchored = FALSE
 	move_resist = MOVE_FORCE_EXTREMELY_WEAK
 
-/obj/effect/decal/remains/mouse/water_act(volume, temperature, source, method)
+/obj/effect/decal/remains/animals/mouse/water_act(volume, temperature, source, method)
 	. = ..()
+
+/obj/effect/decal/remains/animals/monkey
+	icon_state = "monkey_skeleton"
+	desc =  "Это была очень любопытная мартышка."

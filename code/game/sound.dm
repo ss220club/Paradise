@@ -224,7 +224,6 @@ falloff_distance - Distance at which falloff begins. Sound is at peak volume (in
 							  'sound/machines/terminal_button07.ogg', 'sound/machines/terminal_button08.ogg')
 			if("growls")
 				soundin = pick('sound/goonstation/voice/growl1.ogg', 'sound/goonstation/voice/growl2.ogg', 'sound/goonstation/voice/growl3.ogg')
-
 			if("bonebreak")
 				soundin = pick('sound/effects/bone_break_1.ogg', 'sound/effects/bone_break_2.ogg', 'sound/effects/bone_break_3.ogg', 'sound/effects/bone_break_4.ogg', 'sound/effects/bone_break_5.ogg', 'sound/effects/bone_break_6.ogg')
 			if("honkbot_e")
@@ -235,6 +234,8 @@ falloff_distance - Distance at which falloff begins. Sound is at peak volume (in
 				soundin = pick('sound/goonstation/voice/unathi/m_u_scream.ogg', 'sound/goonstation/voice/unathi/m_u_scream2.ogg')
 			if("clownstep")
 				soundin = pick('sound/effects/clownstep1.ogg','sound/effects/clownstep2.ogg')
+			if("timer")
+				soundin = 'sound/items/timer.ogg'
 			else
 				var/check_sound = FALSE
 				for(var/format in SOUND_ALLOWED_FILE_FORMATS)
