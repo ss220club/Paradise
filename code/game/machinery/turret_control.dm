@@ -130,6 +130,8 @@
 		return
 
 /obj/machinery/turretid/attack_ai(mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	ui_interact(user)
 
 /obj/machinery/turretid/attack_ghost(mob/user as mob)

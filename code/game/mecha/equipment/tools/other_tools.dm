@@ -21,7 +21,7 @@
 		chassis.use_power(energy_drain)
 		var/turf/user_turf = get_turf(src)
 		do_teleport(chassis, T, tele_precision)
-		chassis.investigate_log("[key_name_log(chassis.occupant)] mecha-teleported from [COORD(user_turf)] to [COORD(chassis)].", INVESTIGATE_TELEPORTATION)
+		chassis.investigate_log("[key_name_log(chassis.occupant)] телепортировался из [COORD(user_turf)] в [COORD(chassis)].", INVESTIGATE_TELEPORTATION)
 		return 1
 
 /obj/item/mecha_parts/mecha_equipment/teleporter/precise
@@ -71,9 +71,9 @@
 	P.failchance = 0
 	P.icon_state = "anom"
 	P.name = "wormhole"
-	message_admins("[ADMIN_LOOKUPFLW(chassis.occupant)] used a Wormhole Generator in [ADMIN_COORDJMP(loc)]")
-	add_game_logs("used a Wormhole Generator in [COORD(loc)]", chassis.occupant)
-	chassis.investigate_log("[key_name_log(chassis.occupant)] used a Wormhole Generator at [COORD(loc)].", INVESTIGATE_TELEPORTATION)
+	message_admins("[ADMIN_LOOKUPFLW(chassis.occupant)] использовал Генератор Червоточин в [ADMIN_COORDJMP(loc)]")
+	add_game_logs("использовал Генератор Червоточин в [COORD(loc)]", chassis.occupant)
+	chassis.investigate_log("[key_name_log(chassis.occupant)] использовал Генератор Червоточин в [COORD(loc)].", INVESTIGATE_TELEPORTATION)
 
 	src = null
 	spawn(rand(150,300))
@@ -98,16 +98,16 @@
 	if(!action_checks(target))
 		return
 	if(cooldown_timer > world.time)
-		occupant_message("<span class='warning'>[src] is still recharging.</span>")
+		occupant_message("<span class='warning'>[src] все еще заряжается.</span>")
 		return
 	switch(mode)
 		if(1)
 			if(!locked)
 				if(!istype(target) || target.anchored)
-					occupant_message("Unable to lock on [target]")
+					occupant_message("Невозможно выбрать [target]")
 					return
 				locked = target
-				occupant_message("Locked on [target]")
+				occupant_message("Выбрал целью [target]")
 				send_byjax(chassis.occupant,"exosuit.browser","\ref[src]",get_equip_info())
 			else if(target!=locked)
 				if(locked in view(chassis))
@@ -118,7 +118,7 @@
 					return 1
 				else
 					locked = null
-					occupant_message("Lock on [locked] disengaged.")
+					occupant_message("Выбор цели [locked] снят.")
 					send_byjax(chassis.occupant,"exosuit.browser","\ref[src]",get_equip_info())
 		if(2)
 			var/list/atoms = list()
@@ -135,7 +135,7 @@
 						sleep(2)
 			var/turf/T = get_turf(target)
 			cooldown_timer = world.time + 3 SECONDS
-			add_game_logs("used a Gravitational Catapult in [COORD(T)]", chassis.occupant)
+			add_game_logs("использовал Гравитационную катапульту в [COORD(T)]", chassis.occupant)
 			return 1
 
 
@@ -220,7 +220,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/repair_droid/get_equip_info()
 	if(!chassis) return
-	return "<span style=\"color:[equip_ready?"#0f0":"#f00"];\">*</span>&nbsp; [name] - <a href='?src=[UID()];toggle_repairs=1'>[equip_ready?"A":"Dea"]ctivate</a>"
+	return "<span style=\"color:[equip_ready?"#0f0":"#f00"];\">*</span>&nbsp; [name] - <a href='?src=[UID()];toggle_repairs=1'>[equip_ready?"А":"Деа"]ктивировать</a>"
 
 
 /obj/item/mecha_parts/mecha_equipment/repair_droid/Topic(href, href_list)
@@ -230,12 +230,12 @@
 		if(equip_ready)
 			START_PROCESSING(SSobj, src)
 			droid_overlay = new(icon, icon_state = "repair_droid_a")
-			log_message("Activated.")
+			log_message("Активирован.")
 			set_ready_state(0)
 		else
 			STOP_PROCESSING(SSobj, src)
 			droid_overlay = new(icon, icon_state = "repair_droid")
-			log_message("Deactivated.")
+			log_message("Деактивирован.")
 			set_ready_state(1)
 		chassis.overlays += droid_overlay
 		send_byjax(chassis.occupant,"exosuit.browser","\ref[src]",get_equip_info())
@@ -315,15 +315,15 @@
 		if(equip_ready) //inactive
 			START_PROCESSING(SSobj, src)
 			set_ready_state(0)
-			log_message("Activated.")
+			log_message("Активирован.")
 		else
 			STOP_PROCESSING(SSobj, src)
 			set_ready_state(1)
-			log_message("Deactivated.")
+			log_message("Деактивирован.")
 
 /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay/get_equip_info()
 	if(!chassis) return
-	return "<span style=\"color:[equip_ready?"#0f0":"#f00"];\">*</span>&nbsp; [name] - <a href='?src=[UID()];toggle_relay=1'>[equip_ready?"A":"Dea"]ctivate</a>"
+	return "<span style=\"color:[equip_ready?"#0f0":"#f00"];\">*</span>&nbsp; [name] - <a href='?src=[UID()];toggle_relay=1'>[equip_ready?"А":"Деа"]ктивировать</a>"
 
 
 /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay/process()
@@ -335,7 +335,7 @@
 	if(isnull(cur_charge) || !chassis.cell)
 		STOP_PROCESSING(SSobj, src)
 		set_ready_state(1)
-		occupant_message("No powercell detected.")
+		occupant_message("Батареи не обнаружено.")
 		return
 	if(cur_charge < chassis.cell.maxcharge)
 		var/area/A = get_area(chassis)
@@ -382,11 +382,11 @@
 		if(equip_ready) //inactive
 			set_ready_state(0)
 			START_PROCESSING(SSobj, src)
-			log_message("Activated.")
+			log_message("Активирован.")
 		else
 			set_ready_state(1)
 			STOP_PROCESSING(SSobj, src)
-			log_message("Deactivated.")
+			log_message("Деактивирован.")
 
 /obj/item/mecha_parts/mecha_equipment/generator/get_equip_info()
 	var/output = ..()
@@ -410,10 +410,10 @@
 					var/added_fuel = units * P.perunit
 					fuel_amount = min(fuel_amount + added_fuel, max_fuel)
 					P.use(units)
-					occupant_message("[units] unit\s of [fuel_name] successfully loaded.")
+					occupant_message("[units] единиц [fuel_name] успешно загружено.")
 					return added_fuel
 			else
-				occupant_message("Unit is full.")
+				occupant_message("Генератор полон.")
 				return 0
 		else // Some other object containing our fuel's type, so we just eat it (ores mainly)
 			var/to_load = max(min(I.materials[fuel_type], max_fuel - fuel_amount),0)
@@ -433,7 +433,7 @@
 		return fuel_added
 
 	else
-		occupant_message("<span class='warning'>[fuel_name] traces in target minimal! [I] cannot be used as fuel.</span>")
+		occupant_message("<span class='warning'>[fuel_name] достиг отметки минимума! [I] не может быть использован как топливо.</span>")
 		return
 
 /obj/item/mecha_parts/mecha_equipment/generator/attackby(weapon,mob/user, params)
@@ -448,12 +448,12 @@
 	if(prob(10))
 		GM.toxins += 100
 		GM.temperature = 1500+T0C //should be enough to start a fire
-		T.visible_message("[src] suddenly disgorges a cloud of heated plasma.")
+		T.visible_message("[src] внезапно выбрасывает облако раскаленной плазмы.")
 		qdel(src)
 	else
 		GM.toxins += 5
 		GM.temperature = istype(T) ? T.air.return_temperature() : T20C
-		T.visible_message("[src] suddenly disgorges a cloud of plasma.")
+		T.visible_message("[src] внезапно выбрасывает облако плазмы.")
 	T.assume_air(GM)
 
 /obj/item/mecha_parts/mecha_equipment/generator/process()
@@ -463,14 +463,14 @@
 		return
 	if(fuel_amount<=0)
 		STOP_PROCESSING(SSobj, src)
-		log_message("Deactivated - no fuel.")
+		log_message("Деактивирован - нет топлива.")
 		set_ready_state(1)
 		return
 	var/cur_charge = chassis.get_charge()
 	if(isnull(cur_charge))
 		set_ready_state(1)
-		occupant_message("No powercell detected.")
-		log_message("Deactivated.")
+		occupant_message("Не обнаружено батареи.")
+		log_message("Деактивирован.")
 		STOP_PROCESSING(SSobj, src)
 		return
 	var/use_fuel = fuel_per_cycle_idle

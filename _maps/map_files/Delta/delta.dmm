@@ -109133,6 +109133,9 @@
 	dir = 4;
 	pixel_x = 12
 	},
+/obj/structure/sign/poster/secret/ray{
+	pixel_y = -32
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},

@@ -92,11 +92,6 @@
 
 	return TRUE
 
-
-/datum/event/operative/proc/announce_loneop()
-	GLOB.event_announcement.Announce("Сканерами дальнего действия обнаружена активность на орбите станции, приближается неизвестный корабль.", "ВНИМАНИЕ: НЕИЗВЕСТНЫЙ КОРАБЛЬ.", 'sound/misc/announce_dig.ogg')
-
-
 /datum/event/operative/start()
 	processing = FALSE
 	if(length(GLOB.player_list) < MIN_PLAYERS_FOR_LONEOP_EVENT)
@@ -105,7 +100,6 @@
 	if(!make_operative())
 		message_admins("Lone operative event failed to start. Not enough ghosts, nuke spawn points or nuke bombs.")
 		return
-	addtimer(CALLBACK(src, .proc/announce_loneop), LONEOP_ANNOUNCE_DELAY)
 
 #undef MIN_PLAYERS_FOR_LONEOP_EVENT
 #undef LONEOP_ANNOUNCE_DELAY
