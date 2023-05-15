@@ -159,7 +159,7 @@
 	layer = MOB_LAYER
 
 /mob/living/simple_animal/mouse/proc/make_remains()
-	var/obj/effect/decal/remains = new /obj/effect/decal/remains/mouse(src.loc)
+	var/obj/effect/decal/remains = new /obj/effect/decal/remains/animals/mouse(src.loc)
 	remains.pixel_x = pixel_x
 	remains.pixel_y = pixel_y
 
