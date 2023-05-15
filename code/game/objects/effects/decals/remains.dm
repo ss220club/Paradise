@@ -53,6 +53,7 @@
 /obj/effect/decal/remains/animals
 	name = "remains"
 	icon = 'icons/mob/animal.dmi'
+	
 /obj/effect/decal/remains/animals/mouse
 	desc = "Некогда бывшая мышь. Её останки. Больше не будет пищать..."
 	icon_state = "mouse_skeleton"
