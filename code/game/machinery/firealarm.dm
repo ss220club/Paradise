@@ -243,6 +243,7 @@ FIRE ALARM
 	if(user.incapacitated())
 		return 1
 
+	add_fingerprint(user)
 	toggle_alarm(user)
 
 

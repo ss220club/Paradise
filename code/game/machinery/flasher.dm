@@ -140,6 +140,8 @@
 	if(active)
 		return
 
+	add_fingerprint(user)
+
 	use_power(5)
 
 	active = 1
