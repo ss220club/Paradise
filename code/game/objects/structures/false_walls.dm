@@ -77,6 +77,7 @@
 
 	if(density)
 		opening = TRUE
+		add_fingerprint(user)
 		do_the_flick()
 		sleep(4)
 		density = FALSE
@@ -89,6 +90,7 @@
 				to_chat(user, span_warning("[obstacle] is blocking the way!"))
 				return
 		opening = TRUE
+		add_fingerprint(user)
 		do_the_flick()
 		density = TRUE
 		sleep(4)
@@ -289,6 +291,7 @@
 
 /obj/structure/falsewall/plasma/attackby(obj/item/W, mob/user, params)
 	if(is_hot(W) > 300)
+		add_fingerprint(user)
 		add_attack_logs(user, src, "Ignited using [W]", ATKLOG_FEW)
 		investigate_log("was <span class='warning'>ignited</span> by [key_name_log(user)]",INVESTIGATE_ATMOS)
 		burnbabyburn()
