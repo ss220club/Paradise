@@ -76,7 +76,7 @@
 	deflect_chance = 20
 	armor = list(melee = 40, bullet = 40, laser = 50, energy = 35, bomb = 20, bio = 0, rad =20, fire = 100, acid = 100)
 	max_temperature = 35000
-	leg_overload_coeff = 100
+	leg_overload_coeff = 2
 	maint_access = 0
 	operation_req_access = list(ACCESS_SYNDICATE)
 	maint_access = 0
