@@ -19,3 +19,7 @@
 	<br>\
 	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
 	the buckles, instead."
+	
+/obj/structure/falsewall
+	description_info = "You can deconstruct this by welding it, and then wrenching the girder.<br>\
+	You can build a wall by using metal sheets and making a girder, then adding more metal or plasteel."
