@@ -606,7 +606,7 @@
 /obj/item/slimepotion/clothing/laserresistance
 	name = "laser resistance slime potion"
 	id = "Laser Resistance"
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 5,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 10,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	desc = "A potent chemical mix that will increase laser resistance of any article of clothing."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle4"
@@ -697,7 +697,7 @@
 /obj/item/slimepotion/clothing/damage
 	name = "Physical damage resistance slime potion"
 	id = "Damage Resistance"
-	armor = list("melee" = 5, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("melee" = 10, "bullet" = 10, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	desc = "A potent chemical mix that will increase impact and gunshot resistance of any article of clothing."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle10"
