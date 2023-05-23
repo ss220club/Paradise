@@ -112,7 +112,7 @@
 	bust_open()
 	update_icon()
 
-/obj/structure/closet/secure_closet/research_reagents/populate_contents()
+/obj/structure/closet/secure_closet/research_reagents/broken/populate_contents()
 	new /obj/item/reagent_containers/glass/bottle/reagent/hydrogen(src)
 	new /obj/item/reagent_containers/glass/bottle/reagent/phosphorus(src)
 	new /obj/item/reagent_containers/glass/bottle/reagent/iodine(src)
