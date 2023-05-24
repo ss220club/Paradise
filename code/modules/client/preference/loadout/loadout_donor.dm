@@ -114,37 +114,37 @@
 	cost = 4
 
 /datum/gear/donor/v_jacket
-	display_name = "V's jacket"
+	display_name = "V jacket"
 	path = /obj/item/clothing/suit/v_jacket
 	donator_tier = 4
 	cost = 2
 
 /datum/gear/donor/takemura_jacket
-	display_name = "Takemura's jacket"
+	display_name = "Takemura jacket"
 	path = /obj/item/clothing/suit/takemura_jacket
 	donator_tier = 4
 	cost = 2
 
 /datum/gear/donor/katarina_jacket
-	display_name = "Katarina's jacket"
+	display_name = "Katarina jacket"
 	path = /obj/item/clothing/suit/katarina_jacket
 	donator_tier = 5
 	cost = 2
 
 /datum/gear/donor/katarina_suit
-	display_name = "Katarina's suit"
+	display_name = "Katarina suit"
 	path = /obj/item/clothing/under/katarina_suit
 	donator_tier = 5
 	cost = 1
 
 /datum/gear/donor/katarina_cyberjacket
-	display_name = "Katarina's cyberjacket"
+	display_name = "Katarina cyberjacket"
 	path = /obj/item/clothing/suit/katarina_cyberjacket
 	donator_tier = 5
 	cost = 2
 
 /datum/gear/donor/katarina_cybersuit
-	display_name = "Katarina's cybersuit"
+	display_name = "Katarina cybersuit"
 	path = /obj/item/clothing/under/katarina_cybersuit
 	donator_tier = 5
 	cost = 1
