@@ -79274,10 +79274,6 @@
 	dir = 4;
 	pixel_x = 10
 	},
-/obj/machinery/light_switch{
-	name = "east light switch";
-	pixel_x = 24
-	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "darkpurple"
@@ -84380,6 +84376,12 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/maintenance/port)
+"nWg" = (
+/obj/machinery/computer/cryopod/robot{
+	pixel_x = -32
+	},
+/turf/simulated/floor/plasteel,
+/area/assembly/chargebay)
 "nWm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -91446,6 +91448,10 @@
 	pixel_y = 10
 	},
 /obj/structure/table/glass,
+/obj/machinery/light_switch{
+	name = "east light switch";
+	pixel_x = 24
+	},
 /turf/simulated/floor/plasteel{
 	dir = 5;
 	icon_state = "darkpurple"
@@ -142474,7 +142480,7 @@ bLN
 bNg
 bOZ
 cFA
-bHX
+nWg
 aZS
 bWi
 bWi
