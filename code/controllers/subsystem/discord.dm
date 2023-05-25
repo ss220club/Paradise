@@ -49,6 +49,7 @@ SUBSYSTEM_DEF(discord)
 	var/list/admincounter = staff_countup(R_BAN)
 	var/active_admins = admincounter[1]
 	var/inactive_admins = admincounter[3]
+	var/ping_stuff = add_ping
 
 	if(active_admins <= 0)
 		if(inactive_admins > 0)
