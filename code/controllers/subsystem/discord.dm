@@ -43,13 +43,13 @@ SUBSYSTEM_DEF(discord)
 		SShttp.create_async_request(RUSTG_HTTP_METHOD_POST, url, dwp.serialize2json(), list("content-type" = "application/json"))
 
 // This one is for sending messages to the admin channel if no admins are active, complete with a ping to the game admins role
-/datum/controller/subsystem/discord/proc/send2discord_simple_noadmins(content, check_send_always = FALSE)
+/datum/controller/subsystem/discord/proc/send2discord_simple_noadmins(content, check_send_always = FALSE, ping_stuff = TRUE)
 	// Setup some stuff
 	var/alerttext
 	var/list/admincounter = staff_countup(R_BAN)
 	var/active_admins = admincounter[1]
 	var/inactive_admins = admincounter[3]
-	var/add_ping = TRUE
+	var/add_ping = ping_stuff
 
 	if(active_admins <= 0)
 		if(inactive_admins > 0)
