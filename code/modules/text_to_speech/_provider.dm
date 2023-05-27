@@ -1,6 +1,5 @@
 /datum/tts_provider
 	var/name = "STUB"
-	var/api_url
 	var/is_enabled = TRUE
 
 	// Throttling

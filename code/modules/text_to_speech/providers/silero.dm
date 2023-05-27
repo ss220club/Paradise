@@ -1,6 +1,5 @@
 /datum/tts_provider/silero
 	name = "Silero"
-	api_url = "http://s2.ss220.club:9999/voice"
 	is_enabled = TRUE
 
 /datum/tts_provider/silero/request(text, datum/tts_seed/silero/seed, datum/callback/proc_callback)
@@ -9,6 +8,7 @@
 
 	var/ssml_text = {"<speak>[text]</speak>"}
 
+	var/api_url = "http://s2.ss220.club:9999/voice"
 	var/list/req_body = list()
 	req_body["api_token"] = tts_token_silero
 	req_body["text"] = ssml_text
