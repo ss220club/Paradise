@@ -6,7 +6,7 @@
 	if(throttle_check())
 		return FALSE
 
-	var/api_url = "https://s2.ss220.club:9999/voice"
+	var/api_url = "http://s2.ss220.club:9999/voice"
 	var/ssml_text = {"<speak>[text]</speak>"}
 
 	var/list/req_body = list()
