@@ -217,8 +217,17 @@
 		return
 
 	if(GLOB.pacifism_after_gt)
-		to_chat(user, "<span class='warning'>Вы не хотите вреда!</span>")
-		return
+		var/mob/living/L = user
+		if(!target.Adjacent(src))
+			if(selected && selected.is_ranged())
+				if(selected.harmful)
+					to_chat(user, "<span class='warning'>Вы не хотите вреда!</span>")
+					return
+				selected.action(target, params)
+		else if(selected && selected.is_melee())
+			if(isliving(target) && selected.harmful)
+				to_chat(user, "<span class='warning'>Вы не хотите вреда!</span>")
+				return
 
 	var/dir_to_target = get_dir(src, target)
 	if(dir_to_target && !(dir_to_target & dir))//wrong direction
