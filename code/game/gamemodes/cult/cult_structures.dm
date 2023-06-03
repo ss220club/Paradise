@@ -298,7 +298,9 @@ GLOBAL_LIST_INIT(blacklisted_pylon_turfs, typecacheof(list(
 
 /obj/structure/cult/functional/pylon/holy
 	cult_icon_changing = FALSE
+	light_color = LIGHT_COLOR_BLUE
 	icon_state = "holy"
+	holy = TRUE
 
 /obj/structure/cult/functional/archives
 	name = "archives"
