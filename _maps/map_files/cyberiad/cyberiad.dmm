@@ -2031,7 +2031,6 @@
 	},
 /obj/item/clothing/suit/armor/riot,
 /obj/item/shield/riot,
-/obj/item/clothing/gloves/combat,
 /obj/item/clothing/head/helmet/riot,
 /obj/structure/window/reinforced{
 	dir = 1
@@ -88064,7 +88063,6 @@
 	},
 /obj/item/clothing/suit/armor/riot,
 /obj/item/shield/riot,
-/obj/item/clothing/gloves/combat,
 /obj/item/clothing/head/helmet/riot,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -97082,7 +97080,6 @@
 	},
 /obj/item/clothing/suit/armor/riot,
 /obj/item/shield/riot,
-/obj/item/clothing/gloves/combat,
 /obj/item/clothing/head/helmet/riot,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
