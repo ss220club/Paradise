@@ -627,10 +627,6 @@
 	M.step_in = improv_step_in
 
 /obj/item/mecha_parts/mecha_equipment/medical/improved_exosuit_control_system/detach()
-	if(istype(src.loc, /obj/mecha/medical/odysseus))
-		var/obj/mecha/medical/odysseus/O = src.loc
-		O.step_in = initial(O.step_in)
-	if(istype(src.loc, /obj/mecha/combat/lockersyndie))
-		var/obj/mecha/combat/lockersyndie/S = src.loc
-		S.step_in = initial(S.step_in)
-		return ..()
+	var/obj/mecha/M = src.loc
+	M.step_in = initial(M.step_in)
+	return ..()
