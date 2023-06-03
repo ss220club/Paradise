@@ -1073,6 +1073,11 @@
 //			to_chat(world, "DEBUG: runnable_mode\[[runnable_modes.len]\] = [M.config_tag]")
 	return runnable_modes
 
+/datum/configuration/vv_get_var(var_name)
+	. = ..()
+	if(var_name == "comms_password")
+		return FALSE
+
 /datum/configuration/vv_edit_var(var_name, var_value)
 	if(findtext(var_name, "log_") && usr?.client?.holder?.rights != R_HOST)
 		return FALSE
