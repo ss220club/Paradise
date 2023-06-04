@@ -107,8 +107,8 @@
 /obj/structure/table/attack_tk() // no telehulk sorry
 	return
 
-/obj/structure/table/proc/item_placed(item)
-	return
+/obj/structure/table/proc/item_placed(obj/item/I, mob/user)
+	I.do_pick_drop_animation(user, DROP_ANIM, I)
 
 /obj/structure/table/Crossed(atom/movable/AM, oldloc)
 	. = ..()
@@ -212,7 +212,6 @@
 			return FALSE
 		G.affecting.forceMove(get_turf(src))
 		G.affecting.Weaken(2)
-		item_placed(G.affecting)
 		G.affecting.visible_message("<span class='danger'>[G.assailant] pushes [G.affecting] onto [src].</span>", \
 									"<span class='userdanger'>[G.assailant] pushes [G.affecting] onto [src].</span>")
 		add_attack_logs(G.assailant, G.affecting, "Pushed onto a table")
@@ -238,7 +237,7 @@
 			//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
 			I.pixel_x = clamp(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
 			I.pixel_y = clamp(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
-			item_placed(I)
+			item_placed(I, user)
 	else
 		return ..()
 
@@ -760,6 +759,7 @@
 		return ..()
 	if(!(W.flags & ABSTRACT))
 		if(user.drop_item())
+			W.do_pick_drop_animation(user, DROP_ANIM, W)
 			W.Move(loc)
 	return
 
