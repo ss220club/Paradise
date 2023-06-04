@@ -87,7 +87,7 @@
 
 /obj/item/storage/firstaid/toxin/Initialize(mapload)
 	. = ..()
-	icon_state = pick("antitox_firstaid", "antitoxfirstaid2", "antitoxfirstaid3", "antitoxfirstaid4")
+	icon_state = pick("antitox_firstaid", "antitox2_firstaid", "antitox3_firstaid", "antitox4_firstaid")
 
 /obj/item/storage/firstaid/toxin/populate_contents()
 	new /obj/item/reagent_containers/syringe/charcoal(src)
