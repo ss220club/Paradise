@@ -217,7 +217,6 @@
 		return
 
 	if(GLOB.pacifism_after_gt)
-		var/mob/living/L = user
 		if(!target.Adjacent(src))
 			if(selected && selected.is_ranged())
 				if(selected.harmful)

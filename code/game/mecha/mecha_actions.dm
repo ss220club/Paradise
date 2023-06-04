@@ -258,7 +258,6 @@
 		spawn(chassis.wall_cooldown)
 			chassis.wall_ready = 1
 	else
-<<<<<<< HEAD
 		chassis.occupant_message("<span class='warning'>Энергетический барьер еще не готов!</span>")
 
 /datum/action/innate/mecha/flash
@@ -296,8 +295,6 @@
 			chassis.flash_ready = TRUE
 	else
 		chassis.occupant_message("<span class='warning'>Святой свет ещё не готов!</span>")
-=======
-		chassis.occupant_message("<span class='warning'>Energy wall is not ready yet!</span>")
 
 /////////////////////////////////// STRAFE PROCS ////////////////////////////////////////////////
 /datum/action/innate/mecha/mech_strafe
@@ -334,4 +331,4 @@
 		occupant_message("<font color='[strafe ? "green" : "red"]'>Strafing mode [strafe ? "en" : "dis"]abled.")
 		log_message("Toggled strafing mode [strafe ? "on" : "off"].")
 
->>>>>>> be0da5289c (feat: Mecha Strafe (#2759))
+
