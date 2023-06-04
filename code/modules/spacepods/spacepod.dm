@@ -244,9 +244,9 @@
 		add_attack_logs(user, src, "attacked")
 		return TRUE
 
-/obj/spacepod/attack_alien(mob/user)
+/obj/spacepod/attack_alien(mob/living/carbon/alien/user)
 	user.changeNext_move(CLICK_CD_MELEE)
-	deal_damage(15)
+	deal_damage(user.attack_damage)
 	playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1, -1)
 	to_chat(user, "<span class='warning'>You slash at [src]!</span>")
 	visible_message("<span class='warning'>The [user] slashes at [src.name]'s armor!</span>")
@@ -349,8 +349,8 @@
 		W.forceMove(src)
 		return
 
-	else if(istype(W, /obj/item/spacepod_key) && istype(equipment_system.lock_system, /obj/item/spacepod_equipment/lock/keyed))
-		var/obj/item/spacepod_key/key = W
+	else if(istype(W, /obj/item/spacepod_equipment/key) && istype(equipment_system.lock_system, /obj/item/spacepod_equipment/lock/keyed))
+		var/obj/item/spacepod_equipment/key/key = W
 		if(key.id == equipment_system.lock_system.id)
 			lock_pod()
 			return
@@ -379,6 +379,15 @@
 			return
 		if(istype(W, /obj/item/spacepod_equipment/lock))
 			add_equipment(user, W, "lock_system")
+			return
+
+	else if(istype(W, /obj/item/spacepod_equipment/key) && istype(equipment_system.lock_system, /obj/item/spacepod_equipment/lock/keyed))
+		var/obj/item/spacepod_equipment/key/key = W
+		if(key.id == equipment_system.lock_system.id)
+			lock_pod()
+			return
+		else
+			to_chat(user, "<span class='warning'>This is the wrong key!</span>")
 			return
 
 	else if(istype(W, /obj/item/lock_buster))
@@ -871,6 +880,7 @@
 		user.forceMove(get_turf(src))
 		passengers -= user
 		to_chat(user, "<span class='notice'>You climb out of [src].</span>")
+	user.update_gravity(user.mob_has_gravity())
 
 /obj/spacepod/verb/lock_pod()
 	set name = "Lock Doors"

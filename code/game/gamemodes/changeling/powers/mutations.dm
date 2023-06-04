@@ -144,7 +144,8 @@
 
 	else if(istype(target, /obj/machinery/computer))
 		var/obj/machinery/computer/C = target
-		C.attack_alien(user) //muh copypasta
+		if(C.attack_generic(user, 60, BRUTE, "melee", 0))
+			playsound(loc, 'sound/weapons/slash.ogg', 100, TRUE)
 
 	else if(istype(target, /obj/machinery/door/airlock))
 		var/obj/machinery/door/airlock/A = target
@@ -458,10 +459,13 @@
 	name = "flesh mass"
 	icon_state = "lingspacesuit"
 	desc = "A huge, bulky mass of pressure and temperature-resistant organic tissue, evolved to facilitate space travel."
-	flags = STOPSPRESSUREDMAGE | NODROP | DROPDEL
+	flags = STOPSPRESSUREDMAGE | NODROP | DROPDEL | HIDETAIL
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals)
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 90) //No armor at all
 	species_restricted = null
+	sprite_sheets = list(
+		"Unathi" = 'icons/mob/species/unathi/suit.dmi'
+		)
 
 /obj/item/clothing/suit/space/changeling/New()
 	..()
@@ -481,6 +485,9 @@
 	flags = BLOCKHAIR | STOPSPRESSUREDMAGE | NODROP | DROPDEL
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 90)
 	species_restricted = null
+	sprite_sheets = list(
+		"Unathi" = 'icons/mob/species/unathi/helmet.dmi'
+		)
 
 
 /***************************************\
