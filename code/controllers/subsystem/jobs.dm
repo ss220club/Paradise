@@ -785,7 +785,7 @@ SUBSYSTEM_DEF(jobs)
 			continue // If a client logs out in the middle of this
 
 		var/datum/db_query/exp_read = SSdbcore.NewQuery(
-			"SELECT id, exp FROM [format_table_name("player")] WHERE ckey=:ckey",
+			"SELECT exp FROM [format_table_name("player")] WHERE ckey=:ckey",
 			list("ckey" = C.ckey)
 		)
 
@@ -799,7 +799,6 @@ SUBSYSTEM_DEF(jobs)
 	// FALSE: We dont want to logspam
 	SSdbcore.MassExecute(select_queries, TRUE, FALSE, TRUE, FALSE) // Batch execute so we can take advantage of async magic
 
-	var/list/db_ids = list()
 	for(var/i in clients_to_process)
 		var/client/C = i
 		if(!C)
@@ -807,8 +806,7 @@ SUBSYSTEM_DEF(jobs)
 
 		if(select_queries[C.ckey]) // This check should not be necessary, but I am paranoid
 			while(select_queries[C.ckey].NextRow())
-				db_ids[C.ckey] = select_queries[C.ckey].item[1]
-				read_records[C.ckey] = params2list(select_queries[C.ckey].item[2])
+				read_records[C.ckey] = params2list(select_queries[C.ckey].item[1])
 
 	QDEL_LIST_ASSOC_VAL(select_queries) // Clean stuff up
 
@@ -871,10 +869,10 @@ SUBSYSTEM_DEF(jobs)
 		C.prefs.exp = new_exp
 
 		var/datum/db_query/update_query = SSdbcore.NewQuery(
-			"UPDATE [format_table_name("player")] SET exp =:newexp, lastseen=NOW() WHERE id=:db_id",
+			"UPDATE [format_table_name("player")] SET exp =:newexp, lastseen=NOW() WHERE ckey=:ckey",
 			list(
 				"newexp" = new_exp,
-				"db_id" = db_ids[C.ckey]
+				"ckey" = C.ckey
 			)
 		)
 
