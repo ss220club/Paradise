@@ -10382,10 +10382,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/port)
 "bjr" = (
-/obj/effect/decal/remains/mouse{
-	desc = "Останки Мыши, которая изжила себя, перестраивая эту станцию. SQUEEK! ";
-	name = "SQUEEK!"
-	},
 /obj/item/reagent_containers/food/snacks/cheesewedge{
 	pixel_x = -6;
 	pixel_y = 10
@@ -52019,10 +52015,6 @@
 	icon_state = "purple"
 	},
 /area/hallway/primary/aft/east)
-"jmu" = (
-/obj/effect/decal/remains/mouse/Pinkie,
-/turf/simulated/floor/plasteel/dark/telecomms,
-/area/toxins/server_coldroom)
 "jmF" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -70251,9 +70243,6 @@
 "pop" = (
 /obj/machinery/igniter{
 	id = "Incinerator"
-	},
-/obj/effect/decal/remains/mouse{
-	name = "Джерри"
 	},
 /turf/simulated/floor/engine,
 /area/toxins/mixing)
@@ -112175,7 +112164,6 @@ kal
 iid
 wXW
 ejh
-jmu
 ejh
 wXW
 lZz
