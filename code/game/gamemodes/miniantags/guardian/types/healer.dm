@@ -47,7 +47,7 @@
 
 /mob/living/simple_animal/hostile/guardian/healer/AttackingTarget()
 	. = ..()
-	if(toggle == TRUE)
+	if(toggle)
 		if(loc == summoner)
 			to_chat(src, "<span class='danger'>Нужно явить себя для лечения!</span>")
 			return

@@ -28,6 +28,8 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/action(target, params)
 	if(!action_checks(target))
 		return 0
+	if(!is_faced_target(target))
+		return FALSE
 
 	var/turf/curloc = get_turf(chassis)
 	var/turf/targloc = get_turf(target)
@@ -99,6 +101,17 @@
 	energy_drain = 120
 	projectile = /obj/item/projectile/ion
 	fire_sound = 'sound/weapons/ionrifle.ogg'
+
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/ionshotgun
+	name = "G.M. Ion Shotgun"
+	desc = "Having carefully studied the ion rifle, the brightest minds of the Gorlex Marauders found duct tape and stuck two more barrels! Impressive, isn't it?"
+	icon_state = "mecha_ion"
+	origin_tech = "materials=4;combat=5;magnets=4"
+	energy_drain = 40
+	projectile = /obj/item/projectile/ion/weak
+	fire_sound = 'sound/weapons/ionrifle.ogg'
+	projectiles_per_shot = 3
+	variance = 15
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/tesla
 	equip_cooldown = 35
@@ -240,6 +253,7 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic
 	name = "General Ballisic Weapon"
 	size = 2
+
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/action_checks(atom/target)
 	if(..())
 		if(projectiles > 0)
@@ -369,6 +383,8 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/action(target, params)
 	if(!action_checks(target))
 		return
+	if(!is_faced_target(target))
+		return FALSE
 	var/obj/item/missile/M = new projectile(chassis.loc)
 	M.primed = 1
 	if(heavy_missile)
@@ -419,11 +435,14 @@
 	projectile_energy_cost = 800
 	equip_cooldown = 60
 	var/det_time = 20
+	harmful = TRUE
 	size=1
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang/action(target, params)
 	if(!action_checks(target))
 		return
+	if(!is_faced_target(target))
+		return FALSE
 	var/obj/item/grenade/flashbang/F = new projectile(chassis.loc)
 	playsound(chassis, fire_sound, 50, 1)
 	F.throw_at(target, missile_range, missile_speed)
@@ -469,6 +488,8 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/banana_mortar/action(target, params)
 	if(!action_checks(target))
 		return
+	if(!is_faced_target(target))
+		return FALSE
 	var/obj/item/grown/bananapeel/B = new projectile(chassis.loc)
 	playsound(chassis, fire_sound, 60, 1)
 	B.throw_at(target, missile_range, missile_speed)
@@ -496,6 +517,8 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/mousetrap_mortar/action(target, params)
 	if(!action_checks(target))
 		return
+	if(!is_faced_target(target))
+		return FALSE
 	var/obj/item/assembly/mousetrap/M = new projectile(chassis.loc)
 	M.secured = 1
 	playsound(chassis, fire_sound, 60, 1)
@@ -526,6 +549,8 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/bola/action(target, params)
 	if(!action_checks(target))
 		return
+	if(!is_faced_target(target))
+		return FALSE
 	var/obj/item/restraints/legcuffs/bola/M = new projectile(chassis.loc)
 	playsound(chassis, fire_sound, 50, 1)
 	M.throw_at(target, missile_range, missile_speed)
