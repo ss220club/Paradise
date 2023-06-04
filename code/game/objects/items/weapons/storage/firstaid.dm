@@ -34,7 +34,7 @@
 
 /obj/item/storage/firstaid/fire/New()
 	..()
-	icon_state = pick("ointment", "firefirstaid")
+	icon_state = pick("burn_firstaid", "burn2_firstaid")
 
 /obj/item/storage/firstaid/fire/populate_contents()
 	new /obj/item/reagent_containers/applicator/burn(src)
@@ -87,7 +87,7 @@
 
 /obj/item/storage/firstaid/toxin/Initialize(mapload)
 	. = ..()
-	icon_state = pick("antitoxin", "antitoxfirstaid", "antitoxfirstaid2", "antitoxfirstaid3")
+	icon_state = pick("antitox_firstaid", "antitoxfirstaid2", "antitoxfirstaid3", "antitoxfirstaid4")
 
 /obj/item/storage/firstaid/toxin/populate_contents()
 	new /obj/item/reagent_containers/syringe/charcoal(src)
@@ -127,7 +127,7 @@
 
 /obj/item/storage/firstaid/brute/New()
 	..()
-	icon_state = pick("brute", "brute2")
+	icon_state = pick("brute_firstaid", "brute2_firstaid")
 
 /obj/item/storage/firstaid/brute/populate_contents()
 	new /obj/item/reagent_containers/applicator/brute(src)
