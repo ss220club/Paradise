@@ -817,7 +817,7 @@ SUBSYSTEM_DEF(jobs)
 	var/list/datum/db_query/player_update_queries = list() // List of queries to update player EXP
 	var/list/datum/db_query/playtime_history_update_queries = list() // List of queries to update the playtime history table
 
-	sql_ids = sortList(sql_ids)
+	sql_ids = sortAssoc(sql_ids)
 
 	for(var/i in sql_ids)
 		var/client/C = sql_ids[i]
