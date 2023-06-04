@@ -167,8 +167,6 @@
 
 /obj/item/storage/firstaid/machine/New()
 	..()
-	if(empty)
-		return
 	icon_state = pick("machine_firstaid", "machine2_firstaid")
 
 /obj/item/storage/firstaid/machine/populate_contents()
