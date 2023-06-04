@@ -47,7 +47,7 @@
 
 /mob/living/simple_animal/hostile/guardian/healer/AttackingTarget()
 	. = ..()
-	if(toggle == TRUE)
+	if(toggle)
 		if(loc == summoner)
 			to_chat(src, "<span class='danger'>Нужно явить себя для лечения!</span>")
 			return
@@ -66,10 +66,11 @@
 					med_hud_set_health()
 					med_hud_set_status()
 	else
+		if(loc == summoner)
+			return
 		var/mob/living/L = target
 		if(istype(L))
 			L.adjustToxLoss(15)
-
 
 /mob/living/simple_animal/hostile/guardian/healer/ToggleMode()
 	if(loc == summoner)

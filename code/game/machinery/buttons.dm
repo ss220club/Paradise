@@ -87,7 +87,6 @@
 
 /obj/machinery/driver_button/attack_hand(mob/user as mob)
 
-	add_fingerprint(usr)
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(active)
@@ -181,6 +180,8 @@
 		return
 	if(active)
 		return
+
+	add_fingerprint(user)
 
 	use_power(5)
 

@@ -86,14 +86,14 @@
 	armour_penetration = 100
 	damage_type = BRUTE
 	hitsound = 'sound/weapons/whip.ogg'
-	weaken = 4
+	weaken = 1
 	var/chain
 
 
 /obj/item/projectile/johyo/fire(setAngle)
 	if(firer)
 		firer.say(pick("Get over here!", "Come here!"))
-		chain = firer.Beam(src, icon_state = "chain_dark", time = INFINITY, maxdistance = INFINITY)
+		chain = firer.Beam(src, icon_state = "chain_dark", time = INFINITY, maxdistance = INFINITY, beam_sleep_time = 1)
 	. = ..()
 
 /obj/item/projectile/johyo/on_hit(atom/target)
