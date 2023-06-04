@@ -799,7 +799,7 @@ SUBSYSTEM_DEF(jobs)
 	// FALSE: We dont want to logspam
 	SSdbcore.MassExecute(select_queries, TRUE, FALSE, TRUE, FALSE) // Batch execute so we can take advantage of async magic
 
-	var/list/sql_ids = list()
+	var/list/db_ids = list()
 	for(var/i in clients_to_process)
 		var/client/C = i
 		if(!C)
@@ -807,7 +807,7 @@ SUBSYSTEM_DEF(jobs)
 
 		if(select_queries[C.ckey]) // This check should not be necessary, but I am paranoid
 			while(select_queries[C.ckey].NextRow())
-				sql_ids["[select_queries[C.ckey].item[1]]"] = C
+				db_ids[C.ckey] = select_queries[C.ckey].item[1]
 				read_records[C.ckey] = params2list(select_queries[C.ckey].item[2])
 
 	QDEL_LIST_ASSOC_VAL(select_queries) // Clean stuff up
@@ -817,10 +817,8 @@ SUBSYSTEM_DEF(jobs)
 	var/list/datum/db_query/player_update_queries = list() // List of queries to update player EXP
 	var/list/datum/db_query/playtime_history_update_queries = list() // List of queries to update the playtime history table
 
-	sql_ids = sortList(sql_ids)
-
-	for(var/i in sql_ids)
-		var/client/C = sql_ids[i]
+	for(var/i in clients_to_process)
+		var/client/C = i
 		if(!C)
 			continue // If a client logs out in the middle of this
 		// Get us a container
@@ -873,10 +871,10 @@ SUBSYSTEM_DEF(jobs)
 		C.prefs.exp = new_exp
 
 		var/datum/db_query/update_query = SSdbcore.NewQuery(
-			"UPDATE [format_table_name("player")] SET exp =:newexp, lastseen=NOW() WHERE id=:sql_id",
+			"UPDATE [format_table_name("player")] SET exp =:newexp, lastseen=NOW() WHERE id=:db_id",
 			list(
 				"newexp" = new_exp,
-				"sql_id" = i
+				"db_id" = db_ids[C.ckey]
 			)
 		)
 
