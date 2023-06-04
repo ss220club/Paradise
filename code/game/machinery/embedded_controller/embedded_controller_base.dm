@@ -37,6 +37,7 @@
 /obj/machinery/embedded_controller/attack_hand(mob/user as mob)
 	if(!user.IsAdvancedToolUser())
 		return FALSE
+	add_fingerprint(user)
 	ui_interact(user)
 
 /obj/machinery/embedded_controller/radio

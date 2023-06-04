@@ -112,11 +112,18 @@
 
 /obj/machinery/turretid/attackby(obj/item/I, mob/user)
 	if(stat & BROKEN)
+		add_fingerprint(user)
 		return
 
 	if(I.GetID() || ispda(I))
-		toggle_lock(user)
-
+		if(src.allowed(usr))
+			add_fingerprint(user)
+			if(emagged)
+				to_chat(user, "<span class='notice'>The turret control is unresponsive.</span>")
+			else
+				locked = !locked
+				to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the panel.</span>")
+		return
 	return ..()
 
 

@@ -427,6 +427,15 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	cost = 8
 	job = list("Station Engineer", "Trainee Engineer", "Chief Engineer")
 
+/datum/uplink_item/jobspecific/supertoolbox
+	name = "Superior Suspicious Toolbox"
+	desc = "Ultimate version of all toolboxes, this one more robust and more useful than his cheaper version. Comes with experimental type tools, combat gloves and cool sunglasses."
+	item = /obj/item/storage/toolbox/syndisuper
+	reference = "CSSTB"
+	cost = 2
+	excludefrom = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_SST)
+	job = list("Station Engineer", "Trainee Engineer", "Chief Engineer", "Mechanic", "Roboticist", "Paramedic")
+
 //RD
 /datum/uplink_item/jobspecific/telegun
 	name = "Telegun"
@@ -1459,6 +1468,12 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	uplinktypes = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_NUCLEAR_LONE, UPLINK_TYPE_SST)
 	surplus = 0
 
+/datum/uplink_item/stealthy_tools/chameleon_counter
+	name = "Chameleon Counterfeiter"
+	desc = "This device disguises itself as any object scanned by it. It's unstable and disguise will be disabled in about 30 minutes. The box contains three counterfeiters."
+	reference = "CC"
+	item = /obj/item/storage/box/syndie_kit/chameleon_counter
+	cost = 2
 // DEVICE AND TOOLS
 
 /datum/uplink_item/device_tools
@@ -1485,6 +1500,14 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "FLTB"
 	item = /obj/item/storage/toolbox/syndicate
 	cost = 1
+
+/datum/uplink_item/device_tools/supertoolbox
+	name = "Superior Suspicious Toolbox"
+	desc = "Ultimate version of all toolboxes, this one more robust and more useful than his cheaper version. Comes with experimental type tools, combat gloves and cool sunglasses."
+	item = /obj/item/storage/toolbox/syndisuper
+	reference = "SSTB"
+	cost = 2
+	uplinktypes = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_SST)
 
 /datum/uplink_item/device_tools/holster
 	name = "Shoulder Holster"
@@ -1542,11 +1565,12 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	name = "Syndicate Personal AI Device (SPAI)"
 	desc = "You will have your personal assistant. It comes with an increased amount of memory and special programs."
 	reference = "SPAI"
-	item = /obj/item/paicard/uplink
+	item = /obj/item/storage/box/syndie_kit/pai
 	cost = 5
 	excludefrom = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_NUCLEAR_LONE, UPLINK_TYPE_SST)
 	surplus = 0
 	refundable = TRUE
+	refund_path = /obj/item/paicard_upgrade/unused
 	cant_discount = TRUE
 
 /datum/uplink_item/device_tools/thermal_drill
@@ -1811,28 +1835,18 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	surplus = 0
 	uplinktypes = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_NUCLEAR_LONE, UPLINK_TYPE_SST)
 
-/datum/uplink_item/cyber_implants/spawn_item(turf/loc, obj/item/uplink/U)
-	if(item)
-		if(findtext(item, /obj/item/organ/internal/cyberimp))
-			U.uses -= max(cost, 0)
-			U.used_TC += cost
-			SSblackbox.record_feedback("nested tally", "traitor_uplink_items_bought", 1, list("[initial(name)]", "[cost]")) //this one and the line before copypasted because snowflaek code
-			return new /obj/item/storage/box/cyber_implants(loc, item)
-		else
-			return ..()
-
 /datum/uplink_item/cyber_implants/thermals
 	name = "Thermal Vision Implant"
 	desc = "These cybernetic eyes will give you thermal vision. Comes with an automated implanting tool."
 	reference = "CIT"
-	item = /obj/item/organ/internal/cyberimp/eyes/thermals
+	item = /obj/item/storage/box/cyber_implants/thermals
 	cost = 8
 
 /datum/uplink_item/cyber_implants/xray
 	name = "X-Ray Vision Implant"
 	desc = "These cybernetic eyes will give you X-ray vision. Comes with an automated implanting tool."
 	reference = "CIX"
-	item = /obj/item/organ/internal/cyberimp/eyes/xray
+	item = /obj/item/storage/box/cyber_implants/xray
 	cost = 10
 
 /datum/uplink_item/cyber_implants/antistun
@@ -1840,14 +1854,14 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	desc = "This implant will help you get back up on your feet faster after being stunned. It is invulnerable to EMPs. \
 			Comes with an automated implanting tool."
 	reference = "CIAS"
-	item = /obj/item/organ/internal/cyberimp/brain/anti_stun/hardened
+	item = /obj/item/storage/box/cyber_implants/anti_stun_hardened
 	cost = 12
 
 /datum/uplink_item/cyber_implants/reviver
 	name = "Hardened Reviver Implant"
 	desc = "This implant will attempt to revive you if you lose consciousness. It is invulnerable to EMPs. Comes with an automated implanting tool."
 	reference = "CIR"
-	item = /obj/item/organ/internal/cyberimp/chest/reviver/hardened
+	item = /obj/item/storage/box/cyber_implants/reviver_hardened
 	cost = 8
 
 // POINTLESS BADASSERY
