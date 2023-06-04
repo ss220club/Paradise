@@ -226,8 +226,7 @@
 /turf/simulated/floor/engine/cult/Initialize(mapload)
 	. = ..()
 	if(SSticker.mode)//only do this if the round is going..otherwise..fucking asteroid..
-		if(!icon_state == "holy")
-			icon_state = SSticker.cultdat.cult_floor_icon_state
+		icon_state = SSticker.cultdat.cult_floor_icon_state
 
 /turf/simulated/floor/engine/cult/narsie_act()
 	return
@@ -238,9 +237,6 @@
 		var/previouscolor = color
 		color = "#FAE48C"
 		animate(src, color = previouscolor, time = 8)
-
-/turf/simulated/floor/engine/cult/holy
-	icon_state = "holy"
 
 //air filled floors; used in atmos pressure chambers
 

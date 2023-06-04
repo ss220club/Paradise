@@ -6,12 +6,11 @@
 	almost anything into a trash can.
 */
 /atom/MouseDrop(atom/over)
-	. = TRUE
 	if(!usr || !over)
-		return FALSE
+		return
 	if(!(istype(over, /obj/screen) || (loc && loc == over.loc)))
 		if(!Adjacent(usr) || !over.Adjacent(usr)) // should stop you from dragging through windows
-			return FALSE
+			return
 
 	INVOKE_ASYNC(over, .proc/MouseDrop_T, src, usr)
 

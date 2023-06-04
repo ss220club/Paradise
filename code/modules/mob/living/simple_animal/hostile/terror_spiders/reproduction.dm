@@ -192,7 +192,6 @@
 	name = "terror egg cluster"
 	desc = "A cluster of tiny spider eggs. They pulse with a strong inner life, and appear to have sharp thorns on the sides."
 	icon_state = "egg"
-	max_integrity = 40
 	var/spider_growinstantly = FALSE
 	var/mob/living/simple_animal/hostile/poison/terror_spider/queen/spider_myqueen = null
 	var/mob/living/simple_animal/hostile/poison/terror_spider/spider_mymother = null
@@ -207,23 +206,21 @@
 
 	switch(spiderling_type)
 		if(/mob/living/simple_animal/hostile/poison/terror_spider/knight)
-			name = "knight of terror eggs"
+			name = "knight terror eggs"
 		if(/mob/living/simple_animal/hostile/poison/terror_spider/lurker)
-			name = "lurker of terror eggs"
+			name = "lurker terror eggs"
 		if(/mob/living/simple_animal/hostile/poison/terror_spider/healer)
-			name = "healer of terror eggs"
+			name = "healer terror eggs"
 		if(/mob/living/simple_animal/hostile/poison/terror_spider/reaper)
-			name = "reaper of terror eggs"
+			name = "reaper terror eggs"
 		if(/mob/living/simple_animal/hostile/poison/terror_spider/builder)
-			name = "builder of terror eggs"
+			name = "builder terror eggs"
 		if(/mob/living/simple_animal/hostile/poison/terror_spider/widow)
-			name = "widow of terror eggs"
+			name = "widow terror eggs"
 		if(/mob/living/simple_animal/hostile/poison/terror_spider/guardian)
-			name = "guardian of terror eggs"
-		if(/mob/living/simple_animal/hostile/poison/terror_spider/destroyer)
-			name = "destroyer of terror eggs"
+			name = "guardian terror eggs"
 		if(/mob/living/simple_animal/hostile/poison/terror_spider/defiler)
-			name = "defiler of terror eggs"
+			name = "defiler terror eggs"
 		if(/mob/living/simple_animal/hostile/poison/terror_spider/mother)
 			name = "mother of terror eggs"
 		if(/mob/living/simple_animal/hostile/poison/terror_spider/prince)
@@ -237,7 +234,7 @@
 
 /obj/structure/spider/eggcluster/terror_eggcluster/process()
 	amount_grown += 1
-	if(amount_grown >= 140)  //x2 time for egg process, spiderlings grows instantly
+	if(amount_grown >= 180)  //x2 time for egg process, spiderlings grows instantly
 		var/num = spiderling_number
 		playsound(src, 'sound/creatures/terrorspiders/eggburst.ogg', 100)
 		for(var/i=0, i<num, i++)

@@ -63,8 +63,6 @@
 			if(!user.drop_item())
 				return
 
-			add_fingerprint(user)
-
 			I.forceMove(src)
 			charging = I
 			user.visible_message("[user] inserts a cell into the charger.", "<span class='notice'>You insert a cell into the charger.</span>")
@@ -97,7 +95,6 @@
 	if(!charging)
 		return
 
-	add_fingerprint(user)
 	user.put_in_hands(charging)
 	charging.add_fingerprint(user)
 

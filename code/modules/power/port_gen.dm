@@ -280,7 +280,6 @@
 		if(amount < 1)
 			to_chat(user, "<span class='notice'>The [src.name] is full!</span>")
 			return
-		add_fingerprint(user)
 		to_chat(user, "<span class='notice'>You add [amount] sheet\s to the [src.name].</span>")
 		sheets += amount
 		addstack.use(amount)
@@ -311,7 +310,6 @@
 			return
 		else if(istype(O, /obj/item/crowbar) && panel_open)
 			default_deconstruction_crowbar(user, O)
-		add_fingerprint(user)
 	else
 		return ..()
 

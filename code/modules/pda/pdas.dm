@@ -208,7 +208,8 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "pda_box"
 
-/obj/item/storage/box/PDAs/populate_contents()
+/obj/item/storage/box/PDAs/New()
+	..()
 	new /obj/item/pda(src)
 	new /obj/item/pda(src)
 	new /obj/item/pda(src)

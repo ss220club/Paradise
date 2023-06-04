@@ -42,7 +42,6 @@
 	w -= src.disable_wire
 
 /obj/machinery/r_n_d/attack_hand(mob/user as mob)
-	add_fingerprint(user)
 	if(shocked)
 		shock(user,50)
 	if(panel_open)

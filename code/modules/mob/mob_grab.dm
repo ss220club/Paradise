@@ -2,6 +2,7 @@
 #define UPGRADE_KILL_TIMER  100
 
 //times it takes for a mob to eat
+#define EAT_TIME_XENO 30
 #define EAT_TIME_FAT 100
 
 //time it takes for a mob to be eaten (in deciseconds) (overrides mob eat time)
@@ -432,8 +433,8 @@
 
 /obj/item/proc/checktime(var/mob/attacker, var/mob/prey) //Returns the time the attacker has to wait before they eat the prey
 	if(isalien(attacker))
-		var/mob/living/carbon/alien/A = attacker
-		return A.devour_time
+		return EAT_TIME_XENO //xenos get a speed boost
+
 	if(istype(prey,/mob/living/simple_animal)) //simple animals get eaten at xeno-eating-speed regardless
 		return EAT_TIME_ANIMAL
 
@@ -455,6 +456,7 @@
 	return ..()
 
 
+#undef EAT_TIME_XENO
 #undef EAT_TIME_FAT
 
 #undef EAT_TIME_ANIMAL

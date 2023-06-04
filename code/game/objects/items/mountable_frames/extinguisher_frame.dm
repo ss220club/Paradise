@@ -6,6 +6,5 @@
 	mount_reqs = list("simfloor", "nospace")
 
 /obj/item/mounted/frame/extinguisher/do_build(turf/on_wall, mob/user)
-	var/obj/structure/extinguisher_cabinet/empty/cabinet = new(get_turf(src), get_dir(user, on_wall))
-	cabinet.add_fingerprint(user)
+	new /obj/structure/extinguisher_cabinet/empty(get_turf(src), get_dir(user, on_wall))
 	qdel(src)

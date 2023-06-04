@@ -131,10 +131,6 @@
 
 /obj/item/storage/pill_bottle/random_meds/New()
 	..()
-	pixel_x = rand(-10, 10)
-	pixel_y = rand(-10, 10)
-
-/obj/item/storage/pill_bottle/random_meds/populate_contents()
 	for(var/i in 1 to storage_slots)
 		var/list/possible_medicines = GLOB.standard_medicines.Copy()
 		if(prob(50))
@@ -152,6 +148,8 @@
 		else
 			P.name = "Unlabelled Pill"
 			P.desc = "Something about this pill entices you to try it, against your better judgement."
+	pixel_x = rand(-10, 10)
+	pixel_y = rand(-10, 10)
 
 /obj/item/storage/pill_bottle/random_meds/labelled
 	name = "variety pillbottle"
@@ -268,7 +266,6 @@
 								/mob/living/simple_animal/hostile/creature,/mob/living/simple_animal/hostile/pirate/ranged,
 								/mob/living/simple_animal/hostile/hivebot,/mob/living/simple_animal/hostile/viscerator,/mob/living/simple_animal/hostile/pirate)
 
-		add_fingerprint(user)
 		visible_message("<span class='warning'>Something falls out of the [src]!</span>")
 		var/obj/item/grenade/clusterbuster/C = new(src.loc)
 		C.prime()
@@ -296,7 +293,6 @@
 
 /obj/structure/largecrate/schrodinger/attackby(obj/item/W as obj, mob/user as mob, params)
 	if(istype(W, /obj/item/crowbar))
-		add_fingerprint(user)
 		sleep(2)
 		var/mob/living/simple_animal/pet/cat/Cat = new(loc)
 		Cat.name = "Schrodinger's Cat"
@@ -321,7 +317,8 @@
 	/obj/item/grenade/chem_grenade/dirt, /obj/item/grenade/chem_grenade/lube, /obj/item/grenade/smokebomb,
 	/obj/item/grenade/chem_grenade/drugs, /obj/item/grenade/chem_grenade/ethanol) // holy list batman
 
-/obj/item/storage/box/grenades/populate_contents()
+/obj/item/storage/box/grenades/New()
+	..()
 	for(var/i in 1 to 6)
 		var/nade = pick(grenadelist)
 		new nade(src)

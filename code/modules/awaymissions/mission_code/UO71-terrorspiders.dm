@@ -199,7 +199,6 @@
 				D.access |= this_access
 				did_upgrade = 1
 		if(did_upgrade)
-			add_fingerprint(user)
 			to_chat(user, "<span class='notice'>An access type was added to your ID card.</span>")
 			if(beenused)
 				return

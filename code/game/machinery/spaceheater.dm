@@ -63,7 +63,6 @@
 						cell = C
 						C.forceMove(src)
 						C.add_fingerprint(user)
-						add_fingerprint(user)
 
 						user.visible_message("<span class='notice'>[user] inserts a power cell into [src].</span>", "<span class='notice'>You insert the power cell into [src].</span>")
 		else

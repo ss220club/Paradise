@@ -203,8 +203,7 @@
 					T.ChangeTurf(/turf/simulated/wall/clockwork)
 				else
 					T.ChangeTurf(/turf/simulated/floor/clockwork)
-					var/obj/structure/falsewall/brass/fwall = new(T)
-					fwall.add_fingerprint(user)
+					new /obj/structure/falsewall/brass(T)
 				qdel(src)
 			else
 				to_chat(user, "<span class='warning'>You need more brass to make a [anchored ? "false ":""]wall!</span>")

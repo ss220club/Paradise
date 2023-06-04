@@ -6934,7 +6934,7 @@
 /obj/effect/decal/warning_stripes/red,
 /obj/machinery/door/poddoor/shutters/invincible{
 	dir = 1;
-	id_tag = "CC_Armory_SFG5"
+	id_tag = "CC_Armory_DAE"
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -7032,8 +7032,8 @@
 /area/start)
 "dEr" = (
 /obj/machinery/door_control{
-	id = "CC_Armory_SFG5";
-	name = "SFG-5";
+	id = "CC_Armory_DAE";
+	name = "DAE";
 	pixel_x = 24;
 	pixel_y = -24;
 	req_access = list(114);
@@ -26386,19 +26386,15 @@
 /obj/item/stack/cable_coil{
 	pixel_y = 10
 	},
-/obj/item/stock_parts/cell/bluespace{
+/obj/item/stock_parts/cell/high{
 	pixel_x = 6;
 	pixel_y = 1
 	},
-/obj/item/stock_parts/cell/bluespace{
+/obj/item/stock_parts/cell/high{
 	pixel_x = 6;
 	pixel_y = 1
 	},
-/obj/item/stock_parts/cell/bluespace{
-	pixel_x = 6;
-	pixel_y = 1
-	},
-/obj/item/stock_parts/cell/bluespace{
+/obj/item/stock_parts/cell/high{
 	pixel_x = 6;
 	pixel_y = 1
 	},
@@ -32347,7 +32343,7 @@
 /area/centcom/bridge)
 "qxu" = (
 /obj/structure/table/glass,
-/obj/item/storage/backpack/duffel/syndie/surgery,
+/obj/item/storage/backpack/duffel/syndie/surgery_fake,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
@@ -43288,7 +43284,7 @@
 "vFy" = (
 /obj/machinery/door/poddoor/shutters/invincible{
 	dir = 1;
-	id_tag = "CC_Armory_SFG5"
+	id_tag = "CC_Armory_DAE"
 	},
 /obj/effect/decal/warning_stripes/red,
 /turf/simulated/floor/plasteel{

@@ -137,7 +137,6 @@
 		if(!isEmpProof())
 			var/obj/item/stack/sheet/mineral/plasma/P = I
 			upgradeEmpProof()
-			add_fingerprint(user)
 			to_chat(user, "[msg]")
 			P.use(1)
 		else
@@ -148,7 +147,6 @@
 			return
 		if(!isMotion())
 			upgradeMotion()
-			add_fingerprint(user)
 			to_chat(user, "[msg]")
 			qdel(I)
 		else

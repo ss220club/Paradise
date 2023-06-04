@@ -219,7 +219,6 @@
 			to_chat(user, "<span class='warning'>\The [I] is stuck to you!</span>")
 			return
 
-		add_fingerprint(user)
 		beaker = I
 		SStgui.update_uis(src)
 		I.forceMove(src)
@@ -353,7 +352,6 @@
 /obj/machinery/computer/scan_consolenew/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/disk/data)) //INSERT SOME diskS
 		if(!disk)
-			add_fingerprint(user)
 			user.drop_item()
 			I.forceMove(src)
 			disk = I
@@ -403,7 +401,6 @@
 		for(dir in list(NORTH,EAST,SOUTH,WEST))
 			connected = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
 			if(!isnull(connected))
-				add_fingerprint(user)
 				attack_hand(user)
 				break
 	else
@@ -799,7 +796,7 @@
 
 	// Cooldown
 	injector_ready = FALSE
-	addtimer(CALLBACK(src, PROC_REF(injector_cooldown_finish)), (30 / connected.precision_coeff) SECONDS)
+	addtimer(CALLBACK(src, .proc/injector_cooldown_finish), 30 SECONDS)
 
 	// Create it
 	var/datum/dna2/record/buf = buffers[buffer_id]

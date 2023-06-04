@@ -14,7 +14,6 @@
 				if(user.z != src.z)
 					return
 
-				add_fingerprint(user)
 				var/turf/T = get_turf(user)
 				user.forceMove(pick(GLOB.ninja_teleport))
 				user.investigate_log("VOID-shifted from [COORD(T)] to [COORD(user)].", INVESTIGATE_TELEPORTATION)

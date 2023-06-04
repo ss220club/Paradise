@@ -115,7 +115,6 @@
 			if(checkCooked(I))
 				to_chat(user, "<span class='warning'>That is already [thiscooktype], it would do nothing!</span>")
 				return
-	add_fingerprint(user)
 	putIn(I, user)
 	sleep(cooktime)
 	if(I && I.loc == src)

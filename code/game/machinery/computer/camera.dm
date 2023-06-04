@@ -174,7 +174,6 @@
 		user.unset_machine()
 		return
 
-	add_fingerprint(user)
 	ui_interact(user)
 
 /obj/machinery/computer/security/attack_ai(mob/user)

@@ -808,13 +808,9 @@
 	name = "Long Emo"
 	icon_state = "longemo_alt"
 
-/datum/sprite_accessory/hair/zone1
+/datum/sprite_accessory/hair/zone
 	name = "Zone"
 	icon_state = "zone"
-
-/datum/sprite_accessory/hair/zone2
-	name = "Zone Alt"
-	icon_state = "zone_alt"
 
 /datum/sprite_accessory/hair/judge
 	name = "Judge"
@@ -876,10 +872,3 @@
 	name = "Baum"
 	icon_state = "baum"
 
-/datum/sprite_accessory/hair/wavyshoulder_down
-	name = "Wavyshoulder Down"
-	icon_state = "wavyshoulder_down"
-
-/datum/sprite_accessory/hair/short_spiked
-	name = "Short Spiked"
-	icon_state = "short_spiked"

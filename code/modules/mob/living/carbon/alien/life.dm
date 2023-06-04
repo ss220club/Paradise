@@ -48,6 +48,5 @@
 			LAZYREMOVE(stomach_contents, M)
 			continue
 		if(stat != DEAD && times_fired % 3 == 1)
-			M.Weaken(5)
 			M.adjustBruteLoss(5)
 			adjust_nutrition(10)

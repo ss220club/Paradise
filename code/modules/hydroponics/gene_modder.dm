@@ -96,7 +96,6 @@
 
 /obj/machinery/plantgenes/attackby(obj/item/I, mob/user, params)
 	if(default_deconstruction_screwdriver(user, "dnamod", "dnamod", I))
-		add_fingerprint(user)
 		update_icon()
 		return
 	if(exchange_parts(user, I))
@@ -112,7 +111,6 @@
 		else
 			if(!user.drop_item())
 				return
-			add_fingerprint(user)
 			insert_seed(I)
 			to_chat(user, "<span class='notice'>You add [I] to the machine.</span>")
 			interact(user)
@@ -123,7 +121,6 @@
 		else
 			if(!user.drop_item())
 				return
-			add_fingerprint(user)
 			disk = I
 			disk.forceMove(src)
 			to_chat(user, "<span class='notice'>You add [I] to the machine.</span>")
@@ -553,6 +550,7 @@
 	name = "plant data disks box"
 	icon_state = "disk_box"
 
-/obj/item/storage/box/disks_plantgene/populate_contents()
+/obj/item/storage/box/disks_plantgene/New()
+	..()
 	for(var/i in 1 to 7)
 		new /obj/item/disk/plantgene(src)

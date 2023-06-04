@@ -11,7 +11,6 @@
 	var/win_prob = 5
 
 /obj/structure/cursed_slot_machine/attack_hand(mob/user)
-	add_fingerprint(user)
 	interact(user)
 
 /obj/structure/cursed_slot_machine/interact(mob/living/carbon/human/user)
@@ -116,13 +115,8 @@
 	for(var/level in levels)
 		if(!is_teleport_allowed(level))
 			levels -= level
-			continue
-		if(is_taipan(level))
-			levels -= level
-			continue
 		if(text2num(level) == T.z)
 			levels -= level
-			continue
 
 	T.ChangeTurf(/turf/simulated/floor/chasm)
 	var/turf/simulated/floor/chasm/C = T

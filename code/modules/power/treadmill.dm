@@ -99,7 +99,6 @@
 
 /obj/machinery/power/treadmill/attackby(obj/item/W, mob/user)
 	if(default_unfasten_wrench(user, W, time = 60))
-		add_fingerprint(user)
 		if(anchored)
 			connect_to_network()
 		else

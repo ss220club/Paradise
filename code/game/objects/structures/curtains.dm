@@ -40,7 +40,6 @@
 
 /obj/structure/curtain/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/toy/crayon))
-		add_fingerprint(user)
 		color = input(user, "Choose Color") as color
 		return
 	return ..()

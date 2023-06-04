@@ -115,7 +115,6 @@
 		if(!user.drop_item())
 			return
 
-		add_fingerprint(user)
 		O.forceMove(src)
 		container = O
 		to_chat(user, "<span class='notice'>You add the [container] to [src].</span>")
@@ -128,13 +127,11 @@
 			to_chat(user, "<span class='warning'>[src] can't hold any more plants!</span>")
 			return
 
-		add_fingerprint(user)
 		var/obj/item/storage/bag/plants/PB = O
 		for(var/obj/item/reagent_containers/food/snacks/grown/G in PB.contents)
 			if(length(stored_plants) >= max_storable_plants)
 				break
 			PB.remove_from_storage(G, src)
-			PB.add_fingerprint(user)
 			stored_plants += G
 
 		if(length(stored_plants) < max_storable_plants)
@@ -152,7 +149,6 @@
 		if(!user.unEquip(O))
 			return
 
-		add_fingerprint(user)
 		O.forceMove(src)
 		stored_plants += O
 		to_chat(user, "<span class='info'>You put [O] in [src].</span>")
@@ -170,12 +166,10 @@
 		if(do_after(user, 1 SECONDS, target = src))
 			files.AddDesign2Known(D.blueprint)
 
-		add_fingerprint(user)
 		processing = FALSE
 		update_ui_product_list()
 		return TRUE
 	else
-		add_fingerprint(user)
 		to_chat(user, "<span class='warning'>You cannot put this in [name]!</span>")
 
 /**

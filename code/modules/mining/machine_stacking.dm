@@ -19,7 +19,6 @@
 		qdel(src)
 
 /obj/machinery/mineral/stacking_unit_console/attack_hand(mob/user)
-	add_fingerprint(user)
 
 	var/obj/item/stack/sheet/s
 	var/dat = {"<meta charset="UTF-8">"}

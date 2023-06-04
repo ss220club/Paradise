@@ -38,7 +38,6 @@
 		return
 
 	else if(istype(W, /obj/item/assembly/signaler) && panel_open)
-		add_fingerprint(user)
 		wires.Interact(user)
 
 	else

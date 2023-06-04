@@ -102,7 +102,6 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	if(anchored)
 		to_chat(usr, "It is fastened to the floor!")
 		return 0
-	add_fingerprint(usr)
 	dir = turn(dir, 270)
 	return 1
 
@@ -201,7 +200,6 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	if(construction_state == ACCELERATOR_WRENCHED)
 		var/obj/item/stack/cable_coil/C = W
 		if(C.use(1))
-			add_fingerprint(user)
 			playsound(loc, C.usesound, 50, 1)
 			user.visible_message("[user.name] adds wires to the [name].", \
 				"You add some wires.")
@@ -278,7 +276,6 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	if(anchored)
 		to_chat(usr, "It is fastened to the floor!")
 		return 0
-	add_fingerprint(usr)
 	dir = turn(dir, 270)
 	return 1
 
@@ -304,7 +301,6 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	if(construction_state == ACCELERATOR_WRENCHED)
 		var/obj/item/stack/cable_coil/C = W
 		if(C.use(1))
-			add_fingerprint(user)
 			playsound(loc, C.usesound, 50, 1)
 			user.visible_message("[user.name] adds wires to the [name].", \
 				"You add some wires.")

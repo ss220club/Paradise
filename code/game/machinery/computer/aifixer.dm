@@ -14,7 +14,6 @@
 	if(occupant && istype(I, /obj/item/screwdriver))
 		if(stat & BROKEN)
 			..()
-		add_fingerprint(user)
 		if(stat & NOPOWER)
 			to_chat(user, "<span class='warning'>The screws on [name]'s screen won't budge.</span>")
 		else

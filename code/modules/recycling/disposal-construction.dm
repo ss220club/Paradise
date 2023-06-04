@@ -87,7 +87,6 @@
 		to_chat(usr, "You must unfasten the pipe before rotating it.")
 		return
 
-	add_fingerprint(usr)
 	dir = turn(dir, -90)
 	update()
 

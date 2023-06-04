@@ -23,7 +23,6 @@
 
 
 /obj/machinery/implantchair/attack_hand(mob/user)
-	add_fingerprint(user)
 	user.set_machine(src)
 	var/health_text = ""
 	if(src.occupant)
@@ -77,7 +76,6 @@
 			return
 		if(put_mob(M))
 			qdel(G)
-	add_fingerprint(user)
 	src.updateUsrDialog()
 	return
 

@@ -365,9 +365,11 @@ effective or pretty fucking useless.
 /obj/item/storage/box/syndie_kit/teleporter
 	name = "syndicate teleporter kit"
 
-/obj/item/storage/box/syndie_kit/teleporter/populate_contents()
+/obj/item/storage/box/syndie_kit/teleporter/New()
+	..()
 	new /obj/item/teleporter(src)
 	new /obj/item/paper/teleporter(src)
+	return
 
 /obj/effect/temp_visual/teleport_abductor/syndi_teleporter
 	duration = 5

@@ -393,7 +393,7 @@
 	random = FALSE
 
 /obj/item/guardiancreator/biological
-	name = "Скопление яиц скарабеев"
+	name = "Скопление яиц скарабаеев"
 	desc = "Паразитический вид, который при рождении будет гнездиться в ближайшем живом существе. Хотя это и не очень полезно для вашего здоровья, они будут защищать свой новый улей насмерть."
 	icon = 'icons/obj/fish_items.dmi'
 	icon_state = "eggs"
@@ -462,6 +462,8 @@
 /obj/item/storage/box/syndie_kit/guardian
 	name = "Набор инжектора голопаразита"
 
-/obj/item/storage/box/syndie_kit/guardian/populate_contents()
+/obj/item/storage/box/syndie_kit/guardian/New()
+	..()
 	new /obj/item/guardiancreator/tech/choose(src)
 	new /obj/item/paper/guardian(src)
+	return

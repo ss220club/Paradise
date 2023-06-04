@@ -208,10 +208,8 @@
 
 /obj/machinery/abductor/console/attackby(obj/O, mob/user, params)
 	if(istype(O, /obj/item/abductor/gizmo) && AddGizmo(O))
-		add_fingerprint(user)
 		to_chat(user, "<span class='notice'>You link the tool to the console.</span>")
 	else if(istype(O, /obj/item/clothing/suit/armor/abductor/vest) && AddVest(O))
-		add_fingerprint(user)
 		to_chat(user, "<span class='notice'>You link the vest to the console.</span>")
 	else
 		return ..()

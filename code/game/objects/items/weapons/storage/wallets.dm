@@ -43,13 +43,13 @@
 	return TRUE
 
 
-/obj/item/storage/wallet/remove_from_storage(obj/item/W, atom/new_location)
+/obj/item/storage/wallet/remove_from_storage(obj/item/W as obj, atom/new_location)
 	. = ..(W, new_location)
 	if(.)
 		id_check()
 		update_icon()
 
-/obj/item/storage/wallet/handle_item_insertion(obj/item/W, prevent_warning = 0)
+/obj/item/storage/wallet/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
 	. = ..(W, prevent_warning)
 	if(.)
 		id_check()
@@ -84,19 +84,29 @@
 /obj/item/storage/wallet/GetAccess()
 	return front_id ? front_id.GetAccess() : ..()
 
-/obj/item/storage/wallet/random/populate_contents()
-	var/cash = pick(/obj/item/stack/spacecash,
+/obj/item/storage/wallet/random/New()
+	..()
+	var/item1_type = pick(/obj/item/stack/spacecash,
 		/obj/item/stack/spacecash/c10,
 		/obj/item/stack/spacecash/c100,
 		/obj/item/stack/spacecash/c500,
 		/obj/item/stack/spacecash/c1000)
-	var/coin = pickweight(list(/obj/item/coin/iron = 3,
-							   /obj/item/coin/silver = 2,
-							   /obj/item/coin/gold = 1))
-	new cash(src)
+	var/item2_type
 	if(prob(50))
-		new cash(src)
-	new coin(src)
+		item2_type = pick(/obj/item/stack/spacecash,
+		/obj/item/stack/spacecash/c10,
+		/obj/item/stack/spacecash/c100,
+		/obj/item/stack/spacecash/c500,
+		/obj/item/stack/spacecash/c1000)
+	var/item3_type = pick( /obj/item/coin/silver, /obj/item/coin/silver, /obj/item/coin/gold, /obj/item/coin/iron, /obj/item/coin/iron, /obj/item/coin/iron )
+
+	spawn(2)
+		if(item1_type)
+			new item1_type(src)
+		if(item2_type)
+			new item2_type(src)
+		if(item3_type)
+			new item3_type(src)
 
 //////////////////////////////////////
 //			Color Wallets			//
@@ -109,8 +119,8 @@
 	icon = 'icons/obj/wallets.dmi'
 	item_state = "wallet"
 
-/obj/item/storage/wallet/color/Initialize(mapload)
-	. = ..()
+/obj/item/storage/wallet/color/New()
+	..()
 	if(!item_color)
 		var/color_wallet = pick(subtypesof(/obj/item/storage/wallet/color))
 		new color_wallet(src.loc)
@@ -124,13 +134,13 @@
 	icon_state = "[item_color]_wallet"
 
 
-/obj/item/storage/wallet/color/remove_from_storage(obj/item/W, atom/new_location)
+/obj/item/storage/wallet/color/remove_from_storage(obj/item/W as obj, atom/new_location)
 	. = ..(W, new_location)
 	if(.)
 		id_check()
 		update_icon()
 
-/obj/item/storage/wallet/color/handle_item_insertion(obj/item/W, prevent_warning = 0)
+/obj/item/storage/wallet/color/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
 	. = ..(W, prevent_warning)
 	if(.)
 		id_check()

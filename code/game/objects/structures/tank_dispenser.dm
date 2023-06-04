@@ -56,6 +56,7 @@
 /obj/structure/dispenser/attack_hand(mob/user)
 	if(..())
 		return 1
+	add_fingerprint(user)
 	ui_interact(user)
 
 /obj/structure/dispenser/attack_ghost(mob/user)
@@ -97,7 +98,6 @@
 		return
 
 	if(istype(I, /obj/item/wrench))
-		add_fingerprint(user)
 		if(anchored)
 			to_chat(user, "<span class='notice'>You lean down and unwrench [src].</span>")
 			anchored = 0
@@ -131,7 +131,6 @@
 		to_chat(user, "<span class='warning'>[T] is stuck to your hand!</span>")
 		return
 
-	add_fingerprint(user)
 	T.forceMove(src)
 	tank_list.Add(T)
 	update_icon()

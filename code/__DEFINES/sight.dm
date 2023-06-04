@@ -30,10 +30,9 @@
 //Some mob defines below
 #define AI_CAMERA_LUMINOSITY 6
 
-#define SILICONMESON 1
-#define SILICONTHERM 2
-#define SILICONXRAY  4
-#define SILICONNIGHTVISION 8
+#define BORGMESON 1
+#define BORGTHERM 2
+#define BORGXRAY  4
 
 #define SECHUD 1
 #define MEDHUD 2

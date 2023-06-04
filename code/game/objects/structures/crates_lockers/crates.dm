@@ -128,7 +128,6 @@
 
 /obj/structure/closet/crate/attack_hand(mob/user)
 	if(manifest)
-		add_fingerprint(user)
 		to_chat(user, "<span class='notice'>You tear the manifest off of the crate.</span>")
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 75, 1)
 		manifest.forceMove(loc)
@@ -144,8 +143,8 @@
 				if(L.electrocute_act(17, src))
 					do_sparks(5, 1, src)
 					return
-		add_fingerprint(user)
-		toggle(user, by_hand = TRUE)
+		src.add_fingerprint(user)
+		src.toggle(user, by_hand = TRUE)
 
 // Called when a crate is delivered by MULE at a location, for notifying purposes
 /obj/structure/closet/crate/proc/notifyRecipient(var/destination)
@@ -234,7 +233,6 @@
 
 /obj/structure/closet/crate/secure/attack_hand(mob/user)
 	if(manifest)
-		add_fingerprint(user)
 		to_chat(user, "<span class='notice'>You tear the manifest off of the crate.</span>")
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 75, 1)
 		manifest.forceMove(loc)
@@ -243,11 +241,10 @@
 		manifest = null
 		update_icon()
 		return
-	add_fingerprint(user)
 	if(locked)
-		togglelock(user)
+		src.togglelock(user)
 	else
-		toggle(user, by_hand = TRUE)
+		src.toggle(user, by_hand = TRUE)
 
 /obj/structure/closet/crate/secure/closed_item_click(mob/user)
 	togglelock(user)

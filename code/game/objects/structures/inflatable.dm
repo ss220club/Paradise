@@ -9,7 +9,8 @@
 	playsound(loc, 'sound/items/zip.ogg', 75, 1)
 	to_chat(user, "<span class='notice'>You inflate [src].</span>")
 	var/obj/structure/inflatable/R = new /obj/structure/inflatable(user.loc)
-	transfer_fingerprints_to(R)
+	src.transfer_fingerprints_to(R)
+	R.add_fingerprint(user)
 	qdel(src)
 
 /obj/structure/inflatable
@@ -136,10 +137,8 @@
 			if(iscarbon(M))
 				var/mob/living/carbon/C = M
 				if(!C.handcuffed)
-					add_fingerprint(user)
 					SwitchState()
 			else
-				add_fingerprint(user)
 				SwitchState()
 	else if(istype(user, /obj/mecha))
 		SwitchState()
@@ -207,7 +206,8 @@
 	max_combined_w_class = 21
 	w_class = WEIGHT_CLASS_NORMAL
 
-/obj/item/storage/briefcase/inflatable/populate_contents()
+/obj/item/storage/briefcase/inflatable/New()
+	..()
 	new /obj/item/inflatable/door(src)
 	new /obj/item/inflatable/door(src)
 	new /obj/item/inflatable/door(src)

@@ -789,6 +789,3 @@ GLOBAL_LIST_INIT(default_medbay_channels, list(
 /obj/item/radio/phone/medbay/New()
 	..()
 	internal_channels = GLOB.default_medbay_channels.Copy()
-
-/obj/item/radio/bot
-	tts_seed = null

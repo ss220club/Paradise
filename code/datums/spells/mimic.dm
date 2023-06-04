@@ -35,10 +35,6 @@
 			return FALSE // No multitile structures
 	if(user != target && istype(target, /mob/living/simple_animal/hostile/morph))
 		return FALSE
-	if(target.alpha < 255)
-		return FALSE
-	if(target.invisibility)
-		return FALSE
 	return ..()
 
 /obj/effect/proc_holder/spell/targeted/click/mimic/cast(list/targets, mob/user)
@@ -137,7 +133,6 @@
 		H.name_override = null
 		H.regenerate_icons()
 	else
-		user.appearance = initial(user.appearance)
 		user.name = initial(user.name)
 		user.desc = initial(user.desc)
 		user.color = initial(user.color)

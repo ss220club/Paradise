@@ -136,8 +136,7 @@
 		new /obj/item/shard(loc)
 	else
 		to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]secure [name].</span>")
-		var/obj/item/mounted/frame/newscaster_frame/frame = new(loc)
-		transfer_fingerprints_to(frame)
+		new /obj/item/mounted/frame/newscaster_frame(loc)
 	qdel(src)
 
 /obj/machinery/newscaster/welder_act(mob/user, obj/item/I)

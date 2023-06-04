@@ -336,8 +336,6 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 		forced_module = "Hunter"
 	if(mmi?.syndicate)
 		modules = list("Syndicate Saboteur", "Syndicate Medical", "Syndicate Bloodhound")
-	if(mmi?.ninja)
-		forced_module = "Ninja"
 	if(mmi?.clock || isclocker(src))
 		forced_module = "Clockwork"
 	if(forced_module)
@@ -1698,16 +1696,16 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 		if(A.update_remote_sight(src)) //returns 1 if we override all other sight updates.
 			return
 
-	if(sight_mode & SILICONMESON)
+	if(sight_mode & BORGMESON)
 		sight |= SEE_TURFS
 		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 
-	if(sight_mode & SILICONXRAY)
+	if(sight_mode & BORGXRAY)
 		sight |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		see_invisible = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 		see_in_dark = 8
 
-	if(sight_mode & SILICONTHERM)
+	if(sight_mode & BORGTHERM)
 		sight |= SEE_MOBS
 		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 

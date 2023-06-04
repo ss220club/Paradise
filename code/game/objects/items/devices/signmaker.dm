@@ -184,9 +184,6 @@
 	projector.sign = null
 	return ..()
 
-/obj/structure/holosoap/has_prints()
-	return FALSE
-
 /obj/structure/holosoap/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
 	switch(damage_type)
 		if(BRUTE)

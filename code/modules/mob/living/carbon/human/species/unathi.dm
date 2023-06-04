@@ -149,7 +149,7 @@
 	default_language = "Sinta'unathi"
 
 	speed_mod = -0.80
-	species_traits = list(NOGUNS, LIPS, PIERCEIMMUNE)
+	species_traits = list(NOGUNS)
 
 	has_organ = list(
 		"heart" =    /obj/item/organ/internal/heart/unathi,

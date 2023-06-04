@@ -182,7 +182,6 @@ GLOBAL_LIST_EMPTY(gravity_generators) // We will keep track of this by adding ne
 	switch(broken_state)
 		if(GRAV_NEEDS_SCREWDRIVER)
 			if(istype(I, /obj/item/screwdriver))
-				add_fingerprint(user)
 				to_chat(user, "<span class='notice'>You secure the screws of the framework.</span>")
 				playsound(src.loc, I.usesound, 50, 1)
 				broken_state++
@@ -192,7 +191,6 @@ GLOBAL_LIST_EMPTY(gravity_generators) // We will keep track of this by adding ne
 			if(istype(I, /obj/item/stack/sheet/plasteel))
 				var/obj/item/stack/sheet/plasteel/PS = I
 				if(PS.get_amount() >= 10)
-					add_fingerprint(user)
 					PS.use(10)
 					to_chat(user, "<span class='notice'>You add the plating to the framework.</span>")
 					playsound(src.loc, PS.usesound, 75, 1)
@@ -203,7 +201,6 @@ GLOBAL_LIST_EMPTY(gravity_generators) // We will keep track of this by adding ne
 			return
 		if(GRAV_NEEDS_WRENCH)
 			if(istype(I, /obj/item/wrench))
-				add_fingerprint(user)
 				to_chat(user, "<span class='notice'>You secure the plating to the framework.</span>")
 				playsound(src.loc, I.usesound, 75, 1)
 				set_fix()

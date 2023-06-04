@@ -68,7 +68,6 @@
 
 /obj/machinery/pdapainter/attackby(obj/item/I, mob/user, params)
 	if(default_unfasten_wrench(user, I))
-		add_fingerprint(user)
 		power_change()
 		return
 	if(istype(I, /obj/item/pda))
@@ -79,7 +78,6 @@
 			var/obj/item/pda/P = user.get_active_hand()
 			if(istype(P))
 				if(user.drop_item())
-					add_fingerprint(user)
 					storedpda = P
 					P.forceMove(src)
 					P.add_fingerprint(user)

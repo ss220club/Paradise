@@ -56,12 +56,7 @@ GLOBAL_LIST(ui_logins)
 		"rank" = state.rank,
 		"logged_in" = state.logged_in,
 	)
-	if(ispAI(user))
-		var/mob/living/silicon/pai/pai = user
-		if(pai.syndipai)
-			data["isAI"] = TRUE
-	else
-		data["isAI"] = isAI(user)
+	data["isAI"] = isAI(user)
 	data["isRobot"] = isrobot(user)
 	data["isAdmin"] = user.can_admin_interact()
 
@@ -138,7 +133,7 @@ GLOBAL_LIST(ui_logins)
 		else
 			to_chat(usr, "<span class='warning'>Access Denied</span>")
 			return
-	else if(login_type == LOGIN_TYPE_AI && (isAI(usr) || ispAI(usr)))
+	else if(login_type == LOGIN_TYPE_AI && isAI(usr))
 		state.name = usr.name
 		state.rank = "AI"
 	else if(iscogscarab(usr))

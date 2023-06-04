@@ -1,8 +1,5 @@
 // Xeno USSP ruin
 
-/area/ruin/ussp_xeno
-	atmosalm = ATMOS_ALARM_NONE
-
 /area/ruin/ussp_xeno/engi
     name = "Engineering"
     icon_state = "engi_ussp"
@@ -10,6 +7,7 @@
 /area/ruin/ussp_xeno/entrance
     name = "Entrance"
     icon_state = "entr_ussp"
+
 
 /area/ruin/ussp_xeno/medbay
     name = "Medbay"
@@ -34,11 +32,11 @@
 /area/ruin/ussp_xeno/admiral
     name = "Admiral's office"
     icon_state = "admr_ussp"
-
+	
 /area/ruin/ussp_xeno/out
 	name = "Space near USSP Laboratory"
 	icon_state = "out_ussp"
 	has_gravity = TRUE
 	no_air = null
 
-
+	

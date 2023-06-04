@@ -490,7 +490,6 @@
 		for(var/obj/structure/crematorium/C in world)
 			if(C.id == id)
 				if(!C.cremating)
-					add_fingerprint(user)
 					C.cremate(user)
 	else
 		to_chat(usr, span_warning("Access denied."))

@@ -101,14 +101,12 @@
 /obj/structure/displaycase/attackby(obj/item/I, mob/user, params)
 	if(I.GetID() && !broken && openable)
 		if(allowed(user))
-			add_fingerprint(user)
 			to_chat(user,  "<span class='notice'>You [open ? "close":"open"] [src].</span>")
 			toggle_lock(user)
 		else
 			to_chat(user,  "<span class='warning'>Access denied.</span>")
 	else if(open && !showpiece && !(I.flags & ABSTRACT))
 		if(user.drop_item())
-			add_fingerprint(user)
 			I.forceMove(src)
 			showpiece = I
 			to_chat(user, "<span class='notice'>You put [I] on display</span>")
@@ -120,7 +118,6 @@
 			return
 		to_chat(user, "<span class='notice'>You start fixing [src]...</span>")
 		if(do_after(user, 20, target = src))
-			add_fingerprint(user)
 			G.use(2)
 			broken = 0
 			obj_integrity = max_integrity
@@ -168,7 +165,6 @@
 	    //prevents remote "kicks" with TK
 		if(!Adjacent(user))
 			return
-		add_fingerprint(user)
 		user.visible_message("<span class='danger'>[user] kicks the display case.</span>")
 		user.do_attack_animation(src, ATTACK_EFFECT_KICK)
 		take_damage(2)
@@ -188,7 +184,6 @@
 		playsound(src.loc, I.usesound, 50, 1)
 		if(do_after(user, 30, target = src))
 			if(user.drop_item())
-				add_fingerprint(user)
 				I.forceMove(src)
 				electronics = I
 				to_chat(user, "<span class='notice'>You install the airlock electronics.</span>")
@@ -202,7 +197,6 @@
 		if(do_after(user, 20, target = src))
 			G.use(10)
 			var/obj/structure/displaycase/display = new(src.loc)
-			display.add_fingerprint(user)
 			if(electronics)
 				electronics.forceMove(display)
 				display.electronics = electronics

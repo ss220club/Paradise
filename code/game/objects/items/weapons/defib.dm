@@ -583,8 +583,3 @@
 			playsound(get_turf(src), 'sound/machines/defib_failed.ogg', 50, 0)
 		cooldown = FALSE
 		update_icon()
-
-/obj/item/twohanded/shockpaddles/borg/update_icon()
-	icon_state = "[initial(icon_state)]"
-	if(cooldown)
-		icon_state = "[initial(icon_state)]_cooldown"

@@ -12,6 +12,5 @@ Code shamelessly copied from apc_frame
 	mount_reqs = list("simfloor", "nospace")
 
 /obj/item/mounted/frame/alarm_frame/do_build(turf/on_wall, mob/user)
-	var/obj/machinery/alarm/alarm = new(get_turf(src), get_dir(on_wall, user), 1)
-	alarm.add_fingerprint(user)
+	new /obj/machinery/alarm(get_turf(src), get_dir(on_wall, user), 1)
 	qdel(src)

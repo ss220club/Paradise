@@ -392,24 +392,11 @@
 	desc = "A sleek, sturdy box."
 	icon_state = "cyber_implant_box"
 
-/obj/item/storage/box/cyber_implants/populate_contents()
+/obj/item/storage/box/cyber_implants/New(loc, implant)
+	..()
 	new /obj/item/autoimplanter(src)
-
-/obj/item/storage/box/cyber_implants/thermals/populate_contents()
-	..()
-	new /obj/item/organ/internal/cyberimp/eyes/thermals(src)
-
-/obj/item/storage/box/cyber_implants/xray/populate_contents()
-	..()
-	new /obj/item/organ/internal/cyberimp/eyes/xray(src)
-
-/obj/item/storage/box/cyber_implants/reviver_hardened/populate_contents()
-	..()
-	new /obj/item/organ/internal/cyberimp/chest/reviver/hardened(src)
-
-/obj/item/storage/box/cyber_implants/anti_stun_hardened/populate_contents()
-	..()
-	new /obj/item/organ/internal/cyberimp/brain/anti_stun/hardened(src)
+	if(ispath(implant))
+		new implant(src)
 
 /obj/item/storage/box/cyber_implants/bundle
 	name = "boxed cybernetic implants"
@@ -418,7 +405,7 @@
 						/obj/item/organ/internal/cyberimp/brain/anti_stun/hardened, /obj/item/organ/internal/cyberimp/chest/reviver/hardened)
 	var/amount = 5
 
-/obj/item/storage/box/cyber_implants/bundle/populate_contents()
+/obj/item/storage/box/cyber_implants/bundle/New()
 	..()
 	var/implant
 	while(amount > 0)

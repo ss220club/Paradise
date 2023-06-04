@@ -26,10 +26,6 @@
 /obj/item/clothing/mask/balaclava/attack_self(var/mob/user)
 	adjustmask(user)
 
-/obj/item/clothing/mask/balaclava/adjustmask(user)
-	..()
-	flags = mask_adjusted ? null : initial(flags)
-
 /obj/item/clothing/mask/luchador
 	name = "Luchador Mask"
 	desc = "Worn by robust fighters, flying high to defeat their foes!"

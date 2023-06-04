@@ -190,9 +190,6 @@ Class Procs:
 	QDEL_NULL(multitool_menu)
 	return ..()
 
-/obj/machinery/has_prints()
-	return TRUE
-
 /obj/machinery/proc/locate_machinery()
 	return
 
@@ -292,15 +289,13 @@ Class Procs:
 			return TRUE
 
 	if(panel_open)
-		if(has_prints())
-			add_fingerprint(user)
+		add_fingerprint(user)
 		return FALSE
 
 	if(!interact_offline && stat & (NOPOWER|BROKEN|MAINT))
 		return TRUE
 
-	if(has_prints())
-		add_fingerprint(user)
+	add_fingerprint(user)
 
 	return ..()
 
@@ -390,8 +385,6 @@ Class Procs:
 		power_change()
 
 /obj/machinery/attackby(obj/item/O, mob/user, params)
-	if(has_prints() && !(istype(O, /obj/item/detective_scanner)))
-		add_fingerprint(user)
 	if(istype(O, /obj/item/stack/nanopaste))
 		var/obj/item/stack/nanopaste/N = O
 		if(stat & BROKEN)

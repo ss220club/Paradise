@@ -170,7 +170,6 @@
 		icon_state = "airlock_sensor_off"
 
 /obj/machinery/airlock_sensor/attack_hand(mob/user)
-	add_fingerprint(user)
 	var/datum/signal/signal = new
 	signal.transmission_method = 1 //radio signal
 	signal.data["tag"] = master_tag

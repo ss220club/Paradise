@@ -118,7 +118,10 @@
 	icon_state = "clownpack"
 	item_state = "clownpack"
 
-/obj/item/storage/backpack/clown/syndie/populate_contents()
+/obj/item/storage/backpack/clown/syndie
+
+/obj/item/storage/backpack/clown/syndie/New()
+	..()
 	new /obj/item/clothing/under/rank/clown(src)
 	new /obj/item/clothing/shoes/magboots/clown(src)
 	new /obj/item/clothing/mask/chameleon(src)
@@ -382,7 +385,8 @@
 		H.update_inv_back()
 
 
-/obj/item/storage/backpack/satchel/withwallet/populate_contents()
+/obj/item/storage/backpack/satchel/withwallet/New()
+	..()
 	new /obj/item/storage/wallet/random(src)
 
 /obj/item/storage/backpack/satchel_flat
@@ -404,7 +408,8 @@
 		anchored = 0
 		icon_state = initial(icon_state)
 
-/obj/item/storage/backpack/satchel_flat/populate_contents()
+/obj/item/storage/backpack/satchel_flat/New()
+	..()
 	new /obj/item/stack/tile/plasteel(src)
 	new /obj/item/crowbar(src)
 
@@ -452,7 +457,8 @@
 /obj/item/storage/backpack/duffel/syndie/ammo/shotgun
 	desc = "A large duffelbag, packed to the brim with Bulldog shotgun ammo."
 
-/obj/item/storage/backpack/duffel/syndie/ammo/shotgun/populate_contents()
+/obj/item/storage/backpack/duffel/syndie/ammo/shotgun/New()
+	..()
 	for(var/i in 1 to 6)
 		new /obj/item/ammo_box/magazine/m12g(src)
 	new /obj/item/ammo_box/magazine/m12g/buckshot(src)
@@ -462,7 +468,8 @@
 /obj/item/storage/backpack/duffel/syndie/ammo/shotgunXLmags
 	desc = "A large duffelbag, containing three types of extended drum magazines."
 
-/obj/item/storage/backpack/duffel/syndie/ammo/shotgunXLmags/populate_contents()
+/obj/item/storage/backpack/duffel/syndie/ammo/shotgunXLmags/New()
+	..()
 	new /obj/item/ammo_box/magazine/m12g/XtrLrg(src)
 	new /obj/item/ammo_box/magazine/m12g/XtrLrg/buckshot(src)
 	new /obj/item/ammo_box/magazine/m12g/XtrLrg/dragon(src)
@@ -470,30 +477,35 @@
 /obj/item/storage/backpack/duffel/syndie/ammo/lmg
     desc = "A large duffel bag containing 5 LMG box magazines"
 
-/obj/item/storage/backpack/duffel/syndie/ammo/lmg/populate_contents()
+/obj/item/storage/backpack/duffel/syndie/ammo/lmg/New()
+	..()
 	for(var/i in 1 to 5)
 		new /obj/item/ammo_box/magazine/mm556x45(src)
 
 /obj/item/storage/backpack/duffel/syndie/ammo/carbine
     desc = "A large duffel bag containing a lot of 5.56 toploader magazines, and a 40mm Grenade Ammo Box"
 
-/obj/item/storage/backpack/duffel/syndie/ammo/carbine/populate_contents()
+/obj/item/storage/backpack/duffel/syndie/ammo/carbine/New()
+	..()
 	new /obj/item/ammo_box/a40mm(src)
+	..()
 	for(var/i in 1 to 9)
 		new /obj/item/ammo_box/magazine/m556(src)
 
 /obj/item/storage/backpack/duffel/syndie/ammo/uzi
     desc = "A large duffel bag, packed to the brim with Type U3 Uzi magazines"
 
-/obj/item/storage/backpack/duffel/syndie/ammo/uzi/populate_contents()
+/obj/item/storage/backpack/duffel/syndie/ammo/uzi/New()
+	..()
 	for(var/i in 1 to 10)
 		new /obj/item/ammo_box/magazine/uzim9mm(src)
 
-/obj/item/storage/backpack/duffel/mining_conscript
+/obj/item/storage/backpack/duffel/mining_conscript/
 	name = "mining conscription kit"
 	desc = "A kit containing everything a crewmember needs to support a shaft miner in the field."
 
-/obj/item/storage/backpack/duffel/mining_conscript/populate_contents()
+/obj/item/storage/backpack/duffel/mining_conscript/New()
+	..()
 	new /obj/item/pickaxe(src)
 	new /obj/item/clothing/glasses/meson(src)
 	new /obj/item/t_scanner/adv_mining_scanner/lesser(src)
@@ -510,14 +522,16 @@
 /obj/item/storage/backpack/duffel/syndie/ammo/smg
 	desc = "A large duffel bag, packed to the brim with C-20r magazines."
 
-/obj/item/storage/backpack/duffel/syndie/ammo/smg/populate_contents()
+/obj/item/storage/backpack/duffel/syndie/ammo/smg/New()
+	..()
 	for(var/i in 1 to 10)
 		new /obj/item/ammo_box/magazine/smgm45(src)
 
 /obj/item/storage/backpack/duffel/syndie/c20rbundle
 	desc = "A large duffel bag containing a C-20r, some magazines, and a cheap looking suppressor."
 
-/obj/item/storage/backpack/duffel/syndie/c20rbundle/populate_contents()
+/obj/item/storage/backpack/duffel/syndie/c20rbundle/New()
+	..()
 	new /obj/item/ammo_box/magazine/smgm45(src)
 	new /obj/item/ammo_box/magazine/smgm45(src)
 	new /obj/item/ammo_box/magazine/smgm45(src)
@@ -527,7 +541,8 @@
 /obj/item/storage/backpack/duffel/syndie/bulldogbundle
 	desc = "A large duffel bag containing a Bulldog, some drums, and a pair of thermal imaging glasses."
 
-/obj/item/storage/backpack/duffel/syndie/bulldogbundle/populate_contents()
+/obj/item/storage/backpack/duffel/syndie/bulldogbundle/New()
+	..()
 	new /obj/item/gun/projectile/automatic/shotgun/bulldog(src)
 	new /obj/item/ammo_box/magazine/m12g(src)
 	new /obj/item/ammo_box/magazine/m12g(src)
@@ -536,7 +551,8 @@
 /obj/item/storage/backpack/duffel/syndie/med/medicalbundle
 	desc = "A large duffel bag containing a tactical medkit, a medical beam,  gun and a pair of syndicate magboots."
 
-/obj/item/storage/backpack/duffel/syndie/med/medicalbundle/populate_contents()
+/obj/item/storage/backpack/duffel/syndie/med/medicalbundle/New()
+	..()
 	new /obj/item/storage/firstaid/syndie(src)
 	new /obj/item/reagent_containers/applicator/dual/syndi(src)
 	new /obj/item/reagent_containers/hypospray/combat(src)
@@ -551,11 +567,13 @@
 	new /obj/item/reagent_containers/hypospray/autoinjector/nanocalcium(src)
 	new /obj/item/stack/medical/splint(src)
 
-/obj/item/storage/backpack/duffel/syndie/c4/populate_contents()
+/obj/item/storage/backpack/duffel/syndie/c4/New()
+	..()
 	for(var/i in 1 to 10)
 		new /obj/item/grenade/plastic/c4(src)
 
-/obj/item/storage/backpack/duffel/syndie/x4/populate_contents()
+/obj/item/storage/backpack/duffel/syndie/x4/New()
+	..()
 	for(var/i in 1 to 3)
 		new /obj/item/grenade/plastic/x4(src)
 
@@ -565,7 +583,8 @@
 	icon_state = "duffel-syndimed"
 	item_state = "duffel-syndimed"
 
-/obj/item/storage/backpack/duffel/syndie/surgery/populate_contents()
+/obj/item/storage/backpack/duffel/syndie/surgery/New()
+	..()
 	new /obj/item/stack/medical/bruise_pack/advanced(src)
 	new /obj/item/scalpel/laser/laser2(src)
 	new /obj/item/hemostat(src)
@@ -587,7 +606,8 @@
 	icon_state = "duffel-syndimed"
 	item_state = "duffel-syndimed"
 
-/obj/item/storage/backpack/duffel/syndie/surgery_fake/populate_contents()
+/obj/item/storage/backpack/duffel/syndie/surgery_fake/New()
+	..()
 	new /obj/item/scalpel(src)
 	new /obj/item/hemostat(src)
 	new /obj/item/retractor(src)

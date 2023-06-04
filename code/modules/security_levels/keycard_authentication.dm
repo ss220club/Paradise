@@ -35,7 +35,6 @@
 		return
 	if(W.GetID())
 		if(check_access(W))
-			add_fingerprint(user)
 			if(active)
 				//This is not the device that made the initial request. It is the device confirming the request.
 				if(event_source)

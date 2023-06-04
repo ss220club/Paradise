@@ -29,11 +29,9 @@
 		wrapped.forceMove(get_turf(src))
 		if(istype(wrapped, /obj/structure/closet))
 			var/obj/structure/closet/O = wrapped
-			O.add_fingerprint(user)
 			O.welded = init_welded
 	var/turf/T = get_turf(src)
 	for(var/atom/movable/AM in src)
-		AM.add_fingerprint(user)
 		AM.loc = T
 
 	qdel(src)
@@ -43,7 +41,6 @@
 		var/obj/item/destTagger/O = W
 
 		if(sortTag != O.currTag)
-			add_fingerprint(user)
 			var/tag = uppertext(GLOB.TAGGERLOCATIONS[O.currTag])
 			to_chat(user, "<span class='notice'>*[tag]*</span>")
 			sortTag = O.currTag
@@ -56,7 +53,6 @@
 		if(sp.sealed)
 			return
 		else
-			add_fingerprint(user)
 			sortTag = sp.sortTag
 			if(iconLabeled)
 				icon_state = iconLabeled
@@ -65,13 +61,11 @@
 			playsound(loc, 'sound/items/poster_ripped.ogg', 50, 1)
 
 	else if(istype(W, /obj/item/pen))
-		add_fingerprint(user)
 		rename_interactive(user, W)
 
 	else if(istype(W, /obj/item/stack/wrapping_paper) && !giftwrapped)
 		var/obj/item/stack/wrapping_paper/WP = W
 		if(WP.use(3))
-			add_fingerprint(user)
 			user.visible_message("<span class='notice'>[user] wraps the package in festive paper!</span>")
 			giftwrapped = 1
 			if(istype(wrapped, /obj/structure/closet/crate))
@@ -79,8 +73,7 @@
 			else
 				icon_state = "giftcloset"
 			if(WP.amount <= 0 && !WP.loc) //if we used our last wrapping paper, drop a cardboard tube
-				var/obj/item/c_tube/tube = new(get_turf(user))
-				tube.add_fingerprint(user)
+				new /obj/item/c_tube( get_turf(user) )
 		else
 			to_chat(user, "<span class='notice'>You need more paper.</span>")
 	else
@@ -124,7 +117,6 @@
 		var/obj/item/destTagger/O = W
 
 		if(sortTag != O.currTag)
-			add_fingerprint(user)
 			var/tag = uppertext(GLOB.TAGGERLOCATIONS[O.currTag])
 			to_chat(user, "<span class='notice'>*[tag]*</span>")
 			sortTag = O.currTag
@@ -137,7 +129,6 @@
 		if(sp.sealed)
 			return
 		else
-			add_fingerprint(user)
 			sortTag = sp.sortTag
 			if(iconLabeled)
 				icon_state = iconLabeled
@@ -146,7 +137,6 @@
 			playsound(loc, 'sound/items/poster_ripped.ogg', 50, 1)
 
 	else if(istype(W, /obj/item/pen))
-		add_fingerprint(user)
 		rename_interactive(user, W)
 
 	else if(istype(W, /obj/item/stack/wrapping_paper) && !giftwrapped)
@@ -156,8 +146,7 @@
 			giftwrapped = 1
 			user.visible_message("<span class='notice'>[user] wraps the package in festive paper!</span>")
 			if(WP.amount <= 0 && !WP.loc) //if we used our last wrapping paper, drop a cardboard tube
-				var/obj/item/c_tube/tube = new(get_turf(user))
-				tube.add_fingerprint(user)
+				new /obj/item/c_tube( get_turf(user) )
 		else
 			to_chat(user, "<span class='notice'>You need more paper.</span>")
 	else

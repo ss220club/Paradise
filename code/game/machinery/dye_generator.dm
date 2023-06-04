@@ -29,6 +29,7 @@
 
 /obj/machinery/dye_generator/attack_hand(mob/user)
 	..()
+	src.add_fingerprint(user)
 	if(stat & (BROKEN|NOPOWER))
 		return
 	var/temp = input(usr, "Choose a dye color", "Dye Color") as color
@@ -38,11 +39,9 @@
 /obj/machinery/dye_generator/attackby(obj/item/I, mob/user, params)
 
 	if(default_unfasten_wrench(user, I, time = 60))
-		add_fingerprint(user)
 		return
 
 	if(istype(I, /obj/item/hair_dye_bottle))
-		add_fingerprint(user)
 		var/obj/item/hair_dye_bottle/HD = I
 		user.visible_message("<span class='notice'>[user] fills the [HD] up with some dye.</span>","<span class='notice'>You fill the [HD] up with some hair dye.</span>")
 		HD.dye_color = dye_color

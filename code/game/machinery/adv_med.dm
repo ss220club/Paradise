@@ -125,7 +125,6 @@
 	else
 		visible_message("[user] puts [H] into the body scanner.")
 
-	add_fingerprint(user)
 	H.forceMove(src)
 	occupant = H
 	icon_state = "bodyscanner"
@@ -151,7 +150,6 @@
 		to_chat(user, "<span class='notice'>Close the maintenance panel first.</span>")
 		return
 
-	add_fingerprint(user)
 	ui_interact(user)
 
 /obj/machinery/bodyscanner/relaymove(mob/user)

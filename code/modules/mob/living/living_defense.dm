@@ -120,12 +120,6 @@
 		playsound(loc, 'sound/weapons/genhit.ogg', 50, TRUE, -1)
 	..()
 
-/**
- * Proc that checks if our mob is strong enough to prevent mecha melee attacks from pushing and paralyzing
- */
-/mob/living/proc/is_strong()
-	return FALSE
-
 
 /mob/living/mech_melee_attack(obj/mecha/M)
 	if(M.occupant.a_intent == INTENT_HARM)
@@ -133,12 +127,11 @@
 			to_chat(M.occupant, "<span class='warning'>[pluralize_ru(M.occupant.gender,"Ты не хочешь","Вы не хотите")] навредить живым существам!</span>")
 			return
 		M.do_attack_animation(src)
-		if(M.damtype == "brute" && !is_strong())
+		if(M.damtype == "brute")
 			step_away(src,M,15)
 		switch(M.damtype)
 			if("brute")
-				if(!is_strong())
-					Paralyse(1)
+				Paralyse(1)
 				take_overall_damage(rand(M.force/2, M.force))
 				playsound(src, 'sound/weapons/punch4.ogg', 50, TRUE)
 			if("fire")
@@ -153,14 +146,10 @@
 		visible_message("<span class='danger'>[M.declent_ru(NOMINATIVE)] ударя[pluralize_ru(M.gender,"ет","ют")] [src.declent_ru(ACCUSATIVE)]!</span>", "<span class='userdanger'>[M.declent_ru(NOMINATIVE)] ударя[pluralize_ru(M.gender,"ет","ют")] [pluralize_ru(src.gender,"тебя","вас")]!</span>")
 		add_attack_logs(M.occupant, src, "Mecha-meleed with [M]")
 	else
-		if(!is_strong())
-			step_away(src,M)
-			add_attack_logs(M.occupant, src, "Mecha-pushed with [M]", ATKLOG_ALL)
-			M.occupant_message("<span class='warning'>[pluralize_ru(M.occupant.gender,"Ты толкаешь","Вы толкаете")] [src.declent_ru(ACCUSATIVE)] в сторону.</span>")
-			visible_message("<span class='warning'>[M.declent_ru(NOMINATIVE)] отталкива[pluralize_ru(M.gender,"ет","ют")] [src.declent_ru(ACCUSATIVE)] в сторону.</span>")
-		else
-			M.occupant_message("<span class='warning'>[pluralize_ru(M.occupant.gender,"Ты пытаешься оттолкнуть","Вы пытаетесь оттолкнуть")] [src.declent_ru(ACCUSATIVE)] в сторону, но это не срабатывает.</span>")
-			visible_message("<span class='warning'>[M.declent_ru(NOMINATIVE)] безуспешно пытается оттолкнуть [src.declent_ru(ACCUSATIVE)] в сторону.</span>")
+		step_away(src,M)
+		add_attack_logs(M.occupant, src, "Mecha-pushed with [M]", ATKLOG_ALL)
+		M.occupant_message("<span class='warning'>[pluralize_ru(M.occupant.gender,"Ты толкаешь","Вы толкаете")] [src.declent_ru(ACCUSATIVE)] в сторону.</span>")
+		visible_message("<span class='warning'>[M.declent_ru(NOMINATIVE)] отталкива[pluralize_ru(M.gender,"ет","ют")] [src.declent_ru(ACCUSATIVE)] в сторону.</span>")
 
 //Mobs on Fire
 /mob/living/proc/IgniteMob()

@@ -55,7 +55,6 @@
 
 			if(!user.drop_item())
 				return TRUE
-			add_fingerprint(user)
 			G.forceMove(src)
 			charging = G
 			use_power = ACTIVE_POWER_USE

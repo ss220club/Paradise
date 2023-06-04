@@ -872,10 +872,6 @@
 	icon_state = "white"
 	},
 /area/ruin/space/ancientstation)
-"gF" = (
-/obj/effect/decal/cleanable/fungus,
-/turf/simulated/wall/rust,
-/area/ruin/space/ancientstation/thetacorridor)
 "gG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1210,7 +1206,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/safe/floor,
 /obj/item/clothing/suit/space/hardsuit/mining{
-	armor = list("melee"=10,"bullet"=5,"laser"=5,"energy"=5,"bomb"=35,"bio"=80,"rad"=35,"fire"=40,"acid"=60);
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 5, "energy" = 5, "bomb" = 35, "bio" = 80, "rad" = 35, "fire" = 40, "acid" = 60);
 	desc = "A special suit that protects against hazardous, low pressure environments. Has reinforced plating. Dusty plates covered with a bit of rust, it has been left long time ago. The date of made says 2535 year, how it came up here...";
 	name = "An old aged mining hardsuit"
 	},
@@ -1923,10 +1919,6 @@
 	},
 /turf/simulated/floor/plating/airless,
 /area/template_noop)
-"ou" = (
-/obj/effect/decal/cleanable/fungus,
-/turf/simulated/wall/rust,
-/area/ruin/space/ancientstation)
 "oy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
@@ -2309,10 +2301,6 @@
 /obj/effect/landmark/tiles/damageturf,
 /turf/simulated/floor/plating/airless,
 /area/ruin/space/ancientstation/betanorth)
-"sD" = (
-/obj/effect/decal/cleanable/fungus,
-/turf/simulated/wall/rust,
-/area/ruin/space/ancientstation/engi)
 "sF" = (
 /obj/item/solar_assembly,
 /obj/structure/lattice,
@@ -4209,10 +4197,6 @@
 /obj/effect/landmark/tiles/damageturf,
 /turf/simulated/floor/plating/airless,
 /area/ruin/space/ancientstation/betacargo)
-"IQ" = (
-/obj/effect/decal/cleanable/fungus,
-/turf/simulated/wall/r_wall/rust,
-/area/ruin/space/ancientstation/thetacorridor)
 "IV" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -4843,7 +4827,6 @@
 /obj/item/storage/backpack/old,
 /obj/item/storage/backpack/old,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/storage/backpack/old,
 /turf/simulated/floor/plating,
 /area/ruin/space/ancientstation)
 "Ny" = (
@@ -9246,7 +9229,7 @@ bZ
 cG
 uD
 By
-sD
+cp
 Uz
 Zo
 KR
@@ -10118,7 +10101,7 @@ Zs
 DR
 TT
 Fx
-ou
+Zs
 Zs
 Zs
 ZO
@@ -11698,7 +11681,7 @@ tz
 Ia
 AQ
 Ia
-gF
+tz
 WQ
 hm
 tz
@@ -11777,7 +11760,7 @@ ZO
 NO
 AK
 Yj
-IQ
+uk
 Qk
 QB
 uk

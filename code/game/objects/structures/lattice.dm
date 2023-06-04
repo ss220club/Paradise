@@ -45,7 +45,6 @@
 	if(resistance_flags & INDESTRUCTIBLE)
 		return
 	else
-		add_fingerprint(user)
 		var/turf/T = get_turf(src)
 		return T.attackby(C, user) //hand this off to the turf instead (for building plating, catwalks, etc)
 

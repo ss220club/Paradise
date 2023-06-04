@@ -18,7 +18,6 @@
 	var/charges = 1
 
 /obj/machinery/syndicate_beacon/attack_hand(var/mob/user as mob)
-	add_fingerprint(user)
 	usr.set_machine(src)
 	var/dat = {"<meta charset="UTF-8"><font color=#005500><i>Scanning [pick("retina pattern", "voice print", "fingerprints", "dna sequence")]...<br>Identity confirmed,<br></i></font>"}
 	if(istype(user, /mob/living/carbon/human) || istype(user, /mob/living/silicon/ai))
@@ -149,7 +148,6 @@
 
 /obj/machinery/power/singularity_beacon/attack_hand(var/mob/user as mob)
 	if(anchored)
-		add_fingerprint(user)
 		return active ? Deactivate(user) : Activate(user)
 	else
 		to_chat(user, "<span class='warning'>You need to screw the beacon to the floor first!</span>")

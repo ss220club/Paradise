@@ -480,9 +480,6 @@
 		filling_color = "#FF69B4"
 	. = ..()
 
-/obj/item/reagent_containers/food/snacks/donut/update_icon()
-	return
-
 /obj/item/reagent_containers/food/snacks/donut/sprinkles
 	name = "frosted donut"
 	icon_state = "donut2"

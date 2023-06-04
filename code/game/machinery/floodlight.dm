@@ -54,7 +54,6 @@
 		else
 			cell.loc = loc
 
-		add_fingerprint(user)
 		cell.add_fingerprint(user)
 		cell.update_icon()
 
@@ -68,7 +67,6 @@
 		return
 
 	if(on)
-		add_fingerprint(user)
 		on = FALSE
 		to_chat(user, "<span class='notice'>You turn off the light.</span>")
 		set_light(0)
@@ -77,7 +75,6 @@
 			return
 		if(cell.charge <= 0)
 			return
-		add_fingerprint(user)
 		on = TRUE
 		to_chat(user, "<span class='notice'>You turn on the light.</span>")
 		set_light(brightness_on)
@@ -95,7 +92,6 @@
 
 /obj/machinery/floodlight/attackby(obj/item/W as obj, mob/user as mob, params)
 	if(istype(W, /obj/item/wrench))
-		add_fingerprint(user)
 		if(!anchored && !isinspace())
 			playsound(loc, W.usesound, 50, 1)
 			user.visible_message( \
@@ -113,7 +109,6 @@
 		updateicon()
 		return
 	if(istype(W, /obj/item/screwdriver))
-		add_fingerprint(user)
 		if(!open)
 			if(unlocked)
 				unlocked = FALSE
@@ -124,7 +119,6 @@
 		updateicon()
 		return
 	if(istype(W, /obj/item/crowbar))
-		add_fingerprint(user)
 		if(unlocked)
 			if(open)
 				open = FALSE
@@ -141,7 +135,6 @@
 			if(cell)
 				to_chat(user, "There is a power cell already installed.")
 			else
-				add_fingerprint(user)
 				user.drop_item()
 				W.loc = src
 				cell = W

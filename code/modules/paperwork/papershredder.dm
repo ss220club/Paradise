@@ -21,7 +21,6 @@
 /obj/machinery/papershredder/attackby(obj/item/W, mob/user, params)
 
 	if(istype(W, /obj/item/storage))
-		add_fingerprint(user)
 		empty_bin(user, W)
 		return
 	else
@@ -44,7 +43,6 @@
 					SP.throw_at(get_edge_target_turf(src, pick(GLOB.alldirs)), 1, 1)
 				paperamount = max_paper
 			update_icon()
-			add_fingerprint(user)
 			return
 	..()
 
@@ -112,10 +110,8 @@
 
 /obj/item/shredded_paper/attackby(obj/item/W as obj, mob/user)
 	if(resistance_flags & ON_FIRE)
-		add_fingerprint(user)
 		return
 	if(is_hot(W, user))
-		add_fingerprint(user)
 		user.visible_message("<span class='danger'>\The [user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
 		"<span class='danger'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
 		fire_act()

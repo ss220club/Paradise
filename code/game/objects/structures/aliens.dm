@@ -11,9 +11,6 @@
 #define WEED_EAST_EDGING "east"
 #define WEED_WEST_EDGING "west"
 
-#define ALIEN_RESIN_BURN_MOD 2
-#define ALIEN_RESIN_BRUTE_MOD 0.25
-
 /obj/structure/alien
 	icon = 'icons/mob/alien.dmi'
 	max_integrity = 100
@@ -22,9 +19,9 @@
 	if(damage_flag == "melee")
 		switch(damage_type)
 			if(BRUTE)
-				damage_amount *= ALIEN_RESIN_BRUTE_MOD
+				damage_amount *= 0.25
 			if(BURN)
-				damage_amount *= ALIEN_RESIN_BURN_MOD
+				damage_amount *= 2
 	. = ..()
 
 /obj/structure/alien/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
@@ -37,9 +34,6 @@
 		if(BURN)
 			if(damage_amount)
 				playsound(loc, 'sound/items/welder.ogg', 100, TRUE)
-
-/obj/structure/alien/has_prints()
-	return FALSE
 
 /*
  * Resin
@@ -105,17 +99,7 @@
 		return !opacity
 	return !density
 
-/obj/structure/alien/resin/attack_alien(mob/living/carbon/alien/humanoid/A)
-	var/damage = 0
-	switch(A.caste)
-		if("d") //drone breaks wall in 2 hits
-			damage = max_integrity/2/ALIEN_RESIN_BRUTE_MOD
-		if("q") //queen breaks wall in 1 hit
-			damage = max_integrity/ALIEN_RESIN_BRUTE_MOD
-		else
-			return ..()
-	if(attack_generic(A, damage, BRUTE, "melee", 0, 100))
-		playsound(loc, 'sound/effects/attackblob.ogg', 50, TRUE)
+
 /*
  * Weeds
  */
@@ -344,9 +328,6 @@
 #undef GROWN
 #undef MIN_GROWTH_TIME
 #undef MAX_GROWTH_TIME
-
-#undef ALIEN_RESIN_BURN_MOD
-#undef ALIEN_RESIN_BRUTE_MOD
 
 #undef WEED_NORTH_EDGING
 #undef WEED_SOUTH_EDGING

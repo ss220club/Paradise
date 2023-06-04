@@ -25,7 +25,6 @@
 			to_chat(user, "<span class='warning'>Resetting circuitry...</span>")
 			playsound(user, 'sound/machines/lockreset.ogg', 50, 1)
 			if(do_after(user, 20 * O.toolspeed * gettoolspeedmod(user), target = src))
-				add_fingerprint(user)
 				locked = FALSE
 				to_chat(user, "<span class = 'caution'> You disable the locking modules.</span>")
 				update_icon()
@@ -35,7 +34,6 @@
 			var/obj/item/W = O
 			if(smashed || localopened)
 				if(localopened)
-					add_fingerprint(user)
 					localopened = FALSE
 					update_icon_closing()
 				return
@@ -51,7 +49,6 @@
 					smashed = TRUE
 					locked = FALSE
 					localopened = TRUE
-			add_fingerprint(user)
 			update_icon()
 		return
 	if(istype(O, /obj/item/twohanded/fireaxe) && localopened)
@@ -63,7 +60,6 @@
 			if(!user.unEquip(F, FALSE))
 				to_chat(user, "<span class='warning'>\The [F] stays stuck to your hands!</span>")
 				return
-			add_fingerprint(user)
 			fireaxe = F
 			contents += F
 			to_chat(user, "<span class='notice'>You place \the [F] back in the [name].</span>")
@@ -72,7 +68,6 @@
 			if(smashed)
 				return
 			else
-				add_fingerprint(user)
 				localopened = !localopened
 				if(localopened)
 					update_icon_opening()
@@ -83,7 +78,6 @@
 			return
 		if(istype(O, /obj/item/multitool))
 			if(localopened)
-				add_fingerprint(user)
 				localopened = FALSE
 				update_icon_closing()
 				return
@@ -91,12 +85,10 @@
 				to_chat(user, "<span class='warning'>Resetting circuitry...</span>")
 				playsound(user, 'sound/machines/lockenable.ogg', 50, 1)
 				if(do_after(user, 20 * O.toolspeed * gettoolspeedmod(user), target = src))
-					add_fingerprint(user)
 					locked = TRUE
 					to_chat(user, "<span class = 'caution'> You re-enable the locking modules.</span>")
 				return
 		else
-			add_fingerprint(user)
 			localopened = !localopened
 			if(localopened)
 				update_icon_opening()
@@ -109,7 +101,6 @@
 		return
 	if(localopened)
 		if(fireaxe)
-			add_fingerprint(user)
 			user.put_in_hands(fireaxe)
 			to_chat(user, "<span class='notice'>You take \the [fireaxe] from the [src].</span>")
 			fireaxe = null
@@ -120,7 +111,6 @@
 			if(smashed)
 				return
 			else
-				add_fingerprint(user)
 				localopened = !localopened
 				if(localopened)
 					update_icon_opening()
@@ -128,7 +118,6 @@
 					update_icon_closing()
 
 	else
-		add_fingerprint(user)
 		localopened = !localopened //I'm pretty sure we don't need an if(smashed) in here. In case I'm wrong and it fucks up teh cabinet, **MARKER**. -Agouri
 		if(localopened)
 			update_icon_opening()

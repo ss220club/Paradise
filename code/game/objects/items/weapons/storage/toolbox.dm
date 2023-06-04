@@ -20,7 +20,8 @@
 	icon_state = "red_toolbox"
 	item_state = "toolbox_red"
 
-/obj/item/storage/toolbox/emergency/populate_contents()
+/obj/item/storage/toolbox/emergency/New()
+	..()
 	new /obj/item/crowbar/red(src)
 	new /obj/item/weldingtool/mini(src)
 	new /obj/item/extinguisher/mini(src)
@@ -39,7 +40,8 @@
 	icon_state = "blue_toolbox"
 	item_state = "toolbox_blue"
 
-/obj/item/storage/toolbox/mechanical/populate_contents()
+/obj/item/storage/toolbox/mechanical/New()
+	..()
 	new /obj/item/screwdriver(src)
 	new /obj/item/wrench(src)
 	new /obj/item/weldingtool(src)
@@ -59,7 +61,8 @@
 	icon_state = "yellow_toolbox"
 	item_state = "toolbox_yellow"
 
-/obj/item/storage/toolbox/electrical/populate_contents()
+/obj/item/storage/toolbox/electrical/New()
+	..()
 	var/pickedcolor = pick(COLOR_RED, COLOR_YELLOW, COLOR_GREEN, COLOR_BLUE, COLOR_PINK, COLOR_ORANGE, COLOR_CYAN, COLOR_WHITE)
 	new /obj/item/screwdriver(src)
 	new /obj/item/wirecutters(src)
@@ -85,7 +88,8 @@
 	force = 15.0
 	throwforce = 18.0
 
-/obj/item/storage/toolbox/syndicate/populate_contents()
+/obj/item/storage/toolbox/syndicate/New()
+	..()
 	new /obj/item/screwdriver(src, "red")
 	new /obj/item/wrench(src)
 	new /obj/item/weldingtool/largetank(src)
@@ -93,25 +97,6 @@
 	new /obj/item/wirecutters(src, "red")
 	new /obj/item/multitool(src)
 	new /obj/item/clothing/gloves/combat(src)
-
-/obj/item/storage/toolbox/syndisuper
-	name = "exteremely suspicious looking toolbox"
-	desc = "Danger. Robust - his second name."
-	icon_state = "syndicate"
-	item_state = "toolbox_syndi"
-	origin_tech = "combat=5;syndicate=1;engineering=5"
-	silent = 1
-	force = 18.0 //robuster because of rarity
-	throwforce = 20.0
-
-/obj/item/storage/toolbox/syndisuper/populate_contents()
-	new /obj/item/screwdriver/power(src)
-	new /obj/item/weldingtool/experimental(src)
-	new /obj/item/crowbar/power(src)
-	new /obj/item/multitool/cyborg(src)
-	new /obj/item/stack/cable_coil(src, 30)
-	new /obj/item/clothing/gloves/combat(src)
-	new /obj/item/clothing/glasses/sunglasses(src)
 
 /obj/item/storage/toolbox/fakesyndi
 	name = "suspicous looking toolbox"
@@ -124,7 +109,8 @@
 	icon_state = "blue_toolbox"
 	item_state = "toolbox_blue"
 
-/obj/item/storage/toolbox/drone/populate_contents()
+/obj/item/storage/toolbox/drone/New()
+	..()
 	var/pickedcolor = pick(pick(COLOR_RED, COLOR_YELLOW, COLOR_GREEN, COLOR_BLUE, COLOR_PINK, COLOR_ORANGE, COLOR_CYAN, COLOR_WHITE))
 	new /obj/item/screwdriver(src)
 	new /obj/item/wrench(src)
@@ -146,7 +132,8 @@
 	storage_slots = 28
 	attack_verb = list("robusted", "crushed", "smashed")
 
-/obj/item/storage/toolbox/brass/prefilled/populate_contents()
+/obj/item/storage/toolbox/brass/prefilled/New()
+	..()
 	new /obj/item/screwdriver/brass(src)
 	new /obj/item/wirecutters/brass(src)
 	new /obj/item/wrench/brass(src)
@@ -175,7 +162,10 @@
 		/obj/item/surgicaldrill,
 		/obj/item/circular_saw)
 
-/obj/item/storage/toolbox/surgery/populate_contents()
+/obj/item/storage/toolbox/surgery/New()
+	..()
+	if(empty)
+		return
 	new /obj/item/stack/medical/bruise_pack/advanced(src)
 	new /obj/item/bonesetter(src)
 	new /obj/item/bonegel(src)
@@ -187,6 +177,5 @@
 	new /obj/item/surgicaldrill(src)
 	new /obj/item/circular_saw(src)
 
-/obj/item/storage/toolbox/surgery/empty/populate_contents()
-	return
-
+/obj/item/storage/toolbox/surgery/empty
+	empty = TRUE

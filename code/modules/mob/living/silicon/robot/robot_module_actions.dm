@@ -17,11 +17,11 @@
 
 /datum/action/innate/robot_sight/xray
 	name = "X-ray Vision"
-	sight_mode = SILICONXRAY
+	sight_mode = BORGXRAY
 
 /datum/action/innate/robot_sight/thermal
 	name = "Thermal Vision"
-	sight_mode = SILICONTHERM
+	sight_mode = BORGTHERM
 	icon_icon = 'icons/obj/clothing/glasses.dmi'
 	button_icon_state = "thermal"
 
@@ -32,6 +32,6 @@
 
 /datum/action/innate/robot_sight/meson
 	name = "Meson Vision"
-	sight_mode = SILICONMESON
+	sight_mode = BORGMESON
 	icon_icon = 'icons/obj/clothing/glasses.dmi'
 	button_icon_state = "meson"

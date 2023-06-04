@@ -130,7 +130,6 @@ GLOBAL_DATUM_INIT(the_gateway, /obj/machinery/gateway/centerstation, null)
 
 
 /obj/machinery/gateway/centerstation/attack_hand(mob/user as mob)
-	add_fingerprint(user)
 	if(!ready)
 		detect()
 		return
@@ -164,7 +163,6 @@ GLOBAL_DATUM_INIT(the_gateway, /obj/machinery/gateway/centerstation, null)
 
 /obj/machinery/gateway/centerstation/attackby(obj/item/W as obj, mob/user as mob, params)
 	if(istype(W,/obj/item/multitool))
-		add_fingerprint(user)
 		to_chat(user, "The gate is already calibrated, there is no work for you to do here.")
 		return
 	return ..()
@@ -245,7 +243,6 @@ GLOBAL_DATUM_INIT(the_gateway, /obj/machinery/gateway/centerstation, null)
 
 
 /obj/machinery/gateway/centeraway/attack_hand(mob/user as mob)
-	add_fingerprint(user)
 	if(!ready)
 		detect()
 		return
@@ -295,7 +292,6 @@ GLOBAL_DATUM_INIT(the_gateway, /obj/machinery/gateway/centerstation, null)
 			to_chat(user, "<span class='notice'>The gate is already calibrated, there is no work for you to do here.</span>")
 			return
 		else
-			add_fingerprint(user)
 			to_chat(user, "<span class='boldnotice'>Recalibration successful!</span><span class='notice'>: This gate's systems have been fine tuned.  Travel to this gate will now be on target.</span>")
 			calibrated = 1
 		return
