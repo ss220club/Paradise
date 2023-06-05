@@ -186,7 +186,7 @@
 			for(var/obj/item/grenade/plastic/c4/ninja/ninja_bomb in ninja_mob.get_contents())
 				ninja_bomb.detonation_objective = bomb_objective
 			ninja_mind.objectives += bomb_objective
-		else if(pick_chance <= 50)
+		else
 			//Подставить цель//
 			var/datum/objective/set_up/set_up_objective = new
 			set_up_objective.owner = ninja_mind
@@ -206,17 +206,6 @@
 				ninja_mind.objectives += set_up_objective
 			else
 				qdel(set_up_objective)
-		else
-			//Нанесение увечий. Цели не будет если target совпадает с прошлыми.
-			var/datum/objective/pain_hunter/pain_objective = new
-			pain_objective.owner = ninja_mind
-			pain_objective.find_target()
-			if("[pain_objective]" in ninja_datum.assigned_targets)
-				qdel(pain_objective)
-			else if(pain_objective.target)
-				ninja_datum.assigned_targets.Add("[pain_objective.target]")
-				ninja_mind.objectives += pain_objective
-
 		var/pick_objective = pick(1,2)
 		switch(pick_objective)
 			if(1)
@@ -332,16 +321,6 @@
 		else if(steal_objective.steal_target)
 			ninja_datum.assigned_targets.Add("[steal_objective.steal_target]")
 		ninja_mind.objectives += steal_objective
-
-	//Нанесение увечий. Цели не будет если target совпадает с прошлыми.
-	var/datum/objective/pain_hunter/pain_objective = new
-	pain_objective.owner = ninja_mind
-	pain_objective.find_target()
-	if("[pain_objective]" in ninja_datum.assigned_targets)
-		qdel(pain_objective)
-	else if(pain_objective.target)
-		ninja_datum.assigned_targets.Add("[pain_objective.target]")
-		ninja_mind.objectives += pain_objective
 
 	//Выжить//
 	if(!(locate(/datum/objective/survive) in ninja_mind.objectives))
