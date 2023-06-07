@@ -1238,10 +1238,10 @@ Standard way to write links -Sayu
 			if(covered_locations & HEAD)
 				return 0
 		if("eyes")
-			if(face_covered & HIDEEYES || eyesmouth_covered & GLASSESCOVERSEYES || eyesmouth_covered & HEADCOVERSEYES)
+			if(face_covered & HIDEGLASSES || eyesmouth_covered & GLASSESCOVERSEYES || eyesmouth_covered & HEADCOVERSEYES)
 				return 0
 		if("mouth")
-			if(covered_locations & HEAD || face_covered & HIDEFACE || eyesmouth_covered & MASKCOVERSMOUTH)
+			if(covered_locations & HEAD || face_covered & HIDENAME || eyesmouth_covered & MASKCOVERSMOUTH)
 				return 0
 		if("chest")
 			if(covered_locations & UPPER_TORSO)
