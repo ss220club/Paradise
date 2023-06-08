@@ -501,7 +501,7 @@
 
 /obj/machinery/autolathe/security/New()
 	. = ..()
-	for (wires)
+	if(wires)
 		wires.cut(WIRE_AUTOLATHE_HACK)
 	adjust_hacked(TRUE)
 
