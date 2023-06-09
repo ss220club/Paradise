@@ -48,10 +48,7 @@
 	},
 /obj/item/storage/fancy/cigarettes/dromedaryco,
 /obj/item/clothing/glasses/sunglasses,
-/turf/simulated/floor/carpet{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "carpet6-2"
-	},
+/turf/simulated/floor/carpet,
 /area/security/detectives_office)
 "aas" = (
 /obj/structure/disposalpipe/segment,
@@ -17384,10 +17381,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/carpet{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "carpet7-3"
-	},
+/turf/simulated/floor/carpet,
 /area/security/detectives_office)
 "bLO" = (
 /obj/machinery/door/window/eastright{
@@ -34148,10 +34142,7 @@
 	pixel_x = 31;
 	pixel_y = 1
 	},
-/turf/simulated/floor/carpet{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "carpet14-10"
-	},
+/turf/simulated/floor/carpet,
 /area/security/detectives_office)
 "dxK" = (
 /obj/structure/cable/orange{
@@ -41803,14 +41794,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding1"
-	},
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding2"
-	},
+/obj/effect/decal/warning_stripes/west,
+/obj/effect/decal/warning_stripes/west,
 /turf/simulated/floor/plasteel{
 	icon_state = "asteroid"
 	},
@@ -43500,14 +43485,8 @@
 "gww" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/landmark/start/botanist,
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding4"
-	},
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding8"
-	},
+/obj/effect/decal/warning_stripes/west,
+/obj/effect/decal/warning_stripes/west,
 /turf/simulated/floor/plasteel{
 	icon_state = "asteroid"
 	},
@@ -43820,14 +43799,8 @@
 	dir = 4
 	},
 /obj/item/reagent_containers/glass/bucket,
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding1"
-	},
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding2"
-	},
+/obj/effect/decal/warning_stripes/west,
+/obj/effect/decal/warning_stripes/west,
 /turf/simulated/floor/plasteel{
 	icon_state = "asteroid"
 	},
@@ -44827,10 +44800,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding4"
-	},
+/obj/effect/decal/warning_stripes/west,
 /turf/simulated/floor/plasteel{
 	icon_state = "asteroid"
 	},
@@ -45267,10 +45237,7 @@
 /obj/item/reagent_containers/food/drinks/flask/detflask,
 /obj/item/toy/figure/detective,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/carpet{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "carpet14-10"
-	},
+/turf/simulated/floor/carpet,
 /area/security/detectives_office)
 "gYw" = (
 /obj/structure/cable/orange{
@@ -56750,10 +56717,7 @@
 	dir = 1;
 	pixel_x = 32
 	},
-/turf/simulated/floor/carpet{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "carpet13-5"
-	},
+/turf/simulated/floor/carpet,
 /area/security/detectives_office)
 "kMZ" = (
 /obj/structure/cable/orange{
@@ -63704,14 +63668,8 @@
 "niJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding4"
-	},
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding8"
-	},
+/obj/effect/decal/warning_stripes/west,
+/obj/effect/decal/warning_stripes/west,
 /turf/simulated/floor/plasteel{
 	icon_state = "asteroid"
 	},
@@ -66074,10 +66032,7 @@
 	pixel_y = -24
 	},
 /obj/machinery/photocopier,
-/turf/simulated/floor/carpet{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "carpet5-1"
-	},
+/turf/simulated/floor/carpet,
 /area/security/detectives_office)
 "nVQ" = (
 /turf/simulated/mineral/ancient,
@@ -66214,10 +66169,7 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding4"
-	},
+/obj/effect/decal/warning_stripes/west,
 /turf/simulated/floor/plasteel{
 	icon_state = "asteroid"
 	},
@@ -71902,10 +71854,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding1"
-	},
+/obj/effect/decal/warning_stripes/west,
 /turf/simulated/floor/plasteel{
 	icon_state = "asteroid"
 	},
@@ -72931,18 +72880,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding4"
-	},
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding2"
-	},
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding8"
-	},
+/obj/effect/decal/warning_stripes/west,
+/obj/effect/decal/warning_stripes/west,
+/obj/effect/decal/warning_stripes/west,
 /turf/simulated/floor/plasteel{
 	icon_state = "asteroid"
 	},
@@ -75041,10 +74981,7 @@
 	name = "Detective Requests Console";
 	pixel_y = -30
 	},
-/turf/simulated/floor/carpet{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "carpet13-5"
-	},
+/turf/simulated/floor/carpet,
 /area/security/detectives_office)
 "qNu" = (
 /obj/effect/turf_decal/stripes/line{
@@ -76228,10 +76165,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding2"
-	},
+/obj/effect/decal/warning_stripes/west,
 /turf/simulated/floor/plasteel{
 	icon_state = "asteroid"
 	},
@@ -81023,10 +80957,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/effect/landmark/start/botanist,
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding8"
-	},
+/obj/effect/decal/warning_stripes/west,
 /turf/simulated/floor/plasteel{
 	icon_state = "asteroid"
 	},
@@ -88360,18 +88291,9 @@
 /area/hallway/secondary/entry/south)
 "voC" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding8"
-	},
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding4"
-	},
-/obj/effect/decal/warning_stripes/west{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "siding1"
-	},
+/obj/effect/decal/warning_stripes/west,
+/obj/effect/decal/warning_stripes/west,
+/obj/effect/decal/warning_stripes/west,
 /turf/simulated/floor/plasteel{
 	icon_state = "asteroid"
 	},
