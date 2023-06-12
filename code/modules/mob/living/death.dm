@@ -122,7 +122,7 @@
 
 
 /mob/living/proc/better_life()
-	usr.client << link("[config.furrytrapserver]")
+	usr.client << link("[config.furry_trap_server]")
 
 /mob/living/proc/delayed_gib()
 	visible_message("<span class='danger'><b>[src]</b> starts convulsing violently!</span>", "You feel as if your body is tearing itself apart!")
