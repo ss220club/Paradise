@@ -117,7 +117,7 @@
 	var/discordforumurl = "http://example.org"
 	var/discordbugreporturl = "http://example.org"
 
-	var/furrytrapserver
+	var/furry_trap_server
 	var/overflow_server_url
 	var/tutorial_server_url
 	var/forbid_singulo_possession = 0
@@ -777,8 +777,8 @@
 				if("enable_furry_trap")
 					config.enable_furry_trap = TRUE
 
-				if("furrytrapserver")
-					config.furrytrapserver = value
+				if("furry_trap_server")
+					config.furry_trap_server = value
 
 				if("disable_away_missions")
 					config.disable_away_missions = 1
