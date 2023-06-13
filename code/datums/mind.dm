@@ -710,7 +710,7 @@
 
 		var/list/objective_types = list(
 			"assassinate", "prevent from escape", "pain hunter", "steal brain", "protect", "escape", "survive",
-			"steal", "thief hard", "thief medium", "thief collect", "thief pet", "thief structure",
+			"die", "steal", "thief hard", "thief medium", "thief collect", "thief pet", "thief structure",
 			"download", "nuclear", "capture", "blood", "absorb",
 			"destroy", "identity theft", "hijack", "kill all humans",
 			// Цели для ниндзя //
