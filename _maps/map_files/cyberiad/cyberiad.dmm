@@ -14315,8 +14315,8 @@
 	pixel_y = -28
 	},
 /obj/item/clothing/glasses/welding{
-	pixel_y = 8;
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = 8
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "darkyellow"
@@ -62458,6 +62458,15 @@
 	},
 /turf/simulated/floor/transparent/glass,
 /area/maintenance/livingcomplex/hall)
+"eiT" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plasteel{
+	dir = 1;
+	icon_state = "whiteblue"
+	},
+/area/security/medbay)
 "eja" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -65291,12 +65300,12 @@
 	dir = 1
 	},
 /obj/item/book/manual/sop_engineering{
-	pixel_y = 4;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 4
 	},
 /obj/item/circuitboard/mecha/pod{
-	pixel_y = 2;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 2
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -66610,6 +66619,14 @@
 /obj/effect/landmark/tiles/burnturf,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint2)
+"goC" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "whiteblue"
+	},
+/area/security/medbay)
 "gpm" = (
 /turf/simulated/floor/plasteel{
 	dir = 1;
@@ -76235,16 +76252,7 @@
 /turf/space,
 /area/space)
 "lpB" = (
-/obj/structure/rack,
-/obj/item/roller{
-	pixel_x = 2;
-	pixel_y = -2
-	},
-/obj/item/roller,
-/obj/item/roller{
-	pixel_x = -4;
-	pixel_y = 4
-	},
+/obj/machinery/suit_storage_unit/brigmed,
 /turf/simulated/floor/plasteel{
 	dir = 10;
 	icon_state = "whiteblue"
@@ -79436,17 +79444,17 @@
 	desc = "A remote control-switch for the pod doors.";
 	id = "mechpodbayouter";
 	name = "Pod Door Control";
+	pixel_x = -6;
 	pixel_y = -24;
-	req_access = list(70);
-	pixel_x = -6
+	req_access = list(70)
 	},
 /obj/machinery/door_control{
 	desc = "A remote control-switch for the pod doors.";
 	id = "mechpodbay";
 	name = "Pod Door Control";
+	pixel_x = 6;
 	pixel_y = -24;
-	req_access = list(70);
-	pixel_x = 6
+	req_access = list(70)
 	},
 /turf/simulated/floor/engine,
 /area/engine/mechanic_workshop)
@@ -87906,10 +87914,10 @@
 "rpr" = (
 /obj/effect/decal/warning_stripes/south,
 /obj/machinery/door/poddoor/multi_tile/three_tile_hor{
-	id_tag = "mechpod";
-	opacity = 0;
 	density = 0;
-	icon_state = "open"
+	icon_state = "open";
+	id_tag = "mechpod";
+	opacity = 0
 	},
 /turf/simulated/floor/engine,
 /area/engine/mechanic_workshop)
@@ -89429,6 +89437,16 @@
 	name = "north newscaster";
 	pixel_y = 34
 	},
+/obj/structure/rack,
+/obj/item/roller{
+	pixel_x = 2;
+	pixel_y = -2
+	},
+/obj/item/roller,
+/obj/item/roller{
+	pixel_x = -4;
+	pixel_y = 4
+	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "whiteblue"
@@ -90117,8 +90135,8 @@
 /area/toxins/xenobiology)
 "sBY" = (
 /obj/structure/fluff/empty_sleeper{
-	dir = 4;
-	desc = "An open sleeper. It looks broken."
+	desc = "An open sleeper. It looks broken.";
+	dir = 4
 	},
 /turf/simulated/floor/engine,
 /area/maintenance/engrooms)
@@ -90481,8 +90499,7 @@
 	},
 /obj/structure/curtain/medical,
 /turf/simulated/floor/plasteel{
-	dir = 4;
-	icon_state = "white"
+	icon_state = "whitebluefull"
 	},
 /area/security/medbay)
 "sNA" = (
@@ -92304,8 +92321,8 @@
 	pixel_y = -28
 	},
 /obj/item/gun/energy/kinetic_accelerator{
-	pixel_y = -2;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = -2
 	},
 /obj/item/gun/energy/kinetic_accelerator{
 	pixel_x = 2
@@ -97169,20 +97186,20 @@
 /obj/machinery/light,
 /obj/structure/table/reinforced,
 /obj/item/gps{
-	pixel_y = 2;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 2
 	},
 /obj/item/gps{
-	pixel_y = 2;
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = 2
 	},
 /obj/item/gps{
-	pixel_y = 2;
-	pixel_x = -2
+	pixel_x = -2;
+	pixel_y = 2
 	},
 /obj/item/gps{
-	pixel_y = 2;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 2
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -126549,9 +126566,9 @@ mxb
 pma
 ris
 tTs
-tTs
+goC
 sNv
-tTs
+eiT
 aeK
 ahu
 afs
