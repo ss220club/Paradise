@@ -327,4 +327,4 @@ GLOBAL_LIST_EMPTY(world_uplinks)
 /obj/item/radio/headset/uplink/New()
 	..()
 	hidden_uplink = new(src)
-	hidden_uplink.uses = 30
+	hidden_uplink.uses = 20

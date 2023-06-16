@@ -44,7 +44,7 @@
 
 	var/id_icon = "syndie"
 	var/id_access = "Syndicate Operative"
-	var/uplink_uses = 30
+	var/uplink_uses = 20
 
 /datum/outfit/admin/syndicate/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
