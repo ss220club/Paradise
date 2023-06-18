@@ -497,6 +497,20 @@
 	icon_state = "ducky"
 	item_state = "ducky"
 
+/obj/item/clothing/shoes/shark
+	name = "shark slippers"
+	desc = "These shoes are made from shark skin, or is it?"
+	icon_state = "shark"
+	item_state = "shark"
+	lefthand_file = 'icons/mob/inhands/clothing_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing_righthand.dmi'
+
+/obj/item/clothing/shoes/shark/light
+	name = "lightblue shark slippers"
+	icon_state = "shark_light"
+	item_state = "shark_light"
+
+
 /obj/item/clothing/shoes/ducky/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/squeak, list('sound/items/squeaktoy.ogg' = 1), 50, falloff_exponent = 20) //die off quick please
