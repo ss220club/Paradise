@@ -335,6 +335,37 @@
 	flags = BLOCKHAIR
 	flags_inv = HIDEHEADSETS
 
+/obj/item/clothing/suit/hooded/shark_costume
+	name = "shark costume"
+	desc = "A costume made from 'synthetic' shark skin, it smells."
+	icon_state = "shark_casual"
+	lefthand_file = 'icons/mob/inhands/clothing_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing_righthand.dmi'
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	allowed = list(/obj/item/tank/internals/emergency_oxygen)
+	hoodtype = /obj/item/clothing/head/hooded/shark_hood
+
+/obj/item/clothing/head/hooded/shark_hood
+	name = "shark hood"
+	desc = "A hood attached to a shark costume."
+	icon_state = "shark_casual"
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	flags = BLOCKHAIR
+	flags_inv = HIDEHEADSETS
+
+/obj/item/clothing/suit/hooded/shark_costume/light
+	name = "lightblue shark costume"
+	icon_state = "shark_casual_light"
+	hoodtype = /obj/item/clothing/head/hooded/shark_hood/light
+
+/obj/item/clothing/head/hooded/shark_hood/light
+	name = "lightblue shark hood"
+	icon_state = "shark_casual_light"
+
 /obj/item/clothing/suit/hooded/salmon_costume
 	name = "salmon suit"
 	desc = "A costume made from authentic salmon scales, it reeks!"
