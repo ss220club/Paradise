@@ -9,7 +9,7 @@
 	icon_state = "null"
 	item_state = "null"
 	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(5,10,15,25,30,50)
+	possible_transfer_amounts = list(1,2,5,10,15,25,30,50)
 	volume = 50
 	container_type = OPENCONTAINER
 	has_lid = TRUE
@@ -222,7 +222,7 @@
 	materials = list(MAT_GLASS=2500)
 	volume = 100
 	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(5,10,15,25,30,50,100)
+	possible_transfer_amounts = list(1,2,5,10,15,25,30,50,100)
 	container_type = OPENCONTAINER
 
 /obj/item/reagent_containers/glass/beaker/vial
@@ -232,7 +232,7 @@
 	materials = list(MAT_GLASS=250)
 	volume = 25
 	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(5,10,15,25)
+	possible_transfer_amounts = list(1,2,5,10,15,25)
 	container_type = OPENCONTAINER
 	can_assembly = 0
 
@@ -274,13 +274,24 @@
 /obj/item/reagent_containers/glass/beaker/bluespace
 	name = "bluespace beaker"
 	desc = "A bluespace beaker, powered by experimental bluespace technology and Element Cuban combined with the Compound Pete. Can hold up to 300 units."
-	icon_state = "beakerbluespace"
+	icon_state = "beaker_bluespace"
 	materials = list(MAT_GLASS=3000)
 	volume = 300
 	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(5,10,15,25,30,50,100,300)
+	possible_transfer_amounts = list(1,2,5,10,15,25,30,50,100,300)
 	container_type = OPENCONTAINER
 	origin_tech = "bluespace=5;materials=4;plasmatech=4"
+
+/obj/item/reagent_containers/glass/beaker/bluespace/xl
+	name = "xl bluespace beaker"
+	desc = "Big capacity bluespace beaker, powered by experimental bluespace technology and Element Cuban combined with the Compound Pete. Can hold up to 1000 units."
+	icon_state = "beaker_bluespace_xl"
+	materials = list(MAT_GLASS=4500)
+	volume = 1000
+	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(1,2,5,10,15,25,30,50,100,300,500,1000)
+	container_type = OPENCONTAINER
+	origin_tech = "bluespace=6;materials=5;plasmatech=5"
 
 /obj/item/reagent_containers/glass/beaker/cryoxadone
 	list_reagents = list("cryoxadone" = 30)
