@@ -234,3 +234,35 @@
 	amount_per_transfer_from_this = 50
 	volume = 50
 	list_reagents = list("toxin" = 15, "pancuronium" = 10, "cyanide" = 5, "facid" = 10, "fluorine" = 10)
+
+/obj/item/reagent_containers/syringe/bluespace
+	name = "Bluespace Syringe"
+	desc = "A bluespace syringe."
+	icon = 'icons/goonstation/objects/syringe.dmi'
+	item_state = "syringe_bs_0"
+	icon_state = "bs_0"
+	amount_per_transfer_from_this = 5
+	possible_transfer_amounts = null
+	volume = 30
+	sharp = TRUE
+	pass_open_check = TRUE
+	busy = FALSE
+	mode = SYRINGE_DRAW
+	projectile_type = /obj/item/projectile/bullet/dart/syringe
+	materials = list(MAT_GLASS=250)
+	container_type = TRANSPARENT
+	origin_tech = "bluespace=4;materials=4;plasmatech=4"
+
+/obj/item/reagent_containers/syringe/bluespace/update_icon()
+	cut_overlays()
+	if(ismob(loc))
+		var/mob/M = loc
+		var/injoverlay
+		switch(mode)
+			if(SYRINGE_DRAW)
+				injoverlay = "draw"
+			if(SYRINGE_INJECT)
+				injoverlay = "inject"
+		add_overlay(injoverlay)
+		M.update_inv_l_hand()
+		M.update_inv_r_hand()

@@ -12,14 +12,34 @@
 	build_path = /obj/item/reagent_scanner/adv
 	category = list("Medical")
 
-/datum/design/bluespacebeaker
+/datum/design/bluespace_beaker
 	name = "Bluespace Beaker"
 	desc = "A bluespace beaker, powered by experimental bluespace technology and Element Cuban combined with the Compound Pete. Can hold up to 300 units."
-	id = "bluespacebeaker"
+	id = "bluespace_beaker"
 	req_tech = list("bluespace" = 6, "materials" = 5, "plasmatech" = 4)
 	build_type = PROTOLATHE
-	materials = list(MAT_GLASS = 3000, MAT_PLASMA = 3000, MAT_DIAMOND = 250, MAT_BLUESPACE = 250)
+	materials = list(MAT_GLASS = 2000, MAT_PLASMA = 2000, MAT_DIAMOND = 125, MAT_BLUESPACE = 125)
 	build_path = /obj/item/reagent_containers/glass/beaker/bluespace
+	category = list("Medical")
+
+/datum/design/bluespace_beaker_xl
+	name = "Bluespace Beaker XL"
+	desc = "Big capacity bluespace beaker, powered by experimental bluespace technology and Element Cuban combined with the Compound Pete. Can hold up to 1000 units."
+	id = "bluespace_beaker_xl"
+	req_tech = list("bluespace" = 7, "materials" = 7, "plasmatech" = 6)
+	build_type = PROTOLATHE
+	materials = list(MAT_GLASS = 4500, MAT_PLASMA = 4500, MAT_DIAMOND = 375, MAT_BLUESPACE = 375)
+	build_path = /obj/item/reagent_containers/glass/beaker/bluespace/xl
+	category = list("Medical")
+
+/datum/design/bluespace_syringe
+	name = "Bluespace Syringe"
+	desc = "A bluespace syringe, powered by experimental bluespace technology and Element Cuban combined with the Compound Pete. Can hold up to 30 units."
+	id = "bluespace_syringe"
+	req_tech = list("bluespace" = 6, "materials" = 5, "plasmatech" = 4)
+	build_type = PROTOLATHE
+	materials = list(MAT_METAL = 125, MAT_GLASS = 250, MAT_DIAMOND = 75, MAT_BLUESPACE = 75)
+	build_path = /obj/item/reagent_containers/syringe/bluespace
 	category = list("Medical")
 
 /datum/design/noreactbeaker
