@@ -54,7 +54,7 @@
 	if(istype(I))
 		var/list/vedits = list()
 		for(var/varname in I.vars)
-			if(!I.can_vv_get(varname) && !check_rights(R_HOST))
+			if(!I.can_vv_get(varname) && check_rights(R_HOST))
 				continue
 			if(varname in ignored_vars)
 				continue
