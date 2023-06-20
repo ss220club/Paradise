@@ -134,7 +134,7 @@ GLOBAL_PROTECT(AdminProcCallSpamPrevention)
 		to_chat(usr, "Calling Del() is not allowed")
 		return
 
-	if(target != GLOBAL_PROC && !target.CanProcCall(procname) || check_rights(R_HOST))
+	if(target != GLOBAL_PROC && !target.CanProcCall(procname))
 		to_chat(usr, "Proccall on [target.type]/proc/[procname] is disallowed!")
 		return
 	var/current_caller = GLOB.AdminProcCaller
@@ -178,7 +178,7 @@ GLOBAL_PROTECT(AdminProcCallSpamPrevention)
 #ifdef TESTING
 	return FALSE
 #else
-	return usr && usr.client && GLOB.AdminProcCaller == usr.client.ckey && !check_rights(R_HOST)
+	return usr && usr.client && GLOB.AdminProcCaller == usr.client.ckey
 #endif
 
 /client/proc/callproc_datum(var/A as null|area|mob|obj|turf)
