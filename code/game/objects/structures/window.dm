@@ -548,19 +548,28 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 
 /obj/machinery/button/windowtint
 	name = "window tint control"
-	icon = 'icons/obj/engines_and_power/power.dmi'
-	icon_state = "light0"
+	icon = 'icons/obj/stationobjs.dmi'
+	icon_state = "polarizer-0"
 	desc = "A remote control switch for polarized windows."
 	anchored = TRUE
 	var/range = 7
 	var/id = 0
 	var/active = 0
 
-/obj/machinery/button/windowtint/attack_hand(mob/user)
-	if(..())
+/obj/machinery/button/windowtint/attack_hand(mob/user as mob)
+	if(!allowed(user) && !user.can_advanced_admin_interact())
+		to_chat(user, "<span class='warning'>Access Denied.</span>")
+		flick("polarizer-denied",src)
+		playsound(src, pick('sound/machines/button.ogg', 'sound/machines/button_alternate.ogg', 'sound/machines/button_meloboom.ogg'), 20)
 		return 1
 
 	toggle_tint()
+	icon_state= "polarizer-turning_on"
+	addtimer(CALLBACK(src, .proc/update_icon), 5)
+
+	if(!active)
+		icon_state= "polarizer-turning_off"
+		addtimer(CALLBACK(src, .proc/update_icon), 5)
 
 /obj/machinery/button/windowtint/proc/toggle_tint()
 	use_power(5)
@@ -595,7 +604,7 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 		toggle_tint()
 
 /obj/machinery/button/windowtint/update_icon()
-	icon_state = "light[active]"
+	icon_state = "polarizer-[active]"
 
 /obj/structure/window/plasmabasic
 	name = "plasma window"
