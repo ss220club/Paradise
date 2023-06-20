@@ -41387,7 +41387,7 @@
 	},
 /obj/machinery/button/windowtint{
 	id = "departureprivate";
-	pixel_x = 23;
+	pixel_x = 25;
 	pixel_y = 6;
 	range = 4
 	},
@@ -47086,7 +47086,7 @@
 	},
 /obj/machinery/button/windowtint{
 	id = "privateroom";
-	pixel_x = -24;
+	pixel_x = -26;
 	pixel_y = -6
 	},
 /obj/machinery/light{
@@ -66389,7 +66389,7 @@
 /obj/effect/spawner/random_spawners/blood_often,
 /obj/machinery/button/windowtint{
 	active = 1;
-	icon_state = "light1";
+	icon_state = "polarizer-1";
 	id = "pokerclub";
 	pixel_x = -24
 	},
