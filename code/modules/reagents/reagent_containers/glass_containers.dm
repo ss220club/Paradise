@@ -291,7 +291,7 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(1,2,5,10,15,25,30,50,100,300,500,1000)
 	container_type = OPENCONTAINER
-	origin_tech = "bluespace=6;materials=5;plasmatech=5"
+	origin_tech = "bluespace=6;materials=6;plasmatech=6"
 
 /obj/item/reagent_containers/glass/beaker/cryoxadone
 	list_reagents = list("cryoxadone" = 30)

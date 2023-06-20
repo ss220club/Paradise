@@ -26,7 +26,7 @@
 	name = "Bluespace Beaker XL"
 	desc = "Big capacity bluespace beaker, powered by experimental bluespace technology and Element Cuban combined with the Compound Pete. Can hold up to 1000 units."
 	id = "bluespace_beaker_xl"
-	req_tech = list("bluespace" = 7, "materials" = 7, "plasmatech" = 6)
+	req_tech = list("bluespace" = 7, "materials" = 7, "plasmatech" = 7)
 	build_type = PROTOLATHE
 	materials = list(MAT_GLASS = 4500, MAT_PLASMA = 4500, MAT_DIAMOND = 375, MAT_BLUESPACE = 375)
 	build_path = /obj/item/reagent_containers/glass/beaker/bluespace/xl
