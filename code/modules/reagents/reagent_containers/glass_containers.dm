@@ -9,8 +9,8 @@
 	icon_state = "null"
 	item_state = "null"
 	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(1,2,5,10,15,25,30,50)
-	volume = 50
+	possible_transfer_amounts = list(1,2,5,10,15,25,30,50,60)
+	volume = 60
 	container_type = OPENCONTAINER
 	has_lid = TRUE
 	resistance_flags = ACID_PROOF
@@ -217,12 +217,12 @@
 
 /obj/item/reagent_containers/glass/beaker/large
 	name = "large beaker"
-	desc = "A large beaker. Can hold up to 100 units."
+	desc = "A large beaker. Can hold up to 120 units."
 	icon_state = "beakerlarge"
 	materials = list(MAT_GLASS=2500)
-	volume = 100
+	volume = 120
 	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(1,2,5,10,15,25,30,50,100)
+	possible_transfer_amounts = list(1,2,5,10,15,25,30,50,100,120)
 	container_type = OPENCONTAINER
 
 /obj/item/reagent_containers/glass/beaker/vial
@@ -282,9 +282,9 @@
 	container_type = OPENCONTAINER
 	origin_tech = "bluespace=5;materials=4;plasmatech=4"
 
-/obj/item/reagent_containers/glass/beaker/bluespace/xl
-	name = "xl bluespace beaker"
-	desc = "Big capacity bluespace beaker, powered by experimental bluespace technology and Element Cuban combined with the Compound Pete. Can hold up to 1000 units."
+/obj/item/reagent_containers/glass/beaker/bluespace/large
+	name = "large bluespace beaker"
+	desc = "A large capacity bluespace beaker, powered by experimental bluespace technology and Element Cuban combined with the Compound Pete. Can hold up to 1000 units."
 	icon_state = "beaker_bluespace_xl"
 	materials = list(MAT_GLASS=4500)
 	volume = 1000

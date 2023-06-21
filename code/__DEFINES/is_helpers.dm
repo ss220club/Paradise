@@ -55,6 +55,7 @@ GLOBAL_LIST_INIT(glass_sheet_types, typecacheof(list(
 #define isprox(O) (istype(O, /obj/item/assembly/prox_sensor))
 #define issignaler(O) (istype(O, /obj/item/assembly/signaler))
 #define istimer(O) (istype(O, /obj/item/assembly/timer))
+#define isvoice_analyzer(O) (istype(O, /obj/item/assembly/voice))
 
 
 //Turfs

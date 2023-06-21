@@ -15,6 +15,7 @@
 	var/stage = EMPTY
 	var/list/beakers = list()
 	var/list/allowed_containers = list(/obj/item/reagent_containers/glass/beaker, /obj/item/reagent_containers/glass/bottle)
+	var/list/blacklisted_containers = list(/obj/item/reagent_containers/glass/beaker/bluespace/large)
 	var/affected_area = 3
 	var/obj/item/assembly_holder/nadeassembly = null
 	var/label = null
@@ -164,6 +165,9 @@
 		if(beakers.len == 2)
 			to_chat(user, "<span class='notice'>[src] can not hold more containers.</span>")
 			return
+		if(stage == WIRED && is_type_in_list(I, blacklisted_containers))
+			to_chat(user, "<span class='warning'>You cannot put a [I] to the [src]</span>")
+			return
 		else
 			if(I.reagents.total_volume)
 				to_chat(user, "<span class='notice'>You add [I] to the assembly.</span>")
@@ -177,7 +181,14 @@
 		var/obj/item/assembly_holder/A = I
 		if(!A.secured)
 			return
-		if(isigniter(A.a_left) == isigniter(A.a_right))	//Check if either part of the assembly has an igniter, but if both parts are igniters, then fuck it
+		if(isigniter(A.a_left) == isigniter(A.a_right))
+			to_chat(user, "<span class='warning'>You cannot add [I] to the [src]!</span>")	//Check if either part of the assembly has an igniter, but if both parts are igniters, then fuck it
+			return
+		if(isvoice_analyzer(A.a_left) && isigniter(A.a_right))
+			to_chat(user, "<span class='warning'>You cannot add [I] to the [src]!</span>")
+			return
+		if(isvoice_analyzer(A.a_right) && isigniter(A.a_left))
+			to_chat(user, "<span class='warning'>You cannot add [I] to the [src]!</span>")
 			return
 
 		user.drop_item()
@@ -321,8 +332,10 @@
 	desc = "A custom made large grenade. It affects a larger area."
 	icon_state = "large_grenade"
 	bomb_state = "largebomb"
-	allowed_containers = list(/obj/item/reagent_containers/glass,/obj/item/reagent_containers/food/condiment,
-								/obj/item/reagent_containers/food/drinks)
+	allowed_containers = list(
+		/obj/item/reagent_containers/glass,
+		/obj/item/reagent_containers/food/condiment,
+		/obj/item/reagent_containers/food/drinks)
 	origin_tech = "combat=3;engineering=3"
 	affected_area = 5
 	ignition_temp = 25 // Large grenades are slightly more effective at setting off heat-sensitive mixtures than smaller grenades.
