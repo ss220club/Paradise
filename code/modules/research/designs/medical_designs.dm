@@ -18,7 +18,7 @@
 	id = "bluespace_beaker"
 	req_tech = list("bluespace" = 6, "materials" = 5, "plasmatech" = 4)
 	build_type = PROTOLATHE
-	materials = list(MAT_GLASS = 2000, MAT_PLASMA = 2000, MAT_DIAMOND = 125, MAT_BLUESPACE = 125)
+	materials = list(MAT_GLASS = 2500, MAT_PLASMA = 2500, MAT_DIAMOND = 200, MAT_BLUESPACE = 200)
 	build_path = /obj/item/reagent_containers/glass/beaker/bluespace
 	category = list("Medical")
 
@@ -28,7 +28,7 @@
 	id = "bluespace_beaker_large"
 	req_tech = list("bluespace" = 7, "materials" = 7, "plasmatech" = 7)
 	build_type = PROTOLATHE
-	materials = list(MAT_GLASS = 4500, MAT_PLASMA = 4500, MAT_DIAMOND = 375, MAT_BLUESPACE = 375)
+	materials = list(MAT_GLASS = 6250, MAT_PLASMA = 6250, MAT_DIAMOND = 500, MAT_BLUESPACE = 500)
 	build_path = /obj/item/reagent_containers/glass/beaker/bluespace/large
 	category = list("Medical")
 
