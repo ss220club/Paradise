@@ -48,6 +48,9 @@
 	if(!check_allowed(user) || !war_declaration)
 		return
 
+	declare_war(user, war_declaration)
+
+/obj/item/nuclear_challenge/proc/declare_war(mob/living/user = null, war_declaration = "Syndicate nuclear operatives team has declared ther intent to utterly destroy [station_name()] with a nuclear device, and dares the crew to try and stop them.")
 	GLOB.event_announcement.Announce(war_declaration, "Объявление войны.", 'sound/effects/siren.ogg')
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/set_security_level, "gamma"), 30 SECONDS)
 
@@ -62,6 +65,10 @@
 	share_telecrystals()
 	config.shuttle_refuel_delay = CHALLENGE_SHUTTLE_DELAY
 	qdel(src)
+
+/obj/item/nuclear_challenge/Initialize(mapload)
+	. = ..()
+	addtimer(CALLBACK(src, .proc/declare_war), 3.5 MINUTES)
 
 /obj/item/nuclear_challenge/proc/share_telecrystals()
 	var/player_tc
