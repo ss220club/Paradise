@@ -29,8 +29,6 @@
 	if(req_access && req_access.len)
 		icon_state = "[icon_state]"
 		base_state = icon_state
-	if(!color && cancolor)
-		color = color_windows(src)
 	for(var/i in 1 to shards)
 		debris += new /obj/item/shard(src)
 	if(rods)
