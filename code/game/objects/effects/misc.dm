@@ -77,6 +77,14 @@
 /obj/effect/list_container
 	name = "list container"
 
+/**
+ * Used when we want to pass vars from a spawner to a spawned object
+ *
+ * a - The spawned object we want to pass a var to
+ */
+/obj/effect/spawner/proc/synchronize_variables(atom/a)
+	return
+
 /obj/effect/list_container/mobl
 	name = "mobl"
 	var/master = null
