@@ -29,8 +29,6 @@
 	if(req_access && req_access.len)
 		icon_state = "[icon_state]"
 		base_state = icon_state
-	if(!color && cancolor)
-		color = color_windows(src)
 	for(var/i in 1 to shards)
 		debris += new /obj/item/shard(src)
 	if(rods)
@@ -204,11 +202,18 @@
 
 /obj/machinery/door/window/deconstruct(disassembled = TRUE)
 	if(!(flags & NODECONSTRUCT) && !disassembled)
-		for(var/obj/fragment in debris)
-			fragment.forceMove(get_turf(src))
-			transfer_fingerprints_to(fragment)
-			debris -= fragment
+		for(var/obj/item/shard/debris in spawnDebris(drop_location()))
+			transfer_fingerprints_to(debris) // transfer fingerprints to shards only
 	qdel(src)
+
+/obj/machinery/door/window/proc/spawnDebris(location)
+	. = list()
+	for(var/i in 1 to shards)
+		. += new /obj/item/shard(location)
+	if(rods)
+		. += new /obj/item/stack/rods(location, rods)
+	if(cable)
+		. += new /obj/item/stack/cable_coil(location, cable)
 
 /obj/machinery/door/window/narsie_act()
 	color = NARSIE_WINDOW_COLOUR

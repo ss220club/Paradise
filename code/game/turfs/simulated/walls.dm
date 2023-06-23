@@ -36,6 +36,12 @@
 	var/girder_type = /obj/structure/girder
 
 	canSmoothWith = list(
+	/obj/structure/window/full/basic,
+	/obj/structure/window/full/reinforced,
+	/obj/structure/window/full/reinforced/tinted,
+	/obj/structure/window/full/reinforced/polarized,
+	/obj/structure/window/full/plasmabasic,
+	/obj/structure/window/full/plasmareinforced,
 	/turf/simulated/wall,
 	/turf/simulated/wall/r_wall,
 	/obj/structure/falsewall,
@@ -44,6 +50,7 @@
 	/turf/simulated/wall/rust,
 	/turf/simulated/wall/r_wall/rust,
 	/turf/simulated/wall/r_wall/coated,
+	/turf/simulated/wall/indestructible,
 	/turf/simulated/wall/indestructible/metal,
 	/turf/simulated/wall/indestructible/reinforced)
 	smooth = SMOOTH_TRUE
