@@ -1,25 +1,4 @@
-GLOBAL_LIST_INIT(wcBar, pick(list("#0d8395", "#58b5c3", "#58c366", "#90d79a", "#ffffff")))
-GLOBAL_LIST_INIT(wcBrig, pick(list("#aa0808", "#7f0606", "#ff0000")))
-GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e", "#8fcf44", "#ffffff")))
 
-/obj/proc/color_windows(obj/W)
-	var/list/wcBarAreas = list(/area/crew_quarters/bar)
-	var/list/wcBrigAreas = list(/area/security, /area/shuttle/gamma)
-
-	var/newcolor
-	var/turf/T = get_turf(W)
-	if(!istype(T))
-		return
-	var/area/A = T.loc
-
-	if(is_type_in_list(A,wcBarAreas))
-		newcolor = GLOB.wcBar
-	else if(is_type_in_list(A,wcBrigAreas))
-		newcolor = GLOB.wcBrig
-	else
-		newcolor = GLOB.wcCommon
-
-	return newcolor
 
 /obj/structure/window
 	name = "window"
@@ -41,6 +20,7 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 	var/decon_speed = null
 	var/fulltile = FALSE
 	var/shardtype = /obj/item/shard
+	var/glass_decal = /obj/effect/decal/cleanable/glass
 	var/glass_type = /obj/item/stack/sheet/glass
 	var/glass_amount = 1
 	var/cancolor = FALSE
@@ -49,6 +29,8 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 	var/real_explosion_block	//ignore this, just use explosion_block
 	var/breaksound = "shatter"
 	var/hitsound = 'sound/effects/glasshit.ogg'
+	var/old_color
+	var/old_icon
 
 /obj/structure/window/examine(mob/user)
 	. = ..()
@@ -78,9 +60,6 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 		state = WINDOW_SCREWED_TO_FRAME
 
 	ini_dir = dir
-
-	if(!color && cancolor)
-		color = color_windows(src)
 
 	// Precreate our own debris
 
@@ -183,14 +162,14 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 		if(ishuman(user) && user.dna.species.obj_damage)
 			attack_generic(user, user.dna.species.obj_damage)
 		else
-			playsound(src, 'sound/effects/glassknock.ogg', 80, 1)
+			playsound(src, 'sound/effects/glassbang.ogg', 100, 1)
 			user.visible_message("<span class='warning'>[user] bangs against [src]!</span>", \
 								"<span class='warning'>You bang against [src]!</span>", \
 								"You hear a banging sound.")
 		add_fingerprint(user)
 	else
 		user.changeNext_move(CLICK_CD_MELEE)
-		playsound(src, 'sound/effects/glassknock.ogg', 80, 1)
+		playsound(src, 'sound/effects/glassknock.ogg', 50, 1)
 		user.visible_message("[user] knocks on [src].", \
 							"You knock on [src].", \
 							"You hear a knocking sound.")
@@ -368,12 +347,19 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 	if(!disassembled)
 		playsound(src, breaksound, 70, 1)
 		if(!(flags & NODECONSTRUCT))
-			for(var/i in debris)
-				var/obj/item/I = i
-				I.forceMove(loc)
-				transfer_fingerprints_to(I)
+			for(var/obj/item/shard/debris in spawnDebris(drop_location()))
+				transfer_fingerprints_to(debris) // transfer fingerprints to shards only
 	qdel(src)
 	update_nearby_icons()
+
+/obj/structure/window/proc/spawnDebris(location)
+	. = list()
+	. += new shardtype(location)
+	. += new glass_decal(location)
+	if(reinf)
+		. += new /obj/item/stack/rods(location, (fulltile ? 2 : 1))
+	if(fulltile)
+		. += new shardtype(location)
 
 /obj/structure/window/rcd_deconstruct_act(mob/user, obj/item/rcd/our_rcd)
 	. = ..()
@@ -532,19 +518,33 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 	name = "electrochromic window"
 	desc = "Adjusts its tint with voltage. Might take a few good hits to shatter it."
 	var/id
-	var/original_color
-	var/ispolzovano
 
-/obj/structure/window/reinforced/polarized/proc/toggle()
-	if(!ispolzovano)
-		ispolzovano++
-		original_color = color
+/obj/structure/window/proc/toggle_polarization()
 	if(opacity)
-		animate(src, color="[original_color]", time=5)
-		set_opacity(0)
+		if(!old_color)
+			old_color = "#FFFFFF"
+		animate(src, color = old_color, time = 0.5 SECONDS)
+		set_opacity(FALSE)
 	else
-		animate(src, color="#222222", time=5)
-		set_opacity(1)
+		old_color = color
+		animate(src, icon = "#222222", time = 0.5 SECONDS)
+		set_opacity(TRUE)
+
+/obj/structure/window/full/proc/toggle_full_polarization()
+	if(opacity)
+		if(!old_icon)
+			old_icon = 'icons/obj/smooth_structures/windows/reinforced_window.dmi'
+		animate(src, icon = old_icon, time = 0.5 SECONDS)
+		set_opacity(FALSE)
+	else
+		old_icon = icon
+		animate(src, icon = 'icons/obj/smooth_structures/windows/tinted_window.dmi', time = 0.5 SECONDS)
+		set_opacity(TRUE)
+
+/obj/structure/window/full/reinforced/polarized
+	name = "electrochromic window"
+	desc = "Adjusts its tint with voltage. Might take a few good hits to shatter it."
+	var/id
 
 /obj/machinery/button/windowtint
 	name = "window tint control"
@@ -580,8 +580,15 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 	for(var/obj/structure/window/reinforced/polarized/W in range(src,range))
 		if(W.id == src.id || !W.id)
 			spawn(0)
-				W.toggle()
+				W.toggle_polarization()
 				return
+
+	for(var/obj/structure/window/full/reinforced/polarized/W in range(src,range))
+		if(W.id == src.id || !W.id)
+			spawn(0)
+				W.toggle_full_polarization()
+				return
+
 	for(var/obj/machinery/door/airlock/G in range(src,range))
 		if(G.id == src.id)
 			spawn(0)
@@ -610,6 +617,7 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 	name = "plasma window"
 	desc = "A window made out of a plasma-silicate alloy. It looks insanely tough to break and burn through."
 	icon_state = "plasmawindow"
+	glass_decal = /obj/effect/decal/cleanable/glass/plasma
 	shardtype = /obj/item/shard/plasma
 	glass_type = /obj/item/stack/sheet/plasmaglass
 	heat_resistance = 32000
@@ -624,6 +632,7 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 	name = "reinforced plasma window"
 	desc = "A plasma-glass alloy window, with rods supporting it. It looks hopelessly tough to break. It also looks completely fireproof, considering how basic plasma windows are insanely fireproof."
 	icon_state = "plasmarwindow"
+	glass_decal = /obj/effect/decal/cleanable/glass/plasma
 	shardtype = /obj/item/shard/plasma
 	glass_type = /obj/item/stack/sheet/plasmarglass
 	reinf = TRUE
@@ -648,24 +657,57 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 
 /obj/structure/window/full/basic
 	desc = "It looks thin and flimsy. A few knocks with... anything, really should shatter it."
-	icon = 'icons/obj/smooth_structures/window.dmi'
+	icon = 'icons/obj/smooth_structures/windows/window.dmi'
 	icon_state = "window"
 	max_integrity = 50
 	smooth = SMOOTH_TRUE
 	cancolor = TRUE
-	canSmoothWith = list(/obj/structure/window/full/basic, /obj/structure/window/full/reinforced, /obj/structure/window/full/reinforced/tinted, /obj/structure/window/full/plasmabasic, /obj/structure/window/full/plasmareinforced)
+	canSmoothWith = list(
+		/obj/structure/window/full/basic,
+		/obj/structure/window/full/reinforced,
+		/obj/structure/window/full/reinforced/tinted,
+		/obj/structure/window/full/reinforced/polarized,
+		/obj/structure/window/full/plasmabasic,
+		/obj/structure/window/full/plasmareinforced,
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/obj/structure/falsewall,
+		/obj/structure/falsewall/reinforced,
+		/obj/structure/falsewall/clockwork,
+		/turf/simulated/wall/rust,
+		/turf/simulated/wall/r_wall/rust,
+		/turf/simulated/wall/r_wall/coated,
+		/turf/simulated/wall/indestructible/metal,
+		/turf/simulated/wall/indestructible/reinforced)
 
 /obj/structure/window/full/plasmabasic
 	name = "plasma window"
 	desc = "A plasma-glass alloy window. It looks insanely tough to break. It appears it's also insanely tough to burn through."
-	icon = 'icons/obj/smooth_structures/plasma_window.dmi'
+	icon = 'icons/obj/smooth_structures/windows/plasma_window.dmi'
 	icon_state = "plasmawindow"
+	glass_decal = /obj/effect/decal/cleanable/glass/plasma
 	shardtype = /obj/item/shard/plasma
 	glass_type = /obj/item/stack/sheet/plasmaglass
 	heat_resistance = 32000
 	max_integrity = 300
 	smooth = SMOOTH_TRUE
-	canSmoothWith = list(/obj/structure/window/full/basic, /obj/structure/window/full/reinforced, /obj/structure/window/full/reinforced/tinted, /obj/structure/window/full/plasmabasic, /obj/structure/window/full/plasmareinforced)
+	canSmoothWith = list(
+		/obj/structure/window/full/basic,
+		/obj/structure/window/full/reinforced,
+		/obj/structure/window/full/reinforced/tinted,
+		/obj/structure/window/full/reinforced/polarized,
+		/obj/structure/window/full/plasmabasic,
+		/obj/structure/window/full/plasmareinforced,
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/obj/structure/falsewall,
+		/obj/structure/falsewall/reinforced,
+		/obj/structure/falsewall/clockwork,
+		/turf/simulated/wall/rust,
+		/turf/simulated/wall/r_wall/rust,
+		/turf/simulated/wall/r_wall/coated,
+		/turf/simulated/wall/indestructible/metal,
+		/turf/simulated/wall/indestructible/reinforced)
 	explosion_block = 1
 	armor = list("melee" = 75, "bullet" = 5, "laser" = 0, "energy" = 0, "bomb" = 45, "bio" = 100, "rad" = 100, "fire" = 99, "acid" = 100)
 
@@ -682,11 +724,29 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 /obj/structure/window/full/plasmareinforced
 	name = "reinforced plasma window"
 	desc = "A plasma-glass alloy window, with rods supporting it. It looks hopelessly tough to break. It also looks completely fireproof, considering how basic plasma windows are insanely fireproof."
-	icon = 'icons/obj/smooth_structures/rplasma_window.dmi'
+	icon = 'icons/obj/smooth_structures/windows/rplasma_window.dmi'
 	icon_state = "rplasmawindow"
+	glass_decal = /obj/effect/decal/cleanable/glass/plasma
 	shardtype = /obj/item/shard/plasma
 	glass_type = /obj/item/stack/sheet/plasmarglass
 	smooth = SMOOTH_TRUE
+	canSmoothWith = list(
+		/obj/structure/window/full/basic,
+		/obj/structure/window/full/reinforced,
+		/obj/structure/window/full/reinforced/tinted,
+		/obj/structure/window/full/reinforced/polarized,
+		/obj/structure/window/full/plasmabasic,
+		/obj/structure/window/full/plasmareinforced,
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/obj/structure/falsewall,
+		/obj/structure/falsewall/reinforced,
+		/obj/structure/falsewall/clockwork,
+		/turf/simulated/wall/rust,
+		/turf/simulated/wall/r_wall/rust,
+		/turf/simulated/wall/r_wall/coated,
+		/turf/simulated/wall/indestructible/metal,
+		/turf/simulated/wall/indestructible/reinforced)
 	reinf = TRUE
 	max_integrity = 1000
 	explosion_block = 2
@@ -698,10 +758,26 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 /obj/structure/window/full/reinforced
 	name = "reinforced window"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
-	icon = 'icons/obj/smooth_structures/reinforced_window.dmi'
+	icon = 'icons/obj/smooth_structures/windows/reinforced_window.dmi'
 	icon_state = "r_window"
 	smooth = SMOOTH_TRUE
-	canSmoothWith = list(/obj/structure/window/full/basic, /obj/structure/window/full/reinforced, /obj/structure/window/full/reinforced/tinted, /obj/structure/window/full/plasmabasic, /obj/structure/window/full/plasmareinforced)
+	canSmoothWith = list(
+		/obj/structure/window/full/basic,
+		/obj/structure/window/full/reinforced,
+		/obj/structure/window/full/reinforced/tinted,
+		/obj/structure/window/full/reinforced/polarized,
+		/obj/structure/window/full/plasmabasic,
+		/obj/structure/window/full/plasmareinforced,
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/obj/structure/falsewall,
+		/obj/structure/falsewall/reinforced,
+		/obj/structure/falsewall/clockwork,
+		/turf/simulated/wall/rust,
+		/turf/simulated/wall/r_wall/rust,
+		/turf/simulated/wall/r_wall/coated,
+		/turf/simulated/wall/indestructible/metal,
+		/turf/simulated/wall/indestructible/reinforced)
 	max_integrity = 100
 	reinf = TRUE
 	heat_resistance = 1600
@@ -713,20 +789,14 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 /obj/structure/window/full/reinforced/tinted
 	name = "tinted window"
 	desc = "It looks rather strong and opaque. Might take a few good hits to shatter it."
-	icon = 'icons/obj/smooth_structures/tinted_window.dmi'
+	icon = 'icons/obj/smooth_structures/windows/tinted_window.dmi'
 	icon_state = "tinted_window"
 	opacity = 1
-
-/obj/structure/window/full/reinforced/ice
-	icon = 'icons/obj/smooth_structures/rice_window.dmi'
-	icon_state = "ice_window"
-	max_integrity = 150
-	cancolor = FALSE
 
 /obj/structure/window/full/shuttle
 	name = "shuttle window"
 	desc = "A reinforced, air-locked pod window."
-	icon = 'icons/obj/smooth_structures/shuttle_window.dmi'
+	icon = 'icons/obj/smooth_structures/windows/shuttle_window.dmi'
 	icon_state = "shuttle_window"
 	max_integrity = 100
 	reinf = TRUE
@@ -746,7 +816,7 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 /obj/structure/window/full/shuttle/gray
 	name = "shuttle window"
 	desc = "A reinforced, air-locked shuttle window."
-	icon = 'icons/obj/smooth_structures/shuttle_window_gray.dmi'
+	icon = 'icons/obj/smooth_structures/windows/shuttle_window_gray.dmi'
 	icon_state = "shuttle_window_gray"
 
 /obj/structure/window/full/shuttle/gray/tinted
@@ -755,7 +825,7 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 /obj/structure/window/full/shuttle/ninja
 	name = "High-Tech shuttle window"
 	desc = "A reinforced, air-locked shuttle window."
-	icon = 'icons/obj/smooth_structures/shuttle_window_ninja.dmi'
+	icon = 'icons/obj/smooth_structures/windows/shuttle_window_ninja.dmi'
 	icon_state = "shuttle_window_ninja"
 	armor = list("melee" = 50, "bullet" = 30, "laser" = 0, "energy" = 0, "bomb" = 50, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 
@@ -765,7 +835,7 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 /obj/structure/window/plastitanium
 	name = "plastitanium window"
 	desc = "An evil looking window of plasma and titanium."
-	icon = 'icons/obj/smooth_structures/plastitanium_window.dmi'
+	icon = 'icons/obj/smooth_structures/windows/plastitanium_window.dmi'
 	icon_state = "plastitanium_window"
 	dir = FULLTILE_WINDOW_DIR
 	max_integrity = 100
@@ -784,7 +854,7 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 /obj/structure/window/reinforced/clockwork
 	name = "brass window"
 	desc = "A paper-thin pane of translucent yet reinforced brass."
-	icon = 'icons/obj/smooth_structures/clockwork_window.dmi'
+	icon = 'icons/obj/smooth_structures/windows/clockwork_window.dmi'
 	icon_state = "clockwork_window_single"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	max_integrity = 80
