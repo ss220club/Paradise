@@ -19,6 +19,7 @@
 	/turf/simulated/wall/rust,
 	/turf/simulated/wall/r_wall/rust,
 	/turf/simulated/wall/r_wall/coated,
+	/turf/simulated/wall/indestructible,
 	/turf/simulated/wall/indestructible/metal,
 	/turf/simulated/wall/indestructible/reinforced)
 	smooth = SMOOTH_TRUE
@@ -93,7 +94,12 @@
 	icon = 'icons/turf/walls/reinforced_wall.dmi'
 	icon_state = "r_wall"
 	canSmoothWith = list(
-	/turf/simulated/wall/indestructible/reinforced,
+	/obj/structure/window/full/basic,
+	/obj/structure/window/full/reinforced,
+	/obj/structure/window/full/reinforced/tinted,
+	/obj/structure/window/full/reinforced/polarized,
+	/obj/structure/window/full/plasmabasic,
+	/obj/structure/window/full/plasmareinforced,
 	/turf/simulated/wall,
 	/turf/simulated/wall/r_wall,
 	/obj/structure/falsewall,
@@ -101,7 +107,10 @@
 	/obj/structure/falsewall/clockwork,
 	/turf/simulated/wall/rust,
 	/turf/simulated/wall/r_wall/rust,
-	/turf/simulated/wall/r_wall/coated)
+	/turf/simulated/wall/r_wall/coated,
+	/turf/simulated/wall/indestructible,
+	/turf/simulated/wall/indestructible/metal,
+	/turf/simulated/wall/indestructible/reinforced)
 	smooth = SMOOTH_TRUE
 
 /turf/simulated/wall/indestructible/wood
