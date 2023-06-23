@@ -347,10 +347,8 @@
 	if(!disassembled)
 		playsound(src, breaksound, 70, 1)
 		if(!(flags & NODECONSTRUCT))
-			for(var/i in debris)
-				var/obj/item/I = i
-				I.forceMove(loc)
-				transfer_fingerprints_to(I)
+			for(var/obj/item/shard/debris in spawnDebris(drop_location()))
+				transfer_fingerprints_to(debris) // transfer fingerprints to shards only
 	qdel(src)
 	update_nearby_icons()
 
