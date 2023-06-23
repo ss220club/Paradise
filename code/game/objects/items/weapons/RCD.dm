@@ -64,8 +64,8 @@
 	var/region_min = REGION_GENERAL
 	var/region_max = REGION_COMMAND
 
-	var/fulltile_window = FALSE // Do we place fulltile windows?
-	var/window_type = /obj/structure/window/reinforced
+	var/fulltile_window = TRUE // Do we place fulltile windows?
+	var/window_type = /obj/structure/window/full/reinforced
 	var/floor_type = /turf/simulated/floor/plating
 	var/wall_type = /turf/simulated/wall
 	var/firelock_type = /obj/machinery/door/firedoor
@@ -174,11 +174,11 @@
 
 /obj/item/rcd/proc/rcd_reload(obj/item/rcd_ammo/rcd_ammo, mob/user)
 	if(matter >= max_matter)
-		to_chat(user, "<span class='notice'>The RCD can't hold any more matter-units.</span>")
+		to_chat(user, "<span class='notice'>RCD не вмещает в себя больше материи.</span>")
 		return
 
 	if(!user.unEquip(rcd_ammo))
-		to_chat(user, "<span class='warning'>[rcd_ammo] is stuck to your hand!</span>")
+		to_chat(user, "<span class='warning'>[rcd_ammo] прилипает к твоей руке!</span>")
 		return
 
 	user.put_in_active_hand(rcd_ammo)
@@ -186,9 +186,9 @@
 		matter = min(matter + rcd_ammo.ammoamt, max_matter)
 		qdel(rcd_ammo)
 		playsound(loc, 'sound/machines/click.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>The RCD now holds [matter]/[max_matter] matter-units.</span>")
+		to_chat(user, "<span class='notice'>RCD теперь имеет [matter] юнитов материи из[max_matter] возможных.</span>")
 	else
-		to_chat(user, "<span class='warning'>This matter cartridge is incompatible with your RCD</span>")
+		to_chat(user, "<span class='warning'>Этот картридж с материей не совместим с вашим RCD.</span>")
 	SStgui.update_uis(src)
 
 /**
@@ -234,7 +234,7 @@
 		else
 			return
 	playsound(src, 'sound/effects/pop.ogg', 50, 0)
-	to_chat(user, "<span class='notice'>You change [src]'s mode to '[choice]'.</span>")
+	to_chat(user, "<span class='notice'>Вы меняете режим RCD на: '[choice]'.</span>")
 
 
 /obj/item/rcd/attack_self(mob/user)
@@ -369,7 +369,7 @@
 		return
 	var/area/check_area = get_area(target)
 	if(check_area?.type in areas_blacklist)
-		to_chat(user, span_warning("Something prevents you from using [src] in here..."))
+		to_chat(user, span_warning("Что-то не даёт тебе использовать [src] здесь..."))
 		return
 	target.rcd_act(user, src, mode)
 	SStgui.update_uis(src)

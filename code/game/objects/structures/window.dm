@@ -227,11 +227,11 @@
 	if(!can_be_reached(user))
 		return
 	if(decon_speed) // Only show this if it actually takes time
-		to_chat(user, "<span class='notice'>You begin to lever the window [state == WINDOW_OUT_OF_FRAME ? "into":"out of"] the frame...</span>")
+		to_chat(user, "<span class='notice'>Вы начинаете [state == WINDOW_OUT_OF_FRAME ? "вставлять окно в раму":"вытаскивать окно из рамы"]...</span>")
 	if(!I.use_tool(src, user, decon_speed, volume = I.tool_volume, extra_checks = CALLBACK(src, .proc/check_state_and_anchored, state, anchored)))
 		return
 	state = (state == WINDOW_OUT_OF_FRAME ? WINDOW_IN_FRAME : WINDOW_OUT_OF_FRAME)
-	to_chat(user, "<span class='notice'>You pry the window [state == WINDOW_IN_FRAME ? "into":"out of"] the frame.</span>")
+	to_chat(user, "<span class='notice'>Вы [state == WINDOW_IN_FRAME ? "вставляете окно в раму":"вытаскиваете окно из рамы"].</span>")
 
 /obj/structure/window/screwdriver_act(mob/user, obj/item/I)
 	if(flags & NODECONSTRUCT)
@@ -242,31 +242,31 @@
 	if(reinf)
 		if(state == WINDOW_SCREWED_TO_FRAME || state == WINDOW_IN_FRAME)
 			if(decon_speed)
-				to_chat(user, "<span class='notice'>You begin to [state == WINDOW_SCREWED_TO_FRAME ? "unscrew the window from":"screw the window to"] the frame...</span>")
+				to_chat(user, "<span class='notice'>Вы начинаете [state == WINDOW_SCREWED_TO_FRAME ? "откручивать окно от рамы":"закручивать окно к раме"]...</span>")
 			if(!I.use_tool(src, user, decon_speed, volume = I.tool_volume, extra_checks = CALLBACK(src, .proc/check_state_and_anchored, state, anchored)))
 				return
 			state = (state == WINDOW_IN_FRAME ? WINDOW_SCREWED_TO_FRAME : WINDOW_IN_FRAME)
-			to_chat(user, "<span class='notice'>You [state == WINDOW_IN_FRAME ? "unfasten the window from":"fasten the window to"] the frame.</span>")
+			to_chat(user, "<span class='notice'>Вы [state == WINDOW_IN_FRAME ? "откручиваете окно от рамы":"закручиваете окно к раме"].</span>")
 
 		else if(state == WINDOW_OUT_OF_FRAME)
 			if(decon_speed)
-				to_chat(user, "<span class='notice'>You begin to [anchored ? "unscrew the frame from":"screw the frame to"] the floor...</span>")
+				to_chat(user, "<span class='notice'>Вы начинаете [anchored ? "откручивать раму от пола":"прикручивать раму к полу"]...</span>")
 			if(!I.use_tool(src, user, decon_speed, volume = I.tool_volume, extra_checks = CALLBACK(src, .proc/check_state_and_anchored, state, anchored)))
 				return
 			anchored = !anchored
 			air_update_turf(TRUE)
 			update_nearby_icons()
-			to_chat(user, "<span class='notice'>You [anchored ? "fasten the frame to":"unfasten the frame from"] the floor.</span>")
+			to_chat(user, "<span class='notice'>Вы [anchored ? "прикрутили раму к полу":"открутили раму от пола"].</span>")
 
 	else //if we're not reinforced, we don't need to check or update state
 		if(decon_speed)
-			to_chat(user, "<span class='notice'>You begin to [anchored ? "unscrew the window from":"screw the window to"] the floor...</span>")
+			to_chat(user, "<span class='notice'>Вы начинаете [anchored ? "откручивать окно от рамы":"закручивать окно к раме"]...</span>")
 		if(!I.use_tool(src, user, decon_speed, volume = I.tool_volume, extra_checks = CALLBACK(src, .proc/check_anchored, anchored)))
 			return
 		anchored = !anchored
 		air_update_turf(TRUE)
 		update_nearby_icons()
-		to_chat(user, "<span class='notice'>You [anchored ? "fasten the window to":"unfasten the window from"] the floor.</span>")
+		to_chat(user, "<span class='notice'>Вы [anchored ? "откручиваете окно от рамы":"закручиваете окно к раме"].</span>")
 
 /obj/structure/window/wrench_act(mob/user, obj/item/I)
 	if(flags & NODECONSTRUCT)
@@ -283,7 +283,7 @@
 	var/obj/item/stack/sheet/G = new glass_type(user.loc, glass_amount)
 	G.add_fingerprint(user)
 	playsound(src, 'sound/items/deconstruct.ogg', 50, 1)
-	to_chat(user, "<span class='notice'>You successfully disassemble [src].</span>")
+	to_chat(user, "<span class='notice'>Вы успешно разбираете [src].</span>")
 	qdel(src)
 
 /obj/structure/window/welder_act(mob/user, obj/item/I)
@@ -293,7 +293,7 @@
 	if(!can_be_reached(user))
 		return
 	if(obj_integrity >= max_integrity)
-		to_chat(user, "<span class='warning'>[src] is already in good condition!</span>")
+		to_chat(user, "<span class='warning'>[src] уже в хорошем состоянии!</span>")
 		return
 	if(!I.tool_use_check(user, 0))
 		return
