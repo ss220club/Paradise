@@ -69582,7 +69582,6 @@
 	},
 /obj/machinery/door/poddoor{
 	density = 0;
-	icon_state = "pdoor0";
 	id_tag = "xenosecure";
 	name = "Secure Creature Cell";
 	opacity = 0
@@ -95288,13 +95287,11 @@
 	},
 /area/maintenance/fpmaint)
 "vwC" = (
-/obj/effect/spawner/window/reinforced/plasma,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/machinery/door/poddoor{
 	density = 0;
-	icon_state = "pdoor0";
 	id_tag = "xenosecure";
 	name = "Secure Creature Cell";
 	opacity = 0
@@ -95303,6 +95300,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/effect/spawner/window/reinforced/plasma,
 /turf/simulated/floor/plasteel,
 /area/toxins/xenobiology)
 "vxf" = (
