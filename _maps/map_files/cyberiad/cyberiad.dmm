@@ -7674,10 +7674,6 @@
 	name = "Cell 1";
 	req_access = list(2)
 	},
-/obj/item/radio/intercom{
-	name = "west station intercom (General)";
-	pixel_x = -28
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -8336,6 +8332,11 @@
 	},
 /area/security/prison/cell_block/A)
 "avY" = (
+/obj/machinery/door_timer/cell_1{
+	dir = 1;
+	layer = 4;
+	pixel_y = 32
+	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "rampbottom"
@@ -8618,6 +8619,9 @@
 "awL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/door_timer/cell_2{
+	layer = 4
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
@@ -9029,9 +9033,6 @@
 	},
 /area/security/prison/cell_block/A)
 "axH" = (
-/obj/machinery/door_timer/cell_2{
-	layer = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -9040,6 +9041,10 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/light,
+/obj/item/radio/intercom{
+	name = "south station intercom (General)";
+	pixel_y = -28
+	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "darkredcorners"
@@ -9612,10 +9617,6 @@
 	id = "Cell 2";
 	name = "Cell 2";
 	req_access = list(2)
-	},
-/obj/item/radio/intercom{
-	name = "west station intercom (General)";
-	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -10512,9 +10513,6 @@
 	},
 /area/security/prison/cell_block/A)
 "aBa" = (
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -69582,6 +69580,7 @@
 	},
 /obj/machinery/door/poddoor{
 	density = 0;
+	icon_state = "pdoor0";
 	id_tag = "xenosecure";
 	name = "Secure Creature Cell";
 	opacity = 0
@@ -70121,12 +70120,11 @@
 	},
 /area/medical/medbreak)
 "ieF" = (
-/obj/machinery/door_timer/cell_1{
-	dir = 1;
-	layer = 4;
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/item/radio/intercom{
+	name = "north station intercom (General)";
+	pixel_y = 28
+	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "darkredcorners"
@@ -76738,7 +76736,8 @@
 	},
 /obj/item/reagent_containers/food/drinks/flask/detflask{
 	pixel_y = 4;
-	pixel_x = -8
+	pixel_x = -8;
+	initialized = 1
 	},
 /obj/item/flashlight/lamp/green{
 	on = 0;
@@ -95287,11 +95286,13 @@
 	},
 /area/maintenance/fpmaint)
 "vwC" = (
+/obj/effect/spawner/window/reinforced/plasma,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/machinery/door/poddoor{
 	density = 0;
+	icon_state = "pdoor0";
 	id_tag = "xenosecure";
 	name = "Secure Creature Cell";
 	opacity = 0
@@ -95300,7 +95301,6 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/effect/spawner/window/reinforced/plasma,
 /turf/simulated/floor/plasteel,
 /area/toxins/xenobiology)
 "vxf" = (
@@ -132230,7 +132230,7 @@ axP
 aza
 aoq
 aBa
-asZ
+aAx
 aAx
 aEt
 axe
