@@ -150,6 +150,7 @@
 	anchored = 1
 	resistance_flags = FIRE_PROOF
 	power_channel = ENVIRON
+	layer = 3.3
 
 	var/id_tag
 	var/master_tag
@@ -231,6 +232,7 @@
 	name = "access button"
 	anchored = 1
 	power_channel = ENVIRON
+	layer = ABOVE_WINDOW_LAYER
 
 	var/master_tag
 	frequency = AIRLOCK_FREQ
