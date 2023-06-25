@@ -117,6 +117,7 @@
 	var/discordforumurl = "http://example.org"
 	var/discordbugreporturl = "http://example.org"
 
+	var/furry_trap_server
 	var/overflow_server_url
 	var/tutorial_server_url
 	var/forbid_singulo_possession = 0
@@ -321,6 +322,8 @@
 	var/pixel_shift = FALSE
 
 	var/ai_heat = FALSE
+
+	var/enable_furry_trap = FALSE
 
 /datum/configuration/New()
 	for(var/T in subtypesof(/datum/game_mode))
@@ -773,6 +776,12 @@
 
 				if("tutorial_server_url")
 					config.tutorial_server_url = value
+
+				if("enable_furry_trap")
+					config.enable_furry_trap = TRUE
+
+				if("furry_trap_server")
+					config.furry_trap_server = value
 
 				if("disable_away_missions")
 					config.disable_away_missions = 1

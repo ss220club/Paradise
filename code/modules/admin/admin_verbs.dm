@@ -142,7 +142,8 @@ GLOBAL_LIST_INIT(admin_verbs_server, list(
 	/client/proc/toggle_antagHUD_restrictions,
 	/client/proc/set_ooc,
 	/client/proc/reset_ooc,
-	/client/proc/toggledrones
+	/client/proc/toggledrones,
+	/client/proc/toggle_furry_trap,
 	))
 GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/cmd_admin_list_open_jobs,
@@ -1329,3 +1330,14 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 
 	log_admin("[key_name(usr)] has [advanced_admin_interaction ? "activated" : "deactivated"] their advanced admin interaction.")
 	message_admins("[key_name_admin(usr)] has [advanced_admin_interaction ? "activated" : "deactivated"] their advanced admin interaction.")
+
+/client/proc/toggle_furry_trap()
+	set name = "Toggle Furry Trap"
+	set category = "Server"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(config)
+		config.enable_furry_trap = !config.enable_furry_trap
+		to_chat(src, "<b>Redrirecting dead furries to SkyRat is [config.enable_furry_trap ? "enabled" : "disabled"]</b>")

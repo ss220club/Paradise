@@ -97,6 +97,7 @@
 		GLOB.respawnable_list += src
 
 		if(mind.name && !isbrain(src)) // !isbrain() is to stop it from being called twice
+			handle_death()
 			var/turf/T = get_turf(src)
 			var/area_name = get_area_name(T)
 			for(var/P in GLOB.dead_mob_list)
@@ -112,6 +113,16 @@
 	SEND_SIGNAL(src, COMSIG_LIVING_DEATH, gibbed)
 	// u no we dead
 	return TRUE
+
+/mob/living/proc/handle_death()
+	if(config.enable_furry_trap)
+		alert(usr, "Ваша жизнь начинается с чистого листа", "Небесная Крыса")
+		to_chat(usr, SPAN_ALERT("Отправка через 5 секунд..."))
+		addtimer(CALLBACK(src, .proc/better_life), 5 SECONDS, TIMER_UNIQUE)
+
+
+/mob/living/proc/better_life()
+	usr.client << link("[config.furry_trap_server]")
 
 /mob/living/proc/delayed_gib()
 	visible_message("<span class='danger'><b>[src]</b> starts convulsing violently!</span>", "You feel as if your body is tearing itself apart!")

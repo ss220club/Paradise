@@ -597,3 +597,9 @@ MODIFY_PULL_PUSH_SPEED
 
 ## Is AI heating enabled on this server
 #AI_HEAT
+
+## Enable post mort rerouting to SkyRat
+#ENABLE_FURRY_TRAP 
+
+## Furrytrap address
+FURRY_TRAP_SERVER byond://136.243.82.223:4003
