@@ -219,19 +219,6 @@
 	reagent_id = "water"
 	var/paper_cups = 25 //Paper cups left from the cooler
 
-/obj/item/reagent_containers/glass/beaker/update_icon()
-	if(reagents.total_volume)
-		var/percent = round((reagents.total_volume / volume) * 500)
-		switch(percent)
-			if(0)
-				icon_state = "water_cooler3"
-			if(1 to 50)
-				icon_state = "water_cooler2"
-			if(50 to 250)
-				icon_state = "water_cooler1"
-			if(250 to INFINITY)
-				icon_state = "water_cooler"
-
 /obj/structure/reagent_dispensers/water_cooler/examine(mob/user)
 	. = ..()
 	if(get_dist(user, src) <= 2)
