@@ -626,23 +626,6 @@
 		qdel(slot)
 
 
-/mob/living/carbon/human/advanced_can_unequip(obj/item/item, force, disable_warning = 0)
-	. = ..()
-	if(get_slot_by_item(item) in check_obscured_slots())
-		if(!disable_warning)
-			to_chat(src, "<span class='warning'>You can't unequip this item beacause the slot is obscuread!</span>")
-		return 0
-
-/mob/living/carbon/human/advanced_equip_to_slot_if_possible(obj/item/item, slot, del_on_fail = 0, disable_warning = 0)
-	if(advanced_can_equip(item, slot, disable_warning))
-		return equip_to_slot_if_possible(item, slot, del_on_fail, disable_warning)
-
-/mob/living/carbon/human/advanced_unequip_if_possible(obj/item/item, force)
-	if((get_slot_by_item(item) in check_obscured_slots()) && !force)
-		to_chat(src, "<span class='warning'>You can't unequip this item beacause the slot is obscuread!</span>")
-		return
-	return unEquip(item, force)
-
 /// take the most recent item out of a slot or place held item in a slot
 /mob/living/carbon/human/proc/smart_equip_targeted(slot_type = slot_belt, slot_item_name = "belt")
 	if(incapacitated())
