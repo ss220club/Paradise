@@ -1,4 +1,5 @@
 name: 'Merge Conflict Detection'
+
 on:
   push:
     branches:

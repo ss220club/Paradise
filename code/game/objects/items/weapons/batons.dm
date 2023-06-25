@@ -86,7 +86,7 @@
 	target.LAssailant = iscarbon(user) ? user : null
 	target.Weaken(stun_time)
 	on_cooldown = TRUE
-	addtimer(CALLBACK(src, .proc/cooldown_finished), cooldown)
+	addtimer(CALLBACK(src, PROC_REF(cooldown_finished)), cooldown)
 	return TRUE
 
 /**

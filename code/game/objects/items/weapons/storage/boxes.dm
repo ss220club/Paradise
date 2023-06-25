@@ -104,8 +104,7 @@
 	new /obj/item/flashlight/flare/glowstick/red(src)
 	new /obj/item/crowbar/red/sec(src)
 	new /obj/item/clothing/mask/gas/sechailer(src)
-	new /obj/item/radio(src)
-	new /obj/item/book/manual/security_space_law(src)
+	new /obj/item/radio/sec(src)
 
 /obj/item/storage/box/survival_security/hos
 	icon_state = "hos_box"
@@ -159,7 +158,7 @@
 /obj/item/storage/box/masks
 	name = "sterile masks"
 	desc = "This box contains masks of sterility."
-	icon_state = "sterile_box"
+	icon_state = "sterile"
 
 /obj/item/storage/box/masks/populate_contents()
 	for(var/I in 1 to 7)
@@ -317,7 +316,7 @@
 /obj/item/storage/box/emps
 	name = "emp grenades"
 	desc = "A box with 5 emp grenades."
-	icon_state = "emp_box"
+	icon_state = "flashbang"
 
 /obj/item/storage/box/emps/populate_contents()
 	for(var/I in 1 to 5)
@@ -502,7 +501,7 @@
 /obj/item/storage/box/syndicate_permits
 	name = "box of syndicate construction permits"
 	desc = "A box for containing construction permits, used to officially declare built rooms as additions to the station."
-	icon_state = "id_syndie_box"
+	icon_state = "syndie_id"
 
 /obj/item/storage/box/syndicate_permits/populate_contents()
 	for(var/I in 1 to 7)

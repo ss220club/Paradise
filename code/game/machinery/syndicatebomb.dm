@@ -117,12 +117,11 @@
 			wires.Interact(user)
 	else if(istype(I, /obj/item/bombcore))
 		if(!payload)
-			if(!user.drop_item())
+			if(!user.drop_transfer_item_to_loc(I, src))
 				return
 			add_fingerprint(user)
 			payload = I
 			to_chat(user, "<span class='notice'>You place [payload] into [src].</span>")
-			payload.forceMove(src)
 		else
 			to_chat(user, "<span class='notice'>[payload] is already loaded into [src], you'll have to remove it first.</span>")
 	else
@@ -483,7 +482,7 @@
 		qdel(src)
 	else
 		pulse_number -= 1
-		addtimer(CALLBACK(src, .proc/detonate), 20) // every 2 seconds go off again till pulses run out
+		addtimer(CALLBACK(src, PROC_REF(detonate)), 20) // every 2 seconds go off again till pulses run out
 
 /obj/item/bombcore/chemical
 	name = "chemical payload"
@@ -517,7 +516,7 @@
 		chem_splash(get_turf(src), spread_range, list(reactants), temp_boost)
 
 		// Detonate it again in one second, until it's out of juice.
-		addtimer(CALLBACK(src, .proc/detonate), 10)
+		addtimer(CALLBACK(src, PROC_REF(detonate)), 10)
 
 	// If it's not a time release bomb, do normal explosion
 
@@ -551,11 +550,10 @@
 /obj/item/bombcore/chemical/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/reagent_containers/glass/beaker) || istype(I, /obj/item/reagent_containers/glass/bottle))
 		if(beakers.len < max_beakers)
-			if(!user.drop_item())
+			if(!user.drop_transfer_item_to_loc(I, src))
 				return
 			beakers += I
 			to_chat(user, "<span class='notice'>You load [src] with [I].</span>")
-			I.loc = src
 		else
 			to_chat(user, "<span class='warning'>The [I] wont fit! The [src] can only hold up to [max_beakers] containers.</span>")
 			return
@@ -622,11 +620,10 @@
 /obj/item/bombcore/toxins/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/transfer_valve))
 		if(!ttv && !check_attached(I))
-			if(!user.drop_item())
+			if(!user.drop_transfer_item_to_loc(I, src))
 				return
 			to_chat(user, "<span class='notice'>You load [src] with [I].</span>")
 			ttv = I
-			I.forceMove(src)
 		else if (ttv)
 			to_chat(user, "<span class='warning'>Another tank transfer valve is already loaded.</span>")
 		else

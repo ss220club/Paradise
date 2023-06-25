@@ -180,7 +180,9 @@
 	item_state = "mime"
 	resistance_flags = FLAMMABLE
 
-/obj/item/clothing/mask/gas/mime/equipped(mob/user, slot)
+/obj/item/clothing/mask/gas/mime/equipped(mob/user, slot, initial)
+	. = ..()
+
 	if(user && user.mind)
 		var/obj/effect/proc_holder/spell/targeted/mime/speak/mask/S = locate(/obj/effect/proc_holder/spell/targeted/mime/speak/mask) in user.mind.spell_list
 		if(S && !S.from_mask)
@@ -196,6 +198,8 @@
 					S.action?.ToggleInvisibility()
 
 /obj/item/clothing/mask/gas/mime/dropped(mob/user)
+	. = ..()
+
 	if(user && user.mind)
 		var/obj/effect/proc_holder/spell/targeted/mime/speak/mask/S = locate(/obj/effect/proc_holder/spell/targeted/mime/speak/mask) in user.mind.spell_list
 		if(!S || !S?.from_mask)

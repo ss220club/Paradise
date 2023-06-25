@@ -91,9 +91,9 @@
 	if(!QDELETED(src) && picked_type && Adjacent(user) && !user.incapacitated() && cooldowntime <= world.time)
 		add_fingerprint(user)
 		cooldowntime = world.time + creation_delay
-		var/obj/O = new picked_type
-		if(istype(O, /obj/structure) || !user.put_in_hands(O))
-			O.forceMove(get_turf(src))
+		var/obj/O = new picked_type(drop_location())
+		if(!istype(O, /obj/structure))
+			user.put_in_hands(O, ignore_anim = FALSE)
 		to_chat(user, replacetext("[creation_message]", "%ITEM%", "[O.name]"))
 
 /**
@@ -221,21 +221,33 @@ GLOBAL_LIST_INIT(blacklisted_pylon_turfs, typecacheof(list(
 	var/corruption_cooldown_duration = 5 SECONDS
 	/// The cooldown for corruptions.
 	COOLDOWN_DECLARE(corruption_cooldown)
+	var/holy = FALSE
 
 /obj/structure/cult/functional/pylon/Initialize(mapload)
 	. = ..()
-
-	AddComponent( \
-		/datum/component/aura_healing, \
-		range = 5, \
-		brute_heal = 0.4, \
-		burn_heal = 0.4, \
-		blood_heal = 0.4, \
-		simple_heal = 1.2, \
-		requires_visibility = FALSE, \
-		limit_to_trait = TRAIT_HEALS_FROM_CULT_PYLONS, \
-		healing_color = COLOR_CULT_RED, \
-	)
+	if(holy)
+		AddComponent( \
+			/datum/component/aura_healing, \
+			range = 5, \
+			brute_heal = 0.4, \
+			burn_heal = 0.4, \
+			blood_heal = 0.4, \
+			simple_heal = 1.2, \
+			requires_visibility = FALSE, \
+			healing_color = COLOR_CULT_RED, \
+		)
+	else
+		AddComponent( \
+			/datum/component/aura_healing, \
+			range = 5, \
+			brute_heal = 0.4, \
+			burn_heal = 0.4, \
+			blood_heal = 0.4, \
+			simple_heal = 1.2, \
+			requires_visibility = FALSE, \
+			limit_to_trait = TRAIT_HEALS_FROM_CULT_PYLONS, \
+			healing_color = COLOR_CULT_RED, \
+		)
 
 	START_PROCESSING(SSobj, src)
 	if(cult_icon_changing)
@@ -294,11 +306,9 @@ GLOBAL_LIST_INIT(blacklisted_pylon_turfs, typecacheof(list(
 
 /obj/structure/cult/functional/pylon/holy
 	cult_icon_changing = FALSE
+	light_color = LIGHT_COLOR_BLUE
 	icon_state = "holy"
-
-/obj/structure/cult/functional/pylon/holy
-	cult_icon_changing = FALSE
-	icon_state = "holy"
+	holy = TRUE
 
 /obj/structure/cult/functional/archives
 	name = "archives"
@@ -335,7 +345,7 @@ GLOBAL_LIST_INIT(blacklisted_pylon_turfs, typecacheof(list(
 /obj/effect/gateway/singularity_pull()
 	return
 
-/obj/effect/gateway/Bumped(atom/movable/AM)
+/obj/effect/gateway/Bumped(atom/movable/moving_atom)
 	return
 
 /obj/effect/gateway/Crossed(atom/movable/AM, oldloc)

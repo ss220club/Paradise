@@ -307,9 +307,8 @@ GLOBAL_LIST_EMPTY(id_cards)
 		if(G.registered_name != registered_name && G.registered_name != "NOT SPECIFIED")
 			to_chat(user, "The guest pass cannot be attached to this ID")
 			return
-		if(!user.unEquip(G))
+		if(!user.drop_transfer_item_to_loc(G, src))
 			return
-		G.loc = src
 		guest_pass = G
 
 /obj/item/card/id/verb/remove_guest_pass()

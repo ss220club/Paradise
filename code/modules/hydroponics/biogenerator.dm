@@ -112,11 +112,10 @@
 		if(container)
 			to_chat(user, "<span class='warning'>A container is already loaded into [src].</span>")
 			return
-		if(!user.drop_item())
+		if(!user.drop_transfer_item_to_loc(O, src))
 			return
 
 		add_fingerprint(user)
-		O.forceMove(src)
 		container = O
 		to_chat(user, "<span class='notice'>You add the [container] to [src].</span>")
 		update_icon()
@@ -149,11 +148,10 @@
 		if(length(stored_plants) >= max_storable_plants)
 			to_chat(user, "<span class='warning'>[src] can't hold any more plants!</span>")
 			return
-		if(!user.unEquip(O))
+		if(!user.drop_transfer_item_to_loc(O, src))
 			return
 
 		add_fingerprint(user)
-		O.forceMove(src)
 		stored_plants += O
 		to_chat(user, "<span class='info'>You put [O] in [src].</span>")
 		SStgui.update_uis(src)
@@ -278,7 +276,7 @@
 	stored_plants.Cut()
 	playsound(loc, 'sound/machines/blender.ogg', 50, 1)
 	use_power(plants_processed * 150)
-	addtimer(CALLBACK(src, .proc/end_processing), (plants_processed * 5) / productivity)
+	addtimer(CALLBACK(src, PROC_REF(end_processing)), (plants_processed * 5) / productivity)
 
 /obj/machinery/biogenerator/proc/end_processing()
 	processing = FALSE

@@ -63,6 +63,8 @@ SUBSYSTEM_DEF(ticker)
 	var/real_reboot_time = 0
 	/// Do we need to switch pacifism after Greentext
 	var/toggle_pacifism = TRUE
+	/// Do we need to make ghosts visible after greentext
+	var/toogle_gv = TRUE
 
 	var/list/randomtips = list()
 	var/list/memetips = list()
@@ -329,7 +331,9 @@ SUBSYSTEM_DEF(ticker)
 		log_debug("Playercount: [playercount] versus trigger: [highpop_trigger] - keeping standard job config")
 
 	#ifdef UNIT_TESTS
-	RunUnitTests()
+	// Run map tests first in case unit tests futz with map state
+	GLOB.test_runner.RunMap()
+	GLOB.test_runner.Run()
 	#endif
 	return TRUE
 
@@ -468,6 +472,8 @@ SUBSYSTEM_DEF(ticker)
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
 	GLOB.nologevent = TRUE //end of round murder and shenanigans are legal; there's no need to jam up attack logs past this point.
+	if(toogle_gv)
+		set_observer_default_invisibility(0) //spooks things up
 	//Round statistics report
 	var/datum/station_state/ending_station_state = new /datum/station_state()
 	ending_station_state.count()

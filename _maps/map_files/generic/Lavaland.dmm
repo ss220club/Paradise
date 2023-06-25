@@ -471,6 +471,19 @@
 	icon_state = "brown"
 	},
 /area/mine/laborcamp)
+"bm" = (
+/obj/machinery/light/small,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/cryopod{
+	dir = 8
+	},
+/turf/simulated/floor/plasteel{
+	dir = 6;
+	icon_state = "brown"
+	},
+/area/mine/laborcamp)
 "bn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1594,6 +1607,19 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/mine/production)
+"dB" = (
+/obj/structure/closet/crate/freezer,
+/obj/machinery/camera{
+	c_tag = "Sleeper Room";
+	dir = 1;
+	network = list("Mining Outpost")
+	},
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
+/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
+/turf/simulated/floor/plasteel/white,
+/area/mine/living_quarters)
 "dC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -6476,19 +6502,6 @@
 /obj/structure/stone_tile/block/cracked,
 /turf/simulated/floor/plating/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors/necropolis)
-"MB" = (
-/obj/machinery/light/small,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/cryopod{
-	dir = 8
-	},
-/turf/simulated/floor/plasteel{
-	dir = 6;
-	icon_state = "brown"
-	},
-/area/mine/laborcamp)
 "ME" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -7384,19 +7397,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel/white,
 /area/mine/laborcamp)
-"Zd" = (
-/obj/structure/closet/crate/freezer,
-/obj/machinery/camera{
-	c_tag = "Sleeper Room";
-	dir = 1;
-	network = list("Mining Outpost")
-	},
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
-/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
-/turf/simulated/floor/plasteel/white,
-/area/mine/living_quarters)
 "Zf" = (
 /obj/machinery/door/airlock{
 	id_tag = "miningbathroom";
@@ -14356,7 +14356,7 @@ aS
 aW
 be
 Hj
-MB
+bm
 aq
 bB
 bM
@@ -16422,7 +16422,7 @@ aj
 ab
 cM
 db
-Zd
+dB
 cM
 fk
 EG

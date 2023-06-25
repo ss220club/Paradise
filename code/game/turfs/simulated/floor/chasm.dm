@@ -20,7 +20,9 @@
 		/obj/effect/temp_visual,
 		/obj/effect/light_emitter/tendril,
 		/obj/effect/collapse,
-		/obj/effect/particle_effect/ion_trails
+		/obj/effect/particle_effect/ion_trails,
+		/obj/effect/abstract,
+		/obj/effect/ebeam
 		))
 	var/drop_x = 1
 	var/drop_y = 1
@@ -91,7 +93,7 @@
 	for(var/thing in thing_to_check)
 		if(droppable(thing))
 			. = 1
-			INVOKE_ASYNC(src, .proc/drop, thing)
+			INVOKE_ASYNC(src, PROC_REF(drop), thing)
 
 /turf/simulated/floor/chasm/proc/droppable(atom/movable/AM)
 	if(falling_atoms[AM])

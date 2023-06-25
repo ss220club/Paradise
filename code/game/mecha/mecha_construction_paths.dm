@@ -170,8 +170,7 @@
 				holder.icon_state = "ripley4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "ripley2"
 		if(10)
 			if(diff==FORWARD)
@@ -218,8 +217,7 @@
 				holder.icon_state = "ripley10"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/metal/MS = new /obj/item/stack/sheet/metal(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/metal(get_turf(holder), 5)
 				holder.icon_state = "ripley8"
 		if(4)
 			if(diff==FORWARD)
@@ -241,8 +239,7 @@
 				holder.icon_state = "ripley13"
 			else
 				user.visible_message("[user] pries external armor layer from the [holder].", "You pry external armor layer from the [holder].")
-				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/plasteel(get_turf(holder), 5)
 				holder.icon_state = "ripley11"
 		if(1)
 			if(diff==FORWARD)
@@ -397,8 +394,7 @@
 				holder.icon_state = "gygax4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "gygax2"
 		if(16)
 			if(diff==FORWARD)
@@ -493,8 +489,7 @@
 				holder.icon_state = "gygax16"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/metal/MS = new /obj/item/stack/sheet/metal(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/metal(get_turf(holder), 5)
 				holder.icon_state = "gygax14"
 		if(4)
 			if(diff==FORWARD)
@@ -654,8 +649,7 @@
 				holder.icon_state = "fireripley4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "fireripley2"
 		if(11)
 			if(diff==FORWARD)
@@ -703,8 +697,7 @@
 				holder.icon_state = "fireripley10"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/plasteel(get_turf(holder), 5)
 				holder.icon_state = "fireripley8"
 		if(5)
 			if(diff==FORWARD)
@@ -726,8 +719,7 @@
 				holder.icon_state = "fireripley13"
 			else
 				user.visible_message("[user] removes the external armor from the [holder].", "You remove the external armor from the [holder].")
-				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/plasteel(get_turf(holder), 5)
 				holder.icon_state = "fireripley11"
 		if(2)
 			if(diff==FORWARD)
@@ -735,8 +727,7 @@
 				holder.icon_state = "fireripley14"
 			else
 				user.visible_message("[user] pries external armor layer from the [holder].", "You pry external armor layer from the [holder].")
-				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/plasteel(get_turf(holder), 5)
 				holder.icon_state = "fireripley12"
 		if(1)
 			if(diff==FORWARD)
@@ -1037,8 +1028,7 @@
 				holder.icon_state = "durand4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "durand2"
 		if(16)
 			if(diff==FORWARD)
@@ -1133,8 +1123,7 @@
 				holder.icon_state = "durand16"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/metal/MS = new /obj/item/stack/sheet/metal(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/metal(get_turf(holder), 5)
 				holder.icon_state = "durand14"
 		if(4)
 			if(diff==FORWARD)
@@ -1615,8 +1604,7 @@
 				holder.icon_state = "phazon4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "phazon2"
 		if(20)
 			if(diff==FORWARD)
@@ -1711,7 +1699,7 @@
 				holder.icon_state = "phazon16"
 			else
 				user.visible_message("[user] removes the bluespace crystal from the [holder].", "You remove the bluespace crystal from the [holder].")
-				new /obj/item/stack/ore/bluespace_crystal(get_turf(holder), new_amount = 5)
+				new /obj/item/stack/ore/bluespace_crystal(get_turf(holder), 5)
 				holder.icon_state = "phazon14"
 		if(8)
 			if(diff==FORWARD)
@@ -1733,8 +1721,7 @@
 				holder.icon_state = "phazon19"
 			else
 				user.visible_message("[user] pries the phase armor layer from the [holder].", "You pry the phase armor layer from the [holder].")
-				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/plasteel(get_turf(holder), 5)
 				holder.icon_state = "phazon17"
 		if(5)
 			if(diff==FORWARD)
@@ -1894,8 +1881,7 @@
 				holder.icon_state = "odysseus4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "odysseus2"
 		if(10)
 			if(diff==FORWARD)
@@ -1942,8 +1928,7 @@
 				holder.icon_state = "odysseus10"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/metal/MS = new /obj/item/stack/sheet/metal(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/metal(get_turf(holder), 5)
 				holder.icon_state = "odysseus8"
 		if(4)
 			if(diff==FORWARD)
@@ -1965,8 +1950,7 @@
 				user.visible_message("[user] secures the external armor layer.", "You secure the external reinforced armor layer.")
 				holder.icon_state = "odysseus13"
 			else
-				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder))
-				MS.amount = 5
+				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder), 5)
 				user.visible_message("[user] pries [MS] from the [holder].", "You pry [MS] from the [holder].")
 				holder.icon_state = "odysseus11"
 		if(1)
@@ -2102,8 +2086,7 @@
 				holder.icon_state = "clarke4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "clarke2"
 		if(10)
 			if(diff==FORWARD)
@@ -2150,8 +2133,7 @@
 				holder.icon_state = "clarke10"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/metal/MS = new /obj/item/stack/sheet/metal(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/metal(get_turf(holder), 5)
 				holder.icon_state = "clarke8"
 		if(4)
 			if(diff==FORWARD)
@@ -2173,8 +2155,7 @@
 				user.visible_message("[user] secures the external armor layer.", "You secure the external reinforced armor layer.")
 				holder.icon_state = "clarke13"
 			else
-				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder))
-				MS.amount = 5
+				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder), 5)
 				user.visible_message("[user] pries [MS] from the [holder].", "You pry [MS] from the [holder].")
 				holder.icon_state = "clarke11"
 		if(1)
@@ -2332,8 +2313,7 @@
 				holder.icon_state = "rover4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "rover2"
 		if(16)
 			if(diff==FORWARD)
@@ -2428,8 +2408,7 @@
 				holder.icon_state = "rover16"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/metal/MS = new /obj/item/stack/sheet/metal(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/metal(get_turf(holder), 5)
 				holder.icon_state = "rover14"
 		if(4)
 			if(diff==FORWARD)
@@ -2608,8 +2587,7 @@
 				holder.icon_state = "darkgygax4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "darkgygax2"
 		if(16)
 			if(diff==FORWARD)
@@ -2704,8 +2682,7 @@
 				holder.icon_state = "darkgygax16"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/metal/MS = new /obj/item/stack/sheet/metal(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/metal(get_turf(holder), 5)
 				holder.icon_state = "darkgygax14"
 		if(4)
 			if(diff==FORWARD)

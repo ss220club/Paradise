@@ -83,9 +83,8 @@
 		if(istype(m,denied_type) || istype(src, M.denied_type))
 			to_chat(user,"<span class='warning'>You can't attach [src] to your baton.")
 			return FALSE
-	if(!user.unEquip(src))
+	if(!user.drop_transfer_item_to_loc(src, H))
 		return
-	forceMove(H)
 	H.upgrades += src
 	to_chat(user, "<span class='notice'>You attach [src] to [H].</span>")
 	return TRUE
@@ -163,8 +162,7 @@
 		"<span class='userdanger'>[user] is trying to put handcuffs on you!</span>")
 		if(do_mob(user, target, 10))
 			if(!target.handcuffed)
-				target.handcuffed = new /obj/item/restraints/handcuffs/cable(target)
-				target.update_handcuffed()
+				target.set_handcuffed(new /obj/item/restraints/handcuffs/cable(target))
 				to_chat(user, "<span class='notice'>You shackle [target].</span>")
 				add_attack_logs(user, target, "shackled")
 				cuffs--

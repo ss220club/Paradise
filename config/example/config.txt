@@ -566,6 +566,7 @@ TOPIC_FILTERING_WHITELIST 127.0.0.1
 
 ## Silero Text-to-speech
 #TTS_TOKEN_SILERO mytoken
+#TTS_URL_SILERO https://example.com
 #TTS_ENABLED
 #TTS_CACHE
 
@@ -600,3 +601,7 @@ MODIFY_PULL_PUSH_SPEED
 
 ## Is AI heating enabled on this server
 #AI_HEAT
+
+## Enable animations on item pickup and drop down
+# ITEM_ANIMATIONS_ENABLED
+

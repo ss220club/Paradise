@@ -632,9 +632,10 @@
 	if(!target)
 		return FALSE
 	var/obj/effect/proc_holder/spell/targeted/click/S = target
-	if(!istype(S))
+	if(istype(S) || S?.can_select)
+		return TRUE
+	else
 		return ..()
-	return TRUE
 
 /datum/action/spell_action/toggle_active_overlay()
 	var/obj/effect/proc_holder/spell/targeted/click/S = target

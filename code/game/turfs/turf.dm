@@ -95,6 +95,7 @@
 	..()
 
 /turf/attack_hand(mob/user as mob)
+	SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND, user)
 	user.Move_Pulled(src)
 
 /turf/ex_act(severity)
@@ -286,9 +287,9 @@
 	for(var/mob/living/M in src)
 		if(M == U)
 			continue//Will not harm U. Since null != M, can be excluded to kill everyone.
-		INVOKE_ASYNC(M, /mob/.proc/gib)
+		INVOKE_ASYNC(M, TYPE_PROC_REF(/mob, gib))
 	for(var/obj/mecha/M in src)//Mecha are not gibbed but are damaged.
-		INVOKE_ASYNC(M, /obj/mecha/.proc/take_damage, 100, "brute")
+		INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/mecha, take_damage), 100, "brute")
 
 /turf/proc/Bless()
 	flags |= NOJAUNT
@@ -444,6 +445,7 @@
 		GLOB.cameranet.updateVisibility(src)
 
 /turf/attackby(obj/item/I, mob/user, params)
+	SEND_SIGNAL(src, COMSIG_PARENT_ATTACKBY, I, user, params)
 	if(can_lay_cable())
 		if(istype(I, /obj/item/stack/cable_coil))
 			var/obj/item/stack/cable_coil/C = I

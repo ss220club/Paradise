@@ -1144,7 +1144,7 @@
 /obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
 /obj/structure/window/reinforced/polarized{
 	dir = 4;
-	id = "inf"
+	ispolzovano = "inf"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4520,10 +4520,10 @@
 /obj/machinery/iv_drip,
 /obj/structure/window/reinforced/polarized{
 	dir = 4;
-	id = "inf"
+	ispolzovano = "inf"
 	},
 /obj/structure/window/reinforced/polarized{
-	id = "inf"
+	ispolzovano = "inf"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel{
@@ -5366,7 +5366,7 @@
 /area/mine/necropolis)
 "GA" = (
 /obj/structure/window/reinforced/polarized{
-	id = "inf"
+	ispolzovano = "inf"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6771,7 +6771,7 @@
 /area/mine/necropolis)
 "Te" = (
 /obj/structure/window/reinforced/polarized{
-	id = "inf"
+	ispolzovano = "inf"
 	},
 /obj/structure/window/reinforced/polarized{
 	dir = 8;

@@ -315,6 +315,7 @@
 	var/map_rotate = "none"
 	var/default_map = null
 	var/override_map = null
+	var/item_animations_enabled = FALSE
 
 	var/pixel_shift = FALSE
 	var/water_poison = FALSE
@@ -883,8 +884,11 @@
 				if("tts_token_silero")
 					tts_token_silero = value
 
+				if("tts_url_silero")
+					tts_url_silero = value
+
 				if("tts_enabled")
-					config.tts_enabled = tts_token_silero ? TRUE : FALSE
+					config.tts_enabled = tts_token_silero && tts_url_silero ? TRUE : FALSE
 
 				if("tts_cache")
 					config.tts_cache = TRUE
@@ -915,6 +919,9 @@
 
 				if("ai_heat")
 					config.ai_heat = TRUE
+
+				if("item_animations_enabled")
+					config.item_animations_enabled = TRUE
 
 				else
 					log_config("Unknown setting in configuration: '[name]'")

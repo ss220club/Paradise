@@ -217,15 +217,16 @@
 		return
 
 	if(GLOB.pacifism_after_gt)
+		var/mob/living/L = user
 		if(!target.Adjacent(src))
 			if(selected && selected.is_ranged())
 				if(selected.harmful)
-					to_chat(user, "<span class='warning'>Вы не хотите вреда!</span>")
+					to_chat(L, "<span class='warning'>You don't want to harm other living beings!</span>")
 					return
 				selected.action(target, params)
 		else if(selected && selected.is_melee())
 			if(isliving(target) && selected.harmful)
-				to_chat(user, "<span class='warning'>Вы не хотите вреда!</span>")
+				to_chat(user, "<span class='warning'>You don't want to harm other living beings!</span>")
 				return
 
 	var/dir_to_target = get_dir(src, target)
@@ -330,7 +331,7 @@
 		if(istype(backup) && movement_dir && !backup.anchored)
 			if(backup.newtonian_move(turn(movement_dir, 180)))
 				if(occupant)
-					to_chat(occupant, "<span class='info'>Вы отталкиваетесь от [backup], чтобы привести себя в движение.</span>")
+					to_chat(occupant, "<span class='info'>You push off of [backup] to propel yourself.</span>")
 		return TRUE
 
 /obj/mecha/relaymove(mob/user, direction)
@@ -338,7 +339,7 @@
 		return FALSE
 	if(user != occupant) //While not "realistic", this piece is player friendly.
 		user.forceMove(get_turf(src))
-		to_chat(user, "<span class='notice'>Вы выбрались из [src].</span>")
+		to_chat(user, "<span class='notice'>You climb out from [src].</span>")
 		return FALSE
 	if(connected_port)
 		if(world.time - last_message > 20)
@@ -346,7 +347,7 @@
 			last_message = world.time
 		return FALSE
 	if(state)
-		occupant_message("<span class='danger'>Протоколы ТО в действии.</span>")
+		occupant_message("<span class='danger'>Maintenance protocols in effect.</span>")
 		return FALSE
 	return domove(direction)
 
@@ -451,7 +452,7 @@
 	if(leg_overload_mode)
 		if(strafe) //No strafe while overload is active
 			toggle_strafe(silent = TRUE)
-		log_message("Повреждение от Перегрузки приводов ног.")
+		log_message("Leg Overload damage.")
 		take_damage(1, BRUTE, FALSE, FALSE)
 		if(obj_integrity < max_integrity - max_integrity / 3)
 			leg_overload_mode = FALSE
@@ -804,7 +805,7 @@
 	if(istype(W, /obj/item/mecha_parts/mecha_equipment))
 		var/obj/item/mecha_parts/mecha_equipment/E = W
 		if(E.can_attach(src))
-			if(!user.drop_item())
+			if(!user.drop_from_active_hand())
 				return
 			E.attach(src)
 			user.visible_message("[user] attaches [W] to [src].", "<span class='notice'>You attach [W] to [src].</span>")
@@ -836,10 +837,9 @@
 	else if(istype(W, /obj/item/stock_parts/cell))
 		if(state==4)
 			if(!cell)
-				if(!user.drop_item())
+				if(!user.drop_transfer_item_to_loc(W, src))
 					return
 				to_chat(user, "<span class='notice'>You install the powercell.</span>")
-				W.forceMove(src)
 				cell = W
 				log_message("Powercell installed")
 			else
@@ -847,10 +847,9 @@
 		return
 
 	else if(istype(W, /obj/item/mecha_parts/mecha_tracking))
-		if(!user.unEquip(W))
+		if(!user.drop_transfer_item_to_loc(W, src))
 			to_chat(user, "<span class='notice'>\the [W] is stuck to your hand, you cannot put it in \the [src]</span>")
 			return
-		W.forceMove(src)
 		trackers += W
 		user.visible_message("[user] attaches [W] to [src].", "<span class='notice'>You attach [W] to [src].</span>")
 		diag_hud_set_mechtracking()
@@ -880,7 +879,7 @@
 		initial_icon = P.new_icon
 		reset_icon()
 
-		user.drop_item()
+		user.temporarily_remove_item_from_inventory(P)
 		qdel(P)
 
 	else if(istype(W, /obj/item/mecha_modkit))
@@ -1220,7 +1219,7 @@
 
 	visible_message("<span class='notice'>[user] starts to climb into [src]")
 
-	if(do_after(user, src.mech_enter_time, target = src))
+	if(do_after(user, src.mech_enter_time * gettoolspeedmod(user), target = src))
 		if(obj_integrity <= 0)
 			to_chat(user, "<span class='warning'>You cannot get in the [name], it has been destroyed!</span>")
 		else if(occupant)
@@ -1291,7 +1290,7 @@
 		else if(mmi_as_oc.brainmob.stat)
 			to_chat(user, "Beta-rhythm below acceptable level.")
 			return FALSE
-		if(!user.unEquip(mmi_as_oc))
+		if(!user.drop_item_ground(mmi_as_oc))
 			to_chat(user, "<span class='notice'>\the [mmi_as_oc] is stuck to your hand, you cannot put it in \the [src]</span>")
 			return FALSE
 		var/mob/living/carbon/brain/brainmob = mmi_as_oc.brainmob
@@ -1593,7 +1592,7 @@
 /obj/mecha/speech_bubble(bubble_state = "", bubble_loc = src, list/bubble_recipients = list())
 	var/image/I = image('icons/mob/talk.dmi', bubble_loc, bubble_state, FLY_LAYER)
 	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
-	INVOKE_ASYNC(GLOBAL_PROC, /.proc/flick_overlay, I, bubble_recipients, 30)
+	INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, I, bubble_recipients, 30)
 
 /obj/mecha/update_remote_sight(mob/living/user)
 	if(occupant_sight_flags)
@@ -1655,7 +1654,7 @@
 		choices[MT.name] = MA
 		choices_to_refs[MT.name] = MT
 
-	var/choice = show_radial_menu(L, src, choices, radius = 48, custom_check = CALLBACK(src, .proc/check_menu, L))
+	var/choice = show_radial_menu(L, src, choices, radius = 48, custom_check = CALLBACK(src, PROC_REF(check_menu), L))
 	if(!check_menu(L) || choice == "Cancel / No Change")
 		return
 

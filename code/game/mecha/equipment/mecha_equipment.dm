@@ -58,7 +58,11 @@
 	else
 		txt += "[name]"
 
+	txt += "[get_module_equip_info()]"
 	return txt
+
+/obj/item/mecha_parts/mecha_equipment/proc/get_module_equip_info()
+	return
 
 /obj/item/mecha_parts/mecha_equipment/proc/is_ranged()//add a distance restricted equipment. Why not?
 	return range & MECHA_RANGED
@@ -103,7 +107,7 @@
 	if(istype(W))
 		cooldown += (W.projectiles_per_shot - 1) * W.projectile_delay
 
-	addtimer(CALLBACK(src, .proc/set_ready_state, 1), cooldown)
+	addtimer(CALLBACK(src, PROC_REF(set_ready_state), 1), cooldown)
 
 /obj/item/mecha_parts/mecha_equipment/proc/do_after_cooldown(atom/target)
 	if(!chassis)
@@ -111,7 +115,7 @@
 	var/C = chassis.loc
 	set_ready_state(0)
 	chassis.use_power(energy_drain)
-	. = do_after(chassis.occupant, equip_cooldown, needhand = FALSE, target = target)
+	. = do_after(chassis.occupant, equip_cooldown * gettoolspeedmod(chassis.occupant), needhand = FALSE, target = target)
 	set_ready_state(1)
 	if(!chassis || 	chassis.loc != C || src != chassis.selected || !(get_dir(chassis, target) & chassis.dir))
 		return FALSE
@@ -120,15 +124,18 @@
 	if(!chassis)
 		return
 	var/C = chassis.loc
-	. = do_after(chassis.occupant, delay, target = target)
+	. = do_after(chassis.occupant, delay * gettoolspeedmod(chassis.occupant), target = target)
 	if(!chassis || 	chassis.loc != C || src != chassis.selected || !(get_dir(chassis, target) & chassis.dir))
 		return FALSE
 
 /obj/item/mecha_parts/mecha_equipment/proc/can_attach(obj/mecha/M)
 	if(istype(M))
-		if(M.equipment.len<M.max_equip)
-			return 1
-	return 0
+		if(length(M.equipment) < M.max_equip)
+			return TRUE
+	return FALSE
+
+/obj/item/mecha_parts/mecha_equipment/proc/can_detach()
+	return TRUE
 
 /obj/item/mecha_parts/mecha_equipment/proc/attach(obj/mecha/M)
 	M.equipment += src
@@ -138,8 +145,15 @@
 	if(!M.selected)
 		M.selected = src
 	update_chassis_page()
+	attach_act(M)
+
+/obj/item/mecha_parts/mecha_equipment/proc/attach_act(obj/mecha/M)
+	return
 
 /obj/item/mecha_parts/mecha_equipment/proc/detach(atom/moveto = null)
+	if(!can_detach())
+		return
+	detach_act()
 	moveto = moveto || get_turf(chassis)
 	if(Move(moveto))
 		chassis.equipment -= src
@@ -150,11 +164,12 @@
 		chassis = null
 		set_ready_state(1)
 
+/obj/item/mecha_parts/mecha_equipment/proc/detach_act()
+	return
 
 /obj/item/mecha_parts/mecha_equipment/Topic(href,href_list)
 	if(href_list["detach"])
 		detach()
-
 
 /obj/item/mecha_parts/mecha_equipment/proc/set_ready_state(state)
 	equip_ready = state

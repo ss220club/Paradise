@@ -52,16 +52,15 @@ GLOBAL_VAR(bomb_set)
 		GLOB.bomb_set = TRUE // So long as there is one nuke timing, it means one nuke is armed.
 		timeleft = max(timeleft - 2, 0) // 2 seconds per process()
 		if(timeleft <= 0)
-			INVOKE_ASYNC(src, .proc/explode)
+			INVOKE_ASYNC(src, PROC_REF(explode))
 	return
 
 /obj/machinery/nuclearbomb/attackby(obj/item/O as obj, mob/user as mob, params)
 	if(istype(O, /obj/item/disk/nuclear))
 		if(extended)
-			if(!user.drop_item())
+			if(!user.drop_transfer_item_to_loc(O, src))
 				to_chat(user, "<span class='notice'>[O] is stuck to your hand!</span>")
 				return
-			O.forceMove(src)
 			auth = O
 			return attack_hand(user)
 		else
@@ -239,7 +238,8 @@ GLOBAL_VAR(bomb_set)
 		if("auth")
 			if(auth)
 				if(!usr.get_active_hand() && Adjacent(usr))
-					usr.put_in_hands(auth)
+					auth.forceMove_turf()
+					usr.put_in_hands(auth, ignore_anim = FALSE)
 				else
 					auth.forceMove(get_turf(src))
 				yes_code = FALSE
@@ -247,8 +247,7 @@ GLOBAL_VAR(bomb_set)
 			else
 				var/obj/item/I = usr.get_active_hand()
 				if(istype(I, /obj/item/disk/nuclear))
-					usr.drop_item()
-					I.forceMove(src)
+					usr.drop_transfer_item_to_loc(I, src)
 					auth = I
 			return
 	if(!is_auth(usr)) // All requests below here require NAD inserted.
@@ -326,9 +325,17 @@ GLOBAL_VAR(bomb_set)
 	if(exploded)
 		return
 	if(timing)	//boom
-		INVOKE_ASYNC(src, .proc/explode)
+		INVOKE_ASYNC(src, PROC_REF(explode))
 		return
-	qdel(src)
+	//if no boom then we need to let the blob capture our nuke
+	var/turf/T = get_turf(src)
+	if(!T)
+		return
+	if(locate(/obj/structure/blob) in T)
+		return
+	var/obj/structure/blob/captured_nuke/N = new(T, src)
+	N.overmind = B.overmind
+	N.adjustcolors(B.color)
 
 /obj/machinery/nuclearbomb/tesla_act(power, explosive)
 	..()
