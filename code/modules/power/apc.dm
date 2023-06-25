@@ -1025,7 +1025,7 @@
 				update_icon()
 				update()
 		if("overload")
-			if(usr.has_unlimited_silicon_privilege)
+			if(issilicon(usr))
 				INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/machinery/power/apc, overload_lighting))
 		if("hack")
 			if(get_malf_status(usr))

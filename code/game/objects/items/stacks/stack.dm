@@ -402,53 +402,16 @@
 	return TRUE
 
 
-/obj/item/stack/proc/get_max_amount()
-	return max_amount
-
-/obj/item/stack/proc/get_amount_transferred()
-	return to_transfer
-
-/obj/item/stack/proc/split(mob/user, amt)
-	var/obj/item/stack/F = new type(loc, amt)
-	F.copy_evidences(src)
-	if(isliving(user))
-		add_fingerprint(user)
-		F.add_fingerprint(user)
-	use(amt)
-	return F
-
-/obj/item/stack/attack_hand(mob/user)
-	if(user.is_in_inactive_hand(src) && amount > 1)
-		change_stack(user, 1)
-		if(src && usr.machine == src)
-			spawn(0)
-				interact(usr)
-	else
-		..()
-
-/obj/item/stack/AltClick(mob/living/user)
-	if(!istype(user) || user.incapacitated())
-		to_chat(user, "<span class='warning'>You can't do that right now!</span>")
-		return
-	if(!in_range(src, user))
-		return
-	if(!ishuman(usr))
-		return
-	if(amount < 1)
-		return
-	//get amount from user
-	var/min = 0
-	var/max = get_amount()
-	var/stackmaterial = round(input(user, "How many sheets do you wish to take out of this stack? (Maximum: [max])") as null|num)
-	if(stackmaterial == null || stackmaterial <= min || stackmaterial > get_amount())
-		return
-	if(!Adjacent(user, 1))
-		return
-	change_stack(user,stackmaterial)
-	to_chat(user, "<span class='notice'>You take [stackmaterial] sheets out of the stack.</span>")
-
-/obj/item/stack/proc/change_stack(mob/user,amount)
-	var/obj/item/stack/F = new type(user, amount, FALSE)
+/** Splits the stack into two stacks.
+ *
+ * Arguments:
+ * - [user][/mob]: The mob splitting the stack.
+ * - amount: The number of units to split from this stack.
+ */
+/obj/item/stack/proc/split_stack(mob/user, amount)
+	if(!use(amount, FALSE))
+		return null
+	var/obj/item/stack/F = new type(user ? user : drop_location(), amount, FALSE)
 	. = F
 	F.copy_evidences(src)
 
