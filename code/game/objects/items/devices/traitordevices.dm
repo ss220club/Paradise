@@ -55,7 +55,7 @@ effective or pretty fucking useless.
 	playsound(loc, 'sound/misc/interference.ogg', 50, 1)
 	charges--
 	to_chat(user, "<span class='notice'>You trigger [src]. It has [charges] charges left.</span>")
-	addtimer(CALLBACK(src, .proc/recharge), 3 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(recharge)), 3 MINUTES)
 
 /obj/item/batterer/proc/recharge()
 	charges++
@@ -337,7 +337,7 @@ effective or pretty fucking useless.
 	for(var/obj/item/W in user)
 		if(istype(W, /obj/item/organ)|| istype(W, /obj/item/implant))
 			continue
-		if(!user.unEquip(W))
+		if(!user.drop_item_ground(W))
 			qdel(W)
 	to_chat(user, "<span class='biggerdanger'>You teleport into the wall, the teleporter tries to save you, but--</span>")
 	user.gib()

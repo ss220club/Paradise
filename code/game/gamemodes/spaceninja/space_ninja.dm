@@ -28,6 +28,7 @@
 	modePlayer += space_ninja
 	space_ninja.assigned_role = SPECIAL_ROLE_SPACE_NINJA //So they aren't chosen for other jobs.
 	space_ninja.special_role = SPECIAL_ROLE_SPACE_NINJA
+	space_ninja.offstation_role = TRUE //ninja can't be targeted as a victim for some pity traitors
 	space_ninja.original = space_ninja.current
 	if(!length(GLOB.ninjastart))
 		to_chat(space_ninja.current, span_danger("A starting location for you could not be found, please report this bug!"))
@@ -43,7 +44,7 @@
 /datum/game_mode/space_ninja/post_setup()
 	for(var/datum/mind/space_ninja_mind in space_ninjas)
 		add_game_logs("has been selected as a Space Ninja", space_ninja_mind.current)
-		INVOKE_ASYNC(src, .proc/name_ninja, space_ninja_mind.current)
+		INVOKE_ASYNC(src, PROC_REF(name_ninja), space_ninja_mind.current)
 		equip_space_ninja(space_ninja_mind.current)
 		give_ninja_datum(space_ninja_mind)
 		forge_ninja_objectives(space_ninja_mind)
@@ -425,7 +426,7 @@
 	hunt_changelings.owner = ninja_mind
 	hunt_changelings.find_target()
 	ninja_mind.objectives += hunt_changelings
-	if(!length(SSticker.mode.changelings))//Если нет генокрадов, просто не даём цель
+	if(length(SSticker.mode.changelings) < hunt_changelings.req_kills) //If not enough changeling don't give target
 		GLOB.all_objectives -= hunt_changelings
 		ninja_mind.objectives -= hunt_changelings
 		qdel(hunt_changelings)

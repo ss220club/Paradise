@@ -59,9 +59,8 @@
 
 /obj/item/clothing/suit/armor/vest/security/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/clothing/accessory/holobadge) && !attached_badge)
-		if(user.unEquip(I))
+		if(user.drop_transfer_item_to_loc(I, src))
 			add_fingerprint(user)
-			I.forceMove(src)
 			attached_badge = I
 			var/datum/action/A = new /datum/action/item_action/remove_badge(src)
 			A.Grant(user)
@@ -194,6 +193,9 @@
 	strip_delay = 80
 	put_on_delay = 60
 	hide_tail_by_species = list("Vox")
+	sprite_sheets = list(
+		"Unathi" = 'icons/mob/species/unathi/suit.dmi'
+		)
 
 /obj/item/clothing/suit/armor/riot/knight
 	name = "plate armour"
@@ -307,7 +309,7 @@
 	if(istype(loc, /mob/living/carbon/human))
 		var/mob/living/carbon/human/C = loc
 		C.update_inv_wear_suit()
-		addtimer(CALLBACK(src, .proc/reboot), 100 / severity)
+		addtimer(CALLBACK(src, PROC_REF(reboot)), 100 / severity)
 	..()
 
 /obj/item/clothing/suit/armor/reactive/proc/reboot()
@@ -516,6 +518,9 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF | ACID_PROOF
+	sprite_sheets = list(
+		"Unathi" = 'icons/mob/species/unathi/suit.dmi'
+		)
 
 /obj/item/clothing/head/hooded/drake
 	name = "drake helmet"

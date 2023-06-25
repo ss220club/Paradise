@@ -151,7 +151,7 @@
 	if(preserve_status == CRYO_OBJECTIVE)
 		objective_items += I
 	I.forceMove(src)
-	RegisterSignal(I, COMSIG_MOVABLE_MOVED, .proc/item_got_removed)
+	RegisterSignal(I, COMSIG_MOVABLE_MOVED, PROC_REF(item_got_removed))
 
 /obj/machinery/computer/cryopod/proc/item_got_removed(obj/item/I)
 	objective_items -= I
@@ -359,7 +359,7 @@
 /obj/machinery/cryopod/proc/despawn_occupant()
 	//Drop all items into the pod.
 	for(var/obj/item/I in occupant)
-		occupant.unEquip(I)
+		occupant.drop_item_ground(I)
 		I.forceMove(src)
 
 		if(I.contents.len) //Make sure we catch anything not handled by qdel() on the items.
@@ -759,7 +759,7 @@
 	on_store_name = "Robotic Storage Oversight"
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
 	allow_occupant_types = list(/mob/living/silicon/robot)
-	disallow_occupant_types = list(/mob/living/silicon/robot/drone)
+	disallow_occupant_types = list()
 
 /obj/machinery/cryopod/robot/right
 	orient_right = 1

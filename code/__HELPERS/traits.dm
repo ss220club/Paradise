@@ -60,6 +60,10 @@
 Remember to update _globalvars/traits.dm if you're adding/removing/renaming traits.
 */
 
+//atom traits
+/// Trait used to prevent an atom from component radiation emission (see radioactivity.dm)
+#define TRAIT_BLOCK_RADIATION	"block_radiation"
+
 //mob traits
 #define TRAIT_PACIFISM			"pacifism"
 #define TRAIT_WATERBREATH		"waterbreathing"
@@ -71,6 +75,11 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 //item traits
 #define TRAIT_CMAGGED "cmagged"
 #define CMAGGED "clown_emag"
+#define ABSTRACT_ITEM_TRAIT "abstract-item"
+/// The items needs two hands to be carried
+#define TRAIT_NEEDS_TWO_HANDS "needstwohands"
+/// Properly wielded two handed item
+#define TRAIT_WIELDED "wielded"
 
 //
 // common trait sources

@@ -177,7 +177,7 @@
 		name = "[area.name] APC"
 		stat |= MAINT
 		update_icon()
-		addtimer(CALLBACK(src, .proc/update), 5)
+		addtimer(CALLBACK(src, PROC_REF(update)), 5)
 
 /obj/machinery/power/apc/Destroy()
 	SStgui.close_uis(wires)
@@ -235,7 +235,7 @@
 
 	make_terminal()
 
-	addtimer(CALLBACK(src, .proc/update), 5)
+	addtimer(CALLBACK(src, PROC_REF(update)), 5)
 
 /obj/machinery/power/apc/examine(mob/user)
 	. = ..()
@@ -452,7 +452,7 @@
 	if(stat & (NOPOWER | BROKEN))
 		return FALSE
 	if(!second_pass) //The first time, we just cut overlays
-		addtimer(CALLBACK(src, /obj/machinery/power/apc/proc.flicker, TRUE), 1)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/machinery/power/apc, flicker), TRUE), 1)
 		cut_overlays()
 		// APC power distruptions have a chance to propogate to other machines on its network
 		for(var/obj/machinery/M in area)
@@ -463,7 +463,7 @@
 				M.flicker()
 	else
 		flick("apcemag", src) //Second time we cause the APC to update its icon, then add a timer to update icon later
-		addtimer(CALLBACK(src, /obj/machinery/power/apc/proc.update_icon, TRUE), 10)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/machinery/power/apc, update_icon), TRUE), 10)
 
 	return TRUE
 
@@ -481,10 +481,9 @@
 			if(stat & MAINT)
 				to_chat(user, "<span class='warning'>There is no connector for your power cell!</span>")
 				return
-			if(!user.drop_item())
+			if(!user.drop_transfer_item_to_loc(W, src))
 				return
 			add_fingerprint(user)
-			W.forceMove(src)
 			cell = W
 			user.visible_message(\
 				"[user.name] has inserted the power cell to [name]!",\
@@ -609,8 +608,7 @@
 			"<span class='clock'>Replicant alloy rapidly covers the APC's innards, replacing the machinery.</span><br>\
 			<span class='clockitalic'>This APC will now passively provide power for the cult!</span>")
 			playsound(user, 'sound/machines/clockcult/integration_cog_install.ogg', 50, TRUE)
-			user.unEquip(W, 1)
-			W.forceMove(src)
+			user.drop_transfer_item_to_loc(W, src, force = TRUE)
 			cog = W
 			START_PROCESSING(SSfastprocess, W)
 			opened = FALSE
@@ -811,7 +809,8 @@
 	if(usr == user && opened && !issilicon(user))
 		if(cell)
 			user.visible_message("<span class='warning'>[user.name] removes [cell] from [src]!", "You remove the [cell].</span>")
-			user.put_in_hands(cell)
+			cell.forceMove_turf()
+			user.put_in_hands(cell, ignore_anim = FALSE)
 			cell.add_fingerprint(user)
 			cell.update_icon()
 			cell = null
@@ -1026,8 +1025,8 @@
 				update_icon()
 				update()
 		if("overload")
-			if(issilicon(usr))
-				INVOKE_ASYNC(src, /obj/machinery/power/apc.proc/overload_lighting)
+			if(usr.has_unlimited_silicon_privilege)
+				INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/machinery/power/apc, overload_lighting))
 		if("hack")
 			if(get_malf_status(usr))
 				malfhack(usr)
@@ -1055,7 +1054,7 @@
 		return
 	to_chat(malf, "Beginning override of APC systems. This takes some time, and you cannot perform other actions during the process.")
 	malf.malfhack = src
-	malf.malfhacking = addtimer(CALLBACK(malf, /mob/living/silicon/ai/.proc/malfhacked, src), 600, TIMER_STOPPABLE)
+	malf.malfhacking = addtimer(CALLBACK(malf, TYPE_PROC_REF(/mob/living/silicon/ai, malfhacked), src), 600, TIMER_STOPPABLE)
 	var/obj/screen/alert/hackingapc/A
 	A = malf.throw_alert("hackingapc", /obj/screen/alert/hackingapc)
 	A.target = src

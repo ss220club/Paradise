@@ -94,8 +94,9 @@
 	. = ..()
 	attempt_reload()
 
-/obj/item/gun/energy/kinetic_accelerator/equipped(mob/user)
+/obj/item/gun/energy/kinetic_accelerator/equipped(mob/user, slot, initial)
 	. = ..()
+
 	if(!can_shoot())
 		attempt_reload()
 
@@ -104,7 +105,7 @@
 	if(!QDELING(src) && !holds_charge)
 		// Put it on a delay because moving item from slot to hand
 		// calls dropped().
-		addtimer(CALLBACK(src, .proc/empty_if_not_held), 2)
+		addtimer(CALLBACK(src, PROC_REF(empty_if_not_held)), 2)
 
 /obj/item/gun/energy/kinetic_accelerator/proc/empty_if_not_held()
 	if(!ismob(loc))
@@ -132,7 +133,7 @@
 		carried = 1
 
 	deltimer(recharge_timerid)
-	recharge_timerid = addtimer(CALLBACK(src, .proc/reload), recharge_time * carried, TIMER_STOPPABLE)
+	recharge_timerid = addtimer(CALLBACK(src, PROC_REF(reload)), recharge_time * carried, TIMER_STOPPABLE)
 
 /obj/item/gun/energy/kinetic_accelerator/emp_act(severity)
 	return
@@ -319,8 +320,7 @@
 		if(.)
 			to_chat(user, "<span class='notice'>You install the modkit.</span>")
 			playsound(loc, usesound, 100, 1)
-			user.unEquip(src)
-			forceMove(KA)
+			user.drop_transfer_item_to_loc(src, KA)
 			KA.modkits += src
 		else
 			to_chat(user, "<span class='notice'>The modkit you're trying to install would conflict with an already installed modkit. Use a crowbar to remove existing modkits.</span>")

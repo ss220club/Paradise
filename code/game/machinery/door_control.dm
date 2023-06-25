@@ -116,7 +116,7 @@
 
 	do_main_action(user)
 
-	addtimer(CALLBACK(src, .proc/update_icon), 15)
+	addtimer(CALLBACK(src, PROC_REF(update_icon)), 15)
 
 /obj/machinery/door_control/power_change()
 	..()

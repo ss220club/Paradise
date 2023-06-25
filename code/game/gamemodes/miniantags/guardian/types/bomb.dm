@@ -68,7 +68,7 @@
 	appearance = A.appearance
 	dir = A.dir
 	move_resist = A.move_resist
-	addtimer(CALLBACK(src, .proc/disable), 600)
+	addtimer(CALLBACK(src, PROC_REF(disable)), 600)
 
 /obj/item/guardian_bomb/proc/disable()
 	add_attack_logs(null, stored_obj, "booby trap expired")
@@ -118,8 +118,8 @@
 	detonate(user)
 
 /obj/item/guardian_bomb/pickup(mob/living/user)
-	detonate(user)
-	return FALSE // Disarm or blow up. No picking up
+	SHOULD_CALL_PARENT(FALSE)
+	detonate(user) // Disarm or blow up. No picking up
 
 /obj/item/guardian_bomb/MouseDrop_T(obj/item/I, mob/living/user)
 	detonate(user)
@@ -130,8 +130,8 @@
 /obj/item/guardian_bomb/MouseDrop(mob/living/user)
 	detonate(user)
 
-/obj/item/guardian_bomb/Bumped(mob/living/user)
-	detonate(user)
+/obj/item/guardian_bomb/Bumped(atom/movable/moving_atom)
+	detonate(moving_atom)
 
 /obj/item/guardian_bomb/can_be_pulled(mob/living/user)
 	detonate(user)

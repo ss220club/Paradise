@@ -40,7 +40,8 @@
 			var/obj/item/I = pick(contents)
 			add_fingerprint(user)
 			if(ishuman(user))
-				user.put_in_hands(I)
+				I.forceMove_turf()
+				user.put_in_hands(I, ignore_anim = FALSE)
 			else
 				I.loc = get_turf(src)
 			to_chat(user, "<span class='notice'>You find [I] in the cistern.</span>")
@@ -178,10 +179,9 @@
 	if(w_items + I.w_class > WEIGHT_CLASS_HUGE) // if item size > 5
 		to_chat(user, "<span class='warning'>The cistern is full!</span>")
 		return
-	if(!user.drop_item())
+	if(!user.drop_transfer_item_to_loc(I, src))
 		to_chat(user, "<span class='warning'>[I] is stuck to your hand, you cannot put it in the cistern!</span>")
 		return
-	I.loc = src
 	w_items += I.w_class
 	to_chat(user, "<span class='notice'>You carefully place [I] into the cistern.</span>")
 
@@ -391,9 +391,9 @@
 			mist_time = 70		//7 seconds on freezing temperature to disperse existing mist
 		if(watertemp == "boiling")
 			mist_time = 20		//2 seconds on boiling temperature to build up mist
-		addtimer(CALLBACK(src, .proc/update_mist), mist_time)
+		addtimer(CALLBACK(src, PROC_REF(update_mist)), mist_time)
 	else
-		addtimer(CALLBACK(src, .proc/update_mist), 250) //25 seconds for mist to disperse after being turned off
+		addtimer(CALLBACK(src, PROC_REF(update_mist)), 250) //25 seconds for mist to disperse after being turned off
 
 /obj/machinery/shower/proc/update_mist()
 	if(on)
@@ -744,7 +744,7 @@
 		S.anchored = 0
 		S.dir = user.dir
 		S.update_icon()
-		user.unEquip(src, 1)
+		user.temporarily_remove_item_from_inventory(src, force = TRUE)
 		qdel(src)
 		if(prob(50))
 			new /obj/item/stack/sheet/cardboard(T)

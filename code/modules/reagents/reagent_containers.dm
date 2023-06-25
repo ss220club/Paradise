@@ -75,19 +75,16 @@
 
 /obj/item/reagent_containers/Initialize(mapload)
 	. = ..()
-	add_spawned_disease()
-
-/obj/item/reagent_containers/proc/add_initial_reagents()
-	if(list_reagents)
-		reagents.add_reagent_list(list_reagents)
-
-/obj/item/reagent_containers/proc/add_spawned_disease()
 	if(spawned_disease)
 		var/datum/disease/F = new spawned_disease
 		var/list/data = list("viruses" = list(F), "blood_color" = "#A10808")
 		reagents.add_reagent("blood", disease_amount, data)
 	add_initial_reagents()
 	update_icon()
+
+/obj/item/reagent_containers/proc/add_initial_reagents()
+	if(list_reagents)
+		reagents.add_reagent_list(list_reagents)
 
 /obj/item/reagent_containers/ex_act()
 	if(reagents)

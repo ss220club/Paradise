@@ -12,10 +12,13 @@
 
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/helmet.dmi',
+		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
 		"Grey" = 'icons/mob/species/grey/helmet.dmi'
 		)
 
-/obj/item/clothing/head/helmet/space/capspace/equipped(mob/living/carbon/human/user, slot)
+/obj/item/clothing/head/helmet/space/capspace/equipped(mob/living/carbon/human/user, slot, initial)
+	. = ..()
+
 	if(ishuman(user) && slot == slot_head)
 		if(isvox(user))
 			if(flags & BLOCKHAIR)
@@ -37,7 +40,8 @@
 	species_restricted = list("exclude", "Wryn", "lesser form")
 
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/suit.dmi'
+		"Vox" = 'icons/mob/species/vox/suit.dmi',
+		"Unathi" = 'icons/mob/species/unathi/suit.dmi'
 		)
 
 	//Deathsquad space suit, not hardsuits because no flashlight!
