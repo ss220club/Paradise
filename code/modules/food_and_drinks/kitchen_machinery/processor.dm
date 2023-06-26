@@ -15,7 +15,7 @@
 	var/rating_speed = 1
 	var/rating_amount = 1
 
-/obj/machinery/processor/()
+/obj/machinery/processor/update_icon()
 	. = ..()
 	if(processing)
 		icon_state = "processor_on"

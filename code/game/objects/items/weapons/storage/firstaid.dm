@@ -142,9 +142,13 @@
 /obj/item/storage/firstaid/adv
 	name = "advanced first-aid kit"
 	desc = "Contains advanced medical treatments."
-	icon_state = pick("adv_firstaid", "adv2_firstaid")
+	icon_state = "adv_firstaid"
 	item_state = "firstaid-advanced"
 	med_bot_skin = "adv"
+
+/obj/item/storage/firstaid/adv/New()
+	..()
+	icon_state = pick("adv_firstaid", "adv2_firstaid")
 
 /obj/item/storage/firstaid/adv/populate_contents()
 	new /obj/item/stack/medical/bruise_pack(src)
