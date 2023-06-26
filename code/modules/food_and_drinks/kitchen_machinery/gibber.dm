@@ -196,6 +196,7 @@
 	gibberoverlay.icon = icon
 	gibberoverlay.icon_state = "grinderoverlay"
 	gibberoverlay.overlays += image('icons/obj/kitchen.dmi', "gridle")
+	icon_state = "grinder_on"
 
 	var/image/feedee = new
 	occupant.dir = 2
@@ -205,17 +206,16 @@
 	holder.name = null //make unclickable
 	holder.overlays += feedee //add occupant to holder overlays
 	holder.pixel_y = 25 //above the gibber
-	holder.pixel_x = 2
 	holder.loc = get_turf(src)
 	holder.layer = MOB_LAYER //simulate mob-like layering
-	holder.anchored = 1
+	holder.anchored = TRUE
 
 	var/atom/movable/holder2 = new //holder for gibber overlay, used to simulate 3D effect
 	holder2.name = null
 	holder2.overlays += gibberoverlay
 	holder2.loc = get_turf(src)
 	holder2.layer = MOB_LAYER + 0.1 //3D, it's above the mob, rest of the gibber is behind
-	holder2.anchored = 1
+	holder2.anchored = TRUE
 
 	animate(holder, pixel_y = 16, time = animation_delay) //animate going down
 
@@ -230,7 +230,7 @@
 
 	qdel(holder) //get rid of holder object
 	qdel(holder2) //get rid of holder object
-	locked = 0 //unlock
+	locked = FALSE //unlock
 
 /obj/machinery/gibber/proc/startgibbing(mob/user, UserOverride=0)
 	if(!istype(user) && !UserOverride)
