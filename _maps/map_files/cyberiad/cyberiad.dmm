@@ -25089,7 +25089,9 @@
 /area/chapel/main)
 "bpN" = (
 /obj/structure/table/reinforced,
-/obj/machinery/chem_dispenser/beer,
+/obj/machinery/chem_dispenser/beer{
+	pixel_y = 4
+	},
 /obj/structure/sign/barsign{
 	pixel_y = 32
 	},
@@ -25163,7 +25165,9 @@
 /area/hydroponics)
 "bpW" = (
 /obj/structure/table/reinforced,
-/obj/machinery/chem_dispenser/soda,
+/obj/machinery/chem_dispenser/soda{
+	pixel_y = 4
+	},
 /turf/simulated/floor/plasteel{
 	dir = 5;
 	icon_state = "dark";
