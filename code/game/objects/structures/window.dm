@@ -663,6 +663,7 @@
 	smooth = SMOOTH_TRUE
 	cancolor = TRUE
 	canSmoothWith = list(
+		/obj/machinery/door/airlock,
 		/obj/structure/window/full/basic,
 		/obj/structure/window/full/reinforced,
 		/obj/structure/window/full/reinforced/tinted,
@@ -692,6 +693,7 @@
 	max_integrity = 300
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
+		/obj/machinery/door/airlock,
 		/obj/structure/window/full/basic,
 		/obj/structure/window/full/reinforced,
 		/obj/structure/window/full/reinforced/tinted,
@@ -731,6 +733,7 @@
 	glass_type = /obj/item/stack/sheet/plasmarglass
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
+		/obj/machinery/door/airlock,
 		/obj/structure/window/full/basic,
 		/obj/structure/window/full/reinforced,
 		/obj/structure/window/full/reinforced/tinted,
@@ -762,6 +765,7 @@
 	icon_state = "r_window"
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
+		/obj/machinery/door/airlock,
 		/obj/structure/window/full/basic,
 		/obj/structure/window/full/reinforced,
 		/obj/structure/window/full/reinforced/tinted,

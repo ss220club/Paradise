@@ -91,6 +91,7 @@
 		icon_state = "dnamod"
 	if(seed)
 		overlays += "dnamod-dna"
+		overlays += "dnamod-disk"
 	if(panel_open)
 		overlays += "dnamod-open"
 

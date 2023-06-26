@@ -36,6 +36,7 @@
 	var/girder_type = /obj/structure/girder
 
 	canSmoothWith = list(
+	/obj/machinery/door/airlock,
 	/obj/structure/window/full/basic,
 	/obj/structure/window/full/reinforced,
 	/obj/structure/window/full/reinforced/tinted,
