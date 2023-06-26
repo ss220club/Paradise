@@ -138,12 +138,22 @@
 		return
 	recharge_counter++
 
+/obj/machinery/chem_dispenser/update_icon()
+	if(panel_open)
+		icon_state = "[initial(icon_state)]-o"
+		return
+	if(!powered() && !is_drink)
+		icon_state = "dispenser_nopower"
+		return
+	icon_state = "[initial(icon_state)][beaker ? "_working" : ""]"
+
 /obj/machinery/chem_dispenser/power_change()
 	if(powered())
 		stat &= ~NOPOWER
 	else
 		spawn(rand(0, 15))
 			stat |= NOPOWER
+	update_icon()
 
 /obj/machinery/chem_dispenser/ex_act(severity)
 	if(severity < 3)
@@ -220,11 +230,6 @@
 				atom_say("Недостаточно энергии для завершения операции!")
 				return
 			R.add_reagent(params["reagent"], actual)
-			overlays.Cut()
-			if(!icon_beaker)
-				icon_beaker = mutable_appearance('icons/obj/chemical.dmi', "disp_beaker") //randomize beaker overlay position.
-			icon_beaker.pixel_x = rand(-10, 5)
-			overlays += icon_beaker
 		if("remove")
 			var/amount = text2num(params["amount"])
 			if(!beaker || !amount)
@@ -243,6 +248,7 @@
 				usr.put_in_hands(beaker, ignore_anim = FALSE)
 			beaker = null
 			overlays.Cut()
+			update_icon()
 		else
 			return FALSE
 
@@ -271,10 +277,7 @@
 		beaker =  I
 		to_chat(user, "<span class='notice'>You set [I] on the machine.</span>")
 		SStgui.update_uis(src) // update all UIs attached to src
-		if(!icon_beaker)
-			icon_beaker = mutable_appearance('icons/obj/chemical.dmi', "disp_beaker") //randomize beaker overlay position.
-		icon_beaker.pixel_x = rand(-10, 5)
-		overlays += icon_beaker
+		update_icon()
 		return
 	return ..()
 

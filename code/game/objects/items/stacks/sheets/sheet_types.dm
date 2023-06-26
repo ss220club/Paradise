@@ -171,6 +171,9 @@ GLOBAL_LIST_INIT(plasteel_recipes, list(
 	merge_type = /obj/item/stack/sheet/plasteel
 	point_value = 23
 
+/obj/item/stack/sheet/plasteel/fifty
+	amount = 50
+
 /obj/item/stack/sheet/plasteel/lowplasma
 	desc = "This sheet is an alloy of iron and plasma. There are an special barcode 'Low Plasma Level'"
 	materials = list(MAT_METAL=2000, MAT_PLASMA=400)
@@ -238,12 +241,14 @@ GLOBAL_LIST_INIT(wood_recipes, list(
 	desc = "One can only guess that this is a bunch of wood."
 	gender = PLURAL
 	singular_name = "wood plank"
+	icon = 'icons/obj/stacks/organic.dmi'
 	icon_state = "sheet-wood"
 	item_state = "sheet-wood"
 	origin_tech = "materials=1;biotech=1"
 	resistance_flags = FLAMMABLE
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 0)
 	merge_type = /obj/item/stack/sheet/wood
+	sheettype = "wood"
 
 /obj/item/stack/sheet/wood/cyborg
 	is_cyborg = 1
@@ -287,6 +292,7 @@ GLOBAL_LIST_INIT(cloth_recipes, list(
 	name = "cloth"
 	desc = "Is it cotton? Linen? Denim? Burlap? Canvas? You can't tell."
 	singular_name = "cloth roll"
+	icon = 'icons/obj/stacks/organic.dmi'
 	icon_state = "sheet-cloth"
 	origin_tech = "materials=2"
 	resistance_flags = FLAMMABLE
@@ -318,7 +324,8 @@ GLOBAL_LIST_INIT(durathread_recipes, list(
 	desc = "A fabric sown from incredibly durable threads, known for its usefulness in armor production."
 	singular_name = "durathread roll"
 	icon_state = "sheet-durathread"
-	item_state = "sheet-cloth"
+	item_state = "sheet-durathread"
+	icon = 'icons/obj/stacks/organic.dmi'
 	resistance_flags = FLAMMABLE
 	force = 0
 	throwforce = 0
@@ -333,6 +340,7 @@ GLOBAL_LIST_INIT(durathread_recipes, list(
 	desc = "A bundle of raw cotton ready to be spun on the loom."
 	singular_name = "raw cotton ball"
 	icon_state = "sheet-cotton"
+	icon = 'icons/obj/stacks/organic.dmi'
 	resistance_flags = FLAMMABLE
 	force = 0
 	throwforce = 0
@@ -345,6 +353,7 @@ GLOBAL_LIST_INIT(durathread_recipes, list(
 	desc = "A bundle of raw durathread ready to be spun on the loom."
 	singular_name = "raw durathread ball"
 	icon_state = "sheet-durathreadraw"
+	icon = 'icons/obj/stacks/organic.dmi'
 	merge_type = /obj/item/stack/sheet/cotton/durathread
 	pull_effort = 70
 	loom_result = /obj/item/stack/sheet/durathread
@@ -390,6 +399,7 @@ GLOBAL_LIST_INIT(cardboard_recipes, list(
 	name = "cardboard"
 	desc = "Large sheets of card, like boxes folded flat."
 	singular_name = "cardboard sheet"
+	icon = 'icons/obj/stacks/miscellaneous.dmi'
 	icon_state = "sheet-card"
 	item_state = "sheet-card"
 	origin_tech = "materials=1"
@@ -494,7 +504,7 @@ GLOBAL_LIST_INIT(brass_recipes, list(
 	singular_name = "brass sheet"
 	icon_state = "sheet-brass"
 	item_state = "sheet-brass"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/stacks/minerals.dmi'
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	throwforce = 10
 	max_amount = 50
@@ -543,8 +553,9 @@ GLOBAL_LIST_INIT(brass_recipes, list(
 
 /obj/item/stack/sheet/bone
 	name = "bones"
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/stacks/organic.dmi'
 	icon_state = "bone"
+	item_state = "bone"
 	singular_name = "bone"
 	desc = "Someone's been drinking their milk."
 	force = 7
@@ -665,7 +676,7 @@ GLOBAL_LIST_INIT(bamboo_recipes, list(
 	singular_name = "cut bamboo"
 	icon_state = "sheet-bamboo"
 	item_state = "sheet-bamboo"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/stacks/organic.dmi'
 	sheettype = "bamboo"
 	force = 10
 	throwforce = 10
@@ -691,7 +702,7 @@ GLOBAL_LIST_INIT(cheese_recipes, list(
 	desc = "A stack of cheese that seems sturdier than regular cheese."
 	icon_state = "sheet-cheese"
 	item_state = "sheet-cheese"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/stacks/organic.dmi'
 	singular_name = "reinforced cheese block"
 	sheettype = "cheese"
 	force = 5

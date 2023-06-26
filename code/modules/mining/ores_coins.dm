@@ -8,6 +8,8 @@
 /obj/item/stack/ore
 	name = "rock"
 	icon = 'icons/obj/mining.dmi'
+	lefthand_file = 'icons/mob/inhands/ore_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/ore_righthand.dmi'
 	icon_state = "ore"
 	max_amount = 50
 	full_w_class = WEIGHT_CLASS_BULKY

@@ -71,8 +71,6 @@
 /obj/machinery/chem_master/update_icon()
 	overlays.Cut()
 	icon_state = "mixer[beaker ? "1" : "0"][powered() ? "" : "_nopower"]"
-	if(powered())
-		overlays += "waitlight"
 
 /obj/machinery/chem_master/blob_act(obj/structure/blob/B)
 	if(prob(50))

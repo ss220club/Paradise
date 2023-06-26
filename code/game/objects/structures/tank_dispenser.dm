@@ -41,10 +41,10 @@
 	cut_overlays()
 	var/oxy_tank_amount = LAZYLEN(stored_oxygen_tanks)
 	switch(oxy_tank_amount)
-		if(1 to 3)
+		if(1 to 4)
 			overlays += "oxygen-[oxy_tank_amount]"
-		if(4 to INFINITY)
-			overlays += "oxygen-4"
+		if(5 to INFINITY)
+			overlays += "oxygen-5"
 
 	var/pla_tank_amount = LAZYLEN(stored_plasma_tanks)
 	switch(pla_tank_amount)
