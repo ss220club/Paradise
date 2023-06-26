@@ -87,7 +87,7 @@
 
 /obj/item/storage/firstaid/toxin/Initialize(mapload)
 	. = ..()
-	icon_state = pick("antitox_firstaid", "antitox2_firstaid", "antitox3_firstaid", "antitox4_firstaid")
+	icon_state = pick("antitox_firstaid", "antitox2_firstaid", "antitox3_firstaid")
 
 /obj/item/storage/firstaid/toxin/populate_contents()
 	new /obj/item/reagent_containers/syringe/charcoal(src)
@@ -146,6 +146,10 @@
 	item_state = "firstaid-advanced"
 	med_bot_skin = "adv"
 
+/obj/item/storage/firstaid/adv/New()
+	..()
+	icon_state = pick("adv_firstaid", "adv2_firstaid")
+
 /obj/item/storage/firstaid/adv/populate_contents()
 	new /obj/item/stack/medical/bruise_pack(src)
 	new /obj/item/stack/medical/bruise_pack/advanced(src)
@@ -181,7 +185,7 @@
 
 /obj/item/storage/firstaid/tactical
 	name = "NT first-aid kit"
-	icon_state = "NT_firstaid"
+	icon_state = "bezerk"
 	desc = "I hope you've got insurance."
 	max_w_class = WEIGHT_CLASS_NORMAL
 	treatment_oxy = "perfluorodecalin"
@@ -207,7 +211,7 @@
 
 /obj/item/storage/firstaid/ertm
 	name = "NT ert-aid kit"
-	icon_state = "NT_ERT_firstaid"
+	icon_state = "bezerk"
 	desc = "I hope you've got insurance."
 	max_w_class = WEIGHT_CLASS_NORMAL
 	treatment_oxy = "perfluorodecalin"

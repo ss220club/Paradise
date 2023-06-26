@@ -14,6 +14,7 @@
 	damage_deflection = 70
 	var/id_tag = 1.0
 	var/protected = 1
+	var/blast_door_sound = 'sound/machines/blastdoor.ogg'
 
 /obj/machinery/door/poddoor/preopen
 	icon_state = "open"

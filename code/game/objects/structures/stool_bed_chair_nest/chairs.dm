@@ -363,13 +363,52 @@
 	desc = "It has some unsavory stains on it..."
 	icon_state = "bar"
 	item_chair = /obj/item/chair/stool/bar
+	var/image/armrest = null
+	can_buckle = TRUE
 
 /obj/structure/chair/stool/bar/dark
 	icon_state = "bar_dark"
 	item_chair = /obj/item/chair/stool/bar/dark
 
-/obj/structure/chair/stool/handle_layer()
-	return
+/obj/structure/chair/stool/bar/Initialize(mapload)
+	armrest = GetArmrest()
+	armrest.layer = ABOVE_MOB_LAYER
+	return ..()
+
+/obj/structure/chair/stool/bar/proc/GetArmrest()
+	return mutable_appearance('icons/obj/chairs.dmi', "bar_armrest")
+
+/obj/structure/chair/stool/bar/Destroy()
+	QDEL_NULL(armrest)
+	return ..()
+
+/obj/structure/chair/stool/bar/post_buckle_mob(mob/living/M)
+	. = ..()
+	update_armrest()
+
+/obj/structure/chair/stool/bar/post_unbuckle_mob()
+	. = ..()
+	update_armrest()
+
+/obj/structure/chair/stool/bar/proc/update_armrest()
+	if(has_buckled_mobs())
+		add_overlay(armrest)
+	else
+		cut_overlay(armrest)
+
+/obj/structure/chair/stool/bar/proc/buckle_layer()
+	if(has_buckled_mobs() && dir == NORTH)
+		layer = BELOW_MOB_LAYER
+	else
+		layer = OBJ_LAYER
+
+/obj/structure/chair/stool/bar/post_buckle_mob(mob/living/M)
+	. = ..()
+	buckle_layer()
+
+/obj/structure/chair/stool/bar/post_unbuckle_mob()
+	. = ..()
+	buckle_layer()
 
 /obj/item/chair
 	name = "chair"

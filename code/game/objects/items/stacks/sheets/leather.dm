@@ -1,5 +1,7 @@
 /obj/item/stack/sheet/animalhide
 	name = "hide"
+	icon = 'icons/obj/stacks/organic.dmi'
+	icon_state = "sheet-monkey"
 	desc = "Something went wrong."
 	origin_tech = "biotech=3"
 
@@ -95,6 +97,7 @@ GLOBAL_LIST_INIT(xeno_recipes, list (
 	name = "hairless hide"
 	desc = "This hide was stripped of it's hair, but still needs tanning."
 	singular_name = "hairless hide piece"
+	icon = 'icons/obj/stacks/organic.dmi'
 	icon_state = "sheet-hairlesshide"
 	origin_tech = ""
 
@@ -102,6 +105,7 @@ GLOBAL_LIST_INIT(xeno_recipes, list (
 	name = "wet leather"
 	desc = "This leather has been cleaned but still needs to be dried."
 	singular_name = "wet leather piece"
+	icon = 'icons/obj/stacks/organic.dmi'
 	icon_state = "sheet-wetleather"
 	origin_tech = ""
 	var/wetness = 30 //Reduced when exposed to high temperautres
@@ -111,6 +115,7 @@ GLOBAL_LIST_INIT(xeno_recipes, list (
 	name = "leather"
 	desc = "The by-product of mob grinding."
 	singular_name = "leather piece"
+	icon = 'icons/obj/stacks/organic.dmi'
 	icon_state = "sheet-leather"
 	origin_tech = "materials=2"
 

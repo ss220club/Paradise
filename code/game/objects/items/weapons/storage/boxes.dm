@@ -158,7 +158,7 @@
 /obj/item/storage/box/masks
 	name = "sterile masks"
 	desc = "This box contains masks of sterility."
-	icon_state = "sterile"
+	icon_state = "sterile_box"
 
 /obj/item/storage/box/masks/populate_contents()
 	for(var/I in 1 to 7)
