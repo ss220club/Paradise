@@ -163,8 +163,10 @@ GLOBAL_VAR_INIT(record_id_num, 1001)
 		G.fields["photo-west"] = "data:image/png;base64,[icon2base64(icon(G.fields["photo"], dir = WEST))]"
 		if(H.gen_record && !jobban_isbanned(H, "Records"))
 			G.fields["notes"] = H.gen_record
+			G.fields["exploit_record"] = H.exploit_record
 		else
 			G.fields["notes"] = "No notes found."
+			G.fields["exploit_record"] = "No notes found."
 		general += G
 
 		//Medical Record
