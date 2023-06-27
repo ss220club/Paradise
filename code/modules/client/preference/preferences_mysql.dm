@@ -20,7 +20,9 @@
 					discord_id,
 					discord_name,
 					keybindings,
-					viewrange
+					viewrange,
+					screentip_mode,
+					screentip_color
 					FROM [format_table_name("player")]
 					WHERE ckey=:ckey"}, list(
 						"ckey" = C.ckey
@@ -53,6 +55,8 @@
 		discord_name = query.item[18]
 		keybindings = init_keybindings(raw = query.item[19])
 		viewrange = query.item[20]
+		screentip_mode = query.item[21]
+		screentip_color = query.item[22]
 
 	qdel(query)
 
@@ -73,6 +77,8 @@
 	parallax = sanitize_integer(parallax, 0, 16, initial(parallax))
 	discord_id			= sanitize_text(discord_id, initial(discord_id))
 	discord_name		= sanitize_text(discord_name, initial(discord_name))
+	screentip_mode = sanitize_integer(screentip_mode, 0, 20, initial(screentip_mode))
+	screentip_color = sanitize_hexcolor(screentip_color, initial(screentip_color))
 	return 1
 
 /datum/preferences/proc/save_preferences(client/C)
@@ -105,7 +111,9 @@
 					clientfps=:clientfps,
 					parallax=:parallax,
 					keybindings=:keybindings,
-					viewrange=:viewrange
+					viewrange=:viewrange,
+					screentip_mode=:screentip_mode,
+					screentip_color=:screentip_color
 					WHERE ckey=:ckey"}, list(
 						// OH GOD THE PARAMETERS
 						"ooccolour" = ooccolor,
@@ -125,6 +133,8 @@
 						"parallax" = parallax,
 						"keybindings" = json_encode(keybindings_overrides),
 						"viewrange" = viewrange,
+						"screentip_mode" = screentip_mode,
+						"screentip_color" = screentip_color,
 						"ckey" = C.ckey
 					)
 					)

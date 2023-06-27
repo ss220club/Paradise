@@ -385,7 +385,7 @@
 #define EXPLOSION_BLOCK_PROC -1
 
 // The SQL version required by this version of the code
-#define SQL_VERSION 30
+#define SQL_VERSION 31
 
 // Vending machine stuff
 #define CAT_NORMAL 1
@@ -522,3 +522,13 @@
 
 // This isnt in client_defines due to scoping issues
 #define DEFAULT_CLIENT_VIEWSIZE "19x15"
+
+/proc/client_from_var(I)
+	if(ismob(I))
+		var/mob/A = I
+		return A.client
+	if(isclient(I))
+		return I
+	if(istype(I, /datum/mind))
+		var/datum/mind/B = I
+		return B.current.client

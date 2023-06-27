@@ -9197,7 +9197,7 @@
 	},
 /area/syndicate_mothership)
 "eNQ" = (
-/turf/simulated/wall/indestructible/splashcreen,
+/turf/simulated/wall/indestructible/splashscreen,
 /area/start)
 "eNU" = (
 /obj/structure/chair/sofa/left{
