@@ -78,7 +78,7 @@
 	name = "resin wall"
 	desc = "Thick resin solidified into a wall."
 	icon = 'icons/obj/smooth_structures/alien/resin_wall.dmi'
-	icon_state = "wall0"	//same as resin, but consistency ho!
+	icon_state = "resin"	//same as resin, but consistency ho!
 	resintype = "wall"
 	canSmoothWith = list(/obj/structure/alien/resin/wall, /obj/structure/alien/resin/membrane)
 
