@@ -1573,7 +1573,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	to_chat(src, "<span class='danger'>ОПАСНОСТЬ! Перегрузка системы охлаждения! Минимизирую потребление энергии до полного восстановления системы...</span>")
 	overheated = TRUE
 	cooldown_rate *= AI_OVERHEAT_COOLDOWN_MULTIPLIER
-	addtimer(CALLBACK(src, .proc/view_core), 0.1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(view_core)), 0.1 SECONDS)
 
 
 /mob/living/silicon/ai/proc/after_overheat()

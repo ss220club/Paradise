@@ -80,7 +80,7 @@ AI MODULES
 		finishUpload(aiupload)
 		return
 	to_chat(usr, span_notice("Upload process has started. ETA: [delay / (1 SECONDS)] seconds."))
-	timer_id = addtimer(CALLBACK(src, .proc/finishUpload, aiupload), delay, TIMER_STOPPABLE)
+	timer_id = addtimer(CALLBACK(src, PROC_REF(finishUpload), aiupload), delay, TIMER_STOPPABLE)
 
 /obj/item/aiModule/cmag_act()
 	. = ..()
