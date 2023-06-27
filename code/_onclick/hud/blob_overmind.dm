@@ -6,6 +6,7 @@
 	icon = 'icons/mob/blob.dmi'
 
 /obj/screen/blob/MouseEntered(location,control,params)
+	. = ..()
 	openToolTip(usr,src,params,title = name,content = desc, theme = "blob")
 
 /obj/screen/blob/MouseExited()

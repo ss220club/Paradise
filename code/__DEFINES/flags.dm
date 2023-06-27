@@ -31,6 +31,8 @@
 
 #define NO_PIXEL_RANDOM_DROP	131072	// If dropped, it wont have a randomized pixel_x/pixel_y
 
+///Whether or not this atom shows screentips when hovered over
+#define NO_SCREENTIPS			262144
 
 /* Secondary atom flags, for the flags_2 var, denoted with a _2 */
 

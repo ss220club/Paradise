@@ -239,6 +239,10 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 	var/list/keybindings_overrides = null
 	/// View range preference for this client
 	var/viewrange = DEFAULT_CLIENT_VIEWSIZE
+	///Screentip Mode, in pixels. 8 is small, 15 is mega big, 0 is off.
+	var/screentip_mode = 8
+	///Color of screentips at top of screen
+	var/screentip_color = "#ffd391"
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -543,6 +547,8 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 			dat += "<b>Randomized Character Slot:</b> <a href='?_src_=prefs;preference=randomslot'><b>[toggles2 & PREFTOGGLE_2_RANDOMSLOT ? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Window Flashing:</b> <a href='?_src_=prefs;preference=winflash'>[(toggles2 & PREFTOGGLE_2_WINDOWFLASHING) ? "Yes" : "No"]</a><br>"
 			dat += "<b>View Range:</b> <a href='?_src_=prefs;preference=setviewrange'>[viewrange]</a><br>"
+			dat += "<b>Set screentip mode:</b> <a href='?_src_=prefs;preference=screentip_mode'>[(screentip_mode == 0) ? "Disabled" : "[screentip_mode]px"]</a><br>"
+			dat += "<b>Screentip color:</b> <span style='border: 1px solid #161616; background-color: [screentip_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=screentip_color'><b>Change</b></a><br>"
 			// RIGHT SIDE OF THE PAGE
 			dat += "</td><td width='300px' height='300px' valign='top'>"
 			dat += "<h2>Special Role Settings</h2>"
@@ -2253,6 +2259,16 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 						// Update the size of the click catcher
 						var/list/actualview = getviewsize(parent.view)
 						parent.void.UpdateGreed(actualview[1],actualview[2])
+
+				if("screentip_mode")
+					var/desired_screentip_mode = clamp(input(user, "Pick a screentip size, pick 0 to disable screentips. (We suggest a number between 8 and 15):", "Screentip Size") as null|num, 0, 20)
+					if(!isnull(desired_screentip_mode))
+						screentip_mode = desired_screentip_mode
+
+				if("screentip_color")
+					var/screentip_color_new = input(user, "Choose your screentip color", screentip_color) as color|null
+					if(screentip_color_new)
+						screentip_color = screentip_color_new
 
 				if("afk_watch")
 					if(!(toggles2 & PREFTOGGLE_2_AFKWATCH))
