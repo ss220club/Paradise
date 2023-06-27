@@ -131,7 +131,7 @@
 
 /turf/space/Entered(atom/movable/A as mob|obj, atom/OL, ignoreRest = 0)
 	..()
-	if((!(A) || !(src in A.locs)))
+	if((!(A) || !(src in A.locs)) || istype(A, /atom/movable/deathzone))
 		return
 
 	if(destination_z && destination_x && destination_y)

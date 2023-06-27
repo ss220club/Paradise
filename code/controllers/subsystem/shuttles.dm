@@ -189,6 +189,9 @@ SUBSYSTEM_DEF(shuttle)
 /datum/controller/subsystem/shuttle/proc/autoEvac()
 	var/callShuttle = 1
 
+	if(istype(SSticker.mode, /datum/game_mode/battleroyale))
+		return
+
 	for(var/thing in GLOB.shuttle_caller_list)
 		if(istype(thing, /mob/living/silicon/ai))
 			var/mob/living/silicon/ai/AI = thing
