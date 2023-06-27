@@ -19,8 +19,7 @@
 					parallax,
 					discord_id,
 					discord_name,
-					keybindings,
-					viewrange
+					keybindings
 					FROM [format_table_name("player")]
 					WHERE ckey=:ckey"}, list(
 						"ckey" = C.ckey
@@ -52,7 +51,6 @@
 		discord_id = query.item[17]
 		discord_name = query.item[18]
 		keybindings = init_keybindings(raw = query.item[19])
-		viewrange = query.item[20]
 
 	qdel(query)
 
@@ -104,8 +102,7 @@
 					lastchangelog=:lastchangelog,
 					clientfps=:clientfps,
 					parallax=:parallax,
-					keybindings=:keybindings,
-					viewrange=:viewrange
+					keybindings=:keybindings
 					WHERE ckey=:ckey"}, list(
 						// OH GOD THE PARAMETERS
 						"ooccolour" = ooccolor,
@@ -124,7 +121,6 @@
 						"clientfps" = clientfps,
 						"parallax" = parallax,
 						"keybindings" = json_encode(keybindings_overrides),
-						"viewrange" = viewrange,
 						"ckey" = C.ckey
 					)
 					)
