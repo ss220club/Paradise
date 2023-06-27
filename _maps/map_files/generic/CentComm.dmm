@@ -2071,7 +2071,8 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/wall/indestructible/reinforced,
+/obj/structure/chair/comfy/red,
+/turf/simulated/floor/carpet/black,
 /area/centcom/zone2)
 "aYm" = (
 /obj/structure/window/plasmareinforced{
@@ -38440,12 +38441,6 @@
 /obj/item/flashlight/lamp,
 /turf/simulated/floor/carpet,
 /area/centcom/zone1)
-"sVH" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/wall/indestructible/reinforced,
-/area/centcom/zone2)
 "sVL" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Prison";
@@ -92588,7 +92583,7 @@ tJC
 tle
 pNt
 onc
-prX
+aXP
 sFp
 kYb
 kPg
@@ -92845,7 +92840,7 @@ onc
 onc
 onc
 onc
-aXP
+iwS
 iwS
 iwS
 iwS
@@ -93112,7 +93107,7 @@ ktZ
 vsV
 riL
 iwS
-sVH
+iwS
 aRW
 eZg
 kNj
