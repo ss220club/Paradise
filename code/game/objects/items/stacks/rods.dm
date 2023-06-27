@@ -19,7 +19,7 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	desc = "Some rods. Can be used for building, or something."
 	singular_name = "metal rod"
 	icon = 'icons/obj/stacks/minerals.dmi'
-	icon_state = "rods-5"
+	icon_state = "rods"
 	item_state = "rods"
 	flags = CONDUCT
 	w_class = WEIGHT_CLASS_NORMAL
