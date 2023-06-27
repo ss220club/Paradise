@@ -12963,10 +12963,10 @@
 /area/crew_quarters/arcade)
 "aJB" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/gloves/color/yellow/power,
 /obj/item/radio/intercom{
 	pixel_y = -28
 	},
+/obj/item/clothing/gloves/color/yellow,
 /obj/item/clothing/glasses/welding{
 	pixel_y = 8;
 	pixel_x = 2
