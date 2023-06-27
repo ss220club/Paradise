@@ -312,7 +312,7 @@
 /// possibly delayed verb that finishes the pointing process starting in [/mob/verb/pointed()].
 /// either called immediately or in the tick after pointed() was called, as per the [DEFAULT_QUEUE_OR_CALL_VERB()] macro
 /mob/proc/run_pointed(atom/A)
-	if(client && !(A in view(client.view, src)))
+	if(client && !(A in view(client.maxview(), src)))
 		return FALSE
 
 	changeNext_move(CLICK_CD_POINT)
