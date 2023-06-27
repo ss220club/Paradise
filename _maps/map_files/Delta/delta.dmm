@@ -1658,7 +1658,9 @@
 	pixel_x = 28;
 	pixel_y = -2
 	},
-/obj/machinery/computer/security,
+/obj/machinery/computer/security{
+	dir = 8
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "redfull"
 	},
@@ -14758,7 +14760,9 @@
 	},
 /area/storage/primary)
 "bKE" = (
-/obj/machinery/computer/account_database,
+/obj/machinery/computer/account_database{
+	dir = 8
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -31956,7 +31960,9 @@
 /turf/simulated/floor/plasteel,
 /area/toxins/xenobiology)
 "dfZ" = (
-/obj/machinery/computer/camera_advanced/xenobio,
+/obj/machinery/computer/camera_advanced/xenobio{
+	dir = 8
+	},
 /obj/machinery/status_display{
 	pixel_x = 32
 	},
@@ -32699,7 +32705,9 @@
 	},
 /area/construction/hallway)
 "diX" = (
-/obj/machinery/computer/borgupload,
+/obj/machinery/computer/borgupload{
+	dir = 1
+	},
 /obj/item/radio/intercom/private{
 	pixel_y = -28
 	},
@@ -37590,7 +37598,9 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/turbine)
 "dDm" = (
-/obj/machinery/computer/communications,
+/obj/machinery/computer/communications{
+	dir = 4
+	},
 /obj/machinery/ai_status_display{
 	pixel_x = -32
 	},
@@ -39121,7 +39131,8 @@
 /area/magistrateoffice)
 "dJc" = (
 /obj/machinery/computer/prisoner{
-	req_access = list(2)
+	req_access = list(2);
+	dir = 1
 	},
 /turf/simulated/floor/wood/fancy/cherry,
 /area/magistrateoffice)
@@ -51438,7 +51449,9 @@
 	},
 /area/toxins/misc_lab)
 "fPs" = (
-/obj/structure/computerframe,
+/obj/structure/computerframe{
+	dir = 8
+	},
 /obj/machinery/door_control{
 	id = "SupermatterVenting";
 	name = "Supermatter Venting Control";
@@ -52456,7 +52469,9 @@
 	pixel_x = 26;
 	pixel_y = 6
 	},
-/obj/structure/computerframe,
+/obj/structure/computerframe{
+	dir = 8
+	},
 /obj/machinery/door_control{
 	id = "smbolts1";
 	name = "Supermatter Bolt Control";
@@ -57869,7 +57884,9 @@
 	name = "Captain Requests Console";
 	pixel_x = -30
 	},
-/obj/machinery/computer/card,
+/obj/machinery/computer/card{
+	dir = 4
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "hog" = (
@@ -70551,7 +70568,9 @@
 	},
 /area/bridge/checkpoint/north)
 "kqm" = (
-/obj/machinery/computer/security,
+/obj/machinery/computer/security{
+	dir = 8
+	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -80021,7 +80040,9 @@
 	},
 /area/security/checkpoint/south)
 "mHJ" = (
-/obj/machinery/computer/aiupload,
+/obj/machinery/computer/aiupload{
+	dir = 1
+	},
 /obj/machinery/flasher{
 	id = "AI";
 	pixel_y = -21
@@ -99417,8 +99438,8 @@
 /obj/item/radio/intercom{
 	pixel_y = 22
 	},
-/obj/item/clothing/glasses/hud/health,
 /obj/item/stamp/cmo,
+/obj/item/clothing/glasses/hud/health/sunglasses,
 /turf/simulated/floor/plasteel{
 	icon_state = "cmo"
 	},
@@ -102518,7 +102539,9 @@
 	name = "south bump Important Area";
 	pixel_y = -24
 	},
-/obj/machinery/computer/message_monitor,
+/obj/machinery/computer/message_monitor{
+	dir = 1
+	},
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_upload)
 "rKL" = (
@@ -104548,7 +104571,7 @@
 /area/maintenance/asmaint3)
 "sjR" = (
 /obj/structure/sign/securearea,
-/turf/simulated/wall/r_wall/coated,
+/turf/simulated/wall/r_wall,
 /area/toxins/sm_test_chamber)
 "sjW" = (
 /obj/structure/sign/science,
@@ -110678,7 +110701,10 @@
 	dir = 4
 	},
 /obj/structure/table/glass,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/med_data/laptop{
+	dir = 8;
+	pixel_y = 4
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "cmo"
 	},
@@ -113948,7 +113974,7 @@
 /area/construction/hallway)
 "urC" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
-/turf/simulated/wall/r_wall/coated,
+/turf/simulated/wall/r_wall,
 /area/toxins/mixing)
 "urM" = (
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -117633,10 +117659,6 @@
 	icon_state = "whitepurple"
 	},
 /area/medical/genetics)
-"vlf" = (
-/obj/structure/lattice,
-/turf/simulated/wall/r_wall/coated,
-/area/toxins/sm_test_chamber)
 "vlh" = (
 /obj/machinery/firealarm{
 	dir = 8;
@@ -123932,9 +123954,6 @@
 	dir = 1
 	},
 /area/security/securehallway)
-"wHM" = (
-/turf/simulated/wall/r_wall/coated,
-/area/toxins/storage)
 "wHR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -125337,9 +125356,6 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_upload)
-"xbn" = (
-/turf/simulated/wall/r_wall/coated,
-/area/toxins/mixing)
 "xbr" = (
 /obj/item/aiModule/freeform,
 /obj/structure/table/glass,
@@ -125670,7 +125686,8 @@
 /area/maintenance/electrical)
 "xen" = (
 /obj/machinery/computer/prisoner{
-	req_access = list(2)
+	req_access = list(2);
+	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -130591,7 +130608,9 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/computerframe,
+/obj/structure/computerframe{
+	dir = 8
+	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "purple"
@@ -147362,11 +147381,11 @@ cUS
 rRM
 rRM
 cUS
-vlf
-uFo
+cUS
+cUS
 dGb
-uFo
-uFo
+cUS
+cUS
 iqN
 hsp
 hsp
@@ -147623,7 +147642,7 @@ uFo
 wcN
 wcN
 wcN
-uFo
+cUS
 jBv
 wUr
 cHe
@@ -147880,7 +147899,7 @@ ccY
 xzc
 aee
 wcN
-uFo
+cUS
 exl
 nRb
 vwo
@@ -148133,11 +148152,11 @@ cUS
 pFI
 nvQ
 nfm
-uFo
+cUS
 wcN
 wcN
 ejP
-uFo
+cUS
 uNV
 mMR
 deL
@@ -148394,7 +148413,7 @@ sjR
 xMC
 xMC
 geX
-uFo
+cUS
 qan
 fSK
 deL
@@ -162287,13 +162306,13 @@ mLx
 hxp
 dkF
 biW
-xbn
+dkI
 vHs
 xpD
 vHs
-xbn
+dkI
 xpD
-xbn
+dkI
 oXh
 xeK
 yhS
@@ -162544,7 +162563,7 @@ cRW
 djw
 tdt
 upr
-xbn
+dkI
 dlO
 tUX
 vHG
@@ -163315,13 +163334,13 @@ vsH
 vsH
 vsH
 vsH
+vsH
+vsH
 whO
-whO
-whO
-whO
-whO
-wHM
-wHM
+vsH
+vsH
+puB
+puB
 dWn
 eRD
 mMo
