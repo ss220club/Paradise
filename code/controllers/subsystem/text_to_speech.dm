@@ -41,7 +41,7 @@ SUBSYSTEM_DEF(tts)
 	var/list/tts_local_channels_by_owner = list()
 
 	var/list/tts_requests_queue = list()
-	var/tts_requests_queue_limit = 100
+	var/tts_requests_queue_limit = 250
 	var/tts_rps_limit = 5
 
 	var/list/tts_queue = list()
