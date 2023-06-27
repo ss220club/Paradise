@@ -23,7 +23,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/neutral,
-/obj/structure/chair/comfy/lime{
+/obj/structure/chair/comfy/brown{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle{
@@ -57,7 +57,7 @@
 	},
 /area/shuttle/administration)
 "av" = (
-/obj/structure/chair/comfy/lime,
+/obj/structure/chair/comfy/brown,
 /turf/simulated/floor/shuttle{
 	icon = 'icons/turf/floors.dmi';
 	icon_state = "dark"
@@ -127,7 +127,7 @@
 	},
 /area/shuttle/administration)
 "aJ" = (
-/obj/structure/chair/comfy/lime{
+/obj/structure/chair/comfy/brown{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle{
@@ -200,7 +200,7 @@
 /area/shuttle/administration)
 "aY" = (
 /obj/machinery/computer/camera_advanced/shuttle_docker/admin{
-	dir = 1;
+	dir = 4;
 	name = "NTV Argos shuttle navigation computer"
 	},
 /obj/effect/turf_decal/stripes/gold{
@@ -223,7 +223,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/neutral,
-/obj/structure/chair/comfy/lime,
+/obj/structure/chair/comfy/brown,
 /turf/simulated/floor/shuttle{
 	icon = 'icons/turf/floors.dmi';
 	icon_state = "dark"
@@ -450,7 +450,10 @@
 /area/shuttle/administration)
 "hF" = (
 /obj/structure/table/reinforced,
-/obj/machinery/chem_dispenser/soda/upgraded,
+/obj/machinery/chem_dispenser/soda/upgraded{
+	dir = 1;
+	pixel_y = 4
+	},
 /obj/item/storage/box/drinkingglasses{
 	pixel_x = 1;
 	pixel_y = 5
@@ -563,7 +566,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/neutral,
-/obj/structure/chair/comfy/lime{
+/obj/structure/chair/comfy/brown{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle{
@@ -700,7 +703,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/neutral,
-/obj/structure/chair/comfy/lime{
+/obj/structure/chair/comfy/brown{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle{
@@ -773,7 +776,7 @@
 /area/shuttle/administration)
 "AE" = (
 /obj/machinery/computer/card{
-	dir = 1
+	dir = 4
 	},
 /obj/effect/turf_decal/stripes/gold{
 	dir = 5;
@@ -876,7 +879,7 @@
 /area/shuttle/administration)
 "GP" = (
 /obj/machinery/computer/shuttle/admin{
-	dir = 1;
+	dir = 4;
 	name = "NTV Argos shuttle console"
 	},
 /obj/effect/turf_decal/stripes/gold{
@@ -919,7 +922,7 @@
 /area/shuttle/administration)
 "HK" = (
 /obj/machinery/computer/communications{
-	dir = 1
+	dir = 4
 	},
 /obj/effect/turf_decal/stripes/gold{
 	dir = 6;
@@ -1154,7 +1157,7 @@
 /area/shuttle/administration)
 "XW" = (
 /obj/machinery/computer/cloning{
-	dir = 8
+	dir = 1
 	},
 /turf/simulated/floor/shuttle{
 	icon_state = "floor3"
@@ -1162,7 +1165,10 @@
 /area/shuttle/administration)
 "Yi" = (
 /obj/structure/table/reinforced,
-/obj/machinery/chem_dispenser/beer/upgraded,
+/obj/machinery/chem_dispenser/beer/upgraded{
+	dir = 1;
+	pixel_y = 4
+	},
 /turf/simulated/floor/carpet/black,
 /area/shuttle/administration)
 "Ys" = (
