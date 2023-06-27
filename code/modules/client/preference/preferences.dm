@@ -1096,14 +1096,14 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 	else
 		HTML += "[copytext_char(sec_record, 1, 37)]..."
 
-	HTML += "<br><a href=\"byond://?_src_=prefs;preference=records;task=exploit_record\">Exploit Records</a><br>"
+	HTML += "<br><a href=\"byond://?_src_=prefs;preference=records;task=exploit_record\">Exploitable Records</a><br>"
 
 	if(length(exploit_record) <= 40)
 		HTML += "[exploit_record]"
 	else
 		HTML += "[copytext_char(exploit_record, 1, 37)]..."
 
-	HTML += "<br><a href=\"byond://?_src_=prefs;preference=records;records=-1\">\[Done\]</a>"
+	HTML += "<br><br><a href=\"byond://?_src_=prefs;preference=records;records=-1\">\[Done\]</a>"
 	HTML += "</center></tt>"
 
 	var/datum/browser/popup = new(user, "records", "<div align='center'>Character Records</div>", 350, 300)
@@ -1362,13 +1362,13 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 				SetRecords(user)
 
 		if(href_list["task"] == "exploit_record")
-			var/genmsg = input(usr,"Set your exploit notes here. This info is available to traitors only.","Exploit Records",html_decode(gen_record)) as message
+			var/expmsg = input(usr,"Set your exploitable notes here. This info is available to traitors only.","Exploitable Records",html_decode(exploit_record)) as message
 
-			if(genmsg != null)
-				genmsg = copytext(genmsg, 1, MAX_PAPER_MESSAGE_LEN)
-				genmsg = html_encode(genmsg)
+			if(expmsg != null)
+				expmsg = copytext(expmsg, 1, MAX_PAPER_MESSAGE_LEN)
+				expmsg = html_encode(expmsg)
 
-				exploit_record = genmsg
+				exploit_record = expmsg
 				SetRecords(user)
 
 	if(href_list["preference"] == "gear")
