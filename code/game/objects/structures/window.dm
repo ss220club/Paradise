@@ -565,11 +565,11 @@
 
 	toggle_tint()
 	icon_state= "polarizer-turning_on"
-	addtimer(CALLBACK(src, .proc/update_icon), 5)
+	addtimer(CALLBACK(src, PROC_REF(update_icon)), 5)
 
 	if(!active)
 		icon_state= "polarizer-turning_off"
-		addtimer(CALLBACK(src, .proc/update_icon), 5)
+		addtimer(CALLBACK(src, PROC_REF(update_icon)), 5)
 
 /obj/machinery/button/windowtint/proc/toggle_tint()
 	use_power(5)
