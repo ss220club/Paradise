@@ -36,6 +36,9 @@
 		to_chat(user, "<span class='warning'> You need to open [src] first!</span>")
 		return FALSE
 
+	if(M.is_mouth_obscured(user))
+		return FALSE
+
 	if(istype(M, /mob/living/carbon))
 		var/mob/living/carbon/C = M
 

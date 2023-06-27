@@ -57,6 +57,8 @@
 	if(length(contents))
 		var/obj/item/reagent_containers/food/snacks/toEat = contents[1]
 		if(istype(toEat))
+			if(C.is_mouth_obscured(user))
+				return
 			if(C.eat(toEat, user))
 				toEat.On_Consume(C, user)
 				overlays.Cut()

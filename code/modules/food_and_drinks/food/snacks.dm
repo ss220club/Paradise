@@ -74,6 +74,9 @@
 		qdel(src)
 		return FALSE
 
+	if(M.is_mouth_obscured(user))
+		return FALSE
+
 	if(iscarbon(M))
 		var/mob/living/carbon/C = M
 		if(C.eat(src, user))

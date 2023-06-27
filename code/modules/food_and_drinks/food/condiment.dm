@@ -45,6 +45,9 @@
 		to_chat(user, "<span class='warning'>None of [src] left, oh no!</span>")
 		return 0
 
+	if(M.is_mouth_obscured(user))
+		return FALSE
+
 	if(M == user)
 		to_chat(M, "<span class='notice'>You swallow some of contents of \the [src].</span>")
 	else

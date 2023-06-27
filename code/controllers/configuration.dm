@@ -320,6 +320,7 @@
 	var/pixel_shift = FALSE
 	var/water_poison = FALSE
 	var/modify_pull_push_speed = FALSE
+	var/ignore_obscured_mouth = FALSE
 	var/ai_heat = FALSE
 
 /datum/configuration/New()
@@ -911,11 +912,15 @@
 				if("override_map")
 					config.override_map = value
 
+
 				if("modify_pull_push_speed")
 					config.modify_pull_push_speed = TRUE
 
 				if("pixel_shift")
 					config.pixel_shift = TRUE
+
+				if("ignore_obscured_mouth")
+					config.ignore_obscured_mouth = TRUE
 
 				if("ai_heat")
 					config.ai_heat = TRUE

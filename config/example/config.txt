@@ -605,3 +605,5 @@ MODIFY_PULL_PUSH_SPEED
 ## Enable animations on item pickup and drop down
 # ITEM_ANIMATIONS_ENABLED
 
+## Can eat through blocked mouth?
+#IGNORE_OBSCURED_MOUTH
