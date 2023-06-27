@@ -283,9 +283,9 @@
 	canSmoothWith = list(/turf/simulated/wall/indestructible/rock)
 	smooth = SMOOTH_TRUE
 /turf/simulated/wall/indestructible/iron
-	name = "iron wall"
+	name = "plastitanium wall"
 	icon = 'icons/turf/walls/plastitanium_wall.dmi'
-	icon_state = "iron"
+	icon_state = "shuttle"
 	canSmoothWith = list(
 		/turf/simulated/wall/indestructible/fakeglass/plastitanium,
 		/turf/simulated/wall/indestructible/iron)

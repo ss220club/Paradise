@@ -9851,13 +9851,6 @@
 /area/centcom/bridge)
 "fgq" = (
 /obj/effect/decal/warning_stripes/northwest,
-/obj/structure/window/reinforced{
-	dir = 8;
-	layer = 2.9
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /turf/simulated/wall/indestructible/fakeglass,
 /area/centcom/specops)
 "fgu" = (
@@ -26552,10 +26545,6 @@
 /area/ninja/outpost)
 "nsM" = (
 /obj/effect/decal/warning_stripes/west,
-/obj/structure/window/reinforced{
-	dir = 8;
-	layer = 2.9
-	},
 /turf/simulated/wall/indestructible/fakeglass,
 /area/centcom/specops)
 "nsV" = (
@@ -33228,11 +33217,6 @@
 /area/centcom/zone1)
 "qzU" = (
 /obj/effect/decal/warning_stripes/southwest,
-/obj/structure/window/reinforced{
-	dir = 8;
-	layer = 2.9
-	},
-/obj/structure/window/reinforced,
 /turf/simulated/wall/indestructible/fakeglass,
 /area/centcom/specops)
 "qAj" = (
@@ -44566,15 +44550,6 @@
 	icon_state = "neutralfull"
 	},
 /area/shuttle/escape)
-"vJu" = (
-/obj/effect/decal/warning_stripes/west,
-/obj/structure/window/reinforced{
-	dir = 8;
-	layer = 2.9
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/wall/indestructible/fakeglass,
-/area/centcom/specops)
 "vJx" = (
 /obj/structure/chair/sofa{
 	dir = 1
@@ -98293,7 +98268,7 @@ evD
 evD
 fgq
 nsM
-vJu
+nsM
 nAN
 nAN
 nAN
