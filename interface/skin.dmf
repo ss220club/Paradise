@@ -248,9 +248,16 @@ window "rpane"
 		left = "infowindow"
 		right = "outputwindow"
 		is-vert = false
+	elem "fullscreenb"
+		type = BUTTON
+		pos = 5,7
+		size = 60x16
+		saved-params = "is-checked"
+		text = "Fullscreen"
+		command = "fullscreen"
 	elem "textb"
 		type = BUTTON
-		pos = 0,7
+		pos = 70,7
 		size = 60x16
 		saved-params = "is-checked"
 		text = "Text"
@@ -259,7 +266,7 @@ window "rpane"
 		button-type = pushbox
 	elem "infob"
 		type = BUTTON
-		pos = 62,7
+		pos = 130,7
 		size = 60x16
 		is-checked = true
 		saved-params = "is-checked"
@@ -269,43 +276,31 @@ window "rpane"
 		button-type = pushbox
 	elem "wikib"
 		type = BUTTON
-		pos = 134,7
+		pos = 195,7
 		size = 50x16
 		text = "Wiki"
 		command = "wiki"
 	elem "forumb"
 		type = BUTTON
-		pos = 186,7
+		pos = 245,7
 		size = 50x16
 		text = "Forum"
 		command = "forum"
 	elem "rulesb"
 		type = BUTTON
-		pos = 238,7
+		pos = 295,7
 		size = 50x16
 		text = "Rules"
 		command = "rules"
 	elem "githubb"
 		type = BUTTON
-		pos = 290,7
+		pos = 345,7
 		size = 50x16
 		text = "GitHub"
 		command = "github"
-	elem "webmap"
-		type = BUTTON
-		pos = 342,7
-		size = 50x16
-		text = "Map"
-		command = "webmap"
-	elem "changelog"
-		type = BUTTON
-		pos = 404,7
-		size = 67x16
-		text = "Changelog"
-		command = "Changelog"
 	elem "discordb"
 		type = BUTTON
-		pos = 473,7
+		pos = 395,7
 		size = 60x16
 		font-style = "bold"
 		text-color = #ffffff
@@ -314,7 +309,7 @@ window "rpane"
 		command = "discord"
 	elem "donate"
 		type = BUTTON
-		pos = 535,7
+		pos = 455,7
 		size = 60x16
 		font-style = "bold"
 		text-color = #ffffff
