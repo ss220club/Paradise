@@ -55813,7 +55813,9 @@
 /area/maintenance/asmaint)
 "dnK" = (
 /obj/structure/table,
-/obj/machinery/smartfridge/disks,
+/obj/machinery/smartfridge/disks{
+	pixel_y = 2
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},

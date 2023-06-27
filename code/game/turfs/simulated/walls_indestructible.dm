@@ -89,6 +89,31 @@
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(/turf/simulated/wall/indestructible/fakeglass)
 
+/turf/simulated/wall/indestructible/rusted
+	name = "reinforced wall"
+	icon = 'icons/turf/walls/rusty_wall.dmi'
+	icon_state = "wall"
+	canSmoothWith = list(
+	/obj/structure/window/full/basic,
+	/obj/structure/window/full/reinforced,
+	/obj/structure/window/full/reinforced/tinted,
+	/obj/structure/window/full/reinforced/polarized,
+	/obj/structure/window/full/plasmabasic,
+	/obj/structure/window/full/plasmareinforced,
+	/turf/simulated/wall,
+	/turf/simulated/wall/r_wall,
+	/obj/structure/falsewall,
+	/obj/structure/falsewall/reinforced,
+	/obj/structure/falsewall/clockwork,
+	/turf/simulated/wall/rust,
+	/turf/simulated/wall/r_wall/rust,
+	/turf/simulated/wall/r_wall/coated,
+	/turf/simulated/wall/indestructible/rusted,
+	/turf/simulated/wall/indestructible,
+	/turf/simulated/wall/indestructible/metal,
+	/turf/simulated/wall/indestructible/reinforced)
+	smooth = SMOOTH_TRUE
+
 /turf/simulated/wall/indestructible/reinforced
 	name = "reinforced wall"
 	icon = 'icons/turf/walls/reinforced_wall.dmi'
@@ -108,6 +133,34 @@
 	/turf/simulated/wall/rust,
 	/turf/simulated/wall/r_wall/rust,
 	/turf/simulated/wall/r_wall/coated,
+	/turf/simulated/wall/indestructible/rusted,
+	/turf/simulated/wall/indestructible/reinforced/rusted,
+	/turf/simulated/wall/indestructible,
+	/turf/simulated/wall/indestructible/metal,
+	/turf/simulated/wall/indestructible/reinforced)
+	smooth = SMOOTH_TRUE
+
+/turf/simulated/wall/indestructible/reinforced/rusted
+	name = "reinforced wall"
+	icon = 'icons/turf/walls/rusty_reinforced_wall.dmi'
+	icon_state = "r_wall"
+	canSmoothWith = list(
+	/obj/structure/window/full/basic,
+	/obj/structure/window/full/reinforced,
+	/obj/structure/window/full/reinforced/tinted,
+	/obj/structure/window/full/reinforced/polarized,
+	/obj/structure/window/full/plasmabasic,
+	/obj/structure/window/full/plasmareinforced,
+	/turf/simulated/wall,
+	/turf/simulated/wall/r_wall,
+	/obj/structure/falsewall,
+	/obj/structure/falsewall/reinforced,
+	/obj/structure/falsewall/clockwork,
+	/turf/simulated/wall/rust,
+	/turf/simulated/wall/r_wall/rust,
+	/turf/simulated/wall/r_wall/coated,
+	/turf/simulated/wall/indestructible/rusted,
+	/turf/simulated/wall/indestructible/reinforced/rusted,
 	/turf/simulated/wall/indestructible,
 	/turf/simulated/wall/indestructible/metal,
 	/turf/simulated/wall/indestructible/reinforced)
@@ -156,6 +209,7 @@
 /turf/simulated/wall/indestructible/uranium
 	icon = 'icons/turf/walls/uranium_wall.dmi'
 	icon_state = "uranium"
+	smooth = SMOOTH_TRUE
 
 /turf/simulated/wall/indestructible/metal
 	icon = 'icons/turf/walls/wall.dmi'
@@ -164,11 +218,31 @@
 
 /turf/simulated/wall/indestructible/abductor
 	name = "alien wall"
+	icon = 'icons/turf/walls/abductor_wall.dmi'
 	desc = "A wall with alien alloy plating."
-	icon_state = "alien1"
+	icon_state = "abductor"
+	smooth = SMOOTH_TRUE
 
 /turf/simulated/wall/indestructible/splashcreen
 	name = "Space Station 13"
 	icon = 'config/title_screens/images/blank.png'
 	icon_state = ""
 	layer = FLY_LAYER
+
+/turf/simulated/wall/indestructible/sandstone
+	name = "sandstone wall"
+	icon = 'icons/turf/walls/sandstone_wall.dmi'
+	icon_state = "sandstone"
+	smooth = SMOOTH_TRUE
+
+/turf/simulated/wall/indestructible/rock
+	name = "rock"
+	icon = 'icons/turf/walls/rock_wall.dmi'
+	icon_state = "rockEXAMPLE"
+	smooth = SMOOTH_TRUE
+
+/turf/simulated/wall/indestructible/iron
+	name = "iron wall"
+	icon = 'icons/turf/walls/plastitanium_wall.dmi'
+	icon_state = "iron"
+	smooth = SMOOTH_TRUE
