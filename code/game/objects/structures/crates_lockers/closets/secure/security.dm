@@ -113,6 +113,7 @@
 	new /obj/item/megaphone(src)	//added here deleted on maps
 	new /obj/item/reagent_containers/food/drinks/flask(src)
 	new /obj/item/storage/garmentbag/hos(src)
+	new /obj/item/storage/lockbox/sibyl_system_mod //added here deleted from roundstart hand
 
 /obj/structure/closet/secure_closet/warden
 	name = "warden's locker"
@@ -146,6 +147,7 @@
 	new /obj/item/gun/projectile/automatic/pistol/sp8(src)
 	new /obj/item/ammo_box/magazine/sp8(src)
 	new /obj/item/ammo_box/magazine/sp8(src)
+	new /obj/item/storage/lockbox/sibyl_system_mod(src) //added here deleted from roundstart hand
 
 /obj/structure/closet/secure_closet/security
 	name = "security officer's locker"
@@ -410,3 +412,4 @@
 	new /obj/item/radio/headset/heads/magistrate/alt(src)	//added here deleted on maps
 	new /obj/item/megaphone(src)
 	new /obj/item/storage/garmentbag/magistrate(src)
+	new /obj/item/storage/box/tapes(src)

@@ -64,8 +64,8 @@
 	var/region_min = REGION_GENERAL
 	var/region_max = REGION_COMMAND
 
-	var/fulltile_window = FALSE // Do we place fulltile windows?
-	var/window_type = /obj/structure/window/reinforced
+	var/fulltile_window = TRUE // Do we place fulltile windows?
+	var/window_type = /obj/structure/window/full/reinforced
 	var/floor_type = /turf/simulated/floor/plating
 	var/wall_type = /turf/simulated/wall
 	var/firelock_type = /obj/machinery/door/firedoor
@@ -177,7 +177,7 @@
 		to_chat(user, "<span class='notice'>The RCD can't hold any more matter-units.</span>")
 		return
 
-	if(!user.unEquip(rcd_ammo))
+	if(!user.drop_item_ground(rcd_ammo))
 		to_chat(user, "<span class='warning'>[rcd_ammo] is stuck to your hand!</span>")
 		return
 
@@ -214,7 +214,7 @@
 			"Change Airlock Type" = image(icon = 'icons/obj/interface.dmi', icon_state = "airlocktype")
 		)
 	choices -= mode // Get rid of the current mode, clicking it won't do anything.
-	var/choice = show_radial_menu(user, src, choices, custom_check = CALLBACK(src, .proc/check_menu, user))
+	var/choice = show_radial_menu(user, src, choices, custom_check = CALLBACK(src, PROC_REF(check_menu), user))
 	if(!check_menu(user))
 		return
 	switch(choice)
@@ -429,7 +429,7 @@
 		return
 	audible_message("<span class='danger'><b>[src] begins to vibrate and buzz loudly!</b></span>", "<span class='danger'><b>[src] begins vibrating violently!</b></span>")
 	// 5 seconds to get rid of it
-	addtimer(CALLBACK(src, .proc/detonate_pulse_explode), 50)
+	addtimer(CALLBACK(src, PROC_REF(detonate_pulse_explode)), 50)
 
 /**
  * Called in `/obj/item/rcd/proc/detonate_pulse()` via callback.

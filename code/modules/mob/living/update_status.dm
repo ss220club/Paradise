@@ -71,8 +71,8 @@
 	// By default, checks for weakness and stunned get added to the extra_checks list.
 	// Setting `use_default_checks` to FALSE means that you don't want it checking for these statuses or you are supplying your own checks.
 	if(use_default_checks)
-		extra_checks += CALLBACK(src, /mob.proc/IsWeakened)
-		extra_checks += CALLBACK(src, /mob.proc/IsStunned)
+		extra_checks += CALLBACK(src, TYPE_PROC_REF(/mob, IsWeakened))
+		extra_checks += CALLBACK(src, TYPE_PROC_REF(/mob, IsStunned))
 
 	if(stat || paralysis || (!ignore_restraints && restrained()) || (!ignore_lying && lying) || check_for_true_callbacks(extra_checks))
 		return TRUE
@@ -140,8 +140,8 @@
 	if(client?.screen)
 		var/obj/screen/plane_master/game_world/GW = locate(/obj/screen/plane_master/game_world) in client.screen
 		var/obj/screen/plane_master/floor/F = locate(/obj/screen/plane_master/floor) in client.screen
-		GW.add_filter(EYE_BLUR_FILTER_KEY, FILTER_EYE_BLUR)
-		F.add_filter(EYE_BLUR_FILTER_KEY, FILTER_EYE_BLUR)
+		GW.add_screen_filter(EYE_BLUR_FILTER_KEY, FILTER_EYE_BLUR)
+		F.add_screen_filter(EYE_BLUR_FILTER_KEY, FILTER_EYE_BLUR)
 		animate(GW.filters[GW.filters.len], size = 3, time = 5)
 		animate(F.filters[F.filters.len], size = 3, time = 5)
 
@@ -149,5 +149,5 @@
 	if(client?.screen)
 		var/obj/screen/plane_master/game_world/GW = locate(/obj/screen/plane_master/game_world) in client.screen
 		var/obj/screen/plane_master/floor/F = locate(/obj/screen/plane_master/floor) in client.screen
-		GW.remove_filter(EYE_BLUR_FILTER_KEY)
-		F.remove_filter(EYE_BLUR_FILTER_KEY)
+		GW.remove_screen_filter(EYE_BLUR_FILTER_KEY)
+		F.remove_screen_filter(EYE_BLUR_FILTER_KEY)

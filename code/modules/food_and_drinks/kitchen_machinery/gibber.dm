@@ -33,7 +33,7 @@
 	occupant = user
 	update_icon()
 	feedinTopanim()
-	addtimer(CALLBACK(src, .proc/startgibbing, user), 33)
+	addtimer(CALLBACK(src, PROC_REF(startgibbing), user), 33)
 	return OBLITERATION
 
 /obj/machinery/gibber/Destroy()
@@ -87,6 +87,7 @@
 		to_chat(user, "<span class='warning'>Wait for [occupant.name] to finish being loaded!</span>")
 		return
 
+	add_fingerprint(user)
 	startgibbing(user)
 
 /obj/machinery/gibber/attackby(obj/item/P, mob/user, params)
@@ -95,11 +96,13 @@
 		if(G.state < 2)
 			to_chat(user, "<span class='danger'>You need a better grip to do that!</span>")
 			return
+		add_fingerprint(user)
 		move_into_gibber(user,G.affecting)
 		qdel(G)
 		return
 
 	if(default_deconstruction_screwdriver(user, "grinder_open", "grinder", P))
+		add_fingerprint(user)
 		return
 
 	if(exchange_parts(user, P))
@@ -124,6 +127,7 @@
 	if(targetl.buckled)
 		return
 
+	add_fingerprint(user)
 	move_into_gibber(user,target)
 
 /obj/machinery/gibber/proc/move_into_gibber(mob/user, mob/living/victim)
@@ -192,6 +196,7 @@
 	gibberoverlay.icon = icon
 	gibberoverlay.icon_state = "grinderoverlay"
 	gibberoverlay.overlays += image('icons/obj/kitchen.dmi', "gridle")
+	icon_state = "grinder_on"
 
 	var/image/feedee = new
 	occupant.dir = 2
@@ -201,17 +206,16 @@
 	holder.name = null //make unclickable
 	holder.overlays += feedee //add occupant to holder overlays
 	holder.pixel_y = 25 //above the gibber
-	holder.pixel_x = 2
 	holder.loc = get_turf(src)
 	holder.layer = MOB_LAYER //simulate mob-like layering
-	holder.anchored = 1
+	holder.anchored = TRUE
 
 	var/atom/movable/holder2 = new //holder for gibber overlay, used to simulate 3D effect
 	holder2.name = null
 	holder2.overlays += gibberoverlay
 	holder2.loc = get_turf(src)
 	holder2.layer = MOB_LAYER + 0.1 //3D, it's above the mob, rest of the gibber is behind
-	holder2.anchored = 1
+	holder2.anchored = TRUE
 
 	animate(holder, pixel_y = 16, time = animation_delay) //animate going down
 
@@ -226,7 +230,7 @@
 
 	qdel(holder) //get rid of holder object
 	qdel(holder2) //get rid of holder object
-	locked = 0 //unlock
+	locked = FALSE //unlock
 
 /obj/machinery/gibber/proc/startgibbing(mob/user, UserOverride=0)
 	if(!istype(user) && !UserOverride)
@@ -389,7 +393,7 @@
 			continue
 		if(O.flags & NODROP || stealthmode)
 			qdel(O) //they are already dead by now
-		H.unEquip(O)
+		H.drop_item_ground(O)
 		O.loc = loc
 		O.throw_at(get_edge_target_turf(src, gib_throw_dir), rand(1, 5), 15)
 		sleep(1)
@@ -397,7 +401,7 @@
 	for(var/obj/item/clothing/C in H)
 		if(C.flags & NODROP || stealthmode)
 			qdel(C)
-		H.unEquip(C)
+		H.drop_item_ground(C)
 		C.loc = loc
 		C.throw_at(get_edge_target_turf(src, gib_throw_dir), rand(1, 5), 15)
 		sleep(1)

@@ -40,6 +40,8 @@
 //Let the AI trigger them directly.
 /obj/machinery/flasher/attack_ai(mob/user)
 	if(anchored)
+		if(isAI(user) && !user:add_heat(AI_NORMAL_ACTION_HEAT))
+			return
 		return flash()
 
 /obj/machinery/flasher/attack_ghost(mob/user)
@@ -56,7 +58,7 @@
 	playsound(loc, 'sound/weapons/flash.ogg', 100, 1)
 	flick("[base_state]_flash", src)
 	set_light(2, 1, COLOR_WHITE)
-	addtimer(CALLBACK(src, /atom./proc/set_light, 0), 2)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 2)
 	last_flash = world.time
 	use_power(1000)
 
@@ -124,6 +126,8 @@
 	active_power_usage = 4
 
 /obj/machinery/flasher_button/attack_ai(mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_NORMAL_ACTION_HEAT))
+		return
 	return attack_hand(user)
 
 /obj/machinery/flasher_button/attack_ghost(mob/user)
@@ -135,6 +139,8 @@
 		return
 	if(active)
 		return
+
+	add_fingerprint(user)
 
 	use_power(5)
 

@@ -115,6 +115,12 @@
 	origin = null
 	return ..()
 
+/mob/camera/aiEye/remote/update_remote_sight(mob/living/user)
+	user.see_invisible = SEE_INVISIBLE_LIVING //can't see ghosts through cameras
+	user.sight = SEE_TURFS | SEE_BLACKNESS
+	user.see_in_dark = 2
+	return 1
+
 /mob/camera/aiEye/remote/RemoveImages()
 	..()
 	if(visible_icon)
@@ -127,7 +133,7 @@
 		return eye_user.client
 	return null
 
-/mob/camera/aiEye/remote/setLoc(T)
+/mob/camera/aiEye/remote/setLoc(T, teleported = FALSE)
 	if(eye_user)
 		if(!isturf(eye_user.loc))
 			return

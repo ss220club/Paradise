@@ -29,8 +29,6 @@
 	if(req_access && req_access.len)
 		icon_state = "[icon_state]"
 		base_state = icon_state
-	if(!color && cancolor)
-		color = color_windows(src)
 	for(var/i in 1 to shards)
 		debris += new /obj/item/shard(src)
 	if(rods)
@@ -72,12 +70,13 @@
 		sleep(20)
 	close()
 
-/obj/machinery/door/window/Bumped(atom/movable/AM)
+/obj/machinery/door/window/Bumped(atom/movable/moving_atom)
+	SEND_SIGNAL(src, COMSIG_ATOM_BUMPED, moving_atom)
 	if(operating || !density)
 		return
-	if(!ismob(AM))
-		if(ismecha(AM))
-			var/obj/mecha/mecha = AM
+	if(!ismob(moving_atom))
+		if(ismecha(moving_atom))
+			var/obj/mecha/mecha = moving_atom
 			if(mecha.occupant && allowed(mecha.occupant))
 				if(HAS_TRAIT(src, TRAIT_CMAGGED))
 					cmag_switch(FALSE)
@@ -91,7 +90,7 @@
 		return
 	if(!SSticker)
 		return
-	var/mob/living/M = AM
+	var/mob/living/M = moving_atom
 	if(!M.restrained() && M.mob_size > MOB_SIZE_TINY && (!(isrobot(M) && M.stat)))
 		bumpopen(M)
 
@@ -204,11 +203,18 @@
 
 /obj/machinery/door/window/deconstruct(disassembled = TRUE)
 	if(!(flags & NODECONSTRUCT) && !disassembled)
-		for(var/obj/fragment in debris)
-			fragment.forceMove(get_turf(src))
-			transfer_fingerprints_to(fragment)
-			debris -= fragment
+		for(var/obj/item/shard/debris in spawnDebris(drop_location()))
+			transfer_fingerprints_to(debris) // transfer fingerprints to shards only
 	qdel(src)
+
+/obj/machinery/door/window/proc/spawnDebris(location)
+	. = list()
+	for(var/i in 1 to shards)
+		. += new /obj/item/shard(location)
+	if(rods)
+		. += new /obj/item/stack/rods(location, rods)
+	if(cable)
+		. += new /obj/item/stack/cable_coil(location, cable)
 
 /obj/machinery/door/window/narsie_act()
 	color = NARSIE_WINDOW_COLOUR
@@ -224,6 +230,8 @@
 		take_damage(round(exposed_volume / 200), BURN, 0, 0)
 
 /obj/machinery/door/window/attack_ai(mob/user)
+	if(isAI(user) && !user:add_heat(AI_OPEN_DOOR_HEAT))
+		return
 	return attack_hand(user)
 
 /obj/machinery/door/window/attack_ghost(mob/user)
@@ -232,6 +240,7 @@
 
 /obj/machinery/door/window/attack_hand(mob/user)
 	if(user.a_intent == INTENT_HARM && ishuman(user) && user.dna.species.obj_damage)
+		add_fingerprint(user)
 		user.changeNext_move(CLICK_CD_MELEE)
 		attack_generic(user, user.dna.species.obj_damage)
 		return

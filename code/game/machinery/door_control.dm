@@ -35,6 +35,8 @@
 
 /obj/machinery/door_control/attack_ai(mob/user as mob)
 	if(wires & 2)
+		if(isAI(user) && !user:add_heat(AI_NORMAL_ACTION_HEAT))
+			return
 		return attack_hand(user)
 	else
 		to_chat(user, "Error, no route to host.")
@@ -114,7 +116,7 @@
 
 	do_main_action(user)
 
-	addtimer(CALLBACK(src, .proc/update_icon), 15)
+	addtimer(CALLBACK(src, PROC_REF(update_icon)), 15)
 
 /obj/machinery/door_control/power_change()
 	..()

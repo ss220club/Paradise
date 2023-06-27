@@ -138,15 +138,16 @@
 /obj/effect/meatgrinder/Crossed(AM as mob|obj, oldloc)
 	Bumped(AM)
 
-/obj/effect/meatgrinder/Bumped(mob/M as mob|obj)
+/obj/effect/meatgrinder/Bumped(atom/movable/moving_atom)
 
-	if(triggered) return
+	if(triggered)
+		return
 
-	if(istype(M, /mob/living/carbon/human))
+	if(istype(moving_atom, /mob/living/carbon/human))
 		for(var/mob/O in viewers(world.view, src.loc))
-			to_chat(O, "<font color='red'>[M] triggered the [bicon(src)] [src]</font>")
+			to_chat(O, "<font color='red'>[moving_atom] triggered the [bicon(src)] [src]</font>")
 		triggered = 1
-		call(src,triggerproc)(M)
+		call(src,triggerproc)(moving_atom)
 
 /obj/effect/meatgrinder/proc/triggerrad1(mob)
 	for(var/mob/O in viewers(world.view, src.loc))
@@ -156,9 +157,6 @@
 
 
 /////For the Wishgranter///////////
-
-/mob/living/carbon
-	var/revival_in_progress = FALSE
 
 /mob/living/carbon/proc/immortality()
 	set category = "Immortality"
@@ -173,7 +171,7 @@
 		return //no spam callbacks
 	C.revival_in_progress = TRUE
 	to_chat(C, "<span class='notice'>Death is not your end!</span>")
-	addtimer(CALLBACK(C, .proc/resurrect, C), rand(80 SECONDS, 120 SECONDS))
+	addtimer(CALLBACK(C, PROC_REF(resurrect), C), rand(80 SECONDS, 120 SECONDS))
 
 /mob/living/carbon/proc/resurrect(var/mob/living/carbon/user)
 	user.revive()

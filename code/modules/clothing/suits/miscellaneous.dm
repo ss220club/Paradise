@@ -89,6 +89,33 @@
 	item_state = "hgpirate"
 	flags_inv = HIDEJUMPSUIT
 
+/obj/item/clothing/suit/v_jacket
+	name = "V's Jacket"
+	desc = "Jacket of someone called V."
+	icon_state = "v_jacket"
+	item_state = "v_jacket"
+	flags_inv = HIDEJUMPSUIT
+
+/obj/item/clothing/suit/takemura_jacket
+	name = "Takemura's Jacket"
+	desc = "Jacket of someone called Takemura."
+	icon_state = "takemura_jacket"
+	item_state = "takemura_jacket"
+	flags_inv = HIDEJUMPSUIT
+
+/obj/item/clothing/suit/katarina_jacket
+	name = "Katarina's Jacket"
+	desc = "Jacket of someone called Katarina."
+	icon_state = "katarina_jacket"
+	item_state = "katarina_jacket"
+	flags_inv = HIDEJUMPSUIT
+
+/obj/item/clothing/suit/katarina_cyberjacket
+	name = "Katarina's Cyberjacket"
+	desc = "Cyberjacket of someone called Katarina."
+	icon_state = "katarina_cyberjacket"
+	item_state = "katarina_cyberjacket"
+	flags_inv = HIDEJUMPSUIT
 
 /obj/item/clothing/suit/cyborg_suit
 	name = "cyborg suit"
@@ -194,6 +221,9 @@
 	item_state = "chickensuit"
 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS|FEET
 	flags_inv = HIDESHOES|HIDEJUMPSUIT
+	sprite_sheets = list(
+		"Unathi" = 'icons/mob/species/unathi/suit.dmi'
+		)
 
 /obj/item/clothing/suit/corgisuit
 	name = "corgi suit"
@@ -260,8 +290,9 @@
 	species_disguise = "High-tech robot"
 	dog_fashion = /datum/dog_fashion/back
 
-/obj/item/clothing/suit/cardborg/equipped(mob/living/user, slot)
-	..()
+/obj/item/clothing/suit/cardborg/equipped(mob/living/user, slot, initial)
+	. = ..()
+
 	if(slot == slot_wear_suit)
 		disguise(user)
 
@@ -297,6 +328,9 @@
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT	//Space carp like space, so you should too
 	allowed = list(/obj/item/tank/internals/emergency_oxygen)
 	hoodtype = /obj/item/clothing/head/hooded/carp_hood
+	sprite_sheets = list(
+		"Unathi" = 'icons/mob/species/unathi/suit.dmi'
+		)
 
 /obj/item/clothing/head/hooded/carp_hood
 	name = "carp hood"
@@ -307,6 +341,37 @@
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	flags = BLOCKHAIR
 	flags_inv = HIDEHEADSETS
+
+/obj/item/clothing/suit/hooded/shark_costume
+	name = "shark costume"
+	desc = "A costume made from 'synthetic' shark skin, it smells."
+	icon_state = "shark_casual"
+	lefthand_file = 'icons/mob/inhands/clothing_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing_righthand.dmi'
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	allowed = list(/obj/item/tank/internals/emergency_oxygen)
+	hoodtype = /obj/item/clothing/head/hooded/shark_hood
+
+/obj/item/clothing/head/hooded/shark_hood
+	name = "shark hood"
+	desc = "A hood attached to a shark costume."
+	icon_state = "shark_casual"
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	flags = BLOCKHAIR
+	flags_inv = HIDEHEADSETS
+
+/obj/item/clothing/suit/hooded/shark_costume/light
+	name = "lightblue shark costume"
+	icon_state = "shark_casual_light"
+	hoodtype = /obj/item/clothing/head/hooded/shark_hood/light
+
+/obj/item/clothing/head/hooded/shark_hood/light
+	name = "lightblue shark hood"
+	icon_state = "shark_casual_light"
 
 /obj/item/clothing/suit/hooded/salmon_costume
 	name = "salmon suit"
@@ -347,6 +412,9 @@
 	icon_state = "lingspacesuit"
 	item_state = "lingspacesuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	sprite_sheets = list(
+		"Unathi" = 'icons/mob/species/unathi/suit.dmi'
+		)
 
 /obj/item/clothing/suit/draculacoat // Bleh!
 	name = "transylvanian coat"
@@ -640,6 +708,9 @@
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	strip_delay = 60
 	breakouttime = 3000
+	sprite_sheets = list(
+		"Unathi" = 'icons/mob/species/unathi/suit.dmi'
+		)
 
 /obj/item/clothing/suit/ianshirt
 	name = "worn shirt"
@@ -806,6 +877,9 @@
 	item_state = "xenos_helm"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+	sprite_sheets = list(
+		"Unathi" = 'icons/mob/species/unathi/suit.dmi'
+		)
 
 //swimsuit
 /obj/item/clothing/under/swimsuit/
@@ -1086,7 +1160,9 @@
 	STOP_PROCESSING(SSobj, src)	//probably is cleared in a parent call already, but just in case we're gonna do it here
 	return ..()
 
-/obj/item/clothing/suit/hooded/chaplain_hoodie/missionary_robe/equipped(mob/living/carbon/human/H, slot)
+/obj/item/clothing/suit/hooded/chaplain_hoodie/missionary_robe/equipped(mob/living/carbon/human/H, slot, initial)
+	. = ..()
+
 	if(!istype(H) || slot != slot_wear_suit)
 		STOP_PROCESSING(SSobj, src)
 		return

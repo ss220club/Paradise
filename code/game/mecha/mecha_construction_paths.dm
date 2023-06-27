@@ -170,8 +170,7 @@
 				holder.icon_state = "ripley4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "ripley2"
 		if(10)
 			if(diff==FORWARD)
@@ -218,8 +217,7 @@
 				holder.icon_state = "ripley10"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/metal/MS = new /obj/item/stack/sheet/metal(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/metal(get_turf(holder), 5)
 				holder.icon_state = "ripley8"
 		if(4)
 			if(diff==FORWARD)
@@ -241,8 +239,7 @@
 				holder.icon_state = "ripley13"
 			else
 				user.visible_message("[user] pries external armor layer from the [holder].", "You pry external armor layer from the [holder].")
-				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/plasteel(get_turf(holder), 5)
 				holder.icon_state = "ripley11"
 		if(1)
 			if(diff==FORWARD)
@@ -397,8 +394,7 @@
 				holder.icon_state = "gygax4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "gygax2"
 		if(16)
 			if(diff==FORWARD)
@@ -493,8 +489,7 @@
 				holder.icon_state = "gygax16"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/metal/MS = new /obj/item/stack/sheet/metal(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/metal(get_turf(holder), 5)
 				holder.icon_state = "gygax14"
 		if(4)
 			if(diff==FORWARD)
@@ -654,8 +649,7 @@
 				holder.icon_state = "fireripley4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "fireripley2"
 		if(11)
 			if(diff==FORWARD)
@@ -703,8 +697,7 @@
 				holder.icon_state = "fireripley10"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/plasteel(get_turf(holder), 5)
 				holder.icon_state = "fireripley8"
 		if(5)
 			if(diff==FORWARD)
@@ -726,8 +719,7 @@
 				holder.icon_state = "fireripley13"
 			else
 				user.visible_message("[user] removes the external armor from the [holder].", "You remove the external armor from the [holder].")
-				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/plasteel(get_turf(holder), 5)
 				holder.icon_state = "fireripley11"
 		if(2)
 			if(diff==FORWARD)
@@ -735,8 +727,7 @@
 				holder.icon_state = "fireripley14"
 			else
 				user.visible_message("[user] pries external armor layer from the [holder].", "You pry external armor layer from the [holder].")
-				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/plasteel(get_turf(holder), 5)
 				holder.icon_state = "fireripley12"
 		if(1)
 			if(diff==FORWARD)
@@ -1037,8 +1028,7 @@
 				holder.icon_state = "durand4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "durand2"
 		if(16)
 			if(diff==FORWARD)
@@ -1133,8 +1123,7 @@
 				holder.icon_state = "durand16"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/metal/MS = new /obj/item/stack/sheet/metal(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/metal(get_turf(holder), 5)
 				holder.icon_state = "durand14"
 		if(4)
 			if(diff==FORWARD)
@@ -1166,6 +1155,290 @@
 				user.visible_message("[user] unfastens Durand Armor Plates.", "You unfasten Durand Armor Plates.")
 				holder.icon_state = "durand18"
 	return 1
+
+/datum/construction/mecha/executioner_chassis
+	steps = list(list("key"=/obj/item/mecha_parts/part/executioner_torso),//1
+					 list("key"=/obj/item/mecha_parts/part/executioner_left_arm),//2
+					 list("key"=/obj/item/mecha_parts/part/executioner_right_arm),//3
+					 list("key"=/obj/item/mecha_parts/part/executioner_left_leg),//4
+					 list("key"=/obj/item/mecha_parts/part/executioner_right_leg),//5
+					 list("key"=/obj/item/mecha_parts/part/executioner_head)
+					)
+
+/datum/construction/mecha/executioner_chassis/custom_action(step, atom/used_atom, mob/user)
+	user.visible_message("[user] has connected [used_atom] to the [holder].", "You connect [used_atom] to the [holder]")
+	holder.overlays += used_atom.icon_state+"+o"
+	qdel(used_atom)
+	return TRUE
+
+/datum/construction/mecha/executioner_chassis/action(atom/used_atom,mob/user as mob)
+	return check_all_steps(used_atom,user)
+
+/datum/construction/mecha/executioner_chassis/spawn_result()
+	..("mk. V \"The Executioner\"")
+	var/obj/item/mecha_parts/chassis/const_holder = holder
+	const_holder.construct = new /datum/construction/reversible/mecha/executioner(const_holder)
+	const_holder.icon = 'icons/obj/mecha/mech_construction.dmi'
+	const_holder.icon_state = "executioner0"
+	const_holder.density = TRUE
+	qdel(src)
+	return
+
+/datum/construction/reversible/mecha/executioner
+	result = "/obj/mecha/combat/durand/executioner"
+	steps = list(
+					//1
+					list("key"=/obj/item/soulstone/anybody/purified,
+							"backkey"=null, //Cannot remove soulstone once it's in
+							"desc"="Soulstone puted in the locket."),
+					//2
+					list("key"=TOOL_WELDER,
+							"backkey"=TOOL_WRENCH,
+							"desc"="External armor is wrenched."),
+					 //3
+					 list("key"=TOOL_WRENCH,
+					 		"backkey"=TOOL_CROWBAR,
+					 		"desc"="External armor is installed."),
+					 //4
+					 list("key"=/obj/item/mecha_parts/part/executioner_armor,
+					 		"backkey"=TOOL_WELDER,
+					 		"desc"="Holy cross is welded."),
+					 //5
+					 list("key"=TOOL_WELDER,
+					 		"backkey"=TOOL_WRENCH,
+					 		"desc"="Holy cross is wrenched."),
+					 //6
+					 list("key"=TOOL_WRENCH,
+					 		"backkey"=TOOL_CROWBAR,
+					 		"desc"="Holy cross is installed."),
+					 //7
+					 list("key"=/obj/item/stack/sheet/mineral/silver,
+					 		"backkey"=TOOL_SCREWDRIVER,
+					 		"desc"="Holy helmet is blessed."),
+					 //8
+					 list("key"=/obj/item/storage/bible,
+					 		"backkey"=TOOL_CROWBAR,
+					 		"desc"="Holy helmet is installed."),
+					 //9
+					 list("key"=/obj/item/clothing/head/helmet/riot/knight/templar,
+					 		"backkey"=TOOL_SCREWDRIVER,
+					 		"desc"="Holy armour is blessed."),
+					 //10
+					 list("key"=/obj/item/storage/bible,
+					 		"backkey"=TOOL_CROWBAR,
+					 		"desc"="Holy armour is installed."),
+					 //11
+					 list("key"=/obj/item/clothing/suit/armor/riot/knight/templar,
+					 		"backkey"=TOOL_SCREWDRIVER,
+					 		"desc"="Scanning module is blessed."),
+					 //12
+					 list("key"=/obj/item/storage/bible,
+					 		"backkey"=TOOL_CROWBAR,
+					 		"desc"="Scanning module is installed."),
+					 //13
+					 list("key"=/obj/item/circuitboard/mecha/executioner/targeting,
+					 		"backkey"=TOOL_SCREWDRIVER,
+					 		"desc"="Peripherals control module is blessed."),
+					 //14
+					 list("key"=/obj/item/storage/bible,
+					 		"backkey"=TOOL_CROWBAR,
+					 		"desc"="Peripherals control module is installed."),
+					 //15
+					 list("key"=/obj/item/circuitboard/mecha/executioner/peripherals,
+					 		"backkey"=TOOL_SCREWDRIVER,
+					 		"desc"="Central control module is blessed."),
+					 //16
+					 list("key"=/obj/item/storage/bible,
+					 		"backkey"=TOOL_CROWBAR,
+					 		"desc"="Central control module is installed."),
+					 //17
+					 list("key"=/obj/item/circuitboard/mecha/executioner/main,
+					 		"backkey"=TOOL_SCREWDRIVER,
+					 		"desc"="The wiring is adjusted."),
+					 //18
+					 list("key"=/obj/item/wirecutters,
+					 		"backkey"=TOOL_SCREWDRIVER,
+					 		"desc"="The wiring is added."),
+					 //19
+					 list("key"=/obj/item/stack/cable_coil,
+					 		"backkey"=TOOL_SCREWDRIVER,
+					 		"desc"="The hydraulic systems are active."),
+					 //20
+					 list("key"=TOOL_SCREWDRIVER,
+					 		"backkey"=TOOL_WRENCH,
+					 		"desc"="The hydraulic systems are connected."),
+					 //21
+					 list("key"=TOOL_WRENCH,
+					 		"desc"="The hydraulic systems are disconnected.")
+					)
+
+
+/datum/construction/reversible/mecha/executioner/action(atom/used_atom,mob/user as mob)
+	return check_step(used_atom,user)
+
+/datum/construction/reversible/mecha/executioner/custom_action(index, diff, atom/used_atom, mob/user)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	//TODO: better messages.
+	switch(index)
+		if(21)
+			user.visible_message("[user] connects the [holder] hydraulic systems", "You connect the [holder] hydraulic systems.")
+			holder.icon_state = "executioner1"
+		if(20)
+			if(diff==FORWARD)
+				user.visible_message("[user] activates the [holder] hydraulic systems.", "You activate the [holder] hydraulic systems.")
+				holder.icon_state = "executioner2"
+			else
+				user.visible_message("[user] disconnects the [holder] hydraulic systems", "You disconnect the [holder] hydraulic systems.")
+				holder.icon_state = "executioner0"
+		if(19)
+			if(diff==FORWARD)
+				user.visible_message("[user] adds the wiring to the [holder].", "You add the wiring to the [holder].")
+				holder.icon_state = "executioner3"
+			else
+				user.visible_message("[user] deactivates the [holder] hydraulic systems.", "You deactivate the [holder] hydraulic systems.")
+				holder.icon_state = "executioner1"
+		if(18)
+			if(diff==FORWARD)
+				user.visible_message("[user] adjusts the wiring of the [holder].", "You adjust the wiring of the [holder].")
+				holder.icon_state = "executioner4"
+			else
+				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
+				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
+				coil.amount = 4
+				holder.icon_state = "executioner2"
+		if(17)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs the central control module into the [holder].", "You install the central computer mainboard into the [holder].")
+				qdel(used_atom)
+				holder.icon_state = "executioner5"
+			else
+				user.visible_message("[user] disconnects the wiring of the [holder].", "You disconnect the wiring of the [holder].")
+				holder.icon_state = "executioner3"
+		if(16)
+			if(diff==FORWARD)
+				user.visible_message("[user] blessed the mainboard.", "You bless the mainboard.")
+				holder.icon_state = "executioner6"
+			else
+				user.visible_message("[user] removes the central control module from the [holder].", "You remove the central computer mainboard from the [holder].")
+				new /obj/item/circuitboard/mecha/executioner/main(get_turf(holder))
+				holder.icon_state = "executioner4"
+		if(15)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs the peripherals control module into the [holder].", "You install the peripherals control module into the [holder].")
+				qdel(used_atom)
+				holder.icon_state = "executioner7"
+			else
+				user.visible_message("[user] unfastens the mainboard.", "You unfasten the mainboard.")
+				holder.icon_state = "executioner5"
+		if(14)
+			if(diff==FORWARD)
+				user.visible_message("[user] blessed the peripherals control module.", "You bless the peripherals control module.")
+				holder.icon_state = "executioner8"
+			else
+				user.visible_message("[user] removes the peripherals control module from the [holder].", "You remove the peripherals control module from the [holder].")
+				new /obj/item/circuitboard/mecha/executioner/peripherals(get_turf(holder))
+				holder.icon_state = "executioner6"
+		if(13)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs the weapon control module into the [holder].", "You install the weapon control module into the [holder].")
+				qdel(used_atom)
+				holder.icon_state = "executioner9"
+			else
+				user.visible_message("[user] unfastens the peripherals control module.", "You unfasten the peripherals control module.")
+				holder.icon_state = "executioner7"
+		if(12)
+			if(diff==FORWARD)
+				user.visible_message("[user] blessed the weapon control module.", "You bless the weapon control module.")
+				holder.icon_state = "executioner10"
+			else
+				user.visible_message("[user] removes the weapon control module from the [holder].", "You remove the weapon control module from the [holder].")
+				new /obj/item/circuitboard/mecha/executioner/targeting(get_turf(holder))
+				holder.icon_state = "executioner8"
+		if(11)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs the holy armour to the [holder].", "You install the holy armour to the [holder].")
+				qdel(used_atom)
+				holder.icon_state = "executioner11"
+			else
+				user.visible_message("[user] unfastens the weapon control module.", "You unfasten the weapon control module.")
+				holder.icon_state = "executioner9"
+		if(10)
+			if(diff==FORWARD)
+				user.visible_message("[user] blessed the holy armour.", "You bless the holy armour.")
+				holder.icon_state = "executioner12"
+			else
+				user.visible_message("[user] removes the holy armour from the [holder].", "You remove the holy armour from the [holder].")
+				new /obj/item/clothing/suit/armor/riot/knight/templar(get_turf(holder))
+				holder.icon_state = "executioner10"
+		if(9)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs the holy helmet to the [holder].", "You install holy helmet to the [holder].")
+				qdel(used_atom)
+				holder.icon_state = "executioner13"
+			else
+				user.visible_message("[user] unfastens the phasic scanner module.", "You unfasten the phasic scanner module.")
+				holder.icon_state = "executioner11"
+		if(8)
+			if(diff==FORWARD)
+				user.visible_message("[user] blessed the holy helmet.", "You bless the holy helmet.")
+				holder.icon_state = "executioner14"
+			else
+				user.visible_message("[user] removes the holy helmet from the [holder].", "You remove the holy helmet from the [holder].")
+				new /obj/item/clothing/head/helmet/riot/knight/templar(get_turf(holder))
+				holder.icon_state = "executioner12"
+		if(7)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs the holy cross to the [holder].", "You install the holy cross to the [holder].")
+				holder.icon_state = "executioner15"
+			else
+				user.visible_message("[user] unfastens the holy helmet.", "You unfasten the holy helmet.")
+				holder.icon_state = "executioner13"
+		if(6)
+			if(diff==FORWARD)
+				user.visible_message("[user] secures the holy cross.", "You secure the holy cross.")
+				holder.icon_state = "executioner16"
+			else
+				user.visible_message("[user] pries holy cross from the [holder].", "You pry holy cross from the [holder].")
+				var/obj/item/stack/sheet/metal/MS = new /obj/item/stack/sheet/mineral/silver(get_turf(holder))
+				MS.amount = 5
+				holder.icon_state = "executioner14"
+		if(5)
+			if(diff==FORWARD)
+				user.visible_message("[user] welds the holy cross to the [holder].", "You weld holy cross to the [holder].")
+				holder.icon_state = "executioner17"
+			else
+				user.visible_message("[user] unfastens the holy cross.", "You unfasten the holy cross.")
+				holder.icon_state = "executioner15"
+		if(4)
+			if(diff==FORWARD)
+				user.visible_message("[user] installs the Executioner Armor Plates to the [holder].", "You install Executioner Armor Plates to the [holder].")
+				qdel(used_atom)
+				holder.icon_state = "executioner18"
+			else
+				user.visible_message("[user] cuts the holy cross from the [holder].", "You cut the holy cross from the [holder].")
+				holder.icon_state = "executioner16"
+		if(3)
+			if(diff==FORWARD)
+				user.visible_message("[user] secures Executioner Armor Plates.", "You secure Executioner Armor Plates.")
+				holder.icon_state = "executioner19"
+			else
+				user.visible_message("[user] pries Executioner Armor Plates from the [holder].", "You pry Executioner Armor Plates from the [holder].")
+				new /obj/item/mecha_parts/part/durand_armor(get_turf(holder))
+				holder.icon_state = "executioner17"
+		if(2)
+			if(diff==FORWARD)
+				user.visible_message("[user] welds Executioner Armor Plates to the [holder].", "You weld Executioner Armor Plates to the [holder].")
+			else
+				user.visible_message("[user] unfastens Executioner Armor Plates.", "You unfasten Executioner Armor Plates.")
+				holder.icon_state = "executioner18"
+		if(1)
+			if(diff==FORWARD)
+				user.visible_message("[user] put soulstone to the [holder]'s locket. Exosuit seems awaken now.", "You put soulstone to the [holder]'s locket. Exosuit seems awaken now.")
+				qdel(used_atom)
+	return TRUE
 
 //PHAZON
 
@@ -1331,8 +1604,7 @@
 				holder.icon_state = "phazon4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "phazon2"
 		if(20)
 			if(diff==FORWARD)
@@ -1427,7 +1699,7 @@
 				holder.icon_state = "phazon16"
 			else
 				user.visible_message("[user] removes the bluespace crystal from the [holder].", "You remove the bluespace crystal from the [holder].")
-				new /obj/item/stack/ore/bluespace_crystal(get_turf(holder), new_amount = 5)
+				new /obj/item/stack/ore/bluespace_crystal(get_turf(holder), 5)
 				holder.icon_state = "phazon14"
 		if(8)
 			if(diff==FORWARD)
@@ -1449,8 +1721,7 @@
 				holder.icon_state = "phazon19"
 			else
 				user.visible_message("[user] pries the phase armor layer from the [holder].", "You pry the phase armor layer from the [holder].")
-				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/plasteel(get_turf(holder), 5)
 				holder.icon_state = "phazon17"
 		if(5)
 			if(diff==FORWARD)
@@ -1610,8 +1881,7 @@
 				holder.icon_state = "odysseus4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "odysseus2"
 		if(10)
 			if(diff==FORWARD)
@@ -1658,8 +1928,7 @@
 				holder.icon_state = "odysseus10"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/metal/MS = new /obj/item/stack/sheet/metal(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/metal(get_turf(holder), 5)
 				holder.icon_state = "odysseus8"
 		if(4)
 			if(diff==FORWARD)
@@ -1681,8 +1950,7 @@
 				user.visible_message("[user] secures the external armor layer.", "You secure the external reinforced armor layer.")
 				holder.icon_state = "odysseus13"
 			else
-				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder))
-				MS.amount = 5
+				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder), 5)
 				user.visible_message("[user] pries [MS] from the [holder].", "You pry [MS] from the [holder].")
 				holder.icon_state = "odysseus11"
 		if(1)
@@ -1818,8 +2086,7 @@
 				holder.icon_state = "clarke4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "clarke2"
 		if(10)
 			if(diff==FORWARD)
@@ -1866,8 +2133,7 @@
 				holder.icon_state = "clarke10"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/metal/MS = new /obj/item/stack/sheet/metal(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/metal(get_turf(holder), 5)
 				holder.icon_state = "clarke8"
 		if(4)
 			if(diff==FORWARD)
@@ -1889,8 +2155,7 @@
 				user.visible_message("[user] secures the external armor layer.", "You secure the external reinforced armor layer.")
 				holder.icon_state = "clarke13"
 			else
-				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder))
-				MS.amount = 5
+				var/obj/item/stack/sheet/plasteel/MS = new /obj/item/stack/sheet/plasteel(get_turf(holder), 5)
 				user.visible_message("[user] pries [MS] from the [holder].", "You pry [MS] from the [holder].")
 				holder.icon_state = "clarke11"
 		if(1)
@@ -2048,8 +2313,7 @@
 				holder.icon_state = "rover4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "rover2"
 		if(16)
 			if(diff==FORWARD)
@@ -2144,8 +2408,7 @@
 				holder.icon_state = "rover16"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/metal/MS = new /obj/item/stack/sheet/metal(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/metal(get_turf(holder), 5)
 				holder.icon_state = "rover14"
 		if(4)
 			if(diff==FORWARD)
@@ -2324,8 +2587,7 @@
 				holder.icon_state = "darkgygax4"
 			else
 				user.visible_message("[user] removes the wiring from the [holder].", "You remove the wiring from the [holder].")
-				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
-				coil.amount = 4
+				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				holder.icon_state = "darkgygax2"
 		if(16)
 			if(diff==FORWARD)
@@ -2420,8 +2682,7 @@
 				holder.icon_state = "darkgygax16"
 			else
 				user.visible_message("[user] pries internal armor layer from the [holder].", "You pry internal armor layer from the [holder].")
-				var/obj/item/stack/sheet/metal/MS = new /obj/item/stack/sheet/metal(get_turf(holder))
-				MS.amount = 5
+				new /obj/item/stack/sheet/metal(get_turf(holder), 5)
 				holder.icon_state = "darkgygax14"
 		if(4)
 			if(diff==FORWARD)

@@ -71,6 +71,12 @@
 
 	var/tts_seed = "Arthas"
 
+	// Use SET_BASE_PIXEL(x, y) to set these in typepath definitions, it'll handle pixel_x and y for you
+	///Default pixel x shifting for the atom's icon.
+	var/base_pixel_x = 0
+	///Default pixel y shifting for the atom's icon.
+	var/base_pixel_y = 0
+
 /atom/New(loc, ...)
 	SHOULD_CALL_PARENT(TRUE)
 	if(GLOB.use_preloader && (src.type == GLOB._preloader.target_path))//in case the instanciated atom is creating other atoms in New()
@@ -171,7 +177,7 @@
 		alternate_appearances = null
 
 	QDEL_NULL(reagents)
-	invisibility = INVISIBILITY_MAXIMUM
+	invisibility = INVISIBILITY_ABSTRACT
 	LAZYCLEARLIST(overlays)
 	LAZYCLEARLIST(priority_overlays)
 
@@ -227,7 +233,7 @@
 			var/atom/movable/M = A
 			if(istype(M.loc, /mob/living))
 				var/mob/living/L = M.loc
-				L.unEquip(M)
+				L.drop_item_ground(M)
 			M.forceMove(src)
 
 /atom/proc/assume_air(datum/gas_mixture/giver)
@@ -253,7 +259,8 @@
 /atom/proc/on_reagent_change()
 	return
 
-/atom/proc/Bumped(atom/movable/AM)
+/atom/proc/Bumped(atom/movable/moving_atom)
+	SEND_SIGNAL(src, COMSIG_ATOM_BUMPED, moving_atom)
 	return
 
 /// Convenience proc to see if a container is open for chemistry handling
@@ -473,7 +480,7 @@
 
 /atom/proc/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(density && !has_gravity(AM)) //thrown stuff bounces off dense stuff in no grav, unless the thrown stuff ends up inside what it hit(embedding, bola, etc...).
-		addtimer(CALLBACK(src, .proc/hitby_react, AM), 2)
+		addtimer(CALLBACK(src, PROC_REF(hitby_react), AM), 2)
 
 /atom/proc/hitby_react(atom/movable/AM)
 	if(AM && isturf(AM.loc))
@@ -620,6 +627,12 @@
 	if(fingerprintshidden)
 		A.fingerprintshidden |= fingerprintshidden.Copy()    //admin
 	A.fingerprintslast = fingerprintslast
+
+/**
+* Proc thats checks if mobs can leave fingerprints and fibers on the atom
+*/
+/atom/proc/has_prints()
+	return FALSE
 
 GLOBAL_LIST_EMPTY(blood_splatter_icons)
 
@@ -937,15 +950,15 @@ GLOBAL_LIST_EMPTY(blood_splatter_icons)
 	if(length(speech_bubble_hearers))
 		var/image/I = image('icons/mob/talk.dmi', src, "[bubble_icon][say_test(message)]", FLY_LAYER)
 		I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
-		INVOKE_ASYNC(GLOBAL_PROC, /.proc/flick_overlay, I, speech_bubble_hearers, 30)
+		INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, I, speech_bubble_hearers, 30)
 
-/atom/proc/select_voice(mob/user, silent_target = FALSE)
+/atom/proc/select_voice(mob/user, silent_target = FALSE, override = FALSE)
 	if(!ismob(src) && !user)
 		return null
 	var/tts_test_str = "Так звучит мой голос."
 
 	var/tts_seeds
-	if(user && check_rights(R_ADMIN, 0, user))
+	if(user && (check_rights(R_ADMIN, 0, user) || override))
 		tts_seeds = SStts.tts_seeds_names
 	else
 		tts_seeds = SStts.get_available_seeds(src)
@@ -959,11 +972,14 @@ GLOBAL_LIST_EMPTY(blood_splatter_icons)
 		INVOKE_ASYNC(GLOBAL_PROC, /proc/tts_cast, null, user, tts_test_str, new_tts_seed, FALSE)
 	return new_tts_seed
 
-/atom/proc/change_voice(mob/user)
+/atom/proc/change_voice(mob/user, override = FALSE)
 	set waitfor = FALSE
-	var/new_tts_seed = select_voice(user)
+	var/new_tts_seed = select_voice(user, override = override)
 	if(!new_tts_seed)
 		return null
+	return update_tts_seed(new_tts_seed)
+
+/atom/proc/update_tts_seed(new_tts_seed)
 	tts_seed = new_tts_seed
 	return new_tts_seed
 

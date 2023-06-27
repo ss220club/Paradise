@@ -11,6 +11,7 @@
 	life_tick++
 
 	voice = GetVoice()
+	tts_seed = GetTTSVoice()
 
 	if(.) //not dead
 
@@ -869,14 +870,17 @@
 						to_chat(src, "<span class='userdanger'>You feel [pick("terrible", "awful", "like shit", "sick", "numb", "cold", "sweaty", "tingly", "horrible")]!</span>")
 						Weaken(3)
 
+#define BODYPART_PAIN_REDUCTION 5
+
 /mob/living/carbon/human/update_health_hud()
 	if(!client)
 		return
 	if(dna.species.update_health_hud())
 		return
 	else
+		var/shock_reduction = shock_reduction()
 		if(healths)
-			var/health_amount = get_perceived_trauma()
+			var/health_amount = get_perceived_trauma(shock_reduction)
 			if(..(health_amount)) //not dead
 				switch(hal_screwyhud)
 					if(SCREWYHUD_CRIT)
@@ -900,9 +904,10 @@
 				healthdoll.icon_state = "healthdoll_DEAD"
 				for(var/obj/item/organ/external/O in bodyparts)
 					var/damage = O.burn_dam + O.brute_dam
+					damage -= shock_reduction / BODYPART_PAIN_REDUCTION
 					var/comparison = (O.max_damage/5)
 					var/icon_num = 0
-					if(damage)
+					if(damage > 0)
 						icon_num = 1
 					if(damage > (comparison))
 						icon_num = 2
@@ -921,6 +926,8 @@
 				healthdoll.overlays += (new_overlays - cached_overlays)
 				healthdoll.overlays -= (cached_overlays - new_overlays)
 				healthdoll.cached_healthdoll_overlays = new_overlays
+
+#undef BODYPART_PAIN_REDUCTION
 
 /mob/living/carbon/human/proc/handle_nutrition_alerts() //This is a terrible abuse of the alert system; something like this should be a HUD element
 	if(NO_HUNGER in dna.species.species_traits)
@@ -989,7 +996,7 @@
 			hud_used.lingchemdisplay.maptext = "<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#dd66dd'>[round(mind.changeling.chem_charges)]</font></div>"
 	else
 		if(hud_used)
-			hud_used.lingchemdisplay.invisibility = 101
+			hud_used.lingchemdisplay.invisibility = INVISIBILITY_ABSTRACT
 
 
 /mob/living/carbon/human/proc/handle_pulse(times_fired)

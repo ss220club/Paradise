@@ -404,6 +404,8 @@
 	is_public = TRUE
 
 /obj/machinery/computer/supplycomp/attack_ai(var/mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	return attack_hand(user)
 
 /obj/machinery/computer/supplycomp/attack_hand(var/mob/user as mob)
@@ -412,6 +414,7 @@
 		playsound(src, pick('sound/machines/button.ogg', 'sound/machines/button_alternate.ogg', 'sound/machines/button_meloboom.ogg'), 20)
 		return 1
 
+	add_fingerprint(user)
 	post_signal("supply")
 	ui_interact(user)
 	return
@@ -466,11 +469,10 @@
 
 	for(var/set_name in SSshuttle.supply_packs)
 		var/datum/supply_packs/pack = SSshuttle.supply_packs[set_name]
-		if((pack.hidden && hacked) || (pack.contraband && can_order_contraband) || (pack.special && pack.special_enabled) || (!pack.contraband && !pack.hidden && !pack.special))
-			packs_list.Add(list(list("name" = pack.name, "cost" = pack.cost, "ref" = "[pack.UID()]", "contents" = pack.ui_manifest, "cat" = pack.group)))
-
+		if((pack.hidden && !hacked) || (pack.contraband && !can_order_contraband) || (pack.special && !pack.special_enabled) || (pack.hidden_if_hacked && hacked))
+			continue
+		packs_list.Add(list(list("name" = pack.name, "cost" = pack.cost, "ref" = "[pack.UID()]", "contents" = pack.ui_manifest, "cat" = pack.group)))
 	data["supply_packs"] = packs_list
-
 	var/list/categories = list() // meow
 	for(var/category in GLOB.all_supply_groups)
 		categories.Add(list(list("name" = get_supply_group_name(category), "category" = category)))
@@ -527,6 +529,14 @@
 				visible_message("<b>[src]</b>'s monitor flashes, \"[world.time - reqtime] seconds remaining until another requisition form may be printed.\"")
 				return
 
+			var/datum/supply_packs/P = locateUID(params["crate"])
+			if(!istype(P))
+				return
+
+			if(P.times_ordered >= P.order_limit && P.order_limit != -1) //If the crate has reached the limit, do not allow it to be ordered.
+				to_chat(usr, "<span class='warning'>[P.name] is out of stock, and can no longer be ordered.</span>")
+				return
+
 			var/amount = 1
 			if(params["multiple"] == "1") // 1 is a string here. DO NOT MAKE THIS A BOOLEAN YOU DORK
 				var/num_input = input(usr, "Amount", "How many crates? (20 Max)") as null|num
@@ -534,10 +544,6 @@
 					return
 				amount = clamp(round(num_input), 1, 20)
 
-
-			var/datum/supply_packs/P = locateUID(params["crate"])
-			if(!istype(P))
-				return
 
 			var/timeout = world.time + 600 // If you dont type the reason within a minute, theres bigger problems here
 			var/reason = input(usr, "Reason", "Why do you require this item?","") as null|text
@@ -580,10 +586,13 @@
 				if(SO.ordernum == ordernum)
 					O = SO
 					P = O.object
-					if(SSshuttle.points >= P.cost)
+					if(P.times_ordered >= P.order_limit && P.order_limit != -1) //If this order would put it over the limit, deny it
+						to_chat(usr, "<span class='warning'>[P.name] is out of stock, and can no longer be ordered.</span>")
+					else if(SSshuttle.points >= P.cost)
 						SSshuttle.requestlist.Cut(i,i+1)
 						SSshuttle.points -= P.cost
 						SSshuttle.shoppinglist += O
+						P.times_ordered += 1
 						investigate_log("[key_name_log(usr)] has authorized an order for [P.name]. Remaining points: [SSshuttle.points].", INVESTIGATE_CARGO)
 					else
 						to_chat(usr, "<span class='warning'>There are insufficient supply points for this request.</span>")

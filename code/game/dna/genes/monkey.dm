@@ -18,13 +18,13 @@
 			continue
 		if(istype(W,/obj/item/implant))
 			continue
-		H.unEquip(W)
+		H.drop_item_ground(W)
 
 	H.regenerate_icons()
 	H.SetStunned(1)
 	H.canmove = FALSE
 	H.icon = null
-	H.invisibility = 101
+	H.invisibility = INVISIBILITY_ABSTRACT
 	var/has_primitive_form = H.dna.species.primitive_form // cache this
 	if(has_primitive_form)
 		H.set_species(has_primitive_form)
@@ -55,12 +55,12 @@
 			continue
 		if(istype(W,/obj/item/implant))
 			continue
-		H.unEquip(W)
+		H.drop_item_ground(W)
 	H.regenerate_icons()
 	H.SetStunned(1)
 	H.canmove = 0
 	H.icon = null
-	H.invisibility = 101
+	H.invisibility = INVISIBILITY_ABSTRACT
 	var/has_greater_form = H.dna.species.greater_form //cache this
 	if(has_greater_form)
 		H.set_species(has_greater_form)

@@ -377,6 +377,9 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 /mob/living/proc/GetVoice()
 	return name
 
+/mob/living/proc/GetTTSVoice()
+	return tts_seed
+
 /mob/living/emote(act, type, message, force) //emote code is terrible, this is so that anything that isn't already snowflaked to shit can call the parent and handle emoting sanely
 	if(client)
 		client.check_say_flood(5)
@@ -550,4 +553,4 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 /mob/living/speech_bubble(bubble_state = "", bubble_loc = src, list/bubble_recipients = list())
 	var/image/I = image('icons/mob/talk.dmi', bubble_loc, bubble_state, FLY_LAYER)
 	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
-	INVOKE_ASYNC(GLOBAL_PROC, /.proc/flick_overlay, I, bubble_recipients, 30)
+	INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, I, bubble_recipients, 30)

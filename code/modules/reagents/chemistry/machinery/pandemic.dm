@@ -1,10 +1,10 @@
 /obj/machinery/computer/pandemic
 	name = "PanD.E.M.I.C 2200"
 	desc = "Used to work with viruses."
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	icon = 'icons/obj/chemical.dmi'
-	icon_state = "mixer0"
+	icon_state = "pandemic0"
 	circuit = /obj/item/circuitboard/pandemic
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 20
@@ -19,7 +19,7 @@
 	update_icon()
 
 /obj/machinery/computer/pandemic/set_broken()
-	icon_state = (beaker ? "mixer1_b" : "mixer0_b")
+	icon_state = (beaker ? "pandemic1_b" : "pandemic0_b")
 	overlays.Cut()
 	stat |= BROKEN
 
@@ -56,15 +56,10 @@
 
 /obj/machinery/computer/pandemic/update_icon()
 	if(stat & BROKEN)
-		icon_state = (beaker ? "mixer1_b" : "mixer0_b")
+		icon_state = (beaker ? "pandemic1_b" : "pandemic0_b")
 		return
 
-	icon_state = "mixer[(beaker)?"1":"0"][(powered()) ? "" : "_nopower"]"
-
-	if(wait)
-		overlays.Cut()
-	else
-		overlays += "waitlight"
+	icon_state = "pandemic[(beaker)?"1":"0"][(powered()) ? "" : "_nopower"]"
 
 /obj/machinery/computer/pandemic/Topic(href, href_list)
 	if(..())
@@ -176,7 +171,7 @@
 /obj/machinery/computer/pandemic/proc/eject_beaker()
 	beaker.forceMove(loc)
 	beaker = null
-	icon_state = "mixer0"
+	icon_state = "pandemic0"
 
 //Prints a nice virus release form. Props to Urbanliner for the layout
 /obj/machinery/computer/pandemic/proc/print_form(var/datum/disease/advance/D, mob/living/user)
@@ -325,6 +320,7 @@
 
 /obj/machinery/computer/pandemic/attackby(obj/item/I, mob/user, params)
 	if(default_unfasten_wrench(user, I))
+		add_fingerprint(user)
 		power_change()
 		return
 	if(istype(I, /obj/item/reagent_containers) && (I.container_type & OPENCONTAINER))
@@ -333,17 +329,18 @@
 		if(beaker)
 			to_chat(user, "<span class='warning'>В машину уже вставлена мензурка!</span>")
 			return
-		if(!user.drop_item())
+		if(!user.drop_transfer_item_to_loc(I, src))
 			return
 
+		add_fingerprint(user)
 		beaker =  I
-		beaker.loc = src
 		to_chat(user, "<span class='notice'>Вы вставили мензурку в машину.</span>")
 		updateUsrDialog()
-		icon_state = "mixer1"
+		icon_state = "pandemic1"
 
 	else if(istype(I, /obj/item/screwdriver))
 		if(beaker)
+			add_fingerprint(user)
 			beaker.forceMove(get_turf(src))
 	else
 		return ..()

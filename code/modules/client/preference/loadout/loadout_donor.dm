@@ -7,6 +7,10 @@
 	display_name = "Kitty ears"
 	path = /obj/item/clothing/head/kitty
 
+/datum/gear/donor/neon_shoes
+	display_name = "Neon shoes"
+	path = /obj/item/clothing/shoes/black/neon
+
 /datum/gear/donor/furgloves
 	display_name = "Fur Gloves"
 	path = /obj/item/clothing/gloves/furgloves
@@ -75,6 +79,10 @@
 	display_name = "Guy Fawkes mask"
 	path = /obj/item/clothing/mask/face/fawkes
 
+/datum/gear/donor/biker_gloves
+	display_name = "Biker Gloves"
+	path = /obj/item/clothing/gloves/fingerless/biker_gloves
+
 /datum/gear/donor/id_decal_silver
 	display_name = "Silver ID Decal"
 	path = /obj/item/id_decal/silver
@@ -93,8 +101,50 @@
 	donator_tier = 3
 	cost = 2
 
+/datum/gear/donor/bike_helmet
+	display_name = "Bike Helmet"
+	path = /obj/item/clothing/head/helmet/bike_helmet
+	donator_tier = 3
+	cost = 2
+
 /datum/gear/donor/id_decal_gold
 	display_name = "Gold ID Decal"
 	path = /obj/item/id_decal/gold
 	donator_tier = 4
 	cost = 4
+
+/datum/gear/donor/v_jacket
+	display_name = "V jacket"
+	path = /obj/item/clothing/suit/v_jacket
+	donator_tier = 4
+	cost = 2
+
+/datum/gear/donor/takemura_jacket
+	display_name = "Takemura jacket"
+	path = /obj/item/clothing/suit/takemura_jacket
+	donator_tier = 4
+	cost = 2
+
+/datum/gear/donor/katarina_jacket
+	display_name = "Katarina jacket"
+	path = /obj/item/clothing/suit/katarina_jacket
+	donator_tier = 5
+	cost = 2
+
+/datum/gear/donor/katarina_suit
+	display_name = "Katarina suit"
+	path = /obj/item/clothing/under/katarina_suit
+	donator_tier = 5
+	cost = 1
+
+/datum/gear/donor/katarina_cyberjacket
+	display_name = "Katarina cyberjacket"
+	path = /obj/item/clothing/suit/katarina_cyberjacket
+	donator_tier = 5
+	cost = 2
+
+/datum/gear/donor/katarina_cybersuit
+	display_name = "Katarina cybersuit"
+	path = /obj/item/clothing/under/katarina_cybersuit
+	donator_tier = 5
+	cost = 1

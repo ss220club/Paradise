@@ -401,6 +401,22 @@
 	item_color = "sexymime"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
+/obj/item/clothing/under/mimeshorts
+	name = "mime shorts"
+	desc = "..."
+	icon_state = "mime_shorts"
+	item_state = "mime_shorts"
+	item_color = "mime_shorts"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/under/mimeskirt
+	name = "sexy mime skirt"
+	desc = "..."
+	icon_state = "mime_skirt"
+	item_state = "mime_skirt"
+	item_color = "mime_skirt"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
 /obj/item/clothing/under/gladiator
 	name = "gladiator uniform"
 	desc = "Are you not entertained? Is that not why you are here?"
@@ -775,8 +791,9 @@
 	item_color = "atmos"
 	resistance_flags = FIRE_PROOF
 
-/obj/item/clothing/under/contortionist/equipped(mob/living/carbon/human/user, slot)
-	..()
+/obj/item/clothing/under/contortionist/equipped(mob/living/carbon/human/user, slot, initial)
+	. = ..()
+
 	if(slot == slot_w_uniform)
 		if(!user.ventcrawler)
 			user.ventcrawler = 2
@@ -905,5 +922,19 @@
 	name = "tourist outfit"
 	desc = "A light blue shirt with brown shorts. Feels oddly spooky."
 	icon_state = "tourist"
-	icon_state = "tourist"
+	item_state = "tourist"
 	item_color = "tourist"
+
+/obj/item/clothing/under/katarina_cybersuit
+	name = "Katarina's cyberjumpsuit"
+	desc = "Jumpsuit of someone called Katarina."
+	icon_state = "katarina_cybersuit"
+	item_state = "katarina_cybersuit"
+	item_color = "katarina_cybersuit"
+
+/obj/item/clothing/under/katarina_suit
+	name = "Katarina's suit"
+	desc = "Suit of someone called Katarina."
+	icon_state = "katarina_suit"
+	item_state = "katarina_suit"
+	item_color = "katarina_suit"

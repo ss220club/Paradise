@@ -28,6 +28,7 @@
 	modePlayer += space_ninja
 	space_ninja.assigned_role = SPECIAL_ROLE_SPACE_NINJA //So they aren't chosen for other jobs.
 	space_ninja.special_role = SPECIAL_ROLE_SPACE_NINJA
+	space_ninja.offstation_role = TRUE //ninja can't be targeted as a victim for some pity traitors
 	space_ninja.original = space_ninja.current
 	if(!length(GLOB.ninjastart))
 		to_chat(space_ninja.current, span_danger("A starting location for you could not be found, please report this bug!"))
@@ -43,7 +44,7 @@
 /datum/game_mode/space_ninja/post_setup()
 	for(var/datum/mind/space_ninja_mind in space_ninjas)
 		add_game_logs("has been selected as a Space Ninja", space_ninja_mind.current)
-		INVOKE_ASYNC(src, .proc/name_ninja, space_ninja_mind.current)
+		INVOKE_ASYNC(src, PROC_REF(name_ninja), space_ninja_mind.current)
 		equip_space_ninja(space_ninja_mind.current)
 		give_ninja_datum(space_ninja_mind)
 		forge_ninja_objectives(space_ninja_mind)
@@ -186,7 +187,7 @@
 			for(var/obj/item/grenade/plastic/c4/ninja/ninja_bomb in ninja_mob.get_contents())
 				ninja_bomb.detonation_objective = bomb_objective
 			ninja_mind.objectives += bomb_objective
-		else if(pick_chance <= 50)
+		else
 			//Подставить цель//
 			var/datum/objective/set_up/set_up_objective = new
 			set_up_objective.owner = ninja_mind
@@ -206,17 +207,6 @@
 				ninja_mind.objectives += set_up_objective
 			else
 				qdel(set_up_objective)
-		else
-			//Нанесение увечий. Цели не будет если target совпадает с прошлыми.
-			var/datum/objective/pain_hunter/pain_objective = new
-			pain_objective.owner = ninja_mind
-			pain_objective.find_target()
-			if("[pain_objective]" in ninja_datum.assigned_targets)
-				qdel(pain_objective)
-			else if(pain_objective.target)
-				ninja_datum.assigned_targets.Add("[pain_objective.target]")
-				ninja_mind.objectives += pain_objective
-
 		var/pick_objective = pick(1,2)
 		switch(pick_objective)
 			if(1)
@@ -333,16 +323,6 @@
 			ninja_datum.assigned_targets.Add("[steal_objective.steal_target]")
 		ninja_mind.objectives += steal_objective
 
-	//Нанесение увечий. Цели не будет если target совпадает с прошлыми.
-	var/datum/objective/pain_hunter/pain_objective = new
-	pain_objective.owner = ninja_mind
-	pain_objective.find_target()
-	if("[pain_objective]" in ninja_datum.assigned_targets)
-		qdel(pain_objective)
-	else if(pain_objective.target)
-		ninja_datum.assigned_targets.Add("[pain_objective.target]")
-		ninja_mind.objectives += pain_objective
-
 	//Выжить//
 	if(!(locate(/datum/objective/survive) in ninja_mind.objectives))
 		var/datum/objective/survive/survive_objective = new
@@ -361,7 +341,7 @@
 	collect_vamp_blood.owner = ninja_mind
 	collect_vamp_blood.generate_vampires()
 	ninja_mind.objectives += collect_vamp_blood
-	if(!length(SSticker.mode.vampires)) //Если нет вампиров, просто не даём цель
+	if(length(SSticker.mode.vampires) < collect_vamp_blood.samples_to_win) //Если вампиров недостаточно, для сбора образцов, просто не даём цель
 		GLOB.all_objectives -= collect_vamp_blood
 		ninja_mind.objectives -= collect_vamp_blood
 		qdel(collect_vamp_blood)
@@ -446,7 +426,7 @@
 	hunt_changelings.owner = ninja_mind
 	hunt_changelings.find_target()
 	ninja_mind.objectives += hunt_changelings
-	if(!length(SSticker.mode.changelings))//Если нет генокрадов, просто не даём цель
+	if(length(SSticker.mode.changelings) < hunt_changelings.req_kills) //If not enough changeling don't give target
 		GLOB.all_objectives -= hunt_changelings
 		ninja_mind.objectives -= hunt_changelings
 		qdel(hunt_changelings)
@@ -654,7 +634,7 @@
 				var/warning = cell.charge >= check_percentage ? "" : "_warning"
 				hud.ninja_energy_display.icon_state = "ninja_energy_display_[my_suit.color_choice][warning]"
 				hud.ninja_energy_display.maptext = "<div align='center' valign='middle' style='position:relative;'><font color='#FFFFFF' size='1'>[round(cell.charge)]</font></div>"
-				hud.ninja_energy_display.invisibility = my_suit.show_charge_UI ? 0 : 100
+				hud.ninja_energy_display.invisibility = my_suit.show_charge_UI ? 0 : INVISIBILITY_ABSTRACT
 			// Отображение концентрации
 			if(!hud.ninja_focus_display && owner.mind.martial_art && istype(owner.mind.martial_art, /datum/martial_art/ninja_martial_art))
 				creeping_widow = owner.mind.martial_art
@@ -666,7 +646,7 @@
 				hud.hidden_inventory_update()
 			if(creeping_widow && my_suit)	//На всякий случай.
 				hud.ninja_focus_display.icon_state = creeping_widow.has_focus ? "focus_active_[my_suit.color_choice]" : "focus"
-				hud.ninja_focus_display.invisibility = my_suit.show_concentration_UI ? 0 : 100
+				hud.ninja_focus_display.invisibility = my_suit.show_concentration_UI ? 0 : INVISIBILITY_ABSTRACT
 		else
 			owner.hud_used.remove_ninja_hud()
 

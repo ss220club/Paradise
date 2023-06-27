@@ -20,10 +20,10 @@
 	if(href_list["drop_from_cargo"])
 		var/obj/O = locate(sanitize(href_list["drop_from_cargo"]))
 		if(O && (O in cargo))
-			occupant_message("<span class='notice'>You unload [O].</span>")
+			occupant_message("<span class='notice'>Вы выгрузили [O].</span>")
 			O.forceMove(loc)
 			cargo -= O
-			log_message("Unloaded [O]. Cargo compartment capacity: [cargo_capacity - src.cargo.len]")
+			log_message("Выгружен [O]. Вместимость грузового отсека: [cargo_capacity - src.cargo.len]")
 	return
 
 /obj/mecha/makeshift/go_out()
@@ -53,9 +53,9 @@
 	output += "<b>Cargo Compartment Contents:</b><div style=\"margin-left: 15px;\">"
 	if(cargo.len)
 		for(var/obj/O in cargo)
-			output += "<a href='?src=\ref[src];drop_from_cargo=\ref[O]'>Unload</a> : [O]<br>"
+			output += "<a href='?src=\ref[src];drop_from_cargo=\ref[O]'>Выгрузить</a> : [O]<br>"
 	else
-		output += "Nothing"
+		output += "Ничего"
 	output += "</div>"
 	return output
 
@@ -90,7 +90,7 @@
 	force = 20
 	maint_access = 0
 	mech_enter_time = 20
-	max_equip = 3
+	max_equip = 4
 	wreckage = null
 
 /obj/mecha/combat/lockersyndie/go_out()
@@ -109,6 +109,8 @@
 	var/obj/item/mecha_parts/mecha_equipment/ME = new /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/heavy(src)
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/drill/diamonddrill(src)
+	ME.attach(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/antiproj_armor_booster(src)
 	ME.attach(src)
 
 /obj/mecha/combat/lockersyndie/Destroy()

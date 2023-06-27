@@ -2,7 +2,7 @@
 /obj/effect/nanomob
 	name = "Nano-Mob Avatar"					//will be overridden by the mob datum name value when created
 	desc = "A wild Nano-Mob appeared! Hit it with your PDA with the game open to attempt to capture it!"
-	invisibility = 101
+	invisibility = INVISIBILITY_ABSTRACT
 	alpha = 128
 	anchored = 1								//just in case
 	density = 0
@@ -21,7 +21,7 @@
 	update_self()
 	forceMove(mob_info.spawn_point)
 	if(!mob_info.is_trap)
-		addtimer(CALLBACK(src, .proc/despawn), mob_info.lifetime)
+		addtimer(CALLBACK(src, PROC_REF(despawn)), mob_info.lifetime)
 
 /obj/effect/nanomob/proc/update_self()
 	if(!mob_info)

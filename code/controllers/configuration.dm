@@ -276,6 +276,9 @@
 	/// Webhook URLs for the admin webhook
 	var/list/discord_admin_webhook_urls = list()
 
+	/// Webhook URLs for the requests webhook
+	var/list/discord_requests_webhook_urls = list()
+
 	/// Webhook URLs for the mentor webhook
 	var/list/discord_mentor_webhook_urls = list()
 
@@ -312,12 +315,15 @@
 	var/map_rotate = "none"
 	var/default_map = null
 	var/override_map = null
+	var/item_animations_enabled = FALSE
 
 	var/modify_pull_push_speed = FALSE
-  
+
 	var/pixel_shift = FALSE
   
 	var/ignore_obscured_mouth = FALSE
+
+	var/ai_heat = FALSE
 
 /datum/configuration/New()
 	for(var/T in subtypesof(/datum/game_mode))
@@ -845,6 +851,8 @@
 					discord_main_webhook_urls = splittext(value, "|")
 				if("discord_webhooks_admin_url")
 					discord_admin_webhook_urls = splittext(value, "|")
+				if("discord_webhooks_requests_url")
+					discord_requests_webhook_urls = splittext(value, "|")
 				if("discord_webhooks_mentor_url")
 					discord_mentor_webhook_urls = splittext(value, "|")
 				if("discord_forward_all_ahelps")
@@ -879,8 +887,11 @@
 				if("tts_token_silero")
 					tts_token_silero = value
 
+				if("tts_url_silero")
+					tts_url_silero = value
+
 				if("tts_enabled")
-					config.tts_enabled = tts_token_silero ? TRUE : FALSE
+					config.tts_enabled = tts_token_silero && tts_url_silero ? TRUE : FALSE
 
 				if("tts_cache")
 					config.tts_cache = TRUE
@@ -906,12 +917,18 @@
 				
 				if("modify_pull_push_speed")
 					config.modify_pull_push_speed = TRUE
-          
+
 				if("pixel_shift")
 					config.pixel_shift = TRUE
           
 				if("ignore_obscured_mouth")
 					config.ignore_obscured_mouth = TRUE
+
+				if("ai_heat")
+					config.ai_heat = TRUE
+
+				if("item_animations_enabled")
+					config.item_animations_enabled = TRUE
 
 				else
 					log_config("Unknown setting in configuration: '[name]'")
@@ -1073,6 +1090,11 @@
 			runnable_modes[M] = probabilities[M.config_tag]
 //			to_chat(world, "DEBUG: runnable_mode\[[runnable_modes.len]\] = [M.config_tag]")
 	return runnable_modes
+
+/datum/configuration/vv_get_var(var_name)
+	. = ..()
+	if(var_name == "comms_password")
+		return FALSE
 
 /datum/configuration/vv_edit_var(var_name, var_value)
 	if(findtext(var_name, "log_") && usr?.client?.holder?.rights != R_HOST)

@@ -45,6 +45,12 @@
 	helmet_type  = /obj/item/clothing/head/helmet/space/eva
 	mask_type    = /obj/item/clothing/mask/breath
 
+/obj/machinery/suit_storage_unit/standard_unit/ertamber
+	name = "ERT Amber storage unit"
+	suit_type    = /obj/item/clothing/suit/space/ert_eva_amber
+	helmet_type  = /obj/item/clothing/head/helmet/space/ert_eva_amber
+	mask_type    = /obj/item/clothing/mask/gas/sechailer
+	storage_type = /obj/item/tank/internals/oxygen/red
 /obj/machinery/suit_storage_unit/captain
 	name = "captain's suit storage unit"
 	desc = "An industrial U-Stor-It Storage unit designed to accomodate all kinds of space suits. Its on-board equipment also allows the user to decontaminate the contents through a UV-ray purging cycle. There's a warning label dangling from the control pad, reading \"STRICTLY NO BIOLOGICALS IN THE CONFINES OF THE UNIT\". This one looks kind of fancy."
@@ -292,18 +298,22 @@
 
 /obj/machinery/suit_storage_unit/attackby(obj/item/I, mob/user, params)
 	if(shocked)
+		add_fingerprint(user)
 		if(shock(user, 100))
 			return
 	if(!is_operational())
+		add_fingerprint(user)
 		if(panel_open)
 			to_chat(usr, "<span class='warning'>Close the maintenance panel first.</span>")
 		else
 			to_chat(usr, "<span class='warning'>The unit is not operational.</span>")
 		return
 	if(panel_open)
+		add_fingerprint(user)
 		wires.Interact(user)
 		return
 	if(state_open)
+		add_fingerprint(user)
 		if(store_item(I, user))
 			update_icon()
 			SStgui.update_uis(src)
@@ -340,8 +350,7 @@
 		storage = I
 		. = TRUE
 	if(.)
-		user.drop_item()
-		I.forceMove(src)
+		user.drop_transfer_item_to_loc(I, src)
 
 
 /obj/machinery/suit_storage_unit/power_change()
@@ -408,7 +417,7 @@
 			else
 				mob_occupant.adjustFireLoss(rand(10, 16))
 			mob_occupant.emote("scream")
-		addtimer(CALLBACK(src, .proc/cook), 50)
+		addtimer(CALLBACK(src, PROC_REF(cook)), 50)
 	else
 		uv_cycles = initial(uv_cycles)
 		uv = FALSE
@@ -467,7 +476,7 @@
 	if(locked)
 		visible_message("<span class='notice'>You see [user] kicking against the doors of [src]!</span>", \
 			"<span class='notice'>You start kicking against the doors...</span>")
-		addtimer(CALLBACK(src, .proc/resist_open, user), 300)
+		addtimer(CALLBACK(src, PROC_REF(resist_open), user), 300)
 	else
 		open_machine()
 		dump_contents()
@@ -590,7 +599,7 @@
 	else
 		helmet.forceMove(loc)
 		if(ishuman(usr))
-			usr.put_in_active_hand(helmet)
+			usr.put_in_active_hand(helmet, ignore_anim = FALSE)
 		helmet = null
 
 /obj/machinery/suit_storage_unit/proc/dispense_suit()
@@ -599,7 +608,7 @@
 	else
 		suit.forceMove(loc)
 		if(ishuman(usr))
-			usr.put_in_active_hand(suit)
+			usr.put_in_active_hand(suit, ignore_anim = FALSE)
 		suit = null
 
 /obj/machinery/suit_storage_unit/proc/dispense_mask()
@@ -608,7 +617,7 @@
 	else
 		mask.forceMove(loc)
 		if(ishuman(usr))
-			usr.put_in_active_hand(mask)
+			usr.put_in_active_hand(mask, ignore_anim = FALSE)
 		mask = null
 
 /obj/machinery/suit_storage_unit/proc/dispense_magboots()
@@ -617,7 +626,7 @@
 	else
 		magboots.forceMove(loc)
 		if(ishuman(usr))
-			usr.put_in_active_hand(magboots)
+			usr.put_in_active_hand(magboots, ignore_anim = FALSE)
 		magboots = null
 
 /obj/machinery/suit_storage_unit/proc/dispense_storage()
@@ -626,7 +635,7 @@
 	else
 		storage.forceMove(loc)
 		if(ishuman(usr))
-			usr.put_in_active_hand(storage)
+			usr.put_in_active_hand(storage, ignore_anim = FALSE)
 		storage = null
 
 /obj/machinery/suit_storage_unit/proc/toggle_open(mob/user as mob)
@@ -720,6 +729,8 @@
 		occupant = null
 
 /obj/machinery/suit_storage_unit/attack_ai(mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_NORMAL_ACTION_HEAT))
+		return
 	return attack_hand(user)
 
 /obj/machinery/suit_storage_unit/proc/check_electrified_callback()

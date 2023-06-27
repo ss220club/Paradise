@@ -205,7 +205,7 @@
 											"Completely Green" = image(icon = src.icon, icon_state = "greeninjector"),
 											"Green" = image(icon = src.icon, icon_state = "autoinjector"),
 											"Gray" = image(icon = src.icon, icon_state = "stimpen"))
-			var/choice = show_radial_menu(user, src, injector_icons, custom_check = CALLBACK(src, .proc/check_reskin, user))
+			var/choice = show_radial_menu(user, src, injector_icons, custom_check = CALLBACK(src, PROC_REF(check_reskin), user))
 			if(!choice || W.loc != user || src.loc != user)
 				return
 			if(C.uses <= 0)
@@ -286,8 +286,8 @@
 	list_reagents = list("salbutamol" = 10, "teporone" = 15, "epinephrine" = 10, "lavaland_extract" = 2, "weak_omnizine" = 5) //Short burst of healing, followed by minor healing from the saline
 
 /obj/item/reagent_containers/hypospray/autoinjector/nanocalcium
-	name = "nanocalcium autoinjector"
-	desc = "After a short period of time the nanites will slow the body's systems and assist with bone repair. Nanomachines son."
+	name = "protoype nanite autoinjector"
+	desc = "After a short period of time the nanites will slow the body's systems and assist with body repair. Nanomachines son."
 	icon_state = "bonepen"
 	amount_per_transfer_from_this = 30
 	volume = 30

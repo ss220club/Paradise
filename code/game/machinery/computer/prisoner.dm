@@ -16,6 +16,8 @@
 	light_color = LIGHT_COLOR_DARKRED
 
 /obj/machinery/computer/prisoner/attack_ai(var/mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/computer/prisoner/New()
@@ -98,8 +100,7 @@
 			if("0")
 				var/obj/item/card/id/prisoner/I = usr.get_active_hand()
 				if(istype(I))
-					usr.drop_item()
-					I.loc = src
+					usr.drop_transfer_item_to_loc(I, src)
 					inserted_id = I
 				else
 					to_chat(usr, "<span class='warning'>No valid ID.</span>")

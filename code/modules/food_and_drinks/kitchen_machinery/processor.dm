@@ -15,6 +15,13 @@
 	var/rating_speed = 1
 	var/rating_amount = 1
 
+/obj/machinery/processor/update_icon()
+	. = ..()
+	if(processing)
+		icon_state = "processor_on"
+		return
+	icon_state = initial(icon_state)
+
 /obj/machinery/processor/New()
 		..()
 		component_parts = list()
@@ -161,12 +168,14 @@
 	return 0
 
 /obj/machinery/processor/attackby(obj/item/O, mob/user, params)
+	add_fingerprint(user)
 
 	if(processing)
 		to_chat(user, "<span class='warning'>\the [src] is already processing something!</span>")
 		return 1
 
 	if(default_deconstruction_screwdriver(user, "processor_open", "processor", O))
+		add_fingerprint(user)
 		return
 
 	if(exchange_parts(user, O))
@@ -192,9 +201,8 @@
 	user.visible_message("<span class='notice'>\the [user] puts \the [what] into \the [src].</span>", \
 		"<span class='notice'>You put \the [what] into \the [src].")
 
-	user.drop_item()
+	user.drop_transfer_item_to_loc(what, src)
 
-	what.loc = src
 	return
 
 /obj/machinery/processor/attack_hand(mob/user)
@@ -208,7 +216,8 @@
 	if(contents.len == 0)
 		to_chat(user, "<span class='warning'>\the [src] is empty.</span>")
 		return 1
-	processing = 1
+	processing = TRUE
+	update_icon()
 	user.visible_message("[user] turns on [src].", \
 		"<span class='notice'>You turn on [src].</span>", \
 		"<span class='italics'>You hear a food processor.</span>")
@@ -229,7 +238,8 @@
 			log_debug("The [O] in processor([src]) does not have a suitable recipe, but it was somehow put inside of the processor anyways.")
 			continue
 		P.process_food(loc, O, src)
-	processing = 0
+	processing = FALSE
+	update_icon()
 
 	visible_message("<span class='notice'>\the [src] has finished processing.</span>", \
 		"<span class='notice'>\the [src] has finished processing.</span>", \

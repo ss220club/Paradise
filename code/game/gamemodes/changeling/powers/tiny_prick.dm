@@ -7,7 +7,7 @@
 
 /datum/action/changeling/sting/New(Target)
 	. = ..()
-	click_override = new /datum/middleClickOverride/callback_invoker(CALLBACK(src, .proc/try_to_sting))
+	click_override = new /datum/middleClickOverride/callback_invoker(CALLBACK(src, PROC_REF(try_to_sting)))
 
 /datum/action/changeling/sting/Trigger()
 	var/mob/user = owner
@@ -31,7 +31,7 @@
 	user.middleClickOverride = null
 	user.mind.changeling.chosen_sting = null
 	user.hud_used.lingstingdisplay.icon_state = null
-	user.hud_used.lingstingdisplay.invisibility = 101
+	user.hud_used.lingstingdisplay.invisibility = INVISIBILITY_ABSTRACT
 
 /mob/living/carbon/proc/unset_sting()
 	if(mind && mind.changeling && mind.changeling.chosen_sting)
@@ -117,7 +117,6 @@
 
 	spawn(10)
 		transform_dna(target,selected_dna)//target is always human so no problem here
-		target.tts_seed = user.tts_seed
 	SSblackbox.record_feedback("nested tally", "changeling_powers", 1, list("[name]"))
 	return TRUE
 

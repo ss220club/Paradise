@@ -71,8 +71,6 @@
 /obj/machinery/chem_master/update_icon()
 	overlays.Cut()
 	icon_state = "mixer[beaker ? "1" : "0"][powered() ? "" : "_nopower"]"
-	if(powered())
-		overlays += "waitlight"
 
 /obj/machinery/chem_master/blob_act(obj/structure/blob/B)
 	if(prob(50))
@@ -98,11 +96,11 @@
 		if(beaker)
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
 			return
-		if(!user.drop_item())
+		if(!user.drop_transfer_item_to_loc(I, src))
 			to_chat(user, "<span class='warning'>[I] is stuck to you!</span>")
 			return
+		add_fingerprint(user)
 		beaker = I
-		I.forceMove(src)
 		to_chat(user, "<span class='notice'>You add the beaker to the machine!</span>")
 		SStgui.update_uis(src)
 		update_icon()
@@ -112,12 +110,12 @@
 			to_chat(user, "<span class='warning'>A [loaded_pill_bottle] is already loaded into the machine.</span>")
 			return
 
-		if(!user.drop_item())
+		if(!user.drop_transfer_item_to_loc(I, src))
 			to_chat(user, "<span class='warning'>[I] is stuck to you!</span>")
 			return
 
+		add_fingerprint(user)
 		loaded_pill_bottle = I
-		I.forceMove(src)
 		to_chat(user, "<span class='notice'>You add [I] into the dispenser slot!</span>")
 		SStgui.update_uis(src)
 	else
@@ -226,7 +224,7 @@
 				return
 			beaker.forceMove(get_turf(src))
 			if(Adjacent(usr) && !issilicon(usr))
-				usr.put_in_hands(beaker)
+				usr.put_in_hands(beaker, ignore_anim = FALSE)
 			beaker = null
 			reagents.clear_reagents()
 			update_icon()
@@ -239,6 +237,8 @@
 			return FALSE
 
 /obj/machinery/chem_master/attack_ai(mob/user)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	return attack_hand(user)
 
 /obj/machinery/chem_master/attack_ghost(mob/user)

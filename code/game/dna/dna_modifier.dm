@@ -215,13 +215,13 @@
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
 			return
 
-		if(!user.drop_item())
+		if(!user.drop_transfer_item_to_loc(I, src))
 			to_chat(user, "<span class='warning'>\The [I] is stuck to you!</span>")
 			return
 
+		add_fingerprint(user)
 		beaker = I
 		SStgui.update_uis(src)
-		I.forceMove(src)
 		user.visible_message("[user] adds \a [I] to \the [src]!", "You add \a [I] to \the [src]!")
 		return
 	if(istype(I, /obj/item/grab))
@@ -352,7 +352,8 @@
 /obj/machinery/computer/scan_consolenew/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/disk/data)) //INSERT SOME diskS
 		if(!disk)
-			user.drop_item()
+			add_fingerprint(user)
+			user.drop_from_active_hand()
 			I.forceMove(src)
 			disk = I
 			to_chat(user, "You insert [I].")
@@ -361,17 +362,20 @@
 	else
 		return ..()
 
-/obj/machinery/computer/scan_consolenew/New()
-	..()
+/obj/machinery/computer/scan_consolenew/Initialize(mapload)
+	. = ..()
 	for(var/i=0;i<3;i++)
 		buffers[i+1]=new /datum/dna2/record
-	spawn(5)
-		for(dir in list(NORTH,EAST,SOUTH,WEST))
-			connected = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
-			if(!isnull(connected))
-				break
-		spawn(250)
-			injector_ready = TRUE
+	addtimer(CALLBACK(src, PROC_REF(find_machine)), 1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(ready)), 25 SECONDS)
+
+/obj/machinery/computer/scan_consolenew/proc/find_machine()
+	for(var/obj/machinery/dna_scannernew/scanner in orange(1, src))
+		connected = scanner
+		return
+
+/obj/machinery/computer/scan_consolenew/proc/ready()
+	injector_ready = TRUE
 
 /obj/machinery/computer/scan_consolenew/proc/all_dna_blocks(list/buffer)
 	var/list/arr = list()
@@ -391,6 +395,8 @@
 	return TRUE
 
 /obj/machinery/computer/scan_consolenew/attack_ai(mob/user)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	add_hiddenprint(user)
 	attack_hand(user)
 
@@ -399,6 +405,7 @@
 		for(dir in list(NORTH,EAST,SOUTH,WEST))
 			connected = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
 			if(!isnull(connected))
+				add_fingerprint(user)
 				attack_hand(user)
 				break
 	else
@@ -794,7 +801,7 @@
 
 	// Cooldown
 	injector_ready = FALSE
-	addtimer(CALLBACK(src, .proc/injector_cooldown_finish), 30 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(injector_cooldown_finish)), (30 / connected.precision_coeff) SECONDS)
 
 	// Create it
 	var/datum/dna2/record/buf = buffers[buffer_id]

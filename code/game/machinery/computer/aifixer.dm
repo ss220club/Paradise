@@ -14,6 +14,7 @@
 	if(occupant && istype(I, /obj/item/screwdriver))
 		if(stat & BROKEN)
 			..()
+		add_fingerprint(user)
 		if(stat & NOPOWER)
 			to_chat(user, "<span class='warning'>The screws on [name]'s screen won't budge.</span>")
 		else
@@ -22,6 +23,8 @@
 		return ..()
 
 /obj/machinery/computer/aifixer/attack_ai(var/mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	ui_interact(user)
 
 /obj/machinery/computer/aifixer/attack_hand(var/mob/user as mob)
@@ -64,7 +67,7 @@
 				to_chat(usr, "<span class='warning'>You are already fixing this AI!</span>")
 				return
 			active = TRUE
-			INVOKE_ASYNC(src, .proc/fix_ai)
+			INVOKE_ASYNC(src, PROC_REF(fix_ai))
 			add_fingerprint(usr)
 
 		if("wireless")

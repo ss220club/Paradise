@@ -115,10 +115,10 @@
 	. = ..()
 	if(!surpress_send) send_status()
 
-/obj/machinery/door/airlock/Bumped(atom/AM)
-	..(AM)
-	if(istype(AM, /obj/mecha))
-		var/obj/mecha/mecha = AM
+/obj/machinery/door/airlock/Bumped(atom/movable/moving_atom)
+	..(moving_atom)
+	if(istype(moving_atom, /obj/mecha))
+		var/obj/mecha/mecha = moving_atom
 		if(density && radio_connection && mecha.occupant && (allowed(mecha.occupant) || check_access_list(mecha.operation_req_access)))
 			send_status(1)
 	return
@@ -150,6 +150,7 @@
 	anchored = 1
 	resistance_flags = FIRE_PROOF
 	power_channel = ENVIRON
+	layer = 3.3
 
 	var/id_tag
 	var/master_tag
@@ -170,6 +171,7 @@
 		icon_state = "airlock_sensor_off"
 
 /obj/machinery/airlock_sensor/attack_hand(mob/user)
+	add_fingerprint(user)
 	var/datum/signal/signal = new
 	signal.transmission_method = 1 //radio signal
 	signal.data["tag"] = master_tag
@@ -230,6 +232,7 @@
 	name = "access button"
 	anchored = 1
 	power_channel = ENVIRON
+	layer = ABOVE_WINDOW_LAYER
 
 	var/master_tag
 	frequency = AIRLOCK_FREQ

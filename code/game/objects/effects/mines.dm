@@ -119,7 +119,7 @@
 	if(triggered)
 		return
 	triggered = 1
-	invisibility = 101
+	invisibility = INVISIBILITY_ABSTRACT
 	mineEffect(victim)
 	qdel(src)
 
@@ -147,7 +147,7 @@
 	victim.drop_r_hand()
 	victim.put_in_hands(chainsaw)
 	chainsaw.attack_self(victim)
-	chainsaw.wield(victim)
+	victim.mode()	// Same as wielded
 	victim.reagents.add_reagent("adminordrazine", 25)
 
 	victim.client.color = pure_red

@@ -187,12 +187,15 @@ GLOBAL_LIST_EMPTY(turret_icons)
 	updateUsrDialog()
 
 /obj/machinery/porta_turret/attack_ai(mob/user)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	ui_interact(user)
 
 /obj/machinery/porta_turret/attack_ghost(mob/user)
 	ui_interact(user)
 
 /obj/machinery/porta_turret/attack_hand(mob/user)
+	add_fingerprint(user)
 	ui_interact(user)
 
 /obj/machinery/porta_turret/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = TRUE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
@@ -340,6 +343,7 @@ GLOBAL_LIST_EMPTY(turret_icons)
 
 		wrenching = TRUE
 		if(do_after(user, 50 * I.toolspeed * gettoolspeedmod(user), target = src))
+			add_fingerprint(user)
 			//This code handles moving the turret around. After all, it's a portable turret!
 			if(!anchored)
 				playsound(loc, I.usesound, 100, 1)
@@ -354,7 +358,15 @@ GLOBAL_LIST_EMPTY(turret_icons)
 		wrenching = FALSE
 
 	else if(I.GetID() || ispda(I))
-		toggle_lock(user)
+		if(HasController())
+			to_chat(user, "<span class='notice'>Turrets regulated by a nearby turret controller are not unlockable.</span>")
+		else if(allowed(user))
+			add_fingerprint(user)
+			locked = !locked
+			to_chat(user, "<span class='notice'>Controls are now [locked ? "locked" : "unlocked"].</span>")
+			updateUsrDialog()
+		else
+			to_chat(user, "<span class='notice'>Access denied.</span>")
 
 	else
 		//if the turret was attacked with the intention of harming it:
@@ -387,7 +399,7 @@ GLOBAL_LIST_EMPTY(turret_icons)
 	if(!(stat & BROKEN))
 		playsound(src.loc, 'sound/weapons/slash.ogg', 25, 1, -1)
 		visible_message("<span class='danger'>[M] has slashed at [src]!</span>")
-		take_damage(15)
+		take_damage(M.attack_damage)
 	else
 		to_chat(M, "<span class='noticealien'>That object is useless to you.</span>")
 	return
@@ -770,6 +782,7 @@ GLOBAL_LIST_EMPTY(turret_icons)
 	switch(build_step)
 		if(0)	//first step
 			if(istype(I, /obj/item/wrench) && !anchored)
+				add_fingerprint(user)
 				playsound(loc, I.usesound, 100, 1)
 				to_chat(user, "<span class='notice'>You secure the external bolts.</span>")
 				anchored = TRUE
@@ -787,6 +800,7 @@ GLOBAL_LIST_EMPTY(turret_icons)
 			if(istype(I, /obj/item/stack/sheet/metal))
 				var/obj/item/stack/sheet/metal/M = I
 				if(M.use(2))
+					add_fingerprint(user)
 					to_chat(user, "<span class='notice'>You add some metal armor to the interior frame.</span>")
 					build_step = 2
 					icon_state = "turret_frame2"
@@ -795,6 +809,7 @@ GLOBAL_LIST_EMPTY(turret_icons)
 				return
 
 			else if(istype(I, /obj/item/wrench))
+				add_fingerprint(user)
 				playsound(loc, I.usesound, 75, 1)
 				to_chat(user, "<span class='notice'>You unfasten the external bolts.</span>")
 				anchored = FALSE
@@ -804,6 +819,7 @@ GLOBAL_LIST_EMPTY(turret_icons)
 
 		if(2)
 			if(istype(I, /obj/item/wrench))
+				add_fingerprint(user)
 				playsound(loc, I.usesound, 100, 1)
 				to_chat(user, "<span class='notice'>You bolt the metal armor into place.</span>")
 				build_step = 3
@@ -815,9 +831,10 @@ GLOBAL_LIST_EMPTY(turret_icons)
 				if(isrobot(user))
 					return
 				var/obj/item/gun/energy/E = I //typecasts the item to an energy gun
-				if(!user.unEquip(I))
+				if(!user.temporarily_remove_item_from_inventory(I))
 					to_chat(user, "<span class='notice'>\the [I] is stuck to your hand, you cannot put it in \the [src]</span>")
 					return
+				add_fingerprint(user)
 				installation = I.type //installation becomes I.type
 				gun_charge = E.cell.charge //the gun's charge is stored in gun_charge
 				to_chat(user, "<span class='notice'>You add [I] to the turret.</span>")
@@ -834,6 +851,7 @@ GLOBAL_LIST_EMPTY(turret_icons)
 				return
 
 			else if(istype(I, /obj/item/wrench))
+				add_fingerprint(user)
 				playsound(loc, I.usesound, 100, 1)
 				to_chat(user, "<span class='notice'>You remove the turret's metal armor bolts.</span>")
 				build_step = 2
@@ -841,9 +859,10 @@ GLOBAL_LIST_EMPTY(turret_icons)
 
 		if(4)
 			if(isprox(I))
-				if(!user.unEquip(I))
+				if(!user.temporarily_remove_item_from_inventory(I))
 					to_chat(user, "<span class='notice'>\the [I] is stuck to your hand, you cannot put it in \the [src]</span>")
 					return
+				add_fingerprint(user)
 				build_step = 5
 				qdel(I) // qdel
 				to_chat(user, "<span class='notice'>You add the prox sensor to the turret.</span>")
@@ -853,6 +872,7 @@ GLOBAL_LIST_EMPTY(turret_icons)
 
 		if(5)
 			if(istype(I, /obj/item/screwdriver))
+				add_fingerprint(user)
 				playsound(loc, I.usesound, 100, 1)
 				build_step = 6
 				to_chat(user, "<span class='notice'>You close the internal access hatch.</span>")
@@ -864,6 +884,7 @@ GLOBAL_LIST_EMPTY(turret_icons)
 			if(istype(I, /obj/item/stack/sheet/metal))
 				var/obj/item/stack/sheet/metal/M = I
 				if(M.use(2))
+					add_fingerprint(user)
 					to_chat(user, "<span class='notice'>You add some metal armor to the exterior frame.</span>")
 					build_step = 7
 				else
@@ -871,11 +892,13 @@ GLOBAL_LIST_EMPTY(turret_icons)
 				return
 
 			else if(istype(I, /obj/item/screwdriver))
+				add_fingerprint(user)
 				playsound(loc, I.usesound, 100, 1)
 				build_step = 5
 				to_chat(user, "<span class='notice'>You open the internal access hatch.</span>")
 				return
 			else if(istype(I, /obj/item/crowbar))
+				add_fingerprint(user)
 				playsound(loc, I.usesound, 75, 1)
 				to_chat(user, "<span class='notice'>You pry off the turret's exterior armor.</span>")
 				new /obj/item/stack/sheet/metal(loc, 2)
@@ -890,6 +913,7 @@ GLOBAL_LIST_EMPTY(turret_icons)
 		if(!in_range(src, usr) && loc != usr)
 			return
 
+		add_fingerprint(user)
 		finish_name = t
 		return
 	..()
@@ -918,6 +942,7 @@ GLOBAL_LIST_EMPTY(turret_icons)
 		Turret.installation = installation
 		Turret.gun_charge = gun_charge
 		Turret.enabled = FALSE
+		Turret.add_fingerprint(user)
 		Turret.setup()
 
 		qdel(src)
@@ -927,6 +952,7 @@ GLOBAL_LIST_EMPTY(turret_icons)
 		if(4)
 			if(!installation)
 				return
+			add_fingerprint(user)
 			build_step = 3
 
 			var/obj/item/gun/energy/Gun = new installation(loc)
@@ -937,6 +963,7 @@ GLOBAL_LIST_EMPTY(turret_icons)
 			to_chat(user, "<span class='notice'>You remove [Gun] from the turret frame.</span>")
 
 		if(5)
+			add_fingerprint(user)
 			to_chat(user, "<span class='notice'>You remove the prox sensor from the turret frame.</span>")
 			new /obj/item/assembly/prox_sensor(loc)
 			build_step = 4

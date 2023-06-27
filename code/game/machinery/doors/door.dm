@@ -88,15 +88,17 @@
 	QDEL_NULL(spark_system)
 	return ..()
 
-/obj/machinery/door/Bumped(atom/AM)
+/obj/machinery/door/Bumped(atom/movable/moving_atom)
+	..()
+
 	if(operating || emagged)
 		return
-	if(ismob(AM))
-		var/mob/B = AM
+	if(ismob(moving_atom))
+		var/mob/B = moving_atom
 		if((isrobot(B)) && B.stat)
 			return
-		if(isliving(AM))
-			var/mob/living/M = AM
+		if(isliving(moving_atom))
+			var/mob/living/M = moving_atom
 			if(world.time - M.last_bumped <= 10)
 				return	//Can bump-open one airlock per second. This is to prevent shock spam.
 			M.last_bumped = world.time
@@ -106,8 +108,8 @@
 				bumpopen(M)
 			return
 
-	if(ismecha(AM))
-		var/obj/mecha/mecha = AM
+	if(ismecha(moving_atom))
+		var/obj/mecha/mecha = moving_atom
 		if(density)
 			if(mecha.occupant)
 				if(world.time - mecha.occupant.last_bumped <= 10)
@@ -168,6 +170,8 @@
 			do_animate("deny")
 
 /obj/machinery/door/attack_ai(mob/user)
+	if(isAI(user) && !user:add_heat(AI_OPEN_DOOR_HEAT))
+		return
 	return attack_hand(user)
 
 /obj/machinery/door/attack_ghost(mob/user)
@@ -240,6 +244,7 @@
 	if(HAS_TRAIT(src, TRAIT_CMAGGED))
 		clean_cmag_ooze(I, user)
 	if(user.a_intent != INTENT_HARM && istype(I, /obj/item/twohanded/fireaxe))
+		add_fingerprint(user)
 		try_to_crowbar(user, I)
 		return 1
 	else if(!(I.flags & NOBLUDGEON) && user.a_intent != INTENT_HARM)
@@ -433,7 +438,7 @@
 		close()
 
 /obj/machinery/door/proc/autoclose_in(wait)
-	addtimer(CALLBACK(src, .proc/autoclose), wait, TIMER_UNIQUE | TIMER_NO_HASH_WAIT | TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(autoclose)), wait, TIMER_UNIQUE | TIMER_NO_HASH_WAIT | TIMER_OVERRIDE)
 
 /obj/machinery/door/proc/update_freelook_sight()
 	if(!glass && GLOB.cameranet)

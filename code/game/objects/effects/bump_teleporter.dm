@@ -6,7 +6,7 @@ GLOBAL_LIST_EMPTY(bump_teleporters)
 	icon_state = "x2"
 	var/id = null			//id of this bump_teleporter.
 	var/id_target = null	//id of bump_teleporter which this moves you to.
-	invisibility = 101 		//nope, can't see this
+	invisibility = INVISIBILITY_ABSTRACT 		//nope, can't see this
 	anchored = 1
 	density = 1
 	opacity = 0
@@ -25,8 +25,10 @@ GLOBAL_LIST_EMPTY(bump_teleporters)
 /obj/effect/bump_teleporter/singularity_pull()
 	return
 
-/obj/effect/bump_teleporter/Bumped(atom/user)
-	if(!ismob(user))
+/obj/effect/bump_teleporter/Bumped(atom/movable/moving_atom)
+	..()
+
+	if(!ismob(moving_atom))
 		//user.loc = src.loc	//Stop at teleporter location
 		return
 

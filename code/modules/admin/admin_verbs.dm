@@ -71,7 +71,8 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/start_vote,
 	/client/proc/list_ssds_afks,
 	/client/proc/ccbdb_lookup_ckey,
-	/client/proc/toggle_pacifism_gt
+	/client/proc/toggle_pacifism_gt,
+	/client/proc/toogle_ghost_vision
 ))
 GLOBAL_LIST_INIT(admin_verbs_ban, list(
 	/client/proc/ban_panel,
@@ -280,6 +281,8 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 			verbs += /client/proc/view_runtimes
 			spawn(1) // This setting exposes the profiler for people with R_VIEWRUNTIMES. They must still have it set in cfg/admin.txt
 				control_freak = 0
+		if(holder.rights & R_VAREDIT)
+			verbs += /client/proc/debug_variables
 
 
 /client/proc/remove_admin_verbs()
@@ -807,7 +810,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 			logmsg = "floor cluwne"
 		if("Shamebrero")
 			if(H.head)
-				H.unEquip(H.head, TRUE)
+				H.drop_item_ground(H.head, force = TRUE)
 			var/obj/item/clothing/head/sombrero/shamebrero/S = new(H.loc)
 			H.equip_to_slot_or_del(S, slot_head)
 			logmsg = "shamebrero"
@@ -946,7 +949,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	set name = "De-admin self"
 	set category = "Admin"
 
-	if(!check_rights(R_ADMIN|R_MOD|R_MENTOR))
+	if(!holder.rights || holder.rights == R_VIEWRUNTIMES)
 		return
 
 	log_admin("[key_name(usr)] deadmined themself.")

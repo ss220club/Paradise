@@ -100,7 +100,7 @@
 	universal_speak = 1
 	resting = TRUE
 
-/obj/effect/decal/remains/mouse/Pinkie
+/obj/effect/decal/remains/animals/mouse/Pinkie
 	name = "Пинки"
 	desc = "Когда-то это был напарник самой сообразительной крысы в мире. К сожалению он таковым не являлся..."
 	anchored = TRUE

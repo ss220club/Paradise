@@ -1,5 +1,7 @@
 /obj/item/stack/sheet/animalhide
 	name = "hide"
+	icon = 'icons/obj/stacks/organic.dmi'
+	icon_state = "sheet-monkey"
 	desc = "Something went wrong."
 	origin_tech = "biotech=3"
 
@@ -14,9 +16,9 @@ GLOBAL_LIST_INIT(human_recipes, list( \
 	new/datum/stack_recipe("bloated human costume head", /obj/item/clothing/head/human_head, 5, on_floor = TRUE), \
 	))
 
-/obj/item/stack/sheet/animalhide/human/New(var/loc, var/amount=null)
+/obj/item/stack/sheet/animalhide/human/Initialize(mapload, new_amount, merge = TRUE)
+	. = ..()
 	recipes = GLOB.human_recipes
-	return ..()
 
 /obj/item/stack/sheet/animalhide/generic
 	name = "generic skin"
@@ -51,8 +53,8 @@ GLOBAL_LIST_INIT(human_recipes, list( \
 GLOBAL_LIST_INIT(lizard_recipes, list(new/datum/stack_recipe("lizard skin handbag", /obj/item/storage/backpack/satchel_lizard, 5, on_floor = TRUE), new/datum/stack_recipe("lizard skin backpack",  /obj/item/storage/backpack/lizard, 5, on_floor = TRUE)))
 
 /obj/item/stack/sheet/animalhide/lizard/Initialize(mapload, new_amount, merge = TRUE)
+	. = ..()
 	recipes = GLOB.lizard_recipes
-	return ..()
 
 /obj/item/stack/sheet/animalhide/xeno
 	name = "alien hide"
@@ -65,8 +67,8 @@ GLOBAL_LIST_INIT(xeno_recipes, list (
 	new/datum/stack_recipe("alien suit", /obj/item/clothing/suit/xenos, 2)))
 
 /obj/item/stack/sheet/animalhide/xeno/Initialize(mapload, new_amount, merge = TRUE)
+	. = ..()
 	recipes = GLOB.xeno_recipes
-	return ..()
 
 //don't see anywhere else to put these, maybe together they could be used to make the xenos suit?
 /obj/item/stack/sheet/xenochitin
@@ -95,6 +97,7 @@ GLOBAL_LIST_INIT(xeno_recipes, list (
 	name = "hairless hide"
 	desc = "This hide was stripped of it's hair, but still needs tanning."
 	singular_name = "hairless hide piece"
+	icon = 'icons/obj/stacks/organic.dmi'
 	icon_state = "sheet-hairlesshide"
 	origin_tech = ""
 
@@ -102,6 +105,7 @@ GLOBAL_LIST_INIT(xeno_recipes, list (
 	name = "wet leather"
 	desc = "This leather has been cleaned but still needs to be dried."
 	singular_name = "wet leather piece"
+	icon = 'icons/obj/stacks/organic.dmi'
 	icon_state = "sheet-wetleather"
 	origin_tech = ""
 	var/wetness = 30 //Reduced when exposed to high temperautres
@@ -111,6 +115,7 @@ GLOBAL_LIST_INIT(xeno_recipes, list (
 	name = "leather"
 	desc = "The by-product of mob grinding."
 	singular_name = "leather piece"
+	icon = 'icons/obj/stacks/organic.dmi'
 	icon_state = "sheet-leather"
 	origin_tech = "materials=2"
 
@@ -127,9 +132,9 @@ GLOBAL_LIST_INIT(leather_recipes, list (
 	new/datum/stack_recipe("FireSuit", /obj/item/clothing/suit/fire/firefighter, 15),
 	new/datum/stack_recipe("hide mantle", /obj/item/clothing/neck/mantle/unathi, 4)))
 
-/obj/item/stack/sheet/leather/New(loc, new_amount, merge = TRUE)
+/obj/item/stack/sheet/leather/Initialize(mapload, new_amount, merge = TRUE)
+	. = ..()
 	recipes = GLOB.leather_recipes
-	return ..()
 
 /obj/item/stack/sheet/sinew
 	name = "watcher sinew"
@@ -143,9 +148,9 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 	new/datum/stack_recipe("sinew restraints", /obj/item/restraints/handcuffs/sinew, 1, on_floor = 1), \
 	))
 
-/obj/item/stack/sheet/sinew/New(var/loc, var/amount=null)
+/obj/item/stack/sheet/sinew/Initialize(mapload, new_amount, merge = TRUE)
+	. = ..()
 	recipes = GLOB.sinew_recipes
-	return ..()
 
 /obj/item/stack/sheet/animalhide/goliath_hide
 	name = "goliath hide plates"
@@ -229,8 +234,7 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 					src.use(1)
 					break
 			//If it gets to here it means it did not find a suitable stack on the tile.
-			var/obj/item/stack/sheet/hairlesshide/HS = new(usr.loc)
-			HS.amount = 1
+			new /obj/item/stack/sheet/hairlesshide(usr.loc, 1)
 			src.use(1)
 	else
 		..()
@@ -256,7 +260,6 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 					wetness = initial(wetness)
 					return
 			//If it gets to here it means it did not find a suitable stack on the tile.
-			var/obj/item/stack/sheet/leather/HS = new(src.loc)
-			HS.amount = 1
+			new /obj/item/stack/sheet/leather(src.loc, 1)
 			wetness = initial(wetness)
 			src.use(1)

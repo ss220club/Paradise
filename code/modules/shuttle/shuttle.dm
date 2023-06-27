@@ -4,7 +4,7 @@
 
 //NORTH default dir
 /obj/docking_port
-	invisibility = 101
+	invisibility = INVISIBILITY_ABSTRACT
 	icon = 'icons/obj/device.dmi'
 	//icon = 'icons/dirsquare.dmi'
 	icon_state = "pinonfar"
@@ -195,7 +195,6 @@
 /obj/docking_port/stationary/transit
 	name = "In transit"
 	turf_type = /turf/space/transit
-	var/area/shuttle/transit/assigned_area
 	lock_shuttle_doors = 1
 
 /obj/docking_port/stationary/transit/register()
@@ -932,7 +931,7 @@
 	desc = "Used to control the Transport Shuttle."
 	circuit = /obj/item/circuitboard/ruins_transport_shuttle
 	shuttleId = "ruins_transport_shuttle"
-	possible_destinations = "ussp_dock;dj_post;sindiecake_dock"
+	possible_destinations = "ussp_dock;dj_post;sindiecake_dock;ussp_gorky17"
 
 
 /obj/machinery/computer/shuttle/ruins_civil_shuttle // made another shuttle, this one will fly between spacebar and twin nexus hotel. just another way to get to it.

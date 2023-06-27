@@ -21,9 +21,11 @@
 // Use this when setting the aiEye's location.
 // It will also stream the chunk that the new loc is in.
 
-/mob/camera/aiEye/setLoc(T)
+/mob/camera/aiEye/setLoc(T, teleported = FALSE)
 	if(ai)
 		if(!isturf(ai.loc))
+			return
+		if(!(teleported || ai.add_heat(AI_MOVE_HEAT)))
 			return
 		T = get_turf(T)
 		loc = T
@@ -48,9 +50,8 @@
 /mob/camera/aiEye/proc/RemoveImages()
 	var/client/C = GetViewerClient()
 	if(C && use_static)
-		for(var/V in visibleCameraChunks)
-			var/datum/camerachunk/chunk = V
-			C.images -= chunk.obscured
+		for(var/datum/camerachunk/chunk in visibleCameraChunks)
+			chunk.remove(src)
 
 /mob/camera/aiEye/Destroy()
 	if(ai)
@@ -109,6 +110,9 @@
 	set category = "AI Commands"
 	set name = "AI Core"
 
+	if(!add_heat(AI_JUMPTO_CORE_HEAT))
+		return
+
 	view_core()
 
 /mob/living/silicon/ai/proc/view_core()
@@ -123,7 +127,7 @@
 		to_chat(src, "ERROR: Eyeobj not found. Creating new eye...")
 		create_eye()
 
-	eyeobj.setLoc(loc)
+	eyeobj.setLoc(loc, teleported = TRUE)
 
 /mob/living/silicon/ai/proc/create_eye()
 	if(eyeobj)

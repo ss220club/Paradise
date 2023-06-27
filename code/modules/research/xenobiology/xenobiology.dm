@@ -188,6 +188,9 @@
 	if(!isanimal(M) && !ismonkeybasic(M)) //работает только на животных и низших формах карбонов
 		to_chat(user, "<span class='warning'>[M] is not animal nor lesser life form!</span>")
 		return ..()
+	if(istype(M, /mob/living/simple_animal/hostile/poison/giant_spider/nurse))
+		to_chat(user, "<span class='warning'>unknown power prevents you from using sentience potion on [M]</span>")
+		return ..()
 	if(M.stat)
 		to_chat(user, "<span class='warning'>[M] is dead!</span>")
 		return ..()
@@ -381,6 +384,10 @@
 	to_chat(SM, "<span class='notice'>In a quick flash, you feel your consciousness flow into [SM]!</span>")
 	to_chat(SM, "<span class='warning'>You are now [SM]. Your allegiances, alliances, and roles are still the same as they were prior to consciousness transfer!</span>")
 	SM.name = "[SM.name] as [user.real_name]"
+	if(istype(SM, /mob/living/simple_animal/hostile/lightgeist))
+		if(!GLOB.med_hud_users.Find(SM))
+			var/datum/atom_hud/medsensor = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
+			medsensor.add_hud_to(SM)
 	qdel(src)
 
 /obj/item/slimepotion/slime/steroid
@@ -606,7 +613,7 @@
 /obj/item/slimepotion/clothing/laserresistance
 	name = "laser resistance slime potion"
 	id = "Laser Resistance"
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 5,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 10,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	desc = "A potent chemical mix that will increase laser resistance of any article of clothing."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle4"
@@ -697,7 +704,7 @@
 /obj/item/slimepotion/clothing/damage
 	name = "Physical damage resistance slime potion"
 	id = "Damage Resistance"
-	armor = list("melee" = 5, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("melee" = 10, "bullet" = 10, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	desc = "A potent chemical mix that will increase impact and gunshot resistance of any article of clothing."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle10"

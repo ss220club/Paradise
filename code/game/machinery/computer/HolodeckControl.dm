@@ -13,6 +13,8 @@
 	light_color = LIGHT_COLOR_CYAN
 
 /obj/machinery/computer/HolodeckControl/attack_ai(var/mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	return attack_hand(user)
 
 
@@ -230,7 +232,7 @@
 	if(isobj(obj))
 		var/mob/M = obj.loc
 		if(ismob(M))
-			M.unEquip(obj, 1) //Holoweapons should always drop.
+			M.temporarily_remove_item_from_inventory(obj, force = TRUE) //Holoweapons should always drop.
 
 	if(!silent)
 		var/obj/oldobj = obj
@@ -362,6 +364,9 @@
 	underlay_appearance.plane = PLANE_SPACE
 	return TRUE
 
+/obj/structure/table/holotable/has_prints()
+	return FALSE
+
 /obj/structure/table/holotable
 	flags = NODECONSTRUCT
 	canSmoothWith = list(/obj/structure/table/holotable)
@@ -373,6 +378,9 @@
 	icon_state = "wood_table"
 	canSmoothWith = list(/obj/structure/table/holotable/wood)
 
+/obj/structure/chair/stool/holostool/has_prints()
+	return FALSE
+
 /obj/structure/chair/stool/holostool
 	flags = NODECONSTRUCT
 	item_chair = null
@@ -382,6 +390,9 @@
 	desc = "Because you really needed another excuse to punch your crewmates."
 	icon_state = "boxing"
 	item_state = "boxing"
+
+/obj/structure/holowindow/has_prints()
+	return FALSE
 
 /obj/structure/holowindow
 	name = "reinforced window"
@@ -393,6 +404,9 @@
 	pressure_resistance = 4*ONE_ATMOSPHERE
 	anchored = 1.0
 	flags = ON_BORDER
+
+/obj/structure/rack/holorack/has_prints()
+	return FALSE
 
 /obj/structure/rack/holorack
 	flags = NODECONSTRUCT
@@ -510,9 +524,12 @@
 		qdel(W)
 		return
 	else if(istype(W, /obj/item) && get_dist(src,user)<2)
-		user.drop_item(src)
+		user.drop_from_active_hand(src)
 		visible_message("<span class='notice'>[user] dunks [W] into the [src]!</span>")
 		return
+
+/obj/structure/holohoop/has_prints()
+	return FALSE
 
 /obj/structure/holohoop/CanPass(atom/movable/mover, turf/target, height=0)
 	if(istype(mover,/obj/item) && mover.throwing)
@@ -560,6 +577,7 @@
 	return
 
 /obj/machinery/readybutton/attackby(obj/item/W as obj, mob/user as mob, params)
+	add_fingerprint(user)
 	to_chat(user, "The device is a solid button, there's nothing you can do with it!")
 
 /obj/machinery/readybutton/attack_hand(mob/user as mob)
@@ -575,6 +593,7 @@
 		to_chat(usr, "The event has already begun!")
 		return
 
+	add_fingerprint(user)
 	ready = !ready
 
 	update_icon()

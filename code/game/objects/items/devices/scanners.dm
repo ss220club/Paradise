@@ -11,9 +11,8 @@ REAGENT SCANNER
 	desc = "A terahertz-ray emitter and scanner used to detect underfloor objects such as cables and pipes."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "t-ray0"
-	var/on = 0
+	var/on = FALSE
 	slot_flags = SLOT_BELT
-	w_class = 2
 	w_class = WEIGHT_CLASS_SMALL
 	item_state = "electronic"
 	materials = list(MAT_METAL=150)
@@ -21,29 +20,24 @@ REAGENT SCANNER
 	var/scan_range = 1
 	var/pulse_duration = 10
 
-/obj/item/t_scanner/longer_pulse
-	pulse_duration = 50
-
 /obj/item/t_scanner/extended_range
 	scan_range = 3
-
-/obj/item/t_scanner/extended_range/longer_pulse
-	scan_range = 3
-	pulse_duration = 50
 
 /obj/item/t_scanner/Destroy()
 	if(on)
 		STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/item/t_scanner/attack_self(mob/user)
-
+/obj/item/t_scanner/proc/toggle_on()
 	on = !on
-	icon_state = copytext(icon_state, 1, length(icon_state))+"[on]"
-
+	icon_state = copytext_char(icon_state, 1, -1) + "[on]"
 	if(on)
 		START_PROCESSING(SSobj, src)
+	else
+		STOP_PROCESSING(SSobj, src)
 
+/obj/item/t_scanner/attack_self(mob/user)
+	toggle_on()
 
 /obj/item/t_scanner/process()
 	if(!on)
@@ -52,43 +46,25 @@ REAGENT SCANNER
 	scan()
 
 /obj/item/t_scanner/proc/scan()
+	t_ray_scan(loc, pulse_duration, scan_range)
 
-	for(var/turf/scan_turf in range(scan_range, src.loc) )
-
-		if(!scan_turf.intact)
+/proc/t_ray_scan(mob/viewer, flick_time, distance)
+	if(!ismob(viewer) || !viewer.client)
+		return
+	var/list/t_ray_images = list()
+	for(var/obj/object in orange(distance, viewer))
+		if(object.level != 1)
 			continue
 
-		for(var/obj/in_turf_object in scan_turf.contents)
-
-			if(in_turf_object.level != 1)
-				continue
-
-			if(in_turf_object.invisibility == 101)
-				in_turf_object.invisibility = 0
-				in_turf_object.alpha = 128
-				in_turf_object.drain_act_protected = TRUE
-				spawn(pulse_duration)
-					if(in_turf_object)
-						var/turf/objects_turf = in_turf_object.loc
-						if(objects_turf && objects_turf.intact)
-							in_turf_object.invisibility = 101
-						in_turf_object.alpha = 255
-						in_turf_object.drain_act_protected = FALSE
-		for(var/mob/living/in_turf_mob in scan_turf.contents)
-			var/oldalpha = in_turf_mob.alpha
-			if(in_turf_mob.alpha < 255 && istype(in_turf_mob))
-				in_turf_mob.alpha = 255
-				spawn(10)
-					if(in_turf_mob)
-						in_turf_mob.alpha = oldalpha
-
-		var/mob/living/in_turf_mob = locate() in scan_turf
-
-		if(in_turf_mob && in_turf_mob.invisibility == INVISIBILITY_LEVEL_TWO)
-			in_turf_mob.invisibility = 0
-			spawn(2)
-				if(in_turf_mob)
-					in_turf_mob.invisibility = INVISIBILITY_LEVEL_TWO
+		if(object.invisibility == INVISIBILITY_MAXIMUM)
+			var/image/image = new(loc = get_turf(object))
+			var/mutable_appearance/mutable_appearance = new(object)
+			mutable_appearance.alpha = 128
+			mutable_appearance.dir = object.dir
+			image.appearance = mutable_appearance
+			t_ray_images += image
+	if(length(t_ray_images))
+		flick_overlay(t_ray_images, list(viewer.client), flick_time)
 
 /obj/item/t_scanner/security
 	name = "Противо-маскировочное ТГц устройство"
@@ -158,7 +134,7 @@ REAGENT SCANNER
 				alerted_mob.do_alert_animation(alerted_mob)
 				alerted_mob.playsound_local(alerted, 'sound/machines/chime.ogg', 15, 0)
 		was_alerted = TRUE
-		addtimer(CALLBACK(src, .proc/end_alert_cd), 1 MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(end_alert_cd)), 1 MINUTES)
 
 /obj/item/t_scanner/security/proc/end_alert_cd()
 	was_alerted = FALSE
@@ -275,14 +251,14 @@ REAGENT SCANNER
 
 	playsound(loc, 'sound/goonstation/machines/printer_dotmatrix.ogg', 50, TRUE)
 	sleep(3 SECONDS)
-	var/obj/item/paper/P = new(get_turf(src))
+	var/obj/item/paper/P = new(drop_location())
 	P.name = scan_title
 	P.header += "<center><b>[scan_title]</b></center><br>"
 	P.header += "<b>Время сканирования:</b> [station_time_timestamp()]<br><br>"
 	P.header += "[scan_data]"
 	P.info += "<br><br><b>Заметки:</b><br>"
 	if(in_range(user, src))
-		user.put_in_hands(P)
+		user.put_in_hands(P, ignore_anim = FALSE)
 		user.visible_message("<span class='notice'>[src.declent_ru(NOMINATIVE)] [pluralize_ru(src.gender,"выдаёт","выдают")] лист с отчётом.</span>")
 	GLOB.copier_items_printed++
 	reports_printed++
@@ -558,7 +534,7 @@ REAGENT SCANNER
 		if(advanced)
 			to_chat(user, "<span class='notice'>Модуль обновления уже установлен на [src].</span>")
 		else
-			if(user.unEquip(I))
+			if(user.drop_transfer_item_to_loc(I, src))
 				to_chat(user, "<span class='notice'>Вы установили модуль обновления на [src].</span>")
 				add_overlay("advanced")
 				playsound(loc, I.usesound, 50, 1)
@@ -648,13 +624,13 @@ REAGENT SCANNER
 		playsound(loc, 'sound/goonstation/machines/printer_thermal.ogg', 50, 1)
 		sleep(50)
 
-		var/obj/item/paper/P = new(get_turf(src))
+		var/obj/item/paper/P = new(drop_location())
 		P.name = "Reagent Scanner Report: [station_time_timestamp()]"
 		P.info = "<center><b>Reagent Scanner</b></center><br><center>Data Analysis:</center><br><hr><br><b>Chemical agents detected:</b><br> [datatoprint]<br><hr>"
 
 		if(ismob(loc))
 			var/mob/M = loc
-			M.put_in_hands(P)
+			M.put_in_hands(P, ignore_anim = FALSE)
 			to_chat(M, "<span class='notice'>Report printed. Log cleared.</span>")
 			datatoprint = ""
 			scanning = TRUE
@@ -813,11 +789,11 @@ REAGENT SCANNER
 		var/report = generate_printing_text(M, user)
 		user.visible_message("[user] begins scanning [M] with [src].", "You begin scanning [M].")
 		if(do_after(user, scan_time, target = M))
-			var/obj/item/paper/printout = new
+			var/obj/item/paper/printout = new(drop_location())
 			printout.info = report
 			printout.name = "Scan report - [M.name]"
 			playsound(user.loc, 'sound/goonstation/machines/printer_dotmatrix.ogg', 50, 1)
-			user.put_in_hands(printout)
+			user.put_in_hands(printout, ignore_anim = FALSE)
 			time_to_use = world.time + scan_cd
 			if(isrobot(user))
 				var/mob/living/silicon/robot/R = user
@@ -826,14 +802,14 @@ REAGENT SCANNER
 				cell.use(usecharge)
 			ready = FALSE
 			update_icon(TRUE)
-			addtimer(CALLBACK(src, /obj/item/bodyanalyzer/.proc/setReady), scan_cd)
-			addtimer(CALLBACK(src, /obj/item/bodyanalyzer/.proc/update_icon), 20)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/bodyanalyzer, setReady)), scan_cd)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/bodyanalyzer, update_icon)), 20)
 
 	else if(iscorgi(M) && M.stat == DEAD)
 		to_chat(user, "<span class='notice'>You wonder if [M.p_they()] was a good dog. <b>[src] tells you they were the best...</b></span>") // :'(
 		playsound(loc, 'sound/machines/ping.ogg', 50, 0)
 		ready = FALSE
-		addtimer(CALLBACK(src, /obj/item/bodyanalyzer/.proc/setReady), scan_cd)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/bodyanalyzer, setReady)), scan_cd)
 		time_to_use = world.time + scan_cd
 	else
 		to_chat(user, "<span class='notice'>Scanning error detected. Invalid specimen.</span>")

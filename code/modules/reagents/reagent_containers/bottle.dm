@@ -246,6 +246,21 @@
 	desc = "A bottle of glowing fluid."
 	list_reagents = list("strange_reagent" = 30)
 
+/obj/item/reagent_containers/glass/bottle/reagent/hydrogen
+	name = "Hydroden Bottle"
+	list_reagents = list("hydrogen" = 5)
+
+/obj/item/reagent_containers/glass/bottle/reagent/phosphorus
+	name = "Phosphorus Bottle"
+	list_reagents = list("phosphorus" = 5)
+
+/obj/item/reagent_containers/glass/bottle/reagent/iodine
+	name = "Iodine Bottle"
+	list_reagents = list("iodine" = 5)
+/obj/item/reagent_containers/glass/bottle/reagent/ephedrine
+	name = "Ephedrine Bottle"
+	list_reagents = list("ephedrine" = 5)
+
 ////////////////////Traitor Poison Bottle//////////////////////////////
 
 /obj/item/reagent_containers/glass/bottle/traitor
@@ -253,9 +268,9 @@
 	possible_transfer_amounts = list(5,10,15,25,30,40)
 	volume = 40
 
-/obj/item/reagent_containers/glass/bottle/traitor/New()
-	..()
+/obj/item/reagent_containers/glass/bottle/traitor/Initialize(mapload)
 	reagents.add_reagent(pick_list("chemistry_tools.json", "traitor_poison_bottle"), 40)
+	. = ..()
 
 /obj/item/reagent_containers/glass/bottle/plasma
 	name = "plasma dust bottle"

@@ -13,11 +13,13 @@
 	operation_req_access = list(ACCESS_CENT_SPECOPS)
 	wreckage = /obj/structure/mecha_wreckage/marauder
 	add_req_access = 0
+	maint_access = 0
 	internal_damage_threshold = 25
 	force = 45
 	max_equip = 5
 	starting_voice = /obj/item/mecha_modkit/voice/nanotrasen
 	destruction_sleep_duration = 1
+	strafe_allowed = TRUE
 
 /obj/mecha/combat/marauder/GrantActions(mob/living/user, human_occupant = 0)
 	. = ..()
@@ -45,7 +47,7 @@
 	ME.attach(src)
 
 /obj/mecha/combat/marauder/add_cell()
-	cell = new /obj/item/stock_parts/cell/bluespace(src)
+	cell = new /obj/item/stock_parts/cell/infinite/abductor(src)
 
 /obj/mecha/combat/marauder/seraph
 	desc = "Heavy-duty, command-type exosuit. This is a custom model, utilized only by high-ranking military personnel."
@@ -98,7 +100,10 @@
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/medium(src)
 	ME.attach(src)
-	ME = new /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay(src)
+	ME = new /obj/item/mecha_parts/mecha_equipment/repair_droid(src)
 	ME.attach(src)
 	ME = new /obj/item/mecha_parts/mecha_equipment/antiproj_armor_booster(src)
 	ME.attach(src)
+
+/obj/mecha/combat/marauder/mauler/loaded/add_cell()
+	cell = new /obj/item/stock_parts/cell/high/slime(src)

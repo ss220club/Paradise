@@ -51,6 +51,8 @@
 			playsound(src.loc, 'sound/items/welder.ogg', 100, TRUE)
 
 /obj/structure/sign/barsign/attack_ai(mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_NORMAL_ACTION_HEAT))
+		return
 	return src.attack_hand(user)
 
 /obj/structure/sign/barsign/attack_hand(mob/user as mob)
@@ -61,6 +63,7 @@
 		to_chat(user, "<span class ='danger'>The controls seem unresponsive.</span>")
 		return
 
+	add_fingerprint(user)
 	pick_sign()
 
 /obj/structure/sign/barsign/screwdriver_act(mob/user, obj/item/I)
@@ -93,6 +96,7 @@
 
 		var/obj/item/stack/cable_coil/C = I
 		if(C.use(2))
+			add_fingerprint(user)
 			to_chat(user, "<span class='notice'>You replace the burnt wiring.</span>")
 			broken = FALSE
 		else
@@ -110,7 +114,7 @@
 		to_chat(user, "<span class='warning'>Nothing interesting happens!</span>")
 		return
 	to_chat(user, "<span class='notice'>You emag the barsign. Takeover in progress...</span>")
-	addtimer(CALLBACK(src, .proc/post_emag), 100)
+	addtimer(CALLBACK(src, PROC_REF(post_emag)), 100)
 
 /obj/structure/sign/barsign/proc/post_emag()
 	if(broken || emagged)

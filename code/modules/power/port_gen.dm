@@ -280,6 +280,7 @@
 		if(amount < 1)
 			to_chat(user, "<span class='notice'>The [src.name] is full!</span>")
 			return
+		add_fingerprint(user)
 		to_chat(user, "<span class='notice'>You add [amount] sheet\s to the [src.name].</span>")
 		sheets += amount
 		addstack.use(amount)
@@ -310,6 +311,7 @@
 			return
 		else if(istype(O, /obj/item/crowbar) && panel_open)
 			default_deconstruction_crowbar(user, O)
+		add_fingerprint(user)
 	else
 		return ..()
 
@@ -318,6 +320,8 @@
 	ui_interact(user)
 
 /obj/machinery/power/port_gen/pacman/attack_ai(var/mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_NORMAL_ACTION_HEAT))
+		return
 	add_hiddenprint(user)
 	return attack_hand(user)
 

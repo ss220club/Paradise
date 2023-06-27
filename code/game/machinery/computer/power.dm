@@ -65,12 +65,14 @@
 		return attached.powernet
 
 /obj/machinery/computer/monitor/attack_ai(mob/user)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	attack_hand(user)
 
 /obj/machinery/computer/monitor/attack_hand(mob/user)
-	add_fingerprint(user)
 	if(stat & (BROKEN|NOPOWER))
 		return
+	add_fingerprint(user)
 	// Update the powernet
 	powernet = find_powernet()
 	ui_interact(user)

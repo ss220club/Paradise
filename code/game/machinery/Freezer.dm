@@ -11,6 +11,7 @@
 	current_heat_capacity = 1000
 	layer = 3
 	plane = GAME_PLANE
+	resistance_flags = null
 	max_integrity = 300
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 100, "bomb" = 0, "bio" = 100, "rad" = 100, "fire" = 80, "acid" = 30)
 
@@ -100,6 +101,8 @@
 	return
 
 /obj/machinery/atmospherics/unary/cold_sink/freezer/attack_ai(mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_NORMAL_ACTION_HEAT))
+		return
 	attack_hand(user)
 
 /obj/machinery/atmospherics/unary/cold_sink/freezer/attack_ghost(mob/user as mob)
@@ -110,6 +113,7 @@
 		to_chat(user, "<span class='notice'>Сначала закройте панель техобслуживания.</span>")
 		return
 
+	add_fingerprint(user)
 	ui_interact(user)
 
 /obj/machinery/atmospherics/unary/cold_sink/freezer/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = TRUE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
@@ -268,6 +272,8 @@
 	return
 
 /obj/machinery/atmospherics/unary/heat_reservoir/heater/attack_ai(mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_NORMAL_ACTION_HEAT))
+		return
 	attack_hand(user)
 
 /obj/machinery/atmospherics/unary/heat_reservoir/heater/attack_ghost(mob/user as mob)
@@ -277,6 +283,8 @@
 	if(panel_open)
 		to_chat(user, "<span class='notice'>Сначала закройте панель техобслуживания.</span>")
 		return
+
+	add_fingerprint(user)
 	ui_interact(user)
 
 /obj/machinery/atmospherics/unary/heat_reservoir/heater/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = TRUE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)

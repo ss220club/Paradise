@@ -138,12 +138,22 @@
 		return
 	recharge_counter++
 
+/obj/machinery/chem_dispenser/update_icon()
+	if(panel_open)
+		icon_state = "[initial(icon_state)]-o"
+		return
+	if(!powered() && !is_drink)
+		icon_state = "dispenser_nopower"
+		return
+	icon_state = "[initial(icon_state)][beaker ? "_working" : ""]"
+
 /obj/machinery/chem_dispenser/power_change()
 	if(powered())
 		stat &= ~NOPOWER
 	else
 		spawn(rand(0, 15))
 			stat |= NOPOWER
+	update_icon()
 
 /obj/machinery/chem_dispenser/ex_act(severity)
 	if(severity < 3)
@@ -220,11 +230,6 @@
 				atom_say("Недостаточно энергии для завершения операции!")
 				return
 			R.add_reagent(params["reagent"], actual)
-			overlays.Cut()
-			if(!icon_beaker)
-				icon_beaker = mutable_appearance('icons/obj/chemical.dmi', "disp_beaker") //randomize beaker overlay position.
-			icon_beaker.pixel_x = rand(-10, 5)
-			overlays += icon_beaker
 		if("remove")
 			var/amount = text2num(params["amount"])
 			if(!beaker || !amount)
@@ -240,9 +245,10 @@
 				return
 			beaker.forceMove(loc)
 			if(Adjacent(usr) && !issilicon(usr))
-				usr.put_in_hands(beaker)
+				usr.put_in_hands(beaker, ignore_anim = FALSE)
 			beaker = null
 			overlays.Cut()
+			update_icon()
 		else
 			return FALSE
 
@@ -264,17 +270,14 @@
 		if(panel_open)
 			to_chat(user, "<span class='notice'>Close the maintenance panel first.</span>")
 			return
-		if(!user.drop_item())
+		if(!user.drop_transfer_item_to_loc(I, src))
 			to_chat(user, "<span class='warning'>[I] is stuck to you!</span>")
 			return
+		add_fingerprint(user)
 		beaker =  I
-		I.forceMove(src)
 		to_chat(user, "<span class='notice'>You set [I] on the machine.</span>")
 		SStgui.update_uis(src) // update all UIs attached to src
-		if(!icon_beaker)
-			icon_beaker = mutable_appearance('icons/obj/chemical.dmi', "disp_beaker") //randomize beaker overlay position.
-		icon_beaker.pixel_x = rand(-10, 5)
-		overlays += icon_beaker
+		update_icon()
 		return
 	return ..()
 
@@ -324,6 +327,8 @@
 		WRENCH_ANCHOR_MESSAGE
 
 /obj/machinery/chem_dispenser/attack_ai(mob/user)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	return attack_hand(user)
 
 /obj/machinery/chem_dispenser/attack_ghost(mob/user)
@@ -334,6 +339,7 @@
 /obj/machinery/chem_dispenser/attack_hand(mob/user)
 	if(stat & BROKEN)
 		return
+	add_fingerprint(user)
 	ui_interact(user)
 
 /obj/machinery/chem_dispenser/soda
@@ -426,6 +432,18 @@
 	component_parts += new /obj/item/stock_parts/matter_bin(null)
 	component_parts += new /obj/item/stock_parts/capacitor(null)
 	component_parts += new /obj/item/stock_parts/manipulator(null)
+	component_parts += new /obj/item/stack/sheet/glass(null)
+	component_parts += new cell_type(null)
+	RefreshParts()
+
+/obj/machinery/chem_dispenser/botanical/upgraded/New()
+	..()
+	QDEL_LIST(component_parts)
+	component_parts += new /obj/item/circuitboard/chem_dispenser/botanical(null)
+	component_parts += new /obj/item/stock_parts/matter_bin/bluespace(null)
+	component_parts += new /obj/item/stock_parts/matter_bin/bluespace(null)
+	component_parts += new /obj/item/stock_parts/capacitor/quadratic(null)
+	component_parts += new /obj/item/stock_parts/manipulator/femto(null)
 	component_parts += new /obj/item/stack/sheet/glass(null)
 	component_parts += new cell_type(null)
 	RefreshParts()
@@ -593,9 +611,8 @@
 			if(C.maxcharge < 100)
 				to_chat(user, "<span class='notice'>[src] requires a higher capacity cell.</span>")
 				return
-			if(!user.unEquip(W))
+			if(!user.drop_transfer_item_to_loc(W, src))
 				return
-			W.loc = src
 			cell = W
 			to_chat(user, "<span class='notice'>You install a cell in [src].</span>")
 			update_icon()

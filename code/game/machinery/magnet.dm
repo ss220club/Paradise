@@ -46,7 +46,7 @@
 
 	// update the invisibility and icon
 /obj/machinery/magnetic_module/hide(intact)
-	invisibility = intact ? 101 : 0
+	invisibility = intact ? INVISIBILITY_MAXIMUM : 0
 	updateicon()
 
 	// update the icon_state
@@ -230,6 +230,8 @@
 
 
 /obj/machinery/magnetic_controller/attack_ai(mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_NORMAL_ACTION_HEAT))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/magnetic_controller/attack_hand(mob/user as mob)
@@ -252,6 +254,7 @@
 			i++
 			dat += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;< \[[i]\] (<a href='?src=[UID()];radio-op=togglepower'>[M.on ? "On":"Off"]</a>) | Electricity level: <a href='?src=[UID()];radio-op=minuselec'>-</a> [M.electricity_level] <a href='?src=[UID()];radio-op=pluselec'>+</a>; Magnetic field: <a href='?src=[UID()];radio-op=minusmag'>-</a> [M.magnetic_field] <a href='?src=[UID()];radio-op=plusmag'>+</a><br>"
 
+	add_fingerprint(user)
 	dat += "<br>Speed: <a href='?src=[UID()];operation=minusspeed'>-</a> [speed] <a href='?src=[UID()];operation=plusspeed'>+</a><br>"
 	dat += "Path: {<a href='?src=[UID()];operation=setpath'>[path]</a>}<br>"
 	dat += "Moving: <a href='?src=[UID()];operation=togglemoving'>[moving ? "Enabled":"Disabled"]</a>"

@@ -14,6 +14,7 @@
 	damage_deflection = 70
 	var/id_tag = 1.0
 	var/protected = 1
+	var/blast_door_sound = 'sound/machines/blastdoor.ogg'
 
 /obj/machinery/door/poddoor/preopen
 	icon_state = "open"
@@ -29,7 +30,8 @@
 	to_chat(user, "<span class='notice'>The electronic systems in this door are far too advanced for your primitive hacking peripherals.</span>")
 	return
 
-/obj/machinery/door/poddoor/Bumped(atom/AM)
+/obj/machinery/door/poddoor/Bumped(atom/movable/moving_atom)
+	SEND_SIGNAL(src, COMSIG_ATOM_BUMPED, moving_atom)
 	if(density)
 		return
 	else

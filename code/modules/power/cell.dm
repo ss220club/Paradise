@@ -129,12 +129,12 @@
 	var/light_impact_range = round(sqrt(charge) / 30)
 	var/flash_range = light_impact_range
 	if(light_impact_range == 0)
-		rigged = FALSE
 		corrupt()
 		return
 	//explosion(T, 0, 1, 2, 2)
 	log_admin("LOG: Rigged power cell explosion, last touched by [fingerprintslast]")
 	message_admins("LOG: Rigged power cell explosion, last touched by [fingerprintslast]")
+	rigged = FALSE
 
 	explosion(T, devastation_range, heavy_impact_range, light_impact_range, flash_range, cause = src)
 	qdel(src)
@@ -367,3 +367,8 @@
 	desc = "A standard ninja-suit power cell."
 	maxcharge = 10000
 	materials = list(MAT_GLASS = 60)
+
+/obj/item/stock_parts/cell/emittergun // 11 emitter shots
+	name = "emitter gun power cell"
+	maxcharge = 2200
+	chargerate = 100

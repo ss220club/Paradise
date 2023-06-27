@@ -94,6 +94,7 @@
 		return		// prevent intraction when T-scanner revealed
 
 	if(istype(I, /obj/item/screwdriver))
+		add_fingerprint(user)
 		open = !open
 
 		user.visible_message("[user] [open ? "opens" : "closes"] the beacon's cover.", "<span class='notice'>You [open ? "open" : "close"] the beacon's cover.</span>")
@@ -103,6 +104,7 @@
 	else if(I.GetID())
 		if(open)
 			if(allowed(user))
+				add_fingerprint(user)
 				locked = !locked
 				to_chat(user, "<span class='notice'>Controls are now [locked ? "locked" : "unlocked"].</span>")
 			else
@@ -114,9 +116,12 @@
 		return ..()
 
 /obj/machinery/navbeacon/attack_ai(mob/user)
+	if(isAI(user) && !user:add_heat(AI_NORMAL_ACTION_HEAT))
+		return
 	interact(user, 1)
 
 /obj/machinery/navbeacon/attack_hand(mob/user)
+	add_fingerprint(user)
 	interact(user, 0)
 
 /obj/machinery/navbeacon/interact(mob/user, ai = 0)
@@ -217,8 +222,8 @@ Transponder Codes:<UL>"}
 
 
 /obj/machinery/navbeacon/invisible
-	invisibility = INVISIBILITY_MAXIMUM
+	invisibility = INVISIBILITY_ABSTRACT
 
 /obj/machinery/navbeacon/invisible/hide(intact)
-	invisibility = INVISIBILITY_MAXIMUM
+	invisibility = INVISIBILITY_ABSTRACT
 	updateicon()

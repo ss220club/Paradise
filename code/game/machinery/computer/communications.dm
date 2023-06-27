@@ -302,6 +302,8 @@
 		SStgui.update_uis(src)
 
 /obj/machinery/computer/communications/attack_ai(var/mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/computer/communications/attack_hand(var/mob/user as mob)
@@ -520,7 +522,7 @@
 /proc/print_command_report(text = "", title = "Central Command Update", add_to_records = TRUE, var/datum/station_goal/goal = null)
 	for(var/obj/machinery/computer/communications/C in GLOB.shuttle_caller_list)
 		if(!(C.stat & (BROKEN|NOPOWER)) && is_station_contact(C.z))
-			var/obj/item/paper/P = new /obj/item/paper(C.loc)
+			var/obj/item/paper/P = new (C.loc)
 			P.name = "paper- '[title]'"
 			P.info = text
 			P.update_icon()
@@ -528,6 +530,8 @@
 				C.messagetitle.Add("[title]")
 				C.messagetext.Add(text)
 			if(goal)
+				var/obj/item/stamp/navcom/stamp = new()
+				P.stamp(stamp)
 				goal.papers_list.Add(P)
 
 /proc/print_centcom_report(text = "", title = "Incoming Message")

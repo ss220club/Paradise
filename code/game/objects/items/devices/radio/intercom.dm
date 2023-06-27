@@ -106,6 +106,8 @@
 	return ..()
 
 /obj/item/radio/intercom/attack_ai(mob/user)
+	if(isAI(user) && !user:add_heat(AI_NORMAL_ACTION_HEAT))
+		return
 	add_hiddenprint(user)
 	add_fingerprint(user)
 	attack_self(user)
@@ -220,7 +222,7 @@
 	if(!current_area)
 		return
 	if(on)
-		RegisterSignal(current_area, COMSIG_AREA_POWER_CHANGE, .proc/AreaPowerCheck)
+		RegisterSignal(current_area, COMSIG_AREA_POWER_CHANGE, PROC_REF(AreaPowerCheck))
 	else
 		UnregisterSignal(current_area, COMSIG_AREA_POWER_CHANGE)
 

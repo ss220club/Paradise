@@ -214,7 +214,7 @@
 
 	//fun fact: Topic() acts like a verb and is executed at the end of the tick like other verbs. So we have to queue it if the server is
 	//overloaded
-	if(hsrc && hsrc != holder && DEFAULT_TRY_QUEUE_VERB(VERB_CALLBACK(src, .proc/_Topic, hsrc, href, href_list)))
+	if(hsrc && hsrc != holder && DEFAULT_TRY_QUEUE_VERB(VERB_CALLBACK(src, PROC_REF(_Topic), hsrc, href, href_list)))
 		return
 
 	..()	//redirect to hsrc.Topic()
@@ -341,7 +341,7 @@
 		on_holder_add()
 		add_admin_verbs()
 		// Must be async because any sleeps (happen in sql queries) will break connectings clients
-		INVOKE_ASYNC(src, .proc/admin_memo_output, "Show", FALSE, TRUE)
+		INVOKE_ASYNC(src, PROC_REF(admin_memo_output), "Show", FALSE, TRUE)
 
 	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
 	// (but turn them off first, since sometimes BYOND doesn't turn them on properly otherwise)
@@ -371,10 +371,10 @@
 
 	if(prefs.toggles & PREFTOGGLE_UI_DARKMODE) // activates dark mode if its flagged. -AA07
 		activate_darkmode()
-	else
-		// activate_darkmode() calls the CL update button proc, so we dont want it double called
-		SSchangelog.UpdatePlayerChangelogButton(src)
 
+	if(GLOB.changelog_hash && prefs.lastchangelog != GLOB.changelog_hash) //bolds the changelog button on the interface so we know there are updates.
+		to_chat(src, span_info("You have unread updates in the changelog."))
+		winset(src, "rpane.changelog", "font-style=bold")
 
 	if(prefs.toggles & PREFTOGGLE_DISABLE_KARMA) // activates if karma is disabled
 		to_chat(src,"<span class='notice'>You have disabled karma gains.") // reminds those who have it disabled
@@ -493,6 +493,8 @@
 		if(total >= 1000)
 			donator_level = 3
 		if(total >= 2220)
+			donator_level = 4
+		if(total >= 10000)
 			donator_level = DONATOR_LEVEL_MAX
 		donor_loadout_points()
 	qdel(query_donor_select)
@@ -583,7 +585,7 @@
 	var/watchreason = check_watchlist(ckey)
 	if(watchreason)
 		message_admins("<font color='red'><B>Notice: </B></font><font color='#EB4E00'>[key_name_admin(src)] is on the watchlist and has just connected - Reason: [watchreason]</font>")
-		SSdiscord.send2discord_simple_noadmins("**\[Watchlist]** [key_name(src)] is on the watchlist and has just connected - Reason: [watchreason]")
+		SSdiscord.send2discord_simple_noadmins("**\[Watchlist]** [key_name(src)] is on the watchlist and has just connected - Reason: [watchreason]", ping_stuff = FALSE)
 
 
 	//Just the standard check to see if it's actually a number
@@ -638,7 +640,7 @@
 			return
 		qdel(query_update)
 		// After the regular update
-		INVOKE_ASYNC(src, /client/.proc/get_byond_account_date, FALSE) // Async to avoid other procs in the client chain being delayed by a web request
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/client, get_byond_account_date), FALSE) // Async to avoid other procs in the client chain being delayed by a web request
 	else
 		//New player!! Need to insert all the stuff
 
@@ -663,7 +665,7 @@
 		qdel(query_insert)
 		// This is their first connection instance, so TRUE here to nofiy admins
 		// This needs to happen here to ensure they actually have a row to update
-		INVOKE_ASYNC(src, /client/.proc/get_byond_account_date, TRUE) // Async to avoid other procs in the client chain being delayed by a web request
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/client, get_byond_account_date), TRUE) // Async to avoid other procs in the client chain being delayed by a web request
 
 	// Log player connections to DB
 	var/datum/db_query/query_accesslog = SSdbcore.NewQuery("INSERT INTO `[format_table_name("connection_log")]`(`datetime`,`ckey`,`ip`,`computerid`) VALUES(Now(), :ckey, :ip, :cid)", list(
@@ -963,7 +965,6 @@
 // IF YOU CHANGE ANYTHING IN ACTIVATE, MAKE SURE IT HAS A DEACTIVATE METHOD, -AA07
 /client/proc/activate_darkmode()
 	///// BUTTONS /////
-	SSchangelog.UpdatePlayerChangelogButton(src)
 	/* Rpane */
 	winset(src, "rpane.fullscreenb", "background-color=#40628a;text-color=#FFFFFF")
 	winset(src, "rpane.textb", "background-color=#40628a;text-color=#FFFFFF")
@@ -996,7 +997,6 @@
 
 /client/proc/deactivate_darkmode()
 	///// BUTTONS /////
-	SSchangelog.UpdatePlayerChangelogButton(src)
 	/* Rpane */
 	winset(src, "rpane.fullscreenb", "background-color=none;text-color=#000000")
 	winset(src, "rpane.textb", "background-color=none;text-color=#000000")
@@ -1134,7 +1134,7 @@
 	if(prefs)
 		prefs.load_preferences(usr)
 	if(prefs && prefs.discord_id && length(prefs.discord_id) < 32)
-		to_chat(usr, "<span class='darkmblue'>Аккаунт Discord уже привязан! Чтобы отвязать используйте команду <span class='boldannounce'>!отвязать_аккаунт</span> в канале <b>#дом-бота</b> в Discord-сообществе!</span>")
+		to_chat(usr, "<span class='darkmblue'>Аккаунт Discord уже привязан! Чтобы отвязать используйте команду <span class='boldannounce'>/отвязать</span> в канале <b>#дом-бота</b> в Discord-сообществе!</span>")
 		return
 	var/token = md5("[world.time+rand(1000,1000000)]")
 	if(SSdbcore.IsConnected())
@@ -1145,7 +1145,7 @@
 			qdel(query_update_token)
 			return
 		qdel(query_update_token)
-		to_chat(usr, "<span class='darkmblue'>Для завершения используйте команду <span class='boldannounce'>!привязать_аккаунт [token]</span> в канале <b>#дом-бота</b> в Discord-сообществе!</span>")
+		to_chat(usr, "<span class='darkmblue'>Для завершения используйте команду <span class='boldannounce'>/привязать</span> и токен \"[token]\" в канале <b>#дом-бота</b> в Discord-сообществе!</span>")
 		if(prefs)
 			prefs.load_preferences(usr)
 

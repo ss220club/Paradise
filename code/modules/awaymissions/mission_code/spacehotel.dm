@@ -192,7 +192,7 @@
 	name = "Deep Space Hotel 419"
 	icon = 'icons/mob/screen_gen.dmi'
 	icon_state = "x"
-	invisibility = 101
+	invisibility = INVISIBILITY_ABSTRACT
 	anchored = 1
 	density = 0
 	opacity = 0
@@ -244,7 +244,7 @@
 		return null
 
 	D.occupant = occupant
-	D.roomtimer = addtimer(CALLBACK(src, .proc/process_room, roomid), PAY_INTERVAL, TIMER_STOPPABLE)
+	D.roomtimer = addtimer(CALLBACK(src, PROC_REF(process_room), roomid), PAY_INTERVAL, TIMER_STOPPABLE)
 	vacant_rooms -= D
 	guests[occupant] = roomid
 
@@ -258,7 +258,7 @@
 		return
 
 	if(D.account.charge(100, null, "10 minutes hotel stay extension", "Biesel GalaxyNet Terminal [rand(111,1111)]", "[name]"))
-		D.roomtimer = addtimer(CALLBACK(src, .proc/process_room, roomid), PAY_INTERVAL, TIMER_STOPPABLE)
+		D.roomtimer = addtimer(CALLBACK(src, PROC_REF(process_room), roomid), PAY_INTERVAL, TIMER_STOPPABLE)
 	else
 		force_checkout(roomid)
 

@@ -22,11 +22,11 @@
 	if(notransform)
 		return
 	for(var/obj/item/W in src)
-		unEquip(W)
+		drop_item_ground(W)
 	notransform = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	invisibility = INVISIBILITY_ABSTRACT
 	return ..()
 
 /mob/proc/AIize()
@@ -51,7 +51,7 @@
 
 	O.tts_seed = tts_seed
 
-	INVOKE_ASYNC(GLOBAL_PROC, .proc/qdel, src) // To prevent the proc from returning null.
+	INVOKE_ASYNC(GLOBAL_PROC, /proc/qdel, src) // To prevent the proc from returning null.
 	return O
 
 
@@ -68,12 +68,12 @@
 	if(notransform)
 		return
 	for(var/obj/item/W in src)
-		unEquip(W)
+		drop_item_ground(W)
 
 	notransform = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	invisibility = INVISIBILITY_ABSTRACT
 
 	// Creating a new borg here will connect them to a default AI and notify that AI, if `connect_to_default_AI` is TRUE.
 	var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(loc, connect_to_AI = connect_to_default_AI)
@@ -118,19 +118,19 @@
 
 	O.tts_seed = tts_seed
 
-	INVOKE_ASYNC(GLOBAL_PROC, .proc/qdel, src) // To prevent the proc from returning null.
+	INVOKE_ASYNC(GLOBAL_PROC, /proc/qdel, src) // To prevent the proc from returning null.
 	return O
 
 /mob/living/carbon/human/proc/corgize()
 	if(notransform)
 		return
 	for(var/obj/item/W in src)
-		unEquip(W)
+		drop_item_ground(W)
 	regenerate_icons()
 	notransform = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	invisibility = INVISIBILITY_ABSTRACT
 	for(var/t in bodyparts)	//this really should not be necessary
 		qdel(t)
 
@@ -149,13 +149,13 @@
 	if(notransform)
 		return
 	for(var/obj/item/W in src)
-		unEquip(W)
+		drop_item_ground(W)
 
 	regenerate_icons()
 	notransform = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	invisibility = INVISIBILITY_ABSTRACT
 
 	for(var/t in bodyparts)
 		qdel(t)

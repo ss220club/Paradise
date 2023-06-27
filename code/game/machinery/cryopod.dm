@@ -48,8 +48,10 @@
 	for(var/T in GLOB.potential_theft_objectives + GLOB.potential_theft_objectives_hard + GLOB.potential_theft_objectives_medium /*+ GLOB.potential_theft_objectives_collect*/)
 		theft_cache += new T
 
-/obj/machinery/computer/cryopod/attack_ai()
-	attack_hand()
+/obj/machinery/computer/cryopod/attack_ai(mob/user)
+	if(isAI(user) && !user:add_heat(AI_NORMAL_ACTION_HEAT))
+		return
+	attack_hand(user)
 
 /obj/machinery/computer/cryopod/attack_hand(mob/user = usr)
 	if(stat & (NOPOWER|BROKEN))
@@ -149,7 +151,7 @@
 	if(preserve_status == CRYO_OBJECTIVE)
 		objective_items += I
 	I.forceMove(src)
-	RegisterSignal(I, COMSIG_MOVABLE_MOVED, .proc/item_got_removed)
+	RegisterSignal(I, COMSIG_MOVABLE_MOVED, PROC_REF(item_got_removed))
 
 /obj/machinery/computer/cryopod/proc/item_got_removed(obj/item/I)
 	objective_items -= I
@@ -253,7 +255,7 @@
 		/obj/item/clothing/accessory/medal/gold/captain,
 		/obj/item/clothing/gloves/color/black/krav_maga/sec,
 		/obj/item/clothing/gloves/color/black/forensics,
-		/obj/item/spacepod_key,
+		/obj/item/spacepod_equipment/key,
 		/obj/item/nullrod,
 		/obj/item/key,
 		/obj/item/door_remote,
@@ -357,7 +359,7 @@
 /obj/machinery/cryopod/proc/despawn_occupant()
 	//Drop all items into the pod.
 	for(var/obj/item/I in occupant)
-		occupant.unEquip(I)
+		occupant.drop_item_ground(I)
 		I.forceMove(src)
 
 		if(I.contents.len) //Make sure we catch anything not handled by qdel() on the items.
@@ -516,6 +518,7 @@
 					to_chat(user, "<span class='boldnotice'>[src] is in use.</span>")
 					return
 
+				add_fingerprint(user)
 				take_occupant(M, willing)
 
 			else //because why the fuck would you keep going if the mob isn't in the pod
@@ -603,6 +606,7 @@
 			if(occupant)
 				to_chat(user, "<span class='boldnotice'>\The [src] is in use.</span>")
 				return
+			add_fingerprint(user)
 			take_occupant(L, willing)
 		else
 			to_chat(user, "<span class='notice'>You stop [L == user ? "climbing into the cryo pod." : "putting [L] into the cryo pod."]</span>")
@@ -755,7 +759,7 @@
 	on_store_name = "Robotic Storage Oversight"
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
 	allow_occupant_types = list(/mob/living/silicon/robot)
-	disallow_occupant_types = list(/mob/living/silicon/robot/drone)
+	disallow_occupant_types = list()
 
 /obj/machinery/cryopod/robot/right
 	orient_right = 1

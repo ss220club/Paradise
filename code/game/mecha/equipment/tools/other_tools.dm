@@ -9,19 +9,21 @@
 	icon_state = "mecha_teleport"
 	origin_tech = "bluespace=7"
 	equip_cooldown = 150
-	energy_drain = 8000
+	energy_drain = 4000
 	range = MECHA_RANGED
 	var/tele_precision = 4
 
 /obj/item/mecha_parts/mecha_equipment/teleporter/action(atom/target)
 	if(!action_checks(target) || !is_teleport_allowed(loc.z))
 		return
+	if(!is_faced_target(target))
+		return FALSE
 	var/turf/T = get_turf(target)
 	if(T)
 		chassis.use_power(energy_drain)
 		var/turf/user_turf = get_turf(src)
 		do_teleport(chassis, T, tele_precision)
-		chassis.investigate_log("[key_name_log(chassis.occupant)] mecha-teleported from [COORD(user_turf)] to [COORD(chassis)].", INVESTIGATE_TELEPORTATION)
+		chassis.investigate_log("[key_name_log(chassis.occupant)] телепортировался из [COORD(user_turf)] в [COORD(chassis)].", INVESTIGATE_TELEPORTATION)
 		return 1
 
 /obj/item/mecha_parts/mecha_equipment/teleporter/precise
@@ -46,6 +48,8 @@
 /obj/item/mecha_parts/mecha_equipment/wormhole_generator/action(atom/target)
 	if(!action_checks(target) || !is_teleport_allowed(loc.z))
 		return
+	if(!is_faced_target(target))
+		return FALSE
 	var/list/theareas = get_areas_in_range(100, chassis)
 	if(!theareas.len)
 		return
@@ -71,9 +75,9 @@
 	P.failchance = 0
 	P.icon_state = "anom"
 	P.name = "wormhole"
-	message_admins("[ADMIN_LOOKUPFLW(chassis.occupant)] used a Wormhole Generator in [ADMIN_COORDJMP(loc)]")
-	add_game_logs("used a Wormhole Generator in [COORD(loc)]", chassis.occupant)
-	chassis.investigate_log("[key_name_log(chassis.occupant)] used a Wormhole Generator at [COORD(loc)].", INVESTIGATE_TELEPORTATION)
+	message_admins("[ADMIN_LOOKUPFLW(chassis.occupant)] использовал Генератор Червоточин в [ADMIN_COORDJMP(loc)]")
+	add_game_logs("использовал Генератор Червоточин в [COORD(loc)]", chassis.occupant)
+	chassis.investigate_log("[key_name_log(chassis.occupant)] использовал Генератор Червоточин в [COORD(loc)].", INVESTIGATE_TELEPORTATION)
 
 	src = null
 	spawn(rand(150,300))
@@ -97,17 +101,19 @@
 /obj/item/mecha_parts/mecha_equipment/gravcatapult/action(atom/movable/target)
 	if(!action_checks(target))
 		return
+	if(!is_faced_target(target))
+		return FALSE
 	if(cooldown_timer > world.time)
-		occupant_message("<span class='warning'>[src] is still recharging.</span>")
+		occupant_message("<span class='warning'>[src] все еще заряжается.</span>")
 		return
 	switch(mode)
 		if(1)
 			if(!locked)
 				if(!istype(target) || target.anchored)
-					occupant_message("Unable to lock on [target]")
+					occupant_message("Невозможно выбрать [target]")
 					return
 				locked = target
-				occupant_message("Locked on [target]")
+				occupant_message("Выбрал целью [target]")
 				send_byjax(chassis.occupant,"exosuit.browser","\ref[src]",get_equip_info())
 			else if(target!=locked)
 				if(locked in view(chassis))
@@ -118,7 +124,7 @@
 					return 1
 				else
 					locked = null
-					occupant_message("Lock on [locked] disengaged.")
+					occupant_message("Выбор цели [locked] снят.")
 					send_byjax(chassis.occupant,"exosuit.browser","\ref[src]",get_equip_info())
 		if(2)
 			var/list/atoms = list()
@@ -135,12 +141,12 @@
 						sleep(2)
 			var/turf/T = get_turf(target)
 			cooldown_timer = world.time + 3 SECONDS
-			add_game_logs("used a Gravitational Catapult in [COORD(T)]", chassis.occupant)
+			add_game_logs("использовал Гравитационную катапульту в [COORD(T)]", chassis.occupant)
 			return 1
 
 
-/obj/item/mecha_parts/mecha_equipment/gravcatapult/get_equip_info()
-	return "[..()] [mode==1?"([locked||"Nothing"])":null] \[<a href='?src=[UID()];mode=1'>S</a>|<a href='?src=[UID()];mode=2'>P</a>\]"
+/obj/item/mecha_parts/mecha_equipment/gravcatapult/get_module_equip_info()
+	return " [mode==1?"([locked||"Nothing"])":null] \[<a href='?src=[UID()];mode=1'>S</a>|<a href='?src=[UID()];mode=2'>P</a>\]"
 
 /obj/item/mecha_parts/mecha_equipment/gravcatapult/Topic(href, href_list)
 	..()
@@ -208,20 +214,16 @@
 		chassis.overlays -= droid_overlay
 	return ..()
 
-/obj/item/mecha_parts/mecha_equipment/repair_droid/attach(obj/mecha/M)
-	..()
+/obj/item/mecha_parts/mecha_equipment/repair_droid/attach_act(obj/mecha/M)
 	droid_overlay = new(icon, icon_state = "repair_droid")
 	M.overlays += droid_overlay
 
-/obj/item/mecha_parts/mecha_equipment/repair_droid/detach()
+/obj/item/mecha_parts/mecha_equipment/repair_droid/detach_act()
 	chassis.overlays -= droid_overlay
 	STOP_PROCESSING(SSobj, src)
-	return ..()
 
-/obj/item/mecha_parts/mecha_equipment/repair_droid/get_equip_info()
-	if(!chassis) return
-	return "<span style=\"color:[equip_ready?"#0f0":"#f00"];\">*</span>&nbsp; [name] - <a href='?src=[UID()];toggle_repairs=1'>[equip_ready?"A":"Dea"]ctivate</a>"
-
+/obj/item/mecha_parts/mecha_equipment/repair_droid/get_module_equip_info()
+	return " <a href='?src=[UID()];toggle_repairs=1'>[equip_ready?"A":"Dea"]ctivate</a>"
 
 /obj/item/mecha_parts/mecha_equipment/repair_droid/Topic(href, href_list)
 	..()
@@ -230,12 +232,12 @@
 		if(equip_ready)
 			START_PROCESSING(SSobj, src)
 			droid_overlay = new(icon, icon_state = "repair_droid_a")
-			log_message("Activated.")
+			log_message("Активирован.")
 			set_ready_state(0)
 		else
 			STOP_PROCESSING(SSobj, src)
 			droid_overlay = new(icon, icon_state = "repair_droid")
-			log_message("Deactivated.")
+			log_message("Деактивирован.")
 			set_ready_state(1)
 		chassis.overlays += droid_overlay
 		send_byjax(chassis.occupant,"exosuit.browser","\ref[src]",get_equip_info())
@@ -287,9 +289,8 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay/detach()
+/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay/detach_act()
 	STOP_PROCESSING(SSobj, src)
-	..()
 
 /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay/proc/get_charge()
 	if(equip_ready) //disabled
@@ -315,15 +316,14 @@
 		if(equip_ready) //inactive
 			START_PROCESSING(SSobj, src)
 			set_ready_state(0)
-			log_message("Activated.")
+			log_message("Активирован.")
 		else
 			STOP_PROCESSING(SSobj, src)
 			set_ready_state(1)
-			log_message("Deactivated.")
+			log_message("Деактивирован.")
 
-/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay/get_equip_info()
-	if(!chassis) return
-	return "<span style=\"color:[equip_ready?"#0f0":"#f00"];\">*</span>&nbsp; [name] - <a href='?src=[UID()];toggle_relay=1'>[equip_ready?"A":"Dea"]ctivate</a>"
+/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay/get_module_equip_info()
+	return " <a href='?src=[UID()];toggle_relay=1'>[equip_ready?"A":"Dea"]ctivate</a>"
 
 
 /obj/item/mecha_parts/mecha_equipment/tesla_energy_relay/process()
@@ -335,7 +335,7 @@
 	if(isnull(cur_charge) || !chassis.cell)
 		STOP_PROCESSING(SSobj, src)
 		set_ready_state(1)
-		occupant_message("No powercell detected.")
+		occupant_message("Батареи не обнаружено.")
 		return
 	if(cur_charge < chassis.cell.maxcharge)
 		var/area/A = get_area(chassis)
@@ -372,9 +372,8 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/item/mecha_parts/mecha_equipment/generator/detach()
+/obj/item/mecha_parts/mecha_equipment/generator/detach_act()
 	STOP_PROCESSING(SSobj, src)
-	..()
 
 /obj/item/mecha_parts/mecha_equipment/generator/Topic(href, href_list)
 	..()
@@ -382,16 +381,14 @@
 		if(equip_ready) //inactive
 			set_ready_state(0)
 			START_PROCESSING(SSobj, src)
-			log_message("Activated.")
+			log_message("Активирован.")
 		else
 			set_ready_state(1)
 			STOP_PROCESSING(SSobj, src)
-			log_message("Deactivated.")
+			log_message("Деактивирован.")
 
-/obj/item/mecha_parts/mecha_equipment/generator/get_equip_info()
-	var/output = ..()
-	if(output)
-		return "[output] \[[fuel_name]: [round(fuel_amount,0.1)] cm<sup>3</sup>\] - <a href='?src=[UID()];toggle=1'>[equip_ready?"A":"Dea"]ctivate</a>"
+/obj/item/mecha_parts/mecha_equipment/generator/get_module_equip_info()
+	return " \[[fuel_name]: [round(fuel_amount,0.1)] cm<sup>3</sup>\] - <a href='?src=[UID()];toggle=1'>[equip_ready?"A":"Dea"]ctivate</a>"
 
 /obj/item/mecha_parts/mecha_equipment/generator/action(target)
 	if(chassis)
@@ -410,10 +407,10 @@
 					var/added_fuel = units * P.perunit
 					fuel_amount = min(fuel_amount + added_fuel, max_fuel)
 					P.use(units)
-					occupant_message("[units] unit\s of [fuel_name] successfully loaded.")
+					occupant_message("[units] единиц [fuel_name] успешно загружено.")
 					return added_fuel
 			else
-				occupant_message("Unit is full.")
+				occupant_message("Генератор полон.")
 				return 0
 		else // Some other object containing our fuel's type, so we just eat it (ores mainly)
 			var/to_load = max(min(I.materials[fuel_type], max_fuel - fuel_amount),0)
@@ -433,7 +430,7 @@
 		return fuel_added
 
 	else
-		occupant_message("<span class='warning'>[fuel_name] traces in target minimal! [I] cannot be used as fuel.</span>")
+		occupant_message("<span class='warning'>[fuel_name] достиг отметки минимума! [I] не может быть использован как топливо.</span>")
 		return
 
 /obj/item/mecha_parts/mecha_equipment/generator/attackby(weapon,mob/user, params)
@@ -448,12 +445,12 @@
 	if(prob(10))
 		GM.toxins += 100
 		GM.temperature = 1500+T0C //should be enough to start a fire
-		T.visible_message("[src] suddenly disgorges a cloud of heated plasma.")
+		T.visible_message("[src] внезапно выбрасывает облако раскаленной плазмы.")
 		qdel(src)
 	else
 		GM.toxins += 5
 		GM.temperature = istype(T) ? T.air.return_temperature() : T20C
-		T.visible_message("[src] suddenly disgorges a cloud of plasma.")
+		T.visible_message("[src] внезапно выбрасывает облако плазмы.")
 	T.assume_air(GM)
 
 /obj/item/mecha_parts/mecha_equipment/generator/process()
@@ -463,14 +460,14 @@
 		return
 	if(fuel_amount<=0)
 		STOP_PROCESSING(SSobj, src)
-		log_message("Deactivated - no fuel.")
+		log_message("Деактивирован - нет топлива.")
 		set_ready_state(1)
 		return
 	var/cur_charge = chassis.get_charge()
 	if(isnull(cur_charge))
 		set_ready_state(1)
-		occupant_message("No powercell detected.")
-		log_message("Deactivated.")
+		occupant_message("Не обнаружено батареи.")
+		log_message("Деактивирован.")
 		STOP_PROCESSING(SSobj, src)
 		return
 	var/use_fuel = fuel_per_cycle_idle
@@ -502,3 +499,40 @@
 	if(..())
 		for(var/mob/living/carbon/M in view(chassis))
 			M.apply_effect((rad_per_cycle * 3),IRRADIATE,0)
+
+/////////////////////////////////// SERVO-HYDRAULIC ACTUATOR ////////////////////////////////////////////////
+
+/obj/item/mecha_parts/mecha_equipment/servo_hydra_actuator
+	name = "Servo-Hydraulic Actuator"
+	desc = "Boosts exosuit servo-motors, allowing it to activate strafe mode. Requires energy to operate."
+	icon_state = "actuator"
+	origin_tech = "powerstorage=5;programming=5;engineering=5;combat=5"
+	selectable = 0
+	var/energy_per_step = 50 //How much energy this module drains per step in strafe mode
+
+/obj/item/mecha_parts/mecha_equipment/servo_hydra_actuator/can_attach(obj/mecha/M)
+	if(M.strafe_allowed)
+		return FALSE
+	. = ..()
+
+/obj/item/mecha_parts/mecha_equipment/servo_hydra_actuator/attach_act(obj/mecha/M)
+	M.strafe_allowed = TRUE
+	M.actuator = src
+	if(M.occupant)
+		M.strafe_action.Grant(M.occupant, M)
+
+/obj/item/mecha_parts/mecha_equipment/servo_hydra_actuator/detach_act()
+	chassis.strafe_allowed = FALSE
+	chassis.strafe = FALSE
+	chassis.actuator = null
+	if(chassis.occupant)
+		chassis.strafe_action.Remove(chassis.occupant)
+
+/obj/item/mecha_parts/mecha_equipment/servo_hydra_actuator/Destroy()
+	if(chassis)
+		chassis.strafe_allowed = FALSE
+		chassis.strafe = FALSE
+		chassis.actuator = null
+		if(chassis.occupant)
+			chassis.strafe_action.Remove(chassis.occupant)
+	. = ..()

@@ -8,9 +8,12 @@
 	circuit = /obj/item/circuitboard/pod_locater
 
 /obj/machinery/computer/podtracker/attack_ai(mob/user)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	return attack_hand(user)
 
 /obj/machinery/computer/podtracker/attack_hand(mob/user)
+	add_fingerprint(user)
 	ui_interact(user)
 
 /obj/machinery/computer/podtracker/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)

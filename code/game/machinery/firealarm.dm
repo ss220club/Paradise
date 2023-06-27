@@ -91,6 +91,8 @@ FIRE ALARM
 		alarm()			// added check of detector status here
 
 /obj/machinery/firealarm/attack_ai(mob/user)
+	if(isAI(user) && !user:add_heat(AI_NORMAL_ACTION_HEAT))
+		return
 	add_hiddenprint(user)
 	return attack_hand(user)
 
@@ -178,8 +180,7 @@ FIRE ALARM
 	if(!I.use_tool(src, user, 0, volume = I.tool_volume))
 		return
 	WIRECUTTER_SNIP_MESSAGE
-	var/obj/item/stack/cable_coil/new_coil = new /obj/item/stack/cable_coil(drop_location())
-	new_coil.amount = 5
+	new /obj/item/stack/cable_coil(drop_location(), 5)
 	buildstage = FIRE_ALARM_UNWIRED
 
 
@@ -241,6 +242,7 @@ FIRE ALARM
 	if(user.incapacitated())
 		return 1
 
+	add_fingerprint(user)
 	toggle_alarm(user)
 
 

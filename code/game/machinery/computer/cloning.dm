@@ -61,20 +61,15 @@
 		selected_pod = pods[1]
 
 /obj/machinery/computer/cloning/proc/findscanner()
-	var/obj/machinery/dna_scannernew/scannerf = null
-
 	//Try to find scanner on adjacent tiles first
-	for(dir in list(NORTH,EAST,SOUTH,WEST))
-		scannerf = locate(/obj/machinery/dna_scannernew, get_step(src, dir))
-		if(scannerf)
-			return scannerf
+	for(var/obj/machinery/dna_scannernew/scanner in orange(1, src))
+		return scanner
 
 	//Then look for a free one in the area
-	if(!scannerf)
-		for(var/obj/machinery/dna_scannernew/S in get_area(src))
-			return S
+	for(var/obj/machinery/dna_scannernew/S in get_area(src))
+		return S
 
-	return 0
+	return FALSE
 
 /obj/machinery/computer/cloning/proc/releasecloner()
 	for(var/obj/machinery/clonepod/P in pods)
@@ -93,8 +88,8 @@
 /obj/machinery/computer/cloning/attackby(obj/item/W as obj, mob/user as mob, params)
 	if(istype(W, /obj/item/disk/data)) //INSERT SOME DISKETTES
 		if(!src.diskette)
-			user.drop_item()
-			W.loc = src
+			add_fingerprint(user)
+			user.drop_transfer_item_to_loc(W, src)
 			src.diskette = W
 			to_chat(user, "You insert [W].")
 			SStgui.update_uis(src)
@@ -104,6 +99,7 @@
 		if(M.buffer && istype(M.buffer, /obj/machinery/clonepod))
 			var/obj/machinery/clonepod/P = M.buffer
 			if(P && !(P in pods))
+				add_fingerprint(user)
 				pods += P
 				P.connected = src
 				P.name = "[initial(P.name)] #[pods.len]"
@@ -113,6 +109,8 @@
 
 
 /obj/machinery/computer/cloning/attack_ai(mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	return attack_hand(user)
 
 /obj/machinery/computer/cloning/attack_hand(mob/user as mob)

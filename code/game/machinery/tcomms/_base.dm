@@ -93,6 +93,8 @@ GLOBAL_LIST_EMPTY(tcomms_machines)
 
 // Attack overrides. These are needed so the UIs can be opened up //
 /obj/machinery/tcomms/attack_ai(mob/user)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	add_hiddenprint(user)
 	ui_interact(user)
 
@@ -137,7 +139,7 @@ GLOBAL_LIST_EMPTY(tcomms_machines)
 	if(active)
 		active = FALSE
 		// This needs a timer because otherwise its on the shuttle Z and the message is missed
-		addtimer(CALLBACK(src, /atom.proc/visible_message, "<span class='warning'>Radio equipment on [src] has been overloaded by heavy bluespace interference. Please restart the machine.</span>"), 5)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, visible_message), "<span class='warning'>Radio equipment on [src] has been overloaded by heavy bluespace interference. Please restart the machine.</span>"), 5)
 	update_icon()
 
 

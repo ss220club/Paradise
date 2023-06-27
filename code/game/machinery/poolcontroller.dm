@@ -20,7 +20,7 @@
 	var/deep_water = FALSE		//set to 1 to drown even standing people
 
 /obj/machinery/poolcontroller/invisible
-	invisibility = INVISIBILITY_MAXIMUM
+	invisibility = INVISIBILITY_ABSTRACT
 	name = "Water Controller"
 	desc = "An invisible water controller. Players shouldn't see this."
 
@@ -67,6 +67,7 @@
 		to_chat(user, "<span class='warning'>Nothing happens.</span>")//If not emagged, don't do anything, and don't tell the user that it can be emagged.
 
 /obj/machinery/poolcontroller/attack_hand(mob/user)
+	add_fingerprint(user)
 	ui_interact(user)
 
 /obj/machinery/poolcontroller/process()

@@ -7,7 +7,7 @@
 	notransform = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	invisibility = INVISIBILITY_ABSTRACT
 
 	playsound(src.loc, 'sound/goonstation/effects/gib.ogg', 50, 1)
 	gibs(loc, dna)
@@ -25,7 +25,7 @@
 	notransform = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	invisibility = INVISIBILITY_ABSTRACT
 	QDEL_IN(src, 0)
 	return TRUE
 
@@ -78,7 +78,7 @@
 	med_hud_set_health()
 	med_hud_set_status()
 	if(!gibbed && !QDELETED(src))
-		addtimer(CALLBACK(src, .proc/med_hud_set_status), DEFIB_TIME_LIMIT + 1)
+		addtimer(CALLBACK(src, PROC_REF(med_hud_set_status)), DEFIB_TIME_LIMIT + 1)
 
 	for(var/s in ownedSoullinks)
 		var/datum/soullink/S = s
@@ -109,6 +109,7 @@
 	if(mind && mind.devilinfo) // Expand this into a general-purpose death-response system when appropriate
 		mind.devilinfo.beginResurrectionCheck(src)
 
+	SEND_SIGNAL(src, COMSIG_LIVING_DEATH, gibbed)
 	// u no we dead
 	return TRUE
 
@@ -116,4 +117,4 @@
 	visible_message("<span class='danger'><b>[src]</b> starts convulsing violently!</span>", "You feel as if your body is tearing itself apart!")
 	Weaken(15)
 	do_jitter_animation(1000, -1)
-	addtimer(CALLBACK(src, .proc/gib), rand(20, 100))
+	addtimer(CALLBACK(src, PROC_REF(gib)), rand(20, 100))

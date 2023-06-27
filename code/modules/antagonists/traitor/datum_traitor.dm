@@ -203,16 +203,6 @@
 				assigned_targets.Add("[debrain_objective.target]")
 			add_objective(debrain_objective)
 
-		else if(prob(30))
-			var/datum/objective/pain_hunter/pain_objective = new
-			pain_objective.owner = owner
-			pain_objective.find_target()
-			if("[pain_objective]" in assigned_targets)
-				return 0
-			else if(pain_objective.target)
-				assigned_targets.Add("[pain_objective.target]")
-			add_objective(pain_objective)
-
 		else if(prob(20))
 			var/datum/objective/protect/protect_objective = new
 			protect_objective.owner = owner
@@ -415,7 +405,7 @@
 	)
 
 	var/where = "At your feet"
-	var/equipped_slot = mob.equip_in_one_of_slots(folder, slots)
+	var/equipped_slot = mob.equip_in_one_of_slots(folder, slots, qdel_on_fail = TRUE)
 	if(equipped_slot)
 		where = "In your [equipped_slot]"
 	to_chat(mob, "<BR><BR><span class='info'>[where] is a folder containing <b>secret documents</b> that another Syndicate group wants. We have set up a meeting with one of their agents on station to make an exchange. Exercise extreme caution as they cannot be trusted and may be hostile.</span><BR>")

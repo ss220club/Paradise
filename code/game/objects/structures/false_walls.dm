@@ -69,6 +69,7 @@
 		toggle(user)
 
 /obj/structure/falsewall/attack_hand(mob/user)
+	. = ..()
 	toggle(user)
 
 /obj/structure/falsewall/proc/toggle(mob/user)
@@ -76,19 +77,18 @@
 		return
 
 	if(density)
-		opening = TRUE
+		add_fingerprint(user)
 		do_the_flick()
 		sleep(4)
 		density = FALSE
 		set_opacity(0)
 		update_icon()
 	else
-		var/turf/srcturf = get_turf(src)
-		for(var/atom/movable/obstacle in srcturf)
-			if(obstacle.density)
-				to_chat(user, span_warning("[obstacle] is blocking the way!"))
-				return
-		opening = TRUE
+		var/srcturf = get_turf(src)
+		for(var/mob/living/obstacle in srcturf) //Stop people from using this as a shield
+			opening = 0
+			return
+		add_fingerprint(user)
 		do_the_flick()
 		density = TRUE
 		sleep(4)
@@ -225,26 +225,15 @@
 	var/last_event = 0
 	canSmoothWith = list(/obj/structure/falsewall/uranium, /turf/simulated/wall/mineral/uranium)
 
-/obj/structure/falsewall/uranium/attackby(obj/item/W as obj, mob/user as mob, params)
-	radiate()
-	..()
+/obj/structure/falsewall/uranium/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/radioactivity, \
+				rad_per_interaction = 12, \
+				rad_interaction_radius = 3, \
+				rad_interaction_cooldown = 1.5 SECONDS \
+	)
 
-/obj/structure/falsewall/uranium/attack_hand(mob/user as mob)
-	radiate()
-	..()
 
-/obj/structure/falsewall/uranium/proc/radiate()
-	if(!active)
-		if(world.time > last_event+15)
-			active = 1
-			for(var/mob/living/L in range(3,src))
-				L.apply_effect(12,IRRADIATE,0)
-			for(var/turf/simulated/wall/mineral/uranium/T in range(3,src))
-				T.radiate()
-			last_event = world.time
-			active = null
-			return
-	return
 /*
  * Other misc falsewall types
  */
@@ -289,6 +278,7 @@
 
 /obj/structure/falsewall/plasma/attackby(obj/item/W, mob/user, params)
 	if(is_hot(W) > 300)
+		add_fingerprint(user)
 		add_attack_logs(user, src, "Ignited using [W]", ATKLOG_FEW)
 		investigate_log("was <span class='warning'>ignited</span> by [key_name_log(user)]",INVESTIGATE_ATMOS)
 		burnbabyburn()

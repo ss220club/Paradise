@@ -14,12 +14,13 @@
 	..()
 
 /obj/machinery/computer/merch/attack_ai(mob/user as mob)
+	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))
+		return
 	src.add_hiddenprint(user)
 	return attack_hand(user)
 
 /obj/machinery/computer/merch/attack_hand(mob/user as mob)
 	user.set_machine(src)
-	add_fingerprint(user)
 
 	if(stat & (BROKEN|NOPOWER))
 		return
@@ -27,6 +28,7 @@
 	var/balance=0
 	if(user.mind)
 		if(user.mind.initial_account)
+			add_fingerprint(user)
 			balance = user.mind.initial_account.money
 	var/dat = {"
 <html>

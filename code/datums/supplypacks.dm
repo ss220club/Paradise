@@ -49,12 +49,17 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	var/containertype = /obj/structure/closet/crate
 	var/containername = null
 	var/access = null
-	var/hidden = 0
-	var/contraband = 0
+	var/hidden = FALSE
+	var/hidden_if_hacked = FALSE
+	var/contraband = FALSE
 	var/group = SUPPLY_MISC
 	var/list/announce_beacons = list() // Particular beacons that we'll notify the relevant department when we reach
 	var/special = FALSE //Event/Station Goals/Admin enabled packs
 	var/special_enabled = FALSE
+	/// The number of times one can order a cargo crate, before it becomes restricted. -1 for infinite
+	var/order_limit = -1
+	/// Number of times a crate has been ordered in a shift
+	var/times_ordered = 0
 	/// List of names for being done in TGUI
 	var/list/ui_manifest = list()
 
@@ -202,15 +207,16 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	cost = 20
 	containertype = /obj/structure/closet/crate
 	containername = "special ops crate"
-	hidden = 1
+	hidden = TRUE
 
 /datum/supply_packs/emergency/syndicate
 	name = "ERROR_NULL_ENTRY"
 	contains = list(/obj/item/storage/box/syndicate)
-	cost = 560
+	cost = 200
 	containertype = /obj/structure/closet/crate
 	containername = "crate"
-	hidden = 1
+	hidden = TRUE
+	order_limit = 5
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Security ////////////////////////////////////////
@@ -967,7 +973,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	containertype = /obj/structure/closet/crate/freezer
 	containername = "synthetic blood pack oxygenis crate"
 
-/datum/supply_packs/medical/bloodpacks_syn_oxygenis
+/datum/supply_packs/medical/bloodpacks_syn_nitrogenis
 	name = "Synthetic Blood Pack Nitrogenis"
 	contains = list(/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
 					/obj/item/reagent_containers/iv_bag/bloodsynthetic/nitrogenis,
@@ -991,7 +997,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	containertype = /obj/structure/closet/crate/freezer
 	containername = "human blood pack crate"
 
-/datum/supply_packs/medical/bloodpacks_human
+/datum/supply_packs/medical/bloodpacks_xenos
 	name = "Xenos Blood Pack"
 	contains = list(/obj/item/reagent_containers/iv_bag/blood/skrell,
 					/obj/item/reagent_containers/iv_bag/blood/tajaran,
@@ -1164,13 +1170,19 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 
 /datum/supply_packs/organic/pizza
 	name = "Pizza Crate"
-	contains = list(/obj/item/pizzabox/margherita,
-					/obj/item/pizzabox/mushroom,
-					/obj/item/pizzabox/meat,
-					/obj/item/pizzabox/vegetable,
-					/obj/item/pizzabox/hawaiian)
+	containertype = /obj/structure/closet/crate/freezer/pizza
 	cost = 60
 	containername = "Pizza crate"
+	hidden_if_hacked = TRUE
+
+
+/datum/supply_packs/organic/pizzaspicy
+	name = "Pizza Crate"
+	containertype = /obj/structure/closet/crate/freezer/pizza/boom
+	cost = 60
+	containername = "Pizza crate"
+	hidden = TRUE
+
 
 /datum/supply_packs/organic/monkey
 	name = "Monkey Crate"

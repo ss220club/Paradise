@@ -34,10 +34,12 @@
 
 /obj/machinery/ai_slipper/attackby(obj/item/W, mob/user, params)
 	if(stat & (NOPOWER|BROKEN))
+		add_fingerprint(user)
 		return
 	if(istype(user, /mob/living/silicon))
 		return attack_hand(user)
 	if(allowed(usr)) // trying to unlock the interface
+		add_fingerprint(user)
 		locked = !locked
 		to_chat(user, "You [locked ? "lock" : "unlock"] the device.")
 		if(locked)
@@ -75,6 +77,8 @@
 		icon_state = "liquid_dispenser_on"
 
 /obj/machinery/ai_slipper/attack_ai(mob/user)
+	if(isAI(user) && !user:add_heat(AI_NORMAL_ACTION_HEAT))
+		return
 	return attack_hand(user)
 
 /obj/machinery/ai_slipper/attack_ghost(mob/user)
@@ -97,6 +101,7 @@
 	if(locked && (!issilicon(user) && !user.can_admin_interact()))
 		t += "<I>(Swipe ID card to unlock control panel.)</I><BR>"
 	else
+		add_fingerprint(user)
 		t += text("Dispenser [] - <A href='?src=[UID()];toggleOn=1'>[]?</a><br>\n", disabled ? "deactivated" : "activated", disabled ? "Enable" : "Disable")
 		t += text("Uses Left: [uses]. <A href='?src=[UID()];toggleUse=1'>Activate the dispenser?</A><br>\n")
 

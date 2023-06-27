@@ -352,7 +352,7 @@
 #define TRANSIT_TUBE_CLOSED 3
 
 // Maximum donation level
-#define DONATOR_LEVEL_MAX 4
+#define DONATOR_LEVEL_MAX 5
 
 // The cooldown on OOC messages such as OOC, LOOC, praying and adminhelps
 #define OOC_COOLDOWN 5
@@ -506,6 +506,9 @@
 
 /// Send to the admin Discord webhook
 #define DISCORD_WEBHOOK_ADMIN "ADMIN"
+
+/// Send to the requests Discord webhook
+#define DISCORD_WEBHOOK_REQUESTS "REQUESTS"
 
 /// Send to the mentor Discord webhook
 #define DISCORD_WEBHOOK_MENTOR "MENTOR"

@@ -73,6 +73,7 @@
 	name = "night-vision helmet"
 	desc = "A helmet with a built-in pair of night vision goggles."
 	icon_state = "helmetNVG"
+	see_in_dark = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE //don't render darkness while wearing these
 
 /obj/item/clothing/head/helmet/alt
@@ -110,7 +111,7 @@
 	toggle_message = "You turn off the lights on"
 	alt_toggle_message = "You turn on the lights on"
 	actions_types = list(/datum/action/item_action/toggle_helmet_light)
-	can_toggle = 1
+	can_toggle = TRUE
 	toggle_cooldown = 20
 	active_sound = 'sound/items/weeoo1.ogg'
 	dog_fashion = null
@@ -201,7 +202,7 @@
 	toggle_message = "You attach the face shield to the"
 	alt_toggle_message = "You remove the face shield from the"
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
-	can_toggle = 1
+	can_toggle = TRUE
 	toggle_cooldown = 20
 	toggle_sound = 'sound/items/zippoclose.ogg'
 	dog_fashion = null
@@ -274,6 +275,19 @@
 	item_state = "skull"
 	strip_delay = 100
 
+/obj/item/clothing/head/helmet/bike_helmet
+	name = "bike helmet"
+	desc = "Cool helmet."
+	icon_state = "bike_helmet"
+	item_state = "bike_helmet"
+	toggle_message = "You raised the protective glass of"
+	alt_toggle_message = "You lowered the protective glass of"
+	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
+	armor = list("melee" = 25, "bullet" = 15, "laser" = 10, "energy" = 10, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 15, "acid" = 0)
+	can_toggle = TRUE
+	toggle_sound = 'sound/weapons/tap.ogg'
+	dog_fashion = null
+
 /obj/item/clothing/head/helmet/skull/Yorick
 	name = "Йорик"
 	desc = "Бедный Йорик..."
@@ -289,17 +303,20 @@
 
 //Commander
 /obj/item/clothing/head/helmet/ert/command
+	flags = BLOCKHAIR
 	name = "emergency response team commander helmet"
 	desc = "An in-atmosphere helmet worn by the commander of a Nanotrasen Emergency Response Team. Has blue highlights."
 	icon_state = "erthelmet_cmd"
 
 //Security
 /obj/item/clothing/head/helmet/ert/security
+	flags = BLOCKHAIR
 	name = "emergency response team security helmet"
 	desc = "An in-atmosphere helmet worn by security members of the Nanotrasen Emergency Response Team. Has red highlights."
 	icon_state = "erthelmet_sec"
 
 /obj/item/clothing/head/helmet/ert/security/paranormal
+	flags = BLOCKHAIR
 	name = "paranormal emergency response team helmet"
 	desc = "An in-atmosphere helmet worn by paranormal members of the Nanotrasen Emergency Response Team. Has crusader sigils."
 	icon_state = "knight_templar"
@@ -307,18 +324,48 @@
 
 //Engineer
 /obj/item/clothing/head/helmet/ert/engineer
+	flags = BLOCKHAIR
 	name = "emergency response team engineer helmet"
 	desc = "An in-atmosphere helmet worn by engineering members of the Nanotrasen Emergency Response Team. Has orange highlights."
 	icon_state = "erthelmet_eng"
 
 //Medical
 /obj/item/clothing/head/helmet/ert/medical
+	flags = BLOCKHAIR
 	name = "emergency response team medical helmet"
 	desc = "A set of armor worn by medical members of the Nanotrasen Emergency Response Team. Has red and white highlights."
 	icon_state = "erthelmet_med"
 
 //Janitorial
 /obj/item/clothing/head/helmet/ert/janitor
+	flags = BLOCKHAIR
 	name = "emergency response team janitor helmet"
 	desc = "A set of armor worn by janitorial members of the Nanotrasen Emergency Response Team. Has red and white highlights."
 	icon_state = "erthelmet_jan"
+
+/obj/item/clothing/head/helmet/buckhelm
+	name = "buckhelm"
+	desc = "Makesheft bucket helmet. Now you can call yourself as Knight of mop and soap."
+	icon_state = "buckhelm"
+	item_state = "buckhelm"
+	flags_inv = HIDEHEADSETS
+	resistance_flags = FIRE_PROOF
+	armor = list("melee" = 8, "bullet" = 5, "laser" = 5, "energy" = 5, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	strip_delay = 7 SECONDS
+	sprite_sheets = list(
+		"Vox" = 'icons/mob/species/vox/helmet.dmi',
+		"Drask" = 'icons/mob/species/drask/helmet.dmi',
+		"Grey" = 'icons/mob/species/grey/helmet.dmi',
+		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
+		"Tajaran" = 'icons/mob/species/tajaran/helmet.dmi',
+		"Vulpkanin" = 'icons/mob/species/vulpkanin/helmet.dmi',
+		"Kidan" = 'icons/mob/species/kidan/head.dmi',
+		"Nian" = 'icons/mob/species/nian/helmet.dmi',
+		"Machine" = 'icons/mob/species/machine/helmet.dmi',
+		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
+		"Monkey" = 'icons/mob/species/monkey/head.dmi',
+		"Farwa" = 'icons/mob/species/monkey/head.dmi',
+		"Wolpin" = 'icons/mob/species/monkey/head.dmi',
+		"Neara" = 'icons/mob/species/monkey/head.dmi',
+		"Stok" = 'icons/mob/species/monkey/head.dmi'
+	)

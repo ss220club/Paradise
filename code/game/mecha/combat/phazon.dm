@@ -12,6 +12,7 @@
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 30, "energy" = 30, "bomb" = 30, "bio" = 0, "rad" = 50, "fire" = 100, "acid" = 100)
 	max_temperature = 25000
 	infra_luminosity = 3
+	maint_access = 1
 	wreckage = /obj/structure/mecha_wreckage/phazon
 	add_req_access = 1
 	//operation_req_access = list()
@@ -39,9 +40,9 @@
 
 /obj/mecha/combat/phazon/get_commands()
 	var/output = {"<div class='wr'>
-						<div class='header'>Special</div>
+						<div class='header'>Специальное</div>
 						<div class='links'>
-						<a href='?src=[UID()];switch_damtype=1'>Change melee damage type</a><br>
+						<a href='?src=[UID()];switch_damtype=1'>Сменить тип урона ближнего боя</a><br>
 						</div>
 						</div>
 						"}

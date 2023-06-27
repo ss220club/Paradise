@@ -34,6 +34,9 @@
 		playsound(src.loc, 'sound/effects/splat.ogg', 50, 1)
 	return ..()
 
+/obj/structure/blob/has_prints()
+	return FALSE
+
 /obj/structure/blob/BlockSuperconductivity()
 	return atmosblock
 
@@ -198,7 +201,7 @@
 /obj/structure/blob/proc/adjustcolors(var/a_color)
 	if(a_color)
 		color = a_color
-	return
+
 
 /obj/structure/blob/examine(mob/user)
 	. = ..()

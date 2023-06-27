@@ -87,10 +87,9 @@
 		user.visible_message("<span class='notice'>[user] starts removing the payload and wires from \the [src].</span>")
 		if(do_after(user, 40 * I.toolspeed * gettoolspeedmod(user), target = src))
 			playsound(src, I.usesound, 50, 1, 1)
-			user.unEquip(src)
+			user.drop_item_ground(src)
 			user.visible_message("<span class='notice'>[user] removes the insides of \the [src]!</span>")
-			var/obj/item/stack/cable_coil/C = new /obj/item/stack/cable_coil(src.loc)
-			C.amount = 3
+			new /obj/item/stack/cable_coil(src.loc, 3)
 			new /obj/item/bombcore/miniature(src.loc)
 			new /obj/item/pizzabox(src.loc)
 			qdel(src)
@@ -104,3 +103,22 @@
 /obj/item/pizza_bomb/autoarm
 	timer_set = 1
 	timer = 30 // 3 seconds
+
+/obj/item/pizza_bomb/weak
+	name = "pizza box"
+	desc = "A box suited for pizzas."
+	icon = 'icons/obj/food/pizza.dmi'
+	icon_state = "pizzabox1"
+
+/obj/item/pizza_bomb/weak/attack_self(mob/user)
+	return go_boom() // weak, but mersyless
+
+
+/obj/item/pizza_bomb/weak/go_boom()
+	if(disarmed)
+		visible_message("<span class='danger'>[bicon(src)] Sparks briefly jump out of the [correct_wire] wire on \the [src], but it's disarmed!")
+		return
+	atom_say("Наслаждайтесь пиццей!")
+	src.visible_message("<span class='userdanger'>\The [src] violently explodes!</span>")
+	explosion(src.loc, 0, 2, 4, flame_range = 2) //Identical to azide
+	qdel(src)

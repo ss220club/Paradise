@@ -62,6 +62,26 @@
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "mushroom" = 1)
 	foodtype = GRAIN | DAIRY | VEGETABLES
 
+/obj/item/reagent_containers/food/snacks/sliceable/pizza/poison
+	name = "mushroom pizza"
+	desc = "Very special pizza."
+	icon_state = "mushroompizza"
+	slice_path = /obj/item/reagent_containers/food/snacks/poisonslice
+	bitesize = 10
+	list_reagents = list("plantmatter" = 5, "????" = 5, "toiletwater" = 15, "green_vomit" = 10, "slimejelly" = 15)
+	tastes = list("awful" = 1, "disgust" = 1, "vomit" = 1, "cheese" = 1)
+	foodtype = GRAIN | DAIRY | VEGETABLES
+
+/obj/item/reagent_containers/food/snacks/poisonslice
+	name = "mushroom pizza slice"
+	desc = "Maybe it is the last slice of pizza in your life."
+	icon = 'icons/obj/food/pizza.dmi'
+	icon_state = "mushroompizzaslice"
+	filling_color = "#BAA14C"
+	bitesize = 5
+	tastes = list("awful" = 1, "disgust" = 1, "vomit" = 1, "cheese" = 1)
+	foodtype = GRAIN | DAIRY | VEGETABLES
+
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/vegetablepizza
 	name = "vegetable pizza"
 	desc = "No Tomato Sapiens were harmed during the making of this pizza."
@@ -257,7 +277,8 @@
 
 /obj/item/pizzabox/attack_hand(mob/user)
 	if(open && pizza)
-		user.put_in_hands(pizza)
+		pizza.forceMove_turf()
+		user.put_in_hands(pizza, ignore_anim = FALSE)
 		to_chat(user, "<span class='warning'>You take the [pizza] out of the [src].</span>")
 		pizza = null
 		update_icon()
@@ -269,7 +290,8 @@
 			return
 		var/obj/item/pizzabox/box = boxes[boxes.len]
 		boxes -= box
-		user.put_in_hands(box)
+		box.forceMove_turf()
+		user.put_in_hands(box, ignore_anim = FALSE)
 		to_chat(user, "<span class='warning'>You remove the topmost [src] from your hand.</span>")
 		box.update_icon()
 		update_icon()
@@ -294,8 +316,7 @@
 			for(var/obj/item/pizzabox/i in box.boxes)
 				boxestoadd += i
 			if((boxes.len+1) + boxestoadd.len <= 5)
-				user.drop_item()
-				box.loc = src
+				user.drop_transfer_item_to_loc(box, src)
 				box.boxes = list() // Clear the box boxes so we don't have boxes inside boxes. - Xzibit
 				boxes.Add(boxestoadd)
 				box.update_icon()
@@ -309,8 +330,7 @@
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/sliceable/pizza/)) // Long ass fucking object name
 		if(open)
-			user.drop_item()
-			I.loc = src
+			user.drop_transfer_item_to_loc(I, src)
 			pizza = I
 
 			update_icon()
@@ -332,27 +352,32 @@
 		return
 	..()
 
-/obj/item/pizzabox/margherita/New()
-	..()
+/obj/item/pizzabox/margherita/Initialize()
+	. = ..()
 	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizza/margherita(src)
 	boxtag = "margherita deluxe"
 
-/obj/item/pizzabox/vegetable/New()
-	..()
+/obj/item/pizzabox/vegetable/Initialize()
+	. = ..()
 	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizza/vegetablepizza(src)
 	boxtag = "gourmet vegatable"
 
-/obj/item/pizzabox/mushroom/New()
-	..()
+/obj/item/pizzabox/mushroom/Initialize()
+	. = ..()
 	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizza/mushroompizza(src)
 	boxtag = "mushroom special"
 
-/obj/item/pizzabox/meat/New()
-	..()
+/obj/item/pizzabox/meat/Initialize()
+	. = ..()
 	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizza/meatpizza(src)
 	boxtag = "meatlover's supreme"
 
-/obj/item/pizzabox/hawaiian/New()
-	..()
+/obj/item/pizzabox/hawaiian/Initialize()
+	. = ..()
 	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizza/hawaiianpizza(src)
 	boxtag = "Hawaiian feast"
+
+/obj/item/pizzabox/poison/Initialize()
+	. = ..()
+	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizza/poison
+	boxtag = "mushroom special"

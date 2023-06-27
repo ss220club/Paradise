@@ -47,7 +47,7 @@
 
 /mob/living/simple_animal/hostile/guardian/healer/AttackingTarget()
 	. = ..()
-	if(toggle == TRUE)
+	if(toggle)
 		if(loc == summoner)
 			to_chat(src, "<span class='danger'>Нужно явить себя для лечения!</span>")
 			return
@@ -65,6 +65,12 @@
 				if(C == summoner)
 					med_hud_set_health()
 					med_hud_set_status()
+	else
+		if(loc == summoner)
+			return
+		var/mob/living/L = target
+		if(istype(L))
+			L.adjustToxLoss(15)
 
 /mob/living/simple_animal/hostile/guardian/healer/ToggleMode()
 	if(loc == summoner)
@@ -84,13 +90,6 @@
 			toggle = TRUE
 	else
 		to_chat(src, "<span class='danger'>Нужно быть в хозяине для переключения режимов!</span>")
-
-/mob/living/simple_animal/hostile/guardian/healer/AttackingTarget()
-	if(!toggle)
-		var/mob/living/L = target
-		if(istype(L))
-			L.adjustToxLoss(15)
-		. = ..()
 
 /mob/living/simple_animal/hostile/guardian/healer/verb/Beacon()
 	set name = "Установить блюспейс маяк"
@@ -182,9 +181,9 @@
 
 			var/list/available_cures = list()
 			for(var/injure in injures)
-				if((injures[injure]).len > 0)
+				if((length(injures[injure])) > 0)
 					available_cures.Add(injure)
-			if(!available_cures.len)
+			if(!length(available_cures))
 				return 0
 			var/random_cure = pick(available_cures)
 			to_chat(user, "Найдена травма. Попытка исцеления..")

@@ -36,6 +36,12 @@
 	var/girder_type = /obj/structure/girder
 
 	canSmoothWith = list(
+	/obj/structure/window/full/basic,
+	/obj/structure/window/full/reinforced,
+	/obj/structure/window/full/reinforced/tinted,
+	/obj/structure/window/full/reinforced/polarized,
+	/obj/structure/window/full/plasmabasic,
+	/obj/structure/window/full/plasmareinforced,
 	/turf/simulated/wall,
 	/turf/simulated/wall/r_wall,
 	/obj/structure/falsewall,
@@ -44,6 +50,7 @@
 	/turf/simulated/wall/rust,
 	/turf/simulated/wall/r_wall/rust,
 	/turf/simulated/wall/r_wall/coated,
+	/turf/simulated/wall/indestructible,
 	/turf/simulated/wall/indestructible/metal,
 	/turf/simulated/wall/indestructible/reinforced)
 	smooth = SMOOTH_TRUE
@@ -294,6 +301,22 @@
 
 /turf/simulated/wall/attack_hand(mob/user)
 	user.changeNext_move(CLICK_CD_MELEE)
+
+	if(isalien(user))
+		var/mob/living/carbon/alien/A = user
+		A.do_attack_animation(src)
+
+		if(A.environment_smash & ENVIRONMENT_SMASH_RWALLS)
+			dismantle_wall(1)
+			to_chat(A, "<span class='info'>You smash through the wall.</span>")
+			return
+		if(A.environment_smash & ENVIRONMENT_SMASH_WALLS)
+			to_chat(A, text("<span class='notice'>You smash against the wall.</span>"))
+			take_damage(A.obj_damage)
+			return
+
+		to_chat(A, "<span class='notice'>You push the wall but nothing happens!</span>")
+		return
 	if(rotting)
 		if(hardness <= 10)
 			to_chat(user, "<span class='notice'>This wall feels rather unstable.</span>")
@@ -448,7 +471,7 @@
 					"<span class='notice'>You finish drilling [src] and push [P] into the void.</span>",
 					"<span class='notice'>You hear a ratchet.</span>")
 
-				user.drop_item()
+				user.drop_from_active_hand()
 				if(P.is_bent_pipe())  // bent pipe rotation fix see construction.dm
 					P.setDir(5)
 					if(user.dir == 1)
