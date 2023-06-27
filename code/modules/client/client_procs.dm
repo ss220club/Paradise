@@ -996,8 +996,8 @@
 	winset(src, "browserwindow", "background-color=#272727")
 	winset(src, "browserwindow.browser", "background-color=#272727")
 	/* Infowindow */
-	winset(src, "infowindow", "background-color=#272727;text-color=#FFFFFF")
-	winset(src, "infowindow.info", "background-color=#272727;text-color=#FFFFFF;highlight-color=#009900;tab-text-color=#FFFFFF;tab-background-color=#272727")
+	winset(src, "infowindow", "background-color=#202020;text-color=#a4bad6")
+	winset(src, "infowindow.info", "background-color=#171717;text-color=#a4bad6;highlight-color=#009900;tab-text-color=#a4bad6;tab-background-color=#202020")
 	// NOTIFY USER
 	to_chat(src, "<span class='notice'>Darkmode Enabled</span>")
 
