@@ -336,39 +336,15 @@
 	},
 /area/awaymission/example)
 "aY" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/grille,
 /obj/machinery/door/poddoor/shutters{
 	density = 0;
 	icon_state = "open";
 	id_tag = "example";
 	name = "Privacy Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/awaymission/example)
-"aZ" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
+	opacity = 0;
 	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/machinery/door/poddoor/shutters{
-	density = 0;
-	icon_state = "open";
-	id_tag = "example";
-	name = "Privacy Shutters";
-	opacity = 0
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/example)
 "ba" = (
@@ -461,20 +437,6 @@
 	icon_state = "yellowcorner"
 	},
 /area/awaymission/example)
-"bn" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/awaymission/example)
 "bo" = (
 /turf/simulated/floor/plasteel{
 	tag = "icon-stage_stairs (WEST)";
@@ -482,34 +444,8 @@
 	dir = 8
 	},
 /area/awaymission/example)
-"bp" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/awaymission/example)
 "bq" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/awaymission/example)
-"br" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/example)
 "bs" = (
@@ -1980,7 +1916,7 @@ ab
 ac
 aQ
 bk
-bn
+bq
 bt
 by
 by
@@ -1990,7 +1926,7 @@ ab
 bV
 ac
 ac
-bp
+bq
 aP
 aQ
 ac
@@ -2112,7 +2048,7 @@ ab
 ac
 aQ
 bm
-bn
+bq
 bt
 bz
 bt
@@ -2188,7 +2124,7 @@ ab
 bX
 ac
 ac
-br
+bq
 aN
 aQ
 bm
@@ -2244,9 +2180,9 @@ ab
 ac
 aQ
 ac
-bp
+bq
 aa
-bp
+bq
 bJ
 bt
 by
@@ -2376,9 +2312,9 @@ ab
 ac
 aQ
 ac
-br
+bq
 aa
-br
+bq
 bK
 bt
 bJ
@@ -2508,7 +2444,7 @@ ab
 ac
 aQ
 bk
-bn
+bq
 bt
 bA
 bt
@@ -2640,7 +2576,7 @@ ab
 ac
 aQ
 bm
-bn
+bq
 bt
 bB
 bM
@@ -3813,7 +3749,7 @@ aR
 aT
 aT
 aT
-aZ
+aY
 bb
 be
 bi

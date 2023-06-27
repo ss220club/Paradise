@@ -6,10 +6,7 @@
 /turf/simulated/wall/r_wall,
 /area/awaymission/academy/headmaster)
 "ac" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/headmaster)
 "ad" = (
@@ -614,7 +611,6 @@
 	},
 /area/awaymission/academy/headmaster)
 "bU" = (
-/obj/structure/grille,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
@@ -623,9 +619,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/headmaster)
 "bV" = (
@@ -743,15 +737,12 @@
 	},
 /area/awaymission/academy/headmaster)
 "ci" = (
-/obj/structure/grille,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
 	},
 /obj/structure/cable,
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/headmaster)
 "cj" = (
@@ -1018,11 +1009,8 @@
 	},
 /area/awaymission/academy/headmaster)
 "cW" = (
-/obj/structure/grille,
 /obj/structure/cable,
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/headmaster)
 "cX" = (
@@ -1328,7 +1316,9 @@
 /turf/simulated/floor/plating,
 /area/awaymission/academy/classrooms)
 "dH" = (
-/obj/machinery/computer/mech_bay_power_console,
+/obj/machinery/computer/mech_bay_power_console{
+	dir = 1
+	},
 /obj/structure/cable,
 /turf/simulated/floor/greengrid,
 /area/awaymission/academy/classrooms)
@@ -1595,12 +1585,12 @@
 	},
 /area/awaymission/academy/classrooms)
 "er" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 5
+/obj/structure/computerframe{
+	anchored = 1;
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/awaymission/academy/classrooms)
+/turf/simulated/floor/carpet,
+/area/awaymission/academy/headmaster)
 "es" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -2165,7 +2155,6 @@
 	},
 /area/awaymission/academy/classrooms)
 "fO" = (
-/obj/structure/grille,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
@@ -2174,9 +2163,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/classrooms)
 "fP" = (
@@ -2283,15 +2270,12 @@
 /turf/simulated/floor/plasteel,
 /area/awaymission/academy/classrooms)
 "ge" = (
-/obj/structure/grille,
 /obj/structure/cable,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/classrooms)
 "gf" = (
@@ -2309,7 +2293,6 @@
 	},
 /area/awaymission/academy/classrooms)
 "gh" = (
-/obj/structure/grille,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -2318,9 +2301,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/classrooms)
 "gi" = (
@@ -2465,27 +2446,21 @@
 /turf/simulated/floor/plasteel,
 /area/awaymission/academy/classrooms)
 "gB" = (
-/obj/structure/grille,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
 	},
 /obj/structure/cable,
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/classrooms)
 "gC" = (
-/obj/structure/grille,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
 	},
 /obj/structure/cable,
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/classrooms)
 "gD" = (
@@ -2619,15 +2594,12 @@
 /turf/simulated/floor/plasteel,
 /area/awaymission/academy/classrooms)
 "gV" = (
-/obj/structure/grille,
 /obj/structure/cable,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/classrooms)
 "gW" = (
@@ -3383,14 +3355,11 @@
 /turf/space,
 /area/awaymission/academy/academyaft)
 "iY" = (
-/obj/structure/grille,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/academyaft)
 "iZ" = (
@@ -3448,14 +3417,11 @@
 	},
 /area/awaymission/academy/academyaft)
 "je" = (
-/obj/structure/grille,
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/academyaft)
 "jf" = (
@@ -3548,12 +3514,11 @@
 /turf/simulated/floor/plasteel,
 /area/awaymission/academy/academyaft)
 "jq" = (
-/obj/structure/grille,
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/item/shard,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating/airless,
 /area/awaymission/academy/academyaft)
 "jr" = (
@@ -3610,11 +3575,12 @@
 	},
 /area/awaymission/academy/academyaft)
 "jy" = (
-/obj/item/shard{
-	icon_state = "medium"
+/obj/structure/computerframe{
+	anchored = 1;
+	dir = 4
 	},
-/turf/space,
-/area/space/nearstation)
+/turf/simulated/floor/carpet,
+/area/awaymission/academy/headmaster)
 "jz" = (
 /obj/machinery/igniter/on,
 /turf/simulated/floor/plating,
@@ -3624,11 +3590,8 @@
 /turf/simulated/floor/carpet,
 /area/awaymission/academy/academyaft)
 "jB" = (
-/obj/structure/grille,
 /obj/structure/cable,
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/academyaft)
 "jC" = (
@@ -3724,7 +3687,6 @@
 /turf/simulated/floor/grass,
 /area/awaymission/academy/academygate)
 "jR" = (
-/obj/structure/grille,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -3732,9 +3694,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/academyaft)
 "jS" = (
@@ -3744,10 +3704,7 @@
 /turf/simulated/floor/carpet,
 /area/awaymission/academy/academygate)
 "jU" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/academygate)
 "jV" = (
@@ -3839,13 +3796,11 @@
 /turf/simulated/floor/plating,
 /area/awaymission/academy/academygate)
 "kg" = (
-/obj/structure/grille,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/cable,
-/obj/structure/window/reinforced{
-	dir = 5
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
 /area/awaymission/academy/academyaft)
@@ -3856,15 +3811,12 @@
 /turf/simulated/floor/plasteel,
 /area/awaymission/academy/academyaft)
 "ki" = (
-/obj/structure/grille,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
 	},
 /obj/structure/cable,
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/academyaft)
 "kj" = (
@@ -3954,15 +3906,12 @@
 /turf/simulated/floor/carpet,
 /area/awaymission/academy/academygate)
 "ku" = (
-/obj/structure/grille,
 /obj/structure/cable,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/structure/window/reinforced{
-	dir = 5
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/academy/academyaft)
 "kv" = (
@@ -12705,12 +12654,12 @@ bs
 bs
 bs
 dZ
-er
+LR
 bB
 bB
 bB
 bB
-er
+LR
 dZ
 bs
 bs
@@ -12835,12 +12784,12 @@ dG
 de
 bs
 dZ
-er
+LR
 hH
 bB
 bB
 bB
-er
+LR
 dZ
 bs
 bB
@@ -12967,8 +12916,8 @@ bs
 bs
 bs
 hG
-er
-er
+LR
+LR
 eA
 bs
 bs
@@ -14402,7 +14351,7 @@ BT
 ek
 ei
 fE
-er
+LR
 Uo
 gb
 zu
@@ -14532,7 +14481,7 @@ Rh
 wG
 ei
 Sz
-er
+LR
 wP
 dc
 dc
@@ -14662,7 +14611,7 @@ Ec
 ek
 ei
 RH
-er
+LR
 mu
 dc
 dc
@@ -14792,7 +14741,7 @@ fb
 ev
 ex
 fF
-er
+LR
 JW
 dc
 dc
@@ -15013,9 +14962,9 @@ ab
 ab
 ak
 ar
-ae
+jy
 aC
-ae
+jy
 aM
 aN
 ab
@@ -16443,9 +16392,9 @@ ab
 ab
 aq
 aw
-ae
+er
 aI
-ae
+er
 ak
 af
 ab
@@ -17029,7 +16978,7 @@ aa
 aa
 aa
 aa
-jy
+aa
 aa
 aa
 aa

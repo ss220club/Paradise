@@ -1,9 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/simulated/wall/indestructible{
-	icon_state = "rock";
-	name = "rock"
-	},
+/turf/simulated/wall/indestructible/rock,
 /area/moonoutpost19/khonsu19)
 "ab" = (
 /turf/simulated/mineral/random/labormineral,
@@ -755,8 +752,7 @@
 /turf/simulated/floor/plasteel,
 /area/moonoutpost19/syndicateoutpost)
 "bP" = (
-/obj/structure/grille,
-/obj/structure/window/full/basic,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/moonoutpost19/syndicateoutpost)
 "bQ" = (
@@ -1011,11 +1007,6 @@
 	pixel_x = 32
 	},
 /obj/effect/decal/warning_stripes/east,
-/turf/simulated/floor/plating,
-/area/moonoutpost19/syndicateoutpost)
-"cn" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
 /turf/simulated/floor/plating,
 /area/moonoutpost19/syndicateoutpost)
 "co" = (
@@ -2173,8 +2164,7 @@
 	name = "Acid-Proof containment chamber blast door"
 	},
 /obj/structure/cable,
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/moonoutpost19/mo19research)
 "eA" = (
@@ -2261,13 +2251,12 @@
 	},
 /area/moonoutpost19/mo19research)
 "eM" = (
-/obj/structure/grille,
 /obj/machinery/door/poddoor{
 	desc = "A heavy duty blast door that opens mechanically. This one has been applied with an acid-proof coating.";
 	id_tag = "Awaybiohazard";
 	name = "Acid-Proof biohazard containment door"
 	},
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/moonoutpost19/mo19research)
 "eN" = (
@@ -2570,8 +2559,7 @@
 	id_tag = "Awaylab";
 	name = "Acid-Proof containment chamber blast door"
 	},
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/moonoutpost19/mo19research)
 "fp" = (
@@ -2997,8 +2985,7 @@
 	},
 /area/moonoutpost19/mo19research)
 "fX" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/moonoutpost19/mo19research)
 "fY" = (
@@ -3289,8 +3276,7 @@
 	name = "Acid-Proof containment chamber blast door"
 	},
 /obj/structure/cable,
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/moonoutpost19/mo19research)
 "gw" = (
@@ -3512,8 +3498,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/moonoutpost19/mo19research)
 "gP" = (
@@ -3896,12 +3881,11 @@
 	},
 /area/moonoutpost19/mo19research)
 "hx" = (
-/obj/structure/grille,
 /obj/machinery/door/poddoor{
 	id_tag = "AwayRD";
 	name = "privacy shutter"
 	},
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/moonoutpost19/mo19research)
 "hy" = (
@@ -4401,8 +4385,7 @@
 	},
 /area/moonoutpost19/mo19research)
 "is" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/moonoutpost19/mo19arrivals)
 "it" = (
@@ -5023,11 +5006,6 @@
 	icon_state = "bar"
 	},
 /area/moonoutpost19/mo19arrivals)
-"jO" = (
-/obj/structure/grille,
-/obj/structure/window/full/basic,
-/turf/simulated/floor/plating,
-/area/moonoutpost19/mo19arrivals)
 "jP" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/plasteel{
@@ -5153,8 +5131,7 @@
 /turf/simulated/floor/plating,
 /area/moonoutpost19/mo19utilityroom)
 "kd" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating/airless{
 	name = "plating"
 	},
@@ -5677,8 +5654,7 @@
 	},
 /area/moonoutpost19/mo19arrivals)
 "ld" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating/asteroid/airless,
 /area/moonoutpost19/mo19arrivals)
 "lg" = (
@@ -6191,12 +6167,11 @@
 	},
 /area/moonoutpost19/mo19arrivals)
 "mx" = (
-/obj/structure/grille,
 /obj/structure/sign/vacuum{
 	desc = "A warning sign which reads 'HOSTILE ATMOSPHERE AHEAD'";
 	name = "\improper HOSTILE ATMOSPHERE AHEAD"
 	},
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/moonoutpost19/mo19arrivals)
 "my" = (
@@ -6776,9 +6751,8 @@
 	},
 /area/moonoutpost19/mo19arrivals)
 "nW" = (
-/obj/structure/grille,
 /obj/structure/disposalpipe/segment,
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/moonoutpost19/mo19arrivals)
 "nX" = (
@@ -14230,10 +14204,10 @@ bv
 aT
 aT
 bX
-cn
+bP
 cD
-cn
-cn
+bP
+bP
 df
 dn
 aT
@@ -15527,10 +15501,10 @@ io
 iB
 hJ
 hJ
-jO
+is
 oq
 ko
-jO
+is
 hK
 kX
 hK
