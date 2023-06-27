@@ -10182,7 +10182,9 @@
 	},
 /area/centcom/supply)
 "foC" = (
-/obj/machinery/computer/operating,
+/obj/machinery/computer/operating{
+	dir = 4
+	},
 /turf/simulated/floor/plasteel/freezer,
 /area/ninja/outpost)
 "foD" = (
@@ -20618,8 +20620,8 @@
 /area/centcom/zone2)
 "kUf" = (
 /obj/item/radio/intercom/syndicate{
-	pixel_x = -3;
-	pixel_y = -30
+	pixel_y = -22;
+	dir = 1
 	},
 /obj/machinery/light/small{
 	brightness_range = 6;
@@ -23775,7 +23777,8 @@
 /obj/structure/table/wood,
 /obj/effect/landmark/teleport_scroll,
 /obj/item/radio/intercom/syndicate{
-	pixel_y = -30
+	pixel_y = -22;
+	dir = 1
 	},
 /turf/simulated/floor/carpet/cyan,
 /area/wizard_station)
@@ -23959,9 +23962,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/centcom/specops)
-"mwP" = (
-/turf/space,
-/area/syndicate_mothership/infteam)
 "mwS" = (
 /obj/structure/window/reinforced{
 	dir = 4;
@@ -28787,7 +28787,9 @@
 	},
 /area/centcom/zone1)
 "otE" = (
-/obj/machinery/computer/shuttle/trade/sol,
+/obj/machinery/computer/shuttle/trade/sol{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
 	},
@@ -40345,7 +40347,9 @@
 	},
 /area/centcom/zone3)
 "tLY" = (
-/obj/machinery/computer/arcade/orion_trail,
+/obj/machinery/computer/arcade/orion_trail{
+	dir = 4
+	},
 /obj/structure/curtain/black{
 	pixel_x = -32
 	},
@@ -53762,10 +53766,10 @@ mJe
 mJe
 nhY
 nhY
-mwP
-mwP
-mwP
-mwP
+mJe
+mJe
+mJe
+mJe
 pFT
 lOM
 qAN
@@ -54019,10 +54023,10 @@ szE
 mJe
 brr
 lOM
-mwP
+mJe
 tmU
 moV
-mwP
+mJe
 lOM
 lOM
 lOM
@@ -54276,10 +54280,10 @@ mpQ
 mJe
 njJ
 njJ
-mwP
-mwP
-mwP
-mwP
+mJe
+mJe
+mJe
+mJe
 njJ
 njJ
 njJ
@@ -54533,7 +54537,7 @@ kfD
 mMj
 kfD
 kfD
-mwP
+mJe
 owc
 oRB
 pph
