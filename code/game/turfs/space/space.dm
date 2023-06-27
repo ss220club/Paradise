@@ -7,7 +7,6 @@
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = HEAT_CAPACITY_VACUUM
 
-	plane = PLANE_SPACE
 	layer = SPACE_LAYER
 	light_power = 0.25
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
@@ -17,6 +16,7 @@
 	var/destination_x
 	var/destination_y
 	plane = PLANE_SPACE
+	flags = NO_SCREENTIPS
 	footstep = null
 	barefootstep = null
 	clawfootstep = null

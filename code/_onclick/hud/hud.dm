@@ -42,6 +42,8 @@
 	var/action_buttons_hidden = FALSE
 
 	var/list/obj/screen/plane_master/plane_masters = list() // see "appearance_flags" in the ref, assoc list of "[plane]" = object
+	///UI for screentips that appear when you mouse over things
+	var/obj/screen/screentip/screentip_text
 
 /mob/proc/create_mob_hud()
 	if(client && !hud_used)
@@ -57,6 +59,9 @@
 		var/obj/screen/plane_master/instance = new mytype()
 		plane_masters["[instance.plane]"] = instance
 		instance.backdrop(mymob)
+
+	screentip_text = new(null, src)
+	static_inventory += screentip_text
 
 /datum/hud/Destroy()
 	if(mymob.hud_used == src)
@@ -100,6 +105,7 @@
 	QDEL_LIST_ASSOC_VAL(plane_masters)
 
 	mymob = null
+	QDEL_NULL(screentip_text)
 	return ..()
 
 /datum/hud/proc/show_hud(version = 0)

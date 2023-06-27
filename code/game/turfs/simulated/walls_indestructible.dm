@@ -264,11 +264,12 @@
 	canSmoothWith = list(/turf/simulated/wall/indestructible/abductor)
 	smooth = SMOOTH_TRUE
 
-/turf/simulated/wall/indestructible/splashcreen
+/turf/simulated/wall/indestructible/splashscreen
 	name = "Space Station 13"
 	icon = 'config/title_screens/images/blank.png'
 	icon_state = ""
 	layer = FLY_LAYER
+	flags = NO_SCREENTIPS
 
 /turf/simulated/wall/indestructible/sandstone
 	name = "sandstone wall"

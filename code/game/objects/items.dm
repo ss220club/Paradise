@@ -910,6 +910,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 
 
 /obj/item/MouseEntered(location, control, params)
+	. = ..()
 	if(in_inventory || in_storage)
 		var/timedelay = 8
 		var/mob/user = usr
