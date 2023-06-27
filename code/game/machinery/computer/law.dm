@@ -64,7 +64,7 @@
 		hacked = FALSE
 	if(!istype(new_module))
 		return
-	if(!user.drop_item())
+	if(!user.drop_from_active_hand())
 		to_chat(usr, span_warning("[new_module] is stuck to your hand!"))
 		return
 	new_module.forceMove(src)
@@ -83,7 +83,7 @@
 		if(!(authorization_access in new_id.access))
 			to_chat(usr, span_warning("Unauthorized access."))
 			return
-	if(!user.drop_item())
+	if(!user.drop_from_active_hand())
 		to_chat(usr, span_warning("[new_id] is stuck to your hand!"))
 		return
 	new_id.forceMove(src)
