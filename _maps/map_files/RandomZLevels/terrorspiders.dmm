@@ -1,9 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/simulated/wall/indestructible{
-	icon_state = "rock";
-	name = "rock"
-	},
+/turf/simulated/wall/indestructible/rock,
 /area/awaymission/UO71/outside)
 "ab" = (
 /turf/simulated/mineral/random/labormineral,
@@ -114,11 +111,6 @@
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
-/area/awaymission/UO71/plaza)
-"at" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
-/turf/simulated/floor/plating,
 /area/awaymission/UO71/plaza)
 "au" = (
 /turf/simulated/floor/plasteel{
@@ -1415,8 +1407,7 @@
 	},
 /area/awaymission/UO71/plaza)
 "dR" = (
-/obj/structure/grille,
-/obj/structure/window/full/basic,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/plaza)
 "dS" = (
@@ -2438,8 +2429,7 @@
 	},
 /area/awaymission/UO71/gateway)
 "gs" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/gateway)
 "gt" = (
@@ -2896,12 +2886,11 @@
 	},
 /area/awaymission/UO71/centralhall)
 "hr" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
 	level = 2
 	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/centralhall)
 "hs" = (
@@ -3369,11 +3358,10 @@
 /turf/simulated/wall,
 /area/awaymission/UO71/gateway)
 "iy" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/gateway)
 "iz" = (
@@ -3792,8 +3780,7 @@
 	},
 /area/awaymission/UO71/gateway)
 "jM" = (
-/obj/structure/grille,
-/obj/structure/window/full/basic,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/science)
 "jN" = (
@@ -5108,11 +5095,6 @@
 	dir = 5;
 	icon_state = "cafeteria"
 	},
-/area/awaymission/UO71/science)
-"mu" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
-/turf/simulated/floor/plating,
 /area/awaymission/UO71/science)
 "mv" = (
 /turf/simulated/floor/plasteel{
@@ -7028,8 +7010,7 @@
 /turf/simulated/floor/plasteel,
 /area/awaymission/UO71/eng)
 "qe" = (
-/obj/structure/grille,
-/obj/structure/window/full/basic,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/medical)
 "qf" = (
@@ -7241,8 +7222,7 @@
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/science)
 "qy" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/eng)
 "qz" = (
@@ -8337,8 +8317,6 @@
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/science)
 "sF" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
 /obj/machinery/door/poddoor/preopen{
 	id_tag = "UO71_Engineering";
 	name = "engineering security door"
@@ -8346,6 +8324,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/eng)
 "sG" = (
@@ -8810,7 +8789,8 @@
 	input_tag = "UO71_waste_in";
 	name = "Gas Mix Tank Control";
 	output_tag = "UO71_waste_out";
-	sensors = list("UO71_waste_sensor"="Tank")
+	sensors = list("UO71_waste_sensor"="Tank");
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 6
@@ -8948,7 +8928,8 @@
 /area/awaymission/UO71/eng)
 "tW" = (
 /obj/machinery/computer/security{
-	network = list("UO71")
+	network = list("UO71");
+	dir = 1
 	},
 /obj/machinery/door_control{
 	desc = "A remote control-switch for the security privacy shutters.";
@@ -8990,8 +8971,6 @@
 /turf/simulated/floor/plasteel,
 /area/awaymission/UO71/eng)
 "ua" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -8999,6 +8978,7 @@
 	id_tag = "UO71_Engineering";
 	name = "engineering security door"
 	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/eng)
 "ub" = (
@@ -9400,7 +9380,8 @@
 	input_tag = "UO71_n2_in";
 	name = "Nitrogen Supply Control";
 	output_tag = "UO71_n2_out";
-	sensors = list("UO71_n2_sensor"="Tank")
+	sensors = list("UO71_n2_sensor"="Tank");
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/floor/plasteel{
@@ -9417,7 +9398,8 @@
 	input_tag = "UO71_o2_in";
 	name = "Oxygen Supply Control";
 	output_tag = "UO71_o2_out";
-	sensors = list("UO71_o2_sensor"="Tank")
+	sensors = list("UO71_o2_sensor"="Tank");
+	dir = 1
 	},
 /turf/simulated/floor/plasteel{
 	dir = 6;
@@ -9513,7 +9495,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/computer/general_air_control{
 	name = "Tank Monitor";
-	sensors = list("UO71_n2_sensor"="Nitrogen","UO71_o2_sensor"="Oxygen","UO71_waste_sensor"="Gas Mix Tank")
+	sensors = list("UO71_n2_sensor"="Nitrogen","UO71_o2_sensor"="Oxygen","UO71_waste_sensor"="Gas Mix Tank");
+	dir = 4
 	},
 /turf/simulated/floor/plasteel{
 	dir = 9;
@@ -9644,8 +9627,7 @@
 	},
 /area/awaymission/UO71/medical)
 "vu" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/centralhall)
 "vv" = (
@@ -9696,7 +9678,8 @@
 	frequency = 1443;
 	level = 3;
 	name = "Distribution and Waste Monitor";
-	sensors = list("UO71_mair_in_meter"="Mixed Air In","UO71_air_sensor"="Mixed Air Supply Tank","UO71_mair_out_meter"="Mixed Air Out","UO71_dloop_atm_meter"="Distribution Loop","UO71_wloop_atm_meter"="Waste Loop")
+	sensors = list("UO71_mair_in_meter"="Mixed Air In","UO71_air_sensor"="Mixed Air Supply Tank","UO71_mair_out_meter"="Mixed Air Out","UO71_dloop_atm_meter"="Distribution Loop","UO71_wloop_atm_meter"="Waste Loop");
+	dir = 4
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -9923,11 +9906,10 @@
 /turf/simulated/floor/plasteel,
 /area/awaymission/UO71/bridge)
 "vZ" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/centralhall)
 "wa" = (
@@ -9970,7 +9952,9 @@
 /area/awaymission/UO71/centralhall)
 "wf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/computer/atmos_alert,
+/obj/machinery/computer/atmos_alert{
+	dir = 4
+	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "caution"
@@ -10185,7 +10169,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/computer/station_alert,
+/obj/machinery/computer/station_alert{
+	dir = 4
+	},
 /turf/simulated/floor/plasteel{
 	dir = 10;
 	icon_state = "caution"
@@ -10412,8 +10398,6 @@
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/mining)
 "xf" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -10422,16 +10406,16 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/eng)
 "xg" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/eng)
 "xh" = (
@@ -11015,11 +10999,6 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/awaymission/UO71/mining)
-"yl" = (
-/obj/structure/grille,
-/obj/structure/window/full/basic,
-/turf/simulated/floor/plating,
-/area/awaymission/UO71/mining)
 "ym" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -11039,8 +11018,7 @@
 /turf/simulated/floor/plasteel,
 /area/awaymission/UO71/mining)
 "yp" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/mining)
 "yq" = (
@@ -11087,11 +11065,10 @@
 /turf/simulated/floor/plasteel,
 /area/awaymission/UO71/queen)
 "yv" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/mining)
 "yw" = (
@@ -11264,9 +11241,8 @@
 /turf/simulated/floor/plasteel,
 /area/awaymission/UO71/queen)
 "yR" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/mining)
 "yS" = (
@@ -11328,17 +11304,11 @@
 	},
 /area/awaymission/UO71/outside)
 "zd" = (
-/turf/simulated/wall/indestructible{
-	icon_state = "rock";
-	name = "rock"
-	},
+/turf/simulated/wall/indestructible/rock,
 /area/awaymission/UO71/queen)
 "ze" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/wall/indestructible{
-	icon_state = "rock";
-	name = "rock"
-	},
+/turf/simulated/wall/indestructible/rock,
 /area/awaymission/UO71/queen)
 "zf" = (
 /turf/simulated/floor/plasteel,
@@ -11609,11 +11579,10 @@
 /turf/simulated/floor/plasteel,
 /area/awaymission/UO71/plaza)
 "CP" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/plaza)
 "Eb" = (
@@ -11701,10 +11670,7 @@
 /turf/simulated/floor/vault,
 /area/awaymission/UO71/prince)
 "Lf" = (
-/turf/simulated/wall/indestructible{
-	icon_state = "rock";
-	name = "rock"
-	},
+/turf/simulated/wall/indestructible/rock,
 /area/awaymission/UO71/loot)
 "Lw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -11814,9 +11780,8 @@
 /turf/simulated/mineral/random/labormineral,
 /area/awaymission/UO71/outside)
 "ZV" = (
-/obj/structure/grille,
-/obj/structure/window/full/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/awaymission/UO71/science)
 
@@ -13912,9 +13877,9 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14062,9 +14027,9 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14212,9 +14177,9 @@ ab
 aa
 aa
 aa
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14362,9 +14327,9 @@ ab
 aa
 aa
 aa
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14512,9 +14477,9 @@ ab
 aa
 aa
 aa
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14662,9 +14627,9 @@ ab
 aa
 aa
 aa
-ab
-ab
-ab
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14812,12 +14777,12 @@ ab
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 "}
 (21,1,1) = {"
@@ -17740,9 +17705,9 @@ oj
 oj
 pF
 fO
-mu
+jM
 rj
-mu
+jM
 fO
 CE
 ol
@@ -18783,7 +18748,7 @@ ab
 fO
 kZ
 lX
-mu
+jM
 nd
 nE
 oq
@@ -18933,7 +18898,7 @@ ab
 fO
 la
 lX
-mu
+jM
 nf
 nG
 os
@@ -19083,10 +19048,10 @@ jG
 kn
 lb
 lY
-mu
-mu
-mu
-mu
+jM
+jM
+jM
+jM
 pc
 fO
 pX
@@ -19961,7 +19926,7 @@ ad
 Iq
 ad
 dx
-at
+dR
 ea
 ek
 CP
@@ -20544,7 +20509,7 @@ ab
 ad
 al
 al
-at
+dR
 ax
 ax
 aK
@@ -20694,7 +20659,7 @@ ab
 ad
 al
 al
-at
+dR
 aA
 aA
 aK
@@ -20844,7 +20809,7 @@ ab
 ad
 al
 ar
-at
+dR
 az
 aA
 aK
@@ -20994,7 +20959,7 @@ ab
 ac
 al
 ar
-at
+dR
 aC
 aG
 aK
@@ -21612,7 +21577,7 @@ ac
 CP
 dG
 dU
-at
+dR
 dt
 eA
 ac
@@ -21762,7 +21727,7 @@ ac
 CP
 dF
 al
-at
+dR
 ep
 ep
 ac
@@ -22857,9 +22822,9 @@ xm
 vP
 wv
 wi
-yl
+yp
 yn
-yl
+yp
 yC
 xe
 wu

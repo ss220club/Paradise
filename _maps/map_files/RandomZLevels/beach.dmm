@@ -719,21 +719,6 @@
 /obj/structure/flora/ausbushes/leafybush,
 /turf/simulated/floor/indestructible/beach/sand/dense,
 /area/awaymission/beach)
-"cD" = (
-/turf/simulated/wall/indestructible{
-	icon_state = "sandstone12"
-	},
-/area/awaymission/beach)
-"cE" = (
-/turf/simulated/wall/indestructible{
-	icon_state = "sandstone6"
-	},
-/area/awaymission/beach)
-"cF" = (
-/turf/simulated/wall/indestructible{
-	icon_state = "sandstone10"
-	},
-/area/awaymission/beach)
 "cG" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/effect/decal/snow/sand/edge{
@@ -743,15 +728,8 @@
 	},
 /turf/simulated/floor/indestructible/beach/sand,
 /area/awaymission/beach)
-"cH" = (
-/turf/simulated/wall/indestructible{
-	icon_state = "sandstone3"
-	},
-/area/awaymission/beach)
 "cI" = (
-/turf/simulated/wall/indestructible{
-	icon_state = "sandstone1"
-	},
+/turf/simulated/wall/indestructible/sandstone,
 /area/awaymission/beach)
 "cJ" = (
 /obj/effect/decal/snow/sand/edge{
@@ -978,14 +956,12 @@
 /area/awaymission/beach)
 "dC" = (
 /obj/structure/table/wood,
-/obj/machinery/chem_dispenser/soda,
+/obj/machinery/chem_dispenser/soda{
+	dir = 1;
+	pixel_y = 6
+	},
 /turf/simulated/floor/indestructible{
 	icon_state = "wood"
-	},
-/area/awaymission/beach)
-"dD" = (
-/turf/simulated/wall/indestructible{
-	icon_state = "sandstone0"
 	},
 /area/awaymission/beach)
 "dE" = (
@@ -997,7 +973,10 @@
 /area/awaymission/beach)
 "dF" = (
 /obj/structure/table/wood,
-/obj/machinery/chem_dispenser/beer,
+/obj/machinery/chem_dispenser/beer{
+	dir = 1;
+	pixel_y = 6
+	},
 /turf/simulated/floor/indestructible{
 	icon_state = "wood"
 	},
@@ -6479,11 +6458,11 @@ bW
 bj
 bj
 bi
-cE
-cH
+cI
+cI
 cI
 dA
-dD
+cI
 by
 bj
 bj
@@ -6736,7 +6715,7 @@ bT
 bj
 bj
 bi
-cD
+cI
 cS
 dq
 dq
@@ -6993,7 +6972,7 @@ bV
 bj
 bj
 cq
-cD
+cI
 cU
 dq
 dq
@@ -7250,7 +7229,7 @@ bX
 bj
 bj
 cr
-cD
+cI
 cW
 dq
 dq
@@ -7507,7 +7486,7 @@ bW
 bj
 bj
 cq
-cD
+cI
 cX
 dq
 dq
@@ -7764,7 +7743,7 @@ bV
 bj
 bj
 bi
-cD
+cI
 cV
 dq
 dq
@@ -8021,7 +8000,7 @@ bX
 bj
 bj
 bi
-cD
+cI
 da
 dq
 dq
@@ -8278,7 +8257,7 @@ bT
 bj
 bj
 bi
-cD
+cI
 cZ
 dq
 dq
@@ -8535,7 +8514,7 @@ bZ
 ce
 bj
 bi
-cD
+cI
 dl
 dq
 dq
@@ -8792,7 +8771,7 @@ ca
 bj
 bj
 bi
-cD
+cI
 db
 dq
 dq
@@ -9049,7 +9028,7 @@ bX
 cf
 bj
 bi
-cD
+cI
 dm
 dq
 dq
@@ -9306,10 +9285,10 @@ bT
 cd
 bj
 bi
-cF
-cH
-cH
-cH
+cI
+cI
+cI
+cI
 cI
 by
 bj
@@ -10076,8 +10055,8 @@ bj
 cc
 bj
 bi
-cE
-cH
+cI
+cI
 cI
 by
 bj
@@ -10333,7 +10312,7 @@ bN
 bX
 bj
 bi
-cD
+cI
 cO
 dn
 by
@@ -10590,8 +10569,8 @@ bj
 bW
 bj
 bi
-cF
-cH
+cI
+cI
 cI
 by
 bj
@@ -11361,8 +11340,8 @@ bf
 bX
 bj
 bi
-cE
-cH
+cI
+cI
 cI
 by
 bj
@@ -11618,7 +11597,7 @@ bj
 bT
 bj
 bi
-cD
+cI
 cO
 dn
 by
@@ -11875,8 +11854,8 @@ bN
 bV
 bj
 bi
-cF
-cH
+cI
+cI
 cI
 by
 bF
@@ -12646,8 +12625,8 @@ bL
 bX
 bj
 bi
-cE
-cH
+cI
+cI
 cI
 by
 bj
@@ -12903,7 +12882,7 @@ bR
 cb
 bf
 bi
-cD
+cI
 cO
 dn
 by
@@ -13160,8 +13139,8 @@ bf
 bX
 bz
 bi
-cF
-cH
+cI
+cI
 cI
 by
 bj
@@ -14705,8 +14684,8 @@ bl
 bl
 bl
 bz
-bz
-bz
+bj
+bj
 bj
 bD
 bj
@@ -17270,11 +17249,11 @@ bf
 bL
 bj
 cc
-cE
-cH
-cH
-cH
-cH
+cI
+cI
+cI
+cI
+cI
 cI
 bj
 bj
@@ -17527,7 +17506,7 @@ bj
 bz
 bf
 bX
-cD
+cI
 dr
 dr
 dr
@@ -17784,7 +17763,7 @@ bz
 bj
 bj
 bT
-cD
+cI
 dr
 dr
 dr
@@ -18041,7 +18020,7 @@ bL
 bj
 bN
 bV
-cD
+cI
 dr
 dr
 dW
@@ -18298,7 +18277,7 @@ bj
 bz
 bj
 bW
-cD
+cI
 dr
 dr
 dr
@@ -18555,7 +18534,7 @@ bj
 bD
 bj
 cc
-cD
+cI
 dr
 dr
 dr
@@ -18812,11 +18791,11 @@ bz
 bz
 bL
 bX
-cF
-cH
-cH
-cH
-cH
+cI
+cI
+cI
+cI
+cI
 cI
 bj
 bj
@@ -19326,18 +19305,18 @@ bj
 bz
 bf
 bX
-cE
-cH
-cH
-cH
-cH
-cH
-cH
-cH
+cI
+cI
+cI
+cI
+cI
+cI
+cI
+cI
 cI
 cL
 cL
-dD
+cI
 bf
 bX
 cg
@@ -19583,10 +19562,10 @@ by
 bj
 bN
 bT
-cD
+cI
 dI
 dO
-cD
+cI
 bj
 dL
 bj
@@ -19594,7 +19573,7 @@ cL
 bj
 bj
 bj
-cD
+cI
 bN
 bT
 cg
@@ -19840,18 +19819,18 @@ bB
 bL
 bj
 ca
-cD
+cI
 dK
 bj
-cD
+cI
 bj
 bj
 bj
-dD
+cI
 bj
 bj
 bj
-cD
+cI
 bj
 ca
 cg
@@ -20097,18 +20076,18 @@ ci
 bE
 bj
 bj
-cD
+cI
 dJ
 bj
-cD
+cI
 ed
 bj
 bj
-dD
+cI
 bj
 en
 bj
-cD
+cI
 bj
 bj
 bx
@@ -20354,10 +20333,10 @@ bz
 bj
 bL
 bL
-cD
+cI
 bj
 bj
-cD
+cI
 ee
 bj
 bj
@@ -20365,7 +20344,7 @@ cL
 bj
 bj
 bj
-cD
+cI
 bL
 bL
 by
@@ -20611,18 +20590,18 @@ bj
 bz
 bj
 bz
-cD
+cI
 cI
 cL
-cF
-cH
-cH
-cH
-cH
+cI
+cI
+cI
+cI
+cI
 cI
 bj
 bj
-cD
+cI
 bj
 bz
 bJ
@@ -20868,7 +20847,7 @@ bj
 bD
 bj
 bz
-cD
+cI
 dL
 bj
 bj
@@ -20879,7 +20858,7 @@ bj
 bj
 bj
 bj
-cD
+cI
 bj
 bz
 bj
@@ -21125,7 +21104,7 @@ bD
 bj
 bK
 bj
-cD
+cI
 bj
 bj
 bj
@@ -21136,7 +21115,7 @@ bj
 bj
 bj
 bj
-cD
+cI
 bK
 bj
 bJ
@@ -21382,7 +21361,7 @@ bj
 bD
 bj
 bz
-cD
+cI
 dL
 bj
 bj
@@ -21393,7 +21372,7 @@ bj
 bj
 bj
 bj
-cD
+cI
 bj
 bz
 bj
@@ -21639,18 +21618,18 @@ bD
 bj
 bK
 bD
-cD
-cH
+cI
+cI
 cI
 cL
-cE
-cH
-cH
-cH
+cI
+cI
+cI
+cI
 cI
 bj
 bj
-cD
+cI
 bK
 bD
 bj
@@ -21896,11 +21875,11 @@ bz
 bD
 bj
 bS
-cD
+cI
 dN
 bj
 bj
-cD
+cI
 ej
 bj
 bj
@@ -22153,11 +22132,11 @@ bE
 bj
 bz
 bf
-cD
+cI
 dM
 dQ
 cT
-cD
+cI
 bj
 dL
 bj
@@ -22410,17 +22389,17 @@ bz
 bN
 bf
 bT
-cF
-cH
-cH
-cH
-cD
-cH
-cH
-cH
-cH
-cH
-cH
+cI
+cI
+cI
+cI
+cI
+cI
+cI
+cI
+cI
+cI
+cI
 cI
 bj
 ca
