@@ -23,13 +23,11 @@
 	var/mob/living/carbon/currentPatient
 	var/patientStatusHolder //Hold the last instance of table.patient.status. When table.patient.status no longer matches this variable, the computer should tell the doctor
 
-/obj/machinery/computer/operating/New()
-	..()
-	for(dir in list(NORTH,EAST,SOUTH,WEST))
-		table = locate(/obj/machinery/optable, get_step(src, dir))
-		if(table)
-			table.computer = src
-			break
+/obj/machinery/computer/operating/Initialize(mapload)
+	. = ..()
+	table = locate(/obj/machinery/optable, orange(1, src))
+	if(table)
+		table.computer = src
 
 /obj/machinery/computer/operating/Destroy()
 	if(table)

@@ -14388,19 +14388,9 @@
 /turf/simulated/floor/plasteel,
 /area/hallway/primary/central/nw)
 "aNH" = (
-/obj/structure/grille,
-/obj/structure/window/basic,
-/obj/structure/window/basic{
-	dir = 1
-	},
-/obj/structure/window/basic{
-	dir = 8
-	},
-/obj/structure/window/basic{
-	dir = 4
-	},
+/obj/effect/spawner/window,
 /turf/simulated/floor/plating,
-/area/maintenance/fpmaint)
+/area/hallway/secondary/entry)
 "aNI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -20779,7 +20769,7 @@
 	},
 /area/hallway/primary/port)
 "beP" = (
-/obj/effect/spawner/window/reinforced,
+/obj/effect/spawner/window,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/garden)
 "beQ" = (
@@ -20790,7 +20780,7 @@
 /turf/simulated/floor/plasteel,
 /area/hallway/secondary/garden)
 "beR" = (
-/obj/effect/spawner/window/reinforced,
+/obj/effect/spawner/window,
 /turf/simulated/floor/plating,
 /area/storage/primary)
 "beS" = (
@@ -20814,8 +20804,8 @@
 /turf/simulated/floor/plasteel,
 /area/crew_quarters/dorms)
 "beU" = (
-/obj/effect/spawner/window/reinforced,
 /obj/structure/disposalpipe/segment,
+/obj/effect/spawner/window,
 /turf/simulated/floor/plating,
 /area/storage/primary)
 "beV" = (
@@ -37626,7 +37616,9 @@
 /turf/simulated/wall/r_wall,
 /area/toxins/launch)
 "cgH" = (
-/obj/machinery/computer/shuttle/mining,
+/obj/machinery/computer/shuttle/mining{
+	dir = 4
+	},
 /turf/simulated/floor/plasteel{
 	dir = 9;
 	icon_state = "brown"
@@ -113966,10 +113958,10 @@ aVc
 aVc
 bgk
 bhE
-aSd
-aSd
-aSd
-aSd
+aNH
+aNH
+aNH
+aNH
 bre
 bgG
 bqr
@@ -118321,7 +118313,7 @@ aQl
 aLx
 aMA
 aMA
-aNH
+aMZ
 aMA
 aMA
 aMA

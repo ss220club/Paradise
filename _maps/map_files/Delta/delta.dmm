@@ -4944,7 +4944,9 @@
 	},
 /area/maintenance/tourist)
 "aKM" = (
-/obj/structure/computerframe,
+/obj/structure/computerframe{
+	dir = 1
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aKO" = (
@@ -20230,7 +20232,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fore)
 "cjk" = (
-/obj/machinery/computer/brigcells,
+/obj/machinery/computer/brigcells{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel{
 	dir = 6;
 	icon_state = "darkred"
@@ -26417,7 +26421,7 @@
 /area/space)
 "cIW" = (
 /obj/machinery/computer/secure_data{
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/plasteel{
 	dir = 10;
@@ -56415,9 +56419,7 @@
 /turf/simulated/floor/plasteel,
 /area/medical/virology/lab)
 "gTK" = (
-/obj/machinery/computer/operating{
-	dir = 4
-	},
+/obj/machinery/computer/operating,
 /turf/simulated/floor/plasteel{
 	dir = 5;
 	icon_state = "whitered"
@@ -58042,9 +58044,7 @@
 /obj/structure/sign/poster/official/random{
 	pixel_y = 32
 	},
-/obj/machinery/computer/med_data{
-	dir = 4
-	},
+/obj/machinery/computer/med_data,
 /turf/simulated/floor/plasteel{
 	dir = 5;
 	icon_state = "whitered"
@@ -66542,7 +66542,9 @@
 	},
 /area/turret_protected/ai)
 "jru" = (
-/obj/machinery/computer/cloning,
+/obj/machinery/computer/cloning{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel{
 	dir = 9;
 	icon_state = "whiteblue"
@@ -67918,7 +67920,8 @@
 /area/maintenance/asmaint3)
 "jHJ" = (
 /obj/machinery/computer/prisoner{
-	req_access = list(2)
+	req_access = list(2);
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 8
@@ -74923,7 +74926,9 @@
 	},
 /area/medical/medbay)
 "lyD" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/secure_data{
+	dir = 8
+	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -80457,7 +80462,9 @@
 	},
 /area/crew_quarters/locker)
 "mMi" = (
-/obj/machinery/computer/security,
+/obj/machinery/computer/security{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel{
 	dir = 10;
 	icon_state = "darkred"
@@ -89852,7 +89859,9 @@
 	},
 /area/quartermaster/delivery)
 "oUP" = (
-/obj/machinery/computer/security,
+/obj/machinery/computer/security{
+	dir = 4
+	},
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 62
 	},
@@ -106767,8 +106776,8 @@
 /area/maintenance/kitchen)
 "sKw" = (
 /obj/item/radio/intercom{
-	dir = 8;
-	pixel_x = -28
+	dir = 4;
+	pixel_x = -22
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -107473,7 +107482,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/computer/shuttle/labor,
+/obj/machinery/computer/shuttle/labor{
+	dir = 4
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -111610,7 +111621,7 @@
 "tOT" = (
 /obj/machinery/computer/security{
 	network = list("SS13","Research Outpost","Mining Outpost");
-	dir = 1
+	dir = 8
 	},
 /turf/simulated/floor/plasteel{
 	dir = 6;
@@ -120909,7 +120920,9 @@
 	},
 /area/medical/surgery/north)
 "vWq" = (
-/obj/machinery/computer/prisoner,
+/obj/machinery/computer/prisoner{
+	dir = 4
+	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
