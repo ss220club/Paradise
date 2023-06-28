@@ -117,3 +117,6 @@
 
 #define SPLASHSCREEN_LAYER 23
 #define SPLASHSCREEN_PLANE 23
+
+///cinematics are "below" the splash screen
+#define CINEMATIC_LAYER -1

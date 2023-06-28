@@ -881,3 +881,7 @@ proc/dd_sortedObjectList(list/incoming)
 	. = list()
 	for(var/thing in flat_list)
 		.[thing] = TRUE
+
+///sort any value in a list
+/proc/sort_list(list/list_to_sort, cmp=/proc/cmp_text_asc)
+	return sortTim(list_to_sort.Copy(), cmp)
