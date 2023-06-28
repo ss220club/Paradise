@@ -603,3 +603,6 @@ ITEM_ANIMATIONS_ENABLED
 
 ## Can eat through blocked mouth?
 IGNORE_OBSCURED_MOUTH
+
+## Are silicons restricted to use multisensor?
+#MULTISENSOR_BORGS_DISABLED
