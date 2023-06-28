@@ -17,6 +17,7 @@
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
 	GLOB.mob_list += src
+	GLOB.new_player_list += src
 	return INITIALIZE_HINT_NORMAL
 
 /mob/new_player/verb/new_player_panel()
@@ -399,6 +400,7 @@
 		alert(msg)
 		return FALSE
 
+	hide_title_screen()
 	SSjobs.AssignRole(src, rank, 1)
 
 	var/mob/living/character = create_character()	//creates the human and transfers vars and mind
@@ -626,6 +628,8 @@
 
 /mob/new_player/proc/create_character()
 	spawning = 1
+
+	hide_title_screen()
 	close_spawn_windows()
 
 	check_prefs_are_sane()

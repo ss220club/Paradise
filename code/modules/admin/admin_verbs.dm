@@ -87,6 +87,9 @@ GLOBAL_LIST_INIT(admin_verbs_sounds, list(
 	/client/proc/stop_global_admin_sounds
 	))
 GLOBAL_LIST_INIT(admin_verbs_event, list(
+	/client/proc/admin_change_title_screen,
+	/client/proc/change_title_screen_html,
+	/client/proc/change_title_screen_notice,
 	/client/proc/object_talk,
 	/client/proc/cmd_admin_dress,
 	/client/proc/cmd_admin_gib_self,
