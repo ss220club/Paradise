@@ -1,3 +1,8 @@
+#define BACKGROUND_INPUT_ENABLED "#D3B5B5"
+#define BACKGROUND_INPUT_DISABLED (PREFTOGGLE_UI_DARKMODE ? "#272727" : "#F0F0F0")
+#define TEXT_INPUT_ENABLED "#000000"
+#define TEXT_INPUT_DISABLED (PREFTOGGLE_UI_DARKMODE ? "#a4bad6" : "#000000")
+
 /datum/proc/key_down(key, client/C)
 	return
 
@@ -24,11 +29,11 @@
 			"default" = list(
 				"Any" = "\"KeyDown \[\[*\]\]\"", // Passes any key down to the rebindable input system
 				"Any+UP" = "\"KeyUp \[\[*\]\]\"", // Passes any key up to the rebindable input system
-				"Tab" = "\".winset \\\"mainwindow.macro=legacy input.focus=true input.background-color=[COLOR_INPUT_ENABLED]\\\"\"", // Swaps us to legacy mode, forces input to the input bar, sets the input bar colour to salmon pink
+				"Tab" = "\".winset \\\"mainwindow.macro=legacy input.focus=true input.background-color=[BACKGROUND_INPUT_ENABLED] input.text-color=[TEXT_INPUT_ENABLED]\\\"\"", // Swaps us to legacy mode, forces input to the input bar, sets the input bar colour to salmon pink
 				"Back" = "\".winset \\\"input.focus=true ? input.text=\\\"\"" // This makes it so backspace can remove default inputs
 			),
 			"legacy" = list(
-				"Tab" = "\".winset \\\"mainwindow.macro=default map.focus=true input.background-color=[COLOR_INPUT_DISABLED]\\\"\"", // Swaps us to rebind mode, moves input away from input bar, sets input bar to white
+				"Tab" = "\".winset \\\"mainwindow.macro=default map.focus=true input.background-color=[BACKGROUND_INPUT_DISABLED] input.text-color=[TEXT_INPUT_DISABLED]\\\"\"", // Swaps us to rebind mode, moves input away from input bar, sets input bar to white
 				"Back" = "\".winset \\\"input.focus=true ? input.text=\\\"\"" // This makes it so backspace can remove default inputs
 			),
 		)
@@ -63,7 +68,7 @@
 			var/command = macro_set[key]
 			winset(src, "[setname]-[key]", "parent=[setname];name=[key];command=[command]")
 
-	winset(src, null, "input.background-color=[COLOR_INPUT_DISABLED]") //screw you, we start in hotkey mode now
+	winset(src, null, "input.background-color=[BACKGROUND_INPUT_DISABLED] input.text-color=[TEXT_INPUT_DISABLED]") //screw you, we start in hotkey mode now
 	macro_sets = null //not needed anymore, bye have a great time
 
 /client/verb/KeyDown(_key as text)
@@ -160,3 +165,8 @@
 			KB.up(src)
 
 	mob.input_focus?.key_up(_key, src)
+
+#undef BACKGROUND_INPUT_ENABLED
+#undef BACKGROUND_INPUT_DISABLED
+#undef TEXT_INPUT_ENABLED
+#undef TEXT_INPUT_DISABLED
