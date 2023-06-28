@@ -1602,6 +1602,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 /mob/living/silicon/ai/proc/remove_reserve_heat(value)
 	if(!current_reserve_heat)
 		return
+
 	current_reserve_heat -= value
 	current_reserve_heat = max(0, current_reserve_heat)
 	update_reserve_heat_display()

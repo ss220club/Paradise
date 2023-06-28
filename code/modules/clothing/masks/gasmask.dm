@@ -239,7 +239,6 @@
 	desc = "A traditional female mime's mask."
 	icon_state = "sexymime"
 	item_state = "sexymime"
-	resistance_flags = FLAMMABLE
 
 /obj/item/clothing/mask/gas/cyborg
 	name = "cyborg visor"

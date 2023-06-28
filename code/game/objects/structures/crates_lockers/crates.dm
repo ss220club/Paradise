@@ -310,6 +310,13 @@
 	icon_opened = "trashcartgibopen"
 	icon_closed = "trashcartgib"
 
+/obj/structure/closet/crate/trashcart/gibs
+	desc = "A heavy, metal trashcart with wheels. You better don't ask."
+	name = "trash cart with gibs"
+	icon_state = "trashcartgib"
+	icon_opened = "trashcartgibopen"
+	icon_closed = "trashcartgib"
+
 /*these aren't needed anymore
 /obj/structure/closet/crate/hat
 	desc = "A crate filled with Valuable Collector's Hats!."

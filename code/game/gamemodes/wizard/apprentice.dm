@@ -179,20 +179,20 @@
 
 /datum/possible_schools
 	var/list/datum/schools_list = list (
-		new /datum/magick_school.fire,
-		new /datum/magick_school.healer,
-		new /datum/magick_school.motion,
-		new /datum/magick_school.defense,
-		new /datum/magick_school.stand,
-		new /datum/magick_school.sabotage,
-		new /datum/magick_school.sculpt,
-		new /datum/magick_school.instability,
-		new /datum/magick_school.vision,
-		new /datum/magick_school.replace,
-		new /datum/magick_school.destruction,
-		new /datum/magick_school.singulo,
-		new /datum/magick_school.blood,
-		new /datum/magick_school.necromantic,
+		new /datum/magick_school/fire,
+		new /datum/magick_school/healer,
+		new /datum/magick_school/motion,
+		new /datum/magick_school/defense,
+		new /datum/magick_school/stand,
+		new /datum/magick_school/sabotage,
+		new /datum/magick_school/sculpt,
+		new /datum/magick_school/instability,
+		new /datum/magick_school/vision,
+		new /datum/magick_school/replace,
+		new /datum/magick_school/destruction,
+		new /datum/magick_school/singulo,
+		new /datum/magick_school/blood,
+		new /datum/magick_school/necromantic,
 	)
 
 

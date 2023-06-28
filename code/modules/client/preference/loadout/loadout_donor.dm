@@ -87,6 +87,10 @@
 	display_name = "Biker Gloves"
 	path = /obj/item/clothing/gloves/fingerless/biker_gloves
 
+/datum/gear/donor/biker_gloves
+	display_name = "Biker Gloves"
+	path = /obj/item/clothing/gloves/fingerless/biker_gloves
+
 /datum/gear/donor/id_decal_silver
 	display_name = "Silver ID Decal"
 	path = /obj/item/id_decal/silver

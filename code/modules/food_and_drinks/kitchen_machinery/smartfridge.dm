@@ -386,7 +386,7 @@
 	name = "\improper Seed Storage"
 	desc = "When you need seeds fast!"
 	icon = 'icons/obj/machines/vending.dmi'
-	icon_state = "seeds"
+	icon_state = "smartfridge"
 
 /obj/machinery/smartfridge/seeds/Initialize(mapload)
 	. = ..()

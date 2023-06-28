@@ -141,6 +141,9 @@ GLOBAL_DATUM_INIT(security_announcement_down, /datum/announcement/priority/secur
 		for(var/mob/living/silicon/ai/AI as anything in GLOB.ai_list)
 			AI.update_reserve_heat_display()
 
+		for(var/mob/living/silicon/ai/AI as anything in GLOB.ai_list)
+			AI.update_reserve_heat_display()
+
 		if(GLOB.sibsys_automode && !isnull(GLOB.sybsis_registry))
 			var/limit = SIBYL_NONLETHAL
 			switch(GLOB.security_level)
