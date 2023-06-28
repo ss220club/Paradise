@@ -25056,7 +25056,9 @@
 /turf/simulated/floor/plasteel,
 /area/bridge)
 "bpD" = (
-/obj/machinery/mecha_part_fabricator,
+/obj/machinery/mecha_part_fabricator{
+	dir = 1
+	},
 /obj/effect/decal/warning_stripes/yellow/hollow,
 /obj/effect/decal/warning_stripes/south,
 /turf/simulated/floor/plasteel{
@@ -77458,6 +77460,13 @@
 /obj/effect/decal/cleanable/dust,
 /turf/simulated/floor/wood,
 /area/security/permabrig)
+"mMQ" = (
+/obj/effect/decal/warning_stripes/yellow,
+/obj/structure/reagent_dispensers/oil,
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
+/area/toxins/misc_lab)
 "mMY" = (
 /obj/structure/chair/stool{
 	dir = 4
@@ -81247,7 +81256,6 @@
 	},
 /area/library)
 "oEh" = (
-/obj/item/twohanded/required/kirbyplants,
 /obj/machinery/power/apc{
 	name = "south bump";
 	pixel_y = -24
@@ -81256,6 +81264,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/structure/reagent_dispensers/oil,
 /turf/simulated/floor/plasteel{
 	dir = 6;
 	icon_state = "whiteyellow"
@@ -100107,7 +100116,9 @@
 "xyG" = (
 /obj/effect/decal/warning_stripes/yellow/hollow,
 /obj/effect/decal/warning_stripes/south,
-/obj/machinery/mecha_part_fabricator,
+/obj/machinery/mecha_part_fabricator{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "neutralfull"
@@ -148861,7 +148872,7 @@ eAx
 cDw
 jAo
 cDw
-cDw
+ueA
 cAP
 cJK
 cKZ
@@ -149375,7 +149386,7 @@ nFN
 cFS
 lvA
 cDw
-ueA
+mMQ
 cAP
 cBR
 cBR
