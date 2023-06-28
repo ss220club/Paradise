@@ -4,7 +4,6 @@ SUBSYSTEM_DEF(title)
 	init_order = INIT_ORDER_TITLE
 
 	var/file_path
-	var/icon/startup_splash
 
 	/// The current title screen being displayed, as a file path text.
 	var/current_title_screen
@@ -14,15 +13,6 @@ SUBSYSTEM_DEF(title)
 	var/title_html
 	/// The list of possible title screens to rotate through, as file path texts.
 	var/title_screens = list()
-
-	/// average realtime seconds it takes to load the map we're currently running
-	var/average_completion_time = DEFAULT_TITLE_MAP_LOADTIME
-	/// a given startup message => average timestamp in realtime seconds
-	var/list/startup_message_timings = list()
-	/// Raw data to update later
-	var/list/progress_json = list()
-	/// The reference realtime that we're treating as 0 for this run
-	var/progress_reference_time = 0
 
 /datum/controller/subsystem/title/Initialize()
 	var/dat
@@ -39,18 +29,8 @@ SUBSYSTEM_DEF(title)
 
 	for(var/screen in provisional_title_screens)
 		var/list/formatted_list = splittext(screen, "+")
-		if((LAZYLEN(formatted_list) == 1 && (formatted_list[1] != "exclude" && formatted_list[1] != "blank.png" && formatted_list[1] != "startup_splash")))
+		if((LAZYLEN(formatted_list) == 1 && (formatted_list[1] != "exclude" && formatted_list[1] != "blank.png")))
 			local_title_screens += screen
-
-		if(LAZYLEN(formatted_list) > 1 && lowertext(formatted_list[1]) == "startup_splash")
-			var/file_path = "config/title_screens/images/[screen]"
-			ASSERT(fexists(file_path))
-			startup_splash = new(fcopy_rsc(file_path))
-
-	if(startup_splash)
-		change_title_screen(startup_splash)
-	else
-		change_title_screen(DEFAULT_TITLE_LOADING_SCREEN)
 
 	if(length(local_title_screens))
 		for(var/i in local_title_screens)
@@ -59,14 +39,16 @@ SUBSYSTEM_DEF(title)
 			var/icon/title2use = new(fcopy_rsc(file_path))
 			title_screens += title2use
 
+	change_title_screen()
+
 /datum/controller/subsystem/title/Recover()
-	startup_splash = SStitle.startup_splash
 	file_path = SStitle.file_path
 
 	current_title_screen = SStitle.current_title_screen
 	current_notice = SStitle.current_notice
 	title_html = SStitle.title_html
 	title_screens = SStitle.title_screens
+
 /**
  * Show the title screen to all new players.
  */

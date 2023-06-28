@@ -199,6 +199,8 @@
 		if(alert(src,"Are you sure you wish to observe?[(config.respawn_observer ? "" : " You cannot normally join the round after doing this!")]","Player Setup","Yes","No") == "Yes")
 			if(!client)
 				return 1
+
+			hide_title_screen()
 			var/mob/dead/observer/observer = new()
 			src << browse(null, "window=playersetup")
 			spawning = 1

@@ -1,16 +1,6 @@
-/mob/new_player
-	/// Title screen is ready to receive signals
-	var/title_screen_is_ready = FALSE
-
 /mob/new_player/Login()
 	. = ..()
 	show_title_screen()
-
-/mob/new_player/Topic(href, list/href_list)
-	. = ..()
-	if(href_list["title_is_ready"])
-		title_screen_is_ready = TRUE
-		return
 
 /**
  * Shows the titlescreen to a new player.

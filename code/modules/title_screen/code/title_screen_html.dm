@@ -11,15 +11,6 @@
 		</div>
 	"}
 
-	// Tell the server this page loaded.
-	dat += {"
-		<script>
-			var ready_request = new XMLHttpRequest();
-			ready_request.open("GET", "?src=[\ref(src)];title_is_ready=1", true);
-			ready_request.send();
-		</script>
-	"}
-
 	dat += "</body></html>"
 
 	return dat
