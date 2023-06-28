@@ -169,7 +169,11 @@
   */
 /obj/machinery/mecha_part_fabricator/proc/build_design(datum/design/D)
 	. = FALSE
+	var/turf_to_print_on = (get_step(src, dir))
 	if(!local_designs.known_designs[D.id] || !(D.build_type & allowed_design_types))
+		return
+	if(iswallturf(turf_to_print_on))
+		atom_say("Не могу печатать - там стена")
 		return
 	if(being_built)
 		atom_say("Ошибка: уже в процессе производства!")
