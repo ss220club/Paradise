@@ -8,10 +8,8 @@
 	id = "aicore"
 	req_tech = list("programming" = 3)
 	build_type = IMPRINTER
-	materials = list(MAT_GLASS = 1000,  MAT_TITANIUM = 250)
+	materials = list(MAT_GLASS = 1000)
 	build_path = /obj/item/circuitboard/aicore
-	locked = 1
-	access_requirement = list(ACCESS_HEADS)
 	category = list("Computer Boards")
 
 /datum/design/aifixer
@@ -20,10 +18,8 @@
 	id = "aifixer"
 	req_tech = list("programming" = 4, "magnets" = 3)
 	build_type = IMPRINTER
-	materials = list(MAT_GLASS = 1000,  MAT_TITANIUM = 250)
+	materials = list(MAT_GLASS = 1000)
 	build_path = /obj/item/circuitboard/aifixer
-	locked = 1
-	access_requirement = list(ACCESS_HEADS)
 	category = list("Computer Boards")
 
 /datum/design/aiupload
@@ -32,10 +28,8 @@
 	id = "aiupload"
 	req_tech = list("programming" = 5, "engineering" = 4)
 	build_type = IMPRINTER
-	materials = list(MAT_GLASS = 1000,  MAT_TITANIUM = 250)
+	materials = list(MAT_GLASS = 1000)
 	build_path = /obj/item/circuitboard/aiupload
-	locked = 1
-	access_requirement = list(ACCESS_HEADS)
 	category = list("Computer Boards")
 
 /datum/design/atmosalerts
