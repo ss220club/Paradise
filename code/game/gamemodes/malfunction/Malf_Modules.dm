@@ -321,7 +321,7 @@
 	for(var/mob/M in GLOB.player_list)
 		M << 'sound/machines/alarm.ogg'
 	sleep(100)
-	SSticker.station_explosion_cinematic(null, "AI malfunction")
+	
 	to_chat(world, "<B>The AI cleansed the station of life with the doomsday device!</B>")
 	SSticker.mode.station_was_nuked = TRUE
 
