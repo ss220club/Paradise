@@ -373,6 +373,7 @@ GLOBAL_VAR(bomb_set)
 			if(syndie_shuttle)
 				SSticker.mode:syndies_didnt_escape = is_station_level(syndie_shuttle.z)
 			SSticker.mode:nuke_off_station = off_station
+		SSticker.station_explosion_cinematic(off_station,null)
 		if(SSticker.mode)
 			SSticker.mode.explosion_in_progress = 0
 			if(SSticker.mode.name == "nuclear emergency")
