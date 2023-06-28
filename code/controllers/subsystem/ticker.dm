@@ -49,8 +49,6 @@ SUBSYSTEM_DEF(ticker)
 	var/triai = FALSE
 	/// Holder for inital autotransfer vote timer
 	var/next_autotransfer = 0
-	/// Used for station explosion cinematic
-	var/datum/cinematic/cinematic = null
 	/// Spam Prevention. Announce round end only once.
 	var/round_end_announced = FALSE
 	/// Is the ticker currently processing? If FALSE, roundstart is delayed
@@ -338,9 +336,6 @@ SUBSYSTEM_DEF(ticker)
 	return TRUE
 
 /datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null)
-	if(cinematic)
-		return	//already a cinematic in progress!
-
 	auto_toggle_ooc(TRUE) // Turn it on
 
 	if(!station_missed) //nuke kills everyone on z-level 1 to prevent "hurr-durr I survived"
@@ -360,26 +355,26 @@ SUBSYSTEM_DEF(ticker)
 				override = mode.name
 			switch(override)
 				if("nuclear emergency") //Nuke wasn't on station when it blew up
-					play_cinematic(/datum/cinematic/nuke/ops_miss)
+					play_cinematic(/datum/cinematic/nuke/ops_miss, world)
 				if("fake") //The round isn't over, we're just freaking people out for fun
-					play_cinematic(/datum/cinematic/nuke/fake)
+					play_cinematic(/datum/cinematic/nuke/fake, world)
 				else
-					play_cinematic(/datum/cinematic/nuke/self_destruct_miss)
+					play_cinematic(/datum/cinematic/nuke/self_destruct_miss, world)
 		//nuke was nowhere nearby	//TODO: a really distant explosion animation
 		if(2)
-			play_cinematic(/datum/cinematic/nuke/far_explosion)
+			play_cinematic(/datum/cinematic/nuke/far_explosion, world)
 		else	//station was destroyed
 			if(mode && !override)
 				override = mode.name
 			switch(override)
 				if("nuclear emergency") //Nuke Ops successfully bombed the station
-					play_cinematic(/datum/cinematic/nuke/ops_victory)
+					play_cinematic(/datum/cinematic/nuke/ops_victory, world)
 				if("AI malfunction") //Malf (screen,explosion,summary)
-					play_cinematic(/datum/cinematic/malf)
+					play_cinematic(/datum/cinematic/malf, world)
 				if("blob") //Station nuked (nuke,explosion,summary)
-					play_cinematic(/datum/cinematic/nuke/self_destruct)
+					play_cinematic(/datum/cinematic/nuke/self_destruct, world)
 				else //Station nuked (nuke,explosion,summary)
-					play_cinematic(/datum/cinematic/nuke/self_destruct)
+					play_cinematic(/datum/cinematic/nuke/self_destruct, world)
 
 /datum/controller/subsystem/ticker/proc/create_characters()
 	for(var/mob/new_player/player in GLOB.player_list)
