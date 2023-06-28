@@ -1035,6 +1035,8 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 			if(module)
 				module.module_type = "Malf" // For the cool factor
 				update_module_icon()
+			verbs += /mob/living/silicon/robot/proc/reset_security_codes_verb
+			to_chat(src, span_boldnotice("You can now use 'Reset Identity Codes' in 'Robot Commands' to hide yourself."))
 			update_icons()
 		return
 
@@ -1361,6 +1363,10 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 		return
 
 /mob/living/silicon/robot/proc/self_destruct()
+	if(/mob/living/silicon/robot/proc/reset_security_codes_verb in src.verbs)
+		to_chat(src, span_userdanger("Extreme danger! Termination codes detected. Scrambling security codes and automatic AI unlink triggered."))
+		ResetSecurityCodes(forced = TRUE)
+		return
 	if(emagged)
 		if(mmi)
 			qdel(mmi)
@@ -1383,17 +1389,21 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 	// to have to check if every camera is null or not before doing anything, to prevent runtime errors.
 	// I could change the network to null but I don't know what would happen, and it seems too hacky for me.
 
-/mob/living/silicon/robot/proc/ResetSecurityCodes()
+/mob/living/silicon/robot/proc/reset_security_codes_verb()
 	set category = "Robot Commands"
 	set name = "Reset Identity Codes"
-	set desc = "Scrambles your security and identification codes and resets your current buffers.  Unlocks you and but permanently severs you from your AI and the robotics console and will deactivate your camera system."
+	set desc = "Scrambles your security and identification codes and resets your current buffers. Unlocks you and but permanently severs you from your AI and the robotics console"
 
-	var/mob/living/silicon/robot/R = src
+	ResetSecurityCodes(forced = FALSE)
 
-	if(R)
-		R.UnlinkSelf()
-		to_chat(R, "Buffers flushed and reset. Camera system shutdown. All systems operational.")
-		src.verbs -= /mob/living/silicon/robot/proc/ResetSecurityCodes
+/mob/living/silicon/robot/proc/ResetSecurityCodes(forced = FALSE)
+	if(!forced)
+		if(alert(src, "Scrambles your security and identification codes and resets your current buffers. \
+			Unlocks you and permanently severs you from your AI and the robotics console", "Reset Identity Codes", "Confirm", "Abort") == "Abort")
+			return
+	src.UnlinkSelf()
+	to_chat(src, span_alert("Buffers flushed and reset. Camera system shutdown. All systems operational."))
+	src.verbs -= /mob/living/silicon/robot/proc/reset_security_codes_verb
 
 /mob/living/silicon/robot/mode()
 	set name = "Activate Held Object"
@@ -1412,9 +1422,14 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 		state = TRUE
 	if(isclocker(src))
 		return
-	if(state)
+	lockcharge = state
+	if(lockcharge)
 		throw_alert("locked", /obj/screen/alert/locked)
+		to_chat(src, span_notice("You have been locked down!"))
+		if(/mob/living/silicon/robot/proc/reset_security_codes_verb in src.verbs)
+			to_chat(src, span_userdanger("You can use 'Reset Identity Codes' in `Robot Commands` to remove the lockdown!"))
 	else
+		to_chat(src, span_notice("Your lockdown has been lifted!"))
 		clear_alert("locked")
 	lockcharge = state
 	update_canmove()
