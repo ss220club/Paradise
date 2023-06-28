@@ -72,3 +72,6 @@
 #define EXAMINE_HUD_SECURITY_WRITE "security_write"
 #define EXAMINE_HUD_MEDICAL "medical"
 #define EXAMINE_HUD_SKILLS "skills"
+
+/// Used for HUD objects
+#define APPEARANCE_UI (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|PIXEL_SCALE)

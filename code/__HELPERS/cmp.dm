@@ -48,3 +48,6 @@
 		return A.plane - B.plane
 	else
 		return A.layer - B.layer
+
+/proc/cmp_typepaths_asc(A, B)
+	return sorttext("[B]","[A]")
