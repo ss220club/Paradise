@@ -5,7 +5,7 @@
 	icon_state = "away"
 	report_alerts = FALSE
 	requires_power = FALSE
-	ambientsounds = list('sound/music/space.ogg', 'sound/ambience/ambiatmos.ogg', 'sound/ambience/ambigen11.ogg', 'sound/ambience/ambispace.ogg', 'sound/ambience/ambispace2.ogg', 'sound/music/traitor.ogg')
+	ambientsounds = list('sound/music/space.ogg', 'sound/ambience/ambiatmos.ogg', 'sound/ambience/ambigen11.ogg', 'sound/ambience/ambispace.ogg', 'sound/ambience/ambispace2.ogg', 'sound/music/lobby/Traitor.ogg')
 
 /area/awaymission/BMPship/Engines
 	name = "BMP Engine Block"

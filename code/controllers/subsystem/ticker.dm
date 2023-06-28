@@ -70,15 +70,13 @@ SUBSYSTEM_DEF(ticker)
 	var/list/memetips = list()
 
 /datum/controller/subsystem/ticker/Initialize()
-	login_music = pick(\
-	'sound/music/thunderdome.ogg',\
-	'sound/music/space.ogg',\
-	'sound/music/pilotpriest-origin-one.ogg',\
-	'sound/music/pilotpriest-tell-them-now.ogg',\
-	'sound/music/pilotpriest-now-be-the-light.ogg',\
-	'sound/music/title1.ogg',\
-	'sound/music/title2.ogg',\
-	'sound/music/title3.ogg',)
+	login_music = pick(
+		'sound/music/lobby/Space_Asshole.ogg',
+		'sound/music/lobby/Treacherous_Voyage.ogg',
+		'sound/music/lobby/Endless_Space.ogg',
+		'sound/music/lobby/Human.ogg',
+		'sound/music/lobby/Traitor.ogg',
+		'sound/music/lobby/Robocop_RightVer.ogg')
 
 	randomtips = file2list("strings/tips.txt")
 	memetips = file2list("strings/sillytips.txt")
