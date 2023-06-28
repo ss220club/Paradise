@@ -59,7 +59,6 @@
 	req_tech = list("programming" = 3, "biotech" = 2, "materials" = 4)
 	build_type = IMPRINTER
 	materials = list(MAT_GLASS = 1000, MAT_GOLD = 100)
-	access_requirement = list(ACCESS_HEADS)
 	category = list("AI Modules")
 
 /datum/design/reset_module
