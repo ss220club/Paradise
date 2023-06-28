@@ -130,6 +130,7 @@
 	var/noadmins_info = "\n<span class='notice'><small>Если никого из админсостава нет онлайн, все равно создавайте тикеты. Админхэлпы и менторхэлпы будут перенаправлены в дискорд!<small></span>"
 	msg = "<b>Онлайн Админов ([num_admins_online]):</b>\n" + msg + "\n<b>Онлайн Менторов/Модераторов ([num_mods_online]):</b>\n" + modmsg + noadmins_info
 	msg = replacetext(msg, "\[Хост\]",	"\[<font color='#1ABC9C'>Хост</font>\]")
+	msg = replacetext(msg, "\[Ведущий Разработчик\]",	"\[<font color='#1ABC9C'>Ведущий Разработчик</font>\]")
 	msg = replacetext(msg, "\[Старший Админ\]",	"\[<font color='#f02f2f'>Старший Админ</font>\]")
 	msg = replacetext(msg, "\[Админ\]",	"\[<font color='#ee8f29'>Админ</font>\]")
 	msg = replacetext(msg, "\[Триал Админ\]",	"\[<font color='#cfc000'>Триал Админ</font>\]")
