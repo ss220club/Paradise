@@ -149,7 +149,7 @@ GLOBAL_VAR_INIT(admin_ooc_colour, "#b82e00")
 	set desc = "Allows you to pick a custom OOC color."
 	set category = "Preferences"
 
-	if(!check_rights(R_ADMIN)) return
+	if(!check_rights(R_MOD)) return
 
 	var/new_ooccolor = input(src, "Please select your OOC color.", "OOC color", prefs.ooccolor) as color|null
 	if(new_ooccolor)
@@ -164,7 +164,7 @@ GLOBAL_VAR_INIT(admin_ooc_colour, "#b82e00")
 	set desc = "Returns your OOC color to default."
 	set category = "Preferences"
 
-	if(!check_rights(R_ADMIN)) return
+	if(!check_rights(R_MOD)) return
 
 	prefs.ooccolor = initial(prefs.ooccolor)
 	prefs.save_preferences(src)

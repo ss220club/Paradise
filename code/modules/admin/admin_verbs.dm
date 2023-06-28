@@ -13,8 +13,6 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/player_panel_new,		/*shows an interface for all players, with links to various panels*/
 	/client/proc/invisimin,				/*allows our mob to go invisible/visible*/
 	/datum/admins/proc/announce,		/*priority announce something to all clients.*/
-	/client/proc/colorooc,				/*allows us to set a custom colour for everything we say in ooc*/
-	/client/proc/resetcolorooc,			/*allows us to set a reset our ooc color*/
 	/client/proc/admin_ghost,			/*allows us to ghost/reenter body at will*/
 	/client/proc/toggle_view_range,		/*changes how far we can see*/
 	/client/proc/cmd_admin_pm_context,	/*right-click adminPM interface*/
@@ -209,7 +207,9 @@ GLOBAL_LIST_INIT(admin_verbs_mod, list(
 	/client/proc/dsay,
 	/datum/admins/proc/show_player_panel,
 	/client/proc/ban_panel,
-	/client/proc/debug_variables		/*allows us to -see- the variables of any instance in the game. +VAREDIT needed to modify*/
+	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game. +VAREDIT needed to modify*/
+	/client/proc/colorooc,				/*allows us to set a custom colour for everything we say in ooc*/
+	/client/proc/resetcolorooc			/*allows us to set a reset our ooc color*/
 ))
 GLOBAL_LIST_INIT(admin_verbs_mentor, list(
 	/client/proc/cmd_admin_pm_context,	/*right-click adminPM interface*/
