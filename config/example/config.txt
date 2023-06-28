@@ -593,13 +593,16 @@ DEFAULT_MAP /datum/map/cyberiad
 MODIFY_PULL_PUSH_SPEED
 
 ## Is Pixel-Shift feature allowed on the server
-#PIXEL_SHIFT
+PIXEL_SHIFT
 
 ## Is AI heating enabled on this server
 #AI_HEAT
 
 ## Enable animations on item pickup and drop down
-# ITEM_ANIMATIONS_ENABLED
+ITEM_ANIMATIONS_ENABLED
 
 ## Can eat through blocked mouth?
-#IGNORE_OBSCURED_MOUTH
+IGNORE_OBSCURED_MOUTH
+
+## Are silicons restricted to use multisensor?
+#MULTISENSOR_BORGS_DISABLED

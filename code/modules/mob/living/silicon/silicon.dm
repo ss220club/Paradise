@@ -352,7 +352,10 @@
 
 
 /mob/living/silicon/proc/toggle_sensor_mode()
-	var/sensor_type = input("Please select sensor type.", "Sensor Integration", null) in list("Security", "Medical","Diagnostic", "Multisensor","Disable")
+	var/list/sensor_modes = list("Security", "Medical","Diagnostic", "Multisensor","Disable")
+	if(config.multisensor_borgs_disabled)
+		sensor_modes -= "Multisensor"
+	var/sensor_type = input("Please select sensor type.", "Sensor Integration", null) in sensor_modes
 	remove_med_sec_hud()
 	switch(sensor_type)
 		if("Security")

@@ -324,6 +324,7 @@
 	var/ignore_obscured_mouth = FALSE
 
 	var/ai_heat = FALSE
+	var/multisensor_borgs_disabled = FALSE
 
 /datum/configuration/New()
 	for(var/T in subtypesof(/datum/game_mode))
@@ -926,6 +927,9 @@
 
 				if("item_animations_enabled")
 					config.item_animations_enabled = TRUE
+
+				if("multisensor_borgs_disabled")
+					multisensor_borgs_disabled = TRUE
 
 				else
 					log_config("Unknown setting in configuration: '[name]'")
