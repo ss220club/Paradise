@@ -21,7 +21,7 @@ AI MODULES
 	origin_tech = "programming=3"
 	materials = list(MAT_GOLD=50)
 	var/datum/ai_laws/laws = null
-	var/delay = 20 SECONDS
+	var/delay = 30 SECONDS
 	var/transmitting = FALSE
 	var/timer_id = null
 	var/registered_name = null
