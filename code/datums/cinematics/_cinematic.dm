@@ -118,7 +118,7 @@
 		return
 
 	watching += watching_client
-	watching_mob.overlay_fullscreen("cinematic", /objscreen/fullscreen/cinematic_backdrop)
+	watching_mob.overlay_fullscreen("cinematic", /obj/screen/fullscreen/cinematic_backdrop)
 	watching_client.screen += screen
 	RegisterSignal(watching_client, COMSIG_PARENT_QDELETING, PROC_REF(remove_watcher))
 
@@ -156,7 +156,7 @@
 
 /// Unlocks a previously locked ref
 /datum/cinematic/proc/unlock_mob(datum/mob_ref)
-	var/mob/locked_mob = mob_ref.resolve()
+	var/mob/locked_mob = mob_ref
 	if(isnull(locked_mob))
 		return
 	locked_mob.notransform = FALSE
