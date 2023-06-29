@@ -71,6 +71,7 @@ FIRE ALARM
 		icon_state = "fire1"
 		set_light(2, 1, COLOR_RED)
 	else if(triggered)
+		icon_state = "fire1"
 		set_light(5, 0.8, COLOR_RED_LIGHT)
 	else
 		icon_state = "fire0"
