@@ -524,7 +524,6 @@
 	},
 /area/ruin/unpowered)
 "bm" = (
-/obj/structure/closet/wardrobe/toxins_white,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"

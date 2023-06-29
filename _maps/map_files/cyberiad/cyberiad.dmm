@@ -53273,7 +53273,6 @@
 	},
 /area/maintenance/atmospherics)
 "dfF" = (
-/obj/structure/closet/wardrobe/atmospherics_yellow,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump Engineering";
@@ -66037,7 +66036,6 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/structure/closet/wardrobe/robotics_black,
 /obj/item/clothing/glasses/hud/diagnostic{
 	pixel_x = 2;
 	pixel_y = 5
@@ -85266,7 +85264,6 @@
 	},
 /area/medical/research/restroom)
 "quY" = (
-/obj/structure/closet/wardrobe/coroner,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -86960,7 +86957,6 @@
 	},
 /area/gateway)
 "rkI" = (
-/obj/structure/closet/wardrobe/virology_white,
 /obj/effect/decal/warning_stripes/southwestcorner,
 /turf/simulated/floor/plasteel{
 	dir = 9;

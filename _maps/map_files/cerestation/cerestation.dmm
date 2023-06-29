@@ -17632,7 +17632,6 @@
 /obj/machinery/light_switch{
 	pixel_y = 24
 	},
-/obj/structure/closet/wardrobe/virology_white,
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -53560,7 +53559,6 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/closet/wardrobe/coroner,
 /obj/item/reagent_containers/glass/bottle/reagent/formaldehyde,
 /obj/item/reagent_containers/dropper,
 /obj/structure/disposalpipe/segment,
@@ -88234,7 +88232,6 @@
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
-/obj/structure/closet/wardrobe/robotics_black,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "darkpurple"

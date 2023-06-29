@@ -13003,7 +13003,6 @@
 /turf/simulated/floor/plasteel,
 /area/engine/controlroom)
 "bCk" = (
-/obj/structure/closet/wardrobe/coroner,
 /obj/item/reagent_containers/glass/bottle/reagent/formaldehyde,
 /obj/item/reagent_containers/dropper,
 /obj/item/storage/box/gloves,
@@ -18780,7 +18779,6 @@
 /obj/machinery/light_switch{
 	pixel_x = -22
 	},
-/obj/structure/closet/wardrobe/atmospherics_yellow,
 /obj/effect/decal/warning_stripes/yellow/hollow,
 /turf/simulated/floor/plasteel{
 	dir = 9;
@@ -51153,7 +51151,6 @@
 	pixel_x = 32
 	},
 /obj/effect/decal/warning_stripes/yellow/hollow,
-/obj/structure/closet/wardrobe/atmospherics_yellow,
 /turf/simulated/floor/plasteel{
 	dir = 5;
 	icon_state = "caution"
@@ -128261,7 +128258,6 @@
 /area/lawoffice)
 "xDU" = (
 /obj/effect/decal/warning_stripes/yellow/hollow,
-/obj/structure/closet/wardrobe/robotics_black,
 /obj/item/clothing/head/welding{
 	pixel_x = -3;
 	pixel_y = 5
@@ -129807,7 +129803,6 @@
 /turf/simulated/floor/plasteel,
 /area/engine/engineering)
 "xSx" = (
-/obj/structure/closet/wardrobe/virology_white,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "whitegreencorner"
