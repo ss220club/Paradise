@@ -19,39 +19,6 @@
 	new /obj/item/clothing/shoes/brown(src)
 
 
-/obj/structure/closet/wardrobe/red
-	name = "security wardrobe"
-	icon_state = "red"
-	icon_closed = "red"
-
-/obj/structure/closet/wardrobe/red/populate_contents()
-	new /obj/item/storage/backpack/duffel/security(src)
-	new /obj/item/storage/backpack/duffel/security(src)
-	new /obj/item/clothing/mask/bandana/red(src)
-	new /obj/item/clothing/mask/bandana/red(src)
-	new /obj/item/clothing/mask/bandana/red(src)
-	new /obj/item/clothing/under/rank/security(src)
-	new /obj/item/clothing/under/rank/security(src)
-	new /obj/item/clothing/under/rank/security/formal(src)
-	new /obj/item/clothing/under/rank/security/formal(src)
-	new /obj/item/clothing/under/rank/security/formal(src)
-	new /obj/item/clothing/under/rank/security/skirt(src)
-	new /obj/item/clothing/under/rank/security/skirt(src)
-	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/shoes/jackboots/jacksandals(src)
-	new /obj/item/clothing/shoes/jackboots/jacksandals(src)
-	new /obj/item/clothing/shoes/jackboots/jacksandals(src)
-	new /obj/item/clothing/head/soft/sec(src)
-	new /obj/item/clothing/head/soft/sec(src)
-	new /obj/item/clothing/head/soft/sec(src)
-	new /obj/item/clothing/head/beret/sec(src)
-	new /obj/item/clothing/head/beret/sec(src)
-	new /obj/item/clothing/head/beret/sec(src)
-	new /obj/item/clothing/head/officer(src)
-	new /obj/item/clothing/head/officer(src)
-	new /obj/item/clothing/head/officer(src)
-
 /obj/structure/closet/wardrobe/pink
 	name = "pink wardrobe"
 	icon_state = "pink"

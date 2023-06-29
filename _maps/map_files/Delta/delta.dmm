@@ -668,7 +668,6 @@
 /turf/space,
 /area/space)
 "ads" = (
-/obj/structure/closet/wardrobe/red,
 /obj/item/clothing/suit/tracksuit/red,
 /obj/machinery/power/apc{
 	name = "south bump";
@@ -2227,7 +2226,6 @@
 	pixel_x = -30;
 	pixel_y = 2
 	},
-/obj/structure/closet/wardrobe/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},

@@ -29591,7 +29591,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/structure/closet/wardrobe/red,
 /turf/simulated/floor/plasteel{
 	icon_state = "darkred"
 	},
