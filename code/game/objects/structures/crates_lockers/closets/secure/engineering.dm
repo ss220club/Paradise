@@ -9,11 +9,6 @@
 	icon_off = "secureceoff"
 
 /obj/structure/closet/secure_closet/engineering_chief/populate_contents()
-	if(prob(50))
-		new /obj/item/storage/backpack/industrial(src)
-	else
-		new /obj/item/storage/backpack/satchel_eng(src)
-	new /obj/item/storage/backpack/duffel/engineering(src)
 	new /obj/item/areaeditor/blueprints/ce(src)
 	new /obj/item/storage/box/permits(src)
 	new /obj/item/clothing/glasses/welding/superior(src)
@@ -57,7 +52,6 @@
 	new /obj/item/multitool(src)
 	new /obj/item/multitool(src)
 	new /obj/item/multitool(src)
-	new /obj/item/clothing/head/beret/eng
 
 
 /obj/structure/closet/secure_closet/engineering_welding
@@ -90,20 +84,11 @@
 	icon_off = "secureengoff"
 
 /obj/structure/closet/secure_closet/engineering_personal/populate_contents()
-	if(prob(50))
-		new /obj/item/storage/backpack/industrial(src)
-	else
-		new /obj/item/storage/backpack/satchel_eng(src)
-	new /obj/item/storage/backpack/duffel/engineering(src)
 	new /obj/item/storage/toolbox/mechanical(src)
 	new /obj/item/holosign_creator/engineering(src)
-	new /obj/item/radio/headset/headset_eng(src)
-	new /obj/item/clothing/suit/storage/hazardvest(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/clothing/glasses/meson(src)
 	new /obj/item/cartridge/engineering(src)
-	new /obj/item/clothing/head/beret/eng(src)
-	new /obj/item/clothing/head/hardhat/orange(src)
 
 
 /obj/structure/closet/secure_closet/atmos_personal
@@ -117,18 +102,11 @@
 	icon_off = "secureatmoff"
 
 /obj/structure/closet/secure_closet/atmos_personal/populate_contents()
-	new /obj/item/radio/headset/headset_eng(src)
 	new /obj/item/cartridge/atmos(src)
 	new /obj/item/storage/toolbox/mechanical(src)
-	if(prob(50))
-		new /obj/item/storage/backpack/industrial(src)
-	else
-		new /obj/item/storage/backpack/satchel_eng(src)
-	new /obj/item/storage/backpack/duffel/atmos(src)
 	new /obj/item/extinguisher(src)
 	new /obj/item/grenade/gas/oxygen(src)
 	new /obj/item/grenade/gas/oxygen(src)
-	new /obj/item/clothing/suit/storage/hazardvest(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/tank/internals/emergency_oxygen/engi(src)
 	new /obj/item/holosign_creator/atmos(src)

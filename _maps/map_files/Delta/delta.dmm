@@ -6800,7 +6800,6 @@
 /area/crew_quarters/bar/atrium)
 "aWr" = (
 /obj/effect/decal/warning_stripes/yellow/hollow,
-/obj/structure/closet/secure_closet/cargotech,
 /obj/item/stamp/granted,
 /obj/item/stamp/denied,
 /turf/simulated/floor/plasteel{
@@ -8750,7 +8749,6 @@
 	c_tag = "Mining West";
 	dir = 1
 	},
-/obj/structure/closet/wardrobe/miner,
 /obj/machinery/vending/wallmed{
 	pixel_y = -30
 	},
@@ -15591,7 +15589,6 @@
 	pixel_y = -26
 	},
 /obj/effect/decal/warning_stripes/yellow/hollow,
-/obj/structure/closet/secure_closet/cargotech,
 /obj/item/stamp/granted,
 /obj/item/stamp/denied,
 /turf/simulated/floor/plasteel{
@@ -65486,7 +65483,6 @@
 /area/security/visiting_room)
 "jeg" = (
 /obj/effect/decal/warning_stripes/yellow/hollow,
-/obj/structure/closet/secure_closet/roboticist,
 /obj/item/radio/headset/headset_sci{
 	pixel_x = -3
 	},
@@ -90218,7 +90214,6 @@
 	},
 /area/toxins/lab)
 "oXs" = (
-/obj/structure/closet/secure_closet/scientist,
 /obj/machinery/power/apc{
 	cell_type = 5000;
 	dir = 4;

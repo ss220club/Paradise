@@ -5726,7 +5726,6 @@
 	},
 /area/turret_protected/aisat_interior)
 "aPO" = (
-/obj/structure/closet/secure_closet/cargotech,
 /turf/simulated/floor/plasteel{
 	icon_state = "darkbrown"
 	},
@@ -21492,7 +21491,6 @@
 	},
 /area/hallway/secondary/exit)
 "cpx" = (
-/obj/structure/closet/secure_closet/scientist,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "whitepurple"
@@ -50960,7 +50958,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/starboard)
 "jQz" = (
-/obj/structure/closet/secure_closet/roboticist,
 /obj/machinery/door_control{
 	id = "RoboticsShutters";
 	name = "Robotics Privacy Shutters";
@@ -53831,7 +53828,6 @@
 	dir = 1;
 	network = list("SS13","QM")
 	},
-/obj/structure/closet/secure_closet/cargotech,
 /turf/simulated/floor/plasteel{
 	icon_state = "darkbrown"
 	},
@@ -56028,7 +56024,6 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/obj/structure/closet/secure_closet/cargotech,
 /turf/simulated/floor/plasteel{
 	icon_state = "darkbrown"
 	},
@@ -56778,7 +56773,6 @@
 /turf/space,
 /area/solar/port)
 "lAw" = (
-/obj/structure/closet/secure_closet/cargotech,
 /turf/simulated/floor/plasteel{
 	dir = 10;
 	icon_state = "darkbrown"
@@ -68842,7 +68836,6 @@
 	},
 /area/hallway/primary/port/north)
 "pqv" = (
-/obj/structure/closet/secure_closet/scientist,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "whitepurple"
@@ -88529,7 +88522,6 @@
 	},
 /area/hallway/spacebridge/sercom)
 "vxS" = (
-/obj/structure/closet/secure_closet/roboticist,
 /turf/simulated/floor/plasteel{
 	dir = 5;
 	icon_state = "darkpurple"

@@ -42012,7 +42012,6 @@
 /area/maintenance/asmaint)
 "cAD" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/secure_closet/scientist,
 /obj/machinery/power/apc{
 	name = "south bump";
 	pixel_y = -24
@@ -57428,7 +57427,6 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/warning_stripes/yellow/hollow,
-/obj/structure/closet/secure_closet/cargotech,
 /turf/simulated/floor/plasteel,
 /area/quartermaster/storage)
 "dvr" = (
@@ -93994,7 +93992,6 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/structure/closet/secure_closet/cargotech,
 /obj/effect/decal/warning_stripes/yellow/hollow,
 /turf/simulated/floor/plasteel,
 /area/quartermaster/storage)
@@ -95446,7 +95443,6 @@
 /area/maintenance/asmaint2)
 "vnB" = (
 /obj/effect/decal/warning_stripes/yellow,
-/obj/structure/closet/wardrobe/miner,
 /turf/simulated/floor/plasteel{
 	icon_state = "brown"
 	},
@@ -100835,7 +100831,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/chapel)
 "xND" = (
-/obj/structure/closet/secure_closet/roboticist,
 /obj/item/radio/headset/headset_sci{
 	pixel_x = -3
 	},
@@ -101246,7 +101241,6 @@
 /turf/simulated/floor/carpet,
 /area/maintenance/asmaint)
 "xXb" = (
-/obj/structure/closet/secure_closet/cargotech,
 /obj/effect/decal/warning_stripes/yellow/hollow,
 /turf/simulated/floor/plasteel,
 /area/quartermaster/storage)

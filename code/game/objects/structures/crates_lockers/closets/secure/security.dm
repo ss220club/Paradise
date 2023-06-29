@@ -9,12 +9,10 @@
 	icon_off = "capsecureoff"
 
 /obj/structure/closet/secure_closet/captains/populate_contents()
-	if(prob(50))
-		new /obj/item/storage/backpack/captain(src)
-	else
-		new /obj/item/storage/backpack/satchel_cap(src)
-	new /obj/item/book/manual/faxes(src)
+	new /obj/item/storage/backpack/captain(src)
+	new /obj/item/storage/backpack/satchel_cap(src)
 	new /obj/item/storage/backpack/duffel/captain(src)
+	new /obj/item/book/manual/faxes(src)
 	new /obj/item/cartridge/captain(src)
 	new /obj/item/radio/headset/heads/captain/alt(src)
 	new /obj/item/clothing/gloves/color/captain(src)
@@ -24,6 +22,7 @@
 	new /obj/item/reagent_containers/food/drinks/mug/cap(src)
 	new /obj/item/tank/internals/emergency_oxygen/double(src)
 	new /obj/item/storage/garmentbag/captains(src)
+
 /obj/structure/closet/secure_closet/hop
 	name = "head of personnel's locker"
 	req_access = list(ACCESS_HOP)
@@ -88,10 +87,6 @@
 	icon_off = "hossecureoff"
 
 /obj/structure/closet/secure_closet/hos/populate_contents()
-	if(prob(50))
-		new /obj/item/storage/backpack/security(src)
-	else
-		new /obj/item/storage/backpack/satchel_sec(src)
 	new /obj/item/cartridge/hos(src)
 	new /obj/item/radio/headset/heads/hos/alt(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
@@ -126,10 +121,6 @@
 	icon_off = "wardensecureoff"
 
 /obj/structure/closet/secure_closet/warden/populate_contents()
-	if(prob(50))
-		new /obj/item/storage/backpack/security(src)
-	else
-		new /obj/item/storage/backpack/satchel_sec(src)
 	new /obj/item/radio/headset/headset_sec/alt(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
 	new /obj/item/holosign_creator/security(src)
@@ -160,13 +151,8 @@
 	icon_off = "secoff"
 
 /obj/structure/closet/secure_closet/security/populate_contents()
-	if(prob(50))
-		new /obj/item/storage/backpack/security(src)
-	else
-		new /obj/item/storage/backpack/satchel_sec(src)
 	new /obj/item/clothing/suit/armor/vest/security(src)
 	new /obj/item/radio/headset/headset_sec/alt(src)
-	new /obj/item/clothing/head/soft/sec(src)
 	new /obj/item/storage/belt/security/sec(src)
 	new /obj/item/holosign_creator/security(src)
 	new /obj/item/clothing/mask/gas/sechailer(src)
@@ -186,10 +172,6 @@
 	icon_off = "securemedoff"
 
 /obj/structure/closet/secure_closet/brigdoc/populate_contents()
-	if(prob(50))
-		new /obj/item/storage/backpack/medic(src)
-	else
-		new /obj/item/storage/backpack/satchel_med(src)
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/flash(src)
 	new /obj/item/storage/firstaid/regular(src)
@@ -197,11 +179,7 @@
 	new /obj/item/storage/firstaid/adv(src)
 	new /obj/item/storage/firstaid/o2(src)
 	new /obj/item/storage/firstaid/toxin(src)
-	new /obj/item/clothing/suit/storage/brigdoc(src)
-	new /obj/item/clothing/under/rank/security/brigphys(src)
-	new /obj/item/clothing/shoes/white(src)
 	new /obj/item/radio/headset/headset_brigphys(src)
-	new /obj/item/clothing/shoes/sandal/white(src)
 
 /obj/structure/closet/secure_closet/blueshield
 	name = "blueshield's locker"
@@ -228,6 +206,7 @@
 	new /obj/item/clothing/mask/gas/sechailer(src)
 	new /obj/item/sensor_device/command(src)
 	new /obj/item/storage/garmentbag/blueshield(src)
+
 /obj/structure/closet/secure_closet/ntrep
 	name = "\improper Nanotrasen Representative's locker"
 	req_access = list(ACCESS_NTREP)
@@ -247,35 +226,6 @@
 	new /obj/item/storage/box/tapes(src)
 	new /obj/item/taperecorder(src)
 	new /obj/item/storage/garmentbag/ntrep(src)
-
-
-/obj/structure/closet/secure_closet/security/cargo
-
-/obj/structure/closet/secure_closet/security/cargo/populate_contents()
-	new /obj/item/clothing/accessory/armband/cargo(src)
-	new /obj/item/encryptionkey/headset_cargo(src)
-
-
-/obj/structure/closet/secure_closet/security/engine
-
-/obj/structure/closet/secure_closet/security/engine/populate_contents()
-	new /obj/item/clothing/accessory/armband/engine(src)
-	new /obj/item/encryptionkey/headset_eng(src)
-
-
-/obj/structure/closet/secure_closet/security/science
-
-/obj/structure/closet/secure_closet/security/science/populate_contents()
-	new /obj/item/clothing/accessory/armband/science(src)
-	new /obj/item/encryptionkey/headset_sci(src)
-
-
-/obj/structure/closet/secure_closet/security/med
-
-/obj/structure/closet/secure_closet/security/med/populate_contents()
-	new /obj/item/clothing/accessory/armband/medgreen(src)
-	new /obj/item/encryptionkey/headset_med(src)
-
 
 /obj/structure/closet/secure_closet/detective
 	name = "detective's cabinet"
