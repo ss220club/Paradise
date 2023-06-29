@@ -61,7 +61,6 @@
 	new /obj/item/handheld_defibrillator(src)
 	new /obj/item/storage/belt/medical(src)
 	new /obj/item/clothing/glasses/hud/health(src)
-	new /obj/item/clothing/head/surgery/lightgreen(src)
 
 
 //Exam Room
