@@ -76,7 +76,7 @@
 	if(immediate_arm)
 		arm()
 		anchored = TRUE
-	update_icon
+	update_icon()
 
 /obj/item/airbag/update_icon()
 	. = ..()
