@@ -15975,7 +15975,7 @@
 "aRJ" = (
 /obj/item/reagent_containers/glass/bucket,
 /obj/structure/sink{
-	pixel_y = 24
+	pixel_y = 22
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "Dark"
@@ -16893,7 +16893,7 @@
 	dir = 1
 	},
 /obj/structure/sink{
-	pixel_y = 30
+	pixel_y = 22
 	},
 /obj/effect/turf_decal/siding/white{
 	dir = 8
@@ -16918,7 +16918,7 @@
 /area/maintenance/fpmaint)
 "aUz" = (
 /obj/structure/sink{
-	pixel_y = 30
+	pixel_y = 22
 	},
 /obj/effect/turf_decal/siding/white{
 	dir = 4
@@ -21096,7 +21096,7 @@
 /area/turret_protected/aisat_interior)
 "bfw" = (
 /obj/structure/sink{
-	pixel_y = 16
+	pixel_y = 22
 	},
 /obj/machinery/light_switch{
 	name = "custom light switch";
@@ -21385,7 +21385,7 @@
 /turf/simulated/floor/plasteel,
 /area/hallway/primary/port)
 "bgi" = (
-/obj/structure/chair{
+/obj/structure/chair/sofa/pew{
 	dir = 1
 	},
 /turf/simulated/floor/plasteel{
@@ -21632,12 +21632,12 @@
 /turf/simulated/floor/plasteel,
 /area/storage/primary)
 "bgR" = (
-/obj/structure/chair{
-	dir = 1
-	},
 /obj/machinery/camera{
 	c_tag = "Chapel Funeral Processing East";
 	dir = 8
+	},
+/obj/structure/chair/sofa/pew/right{
+	dir = 1
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -21769,7 +21769,7 @@
 /area/clownoffice)
 "bhl" = (
 /obj/structure/sink{
-	pixel_y = 16
+	pixel_y = 22
 	},
 /obj/structure/mirror{
 	pixel_y = 32
@@ -22106,12 +22106,12 @@
 	},
 /area/crew_quarters/kitchen)
 "bhZ" = (
-/obj/structure/chair{
-	dir = 1
-	},
 /obj/machinery/status_display{
 	layer = 4;
 	pixel_y = -32
+	},
+/obj/structure/chair/sofa/pew{
+	dir = 1
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -23907,7 +23907,7 @@
 "bmA" = (
 /obj/item/reagent_containers/glass/bucket,
 /obj/structure/sink{
-	pixel_y = 30
+	pixel_y = 22
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -25444,7 +25444,7 @@
 "bqF" = (
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = 11
+	pixel_x = 12
 	},
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/wood,
@@ -26715,13 +26715,17 @@
 	},
 /area/chapel/main)
 "buA" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/sofa/pew/right{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "chapel"
 	},
 /area/chapel/main)
 "buB" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/sofa/pew/left{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "chapel"
@@ -28220,7 +28224,7 @@
 "byo" = (
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = 11
+	pixel_x = 12
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plasteel{
@@ -30859,12 +30863,13 @@
 /area/assembly/robotics)
 "bGA" = (
 /obj/machinery/optable,
-/obj/item/radio/intercom{
-	pixel_y = 22
-	},
 /obj/machinery/light{
 	dir = 1;
 	nightshift_allowed = 0
+	},
+/obj/item/radio/intercom{
+	name = "north station intercom (General)";
+	pixel_y = 22
 	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
@@ -31592,7 +31597,7 @@
 "bIs" = (
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = 11
+	pixel_x = 12
 	},
 /obj/structure/mirror{
 	pixel_x = 28
@@ -32954,8 +32959,7 @@
 "bNc" = (
 /obj/structure/sink{
 	dir = 8;
-	pixel_x = -12;
-	pixel_y = 2
+	pixel_x = -12
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -33027,7 +33031,7 @@
 	},
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = 11
+	pixel_x = 12
 	},
 /obj/effect/decal/warning_stripes/northeast,
 /turf/simulated/floor/plasteel{
@@ -34065,7 +34069,7 @@
 "bQD" = (
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = 11
+	pixel_x = 12
 	},
 /obj/structure/mirror{
 	pixel_x = 28
@@ -38767,7 +38771,7 @@
 /area/blueshield)
 "ckJ" = (
 /obj/structure/sink{
-	pixel_y = 30
+	pixel_y = 22
 	},
 /obj/structure/closet/secure_closet/personal/patient,
 /turf/simulated/floor/plating,
@@ -39795,8 +39799,7 @@
 "cqE" = (
 /obj/structure/sink{
 	dir = 8;
-	pixel_x = -12;
-	pixel_y = 2
+	pixel_x = -12
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "freezerfloor"
@@ -56402,7 +56405,7 @@
 "dnY" = (
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = 11
+	pixel_x = 12
 	},
 /obj/structure/extinguisher_cabinet{
 	name = "east extinguisher cabinet";
@@ -59214,7 +59217,7 @@
 "ekF" = (
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = 11
+	pixel_x = 12
 	},
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/radio/intercom{
@@ -60070,7 +60073,7 @@
 "eGl" = (
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = 11
+	pixel_x = 12
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -60323,7 +60326,7 @@
 "eMt" = (
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = 11
+	pixel_x = 12
 	},
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/plasteel{
@@ -63674,8 +63677,7 @@
 "gnO" = (
 /obj/structure/sink{
 	dir = 8;
-	pixel_x = -12;
-	pixel_y = 2
+	pixel_x = -12
 	},
 /obj/item/radio/intercom{
 	name = "west station intercom (General)";
@@ -70330,12 +70332,12 @@
 "jCM" = (
 /obj/structure/table,
 /obj/item/storage/box/masks{
-	layer = 3.4;
+	layer = 3.6;
 	pixel_x = -4;
 	pixel_y = -10
 	},
 /obj/item/storage/box/masks{
-	layer = 3.4;
+	layer = 3.6;
 	pixel_x = 8;
 	pixel_y = -10
 	},
@@ -70348,12 +70350,12 @@
 	pixel_x = 8
 	},
 /obj/item/storage/box/beakers{
-	layer = 3.6;
+	layer = 3.4;
 	pixel_x = -4;
 	pixel_y = 10
 	},
 /obj/item/storage/box/beakers{
-	layer = 3.6;
+	layer = 3.4;
 	pixel_x = 8;
 	pixel_y = 10
 	},
@@ -70541,6 +70543,14 @@
 /obj/item/trash/candle,
 /turf/simulated/floor/wood,
 /area/maintenance/asmaint)
+"jKF" = (
+/obj/structure/chair/sofa/pew/left{
+	dir = 1
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "dark"
+	},
+/area/chapel/main)
 "jLd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -71263,7 +71273,7 @@
 "keo" = (
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = 11
+	pixel_x = 12
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -73432,7 +73442,7 @@
 "kYL" = (
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = 10
+	pixel_x = 12
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -74151,7 +74161,7 @@
 /obj/effect/decal/warning_stripes/northeast,
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = 10
+	pixel_x = 12
 	},
 /obj/machinery/camera{
 	c_tag = "Virology Airlock"
@@ -81853,7 +81863,7 @@
 	},
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = 11
+	pixel_x = 12
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
@@ -82502,6 +82512,14 @@
 /obj/item/clothing/head/fedora,
 /turf/simulated/floor/wood,
 /area/maintenance/quarters)
+"pfD" = (
+/obj/structure/chair/sofa/pew/right{
+	dir = 1
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "dark"
+	},
+/area/chapel/main)
 "pgb" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1
@@ -84017,8 +84035,7 @@
 "pSJ" = (
 /obj/structure/sink{
 	dir = 8;
-	pixel_x = -12;
-	pixel_y = 2
+	pixel_x = -12
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -84471,7 +84488,8 @@
 	},
 /obj/item/tank/internals/emergency_oxygen/nitrogen{
 	pixel_x = 6;
-	pixel_y = 10
+	pixel_y = 10;
+	layer = 3.1
 	},
 /obj/item/tank/internals/emergency_oxygen/plasma{
 	pixel_x = -6;
@@ -84483,7 +84501,8 @@
 	},
 /obj/item/tank/internals/emergency_oxygen/plasma{
 	pixel_x = -6;
-	pixel_y = 10
+	pixel_y = 10;
+	layer = 3.1
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whitebluefull"
@@ -84854,32 +84873,32 @@
 "qms" = (
 /obj/structure/table,
 /obj/item/storage/box/syringes{
-	layer = 3.1;
+	layer = 3.9;
 	pixel_x = -4;
 	pixel_y = -8
 	},
 /obj/item/storage/box/syringes{
-	layer = 3.1;
+	layer = 3.9;
 	pixel_x = 8;
 	pixel_y = -8
 	},
 /obj/item/storage/box/autoinjectors{
-	layer = 3.2;
+	layer = 3.8;
 	pixel_x = -4;
 	pixel_y = 2
 	},
 /obj/item/storage/box/autoinjectors{
-	layer = 3.2;
+	layer = 3.8;
 	pixel_x = 8;
 	pixel_y = 2
 	},
 /obj/item/storage/box/gloves{
-	layer = 3.3;
+	layer = 3.7;
 	pixel_x = -4;
 	pixel_y = 12
 	},
 /obj/item/storage/box/gloves{
-	layer = 3.3;
+	layer = 3.7;
 	pixel_x = 8;
 	pixel_y = 12
 	},
@@ -88670,7 +88689,7 @@
 /area/security/permabrig)
 "saI" = (
 /obj/structure/sink{
-	pixel_y = 30
+	pixel_y = 22
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plasteel{
@@ -89301,8 +89320,7 @@
 	},
 /obj/structure/sink{
 	dir = 8;
-	pixel_x = -12;
-	pixel_y = 2
+	pixel_x = -12
 	},
 /obj/item/radio/intercom{
 	name = "north station intercom (General)";
@@ -89603,7 +89621,9 @@
 /turf/simulated/floor/plasteel,
 /area/atmos/distribution)
 "szV" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/sofa/pew/right{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "chapel"
@@ -90686,7 +90706,7 @@
 	},
 /obj/structure/sink{
 	dir = 8;
-	pixel_x = -11
+	pixel_x = -12
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -91930,8 +91950,7 @@
 "tDE" = (
 /obj/structure/sink{
 	dir = 8;
-	pixel_x = -12;
-	pixel_y = 2
+	pixel_x = -12
 	},
 /obj/effect/decal/warning_stripes/southwest,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -92489,30 +92508,30 @@
 "tTS" = (
 /obj/structure/table,
 /obj/item/storage/box/iv_bags{
-	layer = 3.7;
+	layer = 3.3;
 	pixel_x = -4;
 	pixel_y = -10
 	},
 /obj/item/storage/box/iv_bags{
-	layer = 3.7;
+	layer = 3.3;
 	pixel_x = 8;
 	pixel_y = -10
 	},
 /obj/item/storage/box/patch_packs{
-	layer = 3.8;
+	layer = 3.2;
 	pixel_x = -4
 	},
 /obj/item/storage/box/patch_packs{
-	layer = 3.8;
+	layer = 3.2;
 	pixel_x = 8
 	},
 /obj/item/storage/box/pillbottles{
-	layer = 3.9;
+	layer = 3.1;
 	pixel_x = -4;
 	pixel_y = 10
 	},
 /obj/item/storage/box/pillbottles{
-	layer = 3.9;
+	layer = 3.1;
 	pixel_x = 8;
 	pixel_y = 10
 	},
@@ -93514,7 +93533,9 @@
 	},
 /area/security/permabrig)
 "uuV" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/sofa/pew/left{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "chapel"
@@ -93852,7 +93873,7 @@
 "uEj" = (
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = 11
+	pixel_x = 12
 	},
 /obj/machinery/alarm{
 	dir = 8;
@@ -99513,7 +99534,7 @@
 "xkv" = (
 /obj/structure/sink{
 	dir = 4;
-	pixel_x = 11
+	pixel_x = 12
 	},
 /obj/effect/decal/warning_stripes/southeast,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -101177,7 +101198,7 @@
 /area/maintenance/server)
 "xUc" = (
 /obj/structure/sink{
-	pixel_y = 30
+	pixel_y = 22
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -150200,8 +150221,8 @@ baB
 aZm
 bdY
 bfS
-bgi
-bgi
+jKF
+jKF
 aYP
 bcD
 aax
@@ -150715,7 +150736,7 @@ aXh
 bcR
 bfS
 bgR
-bgi
+pfD
 aYP
 bjL
 blq

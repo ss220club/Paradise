@@ -658,15 +658,40 @@
 	level = 3
 	fulltile = TRUE
 	flags = PREVENT_CLICK_UNDER
-
-/obj/structure/window/full/basic
-	desc = "It looks thin and flimsy. A few knocks with... anything, really should shatter it."
-	icon = 'icons/obj/smooth_structures/windows/window.dmi'
-	icon_state = "window"
-	max_integrity = 50
 	smooth = SMOOTH_TRUE
-	cancolor = TRUE
 	canSmoothWith = list(
+		/obj/machinery/door/airlock,
+		/obj/machinery/door/airlock/glass,
+		/obj/machinery/door/airlock/alarmlock,
+		/obj/machinery/door/airlock/atmos,
+		/obj/machinery/door/airlock/atmos/glass,
+		/obj/machinery/door/airlock/bananium,
+		/obj/machinery/door/airlock/bananium/glass,
+		/obj/machinery/door/airlock/centcom,
+		/obj/machinery/door/airlock/command,
+		/obj/machinery/door/airlock/command/glass,
+		/obj/machinery/door/airlock/engineering,
+		/obj/machinery/door/airlock/engineering/glass,
+		/obj/machinery/door/airlock/external,
+		/obj/machinery/door/airlock/freezer,
+		/obj/machinery/door/airlock/highsecurity,
+		/obj/machinery/door/airlock/maintenance,
+		/obj/machinery/door/airlock/maintenance/glass,
+		/obj/machinery/door/airlock/medical,
+		/obj/machinery/door/airlock/medical/glass,
+		/obj/machinery/door/airlock/mining,
+		/obj/machinery/door/airlock/mining/glass,
+		/obj/machinery/door/airlock/multi_tile/glass,
+		/obj/machinery/door/airlock/public/glass,
+		/obj/machinery/door/airlock/research,
+		/obj/machinery/door/airlock/research/glass,
+		/obj/machinery/door/airlock/security,
+		/obj/machinery/door/airlock/security/glass,
+		/obj/machinery/door/airlock/tranquillite,
+		/obj/machinery/door/airlock/vault,
+		/obj/machinery/door/airlock/welded,
+		/obj/machinery/door/morgue,
+		/obj/machinery/door/poddoor,
 		/obj/structure/window/full/basic,
 		/obj/structure/window/full/reinforced,
 		/obj/structure/window/full/reinforced/tinted,
@@ -683,6 +708,13 @@
 		/turf/simulated/wall/r_wall/coated,
 		/turf/simulated/wall/indestructible/metal,
 		/turf/simulated/wall/indestructible/reinforced)
+
+/obj/structure/window/full/basic
+	desc = "It looks thin and flimsy. A few knocks with... anything, really should shatter it."
+	icon = 'icons/obj/smooth_structures/windows/window.dmi'
+	icon_state = "window"
+	max_integrity = 50
+	cancolor = TRUE
 
 /obj/structure/window/full/plasmabasic
 	name = "plasma window"
@@ -694,24 +726,6 @@
 	glass_type = /obj/item/stack/sheet/plasmaglass
 	heat_resistance = 32000
 	max_integrity = 300
-	smooth = SMOOTH_TRUE
-	canSmoothWith = list(
-		/obj/structure/window/full/basic,
-		/obj/structure/window/full/reinforced,
-		/obj/structure/window/full/reinforced/tinted,
-		/obj/structure/window/full/reinforced/polarized,
-		/obj/structure/window/full/plasmabasic,
-		/obj/structure/window/full/plasmareinforced,
-		/turf/simulated/wall,
-		/turf/simulated/wall/r_wall,
-		/obj/structure/falsewall,
-		/obj/structure/falsewall/reinforced,
-		/obj/structure/falsewall/clockwork,
-		/turf/simulated/wall/rust,
-		/turf/simulated/wall/r_wall/rust,
-		/turf/simulated/wall/r_wall/coated,
-		/turf/simulated/wall/indestructible/metal,
-		/turf/simulated/wall/indestructible/reinforced)
 	explosion_block = 1
 	armor = list("melee" = 75, "bullet" = 5, "laser" = 0, "energy" = 0, "bomb" = 45, "bio" = 100, "rad" = 100, "fire" = 99, "acid" = 100)
 
@@ -733,24 +747,6 @@
 	glass_decal = /obj/effect/decal/cleanable/glass/plasma
 	shardtype = /obj/item/shard/plasma
 	glass_type = /obj/item/stack/sheet/plasmarglass
-	smooth = SMOOTH_TRUE
-	canSmoothWith = list(
-		/obj/structure/window/full/basic,
-		/obj/structure/window/full/reinforced,
-		/obj/structure/window/full/reinforced/tinted,
-		/obj/structure/window/full/reinforced/polarized,
-		/obj/structure/window/full/plasmabasic,
-		/obj/structure/window/full/plasmareinforced,
-		/turf/simulated/wall,
-		/turf/simulated/wall/r_wall,
-		/obj/structure/falsewall,
-		/obj/structure/falsewall/reinforced,
-		/obj/structure/falsewall/clockwork,
-		/turf/simulated/wall/rust,
-		/turf/simulated/wall/r_wall/rust,
-		/turf/simulated/wall/r_wall/coated,
-		/turf/simulated/wall/indestructible/metal,
-		/turf/simulated/wall/indestructible/reinforced)
 	reinf = TRUE
 	max_integrity = 1000
 	explosion_block = 2
@@ -764,24 +760,6 @@
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
 	icon = 'icons/obj/smooth_structures/windows/reinforced_window.dmi'
 	icon_state = "r_window"
-	smooth = SMOOTH_TRUE
-	canSmoothWith = list(
-		/obj/structure/window/full/basic,
-		/obj/structure/window/full/reinforced,
-		/obj/structure/window/full/reinforced/tinted,
-		/obj/structure/window/full/reinforced/polarized,
-		/obj/structure/window/full/plasmabasic,
-		/obj/structure/window/full/plasmareinforced,
-		/turf/simulated/wall,
-		/turf/simulated/wall/r_wall,
-		/obj/structure/falsewall,
-		/obj/structure/falsewall/reinforced,
-		/obj/structure/falsewall/clockwork,
-		/turf/simulated/wall/rust,
-		/turf/simulated/wall/r_wall/rust,
-		/turf/simulated/wall/r_wall/coated,
-		/turf/simulated/wall/indestructible/metal,
-		/turf/simulated/wall/indestructible/reinforced)
 	max_integrity = 100
 	reinf = TRUE
 	heat_resistance = 1600
