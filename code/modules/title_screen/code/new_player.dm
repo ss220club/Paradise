@@ -6,6 +6,8 @@
  * Shows the titlescreen to a new player.
  */
 /mob/new_player/proc/show_title_screen()
+	if(!client)
+		return
 	winset(src, "title_browser", "is-disabled=false;is-visible=true")
 	winset(src, "status_bar", "is-visible=false")
 
