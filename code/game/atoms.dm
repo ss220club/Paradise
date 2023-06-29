@@ -379,7 +379,7 @@
 	if(descriptions)
 		. += descriptions
 
-	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
+	SEND_SIGNAL(src, COMSIG_ATOM_EXAMINE, user, .)
 
 /atom/Topic(href, href_list)
 	. = ..()
