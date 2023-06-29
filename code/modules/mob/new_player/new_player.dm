@@ -111,6 +111,10 @@
 				if(player.ready)
 					totalPlayersReady++
 
+/mob/new_player/Destroy()
+	. = ..()
+	GLOB.mob_list -= src
+	GLOB.new_player_list -= src
 
 /mob/new_player/Topic(href, href_list[])
 	if(!client)
