@@ -261,6 +261,8 @@
 					window.take_damage(rand(30,80))
 					if(window && window.fulltile)
 						new/obj/effect/temp_visual/revenant/cracks(window.loc)
+				for(var/obj/structure/inflatable/inflatable in T.contents)
+					inflatable.take_damage(rand(30,80))
 				for(var/obj/structure/closet/closet in T.contents)
 					closet.open()
 

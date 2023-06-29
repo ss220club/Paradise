@@ -7659,7 +7659,8 @@
 	name = "exterior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/structure/lattice/catwalk,
 /turf/space,
@@ -7904,7 +7905,8 @@
 	name = "exterior access button";
 	pixel_x = 25;
 	pixel_y = -25;
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /obj/structure/cable{
 	d2 = 2;
@@ -9788,7 +9790,8 @@
 	master_tag = "eva_airlock";
 	name = "exterior access button";
 	pixel_x = 25;
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /obj/structure/lattice/catwalk,
 /turf/space,
@@ -9829,7 +9832,8 @@
 /obj/machinery/airlock_sensor{
 	id_tag = "solar_tool_sensor";
 	pixel_x = 25;
-	pixel_y = 12
+	pixel_y = 12;
+	dir = 8
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "solar_tool_airlock";
@@ -9838,7 +9842,8 @@
 	tag_airpump = "solar_tool_pump";
 	tag_chamber_sensor = "solar_tool_sensor";
 	tag_exterior_door = "solar_tool_outer";
-	tag_interior_door = "solar_tool_inner"
+	tag_interior_door = "solar_tool_inner";
+	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -10775,7 +10780,8 @@
 "aDT" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "eva_sensor";
-	pixel_x = 25
+	pixel_x = 25;
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -11115,7 +11121,8 @@
 	name = "exterior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /obj/structure/lattice/catwalk,
 /turf/space,
@@ -11387,7 +11394,8 @@
 	tag_airpump = "eva_pump";
 	tag_chamber_sensor = "eva_sensor";
 	tag_exterior_door = "eva_outer";
-	tag_interior_door = "eva_inner"
+	tag_interior_door = "eva_inner";
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
@@ -12810,7 +12818,8 @@
 /obj/machinery/airlock_sensor{
 	id_tag = "arrivals_sensor";
 	pixel_x = 25;
-	pixel_y = 12
+	pixel_y = 12;
+	dir = 8
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "arrivals_airlock";
@@ -12819,7 +12828,8 @@
 	tag_airpump = "arrivals_pump";
 	tag_chamber_sensor = "arrivals_sensor";
 	tag_exterior_door = "arrivals_outer";
-	tag_interior_door = "arrivals_inner"
+	tag_interior_door = "arrivals_inner";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
@@ -14967,7 +14977,7 @@
 	},
 /area/civilian/barber)
 "aPf" = (
-/obj/structure/window/full/basic,
+/obj/effect/spawner/window,
 /turf/simulated/floor/plating,
 /area/crew_quarters/arcade)
 "aPg" = (
@@ -15113,16 +15123,18 @@
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "sol_sensor";
-	pixel_x = 12;
-	pixel_y = -25
+	pixel_x = -12;
+	pixel_y = -24;
+	dir = 1
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "sol_airlock";
-	pixel_y = -25;
+	pixel_y = -24;
 	tag_airpump = "sol_pump";
 	tag_chamber_sensor = "sol_sensor";
 	tag_exterior_door = "sol_outer";
-	tag_interior_door = "sol_inner"
+	tag_interior_door = "sol_inner";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry)
@@ -15657,8 +15669,9 @@
 	layer = 3.3;
 	master_tag = "sol_airlock";
 	name = "exterior access button";
-	pixel_x = -13;
-	pixel_y = -23
+	pixel_x = -10;
+	pixel_y = -25;
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry)
@@ -16121,7 +16134,7 @@
 	},
 /area/crew_quarters/dorms)
 "aSl" = (
-/obj/structure/window/full/basic,
+/obj/effect/spawner/window,
 /turf/simulated/floor/plating,
 /area/crew_quarters/sleep)
 "aSm" = (
@@ -17124,7 +17137,8 @@
 	master_tag = "sol_airlock";
 	name = "interior access button";
 	pixel_x = -25;
-	pixel_y = -25
+	pixel_y = -25;
+	dir = 4
 	},
 /obj/effect/decal/warning_stripes/north,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -19268,9 +19282,9 @@
 /turf/simulated/floor/shuttle/plating,
 /area/shuttle/arrival/station)
 "bba" = (
-/obj/effect/landmark/observer_start,
-/turf/simulated/floor/shuttle,
-/area/shuttle/arrival/station)
+/obj/effect/spawner/window,
+/turf/simulated/floor/plating,
+/area/chapel/main)
 "bbc" = (
 /obj/machinery/computer/scan_consolenew{
 	dir = 8
@@ -21633,7 +21647,7 @@
 /turf/simulated/floor/plasteel,
 /area/hallway/primary/central/nw)
 "bgT" = (
-/obj/structure/window/full/basic,
+/obj/effect/spawner/window,
 /turf/simulated/floor/plating,
 /area/crew_quarters/mrchangs)
 "bgU" = (
@@ -24131,6 +24145,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/landmark/observer_start,
 /turf/simulated/floor/plasteel{
 	icon_state = "L8"
 	},
@@ -34391,9 +34406,6 @@
 /obj/machinery/hologram/holopad{
 	pixel_y = 16
 	},
-/obj/effect/decal/warning_stripes/yellow/hollow{
-	pixel_y = 16
-	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whitepurple";
 	tag = "icon-whitepurple (WEST)"
@@ -34949,10 +34961,6 @@
 	},
 /area/toxins/lab)
 "bUj" = (
-/obj/structure/chair/office/light{
-	dir = 8
-	},
-/obj/effect/landmark/start/scientist,
 /obj/effect/decal/warning_stripes/north,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -35504,7 +35512,8 @@
 	name = "interior access button";
 	pixel_x = 25;
 	pixel_y = -25;
-	req_access = list(13)
+	req_access = list(13);
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -44869,7 +44878,11 @@
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/insulated,
-/obj/effect/spawner/window/reinforced/plasma,
+/obj/structure/window/plasmareinforced{
+	dir = 1
+	},
+/obj/structure/window/plasmareinforced,
+/obj/structure/grille,
 /turf/simulated/floor/engine,
 /area/toxins/misc_lab)
 "cJT" = (
@@ -44880,7 +44893,11 @@
 	name = "Biohazard Shutter";
 	opacity = 0
 	},
-/obj/effect/spawner/window/reinforced/plasma,
+/obj/structure/window/plasmareinforced{
+	dir = 1
+	},
+/obj/structure/window/plasmareinforced,
+/obj/structure/grille,
 /turf/simulated/floor/engine,
 /area/toxins/misc_lab)
 "cJU" = (
@@ -46996,7 +47013,8 @@
 	name = "exterior access button";
 	pixel_x = 25;
 	pixel_y = 25;
-	req_access = list(13)
+	req_access = list(13);
+	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -48753,7 +48771,8 @@
 	name = "exterior access button";
 	pixel_x = -25;
 	pixel_y = 8;
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/structure/lattice/catwalk,
 /turf/space,
@@ -48804,12 +48823,14 @@
 	tag_airpump = "robotics_solar_pump";
 	tag_chamber_sensor = "robotics_solar_sensor";
 	tag_exterior_door = "robotics_solar_outer";
-	tag_interior_door = "robotics_solar_inner"
+	tag_interior_door = "robotics_solar_inner";
+	dir = 1
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "robotics_solar_sensor";
 	pixel_x = 12;
-	pixel_y = -25
+	pixel_y = -25;
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/portsolar)
@@ -48843,7 +48864,8 @@
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/portsolar)
@@ -53453,7 +53475,8 @@
 	tag_airpump = "dorms_pump";
 	tag_chamber_sensor = "dorms_sensor";
 	tag_exterior_door = "dorms_maint_outer";
-	tag_interior_door = "dorms_maint_inner"
+	tag_interior_door = "dorms_maint_inner";
+	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -54073,7 +54096,7 @@
 	},
 /area/storage/office)
 "dim" = (
-/obj/effect/spawner/window/reinforced,
+/obj/effect/spawner/window,
 /turf/simulated/floor/plating,
 /area/storage/office)
 "din" = (
@@ -56168,7 +56191,8 @@
 	name = "interior access button";
 	pixel_x = 25;
 	pixel_y = -25;
-	req_access = list(13)
+	req_access = list(13);
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -56193,7 +56217,8 @@
 /obj/machinery/airlock_sensor{
 	frequency = 1450;
 	id_tag = "south_sensor";
-	pixel_y = -25
+	pixel_y = -25;
+	dir = 1
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1450;
@@ -56255,7 +56280,8 @@
 	name = "interior access button";
 	pixel_x = -28;
 	pixel_y = -5;
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/effect/decal/warning_stripes/west,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -56328,7 +56354,8 @@
 	frequency = 1450;
 	id_tag = "sci_sensor";
 	pixel_x = -25;
-	pixel_y = 12
+	pixel_y = 12;
+	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -56344,7 +56371,8 @@
 	tag_airpump = "sci_pump";
 	tag_chamber_sensor = "sci_sensor";
 	tag_exterior_door = "sci_outer";
-	tag_interior_door = "sci_inner"
+	tag_interior_door = "sci_inner";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint2)
@@ -57981,11 +58009,8 @@
 /turf/simulated/floor/plasteel,
 /area/security/permabrig)
 "dIj" = (
-/obj/structure/decor/cryo{
-	dir = 8
-	},
+/obj/structure/decor/cryo,
 /obj/effect/landmark/join_late,
-/obj/effect/landmark/honk_squad,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "dIp" = (
@@ -62639,10 +62664,9 @@
 /area/maintenance/livingcomplex/hall)
 "fPn" = (
 /obj/structure/decor/cryo{
-	dir = 4
+	dir = 1
 	},
 /obj/effect/landmark/join_late,
-/obj/effect/landmark/honk_squad,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "fPN" = (
@@ -66732,7 +66756,9 @@
 /turf/simulated/floor/engine,
 /area/toxins/explab_chamber)
 "hYp" = (
-/obj/structure/computerframe,
+/obj/structure/computerframe{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/port)
 "hYA" = (
@@ -67050,7 +67076,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/effect/spawner/window/reinforced/plasma,
+/obj/structure/grille,
+/obj/structure/window/plasmareinforced,
+/obj/structure/window/plasmareinforced{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/toxins/mixing)
 "igM" = (
@@ -73685,10 +73715,11 @@
 	},
 /area/maintenance/incinerator)
 "ldd" = (
-/obj/effect/landmark/join_late,
 /obj/structure/decor/cryo{
-	dir = 8
+	dir = 1
 	},
+/obj/effect/landmark/join_late,
+/obj/effect/landmark/honk_squad,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "ldz" = (
@@ -73884,7 +73915,8 @@
 	name = "exterior access button";
 	pixel_x = -25;
 	pixel_y = 8;
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/structure/lattice/catwalk,
 /turf/space,
@@ -74212,7 +74244,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/obj/effect/spawner/window/reinforced/plasma,
+/obj/structure/grille,
+/obj/structure/window/plasmareinforced,
+/obj/structure/window/plasmareinforced{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/toxins/mixing)
 "loX" = (
@@ -74909,7 +74945,11 @@
 	},
 /area/security/lobby)
 "lEw" = (
-/obj/machinery/computer/arcade,
+/obj/structure/decor/cryo{
+	dir = 4
+	},
+/obj/effect/landmark/honk_squad,
+/obj/effect/landmark/join_late,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "lEx" = (
@@ -76354,8 +76394,9 @@
 /area/hallway/primary/fore)
 "mlD" = (
 /obj/structure/decor/cryo{
-	dir = 4
+	dir = 8
 	},
+/obj/effect/landmark/honk_squad,
 /obj/effect/landmark/join_late,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
@@ -77965,7 +78006,8 @@
 	name = "interior access button";
 	pixel_x = 25;
 	pixel_y = -25;
-	req_access = list(13)
+	req_access = list(13);
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -83399,6 +83441,8 @@
 	dir = 1
 	},
 /obj/structure/closet/walllocker/emerglocker/north,
+/obj/structure/decor/cryo,
+/obj/effect/landmark/join_late,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "pDq" = (
@@ -83714,7 +83758,8 @@
 /obj/machinery/airlock_sensor{
 	frequency = 1450;
 	id_tag = "northeast_sensor";
-	pixel_y = -25
+	pixel_y = -25;
+	dir = 1
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1450;
@@ -84432,7 +84477,9 @@
 /area/medical/biostorage)
 "qeE" = (
 /obj/machinery/light_construct/small,
-/obj/structure/computerframe,
+/obj/structure/computerframe{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/port)
 "qeK" = (
@@ -85165,7 +85212,8 @@
 /obj/machinery/computer/general_air_control{
 	frequency = 1222;
 	name = "Mixing Chamber Monitor";
-	sensors = list("toxins_mixing_exterior"="Mixing Chamber - Exterior","toxins_mixing_interior"="Mixing Chamber - Interior")
+	sensors = list("toxins_mixing_exterior"="Mixing Chamber - Exterior","toxins_mixing_interior"="Mixing Chamber - Interior");
+	dir = 1
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "darkgrey"
@@ -85702,6 +85750,10 @@
 	pixel_y = -22;
 	dir = 1
 	},
+/obj/structure/decor/cryo{
+	dir = 1
+	},
+/obj/effect/landmark/join_late,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "qFP" = (
@@ -96202,10 +96254,9 @@
 	},
 /area/maintenance/apmaint)
 "vHI" = (
-/obj/structure/decor/cryo{
-	dir = 8
-	},
+/obj/structure/decor/cryo,
 /obj/effect/landmark/join_late,
+/obj/effect/landmark/honk_squad,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "vHQ" = (
@@ -96550,6 +96601,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plasteel,
 /area/maintenance/port)
+"vRE" = (
+/obj/effect/decal/warning_stripes/south,
+/obj/structure/chair/office/light{
+	dir = 4
+	},
+/obj/effect/landmark/start/scientist,
+/turf/simulated/floor/plasteel{
+	icon_state = "dark"
+	},
+/area/toxins/lab)
 "vRK" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plasteel,
@@ -98694,7 +98755,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
-/obj/effect/spawner/window/reinforced/plasma,
+/obj/structure/grille,
+/obj/structure/window/plasmareinforced,
+/obj/structure/window/plasmareinforced{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/toxins/mixing)
 "wTJ" = (
@@ -111039,11 +111104,11 @@ aSd
 aSd
 aSd
 beh
-fPn
-mlD
+aXx
+aXu
 aXs
-mlD
-fPn
+aXv
+aXw
 beh
 aSd
 aSd
@@ -111298,7 +111363,7 @@ aRU
 aVX
 aXs
 aXs
-bba
+aXs
 aXs
 aXs
 aVX
@@ -111555,7 +111620,7 @@ aSd
 beh
 pDp
 aXs
-aXx
+mlD
 aXs
 qFM
 beh
@@ -111810,11 +111875,11 @@ aTo
 aUl
 aSd
 beh
-fPn
+vHI
 aXs
-aXu
+lEw
 aXs
-mlD
+ldd
 beh
 aSd
 bid
@@ -112069,7 +112134,7 @@ aSd
 aVZ
 vHI
 aXs
-aXv
+aXs
 aXs
 ldd
 aVZ
@@ -112324,11 +112389,11 @@ aSf
 aUn
 aSd
 aVZ
+vHI
+aXs
 mlD
 aXs
-aXw
-aXs
-fPn
+ldd
 aVZ
 aSd
 bjT
@@ -112585,7 +112650,7 @@ dIj
 aXs
 lEw
 aXs
-vHI
+fPn
 beh
 aSd
 bjS
@@ -148577,7 +148642,7 @@ buA
 khg
 khg
 bya
-aYQ
+bba
 bwv
 bHP
 bwv
@@ -148845,7 +148910,7 @@ bUQ
 bKx
 bRX
 bUj
-bUQ
+vRE
 bTe
 bWn
 bLR
@@ -149091,7 +149156,7 @@ khg
 khg
 khg
 khg
-aYQ
+bba
 bwv
 bux
 hlS
@@ -149605,7 +149670,7 @@ buB
 khg
 khg
 bya
-aYQ
+bba
 bwv
 bHR
 bwv
