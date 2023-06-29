@@ -63,13 +63,12 @@ GLOBAL_VAR_INIT(admin_ooc_colour, "#b82e00")
 	var/display_colour = GLOB.normal_ooc_colour
 	if(holder && !holder.fakekey)
 		display_colour = GLOB.mentor_ooc_colour
-		if(check_rights(R_MOD,0) && !check_rights(R_ADMIN,0))
+		if(check_rights(R_MOD,0))
 			display_colour = GLOB.moderator_ooc_colour
-		else if(check_rights(R_ADMIN,0))
+			if(check_rights(R_ADMIN,0))
+				display_colour = GLOB.admin_ooc_colour
 			if(config.allow_admin_ooccolor)
 				display_colour = src.prefs.ooccolor
-			else
-				display_colour = GLOB.admin_ooc_colour
 
 	if(prefs.unlock_content)
 		if(display_colour == GLOB.normal_ooc_colour)
