@@ -117,7 +117,7 @@
 	add_misc_logs(user, "Mimicked into [user]")
 
 	if(!selected_form)
-		RegisterSignal(user, COMSIG_PARENT_EXAMINE, PROC_REF(examine_override))
+		RegisterSignal(user, COMSIG_ATOM_EXAMINE, PROC_REF(examine_override))
 		RegisterSignal(user, COMSIG_MOB_DEATH, PROC_REF(on_death))
 
 	selected_form = form
@@ -146,7 +146,7 @@
 	if(show_message)
 		show_restore_form_message(user, old_name, "[user]")
 
-	UnregisterSignal(user, list(COMSIG_PARENT_EXAMINE, COMSIG_MOB_DEATH))
+	UnregisterSignal(user, list(COMSIG_ATOM_EXAMINE, COMSIG_MOB_DEATH))
 
 /obj/effect/proc_holder/spell/targeted/click/mimic/proc/show_restore_form_message(mob/user, old_name, new_name)
 	user.visible_message("<span class='warning'>[old_name] shakes and contorts and quickly becomes [new_name]!</span>", "<span class='sinister'>You take return to your normal self.</span>", "You hear loud cracking noises!")
