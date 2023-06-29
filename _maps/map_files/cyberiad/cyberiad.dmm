@@ -42012,6 +42012,7 @@
 /area/maintenance/asmaint)
 "cAD" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/table,
 /obj/machinery/power/apc{
 	name = "south bump";
 	pixel_y = -24
@@ -53273,6 +53274,7 @@
 	},
 /area/maintenance/atmospherics)
 "dfF" = (
+/obj/structure/table,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump Engineering";
@@ -57426,6 +57428,7 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/warning_stripes/yellow/hollow,
+/obj/structure/table,
 /turf/simulated/floor/plasteel,
 /area/quartermaster/storage)
 "dvr" = (
@@ -66036,6 +66039,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/structure/table,
 /obj/item/clothing/glasses/hud/diagnostic{
 	pixel_x = 2;
 	pixel_y = 5
@@ -66061,9 +66065,6 @@
 /obj/item/clothing/glasses/welding{
 	pixel_y = 12;
 	pixel_x = 2
-	},
-/obj/item/radio/headset/headset_sci{
-	pixel_x = -6
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
@@ -85264,6 +85265,7 @@
 	},
 /area/medical/research/restroom)
 "quY" = (
+/obj/structure/closet/wardrobe/coroner,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -86957,6 +86959,7 @@
 	},
 /area/gateway)
 "rkI" = (
+/obj/structure/table,
 /obj/effect/decal/warning_stripes/southwestcorner,
 /turf/simulated/floor/plasteel{
 	dir = 9;
@@ -93988,6 +93991,7 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/structure/table,
 /obj/effect/decal/warning_stripes/yellow/hollow,
 /turf/simulated/floor/plasteel,
 /area/quartermaster/storage)
@@ -95439,6 +95443,7 @@
 /area/maintenance/asmaint2)
 "vnB" = (
 /obj/effect/decal/warning_stripes/yellow,
+/obj/structure/table,
 /turf/simulated/floor/plasteel{
 	icon_state = "brown"
 	},
@@ -100827,9 +100832,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/chapel)
 "xND" = (
-/obj/item/radio/headset/headset_sci{
-	pixel_x = -3
-	},
+/obj/structure/table,
 /obj/effect/decal/warning_stripes/yellow/hollow,
 /turf/simulated/floor/plasteel{
 	dir = 5;
@@ -101237,6 +101240,7 @@
 /turf/simulated/floor/carpet,
 /area/maintenance/asmaint)
 "xXb" = (
+/obj/structure/table,
 /obj/effect/decal/warning_stripes/yellow/hollow,
 /turf/simulated/floor/plasteel,
 /area/quartermaster/storage)

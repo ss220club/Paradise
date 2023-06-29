@@ -192,3 +192,17 @@
 	new /obj/item/clothing/shoes/orange(src)
 	new /obj/item/clothing/shoes/purple(src)
 	new /obj/item/clothing/shoes/leather(src)
+
+/obj/structure/closet/wardrobe/coroner
+	name = "coroner wardrobe"
+	icon_state = "black"
+	icon_closed = "black"
+
+/obj/structure/closet/wardrobe/coroner/populate_contents()
+	new /obj/item/reagent_containers/glass/bottle/reagent/formaldehyde(src)
+	new /obj/item/reagent_containers/dropper(src)
+	new /obj/item/storage/box/gloves(src)
+	new /obj/item/reagent_containers/spray/cleaner(src)
+	new /obj/item/storage/box/bodybags(src)
+	new /obj/item/storage/box/bodybags(src)
+	new /obj/item/storage/box/bodybags(src)
