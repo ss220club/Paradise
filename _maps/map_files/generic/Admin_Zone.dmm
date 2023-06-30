@@ -43,13 +43,6 @@
 	icon_state = "darkgrey"
 	},
 /area/admin)
-"ao" = (
-/obj/machinery/door/airlock/research,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "ar" = (
 /obj/structure/chair/comfy/beige{
 	dir = 4;
@@ -145,10 +138,8 @@
 	},
 /area/tdome/arena_source)
 "bq" = (
-/obj/machinery/door/airlock/hydroponics,
 /turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
+	icon_state = "navybluecorners"
 	},
 /area/adminconstruction)
 "bu" = (
@@ -200,13 +191,6 @@
 	icon_state = "red"
 	},
 /area/holodeck/source_boxingcourt)
-"bN" = (
-/obj/machinery/door/airlock/wood,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "bO" = (
 /obj/structure/chair/stool/holostool,
 /turf/simulated/floor/holofloor{
@@ -372,13 +356,6 @@
 	icon_state = "hierophant1"
 	},
 /area/admin)
-"dM" = (
-/obj/machinery/door/airlock,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "dS" = (
 /obj/effect/landmark/tdome/tdome1,
 /obj/machinery/camera{
@@ -440,7 +417,7 @@
 "eo" = (
 /obj/machinery/vending/toyliberationstation{
 	contraband = null;
-	products = list(/obj/item/gun/projectile/automatic/toy=10,/obj/item/gun/projectile/automatic/toy/pistol=10,/obj/item/gun/projectile/shotgun/toy=10,/obj/item/toy/sword=10,/obj/item/ammo_box/foambox=20,/obj/item/toy/foamblade=10,/obj/item/toy/syndicateballoon=10,/obj/item/clothing/suit/syndicatefake=5,/obj/item/clothing/head/syndicatefake=5,/obj/item/gun/projectile/shotgun/toy/crossbow=10,/obj/item/gun/projectile/automatic/c20r/toy/riot=10,/obj/item/gun/projectile/automatic/l6_saw/toy/riot=10,/obj/item/gun/projectile/automatic/sniper_rifle/toy=10,/obj/item/ammo_box/foambox/riot=20,/obj/item/toy/katana=10,/obj/item/twohanded/dualsaber/toy=5,/obj/item/toy/cards/deck/syndicate=10)
+	products = list(/obj/item/gun/projectile/automatic/toy = 10, /obj/item/gun/projectile/automatic/toy/pistol = 10, /obj/item/gun/projectile/shotgun/toy = 10, /obj/item/toy/sword = 10, /obj/item/ammo_box/foambox = 20, /obj/item/toy/foamblade = 10, /obj/item/toy/syndicateballoon = 10, /obj/item/clothing/suit/syndicatefake = 5, /obj/item/clothing/head/syndicatefake = 5, /obj/item/gun/projectile/shotgun/toy/crossbow = 10, /obj/item/gun/projectile/automatic/c20r/toy/riot = 10, /obj/item/gun/projectile/automatic/l6_saw/toy/riot = 10, /obj/item/gun/projectile/automatic/sniper_rifle/toy = 10, /obj/item/ammo_box/foambox/riot = 20, /obj/item/toy/katana = 10, /obj/item/twohanded/dualsaber/toy = 5, /obj/item/toy/cards/deck/syndicate = 10)
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "grimy"
@@ -857,18 +834,10 @@
 /obj/item/gun/energy/pulse/destroyer/annihilator,
 /turf/simulated/floor/wood,
 /area/admin)
-"iv" = (
-/obj/machinery/door/airlock/command,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "iw" = (
-/obj/machinery/door/airlock/medical/glass,
 /turf/simulated/floor/plasteel{
 	dir = 1;
-	icon_state = "dark"
+	icon_state = "navyblue"
 	},
 /area/adminconstruction)
 "iz" = (
@@ -1123,13 +1092,6 @@
 	icon_state = "grimy"
 	},
 /area/admin)
-"kd" = (
-/obj/machinery/door/airlock/mining/glass,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "kg" = (
 /obj/structure/table,
 /obj/item/stack/cable_coil,
@@ -1268,13 +1230,6 @@
 	tag = "icon-grimy"
 	},
 /area/holodeck/source_meetinghall)
-"lA" = (
-/obj/machinery/door/airlock/science,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "lM" = (
 /turf/simulated/floor/carpet/black,
 /area/tdome/tdomeobserve)
@@ -1347,13 +1302,6 @@
 	icon_state = "hierophant1"
 	},
 /area/admin)
-"mP" = (
-/obj/machinery/door/airlock/tranquillite,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "mX" = (
 /obj/structure/table/wood,
 /obj/item/gun/projectile/automatic/proto,
@@ -1371,15 +1319,15 @@
 	pixel_y = 3
 	},
 /obj/machinery/door/window/southleft{
-	armor = list("melee"=100,"bullet"=100,"laser"=100,"energy"=100,"bomb"=100,"bio"=100,"rad"=100,"fire"=100,"acid"=100);
+	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100);
 	dir = 8;
 	name = "security checkpoint"
 	},
 /obj/structure/window/reinforced{
-	armor = list("melee"=100,"bullet"=100,"laser"=100,"energy"=100,"bomb"=100,"bio"=100,"rad"=100,"fire"=100,"acid"=100)
+	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	},
 /obj/structure/window/reinforced{
-	armor = list("melee"=100,"bullet"=100,"laser"=100,"energy"=100,"bomb"=100,"bio"=100,"rad"=100,"fire"=100,"acid"=100);
+	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100);
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -1687,26 +1635,12 @@
 /obj/machinery/syndicatebomb/badmin/clown,
 /turf/simulated/floor/wood,
 /area/admin)
-"qX" = (
-/obj/machinery/door/airlock/research/glass,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "ra" = (
 /turf/simulated/floor/plasteel{
 	dir = 6;
 	icon_state = "darkblue"
 	},
 /area/tdome/tdome1)
-"rb" = (
-/obj/machinery/door/airlock/maintenance/glass,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "re" = (
 /obj/structure/table/wood,
 /obj/item/gun/projectile/shotgun/toy/tommygun,
@@ -1793,13 +1727,6 @@
 	icon_state = "dark"
 	},
 /area/tdome/arena)
-"tD" = (
-/obj/machinery/door/airlock/command/glass,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "tG" = (
 /obj/structure/table/wood,
 /obj/item/gun/magic/staff/slipping/honkmother,
@@ -1895,16 +1822,16 @@
 	pixel_y = 3
 	},
 /obj/machinery/door/window/southleft{
-	armor = list("melee"=100,"bullet"=100,"laser"=100,"energy"=100,"bomb"=100,"bio"=100,"rad"=100,"fire"=100,"acid"=100);
+	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100);
 	dir = 8;
 	name = "security checkpoint"
 	},
 /obj/structure/window/reinforced{
-	armor = list("melee"=100,"bullet"=100,"laser"=100,"energy"=100,"bomb"=100,"bio"=100,"rad"=100,"fire"=100,"acid"=100);
+	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100);
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	armor = list("melee"=100,"bullet"=100,"laser"=100,"energy"=100,"bomb"=100,"bio"=100,"rad"=100,"fire"=100,"acid"=100);
+	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100);
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -1970,13 +1897,6 @@
 	icon_state = "red"
 	},
 /area/holodeck/source_knightarena)
-"vJ" = (
-/obj/machinery/door/airlock/engineering/glass,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "vO" = (
 /obj/structure/table/wood,
 /obj/item/holo/esword,
@@ -2185,10 +2105,9 @@
 /turf/simulated/floor/wood,
 /area/admin)
 "xT" = (
-/obj/machinery/door/airlock/security/glass,
 /turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
+	dir = 8;
+	icon_state = "navyblue"
 	},
 /area/adminconstruction)
 "yb" = (
@@ -2203,13 +2122,6 @@
 	icon_state = "hierophant1"
 	},
 /area/admin)
-"yf" = (
-/obj/machinery/door/airlock/bananium/glass,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "ym" = (
 /obj/structure/holowindow{
 	dir = 1
@@ -2226,10 +2138,9 @@
 	},
 /area/holodeck/source_knightarena)
 "yt" = (
-/obj/machinery/door/airlock/security,
 /turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
+	dir = 8;
+	icon_state = "navybluecorners"
 	},
 /area/adminconstruction)
 "yu" = (
@@ -2325,10 +2236,9 @@
 	},
 /area/holodeck/source_basketball)
 "zq" = (
-/obj/machinery/door/airlock/virology/glass,
 /turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
+	dir = 4;
+	icon_state = "navybluecorners"
 	},
 /area/adminconstruction)
 "zu" = (
@@ -2380,10 +2290,8 @@
 	},
 /area/holodeck/source_emptycourt)
 "zO" = (
-/obj/machinery/door/airlock/silver,
 /turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
+	icon_state = "navyblue"
 	},
 /area/adminconstruction)
 "zP" = (
@@ -2697,10 +2605,9 @@
 /turf/simulated/floor/wood,
 /area/admin)
 "Dp" = (
-/obj/machinery/door/airlock/medical,
 /turf/simulated/floor/plasteel{
 	dir = 1;
-	icon_state = "dark"
+	icon_state = "navybluecorners"
 	},
 /area/adminconstruction)
 "DF" = (
@@ -2845,13 +2752,6 @@
 	icon_state = "red"
 	},
 /area/holodeck/source_basketball)
-"FO" = (
-/obj/machinery/door/airlock/wood/glass,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "FU" = (
 /obj/structure/table/wood,
 /obj/item/twohanded/fireaxe/energized,
@@ -2929,18 +2829,12 @@
 /obj/item/clothing/glasses/sunglasses_fake/holo,
 /turf/simulated/floor/beach/sand,
 /area/holodeck/source_beach)
-"GH" = (
-/obj/machinery/door/airlock/mining,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "GQ" = (
 /obj/item/toy/prize/honk,
 /turf/simulated/floor/plasteel{
 	dir = 1;
-	icon_state = "dark"
+	icon_state = "bot";
+	name = "Да арена разрушаема. Да это нормально."
 	},
 /area/adminconstruction)
 "GU" = (
@@ -3182,13 +3076,6 @@
 	icon_state = "green"
 	},
 /area/holodeck/source_basketball)
-"JL" = (
-/obj/machinery/door/airlock/atmos/glass,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "JR" = (
 /turf/simulated/floor/holofloor{
 	icon_state = "green"
@@ -3199,13 +3086,6 @@
 /obj/item/gun/energy/gun/pdw9,
 /turf/simulated/floor/wood,
 /area/admin)
-"JX" = (
-/obj/machinery/door/airlock/bananium,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "Ke" = (
 /obj/structure/table/wood,
 /obj/item/gun/projectile/automatic/c20r/toy,
@@ -3216,13 +3096,6 @@
 /obj/item/gun/energy/lasercannon,
 /turf/simulated/floor/wood,
 /area/admin)
-"Kx" = (
-/obj/machinery/door/airlock/silver/glass,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "KA" = (
 /obj/structure/table/wood,
 /obj/item/gun/projectile/shotgun/riot/buckshot,
@@ -3289,13 +3162,6 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
-"LF" = (
-/obj/machinery/door/airlock/public,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "LH" = (
 /obj/structure/table/wood,
 /obj/item/gun/projectile/shotgun,
@@ -3330,13 +3196,6 @@
 /obj/item/gun/energy/kinetic_accelerator/crossbow/large,
 /turf/simulated/floor/wood,
 /area/admin)
-"Mi" = (
-/obj/machinery/door/airlock/hydroponics/glass,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "Mj" = (
 /turf/simulated/floor/holofloor{
 	dir = 5;
@@ -3422,13 +3281,6 @@
 /obj/item/gun/energy/e_gun/old,
 /turf/simulated/floor/wood,
 /area/admin)
-"Nq" = (
-/obj/machinery/door/airlock/engineering,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "Nr" = (
 /obj/structure/rack,
 /obj/item/clothing/under/color/red,
@@ -3459,13 +3311,6 @@
 /obj/item/gun/projectile/automatic/pistol/deagle/camo,
 /turf/simulated/floor/wood,
 /area/admin)
-"Ny" = (
-/obj/machinery/door/airlock/atmos,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "NA" = (
 /obj/structure/table/wood,
 /obj/item/gun/energy/laser/captain,
@@ -3662,13 +3507,6 @@
 /obj/item/gun/energy/laser/tag/red,
 /turf/simulated/floor/carpet/arcade,
 /area/admin)
-"PW" = (
-/obj/machinery/door/airlock/glass,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "PY" = (
 /obj/structure/table/wood,
 /obj/item/gun/projectile/automatic/tommygun,
@@ -3915,13 +3753,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/admin)
-"TI" = (
-/obj/machinery/door/airlock/public/glass,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "TU" = (
 /obj/structure/table/wood,
 /obj/item/gun/projectile/automatic/pistol/m1911,
@@ -4032,10 +3863,9 @@
 /turf/simulated/floor/wood,
 /area/admin)
 "Vb" = (
-/obj/machinery/door/airlock/virology,
 /turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
+	dir = 4;
+	icon_state = "navyblue"
 	},
 /area/adminconstruction)
 "Vm" = (
@@ -4208,20 +4038,6 @@
 /obj/mecha/combat/reticence/loaded,
 /turf/simulated/floor/wood,
 /area/admin)
-"WW" = (
-/obj/machinery/door/airlock/freezer,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
-"Xj" = (
-/obj/machinery/door/airlock/science/glass,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "Xk" = (
 /turf/simulated/floor/holofloor{
 	dir = 4;
@@ -4274,13 +4090,6 @@
 	},
 /turf/simulated/floor/carpet/black,
 /area/tdome/tdomeadmin)
-"XB" = (
-/obj/machinery/door/airlock/maintenance,
-/turf/simulated/floor/plasteel{
-	dir = 1;
-	icon_state = "dark"
-	},
-/area/adminconstruction)
 "XG" = (
 /obj/mecha/combat/gygax/dark/loaded{
 	operation_req_access = list(114)
@@ -6355,6 +6164,7 @@ EK
 EK
 EK
 Lr
+bq
 Zo
 Zo
 Zo
@@ -6364,6 +6174,11 @@ Zo
 Zo
 Zo
 Zo
+Vb
+Zo
+Vb
+Zo
+Vb
 Zo
 Zo
 Zo
@@ -6373,13 +6188,7 @@ Zo
 Zo
 Zo
 Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
+zq
 Lr
 EK
 EK
@@ -6613,13 +6422,13 @@ Lr
 EK
 Lr
 Zo
-dM
 Zo
-PW
 Zo
-lA
 Zo
-Xj
+Zo
+Zo
+Zo
+Zo
 Zo
 Zo
 Zo
@@ -6870,13 +6679,8 @@ EK
 EK
 Lr
 Zo
-Ny
 Zo
-JL
-Zo
-yt
-Zo
-xT
+bq
 Zo
 Zo
 Zo
@@ -6884,6 +6688,11 @@ Zo
 Zo
 Zo
 Zo
+Vb
+Zo
+Vb
+Zo
+Vb
 Zo
 Zo
 Zo
@@ -6891,7 +6700,7 @@ Zo
 Zo
 Zo
 Zo
-Zo
+zq
 Zo
 Zo
 Lr
@@ -7127,13 +6936,13 @@ Lr
 EK
 Lr
 Zo
-JX
 Zo
-yf
 Zo
-zO
 Zo
-Kx
+Zo
+Zo
+Zo
+Zo
 Zo
 Zo
 Zo
@@ -7384,26 +7193,26 @@ EK
 EK
 Lr
 Zo
-iv
 Zo
-tD
 Zo
-mP
 Zo
-WW
+bq
 Zo
 Zo
 Zo
 Zo
 Zo
+Vb
+Zo
+Vb
+Zo
+Vb
 Zo
 Zo
 Zo
 Zo
 Zo
-Zo
-Zo
-Zo
+zq
 Zo
 Zo
 Zo
@@ -7641,13 +7450,13 @@ Lr
 EK
 Lr
 Zo
-Nq
 Zo
-vJ
 Zo
-Vb
 Zo
-zq
+Zo
+Zo
+Zo
+Zo
 Zo
 Zo
 Zo
@@ -7898,24 +7707,24 @@ EK
 EK
 Lr
 Zo
+Zo
+Zo
+Zo
+Zo
+Zo
 bq
 Zo
-Mi
-Zo
-bN
-Zo
-FO
 Zo
 Zo
+Vb
 Zo
+Vb
 Zo
+Vb
 Zo
 Zo
 Zo
-Zo
-Zo
-Zo
-Zo
+zq
 Zo
 Zo
 Zo
@@ -8155,9 +7964,9 @@ Lr
 EK
 Lr
 Zo
-XB
 Zo
-rb
+Zo
+Zo
 Zo
 Zo
 Zo
@@ -8412,9 +8221,6 @@ EK
 EK
 Lr
 Zo
-Dp
-Zo
-iw
 Zo
 Zo
 Zo
@@ -8422,12 +8228,15 @@ Zo
 Zo
 Zo
 Zo
+bq
 Zo
+Vb
 Zo
+Vb
 Zo
+Vb
 Zo
-Zo
-Zo
+zq
 Zo
 Zo
 Zo
@@ -8669,9 +8478,9 @@ Lr
 Lr
 Lr
 Zo
-GH
 Zo
-kd
+Zo
+Zo
 Zo
 Zo
 Zo
@@ -8925,31 +8734,31 @@ Br
 Br
 Br
 Lr
+zO
 Zo
-LF
+zO
 Zo
-TI
+zO
 Zo
+zO
 Zo
+zO
 Zo
+bq
 Zo
+Vb
 Zo
+zq
 Zo
+iw
 Zo
+iw
 Zo
+iw
 Zo
+iw
 Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
+iw
 Lr
 EK
 EK
@@ -9183,9 +8992,9 @@ Ug
 Ug
 Ug
 Zo
-ao
 Zo
-qX
+Zo
+Zo
 Zo
 Zo
 Zo
@@ -9439,31 +9248,31 @@ Ug
 Ug
 Ug
 Ug
+zO
 Zo
+zO
 Zo
+zO
 Zo
+zO
 Zo
+zO
 Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
+zO
 Zo
 GQ
 Zo
+iw
 Zo
+iw
 Zo
+iw
 Zo
+iw
 Zo
+iw
 Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
+iw
 Lr
 EK
 EK
@@ -9953,31 +9762,31 @@ uW
 uW
 uW
 Lr
+zO
 Zo
+zO
 Zo
+zO
 Zo
+zO
 Zo
+zO
 Zo
+yt
 Zo
+xT
 Zo
+Dp
 Zo
+iw
 Zo
+iw
 Zo
+iw
 Zo
+iw
 Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
+iw
 Lr
 EK
 EK
@@ -10475,15 +10284,15 @@ Zo
 Zo
 Zo
 Zo
+yt
 Zo
+xT
 Zo
+xT
 Zo
+xT
 Zo
-Zo
-Zo
-Zo
-Zo
-Zo
+Dp
 Zo
 Zo
 Zo
@@ -10987,19 +10796,19 @@ Zo
 Zo
 Zo
 Zo
+yt
 Zo
 Zo
 Zo
+xT
+Zo
+xT
+Zo
+xT
 Zo
 Zo
 Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
+Dp
 Zo
 Zo
 Zo
@@ -11499,23 +11308,23 @@ Zo
 Zo
 Zo
 Zo
+yt
 Zo
 Zo
 Zo
 Zo
 Zo
+xT
+Zo
+xT
+Zo
+xT
 Zo
 Zo
 Zo
 Zo
 Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
+Dp
 Zo
 Zo
 Zo
@@ -12011,6 +11820,7 @@ EK
 Lr
 Zo
 Zo
+yt
 Zo
 Zo
 Zo
@@ -12018,6 +11828,11 @@ Zo
 Zo
 Zo
 Zo
+xT
+Zo
+xT
+Zo
+xT
 Zo
 Zo
 Zo
@@ -12025,13 +11840,7 @@ Zo
 Zo
 Zo
 Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
+Dp
 Zo
 Zo
 Lr
@@ -12523,6 +12332,7 @@ EK
 EK
 EK
 Lr
+yt
 Zo
 Zo
 Zo
@@ -12532,6 +12342,11 @@ Zo
 Zo
 Zo
 Zo
+xT
+Zo
+xT
+Zo
+xT
 Zo
 Zo
 Zo
@@ -12541,13 +12356,7 @@ Zo
 Zo
 Zo
 Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
+Dp
 Lr
 EK
 EK
