@@ -16453,7 +16453,8 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/multi_tile/glass{
-	locked = 1
+	locked = 1;
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
@@ -18820,7 +18821,7 @@
 /area/crew_quarters/dorms)
 "aZH" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/tranquillite{
+/obj/machinery/door/airlock/silver/glass{
 	name = "Mime's Office";
 	req_access = list(46)
 	},
@@ -20335,7 +20336,7 @@
 /area/hallway/secondary/garden)
 "bdI" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 1;
+	dir = 8;
 	name = "Dormitories"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -28644,7 +28645,7 @@
 /area/hydroponics)
 "bzj" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock{
+/obj/machinery/door/airlock/hydroponics{
 	name = "Hydroponics";
 	req_access = list(35)
 	},
@@ -54454,7 +54455,8 @@
 "djg" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Dormitories"
+	name = "Dormitories";
+	dir = 1
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -61443,7 +61445,7 @@
 /area/maintenance/quarters)
 "foa" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 1;
+	dir = 8;
 	welded = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -67447,11 +67449,11 @@
 	icon = 'icons/turf/floors.dmi';
 	icon_state = "siding2"
 	},
-/obj/machinery/door/airlock{
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/hydroponics{
 	name = "Hydroponics";
 	req_access = list(35)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plasteel{
 	icon_state = "asteroid"
 	},
@@ -68294,7 +68296,8 @@
 /area/maintenance/port)
 "iGK" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Restaurant"
+	name = "Restaurant";
+	dir = 1
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -70184,7 +70187,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
 "jzn" = (
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 1
+	},
 /obj/effect/decal/cleanable/dust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -77811,14 +77816,6 @@
 /area/maintenance/apmaint)
 "mSS" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/medical{
-	autoclose = 0;
-	frequency = 1379;
-	id_tag = "viro_lab_airlock_exterior";
-	locked = 1;
-	name = "Virology Lab External Airlock";
-	req_access = list(39)
-	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1379;
@@ -77837,6 +77834,14 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/virology{
+	autoclose = 0;
+	frequency = 1379;
+	id_tag = "viro_lab_airlock_exterior";
+	locked = 1;
+	name = "Virology Lab External Airlock";
+	req_access = list(39)
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whitegreenfull"
@@ -99648,14 +99653,6 @@
 /area/toxins/misc_lab)
 "xlH" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/medical{
-	autoclose = 0;
-	frequency = 1379;
-	id_tag = "viro_lab_airlock_interior";
-	locked = 1;
-	name = "Virology Lab Internal Airlock";
-	req_access = list(39)
-	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1379;
@@ -99669,6 +99666,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/virology{
+	autoclose = 0;
+	frequency = 1379;
+	id_tag = "viro_lab_airlock_interior";
+	locked = 1;
+	name = "Virology Lab Internal Airlock";
+	req_access = list(39)
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whitegreenfull"

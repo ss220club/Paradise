@@ -54,6 +54,14 @@
 	icon = 'icons/obj/doors/airlocks/station/science.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_science
 
+/obj/machinery/door/airlock/hydroponics
+	icon = 'icons/obj/doors/airlocks/station/botany.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_hydro
+
+/obj/machinery/door/airlock/virology
+	icon = 'icons/obj/doors/airlocks/station/virology.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_viro
+
 //////////////////////////////////
 /*
 	Station Airlocks Glass
@@ -94,6 +102,14 @@
 	glass = TRUE
 
 /obj/machinery/door/airlock/science/glass
+	opacity = 0
+	glass = TRUE
+
+/obj/machinery/door/airlock/hydroponics/glass
+	opacity = 0
+	glass = TRUE
+
+/obj/machinery/door/airlock/virology/glass
 	opacity = 0
 	glass = TRUE
 
