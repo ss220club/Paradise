@@ -4,6 +4,7 @@
 	icon_state = "sheet-monkey"
 	desc = "Something went wrong."
 	origin_tech = "biotech=3"
+	novariants = TRUE
 
 /obj/item/stack/sheet/animalhide/human
 	name = "human skin"
@@ -25,6 +26,8 @@ GLOBAL_LIST_INIT(human_recipes, list( \
 	desc = "A piece of generic skin."
 	singular_name = "generic skin piece"
 	icon_state = "sheet-hide"
+	item_state = "sheet-leather"
+	novariants = FALSE
 
 /obj/item/stack/sheet/animalhide/corgi
 	name = "corgi hide"
@@ -78,6 +81,7 @@ GLOBAL_LIST_INIT(xeno_recipes, list (
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "chitin"
 	origin_tech = ""
+	novariants = TRUE
 
 /obj/item/xenos_claw
 	name = "alien claw"
@@ -99,6 +103,7 @@ GLOBAL_LIST_INIT(xeno_recipes, list (
 	singular_name = "hairless hide piece"
 	icon = 'icons/obj/stacks/organic.dmi'
 	icon_state = "sheet-hairlesshide"
+	item_state = "sheet-leather"
 	origin_tech = ""
 
 /obj/item/stack/sheet/wetleather
@@ -107,6 +112,7 @@ GLOBAL_LIST_INIT(xeno_recipes, list (
 	singular_name = "wet leather piece"
 	icon = 'icons/obj/stacks/organic.dmi'
 	icon_state = "sheet-wetleather"
+	item_state = "sheet-leather"
 	origin_tech = ""
 	var/wetness = 30 //Reduced when exposed to high temperautres
 	var/drying_threshold_temperature = 500 //Kelvin to start drying
@@ -138,7 +144,7 @@ GLOBAL_LIST_INIT(leather_recipes, list (
 
 /obj/item/stack/sheet/sinew
 	name = "watcher sinew"
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/stacks/organic.dmi'
 	desc = "Long stringy filaments which presumably came from a watcher's wings."
 	singular_name = "watcher sinew"
 	icon_state = "sinew"
@@ -155,12 +161,13 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 /obj/item/stack/sheet/animalhide/goliath_hide
 	name = "goliath hide plates"
 	desc = "Pieces of a goliath's rocky hide, these might be able to make your suit a bit more durable to attack from the local fauna."
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/stacks/organic.dmi'
 	icon_state = "goliath_hide"
 	singular_name = "hide plate"
 	flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_NORMAL
 	layer = MOB_LAYER
+	novariants = FALSE
 	var/static/list/goliath_platable_armor_typecache = typecacheof(list(
 			/obj/item/clothing/suit/hooded/explorer,
 			/obj/item/clothing/head/hooded/explorer,
@@ -213,12 +220,13 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 /obj/item/stack/sheet/animalhide/ashdrake
 	name = "ash drake hide"
 	desc = "The strong, scaled hide of an ash drake."
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/stacks/organic.dmi'
 	icon_state = "dragon_hide"
 	singular_name = "drake plate"
 	flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_NORMAL
 	layer = MOB_LAYER
+	novariants = FALSE
 
 //Step one - dehairing.
 

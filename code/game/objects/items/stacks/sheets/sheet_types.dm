@@ -427,8 +427,9 @@ GLOBAL_LIST_INIT(cult_recipes, list(
 	name = "runed metal"
 	desc = "Sheets of cold metal with shifting inscriptions writ upon them."
 	singular_name = "runed metal sheet"
-	icon_state = "sheet-runed"
-	item_state = "sheet-runed"
+	icon = 'icons/obj/stacks/minerals.dmi'
+	icon_state = "sheet_runed"
+	item_state = "sheet_runed"
 	sheettype = "runed"
 	merge_type = /obj/item/stack/sheet/runed_metal
 	recipe_width = 700
@@ -705,6 +706,7 @@ GLOBAL_LIST_INIT(cheese_recipes, list(
 	icon = 'icons/obj/stacks/organic.dmi'
 	singular_name = "reinforced cheese block"
 	sheettype = "cheese"
+	novariants = TRUE
 	force = 5
 	throwforce = 5
 	w_class = WEIGHT_CLASS_NORMAL

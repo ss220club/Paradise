@@ -692,6 +692,7 @@
 		/obj/machinery/door/airlock/welded,
 		/obj/machinery/door/morgue,
 		/obj/machinery/door/poddoor,
+		/obj/machinery/door/airlock/centcom,
 		/obj/structure/window/full/basic,
 		/obj/structure/window/full/reinforced,
 		/obj/structure/window/full/reinforced/tinted,

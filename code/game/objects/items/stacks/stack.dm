@@ -32,6 +32,10 @@
 	var/datum/robot_energy_storage/source
 	/// Related to above. How much energy it costs from storage to use stack items
 	var/cost = 1
+	/// if true, then this item can't stack with subtypes
+	var/parent_stack = FALSE
+	/// Determines whether the item should update it's sprites based on amount.
+	var/novariants = TRUE
 
 
 /obj/item/stack/Initialize(mapload, new_amount, merge = TRUE)
@@ -57,6 +61,17 @@
 	update_icon()
 	update_weight()
 
+/obj/item/stack/update_icon()
+	if(novariants)
+		return ..()
+	if(amount <= (max_amount * (1/3)))
+		icon_state = initial(icon_state)
+		return ..()
+	if (amount <= (max_amount * (2/3)))
+		icon_state = "[initial(icon_state)]_2"
+		return ..()
+	icon_state = "[initial(icon_state)]_3"
+	return ..()
 
 /obj/item/stack/Destroy()
 	if(usr && usr.machine == src)
