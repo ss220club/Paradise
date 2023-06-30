@@ -64,7 +64,7 @@
 ///from base of atom/animal_attack(): (/mob/user)
 #define COMSIG_ATOM_ATTACK_ANIMAL "attack_animal"
 ///from base of atom/examine(): (/mob)
-#define COMSIG_PARENT_EXAMINE "atom_examine"
+#define COMSIG_ATOM_EXAMINE "atom_examine"
 ///from base of atom/get_examine_name(): (/mob, list/overrides)
 #define COMSIG_ATOM_GET_EXAMINE_NAME "atom_examine_name"
 	//Positions for overrides list
@@ -72,6 +72,8 @@
 	#define EXAMINE_POSITION_BEFORE (1<<1)
 	//End positions
 	#define COMPONENT_EXNAME_CHANGED (1<<0)
+/// from base of [/atom/proc/atom_destruction]: (damage_flag)
+#define COMSIG_ATOM_DESTRUCTION "atom_destruction"
 ///from base of atom/update_icon(): ()
 #define COMSIG_ATOM_UPDATE_ICON "atom_update_icon"
 	#define COMSIG_ATOM_NO_UPDATE_ICON_STATE	(1<<0)

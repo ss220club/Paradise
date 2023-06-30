@@ -332,6 +332,7 @@
 		..()
 
 /atom/proc/AltClick(var/mob/user)
+	SEND_SIGNAL(src, COMSIG_CLICK_ALT, user)
 	turf_examine(user)
 
 /atom/proc/turf_examine(var/mob/user)

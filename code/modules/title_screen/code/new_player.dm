@@ -6,7 +6,9 @@
  * Shows the titlescreen to a new player.
  */
 /mob/new_player/proc/show_title_screen()
-	winset(src, "title_browser", "is-disabled=false;is-visible=true")
+	if(!client)
+		return
+	winset(src, "title_browser", "is-disabled=true;is-visible=true")
 	winset(src, "status_bar", "is-visible=false")
 
 	var/datum/asset/assets = get_asset_datum(/datum/asset/simple/lobby) //Sending pictures to the client

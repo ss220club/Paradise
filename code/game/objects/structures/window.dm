@@ -416,6 +416,7 @@
 	return TRUE
 
 /obj/structure/window/AltClick(mob/user)
+	SEND_SIGNAL(src, COMSIG_CLICK_ALT, user)
 
 	if(user.incapacitated())
 		to_chat(user, "<span class='warning'>You can't do that right now!</span>")
@@ -423,6 +424,9 @@
 
 	if(!Adjacent(user))
 		to_chat(user, "<span class='warning'>Move closer to the window!</span>")
+		return
+
+	if(fulltile)
 		return
 
 	if(anchored)
