@@ -668,8 +668,7 @@
 /turf/space,
 /area/space)
 "ads" = (
-/obj/structure/closet/wardrobe/red,
-/obj/item/clothing/suit/tracksuit/red,
+/obj/structure/table,
 /obj/machinery/power/apc{
 	name = "south bump";
 	pixel_y = -26
@@ -2227,14 +2226,13 @@
 	pixel_x = -30;
 	pixel_y = 2
 	},
-/obj/structure/closet/wardrobe/red,
+/obj/structure/table,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/item/clothing/suit/tracksuit/red,
 /turf/simulated/floor/plasteel{
 	dir = 10;
 	icon_state = "red"
@@ -6800,7 +6798,7 @@
 /area/crew_quarters/bar/atrium)
 "aWr" = (
 /obj/effect/decal/warning_stripes/yellow/hollow,
-/obj/structure/closet/secure_closet/cargotech,
+/obj/structure/table,
 /obj/item/stamp/granted,
 /obj/item/stamp/denied,
 /turf/simulated/floor/plasteel{
@@ -8750,7 +8748,7 @@
 	c_tag = "Mining West";
 	dir = 1
 	},
-/obj/structure/closet/wardrobe/miner,
+/obj/structure/table,
 /obj/machinery/vending/wallmed{
 	pixel_y = -30
 	},
@@ -13006,14 +13004,7 @@
 /area/engine/controlroom)
 "bCk" = (
 /obj/structure/closet/wardrobe/coroner,
-/obj/item/reagent_containers/glass/bottle/reagent/formaldehyde,
-/obj/item/reagent_containers/dropper,
-/obj/item/storage/box/gloves,
 /obj/item/camera,
-/obj/item/reagent_containers/spray/cleaner,
-/obj/item/storage/box/bodybags,
-/obj/item/storage/box/bodybags,
-/obj/item/storage/box/bodybags,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 24
 	},
@@ -15591,7 +15582,7 @@
 	pixel_y = -26
 	},
 /obj/effect/decal/warning_stripes/yellow/hollow,
-/obj/structure/closet/secure_closet/cargotech,
+/obj/structure/table,
 /obj/item/stamp/granted,
 /obj/item/stamp/denied,
 /turf/simulated/floor/plasteel{
@@ -18783,7 +18774,7 @@
 /obj/machinery/light_switch{
 	pixel_x = -22
 	},
-/obj/structure/closet/wardrobe/atmospherics_yellow,
+/obj/structure/table,
 /obj/effect/decal/warning_stripes/yellow/hollow,
 /turf/simulated/floor/plasteel{
 	dir = 9;
@@ -51156,7 +51147,7 @@
 	pixel_x = 32
 	},
 /obj/effect/decal/warning_stripes/yellow/hollow,
-/obj/structure/closet/wardrobe/atmospherics_yellow,
+/obj/structure/table,
 /turf/simulated/floor/plasteel{
 	dir = 5;
 	icon_state = "caution"
@@ -65486,7 +65477,7 @@
 /area/security/visiting_room)
 "jeg" = (
 /obj/effect/decal/warning_stripes/yellow/hollow,
-/obj/structure/closet/secure_closet/roboticist,
+/obj/structure/table,
 /obj/item/radio/headset/headset_sci{
 	pixel_x = -3
 	},
@@ -90218,7 +90209,7 @@
 	},
 /area/toxins/lab)
 "oXs" = (
-/obj/structure/closet/secure_closet/scientist,
+/obj/structure/table,
 /obj/machinery/power/apc{
 	cell_type = 5000;
 	dir = 4;
@@ -128266,7 +128257,7 @@
 /area/lawoffice)
 "xDU" = (
 /obj/effect/decal/warning_stripes/yellow/hollow,
-/obj/structure/closet/wardrobe/robotics_black,
+/obj/structure/table,
 /obj/item/clothing/head/welding{
 	pixel_x = -3;
 	pixel_y = 5
@@ -129812,7 +129803,7 @@
 /turf/simulated/floor/plasteel,
 /area/engine/engineering)
 "xSx" = (
-/obj/structure/closet/wardrobe/virology_white,
+/obj/structure/table,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "whitegreencorner"

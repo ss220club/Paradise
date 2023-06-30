@@ -9177,7 +9177,6 @@
 	},
 /area/syndicate/unpowered/syndicate_space_base/engineering)
 "iuJ" = (
-/obj/structure/closet/wardrobe/coroner,
 /obj/item/reagent_containers/glass/bottle/reagent/formaldehyde,
 /obj/item/reagent_containers/dropper,
 /obj/structure/window/plasmareinforced{

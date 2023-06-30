@@ -4167,7 +4167,6 @@
 	},
 /area/awaymission/centcomAway/general)
 "lV" = (
-/obj/structure/closet/wardrobe/red,
 /turf/simulated/floor/plasteel{
 	tag = "icon-vault (EAST)";
 	icon_state = "vault";
