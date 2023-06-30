@@ -2660,7 +2660,6 @@
 	},
 /area/awaymission/arrivalblock)
 "gY" = (
-/obj/structure/closet/wardrobe/red,
 /obj/machinery/light{
 	dir = 1
 	},

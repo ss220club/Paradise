@@ -10,16 +10,8 @@
 
 
 /obj/structure/closet/secure_closet/hydroponics/populate_contents()
-	switch(rand(1,2))
-		if(1)
-			new /obj/item/clothing/suit/apron(src)
-		if(2)
-			new /obj/item/clothing/suit/apron/overalls(src)
 	new /obj/item/storage/bag/plants/portaseeder(src)
-	new /obj/item/clothing/under/rank/hydroponics(src)
 	new /obj/item/plant_analyzer(src)
-	new /obj/item/radio/headset/headset_service(src)
-	new /obj/item/clothing/mask/bandana/botany(src)
 	new /obj/item/cultivator(src)
 	new /obj/item/hatchet(src)
 	new /obj/item/storage/box/disks_plantgene(src)

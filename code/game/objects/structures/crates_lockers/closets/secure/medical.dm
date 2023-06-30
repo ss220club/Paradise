@@ -56,24 +56,11 @@
 	icon_off = "securemedoff"
 
 /obj/structure/closet/secure_closet/medical3/populate_contents()
-	if(prob(50))
-		new /obj/item/storage/backpack/medic(src)
-	else
-		new /obj/item/storage/backpack/satchel_med(src)
-	new /obj/item/storage/backpack/duffel/medical(src)
-	new /obj/item/clothing/under/rank/medical(src)
-	new /obj/item/clothing/suit/storage/labcoat(src)
-	new /obj/item/clothing/shoes/white(src)
-	new /obj/item/radio/headset/headset_med(src)
-	new /obj/item/clothing/gloves/color/latex/nitrile(src)
 	new /obj/item/defibrillator/loaded(src)
 	new /obj/item/handheld_defibrillator(src)
 	new /obj/item/handheld_defibrillator(src)
 	new /obj/item/storage/belt/medical(src)
 	new /obj/item/clothing/glasses/hud/health(src)
-	new /obj/item/clothing/shoes/sandal/white(src)
-	new /obj/item/clothing/head/surgery/lightgreen(src)
-	new /obj/item/clothing/under/rank/medical/lightgreen(src)
 
 
 //Exam Room
@@ -94,7 +81,6 @@
 	new /obj/item/storage/belt/medical(src)
 	new /obj/item/clothing/mask/surgical(src)
 	new /obj/item/clothing/glasses/hud/health(src)
-	new /obj/item/clothing/gloves/color/latex/nitrile(src)
 	new /obj/item/clothing/accessory/stethoscope(src)
 	new /obj/item/flashlight/pen(src)
 	new /obj/item/storage/firstaid/regular(src)
@@ -154,21 +140,6 @@
 	icon_off = "cmosecureoff"
 
 /obj/structure/closet/secure_closet/CMO/populate_contents()
-	if(prob(50))
-		new /obj/item/storage/backpack/medic(src)
-	else
-		new /obj/item/storage/backpack/satchel_med(src)
-	new /obj/item/storage/backpack/duffel/medical(src)
-	switch(pick("blue", "green", "purple"))
-		if("blue")
-			new /obj/item/clothing/under/rank/medical/blue(src)
-			new /obj/item/clothing/head/surgery/blue(src)
-		if("green")
-			new /obj/item/clothing/under/rank/medical/green(src)
-			new /obj/item/clothing/head/surgery/green(src)
-		if("purple")
-			new /obj/item/clothing/under/rank/medical/purple(src)
-			new /obj/item/clothing/head/surgery/purple(src)
 	new /obj/item/radio/headset/heads/cmo(src)
 	new /obj/item/defibrillator/compact/advanced/loaded(src)
 	new /obj/item/handheld_defibrillator(src)
