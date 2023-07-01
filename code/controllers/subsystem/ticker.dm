@@ -73,8 +73,7 @@ SUBSYSTEM_DEF(ticker)
 		'sound/music/lobby/Treacherous_Voyage.ogg',
 		'sound/music/lobby/Endless_Space.ogg',
 		'sound/music/lobby/Human.ogg',
-		'sound/music/lobby/Traitor.ogg',
-		'sound/music/lobby/Robocop_RightVer.ogg')
+		'sound/music/lobby/Traitor.ogg')
 
 	randomtips = file2list("strings/tips.txt")
 	memetips = file2list("strings/sillytips.txt")
