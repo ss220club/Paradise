@@ -42,8 +42,6 @@
 
 /mob/new_player/proc/whitelist_check()
 	// Admins are immune to overflow rerouting
-	if(check_rights(rights_required = 0, show_msg = 0))
-		return TRUE
 
 	if(config.usewhitelist_nojobbanned && GLOB.jobban_assoclist[src.ckey])
 		return FALSE
