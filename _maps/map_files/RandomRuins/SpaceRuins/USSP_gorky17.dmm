@@ -13180,7 +13180,6 @@
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/solmaintsouth)
 "TQ" = (
-/obj/structure/closet/wardrobe/coroner,
 /obj/item/autopsy_scanner,
 /obj/item/reagent_containers/glass/bottle/reagent/formaldehyde,
 /obj/item/reagent_containers/dropper,

@@ -90,8 +90,6 @@ SUBSYSTEM_DEF(ticker)
 			to_chat(world, "<B><span class='darkmblue'>Welcome to the pre-game lobby!</span></B>")
 			to_chat(world, "Please, setup your character and select ready. Game will start in [config.pregame_timestart] seconds")
 			current_state = GAME_STATE_PREGAME
-			SStitle.change_title_screen()
-			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS)
 			fire() // TG says this is a good idea
 			for(var/mob/new_player/N in GLOB.player_list)
 				if (N.client)

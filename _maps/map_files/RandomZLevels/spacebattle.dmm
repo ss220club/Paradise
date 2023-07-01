@@ -2685,7 +2685,6 @@
 /area/awaymission/spacebattle/medbay)
 "hH" = (
 /obj/structure/closet/toolcloset,
-/obj/structure/closet/wardrobe/engineering_yellow,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "yellow"

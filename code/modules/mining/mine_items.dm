@@ -20,25 +20,6 @@
 
 /**********************Miner Lockers**************************/
 
-/obj/structure/closet/wardrobe/miner
-	name = "mining wardrobe"
-	icon_state = "mixed"
-	icon_closed = "mixed"
-
-/obj/structure/closet/wardrobe/miner/populate_contents()
-	new /obj/item/storage/backpack/duffel(src)
-	new /obj/item/storage/backpack/explorer(src)
-	new /obj/item/storage/backpack/satchel_explorer(src)
-	new /obj/item/clothing/under/rank/miner/lavaland(src)
-	new /obj/item/clothing/under/rank/miner/lavaland(src)
-	new /obj/item/clothing/under/rank/miner/lavaland(src)
-	new /obj/item/clothing/shoes/workboots/mining(src)
-	new /obj/item/clothing/shoes/workboots/mining(src)
-	new /obj/item/clothing/shoes/workboots/mining(src)
-	new /obj/item/clothing/gloves/color/black(src)
-	new /obj/item/clothing/gloves/color/black(src)
-	new /obj/item/clothing/gloves/color/black(src)
-
 /obj/structure/closet/secure_closet/miner
 	name = "miner's equipment"
 	icon_state = "miningsec1"
@@ -54,7 +35,6 @@
 	new /obj/item/storage/box/emptysandbags(src)
 	new /obj/item/shovel(src)
 	new /obj/item/pickaxe/mini(src)
-	new /obj/item/radio/headset/headset_cargo/mining(src)
 	new /obj/item/flashlight/seclite(src)
 	new /obj/item/storage/bag/plants(src)
 	new /obj/item/storage/bag/ore(src)

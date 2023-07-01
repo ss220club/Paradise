@@ -6187,7 +6187,6 @@
 	},
 /area/syndicate_mothership/jail)
 "dgp" = (
-/obj/structure/closet/wardrobe/red,
 /obj/item/clothing/suit/tracksuit/red,
 /obj/structure/window/reinforced{
 	layer = 2.9
@@ -37663,7 +37662,6 @@
 	},
 /area/centcom/jail)
 "sBh" = (
-/obj/structure/closet/wardrobe/red,
 /obj/structure/window/reinforced{
 	layer = 2.9
 	},
