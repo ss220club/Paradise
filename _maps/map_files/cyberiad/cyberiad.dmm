@@ -26249,8 +26249,9 @@
 /turf/simulated/wall,
 /area/hallway/primary/starboard/east)
 "btf" = (
-/obj/structure/pianoclassic{
-	dir = 8
+/obj/structure/piano{
+	dir = 8;
+	icon_state = "minipiano"
 	},
 /turf/simulated/floor/carpet/black,
 /area/crew_quarters/bar/atrium)
@@ -42012,12 +42013,20 @@
 /area/maintenance/asmaint)
 "cAD" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table,
 /obj/machinery/power/apc{
 	name = "south bump";
 	pixel_y = -24
 	},
 /obj/structure/cable,
+/obj/structure/table,
+/obj/item/reagent_containers/food/drinks/britcup{
+	pixel_y = 2;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/glass/rag{
+	pixel_y = 4;
+	pixel_x = 6
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "cafeteria"
 	},
@@ -53285,6 +53294,20 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/item/stack/sheet/metal{
+	amount = 50;
+	pixel_x = 5;
+	pixel_y = 2
+	},
+/obj/item/stack/sheet/metal{
+	amount = 50;
+	pixel_y = 2
+	},
+/obj/item/stack/sheet/glass{
+	amount = 50;
+	pixel_y = 2;
+	pixel_x = -4
+	},
 /turf/simulated/floor/plasteel,
 /area/atmos)
 "dfG" = (
@@ -57428,7 +57451,7 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/warning_stripes/yellow/hollow,
-/obj/structure/table,
+/obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/plasteel,
 /area/quartermaster/storage)
 "dvr" = (
@@ -64881,13 +64904,6 @@
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/grass,
 /area/hallway/secondary/exit)
-"gWS" = (
-/obj/structure/disposalpipe/segment,
-/obj/item/twohanded/required/kirbyplants,
-/turf/simulated/floor/plasteel{
-	icon_state = "cafeteria"
-	},
-/area/medical/research/restroom)
 "gXh" = (
 /obj/effect/decal/cleanable/dust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -66039,31 +66055,31 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/structure/table,
-/obj/item/clothing/glasses/hud/diagnostic{
-	pixel_x = 2;
-	pixel_y = 5
+/obj/item/storage/belt/utility{
+	pixel_y = -14
 	},
-/obj/item/clothing/glasses/hud/diagnostic{
-	pixel_x = 2;
-	pixel_y = 5
-	},
-/obj/item/clothing/glasses/hud/diagnostic{
-	pixel_x = 2;
-	pixel_y = 5
-	},
+/obj/structure/table/reinforced,
 /obj/item/storage/belt/utility{
 	pixel_y = -8
 	},
-/obj/item/storage/belt/utility{
-	pixel_y = -8
+/obj/item/clothing/glasses/hud/diagnostic{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/clothing/glasses/hud/diagnostic{
+	pixel_x = 2;
+	pixel_y = 5
+	},
+/obj/item/clothing/glasses/hud/diagnostic{
+	pixel_x = 2;
+	pixel_y = 8
 	},
 /obj/item/clothing/glasses/welding{
 	pixel_y = 12;
 	pixel_x = 2
 	},
 /obj/item/clothing/glasses/welding{
-	pixel_y = 12;
+	pixel_y = 18;
 	pixel_x = 2
 	},
 /turf/simulated/floor/plasteel{
@@ -72590,7 +72606,9 @@
 /turf/simulated/floor/carpet/purple,
 /area/maintenance/server)
 "kGl" = (
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets{
+	pixel_y = 4
+	},
 /obj/structure/table,
 /obj/machinery/newscaster{
 	name = "north newscaster";
@@ -80704,7 +80722,6 @@
 /area/maintenance/kitchen)
 "onN" = (
 /obj/machinery/kitchen_machine/microwave{
-	pixel_x = -3;
 	pixel_y = 6
 	},
 /obj/structure/table,
@@ -85314,6 +85331,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/clothing/glasses/welding{
+	pixel_y = 16
+	},
 /turf/simulated/floor/plasteel,
 /area/atmos)
 "qww" = (
@@ -86959,8 +86979,21 @@
 	},
 /area/gateway)
 "rkI" = (
-/obj/structure/table,
-/obj/effect/decal/warning_stripes/southwestcorner,
+/obj/structure/table/glass,
+/obj/item/storage/box/monkeycubes/wolpincubes{
+	pixel_x = -6
+	},
+/obj/item/storage/box/monkeycubes/neaeracubes{
+	pixel_x = 8
+	},
+/obj/item/storage/box/monkeycubes/stokcubes{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/item/storage/box/monkeycubes/farwacubes{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/plasteel{
 	dir = 9;
 	icon_state = "whitegreen"
@@ -89647,24 +89680,17 @@
 /area/hallway/primary/starboard/west)
 "sBM" = (
 /obj/structure/table,
-/obj/item/stack/sheet/glass{
-	amount = 50
-	},
-/obj/item/clothing/head/welding,
 /obj/item/clothing/head/welding{
-	layer = 8
+	pixel_y = 10;
+	pixel_x = -4
 	},
-/obj/item/clothing/glasses/welding,
-/obj/item/clothing/glasses/welding,
-/obj/item/stack/sheet/metal{
-	amount = 50;
-	pixel_x = 2;
-	pixel_y = 2
+/obj/item/clothing/head/welding{
+	layer = 8;
+	pixel_y = 10;
+	pixel_x = 4
 	},
-/obj/item/stack/sheet/metal{
-	amount = 50;
-	pixel_x = 2;
-	pixel_y = 2
+/obj/item/clothing/glasses/welding{
+	pixel_y = -6
 	},
 /obj/machinery/firealarm{
 	dir = 4;
@@ -90382,11 +90408,10 @@
 /area/security/permabrig)
 "sWz" = (
 /obj/structure/table/glass,
-/obj/item/storage/box/monkeycubes,
-/obj/item/storage/box/monkeycubes/stokcubes,
-/obj/item/storage/box/monkeycubes/neaeracubes,
-/obj/item/storage/box/monkeycubes/farwacubes,
-/obj/item/storage/box/monkeycubes/wolpincubes,
+/obj/item/storage/box/monkeycubes{
+	pixel_x = -2;
+	pixel_y = 4
+	},
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
@@ -92131,7 +92156,7 @@
 	pixel_x = 24
 	},
 /obj/machinery/light,
-/obj/structure/closet/wardrobe/genetics_white,
+/obj/structure/closet,
 /turf/simulated/floor/plasteel{
 	dir = 6;
 	icon_state = "darkpurple"
@@ -93580,6 +93605,7 @@
 	dir = 4;
 	pixel_x = -28
 	},
+/obj/machinery/computer/rdconsole/robotics,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "neutralfull"
@@ -93991,8 +94017,8 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/structure/table,
 /obj/effect/decal/warning_stripes/yellow/hollow,
+/obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/plasteel,
 /area/quartermaster/storage)
 "uKb" = (
@@ -95443,7 +95469,7 @@
 /area/maintenance/asmaint2)
 "vnB" = (
 /obj/effect/decal/warning_stripes/yellow,
-/obj/structure/table,
+/obj/structure/closet/secure_closet/miner,
 /turf/simulated/floor/plasteel{
 	icon_state = "brown"
 	},
@@ -100487,9 +100513,6 @@
 /area/maintenance/xenozoo)
 "xFK" = (
 /obj/structure/disposalpipe/segment,
-/obj/structure/table,
-/obj/item/reagent_containers/food/drinks/britcup,
-/obj/item/reagent_containers/glass/rag,
 /turf/simulated/floor/plasteel{
 	icon_state = "cafeteria"
 	},
@@ -100834,6 +100857,18 @@
 "xND" = (
 /obj/structure/table,
 /obj/effect/decal/warning_stripes/yellow/hollow,
+/obj/item/radio/headset/headset_sci{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/obj/item/radio/headset/headset_sci{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/radio/headset/headset_sci{
+	pixel_x = 8;
+	pixel_y = 2
+	},
 /turf/simulated/floor/plasteel{
 	dir = 5;
 	icon_state = "whitepurple"
@@ -101240,8 +101275,8 @@
 /turf/simulated/floor/carpet,
 /area/maintenance/asmaint)
 "xXb" = (
-/obj/structure/table,
 /obj/effect/decal/warning_stripes/yellow/hollow,
+/obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/plasteel,
 /area/quartermaster/storage)
 "xXs" = (
@@ -147131,7 +147166,7 @@ csr
 kGl
 qAN
 kfC
-gWS
+xFK
 xFK
 waC
 csr
