@@ -10,6 +10,10 @@
 
 
 /proc/format_table_name(table as text)
+	if(config.player_overflow_cap == 1) // So we are on a whitelist server
+		switch(table) // In case we will have something else separate on wl server
+			if("admin")
+				table = "admin_wl"
 	return sqlfdbktableprefix + table
 
 /*
