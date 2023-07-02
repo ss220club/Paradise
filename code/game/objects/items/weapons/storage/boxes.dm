@@ -316,7 +316,7 @@
 /obj/item/storage/box/emps
 	name = "emp grenades"
 	desc = "A box with 5 emp grenades."
-	icon_state = "flashbang"
+	icon_state = "emp_box"
 
 /obj/item/storage/box/emps/populate_contents()
 	for(var/I in 1 to 5)

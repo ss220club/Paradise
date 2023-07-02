@@ -8,6 +8,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	max_amount = 50
 	flags = NOBLUDGEON
+	novariants = FALSE
 	origin_tech = "materials=6;syndicate=1"
 
 /obj/item/stack/telecrystal/attack(mob/target, mob/user)
