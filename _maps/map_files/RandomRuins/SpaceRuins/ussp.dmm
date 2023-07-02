@@ -2,7 +2,7 @@
 "aa" = (
 /obj/effect/landmark/tiles/burnturf,
 /turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon" = 'icons/turf/floors.dmi', "icon_state" = "cautionfull");
+	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="cautionfull");
 	icon_state = "4-i"
 	},
 /turf/simulated/floor/plasteel{
@@ -171,7 +171,6 @@
 "az" = (
 /obj/machinery/computer{
 	desc = "A computer long since rendered non-functional due to lack of maintenance. Spitting out error messages.";
-	dir = 1;
 	name = "Broken Computer";
 	obj_integrity = 150
 	},
@@ -660,7 +659,7 @@
 	icon_state = "dark"
 	},
 /turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon" = 'icons/turf/floors.dmi', "icon_state" = "dark");
+	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="dark");
 	icon_state = "4-i"
 	},
 /area/derelict/arrival)
@@ -1376,7 +1375,9 @@
 /turf/simulated/floor/plasteel,
 /area/derelict/crew_quarters)
 "dA" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 1
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -1761,7 +1762,7 @@
 	dir = 1
 	},
 /turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon" = 'icons/turf/floors.dmi', "icon_state" = "redfull");
+	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="redfull");
 	icon_state = "4-i"
 	},
 /turf/simulated/floor/plasteel{
@@ -1936,7 +1937,7 @@
 	icon_state = "purplefull"
 	},
 /turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon" = 'icons/turf/floors.dmi', "icon_state" = "purplefull");
+	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="purplefull");
 	icon_state = "4-i"
 	},
 /area/derelict/annex)
@@ -2054,7 +2055,7 @@
 	icon_state = "cautionfull"
 	},
 /turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon" = 'icons/turf/floors.dmi', "icon_state" = "cautionfull");
+	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="cautionfull");
 	icon_state = "4-i"
 	},
 /area/derelict/annex)
@@ -2342,7 +2343,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/computerframe{
 	desc = "This computer is a husk of what it once was. Time and decay has worn its cheap circuitry to dust.";
-	name = "decrepit computer"
+	name = "decrepit computer";
+	dir = 8
 	},
 /turf/simulated/floor/plasteel{
 	dir = 6;
@@ -2450,7 +2452,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/solar_control{
 	id = "russolar";
-	track = 2
+	track = 2;
+	dir = 8
 	},
 /obj/structure/cable{
 	d2 = 2;
@@ -2635,7 +2638,9 @@
 	},
 /area/derelict/crew_quarters)
 "gn" = (
-/obj/structure/chair/stool/bar,
+/obj/structure/chair/stool/bar{
+	dir = 4
+	},
 /turf/simulated/floor/wood{
 	icon_state = "wood-broken7";
 	tag = "icon-wood-broken7"
@@ -2672,7 +2677,7 @@
 "gt" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/rdconsole{
-	req_access = list(202,203,204)
+	dir = 8
 	},
 /turf/simulated/floor/plasteel{
 	dir = 6;
@@ -2721,13 +2726,14 @@
 "gz" = (
 /obj/structure/computerframe{
 	desc = "This computer is a husk of what it once was. Time and decay has worn its cheap circuitry to dust.";
-	name = "decrepit computer"
+	name = "decrepit computer";
+	dir = 1
 	},
-/obj/effect/landmark/tiles/damageturf,
 /obj/item/stack/cable_coil/cut{
 	amount = 2
 	},
 /obj/structure/cable,
+/obj/effect/landmark/tiles/damageturf,
 /turf/simulated/floor/plasteel{
 	dir = 10;
 	icon_state = "caution"
@@ -2778,7 +2784,9 @@
 	},
 /area/derelict/crew_quarters)
 "gG" = (
-/obj/structure/chair/stool/bar,
+/obj/structure/chair/stool/bar{
+	dir = 4
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "wood"
 	},
@@ -2914,7 +2922,7 @@
 	icon_state = "whiteredfull"
 	},
 /turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon" = 'icons/turf/floors.dmi', "icon_state" = "whiteredfull");
+	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="whiteredfull");
 	icon_state = "4-i"
 	},
 /area/derelict/annex)
@@ -3113,14 +3121,18 @@
 	},
 /area/derelict/annex)
 "hC" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 4
+	},
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plasteel,
 /area/derelict/annex)
 "hD" = (
-/obj/machinery/computer/monitor,
+/obj/machinery/computer/monitor{
+	dir = 8
+	},
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
@@ -3237,14 +3249,18 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 4
+	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plasteel,
 /area/derelict/annex)
 "hR" = (
-/obj/machinery/computer/atmos_alert,
+/obj/machinery/computer/atmos_alert{
+	dir = 8
+	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "caution"
@@ -3524,7 +3540,7 @@
 	oxygen = 0.01
 	},
 /turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon" = 'icons/turf/floors.dmi', "icon_state" = "engine");
+	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="engine");
 	icon_state = "4-i"
 	},
 /area/derelict/annex)
@@ -3594,7 +3610,7 @@
 	},
 /area/derelict/arrival)
 "iT" = (
-/obj/structure/closet/crate/trashcart,
+/obj/machinery/computer/shuttle/ruins_transport_shuttle,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "brown"
@@ -3718,11 +3734,8 @@
 	},
 /area/derelict/crew_quarters)
 "jh" = (
-/turf/template_noop,
-/turf/simulated/wall/mineral/titanium/nodecon/nosmooth{
-	icon_state = "swall_f10"
-	},
-/area/derelict/annex)
+/turf/simulated/mineral/random/high_chance,
+/area/template_noop)
 "jm" = (
 /obj/machinery/door/airlock/external{
 	id_tag = "kc13_ussp";
@@ -3822,15 +3835,11 @@
 /turf/simulated/floor/plating/airless,
 /area/derelict/annex)
 "jB" = (
-/turf/simulated/wall/mineral/titanium/nodecon/nosmooth{
-	icon_state = "swall_f5"
+/obj/item/shard{
+	icon_state = "small"
 	},
-/turf/simulated/floor/engine{
-	name = "vacuum floor";
-	nitrogen = 0.01;
-	oxygen = 0.01
-	},
-/area/derelict/annex)
+/turf/simulated/floor/plating/asteroid/airless,
+/area/template_noop)
 "jC" = (
 /obj/structure/closet/radiation,
 /obj/structure/sign/securearea{
@@ -4453,10 +4462,11 @@
 /turf/template_noop,
 /area/derelict/annex)
 "lc" = (
-/turf/simulated/wall/mineral/titanium/nodecon/nosmooth{
-	icon_state = "swallc2"
+/obj/item/stack/cable_coil/cut{
+	amount = 1
 	},
-/area/derelict/annex)
+/turf/simulated/floor/plating/asteroid/airless,
+/area/template_noop)
 "ld" = (
 /obj/structure/flora/rock,
 /turf/simulated/floor/engine{
@@ -4566,6 +4576,7 @@
 /obj/item/shard{
 	icon_state = "small"
 	},
+/obj/effect/landmark/tiles/damageturf,
 /turf/simulated/floor/plasteel,
 /area/derelict/annex)
 "lo" = (
@@ -5460,9 +5471,6 @@
 /area/derelict/arrival)
 "nL" = (
 /turf/template_noop,
-/turf/simulated/wall/mineral/titanium/nodecon/nosmooth{
-	icon_state = "swall_f10"
-	},
 /area/space/nearstation)
 "nM" = (
 /obj/item/stack/tile,
@@ -5538,7 +5546,7 @@
 	icon_state = "hydrofloor"
 	},
 /turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon" = 'icons/turf/floors.dmi', "icon_state" = "hydrofloor");
+	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="hydrofloor");
 	icon_state = "4-i"
 	},
 /area/derelict/crew_quarters)
@@ -5673,9 +5681,6 @@
 /turf/simulated/floor/plasteel/airless{
 	dir = 5;
 	icon_state = "green"
-	},
-/turf/simulated/wall/mineral/titanium/nodecon/nosmooth{
-	icon_state = "swall_f10"
 	},
 /area/derelict/annex)
 "op" = (
@@ -5820,11 +5825,8 @@
 	},
 /area/derelict/arrival)
 "oG" = (
-/turf/template_noop,
-/turf/simulated/wall/mineral/titanium/nodecon/nosmooth{
-	icon_state = "swall_f5"
-	},
-/area/derelict/arrival)
+/turf/simulated/mineral,
+/area/template_noop)
 "oH" = (
 /obj/structure/lattice,
 /obj/item/retractor,
@@ -5890,11 +5892,9 @@
 	},
 /area/derelict/annex)
 "oQ" = (
-/turf/template_noop,
-/turf/simulated/wall/mineral/titanium/nodecon/nosmooth{
-	icon_state = "swall_f5"
-	},
-/area/derelict/annex)
+/obj/structure/lattice,
+/turf/simulated/floor/plating/asteroid/airless,
+/area/template_noop)
 "oR" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel{
@@ -5996,12 +5996,8 @@
 	},
 /area/derelict/crew_quarters)
 "pd" = (
-/obj/docking_port/stationary/whiteship{
-	dir = 8;
-	id = "whiteship_ussp";
-	name = "Near USSP"
-	},
-/turf/template_noop,
+/obj/item/stack/rods,
+/turf/simulated/mineral/random,
 /area/template_noop)
 "pe" = (
 /obj/structure/closet/emcloset,
@@ -6045,7 +6041,7 @@
 	icon_state = "orangefull"
 	},
 /turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon" = 'icons/turf/floors.dmi', "icon_state" = "orangefull");
+	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="orangefull");
 	icon_state = "4-i"
 	},
 /area/derelict/crew_quarters)
@@ -6213,11 +6209,9 @@
 	},
 /area/derelict/crew_quarters)
 "pG" = (
-/turf/template_noop,
-/turf/simulated/wall/mineral/titanium/nodecon/nosmooth{
-	icon_state = "swall_f10"
-	},
-/area/derelict/arrival)
+/obj/item/stack/rods,
+/turf/simulated/floor/plating/asteroid/airless,
+/area/template_noop)
 "pH" = (
 /obj/effect/landmark/tiles/damageturf,
 /obj/item/hemostat,
@@ -6454,7 +6448,7 @@
 	tag = "icon-redfull (NORTHWEST)"
 	},
 /turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon" = 'icons/turf/floors.dmi', "icon_state" = "redfull");
+	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="redfull");
 	icon_state = "4-i"
 	},
 /area/derelict/arrival)
@@ -6640,7 +6634,7 @@
 /obj/item/trash/tapetrash,
 /obj/item/trash/pistachios,
 /obj/item/reagent_containers/syringe/charcoal{
-	list_reagents = list("charcoal" = 13, "salmonella" = 2)
+	list_reagents = list("charcoal"=13,"salmonella"=2)
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "redfull";
@@ -7229,7 +7223,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
 	id_tag = "rus_inner_1";
 	locked = 1;
 	name = "External Access"
@@ -7273,7 +7266,6 @@
 "sf" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
 	id_tag = "rus_outer_1";
 	locked = 1;
 	name = "External Access"
@@ -7284,8 +7276,8 @@
 /obj/item/stack/cable_coil{
 	amount = 1
 	},
-/turf/template_noop,
-/area/space/nearstation)
+/turf/simulated/mineral/random/high_chance,
+/area/template_noop)
 "sh" = (
 /turf/simulated/wall/mineral/titanium/nodecon,
 /area/ruin/unpowered/no_grav)
@@ -7298,9 +7290,7 @@
 /turf/template_noop,
 /area/template_noop)
 "sl" = (
-/obj/item/stack/tile,
-/obj/effect/decal/cleanable/blood/gibs/cleangibs,
-/turf/simulated/floor/plating/airless,
+/turf/simulated/mineral/random,
 /area/ruin/unpowered/no_grav)
 "sm" = (
 /obj/structure/lattice/catwalk,
@@ -7359,11 +7349,13 @@
 /turf/template_noop,
 /area/template_noop)
 "sv" = (
-/obj/item/gps/ruin{
-	gpstag = "Russian Distress Signal"
+/obj/structure/computerframe{
+	desc = "This computer is a husk of what it once was. Time and decay has worn its cheap circuitry to dust.";
+	name = "decrepit computer";
+	dir = 8
 	},
-/turf/simulated/wall/mineral/titanium/nodecon/nodiagonal,
-/area/derelict/arrival)
+/turf/simulated/floor/plasteel,
+/area/ruin/unpowered/no_grav)
 "sK" = (
 /obj/item/stack/rods,
 /turf/simulated/floor/plasteel/airless{
@@ -7468,8 +7460,10 @@
 /turf/simulated/wall/mineral/titanium/nodecon/nodiagonal,
 /area/derelict/bridge)
 "ul" = (
-/obj/effect/decal/cleanable/blood/gibs,
-/turf/template_noop,
+/obj/item/stack/cable_coil/cut{
+	amount = 1
+	},
+/turf/simulated/mineral/random,
 /area/template_noop)
 "uB" = (
 /turf/simulated/floor/plasteel/airless{
@@ -7513,7 +7507,7 @@
 /area/derelict/crew_quarters)
 "wd" = (
 /turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon" = 'icons/turf/floors.dmi', "icon_state" = "redfull");
+	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="redfull");
 	icon_state = "4-i"
 	},
 /turf/simulated/floor/plasteel{
@@ -7528,11 +7522,8 @@
 /turf/simulated/wall/mineral/titanium/nodecon/nodiagonal,
 /area/derelict/bridge)
 "xa" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
 /turf/simulated/floor/plasteel,
-/area/space/nearstation)
+/area/template_noop)
 "xe" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -7593,11 +7584,8 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/unpowered/no_grav)
 "xX" = (
-/turf/simulated/wall/mineral/titanium/nodecon/nosmooth{
-	icon_state = "swall_f10"
-	},
-/turf/template_noop,
-/area/derelict/annex)
+/turf/simulated/floor/plating/asteroid/airless,
+/area/template_noop)
 "yd" = (
 /obj/item/stack/tile,
 /turf/simulated/floor/plating/airless,
@@ -7620,12 +7608,9 @@
 /turf/simulated/wall/mineral/titanium/nodecon/nodiagonal,
 /area/derelict/bridge)
 "yL" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plasteel,
-/area/space/nearstation)
+/obj/item/stack/rods,
+/turf/simulated/mineral/random/high_chance,
+/area/template_noop)
 "zk" = (
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating/airless,
@@ -7661,7 +7646,7 @@
 /area/derelict/arrival)
 "zE" = (
 /turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon" = 'icons/turf/floors.dmi', "icon_state" = "orangefull");
+	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="orangefull");
 	icon_state = "4-i"
 	},
 /turf/simulated/floor/plasteel{
@@ -7687,6 +7672,12 @@
 	width = 16
 	},
 /turf/template_noop,
+/area/template_noop)
+"Af" = (
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/turf/simulated/floor/plating/asteroid/airless,
 /area/template_noop)
 "An" = (
 /turf/simulated/floor/plasteel{
@@ -7940,7 +7931,9 @@
 /turf/simulated/floor/plasteel,
 /area/derelict/crew_quarters)
 "DQ" = (
-/obj/item/mounted/frame/light_fixture,
+/obj/item/mounted/frame/light_fixture{
+	pixel_y = -16
+	},
 /turf/simulated/floor/plasteel,
 /area/ruin/unpowered/no_grav)
 "Ea" = (
@@ -8038,7 +8031,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
 	id_tag = "rus_inner_2";
 	locked = 1;
 	name = "External Access"
@@ -8104,7 +8096,6 @@
 "Io" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
 	id_tag = "rus_outer_2";
 	locked = 1;
 	name = "External Access"
@@ -8145,7 +8136,7 @@
 /turf/simulated/floor/plasteel/airless{
 	icon_state = "solarpanel"
 	},
-/area/space/nearstation)
+/area/template_noop)
 "IQ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -8281,7 +8272,9 @@
 /turf/template_noop,
 /area/template_noop)
 "KZ" = (
-/obj/structure/computerframe,
+/obj/structure/computerframe{
+	dir = 8
+	},
 /turf/simulated/floor/plasteel,
 /area/ruin/unpowered/no_grav)
 "La" = (
@@ -8323,7 +8316,7 @@
 /area/ruin/unpowered/no_grav)
 "LS" = (
 /obj/item/stack/rods,
-/turf/template_noop,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/ruin/unpowered/no_grav)
 "Md" = (
 /obj/machinery/hydroponics/constructable,
@@ -8359,7 +8352,7 @@
 /area/ruin/unpowered/no_grav)
 "Na" = (
 /obj/structure/door_assembly/door_assembly_ext,
-/turf/template_noop,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/template_noop)
 "Np" = (
 /obj/item/pickaxe/mini,
@@ -8413,6 +8406,12 @@
 /obj/structure/table,
 /turf/simulated/floor/plating/airless,
 /area/ruin/unpowered/no_grav)
+"OD" = (
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/turf/simulated/mineral/random,
+/area/template_noop)
 "OP" = (
 /obj/machinery/door/airlock/command/glass{
 	name = "Command Wing";
@@ -8537,7 +8536,7 @@
 /area/derelict/annex)
 "Rh" = (
 /turf/simulated/floor/plating/airless,
-/area/space/nearstation)
+/area/template_noop)
 "Ri" = (
 /obj/structure/grille,
 /turf/simulated/floor/plasteel/airless{
@@ -8547,7 +8546,7 @@
 "Rv" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating/airless,
-/area/space/nearstation)
+/area/template_noop)
 "RJ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8642,7 +8641,7 @@
 /area/derelict/bridge)
 "UF" = (
 /mob/living/simple_animal/hostile/carp,
-/turf/template_noop,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/template_noop)
 "UJ" = (
 /obj/machinery/autolathe,
@@ -8865,7 +8864,7 @@
 /area/ruin/unpowered/no_grav)
 "Zq" = (
 /obj/item/stack/tile,
-/turf/template_noop,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/template_noop)
 
 (1,1,1) = {"
@@ -8883,11 +8882,11 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -8969,18 +8968,18 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+ac
+xX
+xX
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -9038,8 +9037,8 @@ ac
 ac
 ac
 ac
-ac
-ac
+IF
+IF
 ac
 ac
 ac
@@ -9060,20 +9059,20 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+xX
+xX
+xX
+xX
+xX
+xX
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -9129,10 +9128,10 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
+IF
+IF
+IF
+xX
 ac
 ac
 ac
@@ -9152,20 +9151,20 @@ ac
 ac
 ac
 ac
+xX
+xX
 IF
 IF
 IF
 IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+xX
+xX
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ag
@@ -9177,8 +9176,8 @@ ac
 ac
 ac
 ac
-ac
-ac
+xX
+xX
 ac
 ac
 ac
@@ -9220,44 +9219,44 @@ ac
 ac
 ac
 ac
+IF
+IF
+jh
+IF
+xX
 ac
 ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+IF
+IF
+IF
+IF
 ac
 "}
 (5,1,1) = {"
 ac
+IF
 ac
 ac
 ac
 ac
 ac
+xX
+xX
+IF
+IF
+jh
+IF
+IF
+xX
+xX
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+ac
+ac
+ac
 ac
 ag
 ag
@@ -9268,9 +9267,9 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
+xX
+xX
+xX
 ac
 ac
 ac
@@ -9312,44 +9311,44 @@ ac
 ac
 ac
 ac
+IF
+jh
+IF
+IF
+xX
 ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+IF
+IF
+jh
+jh
+IF
 ac
 "}
 (6,1,1) = {"
 ac
+IF
+IF
+IF
 ac
 ac
 ac
 ac
+xX
+xX
+IF
+IF
+jh
+IF
+IF
+xX
+xX
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+ac
 ac
 ag
 ac
@@ -9360,8 +9359,8 @@ ac
 ac
 ac
 ac
-ac
-ac
+xX
+xX
 ac
 ac
 ac
@@ -9404,45 +9403,45 @@ ac
 ac
 ac
 ac
+IF
+jh
+IF
+IF
+IF
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+IF
+IF
+xX
+jh
+jh
+IF
 ac
 "}
 (7,1,1) = {"
 ac
+IF
+IF
+IF
+IF
+ac
+ac
+ac
+ac
+xX
+xX
+IF
+IF
+IF
+IF
+xX
+xX
 ac
 ac
 ac
 ac
 ac
-ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
 ac
 ac
 ac
@@ -9496,47 +9495,47 @@ ac
 ac
 ac
 ac
+IF
+jh
+IF
 ac
 ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+IF
+xX
+xX
+xX
+IF
+IF
 ac
 "}
 (8,1,1) = {"
 ac
 ac
+IF
+jh
+IF
+IF
+ac
+ac
+ac
+ac
+xX
+xX
+xX
+xX
+xX
+xX
 ac
 ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
 ac
-ac
+xX
+xX
 ac
 ac
 ac
@@ -9588,48 +9587,48 @@ ac
 ac
 ac
 ac
+IF
+jh
+IF
 ac
 ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+IF
+xX
+xX
+xX
+IF
 ac
 ac
 "}
 (9,1,1) = {"
 ac
 ac
+IF
+IF
+jh
+IF
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+xX
+xX
 ac
 ac
 ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-ac
-ac
-ac
+xX
+xX
+xX
+xX
 ac
 ac
 ac
@@ -9679,20 +9678,20 @@ ac
 ag
 ac
 ac
+IF
+IF
+jh
+IF
 ac
 ac
 ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+xX
+IF
+IF
 ac
 ac
 "}
@@ -9700,19 +9699,6 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
 IF
 IF
 IF
@@ -9723,6 +9709,19 @@ ac
 ac
 ac
 ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+xX
+xX
+IF
+xX
+xX
 ac
 ac
 ac
@@ -9754,7 +9753,7 @@ nw
 mG
 bn
 mG
-oG
+oc
 ac
 ai
 ac
@@ -9771,8 +9770,10 @@ ac
 ag
 ac
 ac
-ac
+IF
 sg
+IF
+IF
 ac
 ac
 ac
@@ -9780,10 +9781,8 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
+IF
+IF
 ac
 ac
 ac
@@ -9793,28 +9792,28 @@ ac
 ac
 ac
 ac
-ac
-ag
-ac
-ac
-ac
 IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+oQ
+xX
+xX
 IF
 ac
 ac
 ac
 ac
 ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+xX
+xX
+xX
+xX
 ac
 ac
 ac
@@ -9863,9 +9862,9 @@ ag
 ag
 ac
 ac
-ac
-ac
-ac
+IF
+IF
+IF
 ac
 ac
 ac
@@ -9874,7 +9873,7 @@ ag
 ac
 ac
 ac
-ac
+IF
 ac
 ac
 ac
@@ -9885,27 +9884,27 @@ ac
 ac
 ac
 ac
+IF
+IF
+xX
+xX
+xX
 ac
 ac
 ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
 IF
 IF
 ac
 ac
 ac
 ac
+ac
+xX
+xX
 ac
 ac
 ac
@@ -9979,21 +9978,21 @@ ac
 ac
 ac
 ac
+IF
+jB
+xX
+Ea
 ac
-Vf
-ab
-ag
+ac
+ac
+ac
 ac
 IF
 IF
 IF
 IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+ac
 ac
 ac
 ac
@@ -10073,19 +10072,19 @@ ac
 ac
 ac
 IP
-jK
-ab
+ss
+ad
 ac
 ac
+ac
+ac
+ac
+IF
+jh
+jh
 IF
 IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
 ac
 ac
 ac
@@ -10145,10 +10144,10 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
+IF
+IF
+IF
+IF
 ac
 ac
 ac
@@ -10170,11 +10169,11 @@ ac
 ac
 ac
 ac
+ac
 IF
 IF
-IF
-IF
-IF
+jh
+jh
 IF
 IF
 ac
@@ -10236,13 +10235,13 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+IF
+IF
+IF
+IF
+IF
+IF
+IF
 ac
 ac
 ac
@@ -10262,13 +10261,13 @@ ac
 sp
 ac
 ac
+ac
 IF
 IF
+jh
 IF
 IF
-IF
-IF
-IF
+ac
 ac
 ac
 ac
@@ -10327,14 +10326,14 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+IF
+IF
+jh
+jh
+jh
+jh
+jh
+IF
 ac
 ac
 ac
@@ -10355,11 +10354,11 @@ ac
 ag
 ac
 ac
+ac
 IF
 IF
 IF
-IF
-IF
+ac
 ac
 ac
 ac
@@ -10419,16 +10418,16 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+IF
+jh
+xX
+xX
+xX
+xX
+xX
+IF
+IF
+IF
 ac
 ac
 "}
@@ -10449,7 +10448,7 @@ ac
 ac
 ac
 ac
-ac
+IF
 ac
 ac
 ac
@@ -10500,7 +10499,7 @@ oc
 oc
 oc
 qf
-oG
+oc
 ac
 ac
 iq
@@ -10511,16 +10510,16 @@ ac
 ac
 ac
 ac
+IF
+xX
+xX
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+xX
+jh
+IF
 ac
 ac
 "}
@@ -10610,10 +10609,10 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
+xX
+jh
+IF
+IF
 ac
 "}
 (20,1,1) = {"
@@ -10630,7 +10629,7 @@ ac
 ac
 ac
 ac
-ac
+xX
 ac
 ac
 ac
@@ -10702,10 +10701,10 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
+xX
+xX
+jh
+IF
 ac
 "}
 (21,1,1) = {"
@@ -10721,8 +10720,8 @@ ac
 ac
 ac
 ac
-ac
-ac
+xX
+xX
 ac
 ac
 ac
@@ -10795,9 +10794,9 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
+xX
+xX
+IF
 ac
 "}
 (22,1,1) = {"
@@ -10888,8 +10887,8 @@ zW
 ac
 ac
 ac
-ac
-ac
+xX
+IF
 ac
 "}
 (23,1,1) = {"
@@ -10954,7 +10953,7 @@ ac
 ac
 ai
 ac
-pG
+oc
 aW
 pI
 mS
@@ -11441,7 +11440,7 @@ VG
 uB
 uB
 uB
-sp
+pG
 ac
 "}
 (29,1,1) = {"
@@ -11533,8 +11532,8 @@ sK
 Cg
 uB
 uB
-ac
-ac
+IF
+xX
 "}
 (30,1,1) = {"
 ac
@@ -11594,7 +11593,7 @@ ii
 ja
 jA
 oo
-oQ
+ii
 ac
 ac
 ac
@@ -11624,9 +11623,9 @@ Ri
 Ue
 Ri
 ti
-ag
-ac
-ac
+IF
+xX
+xX
 "}
 (31,1,1) = {"
 ac
@@ -11676,7 +11675,7 @@ jy
 km
 lb
 ac
-jh
+ii
 ml
 ii
 ii
@@ -11715,9 +11714,9 @@ zk
 si
 Ue
 si
-ac
-ag
-ac
+IF
+IF
+xX
 ac
 "}
 (32,1,1) = {"
@@ -11807,9 +11806,9 @@ lH
 lH
 lH
 lH
-sp
-ac
-ac
+pd
+IF
+xX
 ac
 "}
 (33,1,1) = {"
@@ -11898,10 +11897,10 @@ si
 lH
 Np
 yd
-ac
-ag
-ac
-ac
+IF
+IF
+xX
+xX
 ac
 "}
 (34,1,1) = {"
@@ -11990,11 +11989,11 @@ Ue
 BZ
 Ue
 lH
-ac
-ag
-ag
-mE
-ac
+IF
+jh
+IF
+lc
+xX
 "}
 (35,1,1) = {"
 ac
@@ -12042,7 +12041,7 @@ ac
 dW
 eg
 kn
-lc
+ii
 ii
 ac
 ac
@@ -12082,11 +12081,11 @@ so
 Zk
 so
 lH
-ac
-ac
-ac
-ac
-ac
+IF
+jh
+IF
+xX
+xX
 "}
 (36,1,1) = {"
 ac
@@ -12174,11 +12173,11 @@ TT
 GG
 GG
 Zk
-ac
+IF
 Rv
-ac
-sq
-ag
+IF
+Af
+Ea
 "}
 (37,1,1) = {"
 ad
@@ -12249,7 +12248,7 @@ ac
 ac
 ac
 aW
-sv
+bn
 qt
 ka
 rq
@@ -12264,13 +12263,13 @@ AA
 QH
 so
 GG
-ag
-ag
+IF
+IF
 UF
 Rh
-ag
-ac
-ag
+oQ
+xX
+Ea
 "}
 (38,1,1) = {"
 ac
@@ -12356,12 +12355,12 @@ Lr
 QW
 so
 si
-ac
-ac
-ac
-ac
-ac
-ac
+IF
+IF
+xX
+xX
+IF
+xX
 ac
 "}
 (39,1,1) = {"
@@ -12446,15 +12445,15 @@ bn
 NP
 AA
 RN
-ac
-ul
-ac
+IF
+IF
+IF
 xa
-ac
+xX
 Rh
-ac
-ac
-ac
+xX
+IF
+xX
 "}
 (40,1,1) = {"
 ac
@@ -12537,15 +12536,15 @@ sd
 sf
 uK
 Ov
-mE
-ac
-sp
-ac
-ac
-ag
-ag
+ul
+IF
 yL
-ac
+jh
+IF
+IF
+IF
+IF
+IF
 Zq
 "}
 (41,1,1) = {"
@@ -12629,16 +12628,16 @@ bn
 bn
 bn
 AA
-lH
-ag
-ag
-ac
-ac
-ac
-xa
-Rv
-ac
-ac
+sl
+IF
+IF
+IF
+xX
+IF
+IF
+IF
+xX
+xX
 "}
 (42,1,1) = {"
 ac
@@ -12684,7 +12683,7 @@ ac
 iq
 iY
 iZ
-jB
+iE
 kq
 iD
 eg
@@ -12724,13 +12723,13 @@ Ue
 sl
 VO
 lH
-ag
-ac
-ag
-ag
-ag
+IF
+IF
+oQ
+IF
+oQ
 Na
-ac
+IF
 "}
 (43,1,1) = {"
 ac
@@ -12775,7 +12774,7 @@ ac
 ac
 ak
 ac
-xX
+ii
 eg
 kr
 eg
@@ -12817,12 +12816,12 @@ Ue
 Ue
 Ue
 LS
-ac
-ag
-ac
-ac
-ac
-ac
+IF
+oQ
+IF
+jh
+IF
+IF
 "}
 (44,1,1) = {"
 ac
@@ -12909,12 +12908,12 @@ sW
 Zk
 so
 si
-ac
-sq
-ac
-ac
-ac
-ac
+IF
+OD
+IF
+IF
+IF
+xX
 "}
 (45,1,1) = {"
 ac
@@ -12998,14 +12997,14 @@ ac
 ac
 Ue
 xT
-QH
+CT
 lH
 MA
 so
-Ea
+IF
 si
 si
-sp
+pd
 Rh
 "}
 (46,1,1) = {"
@@ -13097,8 +13096,8 @@ so
 so
 so
 KK
-ag
-ag
+oQ
+oQ
 "}
 (47,1,1) = {"
 ac
@@ -13190,7 +13189,7 @@ CT
 DQ
 Ue
 sh
-ac
+xX
 "}
 (48,1,1) = {"
 ac
@@ -13275,14 +13274,14 @@ ac
 ac
 ac
 LC
-xT
-xT
+sv
+sv
 Ue
-xT
+sv
 KZ
 LC
-ac
-ac
+xX
+xX
 "}
 (49,1,1) = {"
 ac
@@ -13640,7 +13639,7 @@ ac
 ac
 ac
 ac
-ac
+xX
 ac
 ac
 ac
@@ -13921,9 +13920,9 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
+xX
+xX
+xX
 ac
 ac
 ac
@@ -14012,10 +14011,10 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
+jh
+jh
+jh
+xX
 ac
 ac
 ac
@@ -14102,12 +14101,12 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+xX
+jh
+jh
+jh
+xX
 ac
 ac
 ac
@@ -14186,18 +14185,18 @@ aV
 ac
 ac
 ac
+xX
+xX
 ac
 ac
 ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+jh
+jh
+jh
 ac
 ac
 ac
@@ -14221,8 +14220,8 @@ ac
 ac
 ac
 ac
-ac
-ac
+xX
+xX
 ac
 ac
 aV
@@ -14278,18 +14277,18 @@ ac
 ac
 ac
 ac
+xX
+xX
 ac
 ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+jh
+jh
+jh
+xX
 ac
 ac
 ac
@@ -14312,9 +14311,9 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
+xX
+oG
+xX
 ac
 ac
 ac
@@ -14371,15 +14370,15 @@ ac
 ac
 ac
 ac
+xX
 ac
 ac
 ac
 ac
 ac
 ac
-ac
-ac
-ac
+xX
+xX
 ac
 ac
 ac
@@ -14403,8 +14402,8 @@ ac
 ac
 ac
 ac
-ac
-ac
+xX
+xX
 ac
 ac
 ac
@@ -14457,11 +14456,11 @@ Oe
 aV
 aV
 ac
-IF
-IF
-IF
-IF
-IF
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -14495,7 +14494,7 @@ ac
 ac
 ac
 ac
-ac
+xX
 ac
 ac
 ac
@@ -14548,14 +14547,14 @@ DD
 aV
 aV
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -14581,7 +14580,7 @@ ac
 ac
 ac
 ac
-ac
+xX
 ac
 ac
 ac
@@ -14640,15 +14639,15 @@ bm
 aV
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+xX
 ac
 ac
 ac
@@ -14678,11 +14677,11 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
+xX
+xX
+xX
+xX
+xX
 ac
 ac
 ac
@@ -14731,18 +14730,18 @@ bm
 aV
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
 ac
 ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+xX
+xX
+xX
 ac
 ac
 ac
@@ -14762,21 +14761,21 @@ ac
 ac
 ac
 ac
+xX
+xX
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+xX
+xX
+xX
+IF
+IF
+IF
+xX
+xX
+xX
 ac
 ac
 ac
@@ -14822,24 +14821,24 @@ aV
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
 ac
 ac
 ac
 ac
 ac
+xX
 ac
 ac
+ac
+ac
+jh
+xX
+ac
+ac
+ac
+ac
+xX
+xX
 ac
 ac
 ac
@@ -14855,20 +14854,20 @@ ac
 ac
 ac
 ac
+xX
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+IF
+IF
+oG
+oG
+oG
+oG
+oG
+oG
+xX
 ac
 ac
 ac
@@ -14914,17 +14913,6 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
 ac
 ac
 ac
@@ -14933,6 +14921,17 @@ ac
 ac
 ac
 ac
+ac
+ac
+xX
+ac
+ac
+ac
+ac
+ac
+xX
+xX
+xX
 ac
 ac
 ac
@@ -14949,18 +14948,18 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+xX
+xX
+IF
+oG
+oG
+jh
+jh
+jh
+oG
+oG
+xX
 ac
 ac
 ac
@@ -15006,17 +15005,6 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
 ac
 ac
 ac
@@ -15025,6 +15013,17 @@ ac
 ac
 ac
 ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+jh
+jh
+xX
 ac
 ac
 ac
@@ -15041,24 +15040,24 @@ ac
 ac
 ac
 ac
+xX
+IF
+IF
+oG
+oG
+jh
+jh
+oG
+oG
+oG
+oG
+xX
+xX
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+xX
 ac
 ac
 ac
@@ -15097,18 +15096,6 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
 ac
 ac
 ac
@@ -15116,6 +15103,18 @@ ac
 ac
 ac
 ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+xX
+xX
+jh
+jh
 ac
 ac
 ac
@@ -15132,25 +15131,25 @@ ac
 ac
 ac
 ac
+xX
+xX
+IF
+oG
+oG
+jh
+jh
+jh
+oG
+jh
+jh
+oG
+IF
+xX
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+oG
+xX
 ac
 ac
 ac
@@ -15189,24 +15188,24 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
 ac
 ac
 ac
 ac
 ac
 ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+xX
+jh
+xX
 ac
 ac
 ac
@@ -15224,23 +15223,23 @@ ac
 ac
 ac
 ac
+xX
+IF
+oG
+oG
+jh
+jh
+jh
+jh
+oG
+jh
+jh
+oG
+IF
+xX
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
 ac
 ac
 ac
@@ -15281,24 +15280,24 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+jh
+jh
+oG
+oG
 ac
 ac
 ac
 ac
 ac
 ac
+ac
+ac
+ac
+ac
+ac
+xX
+xX
+xX
 ac
 ac
 ac
@@ -15314,22 +15313,22 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+xX
+xX
+oG
+oG
+jh
+jh
+jh
+oG
+jh
+jh
+jh
+oG
+oG
+xX
+xX
 ac
 ac
 ac
@@ -15372,19 +15371,19 @@ ac
 ac
 ac
 ac
+oG
+jh
+jh
+oG
+xX
+xX
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -15406,21 +15405,21 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+oG
+oG
+oG
+oG
+oG
+oG
+oG
+oG
+jh
+jh
+oG
+oG
+IF
+xX
 ac
 ac
 ac
@@ -15464,19 +15463,19 @@ ac
 ac
 ac
 ac
+oG
+jh
+jh
+oG
+xX
+xX
+xX
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -15497,22 +15496,22 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+xX
+oG
+oG
+oG
+jh
+jh
+jh
+oG
+jh
+jh
+oG
+oG
+IF
+IF
+xX
 ac
 ac
 ac
@@ -15556,19 +15555,19 @@ ac
 ac
 ac
 ac
+oG
+oG
+oG
+oG
+oG
+xX
+xX
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -15589,22 +15588,22 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+IF
+oG
+oG
+jh
+jh
+oG
+jh
+jh
+jh
+oG
+oG
+IF
+IF
+xX
+xX
 ac
 ac
 ac
@@ -15649,18 +15648,18 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+oG
+oG
+oG
+oG
+oG
+xX
+xX
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -15681,26 +15680,26 @@ ac
 ac
 ac
 ac
+xX
+IF
+oG
+jh
+jh
+jh
+oG
+jh
+oG
+oG
+IF
+IF
+IF
+xX
+xX
 ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
 ac
 ac
 ac
@@ -15741,18 +15740,18 @@ ac
 ac
 ac
 ac
+oG
+jh
+oG
 IF
 IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+xX
+xX
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -15773,20 +15772,20 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+IF
+oG
+jh
+oG
+jh
+oG
+oG
+IF
+IF
+IF
+xX
+xX
+xX
 ac
 ac
 ac
@@ -15833,18 +15832,18 @@ ac
 ac
 ac
 ac
+oG
+oG
+oG
 IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+oG
+xX
+xX
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -15865,18 +15864,18 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+xX
+oG
+oG
+oG
+oG
+oG
+oG
+xX
+xX
+xX
+xX
 ac
 ac
 ac
@@ -15925,24 +15924,24 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+oG
+oG
+oG
+oG
+oG
+oG
 ac
 ac
 ac
 ac
 ac
 ac
+ac
+ac
+ac
+xX
+xX
 ac
 ac
 ac
@@ -15958,14 +15957,14 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+xX
+IF
+IF
+IF
+IF
+xX
+xX
+xX
 ac
 ac
 ac
@@ -16017,24 +16016,24 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+oG
+oG
+oG
+oG
 ac
 ac
 ac
 ac
 ac
 ac
+ac
+ac
+ac
+ac
+ac
+jh
+xX
 ac
 ac
 ac
@@ -16050,6 +16049,12 @@ ac
 ac
 ac
 ac
+xX
+xX
+xX
+xX
+xX
+xX
 ac
 ac
 ac
@@ -16061,13 +16066,7 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+jh
 ac
 ac
 ac
@@ -16109,18 +16108,18 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+ac
+oG
+jh
+jh
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -16150,8 +16149,8 @@ ac
 ac
 ac
 ac
-ac
-ac
+xX
+xX
 ac
 ac
 ac
@@ -16201,18 +16200,18 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -16241,9 +16240,9 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
+xX
+oG
+xX
 ac
 ac
 ac
@@ -16294,17 +16293,17 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -16333,8 +16332,8 @@ ac
 ac
 ac
 ac
-ac
-ac
+xX
+xX
 ac
 ac
 ac
@@ -16388,14 +16387,14 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
-IF
-IF
-IF
-IF
-IF
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -16484,9 +16483,9 @@ ac
 ac
 ac
 ac
-IF
-IF
-IF
+ac
+ac
+ac
 ac
 ac
 ac
@@ -16588,7 +16587,7 @@ ac
 ac
 ac
 ac
-pd
+ac
 ac
 ac
 ac
