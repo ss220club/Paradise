@@ -1939,7 +1939,6 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/structure/closet/secure_closet/security,
 /turf/simulated/floor/plasteel{
 	dir = 6;
 	icon_state = "red"
@@ -2226,13 +2225,13 @@
 	pixel_x = -30;
 	pixel_y = 2
 	},
-/obj/structure/table,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/structure/closet/secure_closet/security,
 /turf/simulated/floor/plasteel{
 	dir = 10;
 	icon_state = "red"
