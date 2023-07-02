@@ -365,7 +365,7 @@
 	description = "USSP Special Operations Outpost hidden among the asteroids."
 	cost = 6 // 200x200 station in asteroid belt, has self destruct system and may spawn secret documents or 8 lvl tech
 	allow_duplicates = FALSE
-*/
+
 
 /datum/map_template/ruin/space/USSP_gorky17_collapsed
 	id = "USSP_gorky17_collapsed"
@@ -376,4 +376,4 @@
 	Immediately after the described events, the 'fortress' protocol was activated at the facility"
 	cost = 6 // 200x200 station in asteroid belt, has self destruct system and may spawn secret documents or 8 lvl tech
 	allow_duplicates = FALSE
-
+*/
