@@ -273,6 +273,9 @@
 	icon_state = "wall"
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
+		/obj/structure/falsewall,
+		/obj/structure/falsewall/reinforced,
+		/obj/structure/falsewall/clockwork,
 		/turf/simulated/wall/indestructible/metal,
 		/turf/simulated/wall/indestructible/fakeglass)
 

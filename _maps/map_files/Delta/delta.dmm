@@ -77165,7 +77165,6 @@
 	pixel_y = 7
 	},
 /obj/item/radio/intercom{
-	dir = 4;
 	pixel_x = 28
 	},
 /turf/simulated/floor/plasteel{
