@@ -3,9 +3,37 @@
 */
 
 /obj/machinery/door/airlock/command
-	icon = 'icons/obj/doors/airlocks/station/command.dmi'
+	icon = 'icons/obj/doors/airlocks/station/heads/command.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_com
 	normal_integrity = 450
+
+/obj/machinery/door/airlock/command/cap
+	icon = 'icons/obj/doors/airlocks/station/heads/cap.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_cap
+
+/obj/machinery/door/airlock/command/hop
+	icon = 'icons/obj/doors/airlocks/station/heads/hop.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_hop
+
+/obj/machinery/door/airlock/command/cmo
+	icon = 'icons/obj/doors/airlocks/station/heads/cmo.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_cmo
+
+/obj/machinery/door/airlock/command/rd
+	icon = 'icons/obj/doors/airlocks/station/heads/rd.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_rd
+
+/obj/machinery/door/airlock/command/hos
+	icon = 'icons/obj/doors/airlocks/station/heads/hos.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_hos
+
+/obj/machinery/door/airlock/command/qm
+	icon = 'icons/obj/doors/airlocks/station/heads/qm.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_qm
+
+/obj/machinery/door/airlock/command/ce
+	icon = 'icons/obj/doors/airlocks/station/heads/ce.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_ce
 
 /obj/machinery/door/airlock/security
 	icon = 'icons/obj/doors/airlocks/station/security.dmi'
@@ -54,6 +82,34 @@
 	icon = 'icons/obj/doors/airlocks/station/science.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_science
 
+/obj/machinery/door/airlock/hydroponics
+	icon = 'icons/obj/doors/airlocks/station/botany.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_hydro
+
+/obj/machinery/door/airlock/virology
+	icon = 'icons/obj/doors/airlocks/station/virology.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_viro
+
+/obj/machinery/door/airlock/eva
+	icon = 'icons/obj/doors/airlocks/station/eva.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_eva
+
+/obj/machinery/door/airlock/service
+	icon = 'icons/obj/doors/airlocks/station/service.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_service
+
+/obj/machinery/door/airlock/psych
+	icon = 'icons/obj/doors/airlocks/station/psych.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_psych
+
+/obj/machinery/door/airlock/bathroom
+	icon = 'icons/obj/doors/airlocks/station/bathroom.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_bathroom
+
+/obj/machinery/door/airlock/lawyer
+	icon = 'icons/obj/doors/airlocks/station/corporate.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_lawyer
+
 //////////////////////////////////
 /*
 	Station Airlocks Glass
@@ -64,6 +120,41 @@
 	glass = TRUE
 
 /obj/machinery/door/airlock/command/glass
+	opacity = 0
+	glass = TRUE
+	normal_integrity = 400
+
+/obj/machinery/door/airlock/command/cap/glass
+	opacity = 0
+	glass = TRUE
+	normal_integrity = 400
+
+/obj/machinery/door/airlock/command/hop/glass
+	opacity = 0
+	glass = TRUE
+	normal_integrity = 400
+
+/obj/machinery/door/airlock/command/cmo/glass
+	opacity = 0
+	glass = TRUE
+	normal_integrity = 400
+
+/obj/machinery/door/airlock/command/rd/glass
+	opacity = 0
+	glass = TRUE
+	normal_integrity = 400
+
+/obj/machinery/door/airlock/command/hos/glass
+	opacity = 0
+	glass = TRUE
+	normal_integrity = 400
+
+/obj/machinery/door/airlock/command/qm/glass
+	opacity = 0
+	glass = TRUE
+	normal_integrity = 400
+
+/obj/machinery/door/airlock/command/ce/glass
 	opacity = 0
 	glass = TRUE
 	normal_integrity = 400
@@ -94,6 +185,30 @@
 	glass = TRUE
 
 /obj/machinery/door/airlock/science/glass
+	opacity = 0
+	glass = TRUE
+
+/obj/machinery/door/airlock/hydroponics/glass
+	opacity = 0
+	glass = TRUE
+
+/obj/machinery/door/airlock/virology/glass
+	opacity = 0
+	glass = TRUE
+
+/obj/machinery/door/airlock/eva/glass
+	opacity = 0
+	glass = TRUE
+
+/obj/machinery/door/airlock/service/glass
+	opacity = 0
+	glass = TRUE
+
+/obj/machinery/door/airlock/psych/glass
+	opacity = 0
+	glass = TRUE
+
+/obj/machinery/door/airlock/lawyer/glass
 	opacity = 0
 	glass = TRUE
 
@@ -224,7 +339,7 @@
 
 /obj/machinery/door/airlock/tranquillite
 	name = "tranquillite airlock"
-	icon = 'icons/obj/doors/airlocks/station/freezer.dmi'
+	icon = 'icons/obj/doors/airlocks/station/tranquilite.dmi'
 	doorOpen = null // it's silent!
 	doorClose = null
 	doorDeni = null

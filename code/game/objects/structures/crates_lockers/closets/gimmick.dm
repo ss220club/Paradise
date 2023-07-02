@@ -6,6 +6,8 @@
 	icon_opened = "cabinet_open"
 	resistance_flags = FLAMMABLE
 	max_integrity = 70
+	open_sound = 'sound/machines/wooden_closet_open.ogg'
+	close_sound = 'sound/machines/wooden_closet_close.ogg'
 
 /obj/structure/closet/cabinet/update_icon()
 	if(!opened)

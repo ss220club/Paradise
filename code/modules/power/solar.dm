@@ -356,8 +356,6 @@
 		overlays += "[icon_state]_broken"
 	else
 		overlays += icon_screen
-	if(cdir > -1)
-		overlays += image('icons/obj/machines/computer.dmi', "solcon-o", FLY_LAYER, angle2dir(cdir))
 
 /obj/machinery/power/solar_control/attack_ai(mob/user as mob)
 	if(isAI(user) && !user:add_heat(AI_COMPUTER_ACTION_HEAT))

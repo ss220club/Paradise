@@ -9,6 +9,8 @@
 	icon_off = "cabinetdetective_broken"
 	resistance_flags = FLAMMABLE
 	max_integrity = 70
+	open_sound = 'sound/machines/wooden_closet_open.ogg'
+	close_sound = 'sound/machines/wooden_closet_close.ogg'
 
 /obj/structure/closet/secure_closet/bar/populate_contents()
 	new /obj/item/reagent_containers/food/drinks/cans/beer(src)

@@ -7,10 +7,59 @@
 
 /obj/structure/door_assembly/door_assembly_com
 	name = "command airlock assembly"
-	icon = 'icons/obj/doors/airlocks/station/command.dmi'
+	icon = 'icons/obj/doors/airlocks/station/heads/command.dmi'
 	base_name = "command airlock"
 	glass_type = /obj/machinery/door/airlock/command/glass
 	airlock_type = /obj/machinery/door/airlock/command
+
+/obj/structure/door_assembly/door_assembly_cap
+	name = "captain airlock assembly"
+	icon = 'icons/obj/doors/airlocks/station/heads/cap.dmi'
+	base_name = "captain airlock"
+	glass_type = /obj/machinery/door/airlock/command/cap/glass
+	airlock_type = /obj/machinery/door/airlock/command/cap
+
+/obj/structure/door_assembly/door_assembly_hop
+	name = "head of personnel airlock assembly"
+	icon = 'icons/obj/doors/airlocks/station/heads/hop.dmi'
+	base_name = "head of personnel airlock"
+	glass_type = /obj/machinery/door/airlock/command/hop/glass
+	airlock_type = /obj/machinery/door/airlock/command/hop
+
+/obj/structure/door_assembly/door_assembly_cmo
+	name = "chief medical officer airlock assembly"
+	icon = 'icons/obj/doors/airlocks/station/heads/cmo.dmi'
+	base_name = "chief medical officer airlock"
+	glass_type = /obj/machinery/door/airlock/command/cmo/glass
+	airlock_type = /obj/machinery/door/airlock/command/cmo
+
+/obj/structure/door_assembly/door_assembly_rd
+	name = "research director airlock assembly"
+	icon = 'icons/obj/doors/airlocks/station/heads/rd.dmi'
+	base_name = "research director airlock"
+	glass_type = /obj/machinery/door/airlock/command/rd/glass
+	airlock_type = /obj/machinery/door/airlock/command/rd
+
+/obj/structure/door_assembly/door_assembly_hos
+	name = "head of security airlock assembly"
+	icon = 'icons/obj/doors/airlocks/station/heads/hos.dmi'
+	base_name = "head of security airlock"
+	glass_type = /obj/machinery/door/airlock/command/hos/glass
+	airlock_type = /obj/machinery/door/airlock/command/hos
+
+/obj/structure/door_assembly/door_assembly_qm
+	name = "quartermaster assembly"
+	icon = 'icons/obj/doors/airlocks/station/heads/qm.dmi'
+	base_name = "quartermaster airlock"
+	glass_type = /obj/machinery/door/airlock/command/qm/glass
+	airlock_type = /obj/machinery/door/airlock/command/qm
+
+/obj/structure/door_assembly/door_assembly_ce
+	name = "chief engineer assembly"
+	icon = 'icons/obj/doors/airlocks/station/heads/ce.dmi'
+	base_name = "chief engineer airlock"
+	glass_type = /obj/machinery/door/airlock/command/ce/glass
+	airlock_type = /obj/machinery/door/airlock/command/ce
 
 /obj/structure/door_assembly/door_assembly_sec
 	name = "security airlock assembly"
@@ -18,6 +67,13 @@
 	base_name = "security airlock"
 	glass_type = /obj/machinery/door/airlock/security/glass
 	airlock_type = /obj/machinery/door/airlock/security
+
+/obj/structure/door_assembly/door_assembly_lawyer
+	name = "lawyer airlock assembly"
+	icon = 'icons/obj/doors/airlocks/station/corporate.dmi'
+	base_name = "lawyer airlock"
+	glass_type = /obj/machinery/door/airlock/lawyer/glass
+	airlock_type = /obj/machinery/door/airlock/lawyer
 
 /obj/structure/door_assembly/door_assembly_eng
 	name = "engineering airlock assembly"
@@ -60,6 +116,46 @@
 	base_name = "medical airlock"
 	glass_type = /obj/machinery/door/airlock/medical/glass
 	airlock_type = /obj/machinery/door/airlock/medical
+
+/obj/structure/door_assembly/door_assembly_hydro
+	name = "hydroponics airlock assembly"
+	icon = 'icons/obj/doors/airlocks/station/botany.dmi'
+	base_name = "hydroponics airlock"
+	glass_type = /obj/machinery/door/airlock/hydroponics/glass
+	airlock_type = /obj/machinery/door/airlock/hydroponics
+
+/obj/structure/door_assembly/door_assembly_viro
+	name = "virology airlock assembly"
+	icon = 'icons/obj/doors/airlocks/station/virology.dmi'
+	base_name = "virology airlock"
+	glass_type = /obj/machinery/door/airlock/virology/glass
+	airlock_type = /obj/machinery/door/airlock/virology
+
+/obj/structure/door_assembly/door_assembly_service
+	name = "service airlock assembly"
+	icon = 'icons/obj/doors/airlocks/station/service.dmi'
+	base_name = "service airlock"
+	glass_type = /obj/machinery/door/airlock/service/glass
+	airlock_type = /obj/machinery/door/airlock/service
+
+/obj/structure/door_assembly/door_assembly_psych
+	name = "psychologist airlock assembly"
+	icon = 'icons/obj/doors/airlocks/station/psych.dmi'
+	base_name = "psychologist airlock"
+	glass_type = /obj/machinery/door/airlock/psych/glass
+	airlock_type = /obj/machinery/door/airlock/psych
+
+/obj/structure/door_assembly/door_assembly_bathroom
+	name = "bathroom airlock assembly"
+	icon = 'icons/obj/doors/airlocks/station/bathroom.dmi'
+	base_name = "bathroom airlock"
+	airlock_type = /obj/machinery/door/airlock/bathroom
+
+/obj/structure/door_assembly/door_assembly_eva
+	name = "eva airlock assembly"
+	icon = 'icons/obj/doors/airlocks/station/eva.dmi'
+	base_name = "eva airlock"
+	airlock_type = /obj/machinery/door/airlock/eva
 
 /obj/structure/door_assembly/door_assembly_mai
 	name = "maintenance airlock assembly"
@@ -252,7 +348,7 @@
 
 /obj/structure/door_assembly/door_assembly_tranquillite
 	name = "tranquillite airlock assembly"
-	icon = 'icons/obj/doors/airlocks/station/freezer.dmi'
+	icon = 'icons/obj/doors/airlocks/station/tranquilite.dmi'
 	base_name = "tranquillite airlock"
 	airlock_type = /obj/machinery/door/airlock/tranquillite
 	mineral = "tranquillite"
@@ -376,3 +472,4 @@
 	glass_type = /obj/machinery/door/airlock/syndicate/engineering/glass
 	airlock_type = /obj/machinery/door/airlock/syndicate/engineering
 	material_type = /obj/item/stack/sheet/mineral/plastitanium
+
