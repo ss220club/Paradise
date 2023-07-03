@@ -1929,12 +1929,8 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	uplinktypes = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_NUCLEAR_LONE, UPLINK_TYPE_SST)
 
 /datum/uplink_item/bundles_TC/bulldog/agent
-	name = "Bulldog Bundle"
-	desc = "Lean and mean: Optimized for people that want to get up close and personal. Contains the popular \
-			Bulldog shotgun, two 12g buckshot drums, and a pair of Thermal imaging goggles."
-	reference = "BULB"
-	item = /obj/item/storage/backpack/duffel/syndie/bulldogbundle
 	cost = 18
+	uplinktypes = list()
 	excludefrom = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_NUCLEAR_LONE, UPLINK_TYPE_SST)
 
 /datum/uplink_item/bundles_TC/c20r
@@ -1946,11 +1942,8 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	uplinktypes = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_NUCLEAR_LONE, UPLINK_TYPE_SST)
 
 /datum/uplink_item/bundles_TC/c20r/agent
-	name = "C-20r Bundle"
-	desc = "Old Faithful: The classic C-20r, bundled with three magazines and a (surplus) suppressor at discount price."
-	reference = "C20B"
-	item = /obj/item/storage/backpack/duffel/syndie/c20rbundle
 	cost = 22 // normally 21
+	uplinktypes = list()
 	excludefrom = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_NUCLEAR_LONE, UPLINK_TYPE_SST)
 /datum/uplink_item/bundles_TC/cyber_implants
 	name = "Cybernetic Implants Bundle"
