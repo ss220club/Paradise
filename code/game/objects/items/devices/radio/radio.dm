@@ -208,10 +208,10 @@ GLOBAL_LIST_INIT(default_medbay_channels, list(
 		add_fingerprint(usr)
 
 /obj/item/radio/proc/toggle_listening()
-	listening = !listening
+	listening = !listening && !(wires.is_cut(WIRE_RADIO_RECEIVER) || wires.is_cut(WIRE_RADIO_SIGNAL))
 
 /obj/item/radio/proc/toggle_broadcasting()
-	broadcasting = !broadcasting
+	broadcasting = !broadcasting && !(wires.is_cut(WIRE_RADIO_TRANSMIT) || wires.is_cut(WIRE_RADIO_SIGNAL))
 
 /obj/item/radio/proc/list_secure_channels(mob/user)
 	var/list/dat = list()
@@ -253,11 +253,6 @@ GLOBAL_LIST_INIT(default_medbay_channels, list(
 /mob/dead/observer/has_internal_radio_channel_access(var/mob/user, var/list/req_accesses)
 	return can_admin_interact()
 
-/obj/item/radio/proc/ToggleBroadcast()
-	broadcasting = !broadcasting && !(wires.is_cut(WIRE_RADIO_TRANSMIT) || wires.is_cut(WIRE_RADIO_SIGNAL))
-
-/obj/item/radio/proc/ToggleReception()
-	listening = !listening && !(wires.is_cut(WIRE_RADIO_RECEIVER) || wires.is_cut(WIRE_RADIO_SIGNAL))
 
 /obj/item/radio/proc/autosay(message, from, channel, role = "Unknown") //BS12 EDIT
 	var/datum/radio_frequency/connection = null
