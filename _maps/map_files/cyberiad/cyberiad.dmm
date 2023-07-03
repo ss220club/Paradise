@@ -2099,8 +2099,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -2671,6 +2671,8 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "darkredcorners"
@@ -2689,16 +2691,11 @@
 /area/security/brig)
 "akb" = (
 /obj/structure/cable{
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
 	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -3398,24 +3395,35 @@
 /turf/simulated/floor/plating/airless,
 /area/security/podbay)
 "alK" = (
-/obj/effect/spawner/window/reinforced,
-/obj/structure/cable,
-/turf/simulated/floor/plating,
-/area/security/brig)
-"alL" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security/glass{
 	name = "Brig";
 	req_access = list(63)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plasteel{
-	icon_state = "dark"
+	dir = 10;
+	icon_state = "darkredfull"
 	},
+/area/security/brig)
+"alL" = (
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Secure Gate";
+	name = "Security Blast Door";
+	opacity = 0
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/effect/spawner/window/reinforced,
+/turf/simulated/floor/plating,
 /area/security/brig)
 "alN" = (
 /obj/machinery/camera{
@@ -4300,12 +4308,16 @@
 /turf/simulated/floor/plasteel,
 /area/security/main)
 "anX" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
-	icon_state = "darkredcorners"
+	icon_state = "darkred"
 	},
 /area/security/brig)
 "anY" = (
@@ -4391,7 +4403,6 @@
 	},
 /area/security/medbay)
 "aoj" = (
-/obj/effect/spawner/window/reinforced,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
@@ -4403,6 +4414,7 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/security/brig)
 "aok" = (
@@ -4417,21 +4429,26 @@
 /obj/machinery/computer/brigcells{
 	dir = 4
 	},
+/obj/item/radio/intercom{
+	name = "custom station intercom (General)";
+	pixel_y = 22
+	},
 /turf/simulated/floor/plasteel{
 	dir = 9;
 	icon_state = "darkred"
 	},
 /area/security/brig)
 "aon" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
+/obj/item/radio/intercom/department/security{
+	name = "custom station intercom (Security)";
+	pixel_y = 22
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/plasteel{
-	icon_state = "dark"
+	dir = 5;
+	icon_state = "darkred"
 	},
 /area/security/brig)
 "aop" = (
@@ -5539,14 +5556,6 @@
 /turf/space,
 /area/solar/auxport)
 "arc" = (
-/obj/effect/spawner/window/reinforced,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/door/poddoor{
 	density = 0;
 	icon_state = "open";
@@ -5554,6 +5563,14 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/security/brig)
 "arh" = (
@@ -5603,14 +5620,6 @@
 	},
 /area/security/brig)
 "arm" = (
-/obj/effect/spawner/window/reinforced,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/machinery/door/poddoor{
 	density = 0;
 	icon_state = "open";
@@ -5618,6 +5627,11 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/security/brig)
 "arn" = (
@@ -6394,6 +6408,9 @@
 	},
 /area/lawoffice)
 "asR" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "darkred"
 	},
@@ -7054,14 +7071,6 @@
 	},
 /area/security/prisonershuttle)
 "auD" = (
-/obj/effect/spawner/window/reinforced,
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /obj/machinery/door/poddoor{
 	density = 0;
 	icon_state = "open";
@@ -7069,6 +7078,14 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/security/brig)
 "auE" = (
@@ -7084,7 +7101,13 @@
 	},
 /area/security/lobby)
 "auG" = (
-/obj/effect/spawner/window/reinforced,
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Secure Gate";
+	name = "Security Blast Door";
+	opacity = 0
+	},
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -7092,24 +7115,10 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/poddoor{
-	density = 0;
-	icon_state = "open";
-	id_tag = "Secure Gate";
-	name = "Security Blast Door";
-	opacity = 0
-	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/security/brig)
 "auH" = (
-/obj/effect/spawner/window/reinforced,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/machinery/door/poddoor{
 	density = 0;
 	icon_state = "open";
@@ -7117,6 +7126,11 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
+/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/security/brig)
 "auI" = (
@@ -7126,9 +7140,6 @@
 	},
 /area/security/evidence)
 "auJ" = (
-/obj/structure/table/reinforced{
-	layer = 2.5
-	},
 /obj/machinery/door/window/brigdoor{
 	dir = 2;
 	name = "Security Reception";
@@ -7142,11 +7153,9 @@
 	opacity = 0
 	},
 /obj/structure/cable{
-	icon_state = "1-4"
+	icon_state = "4-8"
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
+/obj/structure/table/reinforced,
 /turf/simulated/floor/plasteel{
 	icon_state = "redfull"
 	},
@@ -62922,14 +62931,12 @@
 /turf/simulated/floor/plasteel,
 /area/engine/engineering)
 "fVp" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plasteel{
-	icon_state = "darkredcorners"
+	dir = 4;
+	icon_state = "darkred"
 	},
 /area/security/brig)
 "fVA" = (
@@ -74291,16 +74298,6 @@
 /area/maintenance/livingcomplex/hall)
 "lqa" = (
 /obj/structure/chair/office/dark,
-/obj/item/radio/intercom{
-	name = "custom station intercom (General)";
-	pixel_x = -28;
-	pixel_y = -28
-	},
-/obj/item/radio/intercom/department/security{
-	name = "custom station intercom (Security)";
-	pixel_x = 28;
-	pixel_y = -28
-	},
 /obj/machinery/door_control{
 	desc = "A remote control switch for the brig foyer.";
 	id = "BrigEast";
@@ -74319,9 +74316,6 @@
 	pixel_y = -25;
 	req_access = list(63)
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/door_control{
 	desc = "A remote control switch for the brig foyer.";
 	id = "BrigLeft";
@@ -74331,7 +74325,6 @@
 	pixel_y = -25;
 	req_access = list(63)
 	},
-/obj/effect/landmark/start/security_cadet,
 /turf/simulated/floor/plasteel{
 	dir = 6;
 	icon_state = "darkred"
@@ -88241,7 +88234,10 @@
 /obj/structure/chair/office/dark{
 	dir = 8
 	},
-/obj/effect/landmark/start/security_cadet,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -95113,6 +95109,27 @@
 	icon_state = "grimy"
 	},
 /area/security/detectives_office)
+"vfn" = (
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Secure Gate";
+	name = "Security Blast Door";
+	opacity = 0
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/effect/spawner/window/reinforced,
+/turf/simulated/floor/plating,
+/area/security/brig)
 "vfC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -100996,6 +101013,14 @@
 	icon_state = "whiteblue"
 	},
 /area/medical/cloning)
+"xQl" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/landmark/start/security_cadet,
+/turf/simulated/floor/plasteel,
+/area/security/lobby)
 "xQo" = (
 /obj/structure/table,
 /obj/item/paper_bin{
@@ -101168,6 +101193,17 @@
 	},
 /turf/space,
 /area/space)
+"xTQ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "dark"
+	},
+/area/security/brig)
 "xTU" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -129109,7 +129145,7 @@ aqX
 ase
 ajT
 aDv
-aoj
+alL
 arc
 arc
 auD
@@ -129364,8 +129400,8 @@ apg
 aqw
 aqX
 ase
-ajW
-alK
+ajP
+aDv
 aom
 arl
 asX
@@ -129620,7 +129656,7 @@ aou
 apf
 aqw
 aqX
-ase
+xTQ
 ajW
 alK
 anX
@@ -129879,7 +129915,7 @@ kiV
 ash
 aiu
 akb
-alL
+aDv
 aon
 fVp
 lqa
@@ -130138,7 +130174,7 @@ ase
 ajX
 aDv
 aoj
-arm
+vfn
 arm
 auH
 axZ
@@ -130653,7 +130689,7 @@ alb
 anI
 nrc
 anY
-anY
+xQl
 atq
 anY
 awb
