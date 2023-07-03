@@ -248,7 +248,7 @@
 	switch(action)
 		if("toggleBroadcast")
 			// Just toggle it
-			pai_holder.radio.broadcasting = !pai_holder.radio.broadcasting
+			pai_holder.radio.toggle_broadcasting()
 
 		if("freq")
 			var/new_frequency = sanitize_frequency(text2num(params["freq"]) * 10)
