@@ -64,7 +64,7 @@ REAGENT SCANNER
 			image.appearance = mutable_appearance
 			t_ray_images += image
 	if(length(t_ray_images))
-		flick_overlay(t_ray_images, list(viewer.client), flick_time)
+		flick_overlay_global(t_ray_images, list(viewer.client), flick_time)
 
 /obj/item/t_scanner/security
 	name = "Противо-маскировочное ТГц устройство"
