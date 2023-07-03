@@ -15,7 +15,7 @@
 	. += "<span class='notice'>Сейчас он [broadcasting ? "включён" : "выключен"]</span>"
 
 /obj/item/radio/spy_spider/attack_self(mob/user)
-	broadcasting = !broadcasting
+	toggle_broadcasting()
 	if(broadcasting)
 		to_chat(user, "<span class='notice'>Ты включаешь жучок.</span>")
 	else
