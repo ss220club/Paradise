@@ -3615,6 +3615,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -30
 	},
+/obj/machinery/suit_storage_unit/mechanic,
 /turf/simulated/floor/plasteel{
 	icon_state = "yellow"
 	},
@@ -3665,8 +3666,7 @@
 	pixel_y = -25
 	},
 /mob/living/simple_animal/pet/cat/birman/Crusher,
-/obj/effect/decal/cleanable/generic,
-/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/structure/bed/dogbed,
 /turf/simulated/floor/plasteel{
 	icon_state = "yellow"
 	},
@@ -6999,16 +6999,16 @@
 	},
 /area/hallway/secondary/entry/commercial)
 "aXx" = (
-/obj/machinery/door/airlock/glass{
-	name = "Hydroponics";
-	req_access = list(35)
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/hydroponics{
+	name = "Hydroponics";
+	req_access = list(35)
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "hydrofloor"
 	},
@@ -18984,10 +18984,6 @@
 /turf/space,
 /area/aisat)
 "ccC" = (
-/obj/machinery/door/airlock/glass{
-	name = "Hydroponics";
-	req_access = list(35)
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -19000,6 +18996,10 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/airlock/hydroponics{
+	name = "Hydroponics";
+	req_access = list(35)
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "hydrofloor"
@@ -25790,7 +25790,7 @@
 /obj/effect/decal/warning_stripes/yellow/hollow,
 /obj/machinery/alarm{
 	dir = 4;
-	pixel_x = -22
+	pixel_x = -26
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -71418,7 +71418,8 @@
 /obj/effect/decal/warning_stripes/yellow/hollow,
 /obj/machinery/light_switch{
 	pixel_x = -4;
-	pixel_y = -24
+	pixel_y = -24;
+	dir = 1
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -82636,7 +82637,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock{
+/obj/machinery/door/airlock/hydroponics{
 	name = "Hydroponics";
 	req_access = list(35)
 	},
