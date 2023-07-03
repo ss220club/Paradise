@@ -1,19 +1,28 @@
+#define INTERCOM_BASE_ICON_STATE "base"
+#define INTERCOM_OPEN_ICON_STATE "open"
+#define INTERCOM_FRAME_ICON_STATE "frame"
+#define INTERCOM_DISPLAY_ON_OVERLAY_ICON_STATE "display-on"
+#define INTERCOM_SPEAKER_INDICATOR_OVERLAY_ICON_STATE "speaker"
+#define INTERCOM_MIC_INDICATOR_OVERLAY_ICON_STATE "mic"
+#define INTERCOM_TALK_INDICATOR_OVERLAY_ICON_STATE "talk-indicator"
+
 /obj/item/radio/intercom
 	name = "station intercom (General)"
 	desc = "Talk through this."
-	icon_state = "intercom"
-	anchored = 1
+	icon = 'icons/obj/intercom.dmi'
+	icon_state = INTERCOM_BASE_ICON_STATE
+	anchored = TRUE
 	w_class = WEIGHT_CLASS_BULKY
 	canhear_range = 2
 	flags = CONDUCT
-	var/circuitry_installed = 1
-	var/buildstage = 0
 	dog_fashion = null
+	var/circuitry_installed = TRUE
+	var/buildstage = 0
 
 /obj/item/radio/intercom/custom
 	name = "station intercom (Custom)"
-	broadcasting = 0
-	listening = 0
+	broadcasting = FALSE
+	listening = FALSE
 
 /obj/item/radio/intercom/interrogation
 	name = "station intercom (Interrogation)"
@@ -33,7 +42,7 @@
 
 /obj/item/radio/intercom/department
 	canhear_range = 5
-	broadcasting = 0
+	broadcasting = FALSE
 	listening = 1
 
 /obj/item/radio/intercom/department/medbay
@@ -54,7 +63,7 @@
 			setDir(direction)
 			set_pixel_offsets_from_dir(28, -28, 28, -28)
 		b_stat=1
-		on = 0
+		on = FALSE
 	GLOB.global_intercoms.Add(src)
 	update_icon()
 
@@ -211,11 +220,47 @@
 		new /obj/item/mounted/frame/intercom(get_turf(src))
 		qdel(src)
 
-/obj/item/radio/intercom/update_icon()
-	if(!circuitry_installed)
-		icon_state="intercom-frame"
+/obj/item/radio/intercom/toggle_listening()
+	. = ..()
+	update_icon()
+
+/obj/item/radio/intercom/toggle_broadcasting()
+	. = ..()
+	update_icon()
+
+/obj/item/radio/intercom/talk_into(mob/living/talker, list/message_pieces, channel, verbage = "says")
+	. = ..()
+	if (!.)
 		return
-	icon_state = "intercom[!on?"-p":""][b_stat ? "-open":""]"
+
+	do_talk_indicator_flick_animation()
+
+/obj/item/radio/intercom/update_icon()
+	cut_overlays()
+
+	if(!circuitry_installed)
+		icon_state = INTERCOM_FRAME_ICON_STATE
+		return
+
+	if (b_stat)
+		icon_state = INTERCOM_OPEN_ICON_STATE
+		return
+
+	icon_state = INTERCOM_BASE_ICON_STATE
+
+	if (!on)
+		return
+
+	var/list/overlays_to_add = list()
+	overlays_to_add += image(icon, INTERCOM_DISPLAY_ON_OVERLAY_ICON_STATE)
+	overlays_to_add += image(icon, "[INTERCOM_SPEAKER_INDICATOR_OVERLAY_ICON_STATE]-[listening]" )
+	overlays_to_add += image(icon, "[INTERCOM_MIC_INDICATOR_OVERLAY_ICON_STATE]-[broadcasting]" )
+
+	add_overlay(overlays_to_add)
+
+/obj/item/radio/intercom/proc/do_talk_indicator_flick_animation()
+	PRIVATE_PROC(TRUE)
+	flick_overlay_view(INTERCOM_TALK_INDICATOR_OVERLAY_ICON_STATE, 0.5 SECONDS)
 
 /obj/item/radio/intercom/proc/update_operating_status(on = TRUE)
 	var/area/current_area = get_area(src)
@@ -271,3 +316,11 @@
 /obj/item/radio/intercom/locked/prison/New()
 	..()
 	wires.cut(WIRE_RADIO_TRANSMIT)
+
+#undef INTERCOM_BASE_ICON_STATE
+#undef INTERCOM_OPEN_ICON_STATE
+#undef INTERCOM_FRAME_ICON_STATE
+#undef INTERCOM_DISPLAY_ON_OVERLAY_ICON_STATE
+#undef INTERCOM_SPEAKER_INDICATOR_OVERLAY_ICON_STATE
+#undef INTERCOM_MIC_INDICATOR_OVERLAY_ICON_STATE
+#undef INTERCOM_TALK_INDICATOR_OVERLAY_ICON_STATE

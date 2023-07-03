@@ -183,9 +183,9 @@ GLOBAL_LIST_INIT(default_medbay_channels, list(
 			if(has_channel_access(usr, freq))
 				set_frequency(text2num(freq))
 		if("listen")
-			listening = !listening
+			toggle_listening()
 		if("broadcast")
-			broadcasting = !broadcasting
+			toggle_broadcasting()
 		if("channel")
 			var/channel = params["channel"]
 			if(!(channel in channels))
@@ -206,6 +206,12 @@ GLOBAL_LIST_INIT(default_medbay_channels, list(
 			. = FALSE
 	if(.)
 		add_fingerprint(usr)
+
+/obj/item/radio/proc/toggle_listening()
+	listening = !listening
+
+/obj/item/radio/proc/toggle_broadcasting()
+	broadcasting = !broadcasting
 
 /obj/item/radio/proc/list_secure_channels(mob/user)
 	var/list/dat = list()
