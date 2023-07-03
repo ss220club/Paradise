@@ -44,24 +44,15 @@
 	. += "<span class='notice'>Can hold [max_syringes] syringe\s. Has [num_syringes] syringe\s remaining.</span>"
 
 /obj/item/gun/syringe/attack_self(mob/living/user)
-	if(!length(syringes) && !chambered.BB)
-		to_chat(user, "<span class='notice'>[src] is empty.</span>")
-		return FALSE
+    if(!length(syringes))
+        to_chat(user, "<span class='notice'>[src] is empty.</span>")
+        return FALSE
 
-	var/obj/item/reagent_containers/syringe/S
-	if(chambered.BB) // Remove the chambered syringe first
-		S = new()
-		chambered.BB.reagents.trans_to(S, chambered.BB.reagents.total_volume)
-		qdel(chambered.BB)
-		chambered.BB = null
-	else
-		S = syringes[length(syringes)]
-
-	user.put_in_hands(S)
-	syringes.Remove(S)
-	process_chamber()
-	to_chat(user, "<span class='notice'>You unload [S] from \the [src]!</span>")
-	return TRUE
+    var/obj/item/reagent_containers/syringe/syringe_to_extract = syringes[length(syringes)]
+    user.put_in_hands(syringe_to_extract)
+    syringes.Remove(syringe_to_extract)
+    to_chat(user, "<span class='notice'>You unload [syringe_to_extract] from \the [src]!</span>")
+    return TRUE
 
 /obj/item/gun/syringe/attackby(obj/item/A, mob/user, params, show_msg = TRUE)
 	if(istype(A, /obj/item/reagent_containers/syringe))
