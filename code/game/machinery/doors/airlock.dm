@@ -367,6 +367,8 @@ About the new airlock wires panel:
 					lights_overlay = get_airlock_overlay("lights_bolts", overlays_file)
 				else if(emergency)
 					lights_overlay = get_airlock_overlay("lights_emergency", overlays_file)
+				else
+					lights_overlay = get_airlock_overlay("lights_poweron", overlays_file)
 			if(note)
 				note_overlay = get_airlock_overlay(notetype, note_overlay_file)
 
@@ -432,6 +434,7 @@ About the new airlock wires panel:
 
 		if(AIRLOCK_OPEN)
 			frame_overlay = get_airlock_overlay("open", icon)
+			lights_overlay = get_airlock_overlay("lights_poweron_open", overlays_file)
 			if(airlock_material)
 				filling_overlay = get_airlock_overlay("[airlock_material]_open", overlays_file)
 			else

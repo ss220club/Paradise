@@ -65,7 +65,7 @@
 	var/archives_icon_state = "archives"
 	var/archives_icon_state_off = "archives_off"
 
-	var/runed_metal_icon_state = "sheet-runed"
+	var/runed_metal_icon_state = "sheet_runed"
 
 	var/airlock_runed_icon_file = 'icons/obj/doors/airlocks/cult/runed/cult.dmi'
 	var/airlock_runed_overlays_file = 'icons/obj/doors/airlocks/cult/runed/cult-overlays.dmi'

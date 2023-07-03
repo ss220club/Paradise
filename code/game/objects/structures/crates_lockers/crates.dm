@@ -11,6 +11,11 @@
 	var/obj/item/paper/manifest/manifest
 	// A list of beacon names that the crate will announce the arrival of, when delivered.
 	var/list/announce_beacons = list()
+	//Open and close sounds
+	open_sound = 'sound/machines/crate_open.ogg'
+	close_sound = 'sound/machines/crate_close.ogg'
+	open_sound_volume = 35
+	close_sound_volume = 50
 
 /obj/structure/closet/crate/update_icon()
 	..()
@@ -45,7 +50,7 @@
 				do_sparks(5, 1, src)
 				return 2
 
-	playsound(src.loc, 'sound/machines/click.ogg', 15, 1, -3)
+	playsound(src.loc, open_sound, open_sound_volume, TRUE, -3)
 	for(var/obj/O in src) //Objects
 		O.layer = src.layer + 0.1
 		O.forceMove(loc)
@@ -63,7 +68,7 @@
 	if(!src.opened || !src.can_close())
 		return FALSE
 
-	playsound(src.loc, 'sound/machines/click.ogg', 15, 1, -3)
+	playsound(src.loc, close_sound, close_sound_volume, TRUE, -3)
 	var/itemcount = 0
 	for(var/obj/O in get_turf(src))
 		if(itemcount >= storage_capacity)
