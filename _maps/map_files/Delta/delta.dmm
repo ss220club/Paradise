@@ -92350,7 +92350,6 @@
 	},
 /obj/item/clothing/suit/armor/riot,
 /obj/item/shield/riot,
-/obj/item/clothing/gloves/combat,
 /obj/item/clothing/head/helmet/riot,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -118204,7 +118203,6 @@
 	},
 /obj/item/clothing/suit/armor/riot,
 /obj/item/shield/riot,
-/obj/item/clothing/gloves/combat,
 /obj/item/clothing/head/helmet/riot,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -120503,7 +120501,6 @@
 	},
 /obj/item/clothing/suit/armor/riot,
 /obj/item/shield/riot,
-/obj/item/clothing/gloves/combat,
 /obj/item/clothing/head/helmet/riot,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
