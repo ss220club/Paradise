@@ -1005,6 +1005,7 @@ GLOBAL_LIST_EMPTY(blood_splatter_icons)
 	.["Add reagent"] = "?_src_=vars;addreagent=[UID()]"
 	.["Trigger explosion"] = "?_src_=vars;explode=[UID()]"
 	.["Trigger EM pulse"] = "?_src_=vars;emp=[UID()]"
+	.["Modify Transform"] = "?_src_=vars;atom_transform=[UID()]"
 
 /atom/proc/AllowDrop()
 	return FALSE
