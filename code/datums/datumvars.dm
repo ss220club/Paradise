@@ -1335,6 +1335,31 @@
 			return
 		holder.modify_traits(A)
 
+	else if(href_list["atom_transform"])
+		var/result = input(usr, "Choose the transformation to apply","Transform Mod") as null|anything in list("Scale","Translate","Rotate")
+		var/atom/target = locateUID(href_list["atom_transform"])
+		var/matrix/M = target.transform
+		if(!result)
+			return
+		switch(result)
+			if("Scale")
+				var/x = input(usr, "Choose x mod","Transform Mod") as null|num
+				var/y = input(usr, "Choose y mod","Transform Mod") as null|num
+				if(isnull(x) || isnull(y))
+					return
+				target.transform = M.Scale(x,y)
+			if("Translate")
+				var/x = input(usr, "Choose x mod (negative = left, positive = right)","Transform Mod") as null|num
+				var/y = input(usr, "Choose y mod (negative = down, positive = up)","Transform Mod") as null|num
+				if(isnull(x) || isnull(y))
+					return
+				target.transform = M.Translate(x,y)
+			if("Rotate")
+				var/angle = input(usr, "Choose angle to rotate","Transform Mod") as null|num
+				if(isnull(angle))
+					return
+				target.transform = M.Turn(angle)
+
 	if(href_list["datumrefresh"])
 		var/datum/DAT = locateUID(href_list["datumrefresh"])
 		if(!istype(DAT, /datum) && !isclient(DAT))
