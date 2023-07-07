@@ -36725,6 +36725,19 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/office)
+"cbE" = (
+/obj/structure/table,
+/obj/item/clothing/glasses/hud/hydroponic{
+	pixel_y = 8
+	},
+/obj/item/clothing/glasses/hud/hydroponic{
+	pixel_y = 4
+	},
+/obj/item/clothing/glasses/hud/hydroponic,
+/turf/simulated/floor/plasteel{
+	icon_state = "dark"
+	},
+/area/hydroponics)
 "cbG" = (
 /obj/machinery/conveyor/east{
 	id = "QMLoad2"
@@ -60286,6 +60299,12 @@
 	icon_state = "grimy"
 	},
 /area/maintenance/library)
+"eLF" = (
+/obj/structure/chair/stool{
+	dir = 8
+	},
+/turf/simulated/floor/plasteel,
+/area/crew_quarters/locker)
 "eMc" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -63495,7 +63514,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint2)
 "gjK" = (
-/obj/item/circuitboard/chem_dispenser/botanical,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -63588,19 +63606,6 @@
 	icon_state = "floorgrime"
 	},
 /area/storage/office)
-"glp" = (
-/obj/structure/table,
-/obj/item/clothing/glasses/hud/hydroponic{
-	pixel_y = 8
-	},
-/obj/item/clothing/glasses/hud/hydroponic{
-	pixel_y = 4
-	},
-/obj/item/clothing/glasses/hud/hydroponic,
-/turf/simulated/floor/plasteel{
-	icon_state = "dark"
-	},
-/area/hydroponics)
 "glF" = (
 /obj/effect/decal/warning_stripes/northeast,
 /turf/simulated/floor/plasteel{
@@ -87572,12 +87577,6 @@
 	icon_state = "darkblue"
 	},
 /area/medical/genetics)
-"rvJ" = (
-/obj/structure/chair/stool{
-	dir = 8
-	},
-/turf/simulated/floor/plasteel,
-/area/crew_quarters/locker)
 "rwg" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -120486,8 +120485,8 @@ bkg
 blM
 bnF
 bpd
-rvJ
-rvJ
+eLF
+eLF
 bwa
 vBP
 blM
@@ -143096,7 +143095,7 @@ bck
 beb
 dxz
 kSs
-glp
+cbE
 beb
 ble
 mOw
