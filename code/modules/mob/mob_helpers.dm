@@ -412,12 +412,9 @@ GLOBAL_LIST_INIT(intents, list(INTENT_HELP,INTENT_DISARM,INTENT_GRAB,INTENT_HARM
 	set name = "Sleep"
 	set category = "IC"
 
-	if(sleeping)
-		to_chat(src, "<span class='notice'>Вы уже спите.</span>")
-		return
-	else
-		if(alert(src, "You sure you want to sleep for a while?", "Sleep", "Yes", "No") == "Yes")
-			SetSleeping(20) //Short nap
+	if(alert("Ты уверен[genderize_ru(src.gender,"","а")], что хочешь [player_triggered_sleeping ? "проснуться?" : "немного поспать? Используй 'sleep' снова ,чтобы проснуться."]", "Sleep", "Нет", "Да") == "Да")
+		player_triggered_sleeping = !player_triggered_sleeping
+
 
 /mob/living/verb/lay_down()
 	set name = "Rest"
