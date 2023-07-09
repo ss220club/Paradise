@@ -621,8 +621,8 @@
 "amK" = (
 /obj/effect/decal/warning_stripes/white/hollow,
 /turf/simulated/floor/indestructible{
-	icon_state = "darkbluefull";
-	dir = 4
+	dir = 4;
+	icon_state = "darkbluefull"
 	},
 /area/centcom/specops)
 "amV" = (
@@ -680,18 +680,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/centcom/bridge)
-"aoB" = (
-/obj/machinery/door_control{
-	id = "CC_GAMMA";
-	name = "GAMMA SHUTTLE";
-	pixel_x = 24;
-	pixel_y = -24;
-	req_access = list(114);
-	wires = 1
-	},
-/obj/item/flag/nt,
-/turf/simulated/floor/wood,
-/area/centcom/specops)
 "aoS" = (
 /obj/machinery/door/airlock/diamond,
 /turf/simulated/floor/plating,
@@ -935,6 +923,14 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership/cargo)
+"aud" = (
+/obj/machinery/door/poddoor/shutters/invincible{
+	dir = 1;
+	id_tag = "CC_jail_cell_6";
+	name = "Central Command Jail"
+	},
+/turf/simulated/wall/indestructible/fakeglass,
+/area/centcom/jail)
 "auf" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1331;
@@ -1785,11 +1781,11 @@
 /area/trader_station/sol)
 "aPL" = (
 /obj/machinery/door/poddoor/shutters/invincible{
+	density = 0;
+	dir = 2;
 	id_tag = "ert_vis_turret";
 	locked = 1;
-	opacity = 0;
-	density = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/wall/indestructible/fakeglass,
 /area/centcom/specops)
@@ -1992,10 +1988,10 @@
 /obj/effect/decal/warning_stripes/red,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/shutters/invincible{
+	density = 0;
 	id_tag = "ert_vis_turret";
 	locked = 1;
-	opacity = 0;
-	density = 0
+	opacity = 0
 	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
@@ -2166,9 +2162,9 @@
 /obj/structure/table/wood/fancy/black,
 /obj/machinery/door_control{
 	id = "ert_enter_control";
+	name = "Shuttle control";
 	pixel_x = 5;
 	pixel_y = 8;
-	name = "Shuttle control";
 	req_access = list(114)
 	},
 /turf/simulated/floor/carpet/black,
@@ -2968,6 +2964,24 @@
 /obj/structure/chair/office/dark,
 /turf/simulated/floor/carpet/black,
 /area/centcom/zone2)
+"bva" = (
+/obj/machinery/light,
+/obj/machinery/door_control{
+	id = "CC_jail_cell_8";
+	name = "Prison Cell 8 Shutter Control";
+	pixel_x = 8;
+	pixel_y = -24
+	},
+/obj/machinery/door_control{
+	id = "CC_jail_cell_7";
+	name = "Prison Cell 7 Shutter Control";
+	pixel_x = -8;
+	pixel_y = -24
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "darkredalt"
+	},
+/area/centcom/jail)
 "bvu" = (
 /obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/vox{
@@ -3297,7 +3311,13 @@
 /obj/structure/rack/gunrack,
 /obj/item/gun/projectile/automatic/l6_saw{
 	desc = "A heavily modified 5.56 light machine gun, designated 'M249 SAW'.";
-	name = "M249 SAW"
+	name = "M249 SAW";
+	pixel_x = 3
+	},
+/obj/item/gun/projectile/automatic/l6_saw{
+	desc = "A heavily modified 5.56 light machine gun, designated 'M249 SAW'.";
+	name = "M249 SAW";
+	pixel_x = 3
 	},
 /obj/item/gun/projectile/automatic/l6_saw{
 	desc = "A heavily modified 5.56 light machine gun, designated 'M249 SAW'.";
@@ -3305,15 +3325,13 @@
 	},
 /obj/item/gun/projectile/automatic/l6_saw{
 	desc = "A heavily modified 5.56 light machine gun, designated 'M249 SAW'.";
-	name = "M249 SAW"
+	name = "M249 SAW";
+	pixel_x = -3
 	},
 /obj/item/gun/projectile/automatic/l6_saw{
 	desc = "A heavily modified 5.56 light machine gun, designated 'M249 SAW'.";
-	name = "M249 SAW"
-	},
-/obj/item/gun/projectile/automatic/l6_saw{
-	desc = "A heavily modified 5.56 light machine gun, designated 'M249 SAW'.";
-	name = "M249 SAW"
+	name = "M249 SAW";
+	pixel_x = -6
 	},
 /turf/simulated/floor/carpet/black,
 /area/centcom/specops)
@@ -4744,13 +4762,11 @@
 	name = "Prison Cell";
 	opacity = 1
 	},
+/obj/effect/decal/warning_stripes/red,
 /obj/machinery/door/poddoor/shutters/invincible{
-	id_tag = "CC_space_jail_cell";
-	layer = 5;
-	locked = 1;
+	id_tag = "CC_jail_cell_1";
 	name = "Central Command Jail"
 	},
-/obj/effect/decal/warning_stripes/red,
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -4834,8 +4850,8 @@
 /area/vox_station)
 "cuu" = (
 /turf/simulated/floor/indestructible{
-	icon_state = "darkred";
-	dir = 8
+	dir = 8;
+	icon_state = "darkred"
 	},
 /area/centcom/specops)
 "cuy" = (
@@ -4935,8 +4951,8 @@
 	},
 /obj/machinery/door/window/brigdoor{
 	dir = 1;
-	req_access = list(104,109);
-	pixel_y = 2
+	pixel_y = 2;
+	req_access = list(104,109)
 	},
 /obj/machinery/suit_storage_unit/standard_unit/ertamber{
 	req_access = list(104,109)
@@ -5449,7 +5465,9 @@
 /area/shuttle/trade/sol)
 "cKy" = (
 /obj/structure/table/wood/fancy/black,
-/obj/machinery/chem_dispenser/soda/upgraded,
+/obj/machinery/chem_dispenser/soda/upgraded{
+	pixel_y = 8
+	},
 /turf/simulated/floor/carpet/red,
 /area/centcom/zone1)
 "cKK" = (
@@ -5464,6 +5482,20 @@
 	tag = "icon-stage_stairs"
 	},
 /area/centcom/court)
+"cKL" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Prison Cell";
+	opacity = 1
+	},
+/obj/effect/decal/warning_stripes/red,
+/obj/machinery/door/poddoor/shutters/invincible{
+	id_tag = "CC_jail_cell_3";
+	name = "Central Command Jail"
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
+/area/centcom/jail)
 "cKU" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "SFBQMLoad2"
@@ -5853,11 +5885,8 @@
 /area/centcom/zone2)
 "cVM" = (
 /obj/structure/table,
-/obj/machinery/chem_dispenser/soda/upgraded{
-	pixel_y = 4
-	},
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/chem_dispenser/beer/upgraded{
+	pixel_y = 8
 	},
 /turf/simulated/floor/wood,
 /area/centcom/zone1)
@@ -6350,8 +6379,8 @@
 /obj/machinery/door_control{
 	id = "admin_ert_enter_2";
 	pixel_x = 24;
-	req_access = list(104,109,114);
-	pixel_y = 8
+	pixel_y = 8;
+	req_access = list(104,109,114)
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
@@ -6427,8 +6456,8 @@
 	req_access = list(104,109)
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/centcom/specops)
 "dqG" = (
@@ -6484,10 +6513,10 @@
 /obj/effect/decal/warning_stripes/red,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/shutters/invincible{
+	density = 0;
 	id_tag = "ert_vis_turret";
 	locked = 1;
-	opacity = 0;
-	density = 0
+	opacity = 0
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "navybluealt"
@@ -6691,7 +6720,9 @@
 /turf/simulated/wall/indestructible/fakeglass,
 /area/centcom/bridge)
 "dwJ" = (
-/obj/structure/chair/stool/bar,
+/obj/structure/chair/stool/bar{
+	dir = 4
+	},
 /turf/simulated/floor/grass,
 /area/centcom/evac)
 "dwR" = (
@@ -6756,8 +6787,8 @@
 /area/vox_station)
 "dyN" = (
 /obj/machinery/door/poddoor/shutters/invincible{
-	id_tag = "CC_GAMMA";
-	dir = 8
+	dir = 8;
+	id_tag = "CC_GAMMA"
 	},
 /obj/machinery/door/airlock/centcom{
 	name = "Gamma Armory";
@@ -7234,11 +7265,10 @@
 /turf/simulated/floor/indestructible/beach/water/deep/dense,
 /area/ninja/outside)
 "dLC" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
 /obj/structure/table/wood/fancy/black,
-/obj/machinery/chem_dispenser/beer/upgraded,
+/obj/machinery/chem_dispenser/beer/upgraded{
+	pixel_y = 8
+	},
 /turf/simulated/floor/carpet/red,
 /area/centcom/zone1)
 "dLF" = (
@@ -7462,8 +7492,8 @@
 /area/centcom/evac)
 "dRV" = (
 /obj/item/toy/plushie/orange_fox/grump{
-	name = "savior grumpy fox";
-	desc = "Эта лиса и её друг однажды спасли станцию."
+	desc = "Эта лиса и её друг однажды спасли станцию.";
+	name = "savior grumpy fox"
 	},
 /turf/simulated/floor/holofloor/space,
 /area/centcom/specops)
@@ -7748,8 +7778,8 @@
 /area/ninja/outside)
 "dZe" = (
 /obj/machinery/computer/account_database{
-	name = "Admin Accounts Database";
-	dir = 4
+	dir = 4;
+	name = "Admin Accounts Database"
 	},
 /obj/machinery/newscaster/security_unit{
 	pixel_x = -32
@@ -7969,7 +7999,9 @@
 	},
 /area/centcom/specops)
 "eeb" = (
-/obj/machinery/bottler,
+/obj/machinery/bottler{
+	pixel_y = 8
+	},
 /obj/structure/table,
 /obj/structure/curtain/open/shower/security{
 	pixel_x = -32
@@ -8055,9 +8087,7 @@
 "efW" = (
 /obj/machinery/door/poddoor/shutters/invincible{
 	dir = 1;
-	id_tag = "CC_space_jail_cell";
-	layer = 5;
-	locked = 1;
+	id_tag = "CC_jail_cell_5";
 	name = "Central Command Jail"
 	},
 /turf/simulated/wall/indestructible/fakeglass,
@@ -8082,10 +8112,6 @@
 /turf/simulated/floor/indestructible/asteroid,
 /area/syndicate_mothership/outside)
 "egp" = (
-/obj/structure/toilet{
-	dir = 4;
-	name = "Трон старшего администратора"
-	},
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -8096,6 +8122,9 @@
 	pixel_y = 25;
 	specialfunctions = 4;
 	wires = 1
+	},
+/obj/structure/toilet{
+	dir = 4
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
@@ -8504,10 +8533,7 @@
 	},
 /area/shuttle/escape)
 "etr" = (
-/obj/structure/toilet,
-/obj/structure/sink{
-	pixel_y = 32
-	},
+/obj/structure/dresser,
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -9036,8 +9062,8 @@
 	color = "#ff9999";
 	id = "ERT_armory_lvl3";
 	name = "ERT Armory Level 3";
-	req_access = list(114);
-	pixel_x = 8
+	pixel_x = 8;
+	req_access = list(114)
 	},
 /turf/simulated/floor/carpet/black,
 /area/centcom/specops)
@@ -9253,12 +9279,12 @@
 /area/syndicate_mothership)
 "ePq" = (
 /obj/machinery/vending/nta/ertarmory/green{
-	req_access = list(104,109);
-	dir = 4
+	dir = 4;
+	req_access = list(104,109)
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "darkgreen";
-	dir = 8
+	dir = 8;
+	icon_state = "darkgreen"
 	},
 /area/centcom/specops)
 "ePz" = (
@@ -9551,8 +9577,8 @@
 	dir = 4
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "darkgreen";
-	dir = 4
+	dir = 4;
+	icon_state = "darkgreen"
 	},
 /area/centcom/specops)
 "eWv" = (
@@ -10391,11 +10417,8 @@
 	},
 /area/centcom/zone1)
 "ftv" = (
-/obj/structure/window/full/reinforced{
-	armor = list("melee"=80,"bullet"=80,"laser"=0,"energy"=0,"bomb"=80,"bio"=100,"rad"=100,"fire"=80,"acid"=100);
-	layer = 5
-	},
 /obj/structure/flora/ausbushes/genericbush,
+/obj/structure/window/full/basic,
 /turf/simulated/floor/grass,
 /area/centcom/specops)
 "ftx" = (
@@ -10526,8 +10549,8 @@
 	req_access = list(114)
 	},
 /obj/machinery/door/poddoor/shutters/invincible{
-	id_tag = "CC_BUDKA";
-	dir = 8
+	dir = 8;
+	id_tag = "CC_BUDKA"
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -11264,10 +11287,7 @@
 /turf/simulated/floor/carpet/black,
 /area/ninja/outpost)
 "fND" = (
-/obj/structure/window/full/reinforced{
-	layer = 2
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/wall/indestructible/fakeglass,
 /area/centcom/court)
 "fNY" = (
 /obj/effect/turf_decal/siding/green{
@@ -11444,6 +11464,14 @@
 	},
 /turf/simulated/floor/carpet,
 /area/centcom/zone1)
+"fSD" = (
+/obj/machinery/door/poddoor/shutters/invincible{
+	dir = 1;
+	id_tag = "CC_jail_cell_8";
+	name = "Central Command Jail"
+	},
+/turf/simulated/wall/indestructible/fakeglass,
+/area/centcom/jail)
 "fSW" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -11477,6 +11505,12 @@
 "fTZ" = (
 /turf/simulated/wall/indestructible/fakeglass,
 /area/ussp_centcom/secretariat)
+"fUg" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/red,
+/area/centcom/zone1)
 "fUp" = (
 /obj/structure/flora/grass/both,
 /obj/structure/flora/grass/green,
@@ -12158,8 +12192,8 @@
 "gjn" = (
 /obj/machinery/computer/shuttle/ert{
 	armor = list("melee"=100,"bullet"=100,"laser"=100,"energy"=100,"bomb"=100,"bio"=100,"rad"=100,"fire"=100,"acid"=100);
-	req_access = list(109);
-	dir = 8
+	dir = 8;
+	req_access = list(109)
 	},
 /obj/effect/decal/warning_stripes/north,
 /obj/effect/decal/warning_stripes/east,
@@ -12225,11 +12259,19 @@
 /area/ninja/outpost)
 "glE" = (
 /obj/structure/rack/gunrack,
+/obj/item/gun/projectile/automatic/sniper_rifle{
+	pixel_x = 6
+	},
+/obj/item/gun/projectile/automatic/sniper_rifle{
+	pixel_x = 3
+	},
 /obj/item/gun/projectile/automatic/sniper_rifle,
-/obj/item/gun/projectile/automatic/sniper_rifle,
-/obj/item/gun/projectile/automatic/sniper_rifle,
-/obj/item/gun/projectile/automatic/sniper_rifle,
-/obj/item/gun/projectile/automatic/sniper_rifle,
+/obj/item/gun/projectile/automatic/sniper_rifle{
+	pixel_x = -3
+	},
+/obj/item/gun/projectile/automatic/sniper_rifle{
+	pixel_x = -6
+	},
 /turf/simulated/floor/carpet/black,
 /area/centcom/specops)
 "glM" = (
@@ -12806,11 +12848,8 @@
 	},
 /area/syndicate_mothership/jail)
 "gDk" = (
-/obj/structure/window/full/reinforced{
-	armor = list("melee"=80,"bullet"=80,"laser"=0,"energy"=0,"bomb"=80,"bio"=100,"rad"=100,"fire"=80,"acid"=100);
-	layer = 5
-	},
 /obj/structure/flora/ausbushes/brflowers,
+/obj/structure/window/full/basic,
 /turf/simulated/floor/grass,
 /area/centcom/specops)
 "gDm" = (
@@ -12827,8 +12866,8 @@
 	dir = 8
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "darkgreen";
-	dir = 8
+	dir = 8;
+	icon_state = "darkgreen"
 	},
 /area/centcom/specops)
 "gDV" = (
@@ -13075,25 +13114,25 @@
 	dir = 4
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "darkbrown";
-	dir = 1
+	dir = 1;
+	icon_state = "darkbrown"
 	},
 /area/centcom/specops)
 "gMv" = (
 /obj/effect/decal/warning_stripes/red,
 /obj/machinery/door/poddoor/shutters/invincible{
 	armor = list("melee"=100,"bullet"=100,"laser"=100,"energy"=100,"bomb"=100,"bio"=100,"rad"=100,"fire"=100,"acid"=100);
+	density = 0;
 	dir = 1;
 	id_tag = "ERT_armory_lvl1";
 	layer = 5;
+	locked = 1;
 	name = "Armory Level 1";
-	opacity = 0;
-	density = 0;
-	locked = 1
+	opacity = 0
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "darkgreen";
-	dir = 8
+	dir = 8;
+	icon_state = "darkgreen"
 	},
 /area/centcom/specops)
 "gMB" = (
@@ -14067,8 +14106,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/toilet{
-	dir = 1;
-	layer = 4
+	dir = 1
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "freezerfloor"
@@ -14108,14 +14146,12 @@
 	name = "Prison Cell";
 	opacity = 1
 	},
+/obj/effect/decal/warning_stripes/red,
 /obj/machinery/door/poddoor/shutters/invincible{
 	dir = 8;
-	id_tag = "CC_space_jail_cell";
-	layer = 5;
-	locked = 1;
+	id_tag = "CC_jail_cell_11";
 	name = "Central Command Jail"
 	},
-/obj/effect/decal/warning_stripes/red,
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -14404,6 +14440,21 @@
 /obj/structure/shuttle/engine/propulsion,
 /turf/simulated/floor/shuttle/plating,
 /area/shuttle/ussp)
+"hCu" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Prison Cell";
+	opacity = 1
+	},
+/obj/effect/decal/warning_stripes/red,
+/obj/machinery/door/poddoor/shutters/invincible{
+	dir = 1;
+	id_tag = "CC_jail_cell_7";
+	name = "Central Command Jail"
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
+/area/centcom/jail)
 "hCL" = (
 /obj/effect/turf_decal/stripes/line{
 	color = null;
@@ -14739,8 +14790,8 @@
 	dir = 4
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "darkbrown";
-	dir = 4
+	dir = 4;
+	icon_state = "darkbrown"
 	},
 /area/centcom/specops)
 "hNd" = (
@@ -14792,7 +14843,9 @@
 	},
 /area/centcom/specops)
 "hOr" = (
-/obj/structure/chair/stool/bar,
+/obj/structure/chair/stool/bar{
+	dir = 1
+	},
 /turf/simulated/floor/beach/sand{
 	icon = 'icons/turf/floors.dmi';
 	icon_state = "asteroid"
@@ -14889,8 +14942,8 @@
 "hSv" = (
 /obj/machinery/door_control{
 	id = "admin_armory";
-	pixel_y = 24;
 	pixel_x = 8;
+	pixel_y = 24;
 	req_access = list(114)
 	},
 /turf/simulated/floor/plasteel{
@@ -14979,15 +15032,15 @@
 	},
 /obj/machinery/door/window/brigdoor{
 	dir = 1;
-	req_access = list(104,109);
-	pixel_y = 2
+	pixel_y = 2;
+	req_access = list(104,109)
 	},
 /obj/machinery/suit_storage_unit/standard_unit/ertamber{
 	req_access = list(104,109)
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "darkgreen";
-	dir = 6
+	dir = 6;
+	icon_state = "darkgreen"
 	},
 /area/centcom/specops)
 "hVd" = (
@@ -15062,6 +15115,13 @@
 /obj/machinery/vending/coffee/free,
 /turf/simulated/floor/carpet,
 /area/centcom/evac)
+"hYU" = (
+/obj/machinery/door/poddoor/shutters/invincible{
+	id_tag = "CC_jail_cell_2";
+	name = "Central Command Jail"
+	},
+/turf/simulated/wall/indestructible/fakeglass,
+/area/centcom/jail)
 "hYY" = (
 /obj/machinery/door_control{
 	id = "CC_BSA";
@@ -15131,8 +15191,7 @@
 	dir = 10
 	},
 /obj/structure/toilet{
-	dir = 1;
-	layer = 4
+	dir = 1
 	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
@@ -15980,8 +16039,8 @@
 	req_access = list(104,109)
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/centcom/specops)
 "iAZ" = (
@@ -16144,6 +16203,27 @@
 	},
 /turf/simulated/wall/indestructible/reinforced,
 /area/centcom/specops)
+"iDN" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/door_control{
+	id = "CC_jail_cell_2";
+	name = "Prison Cell 2 Shutter Control";
+	pixel_x = -24;
+	pixel_y = -8
+	},
+/obj/machinery/door_control{
+	id = "CC_jail_cell_1";
+	name = "Prison Cell 1 Shutter Control";
+	pixel_x = -24;
+	pixel_y = 8
+	},
+/turf/simulated/floor/plasteel{
+	dir = 8;
+	icon_state = "darkredalt"
+	},
+/area/centcom/jail)
 "iDT" = (
 /obj/effect/turf_decal{
 	dir = 4;
@@ -16428,6 +16508,14 @@
 	},
 /turf/simulated/floor/carpet,
 /area/centcom/zone2)
+"iMt" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
+/area/centcom/jail)
 "iMy" = (
 /obj/structure/closet/secure_closet/freezer/meat{
 	req_access = list(102)
@@ -16805,20 +16893,26 @@
 /area/shuttle/trade/sol)
 "iXj" = (
 /obj/machinery/door/poddoor/shutters/invincible{
-	id_tag = "CC_space_jail_cell";
-	layer = 5;
-	locked = 1;
+	id_tag = "CC_jail_cell_1";
 	name = "Central Command Jail"
 	},
 /turf/simulated/wall/indestructible/fakeglass,
 /area/centcom/jail)
 "iXk" = (
 /obj/structure/rack/gunrack,
+/obj/item/gun/energy/laser/instakill/blue{
+	pixel_x = 3
+	},
+/obj/item/gun/energy/laser/instakill/blue{
+	pixel_x = 3
+	},
 /obj/item/gun/energy/laser/instakill/blue,
-/obj/item/gun/energy/laser/instakill/blue,
-/obj/item/gun/energy/laser/instakill/blue,
-/obj/item/gun/energy/laser/instakill/blue,
-/obj/item/gun/energy/laser/instakill/blue,
+/obj/item/gun/energy/laser/instakill/blue{
+	pixel_x = -3
+	},
+/obj/item/gun/energy/laser/instakill/blue{
+	pixel_x = -6
+	},
 /turf/simulated/floor/carpet/black,
 /area/centcom/specops)
 "iXm" = (
@@ -17748,12 +17842,14 @@
 /turf/simulated/floor/indestructible/abductor,
 /area/abductor_ship)
 "jvq" = (
-/obj/item/flag/nt,
-/obj/structure/closet/medical_wall{
-	pixel_y = 32
+/obj/structure/chair/stool/bar{
+	dir = 4
 	},
-/turf/simulated/floor/wood,
-/area/centcom/zone1)
+/turf/simulated/floor/beach/sand{
+	icon = 'icons/turf/floors.dmi';
+	icon_state = "asteroid"
+	},
+/area/centcom/evac)
 "jvr" = (
 /obj/effect/turf_decal{
 	dir = 4;
@@ -18074,7 +18170,9 @@
 /turf/simulated/floor/indestructible/grass,
 /area/syndicate_mothership/outside)
 "jEu" = (
-/obj/structure/chair/stool/bar,
+/obj/structure/chair/stool/bar{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/centcom/zone1)
 "jEv" = (
@@ -18287,8 +18385,8 @@
 /area/syndicate_mothership/control)
 "jJr" = (
 /obj/machinery/vending/nta/ertarmory/medical{
-	req_access = list(103,104,109);
-	dir = 4
+	dir = 4;
+	req_access = list(103,104,109)
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "navyblue"
@@ -18462,6 +18560,13 @@
 	icon_state = "darkfull"
 	},
 /area/syndicate_mothership/jail)
+"jPp" = (
+/obj/machinery/door/poddoor/shutters/invincible{
+	id_tag = "CC_jail_cell_3";
+	name = "Central Command Jail"
+	},
+/turf/simulated/wall/indestructible/fakeglass,
+/area/centcom/jail)
 "jPx" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -19035,8 +19140,8 @@
 	req_access = list(104,109)
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/centcom/specops)
 "khv" = (
@@ -19568,14 +19673,12 @@
 	name = "Prison Cell";
 	opacity = 1
 	},
+/obj/effect/decal/warning_stripes/red,
 /obj/machinery/door/poddoor/shutters/invincible{
 	dir = 1;
-	id_tag = "CC_space_jail_cell";
-	layer = 5;
-	locked = 1;
+	id_tag = "CC_jail_cell_5";
 	name = "Central Command Jail"
 	},
-/obj/effect/decal/warning_stripes/red,
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -20579,9 +20682,11 @@
 /turf/simulated/wall/indestructible/rock,
 /area/syndicate_mothership/outside)
 "kTy" = (
-/obj/structure/curtain/open/shower,
-/obj/machinery/shower{
-	pixel_y = 20
+/obj/structure/bed{
+	dir = 1
+	},
+/obj/item/bedsheet/brown{
+	dir = 4
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
@@ -20614,8 +20719,8 @@
 /area/centcom/zone2)
 "kUf" = (
 /obj/item/radio/intercom/syndicate{
-	pixel_y = -22;
-	dir = 1
+	dir = 1;
+	pixel_y = -22
 	},
 /obj/machinery/light/small{
 	brightness_range = 6;
@@ -21226,7 +21331,9 @@
 /turf/simulated/floor/wood,
 /area/centcom/specops)
 "ljs" = (
-/obj/structure/chair/stool/bar,
+/obj/structure/chair/stool/bar{
+	dir = 8
+	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -21746,10 +21853,10 @@
 /obj/effect/decal/warning_stripes/red,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/shutters/invincible{
+	density = 0;
 	id_tag = "ert_vis_turret";
 	locked = 1;
-	opacity = 0;
-	density = 0
+	opacity = 0
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -21809,8 +21916,8 @@
 /area/syndicate_mothership)
 "lwX" = (
 /turf/simulated/floor/indestructible{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/centcom/specops)
 "lxn" = (
@@ -21924,10 +22031,10 @@
 /obj/machinery/door_control{
 	id = "Admin_shuttle_access";
 	name = "Argos Shuttle Access";
+	pixel_x = -24;
 	pixel_y = -24;
 	req_access = list(114);
-	wires = 1;
-	pixel_x = -24
+	wires = 1
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -22428,8 +22535,8 @@
 /area/shuttle/syndicate_sit)
 "lLN" = (
 /obj/machinery/vending/nta{
-	req_access = list(104,109);
-	dir = 4
+	dir = 4;
+	req_access = list(104,109)
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -22489,15 +22596,11 @@
 /turf/simulated/floor/carpet,
 /area/syndicate_mothership/infteam)
 "lNA" = (
-/obj/item/twohanded/required/kirbyplants{
-	icon_state = "plant-32";
-	tag = "icon-plant-32"
+/obj/structure/chair/stool/bar{
+	dir = 8
 	},
-/obj/structure/closet/medical_wall{
-	pixel_y = 32
-	},
-/turf/simulated/floor/wood,
-/area/centcom/zone1)
+/turf/simulated/floor/grass,
+/area/centcom/evac)
 "lNN" = (
 /obj/structure/closet{
 	icon_closed = "cabinet_closed";
@@ -23102,8 +23205,8 @@
 	req_access = list(104,109)
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "darkgreen";
-	dir = 4
+	dir = 4;
+	icon_state = "darkgreen"
 	},
 /area/centcom/specops)
 "mdY" = (
@@ -23771,8 +23874,8 @@
 /obj/structure/table/wood,
 /obj/effect/landmark/teleport_scroll,
 /obj/item/radio/intercom/syndicate{
-	pixel_y = -22;
-	dir = 1
+	dir = 1;
+	pixel_y = -22
 	},
 /turf/simulated/floor/carpet/cyan,
 /area/wizard_station)
@@ -24088,8 +24191,8 @@
 	},
 /obj/machinery/door/window/brigdoor{
 	dir = 1;
-	req_access = list(104,109);
-	pixel_y = 2
+	pixel_y = 2;
+	req_access = list(104,109)
 	},
 /obj/machinery/suit_storage_unit/standard_unit/ertamber{
 	req_access = list(104,109)
@@ -24109,10 +24212,10 @@
 /obj/machinery/door_control{
 	id = "Admin_shuttle_access";
 	name = "Argos Shuttle Access";
-	req_access = list(114);
-	wires = 1;
 	pixel_x = -24;
-	pixel_y = -8
+	pixel_y = -8;
+	req_access = list(114);
+	wires = 1
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -24143,9 +24246,9 @@
 "mzH" = (
 /obj/structure/table/wood/fancy/black,
 /obj/machinery/door_control{
+	id = "senior_o_shutters";
 	req_access = list(114);
-	wires = 1;
-	id = "senior_o_shutters"
+	wires = 1
 	},
 /turf/simulated/floor/wood,
 /area/centcom/specops)
@@ -24357,10 +24460,6 @@
 	},
 /area/syndicate_mothership/elite_squad)
 "mDq" = (
-/obj/structure/toilet{
-	dir = 4;
-	name = "Трон старшего администратора"
-	},
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -24371,6 +24470,9 @@
 	pixel_y = 25;
 	specialfunctions = 4;
 	wires = 1
+	},
+/obj/structure/toilet{
+	dir = 4
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
@@ -24918,9 +25020,9 @@
 "mPp" = (
 /obj/machinery/door_control{
 	id = "ert_vis_turret";
+	name = "ERT Turrets";
 	pixel_x = -10;
 	pixel_y = 8;
-	name = "ERT Turrets";
 	req_access = list(114)
 	},
 /turf/simulated/wall/indestructible/reinforced,
@@ -25012,9 +25114,9 @@
 	id = "CC_Armory_GYGAX";
 	name = "GYGAX";
 	pixel_x = -24;
+	pixel_y = -8;
 	req_access = list(114);
-	wires = 1;
-	pixel_y = -8
+	wires = 1
 	},
 /turf/simulated/wall/indestructible/reinforced,
 /area/centcom/specops)
@@ -25286,12 +25388,12 @@
 	req_access = list(109)
 	},
 /obj/machinery/door/poddoor/impassable{
+	density = 0;
 	id_tag = "ert_enter_control";
-	req_access = list(114);
+	layer = 5;
 	locked = 1;
 	opacity = 0;
-	layer = 5;
-	density = 0
+	req_access = list(114)
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -25768,8 +25870,8 @@
 	operation_req_access = list(109)
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/centcom/specops)
 "ncA" = (
@@ -25788,10 +25890,10 @@
 	},
 /obj/effect/decal/warning_stripes/yellow,
 /obj/machinery/door_control{
+	id = "ERT_director_office_shutters";
 	pixel_x = 32;
 	req_access = list(114);
-	wires = 1;
-	id = "ERT_director_office_shutters"
+	wires = 1
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -26767,7 +26869,7 @@
 /obj/structure/curtain/open/shower,
 /obj/machinery/shower{
 	dir = 8;
-	pixel_x = 8
+	pixel_x = -5
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
@@ -26916,8 +27018,8 @@
 	dir = 8
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "darkbrown";
-	dir = 8
+	dir = 8;
+	icon_state = "darkbrown"
 	},
 /area/centcom/specops)
 "nBq" = (
@@ -27085,8 +27187,8 @@
 /area/centcom/bridge)
 "nDM" = (
 /obj/machinery/door/poddoor/shutters/invincible{
-	id_tag = "ert_vis_turret";
-	dir = 2
+	dir = 2;
+	id_tag = "ert_vis_turret"
 	},
 /obj/structure/window/full/reinforced{
 	armor = list("melee"=80,"bullet"=80,"laser"=0,"energy"=0,"bomb"=80,"bio"=100,"rad"=100,"fire"=80,"acid"=100);
@@ -27661,8 +27763,12 @@
 	},
 /area/syndicate_mothership/control)
 "nSj" = (
-/obj/structure/bed,
-/obj/item/bedsheet/blue,
+/obj/structure/bed{
+	dir = 1
+	},
+/obj/item/bedsheet/blue{
+	dir = 1
+	},
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -28056,8 +28162,8 @@
 	},
 /obj/effect/decal/warning_stripes/yellow,
 /turf/simulated/floor/indestructible{
-	icon_state = "darkbrown";
-	dir = 1
+	dir = 1;
+	icon_state = "darkbrown"
 	},
 /area/centcom/specops)
 "ocY" = (
@@ -28103,6 +28209,21 @@
 	name = "floor"
 	},
 /area/syndicate_mothership/elite_squad)
+"odV" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Prison Cell";
+	opacity = 1
+	},
+/obj/effect/decal/warning_stripes/red,
+/obj/machinery/door/poddoor/shutters/invincible{
+	dir = 8;
+	id_tag = "CC_jail_cell_10";
+	name = "Central Command Jail"
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
+/area/centcom/jail)
 "odX" = (
 /obj/machinery/atmospherics/unary/tank/air/ninja{
 	dir = 1
@@ -28365,8 +28486,8 @@
 /area/shuttle/administration)
 "ojv" = (
 /obj/machinery/computer/security{
-	network = list("SS13","Telecomms","Research Outpost","Mining Outpost","ERT","CentComm","Thunderdome");
-	dir = 1
+	dir = 1;
+	network = list("SS13","Telecomms","Research Outpost","Mining Outpost","ERT","CentComm","Thunderdome")
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -28768,6 +28889,27 @@
 	},
 /turf/simulated/floor/wood,
 /area/centcom/zone1)
+"otr" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/door_control{
+	id = "CC_jail_cell_4";
+	name = "Prison Cell 4 Shutter Control";
+	pixel_x = -24;
+	pixel_y = -8
+	},
+/obj/machinery/door_control{
+	id = "CC_jail_cell_3";
+	name = "Prison Cell 3 Shutter Control";
+	pixel_x = -24;
+	pixel_y = 8
+	},
+/turf/simulated/floor/plasteel{
+	dir = 8;
+	icon_state = "darkredalt"
+	},
+/area/centcom/jail)
 "otA" = (
 /obj/machinery/light{
 	dir = 8
@@ -28917,7 +29059,9 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/chem_dispenser/soda,
+/obj/machinery/chem_dispenser/soda{
+	pixel_y = 6
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -29044,8 +29188,8 @@
 /area/centcom/zone3)
 "oAE" = (
 /obj/machinery/computer/shuttle/ferry/request{
-	req_access = list(101);
-	dir = 4
+	dir = 4;
+	req_access = list(101)
 	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/transport)
@@ -29377,6 +29521,21 @@
 	},
 /turf/simulated/floor/carpet,
 /area/centcom/evac)
+"oIR" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/door_control{
+	id = "CC_jail_cell_11";
+	name = "Prison Cell 11 Shutter Control";
+	pixel_x = 24;
+	pixel_y = -8
+	},
+/turf/simulated/floor/plasteel{
+	dir = 4;
+	icon_state = "darkredalt"
+	},
+/area/centcom/jail)
 "oIW" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -29730,8 +29889,8 @@
 	layer = 2
 	},
 /obj/machinery/door/poddoor/shutters/invincible{
-	id_tag = "ert_vis_turret";
-	dir = 2
+	dir = 2;
+	id_tag = "ert_vis_turret"
 	},
 /turf/simulated/floor/plating,
 /area/centcom/specops)
@@ -30008,8 +30167,8 @@
 	req_access = list(104,109)
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/centcom/specops)
 "oTM" = (
@@ -30276,17 +30435,17 @@
 /obj/effect/decal/warning_stripes/red,
 /obj/machinery/door/poddoor/shutters/invincible{
 	armor = list("melee"=100,"bullet"=100,"laser"=100,"energy"=100,"bomb"=100,"bio"=100,"rad"=100,"fire"=100,"acid"=100);
+	density = 0;
 	dir = 1;
 	id_tag = "ERT_armory_lvl1";
 	layer = 5;
+	locked = 1;
 	name = "Armory Level 1";
-	opacity = 0;
-	density = 0;
-	locked = 1
+	opacity = 0
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "darkgreen";
-	dir = 4
+	dir = 4;
+	icon_state = "darkgreen"
 	},
 /area/centcom/specops)
 "pcw" = (
@@ -31021,8 +31180,8 @@
 /area/space)
 "pwb" = (
 /turf/simulated/floor/indestructible{
-	icon_state = "darkblue";
-	dir = 4
+	dir = 4;
+	icon_state = "darkblue"
 	},
 /area/centcom/specops)
 "pwr" = (
@@ -31083,6 +31242,27 @@
 	icon_state = "floor12"
 	},
 /area/shuttle/syndicate)
+"pxX" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/door_control{
+	id = "CC_jail_cell_9";
+	name = "Prison Cell 9 Shutter Control";
+	pixel_x = 24;
+	pixel_y = -8
+	},
+/obj/machinery/door_control{
+	id = "CC_jail_cell_10";
+	name = "Prison Cell 10 Shutter Control";
+	pixel_x = 24;
+	pixel_y = 8
+	},
+/turf/simulated/floor/plasteel{
+	dir = 4;
+	icon_state = "darkredalt"
+	},
+/area/centcom/jail)
 "pyh" = (
 /obj/structure/shuttle/engine/platform{
 	dir = 1;
@@ -31107,11 +31287,11 @@
 /area/syndicate_mothership/outside)
 "pzx" = (
 /obj/structure/table,
-/obj/machinery/chem_dispenser/beer/upgraded{
-	pixel_y = 4
-	},
 /obj/structure/sign/barsign{
 	pixel_y = 32
+	},
+/obj/machinery/chem_dispenser/soda/upgraded{
+	pixel_y = 8
 	},
 /turf/simulated/floor/wood,
 /area/centcom/zone1)
@@ -31413,6 +31593,9 @@
 /area/syndicate_mothership/infteam)
 "pFP" = (
 /obj/machinery/vending/boozeomat,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/centcom/zone1)
 "pFT" = (
@@ -31606,8 +31789,10 @@
 /turf/simulated/floor/carpet/black,
 /area/syndicate_mothership/control)
 "pMI" = (
-/obj/structure/chair/stool/bar,
 /obj/structure/window/reinforced,
+/obj/structure/chair/stool/bar{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/centcom/zone1)
 "pMT" = (
@@ -32274,8 +32459,8 @@
 "qbr" = (
 /obj/structure/table/reinforced,
 /obj/machinery/chem_dispenser/beer/upgraded{
-	pixel_y = 4;
-	dir = 1
+	dir = 1;
+	pixel_y = 4
 	},
 /turf/simulated/floor/carpet/black,
 /area/shuttle/administration)
@@ -32378,8 +32563,8 @@
 /obj/mecha/combat/marauder/loaded,
 /obj/effect/decal/warning_stripes/yellow,
 /turf/simulated/floor/indestructible{
-	icon_state = "darkbrown";
-	dir = 5
+	dir = 5;
+	icon_state = "darkbrown"
 	},
 /area/centcom/specops)
 "qdI" = (
@@ -32395,10 +32580,10 @@
 /obj/machinery/door_control{
 	id = "CC_BSA";
 	name = "BSA room";
+	pixel_x = -24;
 	pixel_y = 24;
 	req_access = list(114);
-	wires = 1;
-	pixel_x = -24
+	wires = 1
 	},
 /turf/simulated/floor/carpet/black,
 /area/centcom/specops)
@@ -32446,8 +32631,8 @@
 "qfX" = (
 /obj/structure/table/reinforced,
 /obj/machinery/chem_dispenser/soda/upgraded{
-	pixel_y = 4;
-	dir = 1
+	dir = 1;
+	pixel_y = 4
 	},
 /obj/item/storage/box/drinkingglasses{
 	pixel_x = 1;
@@ -32621,8 +32806,8 @@
 	},
 /obj/effect/decal/warning_stripes/yellow,
 /turf/simulated/floor/indestructible{
-	icon_state = "darkbrown";
-	dir = 9
+	dir = 9;
+	icon_state = "darkbrown"
 	},
 /area/centcom/specops)
 "qlp" = (
@@ -33047,8 +33232,8 @@
 	pixel_x = -32
 	},
 /obj/machinery/computer/security{
-	network = list("SS13","Research Outpost","Mining Outpost","Telecomms");
-	dir = 4
+	dir = 4;
+	network = list("SS13","Research Outpost","Mining Outpost","Telecomms")
 	},
 /turf/simulated/floor/plasteel{
 	dir = 9;
@@ -33103,6 +33288,12 @@
 	},
 /turf/simulated/floor/indestructible/grass,
 /area/syndicate_mothership/outside)
+"qwW" = (
+/obj/structure/chair/stool/bar{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/centcom/zone1)
 "qxb" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	anchored = 1;
@@ -33997,6 +34188,14 @@
 	icon_state = "dark"
 	},
 /area/shuttle/syndicate)
+"qRK" = (
+/obj/machinery/door/poddoor/shutters/invincible{
+	dir = 1;
+	id_tag = "CC_jail_cell_7";
+	name = "Central Command Jail"
+	},
+/turf/simulated/wall/indestructible/fakeglass,
+/area/centcom/jail)
 "qRN" = (
 /obj/structure/table/wood/fancy/black,
 /obj/item/storage/box/matches,
@@ -34538,8 +34737,8 @@
 /area/syndicate_mothership)
 "rey" = (
 /turf/simulated/floor/indestructible{
-	icon_state = "darkgreen";
-	dir = 8
+	dir = 8;
+	icon_state = "darkgreen"
 	},
 /area/centcom/specops)
 "reF" = (
@@ -34596,10 +34795,6 @@
 /turf/simulated/floor/carpet/black,
 /area/centcom/zone1)
 "rgg" = (
-/obj/structure/toilet{
-	dir = 8;
-	name = "Трон старшего администратора"
-	},
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -34610,6 +34805,9 @@
 	pixel_y = 25;
 	specialfunctions = 4;
 	wires = 1
+	},
+/obj/structure/toilet{
+	dir = 8
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
@@ -34790,15 +34988,8 @@
 /turf/simulated/floor/carpet/black,
 /area/centcom/specops)
 "rkU" = (
-/obj/structure/toilet{
-	dir = 8;
-	pixel_y = 8
-	},
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = 15;
-	pixel_y = 10
-	},
+/obj/effect/landmark/prisonwarp,
+/obj/effect/landmark/prisonwarp,
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -35414,8 +35605,8 @@
 	frequency = 2000;
 	master_tag = "CC-OP4";
 	name = "CC-OP4-INT";
-	req_access = list(109);
-	pixel_y = 24
+	pixel_y = 24;
+	req_access = list(109)
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -35756,6 +35947,20 @@
 	},
 /turf/simulated/floor/plating/airless,
 /area/space)
+"rHl" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Prison Cell";
+	opacity = 1
+	},
+/obj/effect/decal/warning_stripes/red,
+/obj/machinery/door/poddoor/shutters/invincible{
+	id_tag = "CC_jail_cell_4";
+	name = "Central Command Jail"
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
+/area/centcom/jail)
 "rHo" = (
 /obj/structure/mopbucket,
 /obj/item/mop,
@@ -35776,8 +35981,8 @@
 /obj/mecha/combat/marauder/loaded,
 /obj/effect/decal/warning_stripes/yellow,
 /turf/simulated/floor/indestructible{
-	icon_state = "darkbrown";
-	dir = 1
+	dir = 1;
+	icon_state = "darkbrown"
 	},
 /area/centcom/specops)
 "rHU" = (
@@ -35938,9 +36143,9 @@
 /obj/item/pen/multi/fountain,
 /obj/machinery/door_control{
 	id = "ert_vis_turret";
+	name = "Windows control";
 	pixel_x = -10;
 	pixel_y = 8;
-	name = "Windows control";
 	req_access = list(114)
 	},
 /obj/item/clothing/mask/cigarette/cigar/cohiba,
@@ -35962,9 +36167,7 @@
 "rMa" = (
 /obj/machinery/door/poddoor/shutters/invincible{
 	dir = 8;
-	id_tag = "CC_space_jail_cell";
-	layer = 5;
-	locked = 1;
+	id_tag = "CC_jail_cell_11";
 	name = "Central Command Jail"
 	},
 /turf/simulated/wall/indestructible/fakeglass,
@@ -36905,9 +37108,6 @@
 /turf/simulated/floor/carpet/black,
 /area/centcom/zone2)
 "siO" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
 /obj/structure/table/wood/fancy/black,
 /obj/item/reagent_containers/food/drinks/shaker,
 /turf/simulated/floor/carpet/black,
@@ -37462,6 +37662,14 @@
 	icon_state = "dark"
 	},
 /area/shuttle/siberia)
+"swC" = (
+/obj/machinery/door/poddoor/shutters/invincible{
+	dir = 8;
+	id_tag = "CC_jail_cell_10";
+	name = "Central Command Jail"
+	},
+/turf/simulated/wall/indestructible/fakeglass,
+/area/centcom/jail)
 "sxa" = (
 /obj/machinery/computer/shuttle/sit,
 /turf/simulated/floor/carpet,
@@ -37668,8 +37876,8 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/centcom/specops)
 "sBs" = (
@@ -37756,6 +37964,12 @@
 	icon_state = "darkfull"
 	},
 /area/syndicate_mothership)
+"sCJ" = (
+/obj/structure/chair/stool/bar{
+	dir = 4
+	},
+/turf/simulated/floor/carpet,
+/area/centcom/zone1)
 "sCS" = (
 /obj/machinery/door/airlock/command/glass{
 	name = "Escape Shuttle Cockpit";
@@ -37944,8 +38158,8 @@
 /area/shuttle/escape)
 "sJY" = (
 /obj/machinery/computer/account_database{
-	name = "Admin Accounts Database";
-	dir = 8
+	dir = 8;
+	name = "Admin Accounts Database"
 	},
 /obj/item/radio/intercom/specops{
 	pixel_x = 32
@@ -38629,12 +38843,19 @@
 /area/syndicate_mothership/infteam)
 "sZy" = (
 /obj/structure/rack/gunrack,
+/obj/item/gun/energy/pulse/destroyer/annihilator{
+	pixel_x = 6
+	},
+/obj/item/gun/energy/pulse/destroyer/annihilator{
+	pixel_x = 3
+	},
 /obj/item/gun/energy/pulse/destroyer/annihilator,
-/obj/item/gun/energy/pulse/destroyer/annihilator,
-/obj/item/gun/energy/pulse/destroyer/annihilator,
-/obj/item/gun/energy/pulse/destroyer/annihilator,
-/obj/item/gun/energy/pulse/destroyer/annihilator,
-/obj/item/gun/energy/pulse/destroyer/annihilator,
+/obj/item/gun/energy/pulse/destroyer/annihilator{
+	pixel_x = -3
+	},
+/obj/item/gun/energy/pulse/destroyer/annihilator{
+	pixel_x = -6
+	},
 /turf/simulated/floor/carpet/black,
 /area/centcom/specops)
 "sZA" = (
@@ -39272,12 +39493,9 @@
 	},
 /area/syndicate_mothership/infteam)
 "tnc" = (
-/obj/structure/window/full/reinforced{
-	armor = list("melee"=80,"bullet"=80,"laser"=0,"energy"=0,"bomb"=80,"bio"=100,"rad"=100,"fire"=80,"acid"=100);
-	layer = 5
-	},
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/brflowers,
+/obj/structure/window/full/basic,
 /turf/simulated/floor/grass,
 /area/centcom/specops)
 "tnt" = (
@@ -39876,6 +40094,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/centcom/specops)
+"tBL" = (
+/obj/machinery/door/poddoor/shutters/invincible{
+	id_tag = "CC_jail_cell_4";
+	name = "Central Command Jail"
+	},
+/turf/simulated/wall/indestructible/fakeglass,
+/area/centcom/jail)
 "tBM" = (
 /obj/effect/turf_decal{
 	dir = 5;
@@ -40805,9 +41030,11 @@
 	},
 /area/centcom/specops)
 "tWu" = (
-/obj/structure/chair/stool/bar,
 /obj/structure/curtain/open/shower/security{
 	pixel_x = -32
+	},
+/obj/structure/chair/stool/bar{
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/centcom/zone1)
@@ -40943,10 +41170,29 @@
 /turf/simulated/floor/shuttle,
 /area/shuttle/pod_2)
 "uam" = (
-/obj/effect/landmark/prisonwarp,
-/obj/effect/landmark/prisonwarp,
+/obj/structure/sink{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
+	},
+/area/centcom/jail)
+"uax" = (
+/obj/machinery/light,
+/obj/machinery/door_control{
+	id = "CC_jail_cell_5";
+	name = "Prison Cell 5 Shutter Control";
+	pixel_x = -8;
+	pixel_y = -24
+	},
+/obj/machinery/door_control{
+	id = "CC_jail_cell_6";
+	name = "Prison Cell 6 Shutter Control";
+	pixel_x = 8;
+	pixel_y = -24
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "darkredalt"
 	},
 /area/centcom/jail)
 "uay" = (
@@ -41239,10 +41485,6 @@
 	},
 /area/centcom/zone2)
 "ugQ" = (
-/obj/structure/toilet{
-	dir = 8;
-	name = "Трон старшего администратора"
-	},
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -41253,6 +41495,9 @@
 	pixel_y = 25;
 	specialfunctions = 4;
 	wires = 1
+	},
+/obj/structure/toilet{
+	dir = 8
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
@@ -41960,8 +42205,8 @@
 /area/syndicate_mothership)
 "uxZ" = (
 /obj/item/toy/plushie/orange_cat{
-	name = "savior cat plushie";
-	desc = "Этот котик и его подруга однажды спасли станцию."
+	desc = "Этот котик и его подруга однажды спасли станцию.";
+	name = "savior cat plushie"
 	},
 /turf/simulated/floor/holofloor/space,
 /area/centcom/specops)
@@ -42366,6 +42611,12 @@
 	icon_state = "dark"
 	},
 /area/centcom/zone2)
+"uGl" = (
+/obj/structure/chair/stool/bar{
+	dir = 8
+	},
+/turf/simulated/floor/carpet,
+/area/centcom/zone1)
 "uGv" = (
 /obj/structure/chair/comfy/shuttle/dark{
 	dir = 4
@@ -42653,6 +42904,21 @@
 	icon_state = "darkfull"
 	},
 /area/syndicate_mothership)
+"uMV" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Prison Cell";
+	opacity = 1
+	},
+/obj/effect/decal/warning_stripes/red,
+/obj/machinery/door/poddoor/shutters/invincible{
+	dir = 1;
+	id_tag = "CC_jail_cell_8";
+	name = "Central Command Jail"
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
+/area/centcom/jail)
 "uMX" = (
 /obj/effect/turf_decal{
 	dir = 4;
@@ -42773,7 +43039,9 @@
 /area/shuttle/escape)
 "uOC" = (
 /obj/structure/table/reinforced,
-/obj/machinery/chem_dispenser/soda,
+/obj/machinery/chem_dispenser/soda{
+	dir = 4
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -42835,8 +43103,8 @@
 	switchcount = 50
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "darkbrown";
-	dir = 1
+	dir = 1;
+	icon_state = "darkbrown"
 	},
 /area/centcom/specops)
 "uQK" = (
@@ -43009,8 +43277,8 @@
 /area/centcom/specops)
 "uTC" = (
 /turf/simulated/floor/indestructible{
-	icon_state = "darkbrown";
-	dir = 1
+	dir = 1;
+	icon_state = "darkbrown"
 	},
 /area/centcom/specops)
 "uUr" = (
@@ -44145,11 +44413,11 @@
 /obj/effect/decal/warning_stripes/yellow,
 /obj/effect/decal/warning_stripes/red,
 /obj/machinery/door/poddoor/impassable{
-	id_tag = "admin_armory";
-	req_access = list(114);
-	locked = 1;
 	density = 0;
-	opacity = 0
+	id_tag = "admin_armory";
+	locked = 1;
+	opacity = 0;
+	req_access = list(114)
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -44294,6 +44562,15 @@
 "vAA" = (
 /turf/simulated/wall/shuttle,
 /area/shuttle/escape)
+"vAK" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
+/area/centcom/jail)
 "vAU" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 30;
@@ -44670,6 +44947,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/syndicate_mothership/cargo)
+"vMu" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Prison Cell";
+	opacity = 1
+	},
+/obj/effect/decal/warning_stripes/red,
+/obj/machinery/door/poddoor/shutters/invincible{
+	dir = 8;
+	id_tag = "CC_jail_cell_9";
+	name = "Central Command Jail"
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
+/area/centcom/jail)
 "vMC" = (
 /obj/structure/chair/comfy/shuttle/dark{
 	dir = 8
@@ -44805,8 +45097,8 @@
 /area/syndicate_mothership/control)
 "vPx" = (
 /turf/simulated/floor/indestructible{
-	icon_state = "darkgreen";
-	dir = 4
+	dir = 4;
+	icon_state = "darkgreen"
 	},
 /area/centcom/specops)
 "vPy" = (
@@ -44964,8 +45256,8 @@
 /area/shuttle/escape)
 "vSX" = (
 /obj/structure/statue/diamond/ai2{
-	name = "statue of the malfuction AI core";
-	desc = "Этот злой ИИ чуть не уничтожил всю станцию, его имя говорило что-то про таяров ."
+	desc = "Этот злой ИИ чуть не уничтожил всю станцию, его имя говорило что-то про таяров .";
+	name = "statue of the malfuction AI core"
 	},
 /turf/simulated/floor/plating,
 /area/centcom/specops)
@@ -45211,10 +45503,10 @@
 /obj/machinery/door_control{
 	id = "CC_BUDKA";
 	name = "Overwatch Cabinet";
-	req_access = list(114);
-	wires = 1;
+	pixel_x = -24;
 	pixel_y = 24;
-	pixel_x = -24
+	req_access = list(114);
+	wires = 1
 	},
 /turf/simulated/floor/carpet/black,
 /area/centcom/specops)
@@ -45399,7 +45691,9 @@
 	},
 /area/syndicate_mothership/infteam)
 "wcz" = (
-/obj/structure/dresser,
+/obj/structure/toilet{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -46008,8 +46302,8 @@
 /obj/effect/decal/warning_stripes/white/hollow,
 /obj/effect/decal/warning_stripes/red,
 /obj/machinery/door/poddoor/shutters/invincible{
-	id_tag = "ERT_armory_lvl2";
 	dir = 8;
+	id_tag = "ERT_armory_lvl2";
 	name = "Armory Level 2"
 	},
 /obj/effect/decal/warning_stripes/west,
@@ -46353,10 +46647,10 @@
 "wAL" = (
 /obj/machinery/door_control{
 	id = "admin_armory";
-	pixel_y = 32;
+	name = "Armoury control";
 	pixel_x = 5;
-	req_access = list(104,109,114);
-	name = "Armoury control"
+	pixel_y = 32;
+	req_access = list(104,109,114)
 	},
 /turf/simulated/floor/carpet/black,
 /area/centcom/specops)
@@ -46568,11 +46862,16 @@
 	},
 /area/syndicate_mothership)
 "wGM" = (
-/obj/structure/window/full/reinforced{
-	layer = 2
+/obj/structure/bed{
+	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/centcom/evac)
+/obj/structure/curtain/open,
+/obj/item/bedsheet/medical{
+	dir = 1;
+	level = 1.4
+	},
+/turf/simulated/floor/carpet/cyan,
+/area/centcom/zone1)
 "wHu" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 8;
@@ -48331,15 +48630,15 @@
 "xBe" = (
 /obj/machinery/door/window/brigdoor{
 	dir = 1;
-	req_access = list(104,109);
-	pixel_y = 2
+	pixel_y = 2;
+	req_access = list(104,109)
 	},
 /obj/machinery/suit_storage_unit/standard_unit/ertamber{
 	req_access = list(104,109)
 	},
 /turf/simulated/floor/indestructible{
-	icon_state = "darkgreen";
-	dir = 10
+	dir = 10;
+	icon_state = "darkgreen"
 	},
 /area/centcom/specops)
 "xBl" = (
@@ -48433,8 +48732,8 @@
 	},
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/flashbang,
 /turf/simulated/floor/indestructible{
-	icon_state = "darkbrown";
-	dir = 8
+	dir = 8;
+	icon_state = "darkbrown"
 	},
 /area/centcom/specops)
 "xDA" = (
@@ -48497,13 +48796,13 @@
 /obj/effect/decal/warning_stripes/red,
 /obj/machinery/door/poddoor/shutters/invincible{
 	armor = list("melee"=100,"bullet"=100,"laser"=100,"energy"=100,"bomb"=100,"bio"=100,"rad"=100,"fire"=100,"acid"=100);
+	density = 0;
 	dir = 1;
 	id_tag = "ERT_armory_lvl1";
 	layer = 5;
+	locked = 1;
 	name = "Armory Level 1";
-	opacity = 0;
-	density = 0;
-	locked = 1
+	opacity = 0
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -48733,10 +49032,6 @@
 	},
 /area/centcom/jail)
 "xKM" = (
-/obj/structure/toilet{
-	dir = 4;
-	name = "Трон старшего администратора"
-	},
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -48747,6 +49042,9 @@
 	pixel_y = 25;
 	specialfunctions = 4;
 	wires = 1
+	},
+/obj/structure/toilet{
+	dir = 4
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
@@ -49781,6 +50079,20 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
+"yfE" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Prison Cell";
+	opacity = 1
+	},
+/obj/effect/decal/warning_stripes/red,
+/obj/machinery/door/poddoor/shutters/invincible{
+	id_tag = "CC_jail_cell_2";
+	name = "Central Command Jail"
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
+/area/centcom/jail)
 "yfV" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor{
@@ -49922,9 +50234,32 @@
 	icon = 'icons/turf/walls/fake_plastitanium_glass.dmi'
 	},
 /area/syndicate_mothership)
+"ykP" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Prison Cell";
+	opacity = 1
+	},
+/obj/effect/decal/warning_stripes/red,
+/obj/machinery/door/poddoor/shutters/invincible{
+	dir = 1;
+	id_tag = "CC_jail_cell_6";
+	name = "Central Command Jail"
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "white"
+	},
+/area/centcom/jail)
 "ykS" = (
 /turf/simulated/floor/indestructible/snow,
 /area/ninja/outside)
+"ylj" = (
+/obj/machinery/door/poddoor/shutters/invincible{
+	dir = 8;
+	id_tag = "CC_jail_cell_9";
+	name = "Central Command Jail"
+	},
+/turf/simulated/wall/indestructible/fakeglass,
+/area/centcom/jail)
 "yls" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced,
@@ -84922,21 +85257,21 @@ pqb
 pqb
 pqb
 pqb
-oVf
+kTy
 vDj
-oVf
+kTy
 pqb
-oVf
+kTy
 vDj
-oVf
+kTy
 pqb
-oVf
+kTy
 vDj
-oVf
+kTy
 pqb
-oVf
+kTy
 vDj
-oVf
+kTy
 fAN
 fAN
 fAN
@@ -85179,20 +85514,20 @@ pqb
 pqb
 pqb
 pqb
-etr
 myg
+rkU
 wcz
 pqb
-etr
 myg
+rkU
 wcz
 pqb
-etr
 myg
+rkU
 wcz
 pqb
-etr
 myg
+rkU
 wcz
 pqb
 pqb
@@ -85436,19 +85771,19 @@ pqb
 tSR
 pqb
 pqb
-kTy
+jeY
 myg
 uam
 pqb
-kTy
+jeY
 myg
 uam
 pqb
-kTy
+jeY
 myg
 uam
 pqb
-kTy
+jeY
 myg
 uam
 pqb
@@ -85697,17 +86032,17 @@ iXj
 crJ
 iXj
 pqb
-iXj
-crJ
-iXj
+hYU
+yfE
+hYU
 pqb
-iXj
-crJ
-iXj
+jPp
+cKL
+jPp
 pqb
-iXj
-crJ
-iXj
+tBL
+rHl
+tBL
 pqb
 pqb
 pqb
@@ -85953,7 +86288,7 @@ pqb
 imw
 gcl
 uVO
-aji
+iDN
 uVO
 xbE
 uVO
@@ -85961,14 +86296,14 @@ aji
 uVO
 uYs
 uVO
-aji
+otr
 uVO
 hEY
 jIK
 efW
-uam
-wcz
-oVf
+vAK
+iMt
+kTy
 pqb
 fAN
 uWB
@@ -86224,7 +86559,7 @@ fXZ
 fqy
 kvN
 myg
-myg
+rkU
 ovc
 pqb
 fAN
@@ -86481,7 +86816,7 @@ eNf
 trB
 efW
 nyo
-rkU
+myg
 oVf
 pqb
 fAN
@@ -86735,7 +87070,7 @@ myp
 myp
 nQl
 eNf
-xAZ
+uax
 pqb
 pqb
 pqb
@@ -86993,10 +87328,10 @@ myp
 nQl
 eNf
 trB
-efW
-uam
-wcz
-oVf
+aud
+vAK
+iMt
+kTy
 pqb
 fAN
 uWB
@@ -87250,9 +87585,9 @@ myp
 xKI
 eNf
 awK
-kvN
+ykP
 myg
-myg
+rkU
 ovc
 pqb
 fAN
@@ -87507,9 +87842,9 @@ myp
 nQl
 eNf
 trB
-efW
+aud
 nyo
-rkU
+myg
 oVf
 pqb
 fAN
@@ -88021,10 +88356,10 @@ txY
 hvZ
 eNf
 trB
-efW
-uam
-wcz
-oVf
+qRK
+vAK
+iMt
+kTy
 pqb
 fAN
 pqb
@@ -88278,9 +88613,9 @@ ipn
 ltP
 eNf
 viw
-kvN
+hCu
 myg
-myg
+rkU
 ovc
 pqb
 fAN
@@ -88535,9 +88870,9 @@ ipn
 sBh
 eNf
 trB
-efW
+qRK
 nyo
-rkU
+myg
 oVf
 pqb
 fAN
@@ -88791,7 +89126,7 @@ ipn
 gJq
 sBh
 eNf
-xAZ
+bva
 pqb
 pqb
 pqb
@@ -89049,10 +89384,10 @@ bSd
 bZj
 eNf
 trB
-efW
-uam
-wcz
-oVf
+fSD
+vAK
+iMt
+kTy
 pqb
 fAN
 pqb
@@ -89306,9 +89641,9 @@ uVO
 uVO
 rWg
 oNj
-kvN
+uMV
 myg
-myg
+rkU
 ovc
 pqb
 fAN
@@ -89480,9 +89815,9 @@ nWB
 nWB
 wrT
 kff
-kvI
+wGM
 blm
-kvI
+wGM
 onc
 onc
 onc
@@ -89551,7 +89886,7 @@ tGz
 mxj
 myp
 ylW
-qED
+oIR
 sSK
 dAU
 blN
@@ -89559,13 +89894,13 @@ qED
 sSK
 dAU
 iGp
-qED
+pxX
 sSK
 xUV
 gRK
-efW
+fSD
 nyo
-rkU
+myg
 oVf
 pqb
 fAN
@@ -89740,7 +90075,7 @@ xQp
 rBp
 rBp
 rBp
-kvI
+wGM
 onc
 mES
 pVt
@@ -89813,13 +90148,13 @@ rMa
 htR
 rMa
 pqb
-rMa
-htR
-rMa
+swC
+odV
+swC
 pqb
-rMa
-htR
-rMa
+ylj
+vMu
+ylj
 pqb
 pqb
 pqb
@@ -90324,15 +90659,15 @@ myp
 trB
 pqb
 etr
-myg
+rkU
 wcz
 pqb
 etr
-myg
+rkU
 wcz
 pqb
 etr
-myg
+rkU
 wcz
 pqb
 pqb
@@ -97449,7 +97784,7 @@ onc
 pzx
 sAi
 tWd
-jEu
+qwW
 ihM
 cgt
 tRb
@@ -97706,7 +98041,7 @@ onc
 cVM
 sAi
 gmC
-jEu
+qwW
 ihM
 xPB
 lQY
@@ -97963,7 +98298,7 @@ onc
 pFP
 sAi
 sRv
-jEu
+qwW
 ihM
 dag
 aVH
@@ -98217,7 +98552,7 @@ uLx
 rpk
 qjT
 onc
-jvq
+wyU
 sAi
 wUF
 wUF
@@ -98477,7 +98812,7 @@ onc
 qXZ
 sAi
 gmC
-jEu
+qwW
 ihM
 kAE
 dsj
@@ -98734,7 +99069,7 @@ onc
 uRM
 sAi
 tWd
-jEu
+qwW
 ihM
 hxR
 dsj
@@ -98991,7 +99326,7 @@ onc
 xTi
 sAi
 eCI
-jEu
+qwW
 ihM
 ocG
 aVH
@@ -99248,7 +99583,7 @@ onc
 byB
 sAi
 tWd
-jEu
+qwW
 ihM
 xPB
 lQY
@@ -99505,7 +99840,7 @@ onc
 cte
 wUF
 gmC
-jEu
+qwW
 ihM
 cDE
 kKf
@@ -99762,7 +100097,7 @@ onc
 onc
 xHc
 tWd
-jEu
+qwW
 pNo
 ihM
 ihM
@@ -100256,9 +100591,9 @@ gdL
 qwy
 fkh
 phM
-dwJ
-dwJ
-dwJ
+lNA
+lNA
+lNA
 dZA
 phM
 fkh
@@ -101036,7 +101371,7 @@ qFF
 dZA
 dZA
 skw
-wGM
+wLM
 tqy
 pyu
 rpk
@@ -101049,8 +101384,8 @@ onc
 kAE
 tak
 fPG
-saA
-saA
+sCJ
+sCJ
 kAE
 tak
 oEQ
@@ -101293,7 +101628,7 @@ dZA
 dZA
 gam
 phM
-wGM
+wLM
 tqy
 pyu
 rpk
@@ -101550,7 +101885,7 @@ gdL
 gdL
 dZA
 kiX
-wGM
+wLM
 pyu
 pyu
 fWV
@@ -101807,13 +102142,13 @@ gdL
 gdL
 gdL
 dZA
-wGM
+wLM
 pyu
 pyu
 oga
 onc
 uNF
-jEu
+qwW
 wUF
 ycL
 aZv
@@ -102064,13 +102399,13 @@ gdL
 qBE
 gdL
 gdL
-wGM
+wLM
 tqy
 pyu
 rpk
 onc
 tWd
-jEu
+qwW
 wUF
 kAE
 aTZ
@@ -102078,7 +102413,7 @@ bBI
 eNm
 fPG
 ljs
-saA
+uGl
 kAE
 tak
 xSv
@@ -102321,7 +102656,7 @@ gdL
 gdL
 gdL
 gdL
-wGM
+wLM
 ofi
 ofi
 ofi
@@ -102578,7 +102913,7 @@ gdL
 gdL
 gdL
 gdL
-wGM
+wLM
 foN
 pyu
 hQx
@@ -102835,7 +103170,7 @@ gdL
 gdL
 dZA
 dZA
-wGM
+wLM
 foN
 pyu
 pyu
@@ -103092,7 +103427,7 @@ qBE
 fMS
 dZA
 gam
-wGM
+wLM
 foN
 pyu
 cPM
@@ -103333,8 +103668,8 @@ mVX
 wLM
 rUx
 hOr
-hOr
-hOr
+jvq
+jvq
 fkh
 fkh
 rLr
@@ -103349,7 +103684,7 @@ gdL
 gdL
 gdL
 gdL
-wGM
+wLM
 foN
 pyu
 gKX
@@ -103363,7 +103698,7 @@ pyu
 gKX
 qqV
 onc
-lNA
+rKE
 bBI
 eNm
 ePS
@@ -103606,7 +103941,7 @@ gdL
 gdL
 qBE
 gdL
-wGM
+wLM
 foN
 pyu
 gKX
@@ -103863,7 +104198,7 @@ gdL
 qBE
 skw
 gdL
-wGM
+wLM
 foN
 pyu
 gKX
@@ -103878,7 +104213,7 @@ gKX
 xMH
 onc
 cKy
-kcU
+fUg
 siO
 kcU
 daj
@@ -104120,7 +104455,7 @@ gdL
 gdL
 gam
 phM
-wGM
+wLM
 foN
 pyu
 gKX
@@ -105465,7 +105800,7 @@ mCQ
 ruu
 gjP
 asI
-aoB
+dVt
 vxR
 wrh
 fAg
