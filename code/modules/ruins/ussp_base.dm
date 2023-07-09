@@ -1,15 +1,15 @@
-/obj/effect/mob_spawn/human/ussp_general
-	name = "Генерал СССП"
-	mob_name = "Генерал СССП"
+/obj/effect/mob_spawn/human/ussp_captain
+	name = "KS13 USSP Captain"
+	mob_name = "KS13 USSP Captain"
 	roundstart = FALSE
 	death = FALSE
-	id_job = "Генерал СССП"
+	id_job = "USSP Captain"
 	icon = 'icons/obj/machines/cryogenic2.dmi'
-	icon_state = "cryo_s"
-	important_info = "Вы - не антагонист! Ваша задача наладить контакт со станцией."
-	description = "Вы - генерал СССП станции! Руководите оставшимся членами экипажа, и по возможности обустройте станцию и установите контакт с неизвестной станцией, которая находитья неподалёку от вас."
-	flavour_text = "Вы являетесь единственным выжившим главнокомандующим на разрушенной станции СССП. Вы должны отдавать приказы оставшемуся  персоналу и не дать ему умереть. Вашей первостепенной задачей будет попытка наладить контакт с неизвестной станцией, которая находится в бижайшем секторе от вас."
-	outfit = /datum/outfit/ussp_general
+	icon_state = "bodyscanner"
+	important_info = "Вы - не антагонист! Вам запрещено создавать ИИ."
+	description = "Вы - Генерал Космической Станции 13. Ввиду неизвестного происшествия, или от лишнего принятого на грудь, вы завалились в криокапсулу. Ваша задача выяснить что произошло, и по возможности связаться с Верховным Командованием."
+	flavour_text = "Вы являетесь Капитаном станции СССП. Ваша задача восстановить станцию после неизвестного ЧС."
+	outfit = /datum/outfit/ussp_captain
 	allow_prefs_prompt = TRUE
 	allow_species_pick = TRUE
 	allow_gender_pick = TRUE
@@ -19,45 +19,50 @@
 	min_hours = 10
 	exp_type = EXP_TYPE_LIVING
 
-/obj/item/card/id/ussp_general
-	name = "ussp general ID card"
-	desc = "An ID straight from Ussp."
-	icon_state = "centcom"
-	item_state = "centcomm-id"
-	registered_name = "Central Command"
-	assignment = "General"
-	access = list(USSP_BAR, USSP_SECURITY, USSP_COMAND)
+/obj/item/card/id/ussp_captain
+	name = "USSP Captain ID card"
+	desc = "An ID straight from USSP."
+	icon_state = "ussp"
+	item_state = "ussp"
+	registered_name = "USSP Captain"
+	assignment = "USSP Captain"
+	rank = "Soviet Admiral"
+	access = list(USSP_BAR, USSP_SECURITY, USSP_COMAND, 47, 76, 7)
 
-/datum/outfit/ussp_general/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/ussp_captain/pre_equip(mob/living/carbon/human/H)
 	if(H.dna.species)
 		var/race = H.dna.species.name
 		switch(race)
 			if("Human")
 				box = /obj/item/storage/box/soviet
+	H.add_language("Neo-Russkiya")
+	H.set_default_language(GLOB.all_languages["Neo-Russkiya"])
 
-/datum/outfit/ussp_general
-	name = "Генерал СССП"
-	r_hand = /obj/item/melee/energy/sword/saber
+/datum/outfit/ussp_captain
+	name = "USSP Captain"
 	uniform = /obj/item/clothing/under/sovietofficer
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
-	r_ear = /obj/item/radio/headset/alt/soviet // See del_types above
+	l_ear = /obj/item/radio/headset/alt/soviet // See del_types above
 	back = /obj/item/storage/backpack
+	l_pocket = /obj/item/melee/energy/sword/saber/red
 	r_pocket = /obj/item/gun/projectile/automatic/pistol
-	id = /obj/item/card/id/ussp_general
-	implants = list(/obj/item/implant/weapons_auth)
+	id = /obj/item/card/id/ussp_captain
+	head = /obj/item/clothing/head/sovietofficerhat
+	glasses = /obj/item/clothing/glasses/sunglasses
+	implants = list(/obj/item/implant/weapons_auth, /obj/item/organ/internal/cyberimp/eyes/hud/security)
 
 /obj/effect/mob_spawn/human/ussp_engineer
-	name = "Инженер СССП"
-	mob_name = "Инженер СССП"
+	name = "KS 13 USSP Engineer"
+	mob_name = "KS 13 USSP Engineer"
 	roundstart = FALSE
 	death = FALSE
-	id_job = "Инженер СССП"
+	id_job = "USSP Engineer"
 	icon = 'icons/obj/machines/cryogenic2.dmi'
-	icon_state = "cryo_s"
-	important_info = "Вы - не антагонист! Ваша задача наладить контакт со станцией."
-	description = "Вы - инженер СССП станции!Постарайтесь держать станцию на плаву!"
-	flavour_text = "Вы один из немногих выживших на разрушенной станции СССП. Вы лишь отрывками вспоминаете, как убегали от чего-то ужасного. Вашей задачей будет исполнять приказы адмирала. А также привести станцию в хоть какой-то порядок."
+	icon_state = "bodyscanner"
+	important_info = "Вы - не антагонист! Вам запрещено создавать ИИ."
+	description = "Вы - инженер СССП станции! Ваша задача - Привести станцию впорядок, после какого-то инцидента."
+	flavour_text = "Вы - Выживший инженер на Космической Станции 13. Вы мало помните что произошло, но вы знаете что вам нужно восстановить станцию."
 	outfit = /datum/outfit/ussp_engineer
 	allow_prefs_prompt = TRUE
 	allow_species_pick = TRUE
@@ -69,12 +74,13 @@
 	exp_type = EXP_TYPE_LIVING
 
 /obj/item/card/id/ussp_engineer
-	name = "ussp engineer ID card"
-	desc = "An ID straight from Ussp."
+	name = "USSP Engineer ID card"
+	desc = "An ID straight from USSP."
 	icon_state = "ussp"
 	item_state = "ussp"
-	registered_name = "Central Command"
-	assignment = "General"
+	registered_name = "USSP Engineer"
+	assignment = "USSP Engineer"
+	rank = "Soviet Soldier"
 	access = list(USSP_ENGINEERING)
 
 /datum/outfit/ussp_engineer/pre_equip(mob/living/carbon/human/H)
@@ -83,29 +89,32 @@
 		switch(race)
 			if("Human")
 				box = /obj/item/storage/box/soviet
+	H.add_language("Neo-Russkiya")
+	H.set_default_language(GLOB.all_languages["Neo-Russkiya"])
 
 /datum/outfit/ussp_engineer
-	name = "Инженер СССП"
+	name = "USSP Engineer"
 	uniform = /obj/item/clothing/under/soviet
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
-	r_ear = /obj/item/radio/headset/alt/soviet // See del_types above
+	l_ear = /obj/item/radio/headset/alt/soviet // See del_types above
 	back = /obj/item/storage/backpack
 	id = /obj/item/card/id/ussp_engineer
 	belt = /obj/item/storage/belt/utility/full/multitool
-	glasses = /obj/item/clothing/glasses/welding
+	glasses = /obj/item/clothing/glasses/meson/sunglasses
+	head = /obj/item/clothing/head/beret/eng
 
 /obj/effect/mob_spawn/human/ussp_security
-	name = "Сотрудник безопасности СССП"
-	mob_name = "Сотрудник безопасности СССП"
+	name = "KS 13 USSP Security Officer"
+	mob_name = "KS 13 USSP Security Officer"
 	roundstart = FALSE
 	death = FALSE
-	id_job = "Сотрудник безопасности СССП"
+	id_job = "USSP Security Officer"
 	icon = 'icons/obj/machines/cryogenic2.dmi'
-	icon_state = "cryo_s"
-	important_info = "Вы - не антагонист! Ваша задача наладить контакт со станцией."
-	description = "Вы - сотрудник безопасности СССП станции!Постарайтесь держать станцию на плаву!"
-	flavour_text = "Ранее вы следили за порядком на этой станции... Ранее. Вы смутно припоминаете, как вместе с другим офицером напились до отключки и впали в криосон. Теперь вашей задачей будет защита адмирала, а также починка станции."
+	icon_state = "bodyscanner"
+	important_info = "Вы - не антагонист! Ваша задача защищать Космическую Станцию 13."
+	description = "Вы - Офицер Безопасности Космической Станции 13! Постарайтесь держать станцию на плаву!"
+	flavour_text = "Вы являетесь Офицером Безопасности на Космической Станции 13. Ваша задача - Защищать станцию и её Экипаж. При спасении Экипажа вы отдаёте приоритет Капитану."
 	outfit = /datum/outfit/ussp_security
 	allow_prefs_prompt = TRUE
 	allow_species_pick = TRUE
@@ -117,12 +126,12 @@
 	exp_type = EXP_TYPE_LIVING
 
 /obj/item/card/id/ussp_security
-	name = "ussp security ID card"
-	desc = "An ID straight from Ussp."
+	name = "USSP Security ID card"
+	desc = "An ID straight from USSP."
 	icon_state = "ussp"
 	item_state = "ussp"
-	registered_name = "Central Command"
-	assignment = "General"
+	registered_name = "USSP Security Officer"
+	assignment = "USSP Security Officer"
 	access = list(USSP_BAR,USSP_SECURITY)
 
 /datum/outfit/ussp_security/pre_equip(mob/living/carbon/human/H)
@@ -131,28 +140,32 @@
 		switch(race)
 			if("Human")
 				box = /obj/item/storage/box/soviet
+	H.add_language("Neo-Russkiya")
+	H.set_default_language(GLOB.all_languages["Neo-Russkiya"])
 
 /datum/outfit/ussp_security
-	name = "Сотрудник безопасности СССП"
+	name = "USSP Security Officer"
 	uniform = /obj/item/clothing/under/soviet
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
-	r_ear = /obj/item/radio/headset/alt/soviet // See del_types above
+	l_ear = /obj/item/radio/headset/alt/soviet // See del_types above
 	back = /obj/item/storage/backpack
+	belt = /obj/item/storage/belt/security/sec
 	r_pocket = /obj/item/gun/projectile/automatic/pistol
 	id = /obj/item/card/id/ussp_security
+	head = /obj/item/clothing/head/sovietsidecap
 
 /obj/effect/mob_spawn/human/ussp_scientist
-	name = "Учённый СССП"
-	mob_name = "Учённый СССП"
+	name = "KS 13 USSP Scientist"
+	mob_name = "KS 13 USSP Scientist"
 	roundstart = FALSE
 	death = FALSE
-	id_job = "Учённый СССП"
+	id_job = "USSP Scientist"
 	icon = 'icons/obj/machines/cryogenic2.dmi'
-	icon_state = "cryo_s"
-	important_info = "Вы - не антагонист! Ваша задача наладить контакт со станцией."
-	description = "Вы - Учённый СССП станции! Постарайтесь выжить!"
-	flavour_text = "Вы смутно что то припоминаете. Ваша задача попытаться выжить."
+	icon_state = "bodyscanner"
+	important_info = "Вы - не антагонист! Ваша задача - выполнять исследования."
+	description = "Вы - Учённый СССП станции! Вы смутно припоминаете то, что из-за какого-то страшного инцидента на станции ушли в криосон. "
+	flavour_text = "Ваша задача выполнять исследования. Вы - Учёный! В конце-то концов. "
 	outfit = /datum/outfit/ussp_scientist
 	allow_prefs_prompt = TRUE
 	allow_species_pick = TRUE
@@ -164,13 +177,15 @@
 	exp_type = EXP_TYPE_LIVING
 
 /datum/outfit/ussp_scientist
-	name = "Учённый СССП"
+	name = "USSP Scientist"
 	uniform = /obj/item/clothing/under/soviet
 	shoes = /obj/item/clothing/shoes/combat
 	r_ear = /obj/item/radio/headset/alt/soviet // See del_types above
 	back = /obj/item/storage/backpack
 	r_pocket = /obj/item/stack/medical/bruise_pack
 	id = /obj/item/card/id/ussp_scientist
+	belt = /obj/item/reagent_scanner/adv
+	head = /obj/item/clothing/head/beret/sci
 
 /datum/outfit/ussp_scientist/pre_equip(mob/living/carbon/human/H)
 	if(H.dna.species)
@@ -178,13 +193,16 @@
 		switch(race)
 			if("Human")
 				box = /obj/item/storage/box/soviet
+	H.add_language("Neo-Russkiya")
+	H.set_default_language(GLOB.all_languages["Neo-Russkiya"])
 
 
 /obj/item/card/id/ussp_scientist
-	name = "ussp scientist ID card"
-	desc = "An ID straight from Ussp."
+	name = "USSP Scientist ID card"
+	desc = "An ID straight from USSP."
 	icon_state = "ussp"
 	item_state = "ussp"
-	registered_name = "Central Command"
-	assignment = "General"
-	access = list(USSP_ENGINEERING)
+	registered_name = "USSP Scientist"
+	assignment = "USSP Scientist"
+	rank = "Soviet Soldier"
+	access = list(USSP_ENGINEERING, 47, 76, 7)

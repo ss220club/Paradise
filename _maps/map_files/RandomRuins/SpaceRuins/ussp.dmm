@@ -247,6 +247,7 @@
 	icon_state = "docs_generic";
 	name = "USSP//NOFORN//TOP SECRET"
 	},
+/obj/item/circuitboard/rdconsole/public,
 /turf/simulated/floor/plasteel{
 	icon_state = "wood"
 	},
@@ -353,7 +354,7 @@
 /area/derelict/bridge)
 "aS" = (
 /obj/machinery/vending/cigarette/free{
-	slogan_list = list("Just remember! No capitalist.","Best enjoyed with Vodka!.","Smoke!","Nine out of ten USSP scientists agree, smoking reduces stress!","There's no cigarette like a Russian cigarette!","Cigarettes! Now with 100% less capitalism.")
+	slogan_list = list("Just  remember!  No  capitalist.","Best  enjoyed  with  Vodka!.","Smoke!","Nine  out  of  ten  USSP  scientists  agree,  smoking  reduces  stress!","There's  no  cigarette  like  a  Russian  cigarette!","Cigarettes!  Now  with  100%  less  capitalism.")
 	},
 /turf/simulated/floor/plasteel{
 	dir = 9;
@@ -2472,7 +2473,7 @@
 	name = "suspicious button"
 	},
 /obj/machinery/vending/cigarette/free{
-	slogan_list = list("Just remember! No capitalist.","Best enjoyed with Vodka!.","Smoke!","Nine out of ten USSP scientists agree, smoking reduces stress!","There's no cigarette like a Russian cigarette!","Cigarettes! Now with 100% less capitalism.")
+	slogan_list = list("Just  remember!  No  capitalist.","Best  enjoyed  with  Vodka!.","Smoke!","Nine  out  of  ten  USSP  scientists  agree,  smoking  reduces  stress!","There's  no  cigarette  like  a  Russian  cigarette!","Cigarettes!  Now  with  100%  less  capitalism.")
 	},
 /turf/simulated/floor/wood{
 	broken = 1;
@@ -3218,7 +3219,7 @@
 "hM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/vending/cigarette/free{
-	slogan_list = list("Just remember! No capitalist.","Best enjoyed with Vodka!.","Smoke!","Nine out of ten USSP scientists agree, smoking reduces stress!","There's no cigarette like a Russian cigarette!","Cigarettes! Now with 100% less capitalism.")
+	slogan_list = list("Just  remember!  No  capitalist.","Best  enjoyed  with  Vodka!.","Smoke!","Nine  out  of  ten  USSP  scientists  agree,  smoking  reduces  stress!","There's  no  cigarette  like  a  Russian  cigarette!","Cigarettes!  Now  with  100%  less  capitalism.")
 	},
 /turf/simulated/floor/plasteel{
 	dir = 5;
@@ -5172,7 +5173,7 @@
 /area/space/nearstation)
 "mY" = (
 /obj/machinery/vending/cigarette/free{
-	slogan_list = list("Just remember! No capitalist.","Best enjoyed with Vodka!.","Smoke!","Nine out of ten USSP scientists agree, smoking reduces stress!","There's no cigarette like a Russian cigarette!","Cigarettes! Now with 100% less capitalism.")
+	slogan_list = list("Just  remember!  No  capitalist.","Best  enjoyed  with  Vodka!.","Smoke!","Nine  out  of  ten  USSP  scientists  agree,  smoking  reduces  stress!","There's  no  cigarette  like  a  Russian  cigarette!","Cigarettes!  Now  with  100%  less  capitalism.")
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "bar"
@@ -6454,7 +6455,7 @@
 /area/derelict/arrival)
 "ql" = (
 /obj/machinery/vending/cigarette/free{
-	slogan_list = list("Just remember! No capitalist.","Best enjoyed with Vodka!.","Smoke!","Nine out of ten USSP scientists agree, smoking reduces stress!","There's no cigarette like a Russian cigarette!","Cigarettes! Now with 100% less capitalism.")
+	slogan_list = list("Just  remember!  No  capitalist.","Best  enjoyed  with  Vodka!.","Smoke!","Nine  out  of  ten  USSP  scientists  agree,  smoking  reduces  stress!","There's  no  cigarette  like  a  Russian  cigarette!","Cigarettes!  Now  with  100%  less  capitalism.")
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "redfull";
@@ -7382,7 +7383,7 @@
 /turf/simulated/wall/mineral/titanium/nodecon/nodiagonal,
 /area/derelict/bridge)
 "tz" = (
-/obj/effect/mob_spawn/human/ussp_general{
+/obj/effect/mob_spawn/human/ussp_captain{
 	dir = 8
 	},
 /turf/simulated/floor/plasteel{
@@ -8506,6 +8507,16 @@
 	icon_state = "blue"
 	},
 /area/derelict/crew_quarters)
+"Qh" = (
+/obj/effect/mob_spawn/human/ussp_scientist,
+/turf/simulated/floor/plasteel{
+	icon_state = "purplefull"
+	},
+/turf/simulated/wall/mineral/titanium/nodecon/tileblend{
+	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="purplefull");
+	icon_state = "4-i"
+	},
+/area/derelict/annex)
 "Qp" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -8821,9 +8832,6 @@
 	},
 /area/derelict/arrival)
 "YD" = (
-/obj/effect/mob_spawn/human/ussp_scientist{
-	dir = 4
-	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "purple"
@@ -11751,7 +11759,7 @@ ac
 ac
 ac
 dW
-eM
+Qh
 YD
 eP
 fj
