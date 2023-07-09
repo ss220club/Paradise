@@ -16376,8 +16376,10 @@
 	},
 /area/crew_quarters/dorms)
 "aSR" = (
-/obj/structure/chair/stool,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/chair/stool{
+	dir = 8
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -17232,7 +17234,9 @@
 	},
 /area/crew_quarters/dorms)
 "aVq" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 8
+	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
@@ -17815,7 +17819,9 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/dorms)
 "aWF" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 8
+	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
@@ -17886,7 +17892,9 @@
 /turf/simulated/floor/plasteel,
 /area/hallway/primary/central/ne)
 "aWP" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 4
+	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "caution"
@@ -20124,7 +20132,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel,
 /area/crew_quarters/dorms)
 "bdg" = (
@@ -20154,7 +20164,9 @@
 /turf/simulated/floor/plasteel,
 /area/bridge)
 "bdj" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 1
+	},
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
@@ -20166,7 +20178,9 @@
 /turf/simulated/floor/plasteel,
 /area/storage/primary)
 "bdl" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 1
+	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -22066,7 +22080,9 @@
 /area/hallway/secondary/entry)
 "bhR" = (
 /obj/structure/table,
-/obj/machinery/reagentgrinder,
+/obj/machinery/reagentgrinder{
+	pixel_y = 8
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -25399,7 +25415,9 @@
 /turf/simulated/floor/plasteel,
 /area/crew_quarters/locker)
 "bqv" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 4
+	},
 /turf/simulated/floor/plasteel,
 /area/crew_quarters/locker)
 "bqw" = (
@@ -32001,7 +32019,9 @@
 	},
 /area/crew_quarters/toilet)
 "bJV" = (
-/obj/structure/foodcart,
+/obj/structure/foodcart{
+	dir = 4
+	},
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
@@ -36710,6 +36730,19 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/office)
+"cbE" = (
+/obj/structure/table,
+/obj/item/clothing/glasses/hud/hydroponic{
+	pixel_y = 8
+	},
+/obj/item/clothing/glasses/hud/hydroponic{
+	pixel_y = 4
+	},
+/obj/item/clothing/glasses/hud/hydroponic,
+/turf/simulated/floor/plasteel{
+	icon_state = "dark"
+	},
+/area/hydroponics)
 "cbG" = (
 /obj/machinery/conveyor/east{
 	id = "QMLoad2"
@@ -40346,6 +40379,7 @@
 /area/maintenance/server)
 "ctt" = (
 /obj/effect/decal/warning_stripes/green,
+/obj/machinery/chem_dispenser/botanical,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -60272,6 +60306,12 @@
 	icon_state = "grimy"
 	},
 /area/maintenance/library)
+"eLF" = (
+/obj/structure/chair/stool{
+	dir = 8
+	},
+/turf/simulated/floor/plasteel,
+/area/crew_quarters/locker)
 "eMc" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -63479,7 +63519,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint2)
 "gjK" = (
-/obj/item/circuitboard/chem_dispenser/botanical,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -75805,7 +75844,9 @@
 	},
 /area/toxins/mixing)
 "lYa" = (
-/obj/structure/chair/stool,
+/obj/structure/chair/stool{
+	dir = 4
+	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -120444,8 +120485,8 @@ bkg
 blM
 bnF
 bpd
-bqv
-bqv
+eLF
+eLF
 bwa
 vBP
 blM
@@ -143054,7 +143095,7 @@ bck
 beb
 dxz
 kSs
-jtT
+cbE
 beb
 ble
 mOw
