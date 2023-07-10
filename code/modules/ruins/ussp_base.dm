@@ -35,8 +35,10 @@
 		switch(race)
 			if("Human")
 				box = /obj/item/storage/box/soviet
-	H.add_language("Neo-Russkiya")
-	H.set_default_language(GLOB.all_languages["Neo-Russkiya"])
+	H.remove_language("Galactic Common")
+	H.remove_language("Sol Common")
+	H.add_language("Old-Russkiya")
+	H.set_default_language(GLOB.all_languages["Old-Russkiya"])
 
 /datum/outfit/ussp_captain
 	name = "USSP Captain"
@@ -89,8 +91,10 @@
 		switch(race)
 			if("Human")
 				box = /obj/item/storage/box/soviet
-	H.add_language("Neo-Russkiya")
-	H.set_default_language(GLOB.all_languages["Neo-Russkiya"])
+	H.remove_language("Galactic Common")
+	H.remove_language("Sol Common")
+	H.add_language("Old-Russkiya")
+	H.set_default_language(GLOB.all_languages["Old-Russkiya"])
 
 /datum/outfit/ussp_engineer
 	name = "USSP Engineer"
@@ -140,8 +144,10 @@
 		switch(race)
 			if("Human")
 				box = /obj/item/storage/box/soviet
-	H.add_language("Neo-Russkiya")
-	H.set_default_language(GLOB.all_languages["Neo-Russkiya"])
+	H.remove_language("Galactic Common")
+	H.remove_language("Sol Common")
+	H.add_language("Old-Russkiya")
+	H.set_default_language(GLOB.all_languages["Old-Russkiya"])
 
 /datum/outfit/ussp_security
 	name = "USSP Security Officer"
@@ -193,8 +199,10 @@
 		switch(race)
 			if("Human")
 				box = /obj/item/storage/box/soviet
-	H.add_language("Neo-Russkiya")
-	H.set_default_language(GLOB.all_languages["Neo-Russkiya"])
+	H.remove_language("Galactic Common")
+	H.remove_language("Sol Common")
+	H.add_language("Old-Russkiya")
+	H.set_default_language(GLOB.all_languages["Old-Russkiya"])
 
 
 /obj/item/card/id/ussp_scientist

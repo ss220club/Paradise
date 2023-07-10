@@ -1,10 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
 /obj/effect/landmark/tiles/burnturf,
-/turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="cautionfull");
-	icon_state = "4-i"
-	},
+/turf/simulated/wall/mineral/titanium/nodecon,
 /turf/simulated/floor/plasteel{
 	icon_state = "cautionfull"
 	},
@@ -132,6 +129,8 @@
 /area/derelict/bridge)
 "at" = (
 /obj/structure/closet/crate/can,
+/obj/effect/spawner/lootdrop/maintenance/tripple,
+/obj/effect/spawner/lootdrop/maintenance/tripple,
 /turf/simulated/floor/plasteel{
 	dir = 9;
 	icon_state = "darkblue"
@@ -354,7 +353,7 @@
 /area/derelict/bridge)
 "aS" = (
 /obj/machinery/vending/cigarette/free{
-	slogan_list = list("Just  remember!  No  capitalist.","Best  enjoyed  with  Vodka!.","Smoke!","Nine  out  of  ten  USSP  scientists  agree,  smoking  reduces  stress!","There's  no  cigarette  like  a  Russian  cigarette!","Cigarettes!  Now  with  100%  less  capitalism.")
+	slogan_list = list("Just    remember!    No    capitalist.","Best    enjoyed    with    Vodka!.","Smoke!","Nine    out    of    ten    USSP    scientists    agree,    smoking    reduces    stress!","There's    no    cigarette    like    a    Russian    cigarette!","Cigarettes!    Now    with    100%    less    capitalism.")
 	},
 /turf/simulated/floor/plasteel{
 	dir = 9;
@@ -775,8 +774,8 @@
 /area/derelict/arrival)
 "bU" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/maintenance,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/lootdrop/maintenance/tripple,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "darkred"
@@ -1522,9 +1521,7 @@
 /turf/simulated/floor/plasteel{
 	icon_state = "darkredfull"
 	},
-/turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	icon_state = "4-i"
-	},
+/turf/simulated/wall/mineral/titanium/nodecon,
 /area/derelict/arrival)
 "dQ" = (
 /obj/machinery/recharger,
@@ -1565,6 +1562,7 @@
 	desc = "An oldschool military softcap.";
 	name = "old military cap"
 	},
+/obj/effect/spawner/lootdrop/maintenance/tripple,
 /turf/simulated/floor/plasteel,
 /area/derelict/crew_quarters)
 "dU" = (
@@ -1762,10 +1760,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="redfull");
-	icon_state = "4-i"
-	},
+/turf/simulated/wall/mineral/titanium/nodecon,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "whiteredfull"
@@ -1937,10 +1932,7 @@
 /turf/simulated/floor/plasteel{
 	icon_state = "purplefull"
 	},
-/turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="purplefull");
-	icon_state = "4-i"
-	},
+/turf/simulated/wall/mineral/titanium/nodecon,
 /area/derelict/annex)
 "eN" = (
 /obj/structure/table,
@@ -2055,10 +2047,7 @@
 /turf/simulated/floor/plasteel{
 	icon_state = "cautionfull"
 	},
-/turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="cautionfull");
-	icon_state = "4-i"
-	},
+/turf/simulated/wall/mineral/titanium/nodecon,
 /area/derelict/annex)
 "fa" = (
 /obj/structure/grille,
@@ -2473,7 +2462,7 @@
 	name = "suspicious button"
 	},
 /obj/machinery/vending/cigarette/free{
-	slogan_list = list("Just  remember!  No  capitalist.","Best  enjoyed  with  Vodka!.","Smoke!","Nine  out  of  ten  USSP  scientists  agree,  smoking  reduces  stress!","There's  no  cigarette  like  a  Russian  cigarette!","Cigarettes!  Now  with  100%  less  capitalism.")
+	slogan_list = list("Just    remember!    No    capitalist.","Best    enjoyed    with    Vodka!.","Smoke!","Nine    out    of    ten    USSP    scientists    agree,    smoking    reduces    stress!","There's    no    cigarette    like    a    Russian    cigarette!","Cigarettes!    Now    with    100%    less    capitalism.")
 	},
 /turf/simulated/floor/wood{
 	broken = 1;
@@ -2922,10 +2911,7 @@
 	dir = 1;
 	icon_state = "whiteredfull"
 	},
-/turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="whiteredfull");
-	icon_state = "4-i"
-	},
+/turf/simulated/wall/mineral/titanium/nodecon,
 /area/derelict/annex)
 "ha" = (
 /obj/item/twohanded/required/kirbyplants,
@@ -3196,6 +3182,7 @@
 	opened = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/lootdrop/maintenance/tripple,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "brown"
@@ -3219,7 +3206,7 @@
 "hM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/vending/cigarette/free{
-	slogan_list = list("Just  remember!  No  capitalist.","Best  enjoyed  with  Vodka!.","Smoke!","Nine  out  of  ten  USSP  scientists  agree,  smoking  reduces  stress!","There's  no  cigarette  like  a  Russian  cigarette!","Cigarettes!  Now  with  100%  less  capitalism.")
+	slogan_list = list("Just    remember!    No    capitalist.","Best    enjoyed    with    Vodka!.","Smoke!","Nine    out    of    ten    USSP    scientists    agree,    smoking    reduces    stress!","There's    no    cigarette    like    a    Russian    cigarette!","Cigarettes!    Now    with    100%    less    capitalism.")
 	},
 /turf/simulated/floor/plasteel{
 	dir = 5;
@@ -3502,6 +3489,8 @@
 	name = "любовная поэма"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/lootdrop/maintenance/tripple,
+/obj/effect/spawner/lootdrop/maintenance/tripple,
 /turf/simulated/floor/plasteel{
 	dir = 10;
 	icon_state = "purple"
@@ -3540,10 +3529,7 @@
 	nitrogen = 0.01;
 	oxygen = 0.01
 	},
-/turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="engine");
-	icon_state = "4-i"
-	},
+/turf/simulated/wall/mineral/titanium/nodecon,
 /area/derelict/annex)
 "iE" = (
 /turf/simulated/floor/engine{
@@ -4996,6 +4982,8 @@
 	desc = "No honest Russian would wear this abomination";
 	name = "lucky underwear"
 	},
+/obj/effect/spawner/lootdrop/maintenance/tripple,
+/obj/effect/spawner/lootdrop/maintenance/tripple,
 /turf/simulated/floor/plasteel{
 	dir = 6;
 	icon_state = "brown"
@@ -5027,6 +5015,7 @@
 "mD" = (
 /obj/structure/closet/coffin,
 /obj/machinery/door/window/eastleft,
+/obj/effect/spawner/lootdrop/maintenance/tripple,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -5173,7 +5162,7 @@
 /area/space/nearstation)
 "mY" = (
 /obj/machinery/vending/cigarette/free{
-	slogan_list = list("Just  remember!  No  capitalist.","Best  enjoyed  with  Vodka!.","Smoke!","Nine  out  of  ten  USSP  scientists  agree,  smoking  reduces  stress!","There's  no  cigarette  like  a  Russian  cigarette!","Cigarettes!  Now  with  100%  less  capitalism.")
+	slogan_list = list("Just    remember!    No    capitalist.","Best    enjoyed    with    Vodka!.","Smoke!","Nine    out    of    ten    USSP    scientists    agree,    smoking    reduces    stress!","There's    no    cigarette    like    a    Russian    cigarette!","Cigarettes!    Now    with    100%    less    capitalism.")
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "bar"
@@ -5546,10 +5535,7 @@
 /turf/simulated/floor/plasteel{
 	icon_state = "hydrofloor"
 	},
-/turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="hydrofloor");
-	icon_state = "4-i"
-	},
+/turf/simulated/wall/mineral/titanium/nodecon,
 /area/derelict/crew_quarters)
 "nV" = (
 /turf/simulated/floor/plasteel{
@@ -5566,6 +5552,11 @@
 /obj/structure/table,
 /obj/item/storage/ashtray/bronze,
 /obj/item/cigbutt,
+/obj/machinery/camera{
+	c_tag = "Отдых";
+	dir = 9;
+	network = list("USSP")
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "hydrofloor"
 	},
@@ -6041,10 +6032,7 @@
 /turf/simulated/floor/plasteel{
 	icon_state = "orangefull"
 	},
-/turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="orangefull");
-	icon_state = "4-i"
-	},
+/turf/simulated/wall/mineral/titanium/nodecon,
 /area/derelict/crew_quarters)
 "pk" = (
 /obj/structure/cable{
@@ -6195,8 +6183,8 @@
 /area/derelict/crew_quarters)
 "pE" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/maintenance,
 /obj/structure/spider/stickyweb,
+/obj/effect/spawner/lootdrop/maintenance/tripple,
 /turf/simulated/floor/plasteel,
 /area/derelict/crew_quarters)
 "pF" = (
@@ -6448,14 +6436,11 @@
 	icon_state = "redfull";
 	tag = "icon-redfull (NORTHWEST)"
 	},
-/turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="redfull");
-	icon_state = "4-i"
-	},
+/turf/simulated/wall/mineral/titanium/nodecon,
 /area/derelict/arrival)
 "ql" = (
 /obj/machinery/vending/cigarette/free{
-	slogan_list = list("Just  remember!  No  capitalist.","Best  enjoyed  with  Vodka!.","Smoke!","Nine  out  of  ten  USSP  scientists  agree,  smoking  reduces  stress!","There's  no  cigarette  like  a  Russian  cigarette!","Cigarettes!  Now  with  100%  less  capitalism.")
+	slogan_list = list("Just    remember!    No    capitalist.","Best    enjoyed    with    Vodka!.","Smoke!","Nine    out    of    ten    USSP    scientists    agree,    smoking    reduces    stress!","There's    no    cigarette    like    a    Russian    cigarette!","Cigarettes!    Now    with    100%    less    capitalism.")
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "redfull";
@@ -6637,6 +6622,7 @@
 /obj/item/reagent_containers/syringe/charcoal{
 	list_reagents = list("charcoal"=13,"salmonella"=2)
 	},
+/obj/effect/spawner/lootdrop/maintenance/tripple,
 /turf/simulated/floor/plasteel{
 	icon_state = "redfull";
 	tag = "icon-redfull (NORTHWEST)"
@@ -7071,6 +7057,7 @@
 	info = "Идиот ублюдок Тотстой нашел мою кнопку. Тупой пьяный пытался положить сдачу в автомат для бесплатных сигарет и уронил ее. Глядь, тупица решает поискать под автоматом свои драгоценные рубли.<br><br>К счастью, эта зеленопеченая сволочь больше всего на свете заботится о выпивке, сумела откупиться от него. Придется теперь переместить переключатель в другое место, но куда?";
 	name = "потертая бумага"
 	},
+/obj/effect/spawner/lootdrop/maintenance/tripple,
 /turf/simulated/floor/plasteel{
 	icon_state = "redfull";
 	tag = "icon-redfull (NORTHWEST)"
@@ -7507,10 +7494,7 @@
 	},
 /area/derelict/crew_quarters)
 "wd" = (
-/turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="redfull");
-	icon_state = "4-i"
-	},
+/turf/simulated/wall/mineral/titanium/nodecon,
 /turf/simulated/floor/plasteel{
 	icon_state = "redfull";
 	tag = "icon-redfull (NORTHWEST)"
@@ -7634,22 +7618,19 @@
 /area/derelict/crew_quarters)
 "zw" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/maintenance,
 /obj/machinery/camera{
 	c_tag = "Оружейная";
 	dir = 8;
 	network = list("USSP")
 	},
+/obj/effect/spawner/lootdrop/maintenance/tripple,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "darkred"
 	},
 /area/derelict/arrival)
 "zE" = (
-/turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="orangefull");
-	icon_state = "4-i"
-	},
+/turf/simulated/wall/mineral/titanium/nodecon,
 /turf/simulated/floor/plasteel{
 	icon_state = "hydrofloor"
 	},
@@ -7813,7 +7794,6 @@
 "CW" = (
 /obj/machinery/camera{
 	c_tag = "Дормы вход";
-	dir = 4;
 	network = list("USSP")
 	},
 /turf/simulated/floor/plasteel,
@@ -8223,15 +8203,11 @@
 /turf/template_noop,
 /area/derelict/crew_quarters)
 "Kk" = (
-/obj/machinery/camera{
-	c_tag = "Отдых";
-	dir = 4;
-	network = list("USSP")
-	},
 /turf/simulated/floor/plasteel{
-	icon_state = "hydrofloor"
+	icon_state = "dark"
 	},
-/area/derelict/crew_quarters)
+/turf/simulated/wall/mineral/titanium/nodecon,
+/area/derelict/arrival)
 "Km" = (
 /obj/structure/table,
 /turf/simulated/floor/plasteel,
@@ -8512,10 +8488,7 @@
 /turf/simulated/floor/plasteel{
 	icon_state = "purplefull"
 	},
-/turf/simulated/wall/mineral/titanium/nodecon/tileblend{
-	fixed_underlay = list("icon"='icons/turf/floors.dmi',"icon_state"="purplefull");
-	icon_state = "4-i"
-	},
+/turf/simulated/wall/mineral/titanium/nodecon,
 /area/derelict/annex)
 "Qp" = (
 /obj/structure/cable{
@@ -10827,7 +10800,7 @@ ac
 ac
 ac
 aW
-bE
+Kk
 cm
 cA
 cM
@@ -14055,7 +14028,7 @@ db
 db
 dI
 db
-CW
+db
 aV
 aV
 ac
@@ -14238,7 +14211,7 @@ bm
 bm
 bm
 bm
-db
+CW
 db
 ea
 bm
@@ -14452,7 +14425,7 @@ aV
 dH
 nU
 ng
-Kk
+ng
 ng
 ng
 ng
