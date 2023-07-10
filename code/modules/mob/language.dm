@@ -3,13 +3,15 @@
 /*
 	Datum based languages. Easily editable and modular.
 
+	Symbol of emotes is !, so it's busy too.
+
 	Busy letters for language:
 	a b d f g j k o q v x y
 	aa as bo db fa fm fn fs vu
 
 	Busy symbols for language:
 	0 1 2 3 4 5 6 7 8 9
-	% ? ^
+	% ? ^ *
 
 	CAUTION! The key must not repeat the key of the radio channel
 	and must not contain prohibited characters
@@ -394,7 +396,7 @@
 	speech_verb = "articulates"
 	whisper_verb = "mutters"
 	exclaim_verbs = list("exaggerates")
-	key = "!"
+	key = "*"
 	space_chance = 75
 	flags = RESTRICTED | NOBABEL | WHITELISTED
 	syllables = list("tan","zar","tvo","nov","moch","perov","chka","arta","bra","tz","brat",
