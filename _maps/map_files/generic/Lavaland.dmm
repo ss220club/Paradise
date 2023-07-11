@@ -92,7 +92,7 @@
 /obj/machinery/camera{
 	c_tag = "Labor Camp Bathroom";
 	dir = 4;
-	network = list("Labor Camp")
+	network = list("Labor  Camp")
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plasteel/white,
@@ -169,7 +169,7 @@
 /obj/machinery/camera{
 	c_tag = "Labor Camp Storage";
 	dir = 1;
-	network = list("Labor Camp")
+	network = list("Labor  Camp")
 	},
 /turf/simulated/floor/plasteel,
 /area/mine/laborcamp)
@@ -233,7 +233,7 @@
 "aK" = (
 /obj/machinery/camera{
 	c_tag = "Labor Camp Infirmary";
-	network = list("Labor Camp")
+	network = list("Labor  Camp")
 	},
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/alarm{
@@ -671,7 +671,7 @@
 /obj/machinery/camera{
 	c_tag = "EVA";
 	dir = 4;
-	network = list("Mining Outpost")
+	network = list("Mining  Outpost")
 	},
 /obj/machinery/light_switch{
 	pixel_x = -24;
@@ -717,7 +717,8 @@
 /obj/effect/baseturf_helper/lava_land/surface,
 /obj/machinery/power/apc{
 	name = "Mining EVA APC";
-	pixel_x = 29
+	pixel_x = 26;
+	dir = 4
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -987,7 +988,7 @@
 	},
 /obj/machinery/camera{
 	c_tag = "Labor Camp Monitoring";
-	network = list("Labor Camp")
+	network = list("Labor  Camp")
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -1141,7 +1142,7 @@
 /obj/machinery/camera{
 	c_tag = "Shuttle Docking Foyer North";
 	dir = 8;
-	network = list("Mining Outpost")
+	network = list("Mining  Outpost")
 	},
 /turf/simulated/floor/plasteel,
 /area/mine/production)
@@ -1224,9 +1225,9 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc{
-	dir = 8;
+	dir = 4;
 	name = "Mining Station Starboard Wing APC";
-	pixel_x = 28
+	pixel_x = 26
 	},
 /turf/simulated/floor/plasteel,
 /area/mine/production)
@@ -1372,7 +1373,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	pixel_y = 23
+	pixel_y = 24
 	},
 /obj/machinery/iv_drip,
 /obj/effect/turf_decal/tile/blue{
@@ -1441,7 +1442,6 @@
 /area/mine/maintenance)
 "dk" = (
 /obj/machinery/power/apc{
-	dir = 1;
 	name = "Mining Communications APC";
 	pixel_y = -26
 	},
@@ -1548,7 +1548,7 @@
 /obj/machinery/camera{
 	c_tag = "Shuttle Docking Foyer South";
 	dir = 8;
-	network = list("Mining Outpost")
+	network = list("Mining  Outpost")
 	},
 /turf/simulated/floor/plasteel,
 /area/mine/production)
@@ -1580,7 +1580,7 @@
 /obj/machinery/camera{
 	c_tag = "Communications Relay";
 	dir = 8;
-	network = list("Mining Outpost")
+	network = list("Mining  Outpost")
 	},
 /turf/simulated/floor/bluegrid,
 /area/mine/maintenance)
@@ -1588,7 +1588,7 @@
 /obj/machinery/camera{
 	c_tag = "Processing Area Room";
 	dir = 8;
-	network = list("Mining Outpost")
+	network = list("Mining  Outpost")
 	},
 /obj/item/radio/intercom{
 	dir = 8;
@@ -1606,7 +1606,7 @@
 /obj/machinery/camera{
 	c_tag = "Sleeper Room";
 	dir = 1;
-	network = list("Mining Outpost")
+	network = list("Mining  Outpost")
 	},
 /obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
 /obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
@@ -1822,7 +1822,7 @@
 "ec" = (
 /obj/machinery/camera{
 	c_tag = "Crew Area Hallway East";
-	network = list("Mining Outpost")
+	network = list("Mining  Outpost")
 	},
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
@@ -1832,7 +1832,7 @@
 "ed" = (
 /obj/machinery/camera{
 	c_tag = "Crew Area Hallway West";
-	network = list("Mining Outpost")
+	network = list("Mining  Outpost")
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plasteel,
@@ -1846,7 +1846,7 @@
 	dir = 1;
 	name = "Mining Station Port Wing APC";
 	pixel_x = 1;
-	pixel_y = 25
+	pixel_y = 26
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -2278,7 +2278,7 @@
 "fb" = (
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -24
 	},
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
@@ -2439,7 +2439,7 @@
 /area/mine/living_quarters)
 "fu" = (
 /obj/machinery/alarm{
-	pixel_y = 23
+	pixel_y = 24
 	},
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
@@ -2450,7 +2450,7 @@
 "fv" = (
 /obj/machinery/camera{
 	c_tag = "Storage";
-	network = list("Mining Outpost")
+	network = list("Mining  Outpost")
 	},
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/firealarm{
@@ -2552,7 +2552,7 @@
 /obj/machinery/camera{
 	c_tag = "Dormitories";
 	dir = 4;
-	network = list("Mining Outpost")
+	network = list("Mining  Outpost")
 	},
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
@@ -2806,7 +2806,7 @@
 /obj/machinery/camera{
 	c_tag = "Crew Area";
 	dir = 1;
-	network = list("Mining Outpost")
+	network = list("Mining  Outpost")
 	},
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_y = -32
@@ -3505,7 +3505,7 @@
 /obj/machinery/camera{
 	c_tag = "Labor Camp Breakroom";
 	dir = 8;
-	network = list("Labor Camp")
+	network = list("Labor  Camp")
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4700,7 +4700,7 @@
 "qA" = (
 /obj/machinery/camera{
 	c_tag = "Labor Camp Central 2";
-	network = list("Labor Camp")
+	network = list("Labor  Camp")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4746,7 +4746,7 @@
 /obj/machinery/camera{
 	c_tag = "Labor Camp External";
 	dir = 4;
-	network = list("Labor Camp")
+	network = list("Labor  Camp")
 	},
 /turf/simulated/floor/plating/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors/explored)
@@ -4886,7 +4886,7 @@
 "sO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/security{
-	network = list("Labor Camp");
+	network = list("Labor  Camp");
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4965,7 +4965,7 @@
 "tC" = (
 /obj/machinery/camera{
 	c_tag = "Labor Camp Airlock";
-	network = list("Labor Camp")
+	network = list("Labor  Camp")
 	},
 /obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
@@ -6236,7 +6236,7 @@
 /obj/machinery/camera{
 	c_tag = "Labor Bedroom 2";
 	dir = 1;
-	network = list("Labor Camp")
+	network = list("Labor  Camp")
 	},
 /turf/simulated/floor/wood{
 	icon_state = "wood-broken3";
@@ -6878,14 +6878,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera{
 	c_tag = "Labor Camp Central";
-	network = list("Labor Camp")
+	network = list("Labor  Camp")
 	},
 /turf/simulated/floor/plasteel,
 /area/mine/laborcamp)
 "Tk" = (
 /obj/machinery/camera{
 	c_tag = "Labor Camp Bedroom 1";
-	network = list("Labor Camp")
+	network = list("Labor  Camp")
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/lootdrop/maintenance,

@@ -2,17 +2,17 @@
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
-	icon = 'icons/turf/mining.dmi'
+	icon = 'icons/turf/walls/rock.dmi'
 	icon_state = "rock"
-	var/smooth_icon = 'icons/turf/smoothrocks.dmi'
 	smooth = SMOOTH_MORE | SMOOTH_BORDER
-	canSmoothWith = null
+	canSmoothWith = list(/turf/simulated/mineral)
 	baseturf = /turf/simulated/floor/plating/asteroid/airless
-	opacity = 1
+	opacity = TRUE
 	density = TRUE
 	blocks_air = TRUE
 	layer = EDGED_TURF_LAYER
 	temperature = TCMB
+	color = COLOR_ROCK
 	var/environment_type = "asteroid"
 	var/turf/simulated/floor/plating/turf_type = /turf/simulated/floor/plating/asteroid/airless
 	var/mineralType = null
@@ -27,15 +27,10 @@
 	var/should_reset_color = TRUE
 
 /turf/simulated/mineral/Initialize(mapload)
-	if(!canSmoothWith)
-		canSmoothWith = list(/turf/simulated/mineral)
-	var/matrix/M = new
-	M.Translate(-4, -4)
-	transform = M
-	icon = smooth_icon
 	. = ..()
 	if(should_reset_color)
-		color = null
+		color = COLOR_ROCK
+
 	if(mineralType && mineralAmt && spread && spreadChance)
 		for(var/dir in GLOB.cardinal)
 			if(prob(spreadChance))
@@ -231,14 +226,11 @@
 		/turf/simulated/mineral/gibtonite = 4, /turf/simulated/floor/plating/asteroid/airless/cave = 2, /turf/simulated/mineral/bscrystal = 1)
 		//Currently, Adamantine won't spawn as it has no uses. -Durandan
 	var/mineralChance = 13
-	var/display_icon_state = "rock"
 
 /turf/simulated/mineral/random/Initialize(mapload)
 
 	mineralSpawnChanceList = typelist("mineralSpawnChanceList", mineralSpawnChanceList)
 
-	if(display_icon_state)
-		icon_state = display_icon_state
 	. = ..()
 	if (prob(mineralChance))
 		var/path = pickweight(mineralSpawnChanceList)
@@ -254,7 +246,7 @@
 			M.levelupdate()
 
 /turf/simulated/mineral/random/high_chance
-	icon_state = "rock_highchance"
+	color = COLOR_YELLOW
 	mineralChance = 25
 	mineralSpawnChanceList = list(
 		/turf/simulated/mineral/uranium = 35, /turf/simulated/mineral/diamond = 30, /turf/simulated/mineral/gold = 45, /turf/simulated/mineral/titanium = 45,
@@ -279,7 +271,7 @@
 		/turf/simulated/mineral/silver/volcanic = 50, /turf/simulated/mineral/plasma/volcanic = 50, /turf/simulated/mineral/bscrystal/volcanic = 20)
 
 /turf/simulated/mineral/random/low_chance
-	icon_state = "rock_lowchance"
+	color = COLOR_VIOLET
 	mineralChance = 6
 	mineralSpawnChanceList = list(
 		/turf/simulated/mineral/uranium = 2, /turf/simulated/mineral/diamond = 1, /turf/simulated/mineral/gold = 4, /turf/simulated/mineral/titanium = 4,
@@ -306,7 +298,7 @@
 		/turf/simulated/mineral/uranium = 3, /turf/simulated/mineral/diamond = 1, /turf/simulated/mineral/gold = 8, /turf/simulated/mineral/titanium = 8,
 		/turf/simulated/mineral/silver = 20, /turf/simulated/mineral/plasma = 30, /turf/simulated/mineral/iron = 95,
 		/turf/simulated/mineral/gibtonite = 2)
-	icon_state = "rock_labor"
+	color = COLOR_MAROON
 
 /turf/simulated/mineral/random/labormineral/volcanic
 	environment_type = "basalt"
