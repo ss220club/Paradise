@@ -302,8 +302,9 @@
 	smooth = SMOOTH_TRUE
 /turf/simulated/wall/indestructible/rock
 	name = "rock"
-	icon = 'icons/turf/walls/rock_wall.dmi'
-	icon_state = "rockEXAMPLE"
+	color = "#606265"
+	icon = 'icons/turf/walls/rock.dmi'
+	icon_state = "rock"
 	canSmoothWith = list(/turf/simulated/wall/indestructible/rock)
 	smooth = SMOOTH_TRUE
 /turf/simulated/wall/indestructible/iron
