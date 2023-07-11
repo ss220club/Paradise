@@ -3,13 +3,15 @@
 /*
 	Datum based languages. Easily editable and modular.
 
+	Symbol of emotes is !, so it's busy too.
+
 	Busy letters for language:
 	a b d f g j k o q v x y
 	aa as bo db fa fm fn fs vu
 
 	Busy symbols for language:
 	0 1 2 3 4 5 6 7 8 9
-	% ? ^
+	% ? ^ *
 
 	CAUTION! The key must not repeat the key of the radio channel
 	and must not contain prohibited characters
@@ -387,6 +389,24 @@
 	new_name += "[pick(list(" of"," for"," in Service of",", Servant of"," for the Good of",", Student of"," to"))]"
 	new_name += " [pick(list("Alkaid","Andromeda","Antlia","Apus","Auriga","Caelum","Camelopardalis","Canes Venatici","Carinae","Cassiopeia","Centauri","Circinus","Cygnus","Dorado","Draco","Eridanus","Errakis","Fornax","Gliese","Grus","Horologium","Hydri","Lacerta","Leo Minor","Lupus","Lynx","Maffei","Megrez","Messier","Microscopium","Monocerotis","Muscae","Ophiuchi","Orion","Pegasi","Persei","Perseus","Polaris","Pyxis","Sculptor","Syrma","Telescopium","Tianyi","Triangulum","Trifid","Tucana","Tycho","Vir","Volans","Zavyava"))]"
 	return new_name
+
+/datum/language/com_rrus
+	name = "Old-Russkiya"
+	desc = "Very old variation of Neo-Russkiya. Usually used by old people in USSP."
+	speech_verb = "articulates"
+	whisper_verb = "mutters"
+	exclaim_verbs = list("exaggerates")
+	key = "*"
+	space_chance = 75
+	flags = RESTRICTED | NOBABEL | WHITELISTED
+	syllables = list("tan","zar","tvo","nov","moch","perov","chka","arta","bra","tz","brat",
+					"za","po","moj","pomogi","slavyn","dva","odin","batyshka","otez","tank",
+					"ubey","thasi","odikaloni","tele","fone","phi","kol","ka","bl","ya",
+					"moroz","dedu","shka","jal","mrac","hniy","pomidor","hwatit","korob","ochka",
+					"vzriv","ay","treyg","olnik","pejenka","vodka","slava","mama","bydlo","trud",
+					"rabo","tat","derev","na","jiv","drug","jizik","durak","jivotnoe","rodina","maska",
+					"la","mpa","medv","ed","sem","khac","kvas","yra","nosok","ra","jetka","bey","ybey",
+					"ego","pridu","rok","bolv","an","suka","polyak","sek","minu","kogd","pojem","da","net","otez","vspom","nil")
 
 /datum/language/common
 	name = "Galactic Common"
