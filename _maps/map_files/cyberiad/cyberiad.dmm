@@ -64543,7 +64543,7 @@
 	pixel_y = 6;
 	pixel_x = 8
 	},
-/obj/item/flashlight/lamp,
+/obj/item/melee/chainofcommand,
 /turf/simulated/floor/plasteel{
 	icon_state = "grimy"
 	},
