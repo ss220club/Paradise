@@ -69,6 +69,8 @@
 
 	if(stat != DEAD)
 		handle_critical_condition()
+		if(lying && !resting)
+			update_canmove()
 
 	if(stat != DEAD) // Status & health update, are we dead or alive etc.
 		handle_disabilities() // eye, ear, brain damages

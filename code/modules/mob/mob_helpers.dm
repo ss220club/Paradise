@@ -424,7 +424,6 @@ GLOBAL_LIST_INIT(intents, list(INTENT_HELP,INTENT_DISARM,INTENT_GRAB,INTENT_HARM
 	set category = "IC"
 
 	if(!resting)
-		client.move_delay = world.time + 20
 		to_chat(src, "<span class='notice'>Вы отдыхаете.</span>")
 		StartResting()
 	else if(resting)

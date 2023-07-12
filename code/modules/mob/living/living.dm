@@ -1073,6 +1073,8 @@
 		. += 10
 	if(forced_look)
 		. += 3
+	if(lying)
+		. += config.crawl_speed
 	if(ignorewalk)
 		. += config.run_speed
 	else
