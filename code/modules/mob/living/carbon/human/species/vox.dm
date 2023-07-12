@@ -199,7 +199,6 @@
 	species_traits = list(NO_SCAN, NO_GERMS, NO_DECAY, NO_BLOOD, NO_PAIN)
 	clothing_flags = 0 //IDK if you've ever seen underwear on an Armalis, but it ain't pretty.
 	bodyflags = HAS_TAIL
-	dies_at_threshold = TRUE
 
 	blood_color = "#2299FC"
 	flesh_color = "#808D11"
