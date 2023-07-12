@@ -104,10 +104,6 @@
 	if(incapacitated(ignore_restraints = 1, ignore_grab = 1, ignore_lying = 1))
 		return
 
-	if(lying)
-		to_chat(src, span_warning("Вы не можете взаимодействовать с миром в лежачей позиции!"))
-		return
-
 	face_atom(A)
 
 	if(next_move > world.time) // in the year 2000...
