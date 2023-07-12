@@ -207,6 +207,9 @@
 	return list("verb" = verb)
 
 /mob/living/carbon/human/handle_message_mode(var/message_mode, list/message_pieces, var/verb, var/used_radios)
+	if(health <= HEALTH_THRESHOLD_CRIT)
+		whisper_say(message_pieces)
+		return TRUE
 	switch(message_mode)
 		if("intercom")
 			for(var/obj/item/radio/intercom/I in view(1, src))
@@ -250,7 +253,7 @@
 
 		if("whisper")
 			whisper_say(message_pieces)
-			return 1
+			return TRUE
 		else
 			if(message_mode)
 				if(isradio(l_ear))
