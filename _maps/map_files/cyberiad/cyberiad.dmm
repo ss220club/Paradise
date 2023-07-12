@@ -1191,7 +1191,7 @@
 "aeV" = (
 /obj/machinery/computer/security{
 	dir = 8;
-	network = list("SS13","Research Outpost","Mining Outpost")
+	network = list("SS13","Research  Outpost","Mining  Outpost")
 	},
 /obj/item/radio/intercom{
 	name = "custom station intercom (General)";
@@ -3861,7 +3861,7 @@
 "amR" = (
 /obj/machinery/computer/security{
 	dir = 8;
-	network = list("SS13","Research Outpost","Mining Outpost")
+	network = list("SS13","Research  Outpost","Mining  Outpost")
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -4910,7 +4910,7 @@
 "api" = (
 /obj/machinery/computer/security{
 	dir = 8;
-	network = list("SS13","Research Outpost","Mining Outpost")
+	network = list("SS13","Research  Outpost","Mining  Outpost")
 	},
 /obj/machinery/light{
 	dir = 4
@@ -5611,7 +5611,7 @@
 "arl" = (
 /obj/machinery/computer/security{
 	dir = 4;
-	network = list("SS13","Research Outpost","Mining Outpost")
+	network = list("SS13","Research  Outpost","Mining  Outpost")
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -6209,7 +6209,7 @@
 /area/security/brig)
 "asw" = (
 /obj/machinery/computer/security{
-	network = list("SS13","Research Outpost","Mining Outpost")
+	network = list("SS13","Research  Outpost","Mining  Outpost")
 	},
 /obj/machinery/computer/security/telescreen{
 	desc = "Used for watching Prison Wing holding areas.";
@@ -17582,7 +17582,7 @@
 	pixel_y = 30
 	},
 /obj/machinery/computer/security{
-	network = list("SS13","Research Outpost","Mining Outpost")
+	network = list("SS13","Research  Outpost","Mining  Outpost")
 	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
@@ -25530,7 +25530,7 @@
 /area/bridge)
 "bqQ" = (
 /obj/machinery/computer/security{
-	network = list("SS13","Research Outpost","Mining Outpost","Telecomms")
+	network = list("SS13","Research  Outpost","Mining  Outpost","Telecomms")
 	},
 /obj/machinery/camera{
 	c_tag = "Bridge West"
@@ -32233,7 +32233,8 @@
 "bKM" = (
 /obj/structure/filingcabinet,
 /obj/item/radio/intercom/private{
-	pixel_x = -28
+	pixel_x = -20;
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
@@ -32332,6 +32333,11 @@
 /area/crew_quarters/captain/bedroom)
 "bLe" = (
 /obj/machinery/suit_storage_unit/captain,
+/obj/item/radio/intercom{
+	dir = 4;
+	name = "west station intercom (General)";
+	pixel_x = -20
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "bLf" = (
@@ -35276,7 +35282,7 @@
 /obj/machinery/computer/security/telescreen{
 	desc = "Used for watching the RD's goons from the safety of his office.";
 	name = "Research Monitor";
-	network = list("Research","Research Outpost","RD");
+	network = list("Research","Research  Outpost","RD");
 	pixel_y = 2
 	},
 /obj/structure/table/glass,
@@ -41136,7 +41142,7 @@
 "cxg" = (
 /obj/machinery/computer/general_air_control{
 	name = "Tank Monitor";
-	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon Dioxide","tox_sensor"="Toxins","n2o_sensor"="Nitrous Oxide","waste_sensor"="Gas Mix Tank")
+	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon  Dioxide","tox_sensor"="Toxins","n2o_sensor"="Nitrous  Oxide","waste_sensor"="Gas  Mix  Tank")
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
@@ -41201,7 +41207,7 @@
 	frequency = 1443;
 	level = 3;
 	name = "Distribution and Waste Monitor";
-	sensors = list("mair_in_meter"="Mixed Air In","air_sensor"="Mixed Air Supply Tank","mair_out_meter"="Mixed Air Out","dloop_atm_meter"="Distribution Loop","wloop_atm_meter"="Waste Loop")
+	sensors = list("mair_in_meter"="Mixed  Air  In","air_sensor"="Mixed  Air  Supply  Tank","mair_out_meter"="Mixed  Air  Out","dloop_atm_meter"="Distribution  Loop","wloop_atm_meter"="Waste  Loop")
 	},
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -41944,7 +41950,7 @@
 	frequency = 1443;
 	level = 3;
 	name = "Distribution and Waste Monitor";
-	sensors = list("mair_in_meter"="Mixed Air In","air_sensor"="Mixed Air Supply Tank","mair_out_meter"="Mixed Air Out","dloop_atm_meter"="Distribution Loop","wloop_atm_meter"="Waste Loop")
+	sensors = list("mair_in_meter"="Mixed  Air  In","air_sensor"="Mixed  Air  Supply  Tank","mair_out_meter"="Mixed  Air  Out","dloop_atm_meter"="Distribution  Loop","wloop_atm_meter"="Waste  Loop")
 	},
 /turf/simulated/floor/plasteel,
 /area/engine/controlroom)
@@ -44893,11 +44899,7 @@
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/insulated,
-/obj/structure/window/plasmareinforced{
-	dir = 1
-	},
-/obj/structure/window/plasmareinforced,
-/obj/structure/grille,
+/obj/effect/spawner/window/reinforced/plasma,
 /turf/simulated/floor/engine,
 /area/toxins/misc_lab)
 "cJT" = (
@@ -44908,11 +44910,7 @@
 	name = "Biohazard Shutter";
 	opacity = 0
 	},
-/obj/structure/window/plasmareinforced{
-	dir = 1
-	},
-/obj/structure/window/plasmareinforced,
-/obj/structure/grille,
+/obj/effect/spawner/window/reinforced/plasma,
 /turf/simulated/floor/engine,
 /area/toxins/misc_lab)
 "cJU" = (
@@ -58486,7 +58484,7 @@
 "dTM" = (
 /obj/machinery/computer/general_air_control{
 	name = "Tank Monitor";
-	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon Dioxide","tox_sensor"="Toxins","n2o_sensor"="Nitrous Oxide","waste_sensor"="Gas Mix Tank")
+	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon  Dioxide","tox_sensor"="Toxins","n2o_sensor"="Nitrous  Oxide","waste_sensor"="Gas  Mix  Tank")
 	},
 /obj/machinery/alarm{
 	pixel_y = 26
@@ -73733,11 +73731,6 @@
 /area/engine/mechanic_workshop/expedition)
 "lcU" = (
 /obj/structure/table/wood,
-/obj/item/radio/intercom{
-	dir = 4;
-	name = "west station intercom (General)";
-	pixel_x = -22
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
@@ -85277,7 +85270,7 @@
 	dir = 1;
 	frequency = 1222;
 	name = "Mixing Chamber Monitor";
-	sensors = list("toxins_mixing_exterior"="Mixing Chamber - Exterior","toxins_mixing_interior"="Mixing Chamber - Interior")
+	sensors = list("toxins_mixing_exterior"="Mixing  Chamber  -  Exterior","toxins_mixing_interior"="Mixing  Chamber  -  Interior")
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "darkgrey"
@@ -100063,7 +100056,7 @@
 /area/space)
 "xut" = (
 /obj/machinery/computer/security/wooden_tv{
-	network = list("SS13","Research Outpost","Mining Outpost")
+	network = list("SS13","Research  Outpost","Mining  Outpost")
 	},
 /obj/item/radio/intercom/department/security{
 	dir = 8;
