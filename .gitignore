@@ -13,7 +13,7 @@ Thumbs.db
 *.dmm.before
 *.cache
 *.pyc
-data/
+/data
 !data/logs/.keep
 cfg/
 tmp/

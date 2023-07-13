@@ -1,0 +1,29 @@
+version: '3.4'
+services:
+  ss13-app:
+    container_name: ${PROJECT_PREFIX}-app
+    entrypoint: DreamDaemon paradise.dmb -port ${INNER_PORT} -trusted -close -verbose
+    build:
+      context: ../../
+      args:
+        - BYOND_MAJOR=${BYOND_MAJOR}
+        - BYOND_MINOR=${BYOND_MINOR}
+        - RUSTG=${RUSTG}
+        - NODEJS=${NODEJS}
+    ports:
+      - ${OUTER_PORT}:${INNER_PORT}
+    volumes:
+      - ${STORAGE_PATH}/data:/station/data
+    depends_on:
+      - db
+  db:
+    container_name: ${PROJECT_PREFIX}-db
+    image: mariadb:10.7.1-focal
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: feedback
+    ports:
+      - ${DB_PORT}:3306
+    volumes:
+      - ${STORAGE_PATH}/mariadb:/var/lib/mysql
+      - ${DB_MIGRATION_PATH}/paradise_schema.sql:/docker-entrypoint-initdb.d/migrate1.sql
