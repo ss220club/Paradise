@@ -17,7 +17,6 @@
 		)
 
 	species_traits = list(NO_BREATHE, NO_BLOOD, RADIMMUNE, VIRUSIMMUNE)
-	dies_at_threshold = TRUE
 
 	reagent_tag = PROCESS_ORG
 	suicide_messages = list(

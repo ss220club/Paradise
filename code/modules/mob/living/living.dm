@@ -81,10 +81,12 @@
 
 //Generic Bump(). Override MobBump() and ObjBump() instead of this.
 /mob/living/Bump(atom/A, yes)
-	if(..()) //we are thrown onto something
+	if(throwing) //we are thrown onto something
+		..()
 		return
-	if(buckled || !yes || now_pushing)
+	if(buckled || !yes || now_pushing || lying)
 		return
+	..()
 	if(ismob(A))
 		if(MobBump(A))
 			return
@@ -1073,6 +1075,10 @@
 		. += 10
 	if(forced_look)
 		. += 3
+	if(lying)
+		. += config.crawl_speed
+		. += config.walk_speed
+		return
 	if(ignorewalk)
 		. += config.run_speed
 	else

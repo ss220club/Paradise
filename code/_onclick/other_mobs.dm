@@ -5,6 +5,9 @@
 	Otherwise pretty standard.
 */
 /mob/living/carbon/human/UnarmedAttack(atom/A, proximity)
+	if(lying && (!ishuman(A) || (ishuman(A) && !mind?.martial_art)))
+		to_chat(src, span_warning("Вы не можете взаимодействовать в лежачей позиции!"))
+		return FALSE
 	// Special glove functions:
 	// If the gloves do anything, have them return 1 to stop
 	// normal attack_hand() here.

@@ -424,12 +424,13 @@ GLOBAL_LIST_INIT(intents, list(INTENT_HELP,INTENT_DISARM,INTENT_GRAB,INTENT_HARM
 	set category = "IC"
 
 	if(!resting)
-		client.move_delay = world.time + 20
-		to_chat(src, "<span class='notice'>Вы отдыхаете.</span>")
+		to_chat(src, span_notice("Вы отдыхаете."))
 		StartResting()
 	else if(resting)
-		to_chat(src, "<span class='notice'>Вы встаёте.</span>")
-		StopResting()
+		client.move_delay = world.time + 1 SECONDS
+		to_chat(src, span_notice("Вы встаёте."))
+		if(do_mob(src, src, 1 SECONDS, TRUE, TRUE))
+			StopResting()
 
 /proc/get_multitool(mob/user as mob)
 	// Get tool

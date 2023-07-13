@@ -31,7 +31,6 @@
 
 	//Default styles for created mobs.
 	default_hair = "Blue IPC Screen"
-	dies_at_threshold = TRUE
 	can_revive_by_healing = 1
 	has_gender = FALSE
 	reagent_tag = PROCESS_SYN

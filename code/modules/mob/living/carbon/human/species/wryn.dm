@@ -54,8 +54,6 @@
 	clothing_flags = HAS_UNDERWEAR | HAS_UNDERSHIRT | HAS_SOCKS
 	bodyflags = HAS_SKIN_COLOR
 
-	dies_at_threshold = TRUE
-
 	reagent_tag = PROCESS_ORG
 	base_color = "#704300"
 	flesh_color = "#704300"

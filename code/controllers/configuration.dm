@@ -140,6 +140,7 @@
 	//Unversal modifiers
 	var/run_speed = 0
 	var/walk_speed = 0
+	var/crawl_speed = 0
 
 	//Mob specific modifiers. NOTE: These will affect different mob types in different ways
 	var/human_delay = 0
@@ -320,7 +321,7 @@
 	var/modify_pull_push_speed = FALSE
 
 	var/pixel_shift = FALSE
-  
+
 	var/ignore_obscured_mouth = FALSE
 
 	var/ai_heat = FALSE
@@ -912,13 +913,13 @@
 				if("override_map")
 					config.override_map = value
 
-				
+
 				if("modify_pull_push_speed")
 					config.modify_pull_push_speed = TRUE
 
 				if("pixel_shift")
 					config.pixel_shift = TRUE
-          
+
 				if("ignore_obscured_mouth")
 					config.ignore_obscured_mouth = TRUE
 
@@ -953,6 +954,8 @@
 					config.run_speed = value
 				if("walk_speed")
 					config.walk_speed = value
+				if("crawl_speed")
+					config.crawl_speed = value
 				if("human_delay")
 					config.human_delay = value
 				if("robot_delay")
