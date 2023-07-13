@@ -24,6 +24,7 @@
 	var/atom_say_verb = "says"
 	var/bubble_icon = "default" ///what icon the mob uses for speechbubbles
 	var/bubble_emote_icon = "emote" ///what icon the mob uses for emotebubbles
+	var/bubble_sleeping_icon = "sleeping" ///what icon the mob uses for sleepingbubbles
 	var/dont_save = FALSE // For atoms that are temporary by necessity - like lighting overlays
 
 	///Chemistry.

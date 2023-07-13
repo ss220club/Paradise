@@ -122,6 +122,7 @@
 	var/paralysis = 0
 	var/silent = 0
 	var/sleeping = 0
+	var/player_triggered_sleeping = 0
 	var/slowed = 0
 	var/slurring = 0
 	var/stunned = 0

@@ -34,9 +34,15 @@
 
 /mob/living/update_sleeping_effects(no_alert = FALSE)
 	if(sleeping)
+
+		GLOB.typing_indicator[bubble_sleeping_icon] = image('icons/mob/talk.dmi', null, "[bubble_sleeping_icon]", FLY_LAYER)
+		var/image/I = GLOB.typing_indicator[bubble_sleeping_icon]
+		I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
+		overlays += GLOB.typing_indicator[bubble_sleeping_icon]
 		if(!no_alert)
 			throw_alert("asleep", /obj/screen/alert/asleep)
 	else
+		overlays -= GLOB.typing_indicator[bubble_sleeping_icon]
 		clear_alert("asleep")
 
 // Querying status of the mob
