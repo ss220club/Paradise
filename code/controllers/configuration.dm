@@ -140,6 +140,7 @@
 	//Unversal modifiers
 	var/run_speed = 0
 	var/walk_speed = 0
+	var/crawl_speed = 0
 
 	//Mob specific modifiers. NOTE: These will affect different mob types in different ways
 	var/human_delay = 0
@@ -951,6 +952,8 @@
 					config.run_speed = value
 				if("walk_speed")
 					config.walk_speed = value
+				if("crawl_speed")
+					config.crawl_speed = value
 				if("human_delay")
 					config.human_delay = value
 				if("robot_delay")

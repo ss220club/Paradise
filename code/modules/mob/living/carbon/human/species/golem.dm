@@ -6,7 +6,6 @@
 	deform = 'icons/mob/human_races/r_golem.dmi'
 
 	species_traits = list(NO_BREATHE, NO_BLOOD, NO_PAIN, RADIMMUNE, NOGUNS, PIERCEIMMUNE, NO_THIRST)
-	dies_at_threshold = TRUE
 	speed_mod = 2
 	brute_mod = 0.45 //55% damage reduction
 	burn_mod = 0.45

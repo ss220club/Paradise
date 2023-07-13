@@ -11,7 +11,6 @@
 	flesh_color = "#E6E6C6"
 
 	species_traits = list(NO_BREATHE, NO_BLOOD, RADIMMUNE, VIRUSIMMUNE, NO_HUNGER, NO_THIRST, PIERCEIMMUNE, NO_DNA, RUNIC_MIND)
-	dies_at_threshold = TRUE
 	skinned_type = /obj/item/stack/sheet/bone
 
 	taste_sensitivity = TASTE_SENSITIVITY_NO_TASTE //skeletons can't taste anything

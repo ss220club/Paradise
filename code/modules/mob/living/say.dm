@@ -169,10 +169,13 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 	return list("verb" = verb)
 
 /mob/living/proc/handle_message_mode(message_mode, list/message_pieces, verb, used_radios)
+	if(health <= HEALTH_THRESHOLD_CRIT)
+		whisper_say(message_pieces)
+		return TRUE
 	switch(message_mode)
 		if("whisper") //all mobs can whisper by default
 			whisper_say(message_pieces)
-			return 1
+			return TRUE
 	return 0
 
 /mob/living/proc/handle_speech_sound()
