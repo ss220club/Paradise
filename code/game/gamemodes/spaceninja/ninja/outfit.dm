@@ -25,4 +25,5 @@
 		ninja_suit.n_backpack = ninja.back
 		if(istype(ninja.belt, belt))
 			ninja_suit.energyKatana = ninja.belt
+	ninja.dna.species.species_traits = PIERCEIMMUNE
 
