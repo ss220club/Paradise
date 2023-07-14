@@ -509,6 +509,22 @@
 	icon_state = "shark_light"
 	item_state = "shark_light"
 
+/obj/item/clothing/shoes/fox
+	name = "fox slippers"
+	desc = "Cute little foxes hug your legs."
+	icon_state = "fox"
+	item_state = "fox"
+	lefthand_file = 'icons/mob/inhands/clothing_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing_righthand.dmi'
+
+/obj/item/clothing/shoes/unicorn
+	name = "unicorn slippers"
+	desc = "It feels like you're walking an rainbow."
+	icon_state = "unicorn"
+	item_state = "unicorn"
+	lefthand_file = 'icons/mob/inhands/clothing_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing_righthand.dmi'
+
 
 /obj/item/clothing/shoes/ducky/Initialize(mapload)
 	. = ..()
