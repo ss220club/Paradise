@@ -19,7 +19,7 @@
 	e_cost = 250
 
 /obj/item/ammo_casing/energy/lasergun
-	projectile_type = /obj/item/projectile/beam/laser
+	projectile_type = /obj/item/projectile/beam/laser/advanced
 	muzzle_flash_color = LIGHT_COLOR_DARKRED
 	e_cost = 65
 	select_name = "kill"
