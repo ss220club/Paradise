@@ -70,3 +70,11 @@
 /datum/gear/shoes/shark_light
 	display_name = "shark lightblue slippers"
 	path = /obj/item/clothing/shoes/shark/light
+
+/datum/gear/shoes/fox
+	display_name = "fox slippers"
+	path = /obj/item/clothing/shoes/fox
+
+/datum/gear/shoes/unicorn
+	display_name = "unicorn slippers"
+	path = /obj/item/clothing/shoes/unicorn

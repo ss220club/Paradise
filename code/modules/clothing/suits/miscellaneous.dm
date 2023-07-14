@@ -373,6 +373,50 @@
 	name = "lightblue shark hood"
 	icon_state = "shark_casual_light"
 
+/obj/item/clothing/suit/hooded/fox_costume
+	name = "fox costume"
+	desc = "The fluffy and soft fox costume that makes you feel 'Awoo'.Easy way to became adorable."
+	icon_state = "fox_casual"
+	lefthand_file = 'icons/mob/inhands/clothing_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing_righthand.dmi'
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	allowed = list(/obj/item/tank/internals/emergency_oxygen)
+	hoodtype = /obj/item/clothing/head/hooded/fox_hood
+
+/obj/item/clothing/head/hooded/fox_hood
+	name = "fox hood"
+	desc = "A hood that makes you a real fox with a pointy nose and red ears."
+	icon_state = "fox_casual"
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	flags = BLOCKHAIR
+	flags_inv = HIDEHEADSETS
+
+/obj/item/clothing/suit/hooded/unicorn_costume
+	name = "unicorn costume"
+	desc = "Unicorn costume, don't take a ride anyone.It smells smiles."
+	icon_state = "unicorn_casual"
+	lefthand_file = 'icons/mob/inhands/clothing_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing_righthand.dmi'
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	allowed = list(/obj/item/tank/internals/emergency_oxygen)
+	hoodtype = /obj/item/clothing/head/hooded/unicorn_hood
+
+/obj/item/clothing/head/hooded/unicorn_hood
+	name = "unicorn hood"
+	desc = "Rumor has it that the unicorn horn can cure any disease.Beware of poachers."
+	icon_state = "unicorn_casual"
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	flags = BLOCKHAIR
+	flags_inv = HIDEHEADSETS
+
 /obj/item/clothing/suit/hooded/salmon_costume
 	name = "salmon suit"
 	desc = "A costume made from authentic salmon scales, it reeks!"

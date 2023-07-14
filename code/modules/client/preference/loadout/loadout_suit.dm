@@ -269,6 +269,14 @@
 	display_name = "shark lightblue costume"
 	path = /obj/item/clothing/suit/hooded/shark_costume/light
 
+/datum/gear/suit/fox
+	display_name = "fox costume"
+	path = /obj/item/clothing/suit/hooded/fox_costume
+
+/datum/gear/suit/unicorn
+	display_name = "unicorn costume"
+	path = /obj/item/clothing/suit/hooded/unicorn_costume
+
 //SUITS!
 
 /datum/gear/suit/blacksuit
