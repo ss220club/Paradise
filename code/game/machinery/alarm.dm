@@ -72,6 +72,7 @@
 	name = "alarm"
 	icon = 'icons/obj/machines/monitors.dmi'
 	icon_state = "alarm0"
+	layer = ABOVE_WINDOW_LAYER
 	anchored = 1
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 4

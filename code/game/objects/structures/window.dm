@@ -554,6 +554,7 @@
 	name = "window tint control"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "polarizer-0"
+	layer = ABOVE_WINDOW_LAYER
 	desc = "A remote control switch for polarized windows."
 	anchored = TRUE
 	var/range = 7
