@@ -3,6 +3,7 @@
 	desc = "A remote control-switch for a door."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "doorctrl"
+	layer = ABOVE_WINDOW_LAYER
 	power_channel = ENVIRON
 	var/id = null
 	var/safety_z_check = 1

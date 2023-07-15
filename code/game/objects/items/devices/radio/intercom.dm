@@ -11,6 +11,7 @@
 	desc = "Talk through this."
 	icon = 'icons/obj/intercom.dmi'
 	icon_state = INTERCOM_BASE_ICON_STATE
+	layer = ABOVE_WINDOW_LAYER
 	anchored = TRUE
 	w_class = WEIGHT_CLASS_BULKY
 	canhear_range = 2
