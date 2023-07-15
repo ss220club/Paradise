@@ -51,6 +51,7 @@
 	name = "area power controller"
 	desc = "A control terminal for the area electrical systems."
 	icon_state = "apc0"
+	layer = ABOVE_WINDOW_LAYER
 	use_power = NO_POWER_USE
 	max_integrity = 200
 	integrity_failure = 50

@@ -19,6 +19,7 @@
 	desc = "A standard Nanotrasen-licensed newsfeed handler for use in commercial space stations. All the news you absolutely have no use for, in one place!"
 	icon = 'icons/obj/machines/terminals.dmi'
 	icon_state = "newscaster_normal"
+	layer = ABOVE_WINDOW_LAYER
 	max_integrity = 200
 	integrity_failure = 50
 	light_range = 0

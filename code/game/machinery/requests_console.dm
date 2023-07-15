@@ -42,6 +42,7 @@ GLOBAL_LIST_EMPTY(allRequestConsoles)
 	anchored = TRUE
 	icon = 'icons/obj/machines/terminals.dmi'
 	icon_state = "req_comp0"
+	layer = ABOVE_WINDOW_LAYER
 	max_integrity = 300
 	armor = list("melee" = 70, "bullet" = 30, "laser" = 30, "energy" = 30, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 90)
 	var/department = "Unknown" //The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
