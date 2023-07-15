@@ -437,7 +437,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 	var/min_internal_bleeding_damage = 30
 	if(damage > 15 && brute_dam + burn_dam + damage > min_internal_bleeding_damage && !is_robotic())
-		if(prob(min(damage, 20)))
+		if(prob(damage))
 			internal_bleeding = TRUE
 			owner.custom_pain("You feel something rip in your [name]!")
 			add_attack_logs(owner, null, "Suffered internal bleeding to [src](Damage: [damage], Organ HP: [max_damage - (brute_dam + burn_dam) ])")

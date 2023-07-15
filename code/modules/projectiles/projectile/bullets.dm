@@ -1,8 +1,7 @@
 /obj/item/projectile/bullet
 	name = "bullet"
 	icon_state = "bullet"
-	damage = 40
-	armour_penetration = 20
+	damage = 60
 	damage_type = BRUTE
 	flag = "bullet"
 	hitsound = "bullet"

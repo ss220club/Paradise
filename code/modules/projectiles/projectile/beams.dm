@@ -16,10 +16,6 @@
 	ricochet_chance = 80
 
 /obj/item/projectile/beam/laser
-	damage = 30
-
-/obj/item/projectile/beam/laser/advanced
-	damage = 35
 
 /obj/item/projectile/beam/laser/heavylaser
 	name = "heavy laser"
