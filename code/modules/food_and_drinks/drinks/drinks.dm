@@ -15,6 +15,7 @@
 	antable = FALSE
 	var/chugging = FALSE
 	foodtype = ALCOHOL
+	can_mutate = FALSE
 
 /obj/item/reagent_containers/food/drinks/New()
 	..()
