@@ -114,8 +114,6 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 
 /mob/living/simple_animal/hostile/mimic/copy/New(loc, obj/copy, mob/living/creator, destroy_original = 0)
 	..(loc)
-	if(istype(copy, /obj/item/reagent_containers/food))
-		playsound(copy, 'sound/effects/meatslap.ogg', 100, 1)
 	CopyObject(copy, creator, destroy_original)
 
 /mob/living/simple_animal/hostile/mimic/copy/Life()
@@ -156,8 +154,7 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 		icon_state = O.icon_state
 		icon_living = icon_state
 		overlays = O.overlays
-		var/eyes_num = rand(1, 20)
-		googly_eyes = image('icons/mob/mob_eyes.dmi',"eyes[eyes_num]")
+		googly_eyes = image('icons/mob/mob_eyes.dmi',"eyes[rand(1, 20)]")
 		overlays += googly_eyes
 		if(istype(O, /obj/structure) || istype(O, /obj/machinery))
 			health = (anchored * 50) + 50
