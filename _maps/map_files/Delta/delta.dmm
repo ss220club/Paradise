@@ -40033,7 +40033,6 @@
 /obj/structure/safe/floor,
 /obj/item/melee/cultblade,
 /obj/item/restraints/legcuffs/bola/cult,
-/obj/item/whetstone/cult,
 /obj/item/stack/sheet/runed_metal{
 	amount = 50
 	},
@@ -52120,6 +52119,9 @@
 /area/security/permabrig)
 "fWD" = (
 /obj/effect/decal/warning_stripes/west,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -57766,6 +57768,21 @@
 	icon_state = "greencorner"
 	},
 /area/medical/virology/lab)
+"hmo" = (
+/obj/effect/spawner/window/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Brig_lockdown";
+	name = "Brig Lockdown";
+	opacity = 0
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	id_tag = "SecPilotPriv"
+	},
+/turf/simulated/floor/plating,
+/area/security/podbay)
 "hmq" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -61590,8 +61607,15 @@
 	},
 /area/atmos)
 "ihp" = (
-/obj/structure/spacepoddoor{
-	luminosity = 3
+/obj/machinery/door/poddoor/multi_tile/two_tile_ver{
+	id_tag = "secpilot";
+	req_access = list(71)
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /obj/machinery/door/poddoor{
 	density = 0;
@@ -61600,9 +61624,8 @@
 	name = "Brig Lockdown";
 	opacity = 0
 	},
-/obj/machinery/door/poddoor/multi_tile/two_tile_ver{
-	id_tag = "secpilot";
-	req_access = list(71)
+/obj/structure/spacepoddoor{
+	luminosity = 3
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -77198,6 +77221,24 @@
 /obj/effect/landmark/tiles/damageturf,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint4)
+"maX" = (
+/obj/effect/spawner/window/reinforced,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/door/poddoor{
+	density = 0;
+	icon_state = "open";
+	id_tag = "Brig_lockdown";
+	name = "Brig Lockdown";
+	opacity = 0
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	id_tag = "SecPilotPriv"
+	},
+/turf/simulated/floor/plating,
+/area/security/podbay)
 "mbm" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -113726,6 +113767,9 @@
 /area/security/warden)
 "uoA" = (
 /obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
 	icon_state = "1-8"
 	},
 /obj/structure/cable{
@@ -126774,6 +126818,9 @@
 	},
 /area/maintenance/starboard)
 "xqr" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/machinery/door/poddoor{
 	density = 0;
 	icon_state = "open";
@@ -191925,10 +191972,10 @@ aaq
 aaq
 coE
 wyD
-wyD
+maX
 xqr
 ihp
-wyD
+hmo
 wyD
 coE
 ylx
