@@ -12,4 +12,4 @@
 	playsound(src, 'sound/effects/meatslap.ogg', 100, 1)
 	visible_message("<span class='alert'>[src.name] мутировал!</span>")
 
-	new /mob/living/simple_animal/hostile/mimic/copy(loc, O)
+	new /mob/living/simple_animal/hostile/mimic/copy(loc, src)
