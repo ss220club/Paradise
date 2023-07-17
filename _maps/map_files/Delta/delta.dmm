@@ -40033,7 +40033,6 @@
 /obj/structure/safe/floor,
 /obj/item/melee/cultblade,
 /obj/item/restraints/legcuffs/bola/cult,
-/obj/item/whetstone/cult,
 /obj/item/stack/sheet/runed_metal{
 	amount = 50
 	},
@@ -61590,15 +61589,15 @@
 	},
 /area/atmos)
 "ihp" = (
-/obj/structure/spacepoddoor{
-	luminosity = 3
-	},
 /obj/machinery/door/poddoor{
 	density = 0;
 	icon_state = "open";
 	id_tag = "Brig_lockdown";
 	name = "Brig Lockdown";
 	opacity = 0
+	},
+/obj/structure/spacepoddoor{
+	luminosity = 3
 	},
 /obj/machinery/door/poddoor/multi_tile/two_tile_ver{
 	id_tag = "secpilot";
@@ -175713,7 +175712,7 @@ bBM
 bBM
 brF
 nyK
-bBM
+dmq
 nyK
 dkw
 bBM
