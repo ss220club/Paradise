@@ -17,6 +17,12 @@
 
 /obj/item/projectile/beam/laser
 
+/obj/item/projectile/beam/laser/security
+	damage = 22
+
+/obj/item/projectile/beam/laser/security/advanced
+	damage = 25
+
 /obj/item/projectile/beam/laser/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
@@ -191,6 +197,7 @@
 /obj/item/projectile/beam/dominator/eliminator
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/blue_laser
 	icon_state = "blue_laser"
+	damage = 22
 	light_color = LIGHT_COLOR_LIGHT_CYAN
 
 /obj/item/projectile/beam/dominator/slaughter
