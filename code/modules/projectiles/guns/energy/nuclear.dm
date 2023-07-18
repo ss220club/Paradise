@@ -3,7 +3,7 @@
 	desc = "A basic energy-based gun with two settings: kill and disable."
 	icon_state = "energy"
 	item_state = null	//so the human update icon uses the icon_state instead.
-	ammo_type = list(/obj/item/ammo_casing/energy/disabler, /obj/item/ammo_casing/energy/laser)
+	ammo_type = list(/obj/item/ammo_casing/energy/disabler, /obj/item/ammo_casing/energy/laser/security)
 	origin_tech = "combat=4;magnets=3"
 	modifystate = 2
 	can_flashlight = 1
