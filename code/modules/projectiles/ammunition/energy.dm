@@ -316,7 +316,7 @@
 	select_name = "stun"
 	alt_select_name = "taser"
 	fire_sound = 'sound/weapons/gunshots/1taser.ogg'
-	e_cost = 120
+	e_cost = 180
 	delay = 15
 	harmful = FALSE
 
@@ -326,7 +326,7 @@
 	select_name  = "non-lethal paralyzer"
 	alt_select_name = "disable"
 	fire_sound = 'sound/weapons/plasma_cutter.ogg'
-	e_cost = 80
+	e_cost = 120
 	harmful = FALSE
 
 /obj/item/ammo_casing/energy/dominator/eliminator
@@ -335,7 +335,7 @@
 	select_name = "lethal-eliminator"
 	alt_select_name = "lethal"
 	fire_sound = 'sound/weapons/gunshots/1laser10.ogg'
-	e_cost = 160
+	e_cost = 240
 
 /obj/item/ammo_casing/energy/dominator/slaughter
 	projectile_type = /obj/item/projectile/beam/dominator/slaughter
@@ -343,7 +343,7 @@
 	select_name  = "execution-slaughter"
 	alt_select_name = "destroy"
 	fire_sound = 'sound/weapons/marauder.ogg'
-	e_cost = 600
+	e_cost = 900
 	delay = 30
 
 /obj/item/ammo_casing/energy/emittergun
