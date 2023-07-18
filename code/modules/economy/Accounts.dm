@@ -2,7 +2,7 @@
 #define STATION_CREATION_TIME "11:24:30"
 #define STATION_START_CASH 75000
 #define STATION_SOURCE_TERMINAL "Biesel GalaxyNet Terminal #227"
-#define DEPARTMENT_START_CASH 5000
+#define DEFAULT_DEPARTMENT_STARTING_FUNDS 5000
 
 GLOBAL_VAR_INIT(num_financial_terminals, 1)
 GLOBAL_DATUM(station_account, /datum/money_account)
@@ -11,6 +11,16 @@ GLOBAL_VAR_INIT(next_account_number, 0)
 GLOBAL_DATUM(centcomm_account_db, /obj/machinery/computer/account_database) // this being an object hurts me deeply on the inside
 GLOBAL_DATUM(vendor_account, /datum/money_account)
 GLOBAL_LIST_EMPTY(all_money_accounts)
+GLOBAL_LIST_INIT(department_starting_funds, list(
+		"Command" = 40000,
+		"Security" = 30000,
+		"Engineering" = 20000,
+		"Science" = 20000,
+		"Medical" = 15000,
+		"Cargo" = 10000,
+		"Support" = 10000,
+		"Civilian" = 10000,
+		"Vendor" = 10000))
 
 /proc/create_station_account()
 	if(!GLOB.station_account)
@@ -36,10 +46,10 @@ GLOBAL_LIST_EMPTY(all_money_accounts)
 	department_account.owner_name = "[department] Account"
 	department_account.account_number = rand(111111, 999999)
 	department_account.remote_access_pin = rand(111111, 999999)
-	department_account.money = DEPARTMENT_START_CASH
+	department_account.money = GLOB.department_starting_funds[department] || DEFAULT_DEPARTMENT_STARTING_FUNDS
 
 	//create an entry in the account transaction log for when it was created
-	department_account.makeTransactionLog(DEPARTMENT_START_CASH, "Account Creation", STATION_SOURCE_TERMINAL, department_account.owner_name, FALSE,
+	department_account.makeTransactionLog(department_account.money, "Account Creation", STATION_SOURCE_TERMINAL, department_account.owner_name, FALSE,
 	 STATION_CREATION_DATE, STATION_CREATION_TIME)
 
 	//add the account
@@ -168,4 +178,4 @@ GLOBAL_LIST_EMPTY(all_money_accounts)
 #undef STATION_CREATION_TIME
 #undef STATION_START_CASH
 #undef STATION_SOURCE_TERMINAL
-#undef DEPARTMENT_START_CASH
+#undef DEFAULT_DEPARTMENT_STARTING_FUNDS

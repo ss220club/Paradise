@@ -27,6 +27,8 @@
 	)
 
 	outfit = /datum/outfit/job/rd
+	min_starting_funds = 2500
+	max_starting_funds = 3000
 
 
 /datum/outfit/job/rd
@@ -72,6 +74,8 @@
 	)
 
 	outfit = /datum/outfit/job/scientist
+	min_starting_funds = 2000
+	max_starting_funds = 2500
 
 
 /datum/outfit/job/scientist
@@ -104,6 +108,8 @@
 	exp_type_max = EXP_TYPE_SCIENCE
 	is_novice = TRUE
 	outfit = /datum/outfit/job/scientist/student
+	min_starting_funds = 1000
+	max_starting_funds = 1100
 
 /datum/outfit/job/scientist/student
 	name = "Student Scientist"
@@ -152,6 +158,8 @@
 	)
 
 	outfit = /datum/outfit/job/roboticist
+	min_starting_funds = 2000
+	max_starting_funds = 2200
 
 /datum/outfit/job/roboticist
 	name = "Roboticist"

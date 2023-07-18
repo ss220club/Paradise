@@ -22,6 +22,8 @@
 	exp_requirements = 3000
 	exp_type = EXP_TYPE_ENGINEERING
 	outfit = /datum/outfit/job/chief_engineer
+	min_starting_funds = 2500
+	max_starting_funds = 3000
 
 /datum/outfit/job/chief_engineer
 	name = "Chief Engineer"
@@ -64,6 +66,8 @@
 	exp_requirements = 600
 	exp_type = EXP_TYPE_ENGINEERING
 	outfit = /datum/outfit/job/engineer
+	min_starting_funds = 1100
+	max_starting_funds = 1400
 
 /datum/outfit/job/engineer
 	name = "Station Engineer"
@@ -99,6 +103,8 @@
 	exp_type_max = EXP_TYPE_ENGINEERING
 	is_novice = TRUE
 	outfit = /datum/outfit/job/engineer/trainee
+	min_starting_funds = 500
+	max_starting_funds = 900
 
 /datum/outfit/job/engineer/trainee
 	name = "Trainee Engineer"
@@ -147,6 +153,8 @@
 	exp_requirements = 900
 	exp_type = EXP_TYPE_ENGINEERING
 	outfit = /datum/outfit/job/atmos
+	min_starting_funds = 1200
+	max_starting_funds = 1500
 
 /datum/outfit/job/atmos
 	name = "Life Support Specialist"
@@ -180,6 +188,8 @@
 	exp_requirements = 900
 	exp_type = EXP_TYPE_ENGINEERING
 	outfit = /datum/outfit/job/mechanic
+	min_starting_funds = 800
+	max_starting_funds = 1200
 
 /datum/outfit/job/mechanic
 	name = "Mechanic"

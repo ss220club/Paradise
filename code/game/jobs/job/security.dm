@@ -23,6 +23,8 @@
 	exp_type = EXP_TYPE_SECURITY
 	disabilities_allowed = 0
 	outfit = /datum/outfit/job/hos
+	min_starting_funds = 3000
+	max_starting_funds = 3500
 
 /datum/outfit/job/hos
 	name = "Head of Security"
@@ -70,6 +72,8 @@
 	exp_requirements = 2100
 	exp_type = EXP_TYPE_SECURITY
 	outfit = /datum/outfit/job/warden
+	min_starting_funds = 2000
+	max_starting_funds = 2200
 
 /datum/outfit/job/warden
 	name = "Warden"
@@ -116,6 +120,8 @@
 	exp_requirements = 1200
 	exp_type = EXP_TYPE_SECURITY
 	outfit = /datum/outfit/job/detective
+	min_starting_funds = 1700
+	max_starting_funds = 2100
 
 /datum/outfit/job/detective
 	name = "Detective"
@@ -176,6 +182,8 @@
 	exp_requirements = 600
 	exp_type = EXP_TYPE_SECURITY
 	outfit = /datum/outfit/job/officer
+	min_starting_funds = 1400
+	max_starting_funds = 2000
 
 /datum/outfit/job/officer
 	name = "Security Officer"
@@ -214,6 +222,8 @@
 	exp_type_max = EXP_TYPE_SECURITY
 	is_novice = TRUE
 	outfit = /datum/outfit/job/officer/cadet
+	min_starting_funds = 1000
+	max_starting_funds = 1200
 
 /datum/outfit/job/officer/cadet
 	name = "Security Cadet"
@@ -254,6 +264,8 @@
 	exp_requirements = 1800
 	exp_type = EXP_TYPE_MEDICAL
 	outfit = /datum/outfit/job/brigdoc
+	min_starting_funds = 1300
+	max_starting_funds = 1600
 
 /datum/outfit/job/brigdoc
 	name = "Brig Physician"
@@ -290,6 +302,8 @@
 	exp_requirements = 1200
 	exp_type = EXP_TYPE_SECURITY
 	outfit = /datum/outfit/job/pilot
+	min_starting_funds = 1800
+	max_starting_funds = 2100
 
 /datum/outfit/job/pilot
 	name = "Security Pod Pilot"
