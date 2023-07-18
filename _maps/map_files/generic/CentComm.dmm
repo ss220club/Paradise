@@ -46545,7 +46545,7 @@
 /obj/machinery/camera{
 	c_tag = "Centaral Command Supreme Court";
 	dir = 1;
-	network = list("SS13","CentComm");
+	network = list("CentComm");
 	pixel_x = 12;
 	pixel_y = -6
 	},
