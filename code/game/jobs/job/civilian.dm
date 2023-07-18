@@ -11,6 +11,8 @@
 	minimal_access = list()	//See /datum/job/assistant/get_access()
 	alt_titles = list("Tourist","Businessman","Trader","Assistant")
 	outfit = /datum/outfit/job/assistant
+	min_starting_funds = 400
+	max_starting_funds = 800
 
 /datum/job/civilian/get_access()
 	if(config.assistant_maint)

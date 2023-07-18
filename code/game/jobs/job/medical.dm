@@ -20,6 +20,8 @@
 	exp_requirements = 3000
 	exp_type = EXP_TYPE_MEDICAL
 	outfit = /datum/outfit/job/cmo
+	min_starting_funds = 2000
+	max_starting_funds = 3000
 
 /datum/outfit/job/cmo
 	name = "Chief Medical Officer"
@@ -60,6 +62,8 @@
 	exp_requirements = 600
 	exp_type = EXP_TYPE_MEDICAL
 	outfit = /datum/outfit/job/doctor
+	min_starting_funds = 1300
+	max_starting_funds = 1600
 
 /datum/outfit/job/doctor
 	name = "Medical Doctor"
@@ -93,6 +97,8 @@
 	exp_type_max = EXP_TYPE_MEDICAL
 	is_novice = TRUE
 	outfit = /datum/outfit/job/doctor/intern
+	min_starting_funds = 600
+	max_starting_funds = 900
 
 /datum/outfit/job/doctor/intern
 	name = "Intern"
@@ -138,6 +144,8 @@
 	exp_requirements = 180
 	exp_type = EXP_TYPE_CREW
 	outfit = /datum/outfit/job/coroner
+	min_starting_funds = 700
+	max_starting_funds = 900
 
 /datum/outfit/job/coroner
 	name = "Coroner"
@@ -201,6 +209,8 @@
 	exp_requirements = 600
 	exp_type = EXP_TYPE_MEDICAL
 	outfit = /datum/outfit/job/chemist
+	min_starting_funds = 1000
+	max_starting_funds = 1500
 
 /datum/outfit/job/chemist
 	name = "Chemist"
@@ -235,6 +245,8 @@
 	exp_requirements = 900
 	exp_type = EXP_TYPE_MEDICAL
 	outfit = /datum/outfit/job/geneticist
+	min_starting_funds = 1200
+	max_starting_funds = 1500
 
 /datum/outfit/job/geneticist
 	name = "Geneticist"
@@ -270,6 +282,8 @@
 	exp_requirements = 900
 	exp_type = EXP_TYPE_MEDICAL
 	outfit = /datum/outfit/job/virologist
+	min_starting_funds = 800
+	max_starting_funds = 1200
 
 /datum/outfit/job/virologist
 	name = "Virologist"
@@ -303,6 +317,8 @@
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_PSYCHIATRIST)
 	alt_titles = list("Psychologist","Therapist")
 	outfit = /datum/outfit/job/psychiatrist
+	min_starting_funds = 600
+	max_starting_funds = 800
 
 /datum/outfit/job/psychiatrist
 	name = "Psychiatrist"
@@ -344,6 +360,8 @@
 	exp_requirements = 180
 	exp_type = EXP_TYPE_CREW
 	outfit = /datum/outfit/job/paramedic
+	min_starting_funds = 1000
+	max_starting_funds = 1200
 
 /datum/outfit/job/paramedic
 	name = "Paramedic"

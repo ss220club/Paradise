@@ -12,6 +12,8 @@
 	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_MORGUE, ACCESS_WEAPONS, ACCESS_MINERAL_STOREROOM)
 	minimal_access = list(ACCESS_BAR, ACCESS_WEAPONS, ACCESS_MINERAL_STOREROOM)
 	outfit = /datum/outfit/job/bartender
+	min_starting_funds = 600
+	max_starting_funds = 1000
 
 /datum/outfit/job/bartender
 	name = "Bartender"
@@ -54,6 +56,8 @@
 	minimal_access = list(ACCESS_KITCHEN)
 	alt_titles = list("Cook","Culinary Artist","Butcher")
 	outfit = /datum/outfit/job/chef
+	min_starting_funds = 600
+	max_starting_funds = 1000
 
 /datum/outfit/job/chef
 	name = "Chef"
@@ -94,6 +98,8 @@
 	exp_requirements = 300
 	exp_type = EXP_TYPE_CREW
 	outfit = /datum/outfit/job/hydro
+	min_starting_funds = 700
+	max_starting_funds = 1000
 
 /datum/outfit/job/hydro
 	name = "Botanist"
@@ -130,6 +136,8 @@
 	exp_requirements = 3000
 	exp_type = EXP_TYPE_CREW
 	outfit = /datum/outfit/job/qm
+	min_starting_funds = 1200
+	max_starting_funds = 1800
 
 /datum/outfit/job/qm
 	name = "Quartermaster"
@@ -158,6 +166,8 @@
 	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MINT, ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MINERAL_STOREROOM)
 	minimal_access = list(ACCESS_MAINT_TUNNELS, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MAILSORTING, ACCESS_MINERAL_STOREROOM)
 	outfit = /datum/outfit/job/cargo_tech
+	min_starting_funds = 600
+	max_starting_funds = 1000
 
 /datum/outfit/job/cargo_tech
 	name = "Cargo Technician"
@@ -185,6 +195,8 @@
 	minimal_access = list(ACCESS_MINING, ACCESS_MINT, ACCESS_MINING_STATION, ACCESS_MAILSORTING, ACCESS_MAINT_TUNNELS, ACCESS_MINERAL_STOREROOM)
 	alt_titles = list("Spelunker")
 	outfit = /datum/outfit/job/mining
+	min_starting_funds = 800
+	max_starting_funds = 1200
 
 /datum/outfit/job/mining
 	name = "Shaft Miner"
@@ -254,6 +266,8 @@
 	access = list(ACCESS_CLOWN, ACCESS_THEATRE)
 	minimal_access = list(ACCESS_CLOWN, ACCESS_THEATRE)
 	outfit = /datum/outfit/job/clown
+	min_starting_funds = 500
+	max_starting_funds = 1000
 
 /datum/outfit/job/clown
 	name = "Clown"
@@ -343,6 +357,8 @@
 	access = list(ACCESS_MIME, ACCESS_THEATRE)
 	minimal_access = list(ACCESS_MIME, ACCESS_THEATRE)
 	outfit = /datum/outfit/job/mime
+	min_starting_funds = 500
+	max_starting_funds = 1000
 
 /datum/outfit/job/mime
 	name = "Mime"
@@ -397,6 +413,8 @@
 	minimal_access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS)
 	alt_titles = list("Custodial Technician")
 	outfit = /datum/outfit/job/janitor
+	min_starting_funds = 600
+	max_starting_funds = 1000
 
 /datum/outfit/job/janitor
 	name = "Janitor"
@@ -423,6 +441,8 @@
 	minimal_access = list(ACCESS_LIBRARY)
 	alt_titles = list("Journalist")
 	outfit = /datum/outfit/job/librarian
+	min_starting_funds = 600
+	max_starting_funds = 1000
 
 /datum/outfit/job/librarian
 	name = "Librarian"
@@ -452,6 +472,8 @@
 	access = list()
 	minimal_access = list()
 	outfit = /datum/outfit/job/barber
+	min_starting_funds = 700
+	max_starting_funds = 1000
 
 /datum/outfit/job/barber
 	name = "Barber"
