@@ -86,7 +86,7 @@
 /mob/living/update_canmove(delay_action_updates = 0)
 	var/fall_over = !can_stand()
 	var/buckle_lying = !(buckled && !buckled.buckle_lying)
-	if(fall_over || resting || stunned || health <= HEALTH_THRESHOLD_CRIT)
+	if(fall_over || resting || stunned)
 		drop_r_hand()
 		drop_l_hand()
 	else
@@ -94,7 +94,7 @@
 		canmove = 1
 	if(buckled)
 		lying = 90 * buckle_lying
-	else if((fall_over || resting || health <= HEALTH_THRESHOLD_CRIT) && !lying)
+	else if((fall_over || resting) && !lying)
 		fall(fall_over)
 
 	canmove = !(fall_over || stunned || IsFrozen() || buckled)
