@@ -31,6 +31,7 @@
 	var/disfigured = 0
 	var/cannot_amputate
 	var/cannot_break
+	var/break_chance_cap = 15
 	var/s_tone = null
 	var/s_col = null // If this is instantiated, it should be a hex value.
 	var/list/child_icons = list()
@@ -426,7 +427,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 //Updates brute_damn and burn_damn from wound damages. Updates BLEEDING status.
 /obj/item/organ/external/proc/check_fracture(damage)
 	if(config.bones_can_break && brute_dam + burn_dam + damage > min_broken_damage && !is_robotic())
-		if(prob(damage * FRAGILITY(owner)))
+		if(prob(min(damage * FRAGILITY(owner), break_chance_cap)))
 			fracture()
 			add_attack_logs(owner, null, "Suffered fracture to [src](Damage: [damage], Organ HP: [max_damage - (brute_dam + burn_dam) ])")
 
