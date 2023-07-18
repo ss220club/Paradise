@@ -15489,10 +15489,6 @@
 	dir = 1;
 	layer = 2.9
 	},
-/obj/item/storage/box/slug{
-	pixel_x = -3;
-	pixel_y = 6
-	},
 /obj/item/storage/box/buck{
 	pixel_y = 3
 	},
