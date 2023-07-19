@@ -4881,6 +4881,9 @@
 "apf" = (
 /obj/structure/table,
 /obj/machinery/recharger,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "darkred"
 	},
@@ -5130,6 +5133,9 @@
 	},
 /obj/item/cartridge/detective{
 	pixel_x = -10
+	},
+/obj/item/eftpos{
+	pixel_y = 11
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -10841,6 +10847,9 @@
 /obj/item/desk_bell{
 	anchored = 1
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/wood{
 	broken = 1;
 	icon_state = "wood-broken"
@@ -11351,6 +11360,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel{
 	icon_state = "cult"
 	},
@@ -12157,6 +12167,9 @@
 "aHr" = (
 /obj/structure/table,
 /obj/item/melee/baseball_bat,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "aHt" = (
@@ -17800,6 +17813,7 @@
 /area/crew_quarters/dorms)
 "aWD" = (
 /obj/structure/table/wood,
+/obj/item/eftpos,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/dorms)
 "aWE" = (
@@ -18619,6 +18633,9 @@
 /obj/structure/table/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/item/eftpos{
+	pixel_y = 11
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "red"
@@ -20098,6 +20115,9 @@
 	pixel_x = 6;
 	pixel_y = 12
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel,
 /area/storage/primary)
 "bdc" = (
@@ -20768,6 +20788,9 @@
 /obj/machinery/newscaster{
 	name = "north newscaster";
 	pixel_y = 34
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/light{
 	icon_state = "light_on-p";
@@ -22071,6 +22094,10 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 8
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -24988,6 +25015,9 @@
 /obj/structure/table/reinforced,
 /obj/item/flash,
 /obj/item/flash,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel,
 /area/bridge)
 "bps" = (
@@ -26390,6 +26420,9 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/carpet,
 /area/civilian/vacantoffice)
 "btI" = (
@@ -26600,6 +26633,9 @@
 /obj/structure/table,
 /obj/item/apc_electronics,
 /obj/item/airlock_electronics,
+/obj/item/eftpos{
+	pixel_y = 11
+	},
 /turf/simulated/floor/plasteel,
 /area/storage/tools)
 "bum" = (
@@ -28919,6 +28955,9 @@
 	pixel_y = 4
 	},
 /obj/structure/table/wood,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "bzP" = (
@@ -29427,6 +29466,10 @@
 	dir = 4
 	},
 /obj/machinery/recharger,
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
+	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "arrival"
@@ -33532,6 +33575,9 @@
 	pixel_x = -6;
 	pixel_y = 4
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain/bedroom)
 "bOK" = (
@@ -33733,6 +33779,7 @@
 	pixel_x = -3;
 	pixel_y = 2
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "whitepurple";
@@ -37057,6 +37104,9 @@
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel,
 /area/janitor)
 "ccS" = (
@@ -37249,6 +37299,12 @@
 	name = "Cargo Requests Console";
 	pixel_x = -30
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
+/obj/item/eftpos{
+	pixel_y = 11
+	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/miningdock)
 "cdz" = (
@@ -37305,6 +37361,9 @@
 /obj/machinery/status_display{
 	layer = 4;
 	pixel_y = 32
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/plasteel,
 /area/engine/break_room)
@@ -39928,6 +39987,9 @@
 	pixel_x = -5;
 	pixel_y = 12
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/carpet,
 /area/ntrep)
 "cqT" = (
@@ -41558,6 +41620,9 @@
 "cyG" = (
 /obj/structure/table,
 /obj/item/t_scanner,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "caution"
@@ -42103,6 +42168,9 @@
 /obj/structure/table,
 /obj/machinery/recharger,
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel,
 /area/engine/controlroom)
 "cAS" = (
@@ -44157,6 +44225,9 @@
 "cHS" = (
 /obj/structure/table,
 /obj/item/book/manual/supermatter_engine,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel,
 /area/engine/break_room)
 "cHT" = (
@@ -47967,6 +48038,9 @@
 	pixel_x = 8;
 	pixel_y = 14
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/carpet/purple,
 /area/crew_quarters/hor)
 "cSi" = (
@@ -48222,6 +48296,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/spawner/lootdrop/officetoys,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "neutralfull"
@@ -51140,6 +51217,10 @@
 	name = "Gateway Shutters Access Control";
 	pixel_y = -24;
 	req_access = list(62)
+	},
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -54777,6 +54858,9 @@
 "djY" = (
 /obj/structure/table/reinforced,
 /obj/machinery/reagentgrinder,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -57523,6 +57607,10 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/mrchangs)
 "dwo" = (
@@ -59273,6 +59361,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "elD" = (
@@ -59852,6 +59943,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -59917,6 +60012,9 @@
 /obj/structure/table/reinforced,
 /obj/item/pen,
 /obj/item/paper_bin/nanotrasen,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "cult"
 	},
@@ -63495,6 +63593,9 @@
 /obj/item/pen{
 	pixel_y = 8
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads)
 "gjk" = (
@@ -64248,6 +64349,17 @@
 	icon_state = "darkred"
 	},
 /area/maintenance/secpost)
+"gDN" = (
+/obj/structure/table/reinforced,
+/obj/item/flashlight/lamp,
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
+	},
+/turf/simulated/floor/plasteel{
+	icon_state = "cult"
+	},
+/area/lawoffice)
 "gEd" = (
 /obj/machinery/firealarm{
 	dir = 8;
@@ -64743,6 +64855,9 @@
 "gQY" = (
 /obj/structure/table/reinforced,
 /obj/machinery/defibrillator_mount/loaded,
+/obj/item/eftpos{
+	pixel_y = 11
+	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "whiteblue"
@@ -68227,6 +68342,9 @@
 	pixel_y = 6
 	},
 /obj/item/lighter/zippo,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/qm)
 "iFI" = (
@@ -68502,6 +68620,10 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-4"
+	},
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
@@ -69410,6 +69532,9 @@
 /obj/item/folder/yellow,
 /obj/item/eftpos,
 /obj/item/storage/belt/utility,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/office)
 "jiV" = (
@@ -69708,6 +69833,13 @@
 /obj/item/stack/cable_coil/cut,
 /turf/simulated/floor/plating,
 /area/maintenance/livingcomplex)
+"jov" = (
+/obj/structure/table/wood,
+/obj/item/eftpos{
+	pixel_y = 11
+	},
+/turf/simulated/floor/wood,
+/area/library)
 "joE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -70292,6 +70424,9 @@
 	dir = 8;
 	name = "east light switch";
 	pixel_x = 24
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -71395,6 +71530,9 @@
 /obj/item/folder,
 /obj/item/pen,
 /obj/effect/spawner/lootdrop/maintenance,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "carpet"
 	},
@@ -72089,6 +72227,9 @@
 /obj/item/pen{
 	pixel_x = -5;
 	pixel_y = 8
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -73358,6 +73499,10 @@
 	pixel_x = -3;
 	pixel_y = 3
 	},
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
+	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/office)
 "kWW" = (
@@ -73544,6 +73689,10 @@
 /obj/item/radio/intercom{
 	name = "north station intercom (General)";
 	pixel_y = 22
+	},
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
 	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/storage)
@@ -74737,6 +74886,14 @@
 	icon_state = "redcorner"
 	},
 /area/security/permabrig)
+"lyq" = (
+/obj/structure/table,
+/obj/effect/spawner/lootdrop/maintenance,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/fpmaint)
 "lyz" = (
 /obj/machinery/computer/operating{
 	dir = 1
@@ -75111,6 +75268,9 @@
 	pixel_y = 9
 	},
 /obj/structure/table,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "cafeteria"
 	},
@@ -76155,6 +76315,10 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
 	},
 /turf/simulated/floor/plasteel{
 	dir = 5;
@@ -77773,6 +77937,9 @@
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = 6;
 	pixel_y = 10
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/plasteel{
 	dir = 10;
@@ -81414,6 +81581,9 @@
 	name = "west extinguisher cabinet";
 	pixel_x = -24
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "whiteyellow"
@@ -83143,6 +83313,10 @@
 	pixel_y = 7
 	},
 /obj/item/pen,
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -85851,6 +86025,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
+"qGG" = (
+/obj/structure/table,
+/obj/item/storage/fancy/donut_box,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
+/obj/item/eftpos,
+/turf/simulated/floor/plasteel,
+/area/security/main)
 "qGL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -86519,6 +86702,11 @@
 "qXZ" = (
 /obj/structure/table/reinforced,
 /obj/machinery/defibrillator_mount/loaded,
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
+	},
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "whiteblue"
@@ -87839,6 +88027,10 @@
 	dir = 8;
 	name = "east light switch";
 	pixel_x = 24
+	},
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
 	},
 /turf/simulated/floor/plasteel{
 	dir = 5;
@@ -89309,6 +89501,10 @@
 	pixel_y = 6
 	},
 /obj/item/stack/packageWrap,
+/obj/item/eftpos,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	dir = 9;
 	icon_state = "whitepurple";
@@ -90607,6 +90803,10 @@
 	c_tag = "Research Break Room";
 	network = list("Research","SS13")
 	},
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "cafeteria"
 	},
@@ -90924,6 +91124,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "whitegreenfull"
@@ -92951,6 +93154,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
 /obj/item/deck/cards,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "cafeteria"
 	},
@@ -94772,6 +94978,9 @@
 	pixel_x = -4;
 	pixel_y = 2
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "cafeteria"
 	},
@@ -95574,6 +95783,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/engrooms)
 "vpG" = (
@@ -96124,6 +96336,9 @@
 	pixel_y = 4
 	},
 /obj/structure/table/glass,
+/obj/item/eftpos{
+	pixel_y = 11
+	},
 /turf/simulated/floor/plasteel{
 	dir = 9;
 	icon_state = "darkpurple"
@@ -96766,6 +96981,9 @@
 	dir = 1;
 	name = "south station intercom (General)";
 	pixel_y = -22
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/courtroom)
@@ -100924,6 +101142,10 @@
 /obj/item/radio/headset/headset_sci{
 	pixel_x = 8;
 	pixel_y = 2
+	},
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
 	},
 /turf/simulated/floor/plasteel{
 	dir = 5;
@@ -119425,7 +119647,7 @@ aPi
 aPi
 aPi
 aPj
-aQe
+lyq
 aPi
 aYa
 aMA
@@ -127891,7 +128113,7 @@ aod
 avW
 aod
 aIo
-aoe
+gDN
 nCF
 aIo
 aDg
@@ -134560,7 +134782,7 @@ aeu
 hJq
 aoJ
 aoL
-aoR
+qGG
 aqA
 aqX
 aiS
@@ -147457,7 +147679,7 @@ bmG
 boy
 bcp
 brA
-btl
+jov
 buV
 blj
 bCS
