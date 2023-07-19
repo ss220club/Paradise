@@ -13,7 +13,6 @@ GLOBAL_DATUM(test_runner, /datum/test_runner)
 	init_byond_tracy()
 #endif
 
-	dmjit_hook_main_init()
 	// IMPORTANT
 	// If you do any SQL operations inside this proc, they must ***NOT*** be ran async. Otherwise players can join mid query
 	// This is BAD.
@@ -35,6 +34,9 @@ GLOBAL_DATUM(test_runner, /datum/test_runner)
 
 	// Setup all log paths and stamp them with startups, including round IDs
 	SetupLogs()
+
+	// After Logs because can crash without it
+	dmjit_hook_main_init()
 
 	// This needs to happen early, otherwise people can get a null species, nuking their character
 	makeDatumRefLists()
