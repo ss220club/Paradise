@@ -1191,7 +1191,7 @@
 "aeV" = (
 /obj/machinery/computer/security{
 	dir = 8;
-	network = list("SS13","Research  Outpost","Mining  Outpost")
+	network = list("SS13","Research    Outpost","Mining    Outpost")
 	},
 /obj/item/radio/intercom{
 	name = "custom station intercom (General)";
@@ -3759,6 +3759,9 @@
 	pixel_x = -8;
 	pixel_y = 12
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "escape"
@@ -3861,7 +3864,7 @@
 "amR" = (
 /obj/machinery/computer/security{
 	dir = 8;
-	network = list("SS13","Research  Outpost","Mining  Outpost")
+	network = list("SS13","Research    Outpost","Mining    Outpost")
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -4910,7 +4913,7 @@
 "api" = (
 /obj/machinery/computer/security{
 	dir = 8;
-	network = list("SS13","Research  Outpost","Mining  Outpost")
+	network = list("SS13","Research    Outpost","Mining    Outpost")
 	},
 /obj/machinery/light{
 	dir = 4
@@ -5611,7 +5614,7 @@
 "arl" = (
 /obj/machinery/computer/security{
 	dir = 4;
-	network = list("SS13","Research  Outpost","Mining  Outpost")
+	network = list("SS13","Research    Outpost","Mining    Outpost")
 	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -6209,7 +6212,7 @@
 /area/security/brig)
 "asw" = (
 /obj/machinery/computer/security{
-	network = list("SS13","Research  Outpost","Mining  Outpost")
+	network = list("SS13","Research    Outpost","Mining    Outpost")
 	},
 /obj/machinery/computer/security/telescreen{
 	desc = "Used for watching Prison Wing holding areas.";
@@ -11335,6 +11338,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "cult"
 	},
@@ -12459,6 +12465,9 @@
 /obj/structure/table/reinforced,
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_x = -32
+	},
+/obj/item/eftpos{
+	pixel_y = 11
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "barber"
@@ -17580,7 +17589,7 @@
 	pixel_y = 30
 	},
 /obj/machinery/computer/security{
-	network = list("SS13","Research  Outpost","Mining  Outpost")
+	network = list("SS13","Research    Outpost","Mining    Outpost")
 	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
@@ -17800,6 +17809,7 @@
 /area/crew_quarters/dorms)
 "aWD" = (
 /obj/structure/table/wood,
+/obj/item/eftpos,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/dorms)
 "aWE" = (
@@ -20098,6 +20108,9 @@
 	pixel_x = 6;
 	pixel_y = 12
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel,
 /area/storage/primary)
 "bdc" = (
@@ -20677,6 +20690,10 @@
 	pixel_x = -2;
 	pixel_y = 5
 	},
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
+	},
 /turf/simulated/floor/carpet/black,
 /area/chapel/office)
 "bet" = (
@@ -20769,6 +20786,7 @@
 	name = "north newscaster";
 	pixel_y = 34
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/light{
 	icon_state = "light_on-p";
 	state = 7
@@ -22071,6 +22089,10 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 8
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -24988,6 +25010,9 @@
 /obj/structure/table/reinforced,
 /obj/item/flash,
 /obj/item/flash,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel,
 /area/bridge)
 "bps" = (
@@ -25528,7 +25553,7 @@
 /area/bridge)
 "bqQ" = (
 /obj/machinery/computer/security{
-	network = list("SS13","Research  Outpost","Mining  Outpost","Telecomms")
+	network = list("SS13","Research    Outpost","Mining    Outpost","Telecomms")
 	},
 /obj/machinery/camera{
 	c_tag = "Bridge West"
@@ -30085,6 +30110,9 @@
 "bDy" = (
 /obj/item/storage/fancy/donut_box,
 /obj/structure/table/wood,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "bDB" = (
@@ -31569,6 +31597,7 @@
 /obj/item/toy/figure/roboticist{
 	pixel_y = 8
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel{
 	dir = 5;
 	icon_state = "whitepurple"
@@ -32075,6 +32104,7 @@
 	name = "east station intercom (General)";
 	pixel_x = 22
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "whitepurple";
@@ -34698,6 +34728,9 @@
 	pixel_y = -2
 	},
 /obj/item/stamp/hop,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads)
 "bTd" = (
@@ -34846,6 +34879,9 @@
 	amount = 50
 	},
 /obj/item/multitool,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/office)
 "bTC" = (
@@ -35280,7 +35316,7 @@
 /obj/machinery/computer/security/telescreen{
 	desc = "Used for watching the RD's goons from the safety of his office.";
 	name = "Research Monitor";
-	network = list("Research","Research  Outpost","RD");
+	network = list("Research","Research    Outpost","RD");
 	pixel_y = 2
 	},
 /obj/structure/table/glass,
@@ -37057,6 +37093,9 @@
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel,
 /area/janitor)
 "ccS" = (
@@ -37249,6 +37288,9 @@
 	name = "Cargo Requests Console";
 	pixel_x = -30
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/miningdock)
 "cdz" = (
@@ -37305,6 +37347,9 @@
 /obj/machinery/status_display{
 	layer = 4;
 	pixel_y = 32
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/plasteel,
 /area/engine/break_room)
@@ -38367,6 +38412,10 @@
 /obj/structure/table,
 /obj/item/coin/silver,
 /obj/item/toy/figure/qm,
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
+	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/qm)
 "ciy" = (
@@ -39621,6 +39670,10 @@
 /obj/machinery/power/apc{
 	name = "south bump";
 	pixel_y = -26
+	},
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
@@ -41140,7 +41193,7 @@
 "cxg" = (
 /obj/machinery/computer/general_air_control{
 	name = "Tank Monitor";
-	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon  Dioxide","tox_sensor"="Toxins","n2o_sensor"="Nitrous  Oxide","waste_sensor"="Gas  Mix  Tank")
+	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon    Dioxide","tox_sensor"="Toxins","n2o_sensor"="Nitrous    Oxide","waste_sensor"="Gas    Mix    Tank")
 	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
@@ -41205,7 +41258,7 @@
 	frequency = 1443;
 	level = 3;
 	name = "Distribution and Waste Monitor";
-	sensors = list("mair_in_meter"="Mixed  Air  In","air_sensor"="Mixed  Air  Supply  Tank","mair_out_meter"="Mixed  Air  Out","dloop_atm_meter"="Distribution  Loop","wloop_atm_meter"="Waste  Loop")
+	sensors = list("mair_in_meter"="Mixed    Air    In","air_sensor"="Mixed    Air    Supply    Tank","mair_out_meter"="Mixed    Air    Out","dloop_atm_meter"="Distribution    Loop","wloop_atm_meter"="Waste    Loop")
 	},
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -41558,6 +41611,9 @@
 "cyG" = (
 /obj/structure/table,
 /obj/item/t_scanner,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "caution"
@@ -41948,7 +42004,7 @@
 	frequency = 1443;
 	level = 3;
 	name = "Distribution and Waste Monitor";
-	sensors = list("mair_in_meter"="Mixed  Air  In","air_sensor"="Mixed  Air  Supply  Tank","mair_out_meter"="Mixed  Air  Out","dloop_atm_meter"="Distribution  Loop","wloop_atm_meter"="Waste  Loop")
+	sensors = list("mair_in_meter"="Mixed    Air    In","air_sensor"="Mixed    Air    Supply    Tank","mair_out_meter"="Mixed    Air    Out","dloop_atm_meter"="Distribution    Loop","wloop_atm_meter"="Waste    Loop")
 	},
 /turf/simulated/floor/plasteel,
 /area/engine/controlroom)
@@ -46276,6 +46332,7 @@
 	pixel_y = 9
 	},
 /obj/machinery/light,
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel,
 /area/engine/break_room)
 "cOi" = (
@@ -47967,6 +48024,7 @@
 	pixel_x = 8;
 	pixel_y = 14
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/carpet/purple,
 /area/crew_quarters/hor)
 "cSi" = (
@@ -48955,6 +49013,9 @@
 /obj/item/book/manual/engineering_singularity_safety,
 /obj/machinery/camera{
 	c_tag = "Engineering North-West"
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/plasteel,
 /area/engine/engineering)
@@ -58478,7 +58539,7 @@
 "dTM" = (
 /obj/machinery/computer/general_air_control{
 	name = "Tank Monitor";
-	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon  Dioxide","tox_sensor"="Toxins","n2o_sensor"="Nitrous  Oxide","waste_sensor"="Gas  Mix  Tank")
+	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon    Dioxide","tox_sensor"="Toxins","n2o_sensor"="Nitrous    Oxide","waste_sensor"="Gas    Mix    Tank")
 	},
 /obj/machinery/alarm{
 	pixel_y = 26
@@ -59273,6 +59334,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "elD" = (
@@ -59852,6 +59916,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -59917,6 +59982,9 @@
 /obj/structure/table/reinforced,
 /obj/item/pen,
 /obj/item/paper_bin/nanotrasen,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "cult"
 	},
@@ -60604,6 +60672,9 @@
 /obj/item/radio/intercom{
 	name = "north station intercom (General)";
 	pixel_y = 22
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
@@ -64531,6 +64602,7 @@
 	pixel_y = 6
 	},
 /obj/item/melee/chainofcommand,
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel{
 	icon_state = "grimy"
 	},
@@ -64743,6 +64815,9 @@
 "gQY" = (
 /obj/structure/table/reinforced,
 /obj/machinery/defibrillator_mount/loaded,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "whiteblue"
@@ -68530,6 +68605,14 @@
 	icon_state = "darkpurple"
 	},
 /area/toxins/mixing)
+"iMg" = (
+/obj/structure/table/wood,
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
+	},
+/turf/simulated/floor/wood,
+/area/library)
 "iMs" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -69410,6 +69493,9 @@
 /obj/item/folder/yellow,
 /obj/item/eftpos,
 /obj/item/storage/belt/utility,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/office)
 "jiV" = (
@@ -70292,6 +70378,9 @@
 	dir = 8;
 	name = "east light switch";
 	pixel_x = 24
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -72090,6 +72179,7 @@
 	pixel_x = -5;
 	pixel_y = 8
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "whiteblue"
@@ -73544,6 +73634,9 @@
 /obj/item/radio/intercom{
 	name = "north station intercom (General)";
 	pixel_y = 22
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/plasteel,
 /area/quartermaster/storage)
@@ -75218,6 +75311,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -75693,6 +75789,9 @@
 	name = "east fire alarm";
 	pixel_x = 24
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "hydrofloor"
 	},
@@ -76155,6 +76254,10 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
 	},
 /turf/simulated/floor/plasteel{
 	dir = 5;
@@ -77774,6 +77877,7 @@
 	pixel_x = 6;
 	pixel_y = 10
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel{
 	dir = 10;
 	icon_state = "whiteblue"
@@ -79324,6 +79428,10 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/eftpos,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -79421,6 +79529,10 @@
 	pixel_x = 26
 	},
 /obj/item/paper_bin/nanotrasen,
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "cult"
 	},
@@ -80130,6 +80242,9 @@
 	dir = 8;
 	name = "east fire alarm";
 	pixel_x = 24
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/carpet,
 /area/civilian/vacantoffice)
@@ -80954,6 +81069,9 @@
 /obj/machinery/camera{
 	c_tag = "Brig Briefing Room West";
 	dir = 4
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/plasteel,
 /area/security/main)
@@ -82613,6 +82731,9 @@
 	req_access = list(2)
 	},
 /obj/effect/spawner/lootdrop/maintenance,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/secpost)
 "pkG" = (
@@ -82652,6 +82773,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "neutralfull"
@@ -85263,7 +85385,7 @@
 	dir = 1;
 	frequency = 1222;
 	name = "Mixing Chamber Monitor";
-	sensors = list("toxins_mixing_exterior"="Mixing  Chamber  -  Exterior","toxins_mixing_interior"="Mixing  Chamber  -  Interior")
+	sensors = list("toxins_mixing_exterior"="Mixing    Chamber    -    Exterior","toxins_mixing_interior"="Mixing    Chamber    -    Interior")
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "darkgrey"
@@ -85369,6 +85491,9 @@
 	},
 /obj/item/clothing/glasses/welding{
 	pixel_y = 16
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/plasteel,
 /area/atmos)
@@ -86017,6 +86142,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/effect/spawner/lootdrop/maintenance,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/engrooms)
 "qMf" = (
@@ -86519,6 +86647,7 @@
 "qXZ" = (
 /obj/structure/table/reinforced,
 /obj/machinery/defibrillator_mount/loaded,
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "whiteblue"
@@ -86583,6 +86712,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/lootdrop/maintenance,
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "bluefull"
 	},
@@ -89309,6 +89441,7 @@
 	pixel_y = 6
 	},
 /obj/item/stack/packageWrap,
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel{
 	dir = 9;
 	icon_state = "whitepurple";
@@ -92951,6 +93084,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
 /obj/item/deck/cards,
+/obj/item/eftpos{
+	pixel_y = 11
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "cafeteria"
 	},
@@ -93951,6 +94087,9 @@
 	pixel_x = -2;
 	pixel_y = 4
 	},
+/obj/item/eftpos{
+	pixel_x = 9
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -94771,6 +94910,9 @@
 /obj/item/phone{
 	pixel_x = -4;
 	pixel_y = 2
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "cafeteria"
@@ -96766,6 +96908,10 @@
 	dir = 1;
 	name = "south station intercom (General)";
 	pixel_y = -22
+	},
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/courtroom)
@@ -100049,7 +100195,7 @@
 /area/space)
 "xut" = (
 /obj/machinery/computer/security/wooden_tv{
-	network = list("SS13","Research  Outpost","Mining  Outpost")
+	network = list("SS13","Research    Outpost","Mining    Outpost")
 	},
 /obj/item/radio/intercom/department/security{
 	dir = 8;
@@ -100137,6 +100283,9 @@
 /obj/structure/chair/sofa/corp/left,
 /obj/structure/sign/poster/official/random{
 	pixel_y = 32
+	},
+/obj/item/eftpos{
+	pixel_x = 9
 	},
 /turf/simulated/floor/transparent/glass/reinforced,
 /area/maintenance/apmaint)
@@ -100925,6 +101074,7 @@
 	pixel_x = 8;
 	pixel_y = 2
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/plasteel{
 	dir = 5;
 	icon_state = "whitepurple"
@@ -101123,6 +101273,13 @@
 	dir = 4
 	},
 /obj/structure/table/glass,
+/obj/item/eftpos{
+	pixel_x = 9;
+	pixel_y = 11
+	},
+/obj/item/eftpos{
+	pixel_y = 11
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "darkbluefull"
 	},
@@ -147457,7 +147614,7 @@ bmG
 boy
 bcp
 brA
-btl
+iMg
 buV
 blj
 bCS
