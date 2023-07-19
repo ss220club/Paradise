@@ -27,6 +27,9 @@
 		/obj/item/nullrod = 1
 	)
 
+	min_starting_funds = 700
+	max_starting_funds = 1000
+
 /datum/outfit/job/chaplain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
