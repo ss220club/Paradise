@@ -86,7 +86,7 @@
 		START_PROCESSING(SSobj, src)
 	if(current_charges <= 0 && active)
 		to_chat(imp_in, "<span class='syndradio'>EMP Shield depleted!</span>")
-		addtimer(CALLBACK(src, .proc/disable_shielding, imp_in), 1)
+		addtimer(CALLBACK(src, PROC_REF(disable_shielding), imp_in), 1)
 
 /obj/item/implant/emp_shield/process()
 	if(world.time > recharge_cooldown && current_charges < max_charges)

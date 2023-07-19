@@ -59,7 +59,7 @@
 		H.slowed = duration
 		H.AdjustSilence(10)
 		to_chat(H, "<span class='userdanger'>A red light flashes across your vision, and your mind tries to resist them.. you are exhausted.. you are not able to speak..</span>")
-		addtimer(CALLBACK(src, .proc/do_stun, H, user, loss), duration SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(do_stun), H, user, loss), duration SECONDS)
 
 /obj/effect/proc_holder/spell/targeted/click/glare/proc/do_stun(mob/living/carbon/human/target, user, stun_time)
 	if(!istype(target) || target.stat)
@@ -121,7 +121,7 @@
 			continue
 		if(T.density)
 			continue
-		var/light_amount = T.get_lumcount() * 10 
+		var/light_amount = T.get_lumcount() * 10
 		if(light_amount > LIGHT_HEAL_THRESHOLD) //LIGHTING CHECK
 			continue
 		turfs += T

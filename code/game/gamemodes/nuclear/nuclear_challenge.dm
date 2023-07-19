@@ -68,7 +68,7 @@
 
 /obj/item/nuclear_challenge/Initialize(mapload)
 	. = ..()
-	addtimer(CALLBACK(src, .proc/declare_war), 3.5 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(declare_war)), 3.5 MINUTES)
 
 /obj/item/nuclear_challenge/proc/share_telecrystals()
 	var/player_tc
