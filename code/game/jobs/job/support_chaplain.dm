@@ -14,6 +14,9 @@
 
 	outfit = /datum/outfit/job/chaplain
 
+	min_starting_funds = 700
+	max_starting_funds = 1000
+
 /datum/outfit/job/chaplain
 	name = "Chaplain"
 	jobtype = /datum/job/chaplain
@@ -26,9 +29,6 @@
 		/obj/item/camera/spooky = 1,
 		/obj/item/nullrod = 1
 	)
-
-	min_starting_funds = 700
-	max_starting_funds = 1000
 
 /datum/outfit/job/chaplain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
