@@ -19,6 +19,9 @@
 			if(C.drop_from_active_hand())
 				item = new item_type
 				C.put_in_hands(item)
+			else //для обхода бага от рефактора Цвея который он починил другим рефактором которого здесь нет
+				item = new item_type
+				C.put_in_hands(item)
 
 /obj/effect/proc_holder/spell/targeted/conjure_item/Destroy()
 	QDEL_NULL(item)
