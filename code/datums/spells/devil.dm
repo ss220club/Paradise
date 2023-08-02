@@ -102,26 +102,13 @@
 /obj/effect/proc_holder/spell/targeted/infernal_jaunt/cast(list/targets, mob/living/user = usr)
 	if(istype(user))
 		if(istype(user.loc, /obj/effect/dummy/slaughter))
-			var/continuing = 0
-			if(istype(get_area(user), /area/shuttle)) // Can always phase in in a shuttle.
-				continuing = TRUE
-			else
-				for(var/mob/living/C in orange(2, get_turf(user.loc))) //Can also phase in when nearby a potential buyer.
-					if (C.mind && C.mind.soulOwner == C.mind)
-						continuing = TRUE
-						break
-			if(continuing)
-				to_chat(user,"<span class='warning'>You are now phasing in.</span>")
-				if(do_mob(user,user,150))
-					user.infernalphasein()
-			else
-				to_chat(user,"<span class='warning'>You can only re-appear near a potential signer or on a shuttle.</span>")
-				revert_cast()
-				return ..()
+			to_chat(user,"<span class='warning'>You are now phasing in.</span>")
+			if(do_mob(user,user,100))
+				user.infernalphasein()
 		else
 			user.fakefire()
 			to_chat(user,"<span class='warning'>You begin to phase back into sinful flames.</span>")
-			if(do_mob(user,user,150))
+			if(do_mob(user,user,100))
 				user.notransform = TRUE
 				user.infernalphaseout()
 			else
