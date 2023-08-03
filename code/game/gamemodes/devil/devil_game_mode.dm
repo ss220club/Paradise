@@ -12,6 +12,9 @@
 	var/num_modifier = 0 // Used for gamemodes, that are a child of traitor, that need more than the usual.
 	var/objective_count = 2
 	var/minimum_devils = 1
+	var/blood_threshold = 2
+	var/true_form_threshold = 4
+	var/arch_demon_threshold  = 6
 //	var/devil_scale_coefficient = 10
 
 /datum/game_mode/devil/announce()
@@ -51,6 +54,9 @@
 
 
 /datum/game_mode/devil/post_setup()
+	blood_threshold = round(num_players() / 10)
+	true_form_threshold = round(num_players() / 6)
+	arch_demon_threshold = round(num_players() / 4)
 	for(var/datum/mind/devil in devils)
 		spawn(rand(10, 100))
 			finalize_devil(devil, TRUE)
