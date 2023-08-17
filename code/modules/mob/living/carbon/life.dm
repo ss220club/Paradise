@@ -363,7 +363,7 @@
 		AdjustHallucinate(-2)
 
 	// Keep SSD people asleep
-	if(player_logged)
+	if(player_logged || player_triggered_sleeping)
 		Sleeping(2)
 
 /mob/living/carbon/handle_sleeping()

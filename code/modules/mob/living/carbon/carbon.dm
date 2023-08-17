@@ -213,7 +213,8 @@
 					if(H.w_uniform)
 						H.w_uniform.add_fingerprint(M)
 				AdjustSleeping(-5)
-				if(sleeping == 0)
+				if(sleeping == 0 || player_triggered_sleeping)
+					src.player_triggered_sleeping = 0
 					StopResting()
 				AdjustParalysis(-3)
 				AdjustStunned(-3)
