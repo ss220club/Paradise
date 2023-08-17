@@ -1,6 +1,7 @@
-#define BLOOD_THRESHOLD 3 //How many souls are needed per stage.
+/* #define BLOOD_THRESHOLD 3 //How many souls are needed per stage.
 #define TRUE_THRESHOLD 7
 #define ARCH_THRESHOLD 12
+disabled defines for progresssing by justpaper and mrachnuy ask*/
 
 #define BASIC_DEVIL 0
 #define BLOOD_LIZARD 1
@@ -96,6 +97,9 @@ GLOBAL_LIST_INIT(lawlorify, list (
 	/obj/effect/proc_holder/spell/targeted/conjure_item/violin,
 	/obj/effect/proc_holder/spell/targeted/summon_dancefloor)
 	var/ascendable = FALSE
+	var/blood_threshold = null
+	var/true_form_threshold = null
+	var/arch_demon_threshold = null
 
 /datum/devilinfo/New()
 	..()
@@ -108,6 +112,15 @@ GLOBAL_LIST_INIT(lawlorify, list (
 	devil.obligation = randomdevilobligation()
 	devil.ban = randomdevilban()
 	devil.banish = randomdevilbanish()
+	var/datum/game_mode/devil/devil_mode
+	if(SSticker.mode == devil_mode)
+		devil.blood_threshold = devil_mode.blood_threshold
+		devil.true_form_threshold = devil_mode.true_form_threshold
+		devil.arch_demon_threshold = devil_mode.arch_demon_threshold
+	else
+		devil.blood_threshold = round(GLOB.player_list.len / 10)
+		devil.true_form_threshold = round(GLOB.player_list.len / 6)
+		devil.arch_demon_threshold = round(GLOB.player_list.len / 4)
 	return devil
 
 /proc/devilInfo(name, saveDetails = 0)
@@ -165,21 +178,20 @@ GLOBAL_LIST_INIT(lawlorify, list (
 	owner.current.set_nutrition(NUTRITION_LEVEL_FULL)
 	to_chat(owner.current, "<span class='warning'>You feel satiated as you received a new soul.</span>")
 	update_hud()
-	switch(SOULVALUE)
-		if(0)
-			to_chat(owner.current, "<span class='warning'>Your hellish powers have been restored.</span>")
-			give_base_spells()
-		if(BLOOD_THRESHOLD)
-			to_chat(owner.current, "<span class='warning'>You feel as though your humanoid form is about to shed.  You will soon turn into a blood lizard.</span>")
-			sleep(50)
-			increase_blood_lizard()
-		if(TRUE_THRESHOLD)
-			to_chat(owner.current, "<span class='warning'>You feel as though your current form is about to shed.  You will soon turn into a true devil.</span>")
-			sleep(50)
-			increase_true_devil()
-		if(ARCH_THRESHOLD)
-			arch_devil_prelude()
-			increase_arch_devil()
+	if(SOULVALUE == 0 )
+		to_chat(owner.current, "<span class='warning'>Your hellish powers have been restored.</span>")
+		give_base_spells()
+	if(SOULVALUE == blood_threshold )
+		to_chat(owner.current, "<span class='warning'>You feel as though your humanoid form is about to shed.  You will soon turn into a blood lizard.</span>")
+		sleep(50)
+		increase_blood_lizard()
+	if(SOULVALUE == true_form_threshold)
+		to_chat(owner.current, "<span class='warning'>You feel as though your current form is about to shed.  You will soon turn into a true devil.</span>")
+		sleep(50)
+		increase_true_devil()
+	if(SOULVALUE == arch_demon_threshold)
+		arch_devil_prelude()
+		increase_arch_devil()
 
 /datum/devilinfo/proc/remove_soul(datum/mind/soul)
 	if(soulsOwned.Remove(soul))
@@ -191,9 +203,9 @@ GLOBAL_LIST_INIT(lawlorify, list (
 	if(form == ARCH_DEVIL)
 		return //arch devil can't regress
 	//Yes, fallthrough behavior is intended, so I can't use a switch statement.
-	if(form == TRUE_DEVIL && SOULVALUE < TRUE_THRESHOLD)
+	if(form == TRUE_DEVIL && SOULVALUE < true_form_threshold)
 		regress_blood_lizard()
-	if(form == BLOOD_LIZARD && SOULVALUE < BLOOD_THRESHOLD)
+	if(form == BLOOD_LIZARD && SOULVALUE < blood_threshold)
 		regress_humanoid()
 	if(SOULVALUE < 0)
 		remove_spells()
@@ -428,7 +440,7 @@ GLOBAL_LIST_INIT(lawlorify, list (
 
 /datum/devilinfo/proc/hellish_resurrection(mob/living/body)
 	message_admins("[owner.name] (true name is: [truename]) is resurrecting using hellish energy.</a>")
-	if(SOULVALUE <= ARCH_THRESHOLD && ascendable) // once ascended, arch devils do not go down in power by any means.
+	if(SOULVALUE <= arch_demon_threshold && ascendable) // once ascended, arch devils do not go down in power by any means.
 		reviveNumber += LOSS_PER_DEATH
 		update_hud()
 	if(!QDELETED(body))
@@ -489,11 +501,11 @@ GLOBAL_LIST_INIT(lawlorify, list (
 
 		H.equipOutfit(/datum/outfit/devil_lawyer)
 		give_base_spells(TRUE)
-		if(SOULVALUE >= BLOOD_THRESHOLD)
+		if(SOULVALUE >= blood_threshold)
 			increase_blood_lizard()
-			if(SOULVALUE >= TRUE_THRESHOLD) //Yes, BOTH this and the above if statement are to run if soulpower is high enough.
+			if(SOULVALUE >= true_form_threshold) //Yes, BOTH this and the above if statement are to run if soulpower is high enough.
 				increase_true_devil()
-				if(SOULVALUE >= ARCH_THRESHOLD && ascendable)
+				if(SOULVALUE >= arch_demon_threshold && ascendable)
 					increase_arch_devil()
 	else
 		throw EXCEPTION("Unable to find a blobstart landmark for hellish resurrection")
@@ -518,9 +530,9 @@ GLOBAL_LIST_INIT(lawlorify, list (
 	to_chat(owner, "<br/><br/><span class='warning'>Remember, the crew can research your weaknesses if they find out your devil name.</span><br>")
 
 
-#undef BLOOD_THRESHOLD
+/* #undef BLOOD_THRESHOLD
 #undef TRUE_THRESHOLD
-#undef ARCH_THRESHOLD
+#undef ARCH_THRESHOLD */
 #undef BASIC_DEVIL
 #undef BLOOD_LIZARD
 #undef TRUE_DEVIL

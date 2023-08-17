@@ -67,7 +67,7 @@
 /obj/item/projectile/magic/fireball/infernal
 	name = "infernal fireball"
 	exp_heavy = -1
-	exp_light = -1
+	exp_light = 3
 	exp_flash = 4
 	exp_fire= 5
 
