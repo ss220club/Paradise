@@ -29,6 +29,9 @@
 	container_type = INJECTABLE
 	var/log_eating = FALSE // do we log if someone eats us?
 
+	var/can_mutate = TRUE
+	var/mutation_chance = 5
+
 /obj/item/reagent_containers/food/Initialize(mapload)
 	. = ..()
 	pixel_x = rand(-5, 5) //Randomizes postion

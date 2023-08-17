@@ -435,6 +435,7 @@
 		ffuu.reagents.add_reagent("carbon", amount)
 		ffuu.reagents.add_reagent("????", amount/10)
 		ffuu.forceMove(get_turf(src))
+		ffuu.check_and_mutate()
 
 /obj/machinery/kitchen_machine/Topic(href, href_list)
 	if(..() || panel_open)
